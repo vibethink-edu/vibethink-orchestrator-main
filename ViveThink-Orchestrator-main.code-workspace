@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../ai-pair-orchestrator-pro-main-last/repo_archive"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}

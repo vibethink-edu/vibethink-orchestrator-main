@@ -1,0 +1,303 @@
+# Cursor IDE Rules for Sistema de Gestión Empresarial
+
+## Project Context
+This is an enterprise SaaS platform built with React + TypeScript + Supabase featuring:
+- Multi-tenant architecture with company isolation
+- 5-tier role system (EMPLOYEE → MANAGER → ADMIN → OWNER → SUPER_ADMIN)
+- AI integration ready (OpenAI, Firecrawl)
+- Dynamic plan management with custom limits
+- Comprehensive testing utilities
+
+## Code Standards
+
+### TypeScript
+- Strict mode enabled - no `any` types
+- Interfaces for all component props
+- Database types from `@/integrations/supabase/types`
+- Enum types for fixed values (UserRole, SubscriptionPlan, etc.)
+
+### React Patterns
+- Functional components with hooks only
+- Props interfaces clearly defined
+- Use React.memo for performance when needed
+- Custom hooks for business logic
+- Error boundaries for error handling
+
+### Component Architecture
+- Components < 150 lines (refactor if larger)
+- Single responsibility principle
+- Composition over inheritance
+- Consistent prop naming (onAction, isLoading, className)
+
+### File Organization
+```
+src/
+├── components/
+│   ├── ui/              # shadcn/ui components
+│   ├── admin/           # Admin panels
+│   └── layout/          # Layout components
+├── hooks/               # Custom hooks
+├── pages/               # Page components
+├── utils/               # Utilities and helpers
+└── types/               # Type definitions
+```
+
+## Security Requirements
+
+### Multi-tenant Data Access
+- ALWAYS filter by company_id for tenant isolation
+- Use RLS policies at database level
+- Never access cross-company data (except SUPER_ADMIN)
+- Validate permissions before data access
+
+### Authentication
+- Check user permissions with useAuth hook
+- Protect routes with ProtectedRoute component
+- Verify roles using hasPermission function
+- Handle auth state changes properly
+
+### Database Queries
+- Use QueryBuilder for type-safe queries
+- Company isolation in all queries
+- Error handling for all database operations
+- Real-time subscriptions where appropriate
+
+## UI/UX Standards
+
+### Design System
+- Use shadcn/ui components exclusively
+- Tailwind CSS for styling (no custom CSS)
+- Consistent spacing (p-4, m-6, gap-4)
+- Mobile-first responsive design
+
+### Accessibility
+- Proper ARIA labels on interactive elements
+- Keyboard navigation support
+- High contrast color schemes
+- Screen reader compatibility
+
+### User Experience
+- Loading states for all async operations
+- Error messages that guide user action
+- Tooltips on all interactive elements
+- Clear visual feedback for actions
+
+## Database Integration
+
+### Supabase Patterns
+- Use generated types from database
+- RLS policies enforce security
+- Real-time subscriptions for live data
+- Edge Functions for AI processing
+
+### Query Patterns
+```typescript
+// Correct: Company-scoped query
+const data = await QueryBuilders.companies()
+  .eq('company_id', user.company_id)
+  .select('id, name, status')
+  .execute();
+
+// Correct: Role-based access
+if (hasPermission('ADMIN')) {
+  // Admin functionality
+}
+```
+
+## Error Handling
+
+### API Errors
+- Try-catch blocks for all async operations
+- User-friendly error messages
+- Console logging for debugging
+- Graceful degradation when possible
+
+### Component Errors
+- Error boundaries around feature components
+- Fallback UI for error states
+- Clear error reporting
+- Recovery mechanisms where possible
+
+## Performance Guidelines
+
+### React Query
+- 5-minute stale time for stable data
+- Optimistic updates for mutations
+- Background refetching enabled
+- Cache invalidation on mutations
+
+### Bundle Optimization
+- Lazy load route components
+- Code splitting for large features
+- Image optimization
+- Tree shaking enabled
+
+## Testing Requirements
+
+### Component Testing
+- Test user interactions
+- Mock external dependencies
+- Test error states
+- Accessibility testing
+
+### Integration Testing
+- Test complete user flows
+- Database integration tests
+- Authentication flows
+- Permission checking
+
+## AI Integration Guidelines
+
+### Edge Functions
+- Store API keys in Supabase Vault
+- Track usage for billing
+- Error handling and retries
+- Rate limiting implementation
+
+### OpenAI Integration
+- Cost tracking per operation
+- Response validation
+- Timeout handling
+- Usage analytics
+
+## Development Workflow
+
+### Code Quality
+- TypeScript strict mode compliance
+- ESLint and Prettier formatting
+- Consistent naming conventions
+- Comprehensive documentation
+
+### Git Workflow
+- Feature branches for development
+- Descriptive commit messages
+- Pull request reviews
+- Automated testing
+
+### Documentation
+- JSDoc for complex functions
+- README updates for new features
+- Architecture decision records
+- API documentation
+
+## Common Patterns
+
+### Authentication Check
+```typescript
+const { user, hasPermission } = useAuth();
+if (!user) return <Navigate to="/login" />;
+if (!hasPermission('ADMIN')) return <Unauthorized />;
+```
+
+### Data Fetching
+```typescript
+const { data, isLoading, error } = useQuery({
+  queryKey: ['companies', user?.company_id],
+  queryFn: () => fetchCompanies(user?.company_id),
+  enabled: !!user?.company_id,
+});
+```
+
+### Form Handling
+```typescript
+const form = useForm({
+  resolver: zodResolver(schema),
+  defaultValues: initialData,
+});
+```
+
+### Component Props
+```typescript
+interface ComponentProps {
+  data: DataType[];
+  onAction: (item: DataType) => void;
+  title?: string;
+  isLoading?: boolean;
+  className?: string;
+}
+```
+
+## Anti-Patterns to Avoid
+
+- Direct database access without RLS
+- Cross-company data access (except SUPER_ADMIN)
+- Hardcoded API keys in code
+- Large monolithic components
+- Inline styles instead of Tailwind
+- Missing error handling
+- Unprotected admin routes
+- Poor TypeScript typing
+
+## Role-Specific Development
+
+### SUPER_ADMIN Features
+- Cross-company administration
+- Platform-wide analytics
+- System configuration
+- Global user management
+
+### Company Features
+- Company-scoped data only
+- Role-based UI elements
+- Plan limit enforcement
+- Usage tracking
+
+### Mobile Considerations
+- Touch-optimized interfaces
+- Responsive navigation
+- Performance optimization
+- Offline capability preparation
+
+## AIPAIR Initialization Protocol
+
+### Automatic Session Initialization
+When starting a new chat session, ALWAYS execute the AIPAIR initialization protocol:
+
+1. **Detect new session** - Check if this is a new conversation
+2. **Request user identification** - Ask for name, role, email, company
+3. **Confirm temporal context** - Get current date, timezone, location
+4. **Establish project state** - Understand current objectives and pending tasks
+5. **Validate technical context** - Confirm environment, tools, device
+
+### Commands to Recognize
+- `INIT_AIPAIR_SESSION` - Full initialization
+- `CHECK_CONTEXT` - Verify current context
+- `UPDATE_CONTEXT` - Update specific information
+- `SAVE_SESSION` - Save current session
+- `LOAD_SESSION` - Load previous session
+
+### Context Variables to Maintain
+```typescript
+interface AIPAIRContext {
+  user: {
+    name: string;
+    role: string;
+    email: string;
+    company: string;
+  };
+  temporal: {
+    date: string;
+    timezone: string;
+    location: string;
+  };
+  project: {
+    objective: string;
+    pendingTasks: string[];
+    urgentIssues: string[];
+  };
+  technical: {
+    environment: string;
+    tools: string[];
+    device: string;
+  };
+}
+```
+
+### Session Trazability
+- Log all actions with timestamp
+- Maintain user context across sessions
+- Track project objectives and progress
+- Document decisions and rationale
+- Preserve technical context
+
+Follow these rules to maintain consistency, security, and quality in the codebase.

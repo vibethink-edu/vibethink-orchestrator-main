@@ -1,0 +1,134 @@
+{
+  "client_info": {
+    "name": "Banco Digital XYZ",
+    "industry": "fintech",
+    "business_model": "B2C",
+    "risk_tolerance": "bajo",
+    "generation_date": "2025-06-25T06:02:17.527386",
+    "version": "1.0"
+  },
+  "kpi_summary": {
+    "overall_status": "green",
+    "critical_kpis": [
+      {
+        "name": "security_compliance",
+        "current_value": 98.76,
+        "target": 95,
+        "status": "green",
+        "thresholds": {
+          "green": 95,
+          "yellow": 85,
+          "red": 85
+        },
+        "trend": "up"
+      }
+    ],
+    "trending_up": [
+      {
+        "name": "security_compliance",
+        "current_value": 98.76,
+        "target": 95,
+        "status": "green",
+        "thresholds": {
+          "green": 95,
+          "yellow": 85,
+          "red": 85
+        },
+        "trend": "up"
+      },
+      {
+        "name": "code_quality",
+        "current_value": 89.13,
+        "target": 80,
+        "status": "green",
+        "thresholds": {
+          "green": 80,
+          "yellow": 70,
+          "red": 70
+        },
+        "trend": "up"
+      }
+    ],
+    "trending_down": [
+      {
+        "name": "process_predictability",
+        "current_value": 51.26,
+        "target": 80,
+        "status": "red",
+        "thresholds": {
+          "green": 80,
+          "yellow": 70,
+          "red": 70
+        },
+        "trend": "down"
+      }
+    ],
+    "requires_attention": [
+      {
+        "name": "process_predictability",
+        "current_value": 51.26,
+        "target": 80,
+        "status": "red",
+        "thresholds": {
+          "green": 80,
+          "yellow": 70,
+          "red": 70
+        },
+        "trend": "down"
+      }
+    ],
+    "total_kpis": 3
+  },
+  "detailed_kpis": [
+    {
+      "name": "security_compliance",
+      "current_value": 98.76,
+      "target": 95,
+      "status": "green",
+      "thresholds": {
+        "green": 95,
+        "yellow": 85,
+        "red": 85
+      },
+      "trend": "up"
+    },
+    {
+      "name": "process_predictability",
+      "current_value": 51.26,
+      "target": 80,
+      "status": "red",
+      "thresholds": {
+        "green": 80,
+        "yellow": 70,
+        "red": 70
+      },
+      "trend": "down"
+    },
+    {
+      "name": "code_quality",
+      "current_value": 89.13,
+      "target": 80,
+      "status": "green",
+      "thresholds": {
+        "green": 80,
+        "yellow": 70,
+        "red": 70
+      },
+      "trend": "up"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "high",
+      "kpi": "process_predictability",
+      "description": "KPI process_predictability está en estado crítico. Revisión inmediata requerida.",
+      "action": "Implementar plan de mejora para process_predictability"
+    }
+  ],
+  "next_review": "2025-07-02",
+  "metadata": {
+    "generator": "XTP + CMMI v3 + VibeThink",
+    "template_used": "fintech",
+    "automation_level": "high"
+  }
+}

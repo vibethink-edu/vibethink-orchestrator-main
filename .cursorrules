@@ -1,0 +1,669 @@
+# Cursor IDE Rules for AI Pair Orchestrator Pro - VThink 1.0
+
+## 🤖 **CURSOR INTERACTIVE MODE CONFIGURATION**
+
+### **Agent Settings (Cursor Settings - Ctrl+,):**
+```json
+{
+  "agent.enabled": true,
+  "agent.mode": "interactive",
+  "agent.autoComplete": true,
+  "agent.autoExecute": true,
+  "agent.confirmationRequired": false,
+  "agent.contextWindow": "large",
+  "agent.inlineChat.enabled": true,
+  "agent.inlineChat.showToolbar": true,
+  "agent.inlineChat.autoExecute": true,
+  "agent.suggestions.enabled": true,
+  "agent.suggestions.showInline": true,
+  "agent.quickAction.autoExecute": true,
+  "agent.telemetry": false,
+  "agent.experimentalFeatures": true
+}
+```
+
+### **Keyboard Shortcuts for Interactive Mode:**
+```json
+{
+  "keybindings": [
+    { "key": "ctrl+shift+l", "command": "agent.chat" },
+    { "key": "ctrl+k", "command": "agent.quickAction" },
+    { "key": "ctrl+shift+p", "command": "workbench.action.showCommands" },
+    { "key": "ctrl+shift+i", "command": "agent.inlineChat" },
+    { "key": "ctrl+shift+a", "command": "agent.analyze" }
+  ]
+}
+```
+
+### **Interactive Mode Behaviors:**
+- **Auto-complete**: Always suggest context-aware completions
+- **Inline Chat**: Enable for quick questions without opening chat panel
+- **Context Awareness**: Maintain session context across file switches
+- **Multi-file Operations**: Support operations across multiple files
+- **Real-time Suggestions**: Provide suggestions as you type
+- **Error Detection**: Highlight potential issues before compilation
+
+### **Session Context Management:**
+```typescript
+// ✅ Interactive session context
+const interactiveContext = {
+  currentFile: activeFile,
+  recentFiles: lastModifiedFiles,
+  currentTask: activeTask,
+  userIntent: detectedIntent,
+  projectContext: {
+    methodology: 'VThink 1.0',
+    compliance: 'CMMI-ML3',
+    architecture: 'Multi-tenant SaaS'
+  }
+};
+```
+
+### **Agent Response Patterns:**
+- **Proactive Suggestions**: Suggest improvements without being asked
+- **Context-Aware Help**: Provide help based on current file and task
+- **Multi-step Solutions**: Break complex tasks into manageable steps
+- **Code Examples**: Always provide working code examples
+- **Explanation First**: Explain the "why" before the "how"
+
+### **Performance Optimizations:**
+- **Lazy Loading**: Load context only when needed
+- **Caching**: Cache frequently accessed project information
+- **Parallel Processing**: Handle multiple requests simultaneously
+- **Memory Management**: Clear context when switching major tasks
+
+### **AI Model Configuration:**
+```json
+{
+  "agent.model": "claude-3.5-sonnet",
+  "agent.temperature": 0.1,
+  "agent.maxTokens": 4000,
+  "agent.topP": 0.9,
+  "agent.frequencyPenalty": 0.0,
+  "agent.presencePenalty": 0.0
+}
+```
+
+### **Error Handling Patterns:**
+```typescript
+// ✅ Comprehensive error handling
+try {
+  const result = await riskyOperation();
+  return { success: true, data: result };
+} catch (error) {
+  console.error('Operation failed:', error);
+  return { 
+    success: false, 
+    error: error.message,
+    context: 'VThink 1.0 Error Handling'
+  };
+}
+```
+
+## 🚀 **Project Context - VThink 1.0**
+This is an enterprise SaaS platform built with React + TypeScript + Supabase featuring:
+- **VThink 1.0 Methodology** with CMMI-ML3 compliance
+- **Monorepo architecture** with Lerna management
+- **Multi-tenant architecture** with company isolation
+- **5-tier role system** (EMPLOYEE → MANAGER → ADMIN → OWNER → SUPER_ADMIN)
+- **AI integration ready** (OpenAI, Firecrawl, Knotie)
+- **Dynamic plan management** with custom limits
+- **Comprehensive testing utilities** with CI/CD automation
+
+## 📋 **Session Protocol - OBLIGATORIO**
+
+### **Al iniciar cada sesión:**
+```typescript
+// PROTOCOLO DE INICIO AUTOMÁTICO - VThink 1.0
+const sessionInfo = {
+  fecha: "DD-MM-YYYY",
+  participante: "Nombre del participante", 
+  rol: "Rol en el proyecto",
+  contexto: "Propósito de la sesión"
+};
+
+// VALIDACIÓN OBLIGATORIA
+if (!sessionInfo.fecha || !sessionInfo.participante) {
+  throw new Error("Información de sesión incompleta");
+}
+```
+
+### **Preguntas Estándar de Inicio:**
+1. **¿Cuál es la fecha actual?** (formato DD-MM-YYYY)
+2. **¿Quién eres?** (nombre y rol en el proyecto)
+3. **¿Cuál es el propósito de esta sesión?** (contexto general)
+
+## 🏗️ **Monorepo Structure - VThink 1.0**
+
+### **File Organization:**
+```
+src/
+├── apps/                    # Independent applications
+│   ├── admin/              # Admin panel app
+│   ├── dashboard/          # Main dashboard app
+│   ├── ai-chat/            # AI chat application
+│   ├── helpdesk/           # Support system app
+│   └── login/              # Authentication app
+├── shared/                 # Shared components & utilities
+│   ├── components/         # Reusable components
+│   ├── hooks/              # Custom hooks
+│   ├── utils/              # Utility functions
+│   ├── types/              # Type definitions
+│   └── services/           # Shared services
+├── integrations/           # External integrations
+│   ├── supabase/           # Database integration
+│   ├── medusa/             # E-commerce integration
+│   ├── strapi/             # CMS integration
+│   └── component-registry.json
+├── common/                 # Common patterns & configurations
+├── specialized/            # Specialized modules
+└── modules/                # Business logic modules
+```
+
+### **Import Patterns:**
+```typescript
+// ✅ Correct: Use aliases for monorepo imports
+import { Component } from '@/shared/components';
+import { useAuth } from '@/shared/hooks';
+import { apiClient } from '@/shared/services';
+
+// ❌ Incorrect: Relative imports across apps
+import { Component } from '../../../shared/components';
+```
+
+## 🔒 **Security Requirements - Multi-tenant**
+
+### **ALWAYS Filter by company_id:**
+```typescript
+// ✅ Correct: Company-scoped query
+const data = await supabase
+  .from('users')
+  .select('*')
+  .eq('company_id', user.company_id);
+
+// ❌ SECURITY VIOLATION: Query without company_id
+const data = await supabase.from('users').select('*');
+```
+
+### **Role-based Access Control:**
+```typescript
+// ✅ Correct: Check permissions before access
+if (hasPermission('ADMIN')) {
+  // Admin functionality
+}
+
+// ✅ Correct: Use FeatureGate component
+<FeatureGate permission="ADMIN">
+  <AdminPanel />
+</FeatureGate>
+```
+
+### **RLS Policies Validation:**
+```typescript
+// ✅ Always validate RLS policies
+const { data, error } = await supabase
+  .from('companies')
+  .select('*')
+  .eq('company_id', user.company_id);
+
+if (error) {
+  console.error('RLS policy violation:', error);
+  throw new Error('Access denied');
+}
+```
+
+## 🎨 **Code Standards - TypeScript Strict**
+
+### **TypeScript Patterns:**
+```typescript
+// ✅ Strict typing - no 'any'
+interface UserProps {
+  user: User;
+  onAction: (action: UserAction) => void;
+  isLoading?: boolean;
+}
+
+// ✅ Enum types for fixed values
+enum UserRole {
+  EMPLOYEE = 'EMPLOYEE',
+  MANAGER = 'MANAGER',
+  ADMIN = 'ADMIN',
+  OWNER = 'OWNER',
+  SUPER_ADMIN = 'SUPER_ADMIN'
+}
+
+// ✅ Database types from Supabase
+import type { Database } from '@/integrations/supabase/types';
+type User = Database['public']['Tables']['users']['Row'];
+```
+
+### **React Patterns:**
+```typescript
+// ✅ Functional components with hooks
+const UserComponent: React.FC<UserProps> = ({ user, onAction, isLoading }) => {
+  const { hasPermission } = useAuth();
+  
+  if (!hasPermission('ADMIN')) {
+    return <Unauthorized />;
+  }
+  
+  return (
+    <div className="p-4">
+      {/* Component content */}
+    </div>
+  );
+};
+
+// ✅ Use React.memo for performance
+export default React.memo(UserComponent);
+```
+
+## 🧪 **Testing Requirements - VThink 1.0**
+
+### **Multi-tenant Testing:**
+```typescript
+// ✅ Test company isolation
+describe('Multi-tenant Security', () => {
+  it('should not access cross-company data', async () => {
+    const company1User = createTestUser({ company_id: 'company1' });
+    const company2Data = await fetchCompanyData(company1User, 'company2');
+    
+    expect(company2Data).toBeNull();
+  });
+});
+```
+
+### **Role-based Testing:**
+```typescript
+// ✅ Test role permissions
+describe('Role-based Access', () => {
+  it('should deny access to unauthorized roles', () => {
+    const employee = createTestUser({ role: 'EMPLOYEE' });
+    const canAccessAdmin = hasPermission(employee, 'ADMIN');
+    
+    expect(canAccessAdmin).toBe(false);
+  });
+});
+```
+
+## 🚀 **CI/CD Integration - VThink 1.0**
+
+### **Pre-commit Validations:**
+```bash
+# ✅ VThink 1.0 validations
+npm run validate:vtk
+npm run test:multi-tenant
+npm run lint:accents
+npm run lint:spelling
+npm run quality-check
+```
+
+### **Monorepo Commands:**
+```bash
+# ✅ Lerna commands for monorepo
+npx lerna run build
+npx lerna run test
+npx lerna run lint
+npx lerna publish
+```
+
+## 📚 **Documentation Standards - VThink 1.0**
+
+### **Component Documentation:**
+```typescript
+/**
+ * @component UserManagement
+ * @description Manages user operations with multi-tenant security
+ * @requires ADMIN permission
+ * @example
+ * <UserManagement 
+ *   companyId="company123"
+ *   onUserUpdate={handleUpdate}
+ * />
+ */
+```
+
+### **VThink Documentation:**
+```markdown
+# Component: UserManagement
+
+## VThink 1.0 Compliance
+- ✅ Multi-tenant isolation
+- ✅ Role-based access control
+- ✅ CMMI-ML3 standards
+- ✅ Performance optimization
+
+## Security Considerations
+- Company_id filtering required
+- RLS policies enforced
+- Audit logging implemented
+```
+
+## 🎯 **Performance Guidelines**
+
+### **React Query Patterns:**
+```typescript
+// ✅ Optimized queries with company isolation
+const { data, isLoading, error } = useQuery({
+  queryKey: ['users', user?.company_id],
+  queryFn: () => fetchUsers(user?.company_id),
+  enabled: !!user?.company_id,
+  staleTime: 5 * 60 * 1000, // 5 minutes
+});
+```
+
+### **Bundle Optimization:**
+```typescript
+// ✅ Lazy load route components
+const AdminPanel = lazy(() => import('@/apps/admin/AdminPanel'));
+
+// ✅ Code splitting for large features
+const UserManagement = lazy(() => import('@/shared/components/UserManagement'));
+```
+
+## 🔧 **Development Workflow - VThink 1.0**
+
+### **Task Management:**
+```typescript
+// ✅ Use VThink task templates
+const task = {
+  level: 1, // 1=Quick fix, 2-4=Feature, 5=Architecture
+  complexity: 'low',
+  vtkCompliance: true,
+  securityReview: true,
+  testingRequired: true
+};
+```
+
+### **Git Workflow:**
+```bash
+# ✅ VThink 1.0 commit format
+git commit -m "feat(admin): add user management with multi-tenant security
+
+- Implements company_id filtering
+- Adds role-based access control
+- Includes comprehensive testing
+- VThink 1.0 compliant"
+```
+
+## 🛡️ **Anti-Patterns to Avoid**
+
+### **Security Violations:**
+```typescript
+// ❌ NEVER do this:
+const users = await supabase.from('users').select('*'); // No company_id filter
+const adminData = await fetchAdminData(); // No permission check
+```
+
+### **Monorepo Violations:**
+```typescript
+// ❌ NEVER do this:
+import { Component } from '../../../shared/components'; // Relative import
+const data = await fetchData(); // No error handling
+```
+
+### **VThink Violations:**
+```typescript
+// ❌ NEVER do this:
+// Missing session protocol
+// No documentation
+// No testing
+// No security review
+```
+
+## 🎯 **Role-Specific Development**
+
+### **SUPER_ADMIN Features:**
+```typescript
+// ✅ Cross-company administration
+if (hasPermission('SUPER_ADMIN')) {
+  const allCompanies = await fetchAllCompanies();
+  // Cross-company operations allowed
+}
+```
+
+### **Company Features:**
+```typescript
+// ✅ Company-scoped data only
+const companyData = await fetchCompanyData(user.company_id);
+// Always filter by company_id
+```
+
+## 📊 **Quality Metrics - VThink 1.0**
+
+### **Required Metrics:**
+- **Security**: 100% multi-tenant isolation
+- **Performance**: <2s load time for main features
+- **Testing**: >90% coverage for critical paths
+- **Documentation**: 100% VThink 1.0 compliance
+- **Accessibility**: WCAG 2.1 AA compliance
+
+### **Monitoring:**
+```typescript
+// ✅ Performance monitoring
+const metrics = {
+  loadTime: performance.now(),
+  securityChecks: true,
+  vtkCompliance: true,
+  userExperience: 'excellent'
+};
+```
+
+## 🔄 **Session Management - VThink 1.0**
+
+### **Context Preservation:**
+```typescript
+// ✅ Session context management
+const sessionContext = {
+  userId: user.id,
+  companyId: user.company_id,
+  role: user.role,
+  permissions: user.permissions,
+  lastActivity: new Date()
+};
+```
+
+### **Memory Bank Integration:**
+```typescript
+// ✅ Memory bank for context
+const memoryBank = {
+  essential: loadEssentialContext(),
+  common: loadCommonContext(),
+  specialized: loadSpecializedContext()
+};
+```
+
+## 🛠️ **Development Tools & File Management**
+
+### **File Organization Commands:**
+```bash
+# ✅ Quick file operations
+Ctrl+P: Quick file finder
+Ctrl+Shift+F: Global search
+Ctrl+Shift+E: Explorer focus
+Ctrl+B: Toggle sidebar
+Ctrl+J: Toggle terminal
+```
+
+### **Code Navigation:**
+```bash
+# ✅ Navigation shortcuts
+F12: Go to definition
+Alt+F12: Peek definition
+Shift+F12: Find all references
+Ctrl+T: Go to symbol
+Ctrl+Shift+O: Go to symbol in file
+```
+
+### **Multi-cursor & Selection:**
+```bash
+# ✅ Multi-cursor operations
+Alt+Click: Add cursor
+Ctrl+Alt+Up/Down: Add cursor above/below
+Ctrl+D: Select next occurrence
+Ctrl+Shift+L: Select all occurrences
+Alt+Shift+I: Insert cursor at end of each line
+```
+
+### **Code Folding & Structure:**
+```bash
+# ✅ Code organization
+Ctrl+Shift+[: Fold region
+Ctrl+Shift+]: Unfold region
+Ctrl+K Ctrl+0: Fold all
+Ctrl+K Ctrl+J: Unfold all
+```
+
+### **Git Integration:**
+```bash
+# ✅ Git operations
+Ctrl+Shift+G: Git panel
+Ctrl+Shift+P "Git: Commit": Quick commit
+Ctrl+Shift+P "Git: Push": Push changes
+Ctrl+Shift+P "Git: Pull": Pull changes
+```
+
+### **Terminal & Debug:**
+```bash
+# ✅ Development workflow
+Ctrl+`: Toggle terminal
+F5: Start debugging
+Ctrl+Shift+F5: Restart debugging
+F9: Toggle breakpoint
+Ctrl+Shift+F9: Clear all breakpoints
+```
+
+### **Extensions & Tools:**
+```json
+{
+  "recommendedExtensions": [
+    "ms-vscode.vscode-typescript-next",
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-eslint",
+    "ms-vscode.vscode-json",
+    "ms-vscode.vscode-css-peek",
+    "formulahendry.auto-rename-tag",
+    "christian-kohler.path-intellisense"
+  ]
+}
+```
+
+### **Workspace Settings:**
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  },
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.suggest.autoImports": true,
+  "emmet.includeLanguages": {
+    "typescript": "html",
+    "typescriptreact": "html"
+  },
+  "testing.automaticallyOpenPeekView": "never",
+  "testing.followRunningTest": false,
+  "testing.gutterEnabled": true,
+  "testing.openTesting": "openExplorerOnError"
+}
+```
+
+### **Advanced Testing Configuration:**
+```json
+{
+  "jest.autoRun": {
+    "watch": false,
+    "onSave": "test-file"
+  },
+  "jest.showCoverageOnLoad": true,
+  "jest.coverageFormatter": "DefaultFormatter",
+  "jest.coverageColors": {
+    "covered": "#4caf50",
+    "uncovered": "#f44336",
+    "partially-covered": "#ff9800"
+  }
+}
+```
+
+### **Performance Monitoring Setup:**
+```typescript
+// ✅ Performance monitoring configuration
+const performanceConfig = {
+  metrics: {
+    loadTime: true,
+    memoryUsage: true,
+    apiResponseTime: true,
+    bundleSize: true
+  },
+  thresholds: {
+    maxLoadTime: 2000, // 2 seconds
+    maxMemoryUsage: 50 * 1024 * 1024, // 50MB
+    maxApiResponseTime: 1000 // 1 second
+  },
+  reporting: {
+    console: true,
+    analytics: true,
+    alerts: true
+  }
+};
+```
+
+### **Debugging Configuration:**
+```json
+{
+  "debug.console.fontSize": 12,
+  "debug.console.lineHeight": 18,
+  "debug.inlineValues": true,
+  "debug.showBreakpointsInOverviewRuler": true,
+  "debug.showInlineBreakpointCandidates": true,
+  "debug.toolBarLocation": "docked"
+}
+```
+
+## 📁 **File Management & Migration Patterns**
+
+### **Repository Structure Management:**
+```bash
+# ✅ Clean repository structure
+new-repo/           # Main development repository
+├── src/            # Source code
+├── docs/           # Documentation
+├── tests/          # Test files
+├── dev-tools/      # Development tools
+└── memory-bank/    # Context management
+
+repo_archive/       # Archived content
+├── backups/        # Backup files
+├── archives/       # Historical content
+├── legacy/         # Legacy code
+└── deprecated/     # Deprecated features
+```
+
+### **Migration Workflow:**
+```typescript
+// ✅ Migration validation
+const migrationChecklist = {
+  sourceValidation: true,
+  targetStructure: true,
+  dependencyCheck: true,
+  securityReview: true,
+  testingRequired: true,
+  documentationUpdate: true
+};
+```
+
+### **File Organization Commands:**
+```bash
+# ✅ Repository cleanup commands
+npm run clean:repo          # Remove temporary files
+npm run validate:structure  # Validate repository structure
+npm run migrate:content     # Migrate content to new structure
+npm run backup:before       # Create backup before changes
+```
+
+---
+
+**Follow these rules to maintain VThink 1.0 compliance, security, and quality in the codebase.**
+```

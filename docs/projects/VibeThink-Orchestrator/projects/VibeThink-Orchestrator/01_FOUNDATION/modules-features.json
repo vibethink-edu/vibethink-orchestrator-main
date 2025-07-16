@@ -1,0 +1,111 @@
+{
+  // Archivo centralizado: solo editable por el arquitecto/director del proyecto
+  // Estructura: cada módulo y feature tiene tipo, status, versión e historial de cambios
+  // No debe haber features repetidos entre módulos
+  "CRM": {
+    "tipo": "app",
+    "status": "produccion",
+    "version": "1.2.0",
+    "historial": [
+      "2024-07-03 Creación del módulo CRM (Director: Ana Pérez)",
+      "2024-07-10 Actualización a versión 1.2.0"
+    ],
+    "features": {
+      "cargaDatosClienteCorreo": {
+        "tipo": "feature",
+        "status": "produccion",
+        "version": "1.2.0",
+        "historial": [
+          "2024-07-03 Creación de la feature (Director: Ana Pérez)",
+          "2024-07-10 Paso a producción"
+        ]
+      },
+      "edicionCliente": {
+        "tipo": "feature",
+        "status": "en pruebas",
+        "version": "1.1.0",
+        "historial": [
+          "2024-07-05 Creación de la feature",
+          "2024-07-12 Inicio de pruebas"
+        ]
+      },
+      "bajaCliente": {
+        "tipo": "feature",
+        "status": "planeacion",
+        "version": "0.0.1",
+        "historial": [
+          "2024-07-11 Definición inicial"
+        ]
+      }
+    }
+  },
+  "Workflow": {
+    "tipo": "proposito general",
+    "status": "en dev",
+    "version": "0.9.0",
+    "historial": [
+      "2024-07-04 Creación del módulo Workflow (Director: Juan Gómez)"
+    ],
+    "features": {
+      "CargaFlujoFromDb": {
+        "tipo": "componente",
+        "status": "en dev",
+        "version": "0.9.0",
+        "historial": [
+          "2024-07-04 Creación de la feature"
+        ]
+      },
+      "EdicionFlujo": {
+        "tipo": "componente",
+        "status": "planeacion",
+        "version": "0.1.0",
+        "historial": [
+          "2024-07-11 Definición inicial"
+        ]
+      },
+      "VisualizacionGrafica": {
+        "tipo": "componente",
+        "status": "planeacion",
+        "version": "0.1.0",
+        "historial": [
+          "2024-07-11 Definición inicial"
+        ]
+      }
+    }
+  },
+  "Transversal": {
+    "tipo": "proposito general",
+    "status": "en dev",
+    "version": "0.5.0",
+    "historial": [
+      "2024-07-06 Creación del módulo Transversal (Director: Laura Ruiz)"
+    ],
+    "features": {
+      "Seguridad": {
+        "tipo": "proposito general",
+        "status": "en dev",
+        "version": "0.5.0",
+        "historial": [
+          "2024-07-06 Creación de la feature"
+        ]
+      },
+      "UI": {
+        "tipo": "componente",
+        "status": "en pruebas",
+        "version": "0.4.0",
+        "historial": [
+          "2024-07-07 Creación de la feature",
+          "2024-07-13 Inicio de pruebas"
+        ]
+      },
+      "Auditoria": {
+        "tipo": "proposito general",
+        "status": "planeacion",
+        "version": "0.1.0",
+        "historial": [
+          "2024-07-11 Definición inicial"
+        ]
+      }
+    }
+  }
+} 

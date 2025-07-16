@@ -1,0 +1,207 @@
+version: '3.8'
+
+services:
+  # PostgreSQL for Tracardi
+  postgres:
+    image: postgres:15
+    container_name: tracardi-postgres
+    environment:
+      POSTGRES_DB: tracardi
+      POSTGRES_USER: tracardi
+      POSTGRES_PASSWORD: tracardi_password
+    volumes:
+      - tracardi_postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tracardi"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis for caching and queues
+  redis:
+    image: redis:7-alpine
+    container_name: tracardi-redis
+    ports:
+      - "6380:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Elasticsearch for search and analytics
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: tracardi-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+      - cluster.name=tracardi-cluster
+    volumes:
+      - tracardi_elasticsearch_data:/usr/share/elasticsearch/data
+    ports:
+      - "9201:9200"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # RabbitMQ for message queuing
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: tracardi-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: tracardi
+      RABBITMQ_DEFAULT_PASS: tracardi_password
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Tracardi API Server
+  tracardi-api:
+    image: tracardi/tracardi-api:latest
+    container_name: tracardi-api
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      # Database
+      DATABASE_URL: postgresql://tracardi:tracardi_password@postgres:5432/tracardi
+      
+      # Redis
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      
+      # Elasticsearch
+      ELASTIC_HOST: elasticsearch
+      ELASTIC_PORT: 9200
+      ELASTIC_HTTP_AUTH_USERNAME: ""
+      ELASTIC_HTTP_AUTH_PASSWORD: ""
+      
+      # RabbitMQ
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USER: tracardi
+      RABBITMQ_PASSWORD: tracardi_password
+      
+      # API Configuration
+      API_HOST: "0.0.0.0"
+      API_PORT: "8686"
+      
+      # Security
+      SECRET_KEY: your-tracardi-secret-key-change-this
+      
+      # Multi-tenant configuration
+      MULTI_TENANCY: "true"
+      TENANT_ISOLATION: "true"
+      
+      # Performance
+      WORKER_PROCESSES: "4"
+      MAX_WORKERS: "10"
+      
+      # Logging
+      LOG_LEVEL: "INFO"
+      
+    ports:
+      - "8686:8686"
+    volumes:
+      - tracardi_data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8686/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Tracardi GUI
+  tracardi-gui:
+    image: tracardi/tracardi-gui:latest
+    container_name: tracardi-gui
+    depends_on:
+      tracardi-api:
+        condition: service_healthy
+    environment:
+      # API Connection
+      API_URL: "http://tracardi-api:8686"
+      
+      # GUI Configuration
+      GUI_HOST: "0.0.0.0"
+      GUI_PORT: "8787"
+      
+      # Multi-tenant
+      MULTI_TENANCY: "true"
+      
+    ports:
+      - "8787:8787"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8787/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Tracardi Worker (for background processing)
+  tracardi-worker:
+    image: tracardi/tracardi-worker:latest
+    container_name: tracardi-worker
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      # Database
+      DATABASE_URL: postgresql://tracardi:tracardi_password@postgres:5432/tracardi
+      
+      # Redis
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      
+      # Elasticsearch
+      ELASTIC_HOST: elasticsearch
+      ELASTIC_PORT: 9200
+      
+      # RabbitMQ
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USER: tracardi
+      RABBITMQ_PASSWORD: tracardi_password
+      
+      # Worker Configuration
+      WORKER_PROCESSES: "2"
+      MAX_WORKERS: "5"
+      
+      # Logging
+      LOG_LEVEL: "INFO"
+      
+    volumes:
+      - tracardi_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  tracardi_postgres_data:
+  tracardi_elasticsearch_data:
+  tracardi_data:
+
+networks:
+  default:
+    name: tracardi-network 

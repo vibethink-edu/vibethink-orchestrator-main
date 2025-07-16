@@ -1,0 +1,41 @@
+{
+  "timestamp": "2025-07-03T04:38:44.329Z",
+  "version": "1.0.0",
+  "metodologia": "VTK",
+  "results": {
+    "errors": [],
+    "warnings": [
+      "Pendiente VTK-001: Vínculo de código no encontrado: src/vtk-v1.0/services/",
+      "Pendiente VTK-003: Vínculo de código no encontrado: src/vtk-v1.0/billing/",
+      "Pendiente VTK-004: Vínculo de código no encontrado: src/vtk-v1.0/cms/",
+      "Pendiente VTK-005: Vínculo de código no encontrado: src/vtk-v1.0/helpdesk/",
+      "Pendiente VTK-006: Vínculo de código no encontrado: src/vtk-v1.0/pim/",
+      "Pendiente VTK-007: Vínculo de código no encontrado: src/vtk-v1.0/developers/",
+      "Pendiente VTK-008: Vínculo de código no encontrado: src/vtk-v1.0/analytics/",
+      "Pendiente VTK-009: Vínculo de código no encontrado: src/vtk-v1.0/i18n/",
+      "Pendiente VTK-010: Vínculo de código no encontrado: src/vtk-v1.0/",
+      "Pendiente VTK-011: Vínculo de código no encontrado: src/vtk-v1.0/voice-agent/",
+      "Pendiente VTK-012: Vínculo de código no encontrado: src/vtk-v1.0/migrations/ica/",
+      "Pendiente VTK-013: Vínculo de código no encontrado: src/vtk-v1.0/migrations/mincit/",
+      "Pendiente VTK-014: Vínculo de código no encontrado: src/vtk-v1.0/integrations/strapi/",
+      "Pendiente VTK-015: Vínculo de código no encontrado: src/vtk-v1.0/integrations/knotie/",
+      "Pendiente VTK-016: Vínculo de código no encontrado: docs/operations/EMPRESARIAL_TASK_TRACKER.md",
+      "Pendiente VTK-016: Vínculo de documentación no encontrado: docs/operations/EMPRESARIAL_TASK_TRACKER.md",
+      "Pendiente VTK-017: Vínculo de código no encontrado: src/vtk-v1.0/indicators/",
+      "Pendiente VTK-017: Vínculo de documentación no encontrado: docs/features/INDICATORS_REALTIME_DECISION.md"
+    ],
+    "successes": [],
+    "metrics": {}
+  },
+  "stats": {
+    "total": 17,
+    "criticos": 2,
+    "altos": 6,
+    "medios": 7,
+    "bajos": 2,
+    "enProgreso": 2,
+    "completados": 0,
+    "bloqueados": 0
+  },
+  "criticalDeadlines": []
+}

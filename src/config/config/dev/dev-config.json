@@ -1,0 +1,15 @@
+{
+  "development": {
+    "debug": true,
+    "reload": true,
+    "host": "0.0.0.0",
+    "port": 8000
+  },
+  "logging": {
+    "level": "DEBUG",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  },
+  "database": {
+    "url": "sqlite:///./dev.db"
+  }
+}

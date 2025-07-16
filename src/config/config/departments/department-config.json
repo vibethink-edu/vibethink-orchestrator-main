@@ -1,0 +1,18 @@
+{
+  "companyName": "AI Pair Platform",
+  "department": "development",
+  "standard": "CMMI-ML3",
+  "description": "Configuración para AI Pair Platform - Desarrollo interno con CMMI-ML3",
+  "version": "1.0.0",
+  "lastUpdated": "2025-01-24T00:00:00.000Z",
+  "departments": {
+    "development": {
+      "name": "Desarrollo",
+      "standard": "CMMI-ML3",
+      "enabled": true,
+      "validationRequired": true,
+      "description": "Metodología de desarrollo CMMI Level 3 para todo el desarrollo interno"
+    }
+  },
+  "notes": "AI Pair Platform usa CMMI-ML3 para todo el desarrollo interno. Los clientes pueden configurar sus propios departamentos con diferentes estándares."
+} 

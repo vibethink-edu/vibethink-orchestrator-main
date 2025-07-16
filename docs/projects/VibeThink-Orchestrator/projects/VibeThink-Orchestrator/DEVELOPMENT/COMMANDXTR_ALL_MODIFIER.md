@@ -1,0 +1,1 @@
+﻿# CommandXTR: ALL como Modificador Final - Guía de Uso਍

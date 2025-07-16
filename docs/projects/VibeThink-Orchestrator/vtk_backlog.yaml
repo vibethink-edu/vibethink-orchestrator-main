@@ -1,0 +1,70 @@
+tareas:
+  - tipo: Caso de Desarrollo Automático
+    nombre: prueba
+    estado: pendiente
+    fecha: '2025-07-02'
+    descripcion: No se pudo resolver la tarea "prueba" tras 3 intentos automáticos.
+    error: Error simulado en intento 3
+    evidencia: Ver reporte en /reports/
+    responsable: Automático
+  - tipo: Caso de Desarrollo Automático
+    nombre: prueba
+    estado: pendiente
+    fecha: '2025-07-02'
+    descripcion: No se pudo resolver la tarea "prueba" tras 3 intentos automáticos.
+    error: Error simulado en intento 3
+    evidencia: Ver reporte en /reports/
+    responsable: Automático
+  - tipo: Caso de Desarrollo Automático
+    nombre: prueba
+    estado: pendiente
+    fecha: '2025-07-02'
+    descripcion: No se pudo resolver la tarea "prueba" tras 3 intentos automáticos.
+    error: Error simulado en intento 3
+    evidencia: Ver reporte en /reports/
+    responsable: Automático
+  - tipo: Desarrollo
+    nombre: >-
+      Implementar canal de comunicación automática a equipos de desarrollo,
+      calidad y responsables para notificación de evidencia de
+      calidad/metodología
+    estado: pendiente
+    fecha: '2025-07-02'
+    descripcion: >-
+      Desarrollar e integrar un sistema de notificación automática (email,
+      Slack, Teams, etc.) que informe a los equipos relevantes cada vez que se
+      genere o actualice evidencia en sistemas de calidad/metodología (CMMI,
+      ISO, VTK, etc.). Debe incluir resumen, responsable, estado y enlaces.
+    responsable: Automático
+    categoria: Automatización, Gobernanza, Calidad
+  - tipo: Caso de Desarrollo Automático
+    nombre: prueba
+    estado: pendiente
+    fecha: '2025-07-02'
+    descripcion: No se pudo resolver la tarea "prueba" tras 3 intentos automáticos.
+    error: Error simulado en intento 3
+    evidencia: Ver reporte en /reports/
+    responsable: Automático
+  - tipo: Caso de Desarrollo Automático
+    nombre: prueba
+    estado: pendiente
+    fecha: '2025-07-02'
+    descripcion: No se pudo resolver la tarea "prueba" tras 3 intentos automáticos.
+    error: Error simulado en intento 3
+    evidencia: Ver reporte en /reports/
+    responsable: Automático
+  - tipo: Caso de Desarrollo Automático
+    nombre: prueba
+    estado: pendiente
+    fecha: '2025-07-02'
+    descripcion: No se pudo resolver la tarea "prueba" tras 3 intentos automáticos.
+    error: Error simulado en intento 3
+    evidencia: Ver reporte en /reports/
+    responsable: Automático
+  - tipo: Desarrollo
+    nombre: 'Implementar sistema de control de acceso y seguridad para evidencia y logs de calidad/metodología'
+    estado: 'pendiente'
+    fecha: '2025-07-02'
+    descripcion: 'Diseñar e implementar un sistema de permisos y control de acceso para la carpeta de evidencia y los logs de notificación, asegurando que solo los equipos de calidad/metodología autorizados puedan modificar o acceder a información sensible.'
+    responsable: 'Automático'
+    categoria: 'Seguridad, Gobernanza, Calidad'

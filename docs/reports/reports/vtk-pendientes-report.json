@@ -1,0 +1,363 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "metodologia": "VTK",
+    "fecha_generacion": "2025-07-03T04:38:26.770Z",
+    "total_pendientes": 17
+  },
+  "estadisticas": {
+    "total": 17,
+    "criticos": 2,
+    "altos": 6,
+    "medios": 7,
+    "bajos": 2,
+    "enProgreso": 2,
+    "completados": 0,
+    "bloqueados": 0
+  },
+  "pendientes": [
+    {
+      "id": "VTK-001",
+      "titulo": "Validar cumplimiento RLS en todos los queries Supabase",
+      "descripcion": "Auditoría completa de seguridad multi-tenant - verificar que todos los queries incluyan company_id filter",
+      "responsable": "AI Assistant",
+      "prioridad": "critica",
+      "estado": "pendiente",
+      "fecha_creacion": "2025-01-27",
+      "fecha_limite": "2025-12-31",
+      "etiquetas": [
+        "VTK",
+        "seguridad",
+        "compliance",
+        "multi-tenant",
+        "RLS"
+      ],
+      "esfuerzo_estimado": "3-5 días",
+      "dependencias": []
+    },
+    {
+      "id": "VTK-002",
+      "titulo": "Implementar auditoría automática de seguridad VTK",
+      "descripcion": "Sistema de validación automática de políticas de seguridad en CI/CD",
+      "responsable": "AI Assistant",
+      "prioridad": "critica",
+      "estado": "pendiente",
+      "fecha_creacion": "2025-01-27",
+      "fecha_limite": "2025-12-31",
+      "etiquetas": [
+        "VTK",
+        "seguridad",
+        "automation",
+        "CI/CD"
+      ],
+      "esfuerzo_estimado": "1 semana",
+      "dependencias": [
+        "VTK-001"
+      ]
+    },
+    {
+      "id": "VTK-003",
+      "titulo": "Implementar módulo de facturación multi-moneda",
+      "descripcion": "Sistema completo de facturación con soporte multi-moneda y compliance fiscal",
+      "responsable": "Marcelo SALES",
+      "prioridad": "alta",
+      "estado": "pendiente",
+      "fecha_creacion": "2025-01-27",
+      "fecha_limite": "2025-12-31",
+      "etiquetas": [
+        "VTK",
+        "billing",
+        "compliance",
+        "multi-tenant",
+        "multi-currency"
+      ],
+      "esfuerzo_estimado": "4-6 semanas",
+      "dependencias": []
+    },
+    {
+      "id": "VTK-004",
+      "titulo": "Decidir e implementar CMS (Strapi vs Payload)",
+      "descripcion": "Evaluación final y implementación del CMS seleccionado para gestión de contenido",
+      "responsable": "Marcelo SALES",
+      "prioridad": "alta",
+      "estado": "en_progreso",
+      "fecha_creacion": "2025-01-27",
+      "fecha_limite": "2025-12-31",
+      "etiquetas": [
+        "VTK",
+        "CMS",
+        "content-management",
+        "strapi",
+        "payload"
+      ],
+      "esfuerzo_estimado": "6-8 semanas",
+      "dependencias": []
+    },
+    {
+      "id": "VTK-005",
+      "titulo": "Implementar módulos Helpdesk y PQRS",
+      "descripcion": "Sistema completo de soporte al cliente con gestión de tickets y PQRS",
+      "responsable": "Marcelo SALES",
+      "prioridad": "alta",
+      "estado": "pendiente",
+      "fecha_creacion": "2025-01-27",
+      "fecha_limite": "2025-07-31",
+      "etiquetas": [
+        "VTK",
+        "helpdesk",
+        "PQRS",
+        "customer-support",
+        "tickets"
+      ],
+      "esfuerzo_estimado": "8-10 semanas",
+      "dependencias": []
+    },
+    {
+      "id": "VTK-006",
+      "titulo": "Implementar módulo PIM (Product Information Management)",
+      "descripcion": "Sistema de gestión de productos y catálogos con atributos dinámicos",
+      "responsable": "Marcelo SALES",
+      "prioridad": "media",
+      "estado": "pendiente",
+      "fecha_creacion": "2025-01-27",
+      "fecha_limite": "2025-07-31",
+      "etiquetas": [
+        "VTK",
+        "PIM",
+        "products",
+        "catalog",
+        "ecommerce"
+      ],
+      "esfuerzo_estimado": "6-8 semanas",
+      "dependencias": [
+        "VTK-004"
+      ]
+    },
+    {
+      "id": "VTK-007",
+      "titulo": "Desarrollar módulo para Developers (reemplaza Task)",
+      "descripcion": "Módulo especializado para productividad del equipo de desarrollo",
+      "responsable": "Marcelo SALES",
+      "prioridad": "media",
+      "estado": "pendiente",
+      "fecha_creacion": "2025-01-27",
+      "fecha_limite": "2025-07-31",
+      "etiquetas": [
+        "VTK",
+        "developers",
+        "productivity",
+        "internal-tools"
+      ],
+      "esfuerzo_estimado": "4-6 semanas",
+      "dependencias": []
+    },
+    {
+      "id": "VTK-008",
+      "titulo": "Implementar sistema de Analytics Avanzado",
+      "descripcion": "Dashboards de KPIs, métricas de negocio en tiempo real y reportes automatizados",
+      "responsable": "Marcelo SALES",
+      "prioridad": "media",
+      "estado": "pendiente",
+      "fecha_creacion": "2025-01-27",
+      "fecha_limite": "2025-08-31",
+      "etiquetas": [
+        "VTK",
+        "analytics",
+        "KPIs",
+        "dashboards",
+        "reporting"
+      ],
+      "esfuerzo_estimado": "6-8 semanas",
+      "dependencias": []
+    },
+    {
+      "id": "VTK-009",
+      "titulo": "Implementar soporte multi-idioma y multi-país",
+      "descripcion": "Sistema completo de internacionalización con compliance local por país",
+      "responsable": "Marcelo SALES",
+      "prioridad": "media",
+      "estado": "pendiente",
+      "fecha_creacion": "2025-01-27",
+      "fecha_limite": "2025-09-30",
+      "etiquetas": [
+        "VTK",
+        "i18n",
+        "multi-language",
+        "multi-country",
+        "compliance"
+      ],
+      "esfuerzo_estimado": "8-10 semanas",
+      "dependencias": [
+        "VTK-003"
+      ]
+    },
+    {
+      "id": "VTK-010",
+      "titulo": "Optimizar performance de features principales (<2s)",
+      "descripcion": "Optimización de carga y respuesta en features críticas del sistema",
+      "responsable": "AI Assistant",
+      "prioridad": "baja",
+      "estado": "pendiente",
+      "fecha_creacion": "2025-01-27",
+      "fecha_limite": "2025-10-31",
+      "etiquetas": [
+        "VTK",
+        "performance",
+        "optimization",
+        "UX"
+      ],
+      "esfuerzo_estimado": "2-3 semanas",
+      "dependencias": []
+    },
+    {
+      "id": "VTK-011",
+      "titulo": "Implementar agente de voz VTK",
+      "descripcion": "Sistema de asistente de voz integrado con VTK",
+      "responsable": "Marcelo SALES",
+      "prioridad": "baja",
+      "estado": "pendiente",
+      "fecha_creacion": "2025-01-27",
+      "fecha_limite": "2025-11-30",
+      "etiquetas": [
+        "VTK",
+        "voice",
+        "AI",
+        "assistant",
+        "UX"
+      ],
+      "esfuerzo_estimado": "6-8 semanas",
+      "dependencias": []
+    },
+    {
+      "id": "VTK-012",
+      "titulo": "Migración Cliente ICA - Kentico v12",
+      "descripcion": "Sistema de migración automatizada desde Kentico v12 con compliance gubernamental",
+      "responsable": "Marcelo SALES",
+      "prioridad": "alta",
+      "estado": "pendiente",
+      "fecha_creacion": "2025-01-27",
+      "fecha_limite": "2025-08-31",
+      "etiquetas": [
+        "VTK",
+        "migration",
+        "kentico",
+        "government",
+        "compliance"
+      ],
+      "esfuerzo_estimado": "15-22 semanas",
+      "dependencias": [
+        "VTK-001",
+        "VTK-002"
+      ]
+    },
+    {
+      "id": "VTK-013",
+      "titulo": "Migración Cliente MINCIT - Kentico v12",
+      "descripcion": "Sistema de migración automatizada desde Kentico v12 con gestión de trámites empresariales",
+      "responsable": "Marcelo SALES",
+      "prioridad": "alta",
+      "estado": "pendiente",
+      "fecha_creacion": "2025-01-27",
+      "fecha_limite": "2025-07-31",
+      "etiquetas": [
+        "VTK",
+        "migration",
+        "kentico",
+        "government",
+        "business-processes"
+      ],
+      "esfuerzo_estimado": "17-24 semanas",
+      "dependencias": [
+        "VTK-001",
+        "VTK-002"
+      ]
+    },
+    {
+      "id": "VTK-014",
+      "titulo": "Partnership Strapi - Integración CMS",
+      "descripcion": "Integración completa con Strapi CMS y generación automática de landing pages",
+      "responsable": "Marcelo SALES",
+      "prioridad": "media",
+      "estado": "pendiente",
+      "fecha_creacion": "2025-01-27",
+      "fecha_limite": "2025-07-31",
+      "etiquetas": [
+        "VTK",
+        "partnership",
+        "strapi",
+        "CMS",
+        "landing-pages"
+      ],
+      "esfuerzo_estimado": "4-6 semanas",
+      "dependencias": [
+        "VTK-004"
+      ]
+    },
+    {
+      "id": "VTK-015",
+      "titulo": "Partnership Knotie - Integración AI",
+      "descripcion": "Integración con Knotie AI para capacidades avanzadas de IA",
+      "responsable": "Marcelo SALES",
+      "prioridad": "media",
+      "estado": "en_progreso",
+      "fecha_creacion": "2025-01-27",
+      "fecha_limite": "2025-12-31",
+      "etiquetas": [
+        "VTK",
+        "partnership",
+        "knotie",
+        "AI",
+        "integration"
+      ],
+      "esfuerzo_estimado": "3-4 semanas",
+      "dependencias": []
+    },
+    {
+      "id": "VTK-016",
+      "titulo": "Crear documento de seguimiento de tareas empresariales por departamento, equipo y responsable",
+      "descripcion": "Diseñar y documentar un sistema de seguimiento de tareas empresariales que permita visualizar y gestionar tareas por departamento, equipo y responsable. El documento debe incluir KPIs, plantillas, reglas de actualización y ejemplos. Debe ser escalable y migrable a un dashboard o módulo futuro.\n",
+      "responsable": "Marcelo Escallón",
+      "prioridad": "media",
+      "estado": "pendiente",
+      "fecha_creacion": "2025-07-01",
+      "fecha_limite": "2025-08-15",
+      "etiquetas": [
+        "VTK",
+        "empresarial",
+        "seguimiento",
+        "tareas",
+        "departamento",
+        "equipo",
+        "responsable"
+      ],
+      "esfuerzo_estimado": "1 semana",
+      "dependencias": []
+    },
+    {
+      "id": "VTK-017",
+      "titulo": "Integrar indicadores mundiales para decisiones empresariales en tiempo real",
+      "descripcion": "Desarrollar un módulo que consuma y procese indicadores económicos y financieros globales (mercados, divisas, commodities, tasas, etc.).\nPermitir configurar reglas y alertas para decisiones de compra, venta o movimientos financieros.\nIntegrar con el sistema de tareas empresariales para sugerir o automatizar acciones.\nIncluir dashboards y reportes de impacto para toma de decisiones de último minuto.\n",
+      "responsable": "Marcelo Escallón",
+      "prioridad": "alta",
+      "estado": "pendiente",
+      "fecha_creacion": "2025-07-01",
+      "fecha_limite": "2025-12-31",
+      "etiquetas": [
+        "VTK",
+        "indicadores",
+        "finanzas",
+        "automatización",
+        "decisiones",
+        "realtime"
+      ],
+      "esfuerzo_estimado": "4-8 semanas",
+      "dependencias": []
+    }
+  ],
+  "metricas": {
+    "progreso_general": 0,
+    "progreso_criticos": 0,
+    "cumplimiento_deadlines": 100,
+    "proximos_deadlines": []
+  }
+}

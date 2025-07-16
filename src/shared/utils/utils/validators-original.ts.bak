@@ -1,0 +1,459 @@
+/**
+ * Centralized Validators
+ * 
+ * Provides standardized validation functions
+ * - Common field validations
+ * - Custom validation rules
+ * - Form validation helpers
+ * - Error message management
+ * 
+ * @author AI Pair Platform
+ * @version 1.0.0
+ */
+
+// Validation result interface
+interface ValidationResult {
+  isValid: boolean;
+  errors: string[];
+  firstError: string | null;
+}
+
+// Validation rule interface - simple function type
+type ValidationRule = (value: any, formData?: Record<string, any>) => string | null;
+
+// Form validation result
+interface FormValidationResult {
+  isValid: boolean;
+  errors: Record<string, string>;
+}
+
+// Common validation rules
+export const validators = {
+  /**
+   * Required field validation
+   */
+  required: (message?: string): ValidationRule => ({
+    validate: (value: any): ValidationResult => {
+      const isValid = value !== null && value !== undefined && value !== '';
+      return {
+        isValid,
+        error: isValid ? undefined : (message || 'Este campo es requerido')
+      };
+    },
+    message: message || 'Este campo es requerido'
+  }),
+
+  /**
+   * Email validation
+   */
+  email: (message?: string): ValidationRule => ({
+    validate: (value: string): ValidationResult => {
+      if (!value) return { isValid: true }; // Let required handle empty values
+      
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const isValid = emailRegex.test(value);
+      
+      return {
+        isValid,
+        error: isValid ? undefined : (message || 'Email inválido')
+      };
+    },
+    message: message || 'Email inválido'
+  }),
+
+  /**
+   * Password validation
+   */
+  password: (message?: string): ValidationRule => ({
+    validate: (value: string): ValidationResult => {
+      if (!value) return { isValid: true };
+      
+      const minLength = 8;
+      const hasUpperCase = /[A-Z]/.test(value);
+      const hasLowerCase = /[a-z]/.test(value);
+      const hasNumbers = /\d/.test(value);
+      const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+      
+      const isValid = value.length >= minLength && hasUpperCase && hasLowerCase && hasNumbers && hasSpecialChar;
+      
+      return {
+        isValid,
+        error: isValid ? undefined : (message || 'La contraseña debe tener al menos 8 caracteres, mayúsculas, minúsculas, números y caracteres especiales')
+      };
+    },
+    message: message || 'Contraseña inválida'
+  }),
+
+  /**
+   * Confirm password validation
+   */
+  confirmPassword: (passwordField: string, message?: string): ValidationRule => ({
+    validate: (value: string, formData?: Record<string, any>): ValidationResult => {
+      if (!value) return { isValid: true };
+      
+      const password = formData?.[passwordField];
+      const isValid = value === password;
+      
+      return {
+        isValid,
+        error: isValid ? undefined : (message || 'Las contraseñas no coinciden')
+      };
+    },
+    message: message || 'Las contraseñas no coinciden'
+  }),
+
+  /**
+   * Minimum length validation
+   */
+  minLength: (min: number, message?: string): ValidationRule => ({
+    validate: (value: string): ValidationResult => {
+      if (!value) return { isValid: true };
+      
+      const isValid = value.length >= min;
+      
+      return {
+        isValid,
+        error: isValid ? undefined : (message || `Mínimo ${min} caracteres`)
+      };
+    },
+    message: message || `Mínimo ${min} caracteres`
+  }),
+
+  /**
+   * Maximum length validation
+   */
+  maxLength: (max: number, message?: string): ValidationRule => ({
+    validate: (value: string): ValidationResult => {
+      if (!value) return { isValid: true };
+      
+      const isValid = value.length <= max;
+      
+      return {
+        isValid,
+        error: isValid ? undefined : (message || `Máximo ${max} caracteres`)
+      };
+    },
+    message: message || `Máximo ${max} caracteres`
+  }),
+
+  /**
+   * Phone number validation
+   */
+  phone: (message?: string): ValidationRule => ({
+    validate: (value: string): ValidationResult => {
+      if (!value) return { isValid: true };
+      
+      // Remove all non-digit characters
+      const cleanValue = value.replace(/\D/g, '');
+      const isValid = cleanValue.length >= 10 && cleanValue.length <= 15;
+      
+      return {
+        isValid,
+        error: isValid ? undefined : (message || 'Número de teléfono inválido')
+      };
+    },
+    message: message || 'Número de teléfono inválido'
+  }),
+
+  /**
+   * Document validation (ID, passport, etc.)
+   */
+  document: (type: 'cc' | 'ce' | 'passport' | 'nit', message?: string): ValidationRule => ({
+    validate: (value: string): ValidationResult => {
+      if (!value) return { isValid: true };
+      
+      const cleanValue = value.replace(/\D/g, '');
+      let isValid = false;
+      
+      switch (type) {
+        case 'cc':
+          isValid = cleanValue.length === 10 || cleanValue.length === 11;
+          break;
+        case 'ce':
+          isValid = cleanValue.length === 10;
+          break;
+        case 'passport':
+          isValid = cleanValue.length >= 6 && cleanValue.length <= 12;
+          break;
+        case 'nit':
+          isValid = cleanValue.length >= 9 && cleanValue.length <= 15;
+          break;
+      }
+      
+      return {
+        isValid,
+        error: isValid ? undefined : (message || `Documento ${type.toUpperCase()} inválido`)
+      };
+    },
+    message: message || `Documento inválido`
+  }),
+
+  /**
+   * URL validation
+   */
+  url: (message?: string): ValidationRule => ({
+    validate: (value: string): ValidationResult => {
+      if (!value) return { isValid: true };
+      
+      try {
+        new URL(value);
+        return { isValid: true };
+      } catch {
+        return {
+          isValid: false,
+          error: message || 'URL inválida'
+        };
+      }
+    },
+    message: message || 'URL inválida'
+  }),
+
+  /**
+   * Number validation
+   */
+  number: (message?: string): ValidationRule => ({
+    validate: (value: any): ValidationResult => {
+      if (!value) return { isValid: true };
+      
+      const isValid = !isNaN(Number(value)) && isFinite(Number(value));
+      
+      return {
+        isValid,
+        error: isValid ? undefined : (message || 'Debe ser un número')
+      };
+    },
+    message: message || 'Debe ser un número'
+  }),
+
+  /**
+   * Minimum value validation
+   */
+  min: (min: number, message?: string): ValidationRule => ({
+    validate: (value: any): ValidationResult => {
+      if (!value) return { isValid: true };
+      
+      const numValue = Number(value);
+      const isValid = !isNaN(numValue) && numValue >= min;
+      
+      return {
+        isValid,
+        error: isValid ? undefined : (message || `Valor mínimo: ${min}`)
+      };
+    },
+    message: message || `Valor mínimo: ${min}`
+  }),
+
+  /**
+   * Maximum value validation
+   */
+  max: (max: number, message?: string): ValidationRule => ({
+    validate: (value: any): ValidationResult => {
+      if (!value) return { isValid: true };
+      
+      const numValue = Number(value);
+      const isValid = !isNaN(numValue) && numValue <= max;
+      
+      return {
+        isValid,
+        error: isValid ? undefined : (message || `Valor máximo: ${max}`)
+      };
+    },
+    message: message || `Valor máximo: ${max}`
+  }),
+
+  /**
+   * Date validation
+   */
+  date: (message?: string): ValidationRule => ({
+    validate: (value: any): ValidationResult => {
+      if (!value) return { isValid: true };
+      
+      const date = new Date(value);
+      const isValid = !isNaN(date.getTime());
+      
+      return {
+        isValid,
+        error: isValid ? undefined : (message || 'Fecha inválida')
+      };
+    },
+    message: message || 'Fecha inválida'
+  }),
+
+  /**
+   * Future date validation
+   */
+  futureDate: (message?: string): ValidationRule => ({
+    validate: (value: any): ValidationResult => {
+      if (!value) return { isValid: true };
+      
+      const date = new Date(value);
+      const now = new Date();
+      const isValid = date > now;
+      
+      return {
+        isValid,
+        error: isValid ? undefined : (message || 'La fecha debe ser futura')
+      };
+    },
+    message: message || 'La fecha debe ser futura'
+  }),
+
+  /**
+   * Past date validation
+   */
+  pastDate: (message?: string): ValidationRule => ({
+    validate: (value: any): ValidationResult => {
+      if (!value) return { isValid: true };
+      
+      const date = new Date(value);
+      const now = new Date();
+      const isValid = date < now;
+      
+      return {
+        isValid,
+        error: isValid ? undefined : (message || 'La fecha debe ser pasada')
+      };
+    },
+    message: message || 'La fecha debe ser pasada'
+  }),
+
+  /**
+   * Custom validation
+   */
+  custom: (validator: (value: any, formData?: Record<string, any>) => boolean, message: string): ValidationRule => ({
+    validate: (value: any, formData?: Record<string, any>): ValidationResult => {
+      const isValid = validator(value, formData);
+      
+      return {
+        isValid,
+        error: isValid ? undefined : message
+      };
+    },
+    message
+  }),
+
+  /**
+   * Regex validation
+   */
+  regex: (pattern: RegExp, message: string): ValidationRule => ({
+    validate: (value: string): ValidationResult => {
+      if (!value) return { isValid: true };
+      
+      const isValid = pattern.test(value);
+      
+      return {
+        isValid,
+        error: isValid ? undefined : message
+      };
+    },
+    message
+  })
+};
+
+/**
+ * Validate a single field
+ */
+export function validate(value: any, rules: ValidationRule[], formData?: Record<string, any>): ValidationResult {
+  for (const rule of rules) {
+    const error = rule(value, formData);
+    if (error) {
+      return { 
+        isValid: false, 
+        errors: [error], 
+        firstError: error 
+      };
+    }
+  }
+  
+  return { isValid: true, errors: [], firstError: null };
+}
+
+/**
+ * Validate a complete form
+ */
+export function validateForm(formData: Record<string, any>, schema: Record<string, ValidationRule[]>): FormValidationResult {
+  const errors: Record<string, string> = {};
+  let isValid = true;
+
+  for (const [field, rules] of Object.entries(schema)) {
+    const value = formData[field];
+    const result = validate(value, rules, formData);
+    
+    if (!result.isValid) {
+      errors[field] = result.error!;
+      isValid = false;
+    }
+  }
+
+  return { isValid, errors };
+}
+
+/**
+ * Check if form is valid
+ */
+export function isFormValid(result: FormValidationResult): boolean {
+  return result.isValid;
+}
+
+/**
+ * Get first error from form validation
+ */
+export function getFirstError(result: FormValidationResult): string | null {
+  const firstField = Object.keys(result.errors)[0];
+  return firstField ? result.errors[firstField] : null;
+}
+
+/**
+ * Clear form errors
+ */
+export function clearFormErrors(): FormValidationResult {
+  return { isValid: true, errors: {} };
+}
+
+/**
+ * Common validation schemas
+ */
+export const validationSchemas = {
+  // User registration
+  userRegistration: {
+    email: [validators.required(), validators.email()],
+    password: [validators.required(), validators.password()],
+    confirmPassword: [validators.required(), validators.confirmPassword('password')],
+    firstName: [validators.required(), validators.minLength(2)],
+    lastName: [validators.required(), validators.minLength(2)]
+  },
+
+  // User profile
+  userProfile: {
+    firstName: [validators.required(), validators.minLength(2)],
+    lastName: [validators.required(), validators.minLength(2)],
+    email: [validators.required(), validators.email()],
+    phone: [validators.phone()],
+    document: [validators.document('cc')]
+  },
+
+  // Company creation
+  companyCreation: {
+    name: [validators.required(), validators.minLength(2)],
+    email: [validators.required(), validators.email()],
+    phone: [validators.phone()],
+    address: [validators.required(), validators.minLength(10)],
+    nit: [validators.document('nit')]
+  },
+
+  // Ticket creation
+  ticketCreation: {
+    title: [validators.required(), validators.minLength(5)],
+    description: [validators.required(), validators.minLength(10)],
+    priority: [validators.required()],
+    category: [validators.required()]
+  },
+
+  // Contact form
+  contactForm: {
+    name: [validators.required(), validators.minLength(2)],
+    email: [validators.required(), validators.email()],
+    subject: [validators.required(), validators.minLength(5)],
+    message: [validators.required(), validators.minLength(10)]
+  }
+}; 

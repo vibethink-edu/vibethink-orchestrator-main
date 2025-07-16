@@ -1,0 +1,6 @@
+# 📄 VTK Non-Technical Methodology Whitepaper
+
+**Fecha:** 30-06-2025  
+**Participante:** Marcelo Escallón  
+**Rol:** Fundador y Arquitecto Principal  
+**Estado:** 📋 **DOCUMENTO COMPLETO** 

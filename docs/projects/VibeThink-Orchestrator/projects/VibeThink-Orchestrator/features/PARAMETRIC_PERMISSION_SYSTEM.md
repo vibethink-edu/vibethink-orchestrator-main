@@ -1,0 +1,1 @@
+﻿# Sistema Paramétrico de Permisos y Reglas਍

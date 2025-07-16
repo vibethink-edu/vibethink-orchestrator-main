@@ -1,0 +1,118 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: posthog-postgres
+    environment:
+      POSTGRES_DB: posthog
+      POSTGRES_USER: posthog
+      POSTGRES_PASSWORD: posthog_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U posthog"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: posthog-redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  posthog:
+    image: posthog/posthog:latest
+    container_name: posthog-app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      # Database
+      DATABASE_URL: postgresql://posthog:posthog_password@postgres:5432/posthog
+      
+      # Redis
+      REDIS_URL: redis://redis:6379
+      
+      # Security
+      SECRET_KEY: your-secret-key-change-this-in-production
+      
+      # Multi-tenant configuration
+      MULTI_TENANCY: "true"
+      ORGANIZATION_CREATION_ALLOWED: "true"
+      
+      # API Configuration
+      API_HOST: "0.0.0.0"
+      API_PORT: "8000"
+      
+      # Frontend Configuration
+      SITE_URL: "http://localhost:8000"
+      
+      # Email (optional - for notifications)
+      EMAIL_HOST: ""
+      EMAIL_PORT: ""
+      EMAIL_HOST_USER: ""
+      EMAIL_HOST_PASSWORD: ""
+      EMAIL_USE_TLS: "false"
+      
+      # Analytics
+      ANALYTICS_API_HOST: "http://localhost:8000"
+      
+      # Privacy and GDPR
+      PRIVACY_FEATURES_ENABLED: "true"
+      PERSONAL_DATA_DELETION_ENABLED: "true"
+      
+      # Performance
+      CELERY_BROKER_URL: redis://redis:6379
+      CELERY_RESULT_BACKEND: redis://redis:6379
+      
+      # Logging
+      LOG_LEVEL: "INFO"
+      
+    ports:
+      - "8000:8000"
+    volumes:
+      - posthog_data:/var/lib/posthog
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Optional: Elasticsearch for advanced analytics
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: posthog-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+volumes:
+  postgres_data:
+  posthog_data:
+  elasticsearch_data:
+
+networks:
+  default:
+    name: posthog-network 

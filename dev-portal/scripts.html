@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Scripts & Automatización - Dev Portal</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; background: #f8f9fa; }
+    h1 { color: #2c3e50; }
+    .back-link { margin-bottom: 2em; }
+    .back-link a { color: #2980b9; text-decoration: none; font-weight: bold; }
+    .scripts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5em; margin: 2em 0; }
+    .script-card { background: white; padding: 1.5em; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .script-card h3 { color: #2c3e50; margin-top: 0; }
+    .script-type { padding: 0.3em 0.6em; border-radius: 4px; font-size: 0.8em; font-weight: bold; display: inline-block; margin-bottom: 1em; }
+    .type-build { background: #e8f5e8; color: #2e7d32; }
+    .type-test { background: #fff3e0; color: #ef6c00; }
+    .type-deploy { background: #e3f2fd; color: #1565c0; }
+    .type-analysis { background: #f3e5f5; color: #7b1fa2; }
+    .type-security { background: #ffebee; color: #c62828; }
+    .script-description { color: #666; margin: 1em 0; }
+    .script-command { background: #f5f5f5; padding: 0.8em; border-radius: 4px; font-family: monospace; margin: 1em 0; border-left: 4px solid #2196f3; }
+    .script-meta { font-size: 0.9em; color: #888; margin-top: 1em; }
+    .run-button { background: #4caf50; color: white; border: none; padding: 0.5em 1em; border-radius: 4px; cursor: pointer; margin-top: 1em; }
+    .run-button:hover { background: #45a049; }
+    .status-indicator { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 0.5em; }
+    .status-success { background: #4caf50; }
+    .status-warning { background: #ff9800; }
+    .status-error { background: #f44336; }
+  </style>
+</head>
+<body>
+  <div class="back-link">
+    <a href="index.html">← Volver al Dev Portal</a>
+  </div>
+  
+  <h1>Scripts & Automatización - VThink 1.0</h1>
+  
+  <div class="scripts-grid">
+    <div class="script-card">
+      <span class="script-type type-build">Build</span>
+      <h3>Lerna Build</h3>
+      <p class="script-description">Construye todos los paquetes del monorepo con Lerna.</p>
+      <div class="script-command">npx lerna run build</div>
+      <button class="run-button" onclick="runScript('lerna-build')">Ejecutar</button>
+      <div class="script-meta">
+        <span class="status-indicator status-success"></span>Última ejecución: 2025-01-25 14:30
+      </div>
+    </div>
+    
+    <div class="script-card">
+      <span class="script-type type-test">Testing</span>
+      <h3>Test Suite</h3>
+      <p class="script-description">Ejecuta todos los tests unitarios, integración y e2e.</p>
+      <div class="script-command">npm run test:all</div>
+      <button class="run-button" onclick="runScript('test-suite')">Ejecutar</button>
+      <div class="script-meta">
+        <span class="status-indicator status-success"></span>Última ejecución: 2025-01-25 14:25
+      </div>
+    </div>
+    
+    <div class="script-card">
+      <span class="script-type type-security">Security</span>
+      <h3>Security Audit</h3>
+      <p class="script-description">Auditoría de seguridad y vulnerabilidades.</p>
+      <div class="script-command">npm run security:audit</div>
+      <button class="run-button" onclick="runScript('security-audit')">Ejecutar</button>
+      <div class="script-meta">
+        <span class="status-indicator status-warning"></span>Última ejecución: 2025-01-25 14:20
+      </div>
+    </div>
+    
+    <div class="script-card">
+      <span class="script-type type-analysis">Analysis</span>
+      <h3>Code Quality</h3>
+      <p class="script-description">Análisis de calidad de código con ESLint y Prettier.</p>
+      <div class="script-command">npm run lint:fix</div>
+      <button class="run-button" onclick="runScript('code-quality')">Ejecutar</button>
+      <div class="script-meta">
+        <span class="status-indicator status-success"></span>Última ejecución: 2025-01-25 14:15
+      </div>
+    </div>
+    
+    <div class="script-card">
+      <span class="script-type type-deploy">Deploy</span>
+      <h3>Production Deploy</h3>
+      <p class="script-description">Despliegue automatizado a producción.</p>
+      <div class="script-command">npm run deploy:prod</div>
+      <button class="run-button" onclick="runScript('production-deploy')">Ejecutar</button>
+      <div class="script-meta">
+        <span class="status-indicator status-success"></span>Última ejecución: 2025-01-25 13:45
+      </div>
+    </div>
+    
+    <div class="script-card">
+      <span class="script-type type-analysis">Analysis</span>
+      <h3>Bundle Analysis</h3>
+      <p class="script-description">Análisis del tamaño del bundle y optimización.</p>
+      <div class="script-command">npm run analyze:bundle</div>
+      <button class="run-button" onclick="runScript('bundle-analysis')">Ejecutar</button>
+      <div class="script-meta">
+        <span class="status-indicator status-success"></span>Última ejecución: 2025-01-25 13:30
+      </div>
+    </div>
+    
+    <div class="script-card">
+      <span class="script-type type-test">Testing</span>
+      <h3>E2E Tests</h3>
+      <p class="script-description">Tests end-to-end con Playwright.</p>
+      <div class="script-command">npm run test:e2e</div>
+      <button class="run-button" onclick="runScript('e2e-tests')">Ejecutar</button>
+      <div class="script-meta">
+        <span class="status-indicator status-success"></span>Última ejecución: 2025-01-25 13:15
+      </div>
+    </div>
+    
+    <div class="script-card">
+      <span class="script-type type-analysis">Analysis</span>
+      <h3>Performance Test</h3>
+      <p class="script-description">Tests de rendimiento y métricas.</p>
+      <div class="script-command">npm run test:performance</div>
+      <button class="run-button" onclick="runScript('performance-test')">Ejecutar</button>
+      <div class="script-meta">
+        <span class="status-indicator status-warning"></span>Última ejecución: 2025-01-25 13:00
+      </div>
+    </div>
+    
+    <div class="script-card">
+      <span class="script-type type-build">Build</span>
+      <h3>Type Check</h3>
+      <p class="script-description">Verificación de tipos TypeScript.</p>
+      <div class="script-command">npm run type-check</div>
+      <button class="run-button" onclick="runScript('type-check')">Ejecutar</button>
+      <div class="script-meta">
+        <span class="status-indicator status-success"></span>Última ejecución: 2025-01-25 12:45
+      </div>
+    </div>
+    
+    <div class="script-card">
+      <span class="script-type type-security">Security</span>
+      <h3>Multi-tenant Validation</h3>
+      <p class="script-description">Validación de seguridad multi-tenant.</p>
+      <div class="script-command">npm run validate:multi-tenant</div>
+      <button class="run-button" onclick="runScript('multi-tenant-validation')">Ejecutar</button>
+      <div class="script-meta">
+        <span class="status-indicator status-success"></span>Última ejecución: 2025-01-25 12:30
+      </div>
+    </div>
+    
+    <div class="script-card">
+      <span class="script-type type-analysis">Analysis</span>
+      <h3>CMMI Evidence Generator</h3>
+      <p class="script-description">Generador automático de evidencia CMMI.</p>
+      <div class="script-command">npm run generate:cmmi-evidence</div>
+      <button class="run-button" onclick="runScript('cmmi-evidence')">Ejecutar</button>
+      <div class="script-meta">
+        <span class="status-indicator status-success"></span>Última ejecución: 2025-01-25 12:15
+      </div>
+    </div>
+    
+    <div class="script-card">
+      <span class="script-type type-deploy">Deploy</span>
+      <h3>Database Migration</h3>
+      <p class="script-description">Migración de base de datos con Supabase.</p>
+      <div class="script-command">npx supabase db push</div>
+      <button class="run-button" onclick="runScript('db-migration')">Ejecutar</button>
+      <div class="script-meta">
+        <span class="status-indicator status-success"></span>Última ejecución: 2025-01-25 12:00
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function runScript(scriptName) {
+      console.log(`Ejecutando script: ${scriptName}`);
+      
+      // Simular ejecución de script
+      const button = event.target;
+      const originalText = button.textContent;
+      button.textContent = 'Ejecutando...';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        button.textContent = 'Completado';
+        button.style.background = '#4caf50';
+        
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.disabled = false;
+          button.style.background = '#4caf50';
+        }, 2000);
+      }, 3000);
+    }
+    
+    // Actualizar estado de scripts
+    function updateScriptStatus() {
+      console.log('Estado de scripts actualizado:', new Date().toLocaleString());
+    }
+    
+    // Actualizar cada minuto
+    setInterval(updateScriptStatus, 60000);
+  </script>
+</body>
+</html> 

@@ -1,0 +1,24 @@
+{
+  // Definición centralizada de módulos y features para categorización de assets/mockups/features
+  // Edita este archivo solo el arquitecto/director del proyecto
+  // El sistema lee dinámicamente estas opciones para poblar los selects
+  "CRM": [
+    "cargaDatosClienteCorreo",
+    "edicionCliente",
+    "bajaCliente"
+  ],
+  "Workflow": [
+    "CargaFlujoFromDb",
+    "EdicionFlujo",
+    "VisualizacionGrafica"
+  ],
+  "Helpdesk": [
+    "AltaTicket",
+    "AsignacionAutomatica"
+  ],
+  "Transversal": [
+    "Seguridad",
+    "UI",
+    "Auditoria"
+  ]
+} 

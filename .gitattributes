@@ -1,0 +1,116 @@
+
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+*.ts text
+*.tsx text
+*.js text
+*.jsx text
+*.json text
+*.md text
+*.html text
+*.css text
+*.scss text
+*.svg text
+*.txt text
+*.xml text
+*.yaml text
+*.yml text
+
+# Declare files that will always have CRLF line endings on checkout.
+# (typically Windows-specific files)
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.pdf binary
+*.zip binary
+*.tar.gz binary
+
+# GitHub language detection
+*.tsx linguist-language=TypeScript
+*.ts linguist-language=TypeScript
+
+# Archive files
+*.7z binary
+*.gz binary
+*.tar binary
+*.tgz binary
+*.zip binary
+
+# Fonts
+*.ttf binary
+*.eot binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+
+# Images
+*.ai binary
+*.bmp binary
+*.eps binary
+*.gif binary
+*.ico binary
+*.jng binary
+*.jp2 binary
+*.jpg binary
+*.jpeg binary
+*.jpx binary
+*.jxr binary
+*.pdf binary
+*.png binary
+*.psb binary
+*.psd binary
+*.svg text
+*.svgz binary
+*.tif binary
+*.tiff binary
+*.wbmp binary
+*.webp binary
+
+# Audio
+*.kar binary
+*.m4a binary
+*.mid binary
+*.midi binary
+*.mp3 binary
+*.ogg binary
+*.ra binary
+
+# Video
+*.3gpp binary
+*.3gp binary
+*.as binary
+*.asf binary
+*.asx binary
+*.fla binary
+*.flv binary
+*.m4v binary
+*.mng binary
+*.mov binary
+*.mp4 binary
+*.mpeg binary
+*.mpg binary
+*.ogv binary
+*.swc binary
+*.swf binary
+*.webm binary
+
+# Documents
+*.doc binary
+*.docx binary
+*.xls binary
+*.xlsx binary
+*.ppt binary
+*.pptx binary

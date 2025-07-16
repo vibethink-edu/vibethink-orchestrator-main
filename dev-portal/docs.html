@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Documentación - Dev Portal</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; background: #f8f9fa; }
+    h1 { color: #2c3e50; }
+    .back-link { margin-bottom: 2em; }
+    .back-link a { color: #2980b9; text-decoration: none; font-weight: bold; }
+    .docs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5em; margin: 2em 0; }
+    .doc-card { background: white; padding: 1.5em; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .doc-card h3 { color: #2c3e50; margin-top: 0; }
+    .doc-category { background: #e3f2fd; color: #1565c0; padding: 0.3em 0.6em; border-radius: 4px; font-size: 0.8em; font-weight: bold; display: inline-block; margin-bottom: 1em; }
+    .doc-link { color: #2196f3; text-decoration: none; font-weight: bold; }
+    .doc-link:hover { text-decoration: underline; }
+    .doc-description { color: #666; margin: 1em 0; }
+    .doc-meta { font-size: 0.9em; color: #888; }
+    .search-box { width: 100%; padding: 1em; border: 2px solid #ddd; border-radius: 8px; font-size: 1.1em; margin-bottom: 2em; }
+    .category-section { margin: 2em 0; }
+    .category-title { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5em; }
+  </style>
+</head>
+<body>
+  <div class="back-link">
+    <a href="index.html">← Volver al Dev Portal</a>
+  </div>
+  
+  <h1>Documentación - VThink 1.0</h1>
+  
+  <input type="text" class="search-box" id="searchDocs" placeholder="Buscar en documentación...">
+  
+  <div class="category-section">
+    <h2 class="category-title">📚 Documentación Principal</h2>
+    <div class="docs-grid">
+      <div class="doc-card">
+        <span class="doc-category">Metodología</span>
+        <h3>VThink 1.0 Methodology</h3>
+        <p class="doc-description">Metodología completa de desarrollo con CMMI-ML3 compliance.</p>
+        <a href="../docs/VTK_METHODOLOGY/VThink-1.0-Methodology.md" class="doc-link">Ver Documento →</a>
+        <div class="doc-meta">Última actualización: 2025-01-25</div>
+      </div>
+      
+      <div class="doc-card">
+        <span class="doc-category">Arquitectura</span>
+        <h3>Monorepo Architecture</h3>
+        <p class="doc-description">Guía de arquitectura monorepo con Lerna y gestión de dependencias.</p>
+        <a href="../docs/architecture/monorepo-architecture.md" class="doc-link">Ver Documento →</a>
+        <div class="doc-meta">Última actualización: 2025-01-25</div>
+      </div>
+      
+      <div class="doc-card">
+        <span class="doc-category">Seguridad</span>
+        <h3>Multi-tenant Security</h3>
+        <p class="doc-description">Protocolos de seguridad multi-tenant y aislamiento por compañía.</p>
+        <a href="../docs/security/multi-tenant-security.md" class="doc-link">Ver Documento →</a>
+        <div class="doc-meta">Última actualización: 2025-01-25</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category-section">
+    <h2 class="category-title">🔧 Desarrollo</h2>
+    <div class="docs-grid">
+      <div class="doc-card">
+        <span class="doc-category">Guías</span>
+        <h3>Development Guidelines</h3>
+        <p class="doc-description">Estándares de código, patrones y mejores prácticas.</p>
+        <a href="../docs/development/guidelines.md" class="doc-link">Ver Documento →</a>
+        <div class="doc-meta">Última actualización: 2025-01-25</div>
+      </div>
+      
+      <div class="doc-card">
+        <span class="doc-category">Testing</span>
+        <h3>Testing Strategy</h3>
+        <p class="doc-description">Estrategia de testing unitario, integración y e2e.</p>
+        <a href="../docs/testing/strategy.md" class="doc-link">Ver Documento →</a>
+        <div class="doc-meta">Última actualización: 2025-01-25</div>
+      </div>
+      
+      <div class="doc-card">
+        <span class="doc-category">API</span>
+        <h3>API Documentation</h3>
+        <p class="doc-description">Documentación completa de APIs y endpoints.</p>
+        <a href="../docs/api/documentation.md" class="doc-link">Ver Documento →</a>
+        <div class="doc-meta">Última actualización: 2025-01-25</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category-section">
+    <h2 class="category-title">🚀 Despliegue</h2>
+    <div class="docs-grid">
+      <div class="doc-card">
+        <span class="doc-category">CI/CD</span>
+        <h3>Deployment Pipeline</h3>
+        <p class="doc-description">Pipeline de CI/CD y automatización de despliegue.</p>
+        <a href="../docs/deployment/pipeline.md" class="doc-link">Ver Documento →</a>
+        <div class="doc-meta">Última actualización: 2025-01-25</div>
+      </div>
+      
+      <div class="doc-card">
+        <span class="doc-category">Infraestructura</span>
+        <h3>Infrastructure Setup</h3>
+        <p class="doc-description">Configuración de infraestructura y servicios.</p>
+        <a href="../docs/infrastructure/setup.md" class="doc-link">Ver Documento →</a>
+        <div class="doc-meta">Última actualización: 2025-01-25</div>
+      </div>
+      
+      <div class="doc-card">
+        <span class="doc-category">Monitoreo</span>
+        <h3>Monitoring & Logs</h3>
+        <p class="doc-description">Sistema de monitoreo y gestión de logs.</p>
+        <a href="../docs/monitoring/logs.md" class="doc-link">Ver Documento →</a>
+        <div class="doc-meta">Última actualización: 2025-01-25</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category-section">
+    <h2 class="category-title">📋 CMMI & Calidad</h2>
+    <div class="docs-grid">
+      <div class="doc-card">
+        <span class="doc-category">CMMI</span>
+        <h3>CMMI-ML3 Compliance</h3>
+        <p class="doc-description">Evidencia y cumplimiento de CMMI Level 3.</p>
+        <a href="../docs/cmmi/compliance.md" class="doc-link">Ver Documento →</a>
+        <div class="doc-meta">Última actualización: 2025-01-25</div>
+      </div>
+      
+      <div class="doc-card">
+        <span class="doc-category">Calidad</span>
+        <h3>Quality Assurance</h3>
+        <p class="doc-description">Procesos de aseguramiento de calidad y métricas.</p>
+        <a href="../docs/quality/assurance.md" class="doc-link">Ver Documento →</a>
+        <div class="doc-meta">Última actualización: 2025-01-25</div>
+      </div>
+      
+      <div class="doc-card">
+        <span class="doc-category">Auditoría</span>
+        <h3>Audit Procedures</h3>
+        <p class="doc-description">Procedimientos de auditoría y revisión de código.</p>
+        <a href="../docs/audit/procedures.md" class="doc-link">Ver Documento →</a>
+        <div class="doc-meta">Última actualización: 2025-01-25</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Búsqueda en documentación
+    document.getElementById('searchDocs').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const cards = document.querySelectorAll('.doc-card');
+      
+      cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const description = card.querySelector('.doc-description').textContent.toLowerCase();
+        const category = card.querySelector('.doc-category').textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || description.includes(searchTerm) || category.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html> 

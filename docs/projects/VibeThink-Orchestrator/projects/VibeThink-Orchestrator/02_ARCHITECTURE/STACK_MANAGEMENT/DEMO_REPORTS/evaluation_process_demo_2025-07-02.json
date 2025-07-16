@@ -1,0 +1,52 @@
+{
+  "demo_info": {
+    "date": "2025-07-02T23:16:27.525Z",
+    "version": "VThink 1.0",
+    "methodology": "Evaluación de Componentes con Reglas de Aceptación"
+  },
+  "process_overview": {
+    "phases": 3,
+    "automation_level": "ALTO",
+    "decision_criteria": "Objetivo (scoring automático)",
+    "validation_case": "Postiz (95.5% precisión)",
+    "time_saved_per_blocker": "3 horas promedio"
+  },
+  "demo_results": [
+    {
+      "case": "postiz-validation",
+      "score": 92,
+      "decision": "PORTE",
+      "blockers": [],
+      "warnings": 1,
+      "quality_bonuses": 3,
+      "accuracy": 95.5
+    },
+    {
+      "demo_type": "blocker_detection",
+      "cases_blocked": 3,
+      "time_saved_hours": 9
+    },
+    {
+      "demo_type": "decision_types",
+      "examples_shown": 4
+    }
+  ],
+  "key_benefits": [
+    "Evaluaciones objetivas y consistentes",
+    "Rechazo automático de casos no viables",
+    "Documentación completa generada automáticamente",
+    "Proceso validado con casos reales",
+    "Scoring calibrado para alta precisión"
+  ],
+  "usage_examples": [
+    "node scripts/check-blockers.cjs [repo-url]",
+    "node scripts/analyze-candidate-stack.cjs [name] [repo-url]",
+    "node scripts/calibrate-scoring.cjs"
+  ],
+  "next_steps": [
+    "Ejecutar calibración con caso Postiz",
+    "Evaluar primer componente real",
+    "Documentar lecciones aprendidas",
+    "Refinar proceso basándose en experiencia"
+  ]
+}

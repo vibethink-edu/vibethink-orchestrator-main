@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# 🔍 Validación de Terminología - VThink 1.0
+echo "🔍 Validando terminología antes del commit..."
+
+# Ejecutar validación de terminología
+node scripts/validate-terminology.js
+
+# Si hay errores, el script ya hace exit 1
+# Si no hay errores, continúa con el commit
+echo "✅ Terminología validada correctamente"

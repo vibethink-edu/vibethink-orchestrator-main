@@ -1,0 +1,147 @@
+/**
+ * Sistema de monitoreo de rendimiento para el sistema multi-tenant
+ * TEMPORALMENTE DESHABILITADO - Performance tracking desactivado
+ */
+export const PerformanceMonitor = {
+  /**
+   * Registra hit/miss del cache
+   */
+  trackCacheHit: (cacheType: string, hit: boolean) => {
+    // TEMPORALMENTE DESHABILITADO - Performance tracking desactivado
+    return;
+    
+    // Log local para debugging (solo esto permanece activo)
+    console.log(`Cache ${cacheType}: ${hit ? 'HIT' : 'MISS'}`);
+  },
+  
+  /**
+   * Registra tiempo de queries
+   */
+  trackQueryTime: (query: string, duration: number) => {
+    if (duration > 1000) { // Más de 1 segundo
+      console.warn(`Query lenta detectada: ${query} (${duration}ms)`);
+      
+      // Enviar alerta a sistema de monitoreo
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'slow_query', {
+          query: query,
+          duration: duration,
+          timestamp: Date.now()
+        });
+      }
+    }
+  },
+  
+  /**
+   * Monitorea uso de memoria
+   */
+  trackMemoryUsage: () => {
+    if (typeof performance !== 'undefined' && performance.memory) {
+      const usage = performance.memory.usedJSHeapSize / 1024 / 1024;
+      const limit = performance.memory.jsHeapSizeLimit / 1024 / 1024;
+      
+      if (usage > 50) {
+        console.warn(`Alto uso de memoria: ${usage.toFixed(2)}MB / ${limit.toFixed(2)}MB`);
+        
+        // Enviar alerta a sistema de monitoreo
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'high_memory_usage', {
+            usage: usage,
+            limit: limit,
+            timestamp: Date.now()
+          });
+        }
+      }
+    }
+  },
+  
+  /**
+   * Registra tiempo de carga de página
+   */
+  trackPageLoad: (pageName: string, loadTime: number) => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'page_load', {
+        page: pageName,
+        load_time: loadTime,
+        timestamp: Date.now()
+      });
+    }
+  },
+  
+  /**
+   * Registra errores de rendimiento
+   */
+  trackError: (error: Error, context: string) => {
+    console.error(`Error en ${context}:`, error);
+    
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'performance_error', {
+        error: error.message,
+        context: context,
+        stack: error.stack,
+        timestamp: Date.now()
+      });
+    }
+  },
+  
+  /**
+   * Obtiene métricas de rendimiento actuales
+   */
+  getMetrics: () => {
+    const metrics: any = {};
+    
+    // Métricas de memoria
+    if (typeof performance !== 'undefined' && performance.memory) {
+      metrics.memory = {
+        used: performance.memory.usedJSHeapSize / 1024 / 1024,
+        total: performance.memory.totalJSHeapSize / 1024 / 1024,
+        limit: performance.memory.jsHeapSizeLimit / 1024 / 1024
+      };
+    }
+    
+    // Métricas de navegación
+    if (typeof performance !== 'undefined' && performance.navigation) {
+      metrics.navigation = {
+        type: performance.navigation.type,
+        redirectCount: performance.navigation.redirectCount
+      };
+    }
+    
+    // Métricas de timing
+    if (typeof performance !== 'undefined' && performance.timing) {
+      const timing = performance.timing;
+      metrics.timing = {
+        domContentLoaded: timing.domContentLoadedEventEnd - timing.domContentLoadedEventStart,
+        loadComplete: timing.loadEventEnd - timing.loadEventStart,
+        domReady: timing.domContentLoadedEventEnd - timing.navigationStart
+      };
+    }
+    
+    return metrics;
+  }
+};
+
+/**
+ * Hook para monitoreo automático de rendimiento
+ */
+export const usePerformanceMonitoring = () => {
+  useEffect(() => {
+    // Monitorear memoria cada 30 segundos
+    const memoryInterval = setInterval(() => {
+      PerformanceMonitor.trackMemoryUsage();
+    }, 30000);
+    
+    // Monitorear métricas al cargar la página
+    const handleLoad = () => {
+      const metrics = PerformanceMonitor.getMetrics();
+      console.log('Métricas de rendimiento:', metrics);
+    };
+    
+    window.addEventListener('load', handleLoad);
+    
+    return () => {
+      clearInterval(memoryInterval);
+      window.removeEventListener('load', handleLoad);
+    };
+  }, []);
+}; 

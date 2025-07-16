@@ -1,0 +1,231 @@
+{
+  "naming-file-documentation": {
+    "prefix": "naming-file-doc",
+    "body": [
+      "// ✅ CORRECTO - Formato: kebab-case.md",
+      "// Ejemplo: ${1:file-name}.md",
+      "// Regla: Archivos en inglés, contenido en español",
+      "",
+      "// ❌ INCORRECTO",
+      "// ${2:nombre-archivo-español}.md"
+    ],
+    "description": "Snippet para crear archivos de documentación con naming correcto"
+  },
+  "naming-component-react": {
+    "prefix": "naming-component",
+    "body": [
+      "// ✅ CORRECTO - Formato: PascalCase.tsx",
+      "// Ejemplo: ${1:ComponentName}.tsx",
+      "// Regla: Componentes en PascalCase, inglés",
+      "",
+      "import React from 'react';",
+      "",
+      "interface ${1:ComponentName}Props {",
+      "  // Props del componente",
+      "}",
+      "",
+      "const ${1:ComponentName}: React.FC<${1:ComponentName}Props> = ({}) => {",
+      "  return (",
+      "    <div>",
+      "      {/* Contenido del componente */}",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default ${1:ComponentName};",
+      "",
+      "// ❌ INCORRECTO",
+      "// ${2:nombre-componente-español}.tsx"
+    ],
+    "description": "Snippet para crear componentes React con naming correcto"
+  },
+  "naming-hook-typescript": {
+    "prefix": "naming-hook",
+    "body": [
+      "// ✅ CORRECTO - Formato: camelCase.ts",
+      "// Ejemplo: use${1:HookName}.ts",
+      "// Regla: Hooks en camelCase, inglés",
+      "",
+      "import { useState, useEffect } from 'react';",
+      "",
+      "interface Use${1:HookName}Return {",
+      "  // Return type del hook",
+      "}",
+      "",
+      "export const use${1:HookName} = (): Use${1:HookName}Return => {",
+      "  // Lógica del hook",
+      "  return {",
+      "    // Return values",
+      "  };",
+      "};",
+      "",
+      "// ❌ INCORRECTO",
+      "// use${2:nombre-hook-español}.ts"
+    ],
+    "description": "Snippet para crear hooks TypeScript con naming correcto"
+  },
+  "naming-service-typescript": {
+    "prefix": "naming-service",
+    "body": [
+      "// ✅ CORRECTO - Formato: camelCase.ts",
+      "// Ejemplo: ${1:serviceName}Service.ts",
+      "// Regla: Servicios en camelCase, inglés",
+      "",
+      "interface ${1:ServiceName}Service {",
+      "  // Interface del servicio",
+      "}",
+      "",
+      "class ${1:ServiceName}Service implements ${1:ServiceName}Service {",
+      "  // Implementación del servicio",
+      "}",
+      "",
+      "export default ${1:ServiceName}Service;",
+      "",
+      "// ❌ INCORRECTO",
+      "// ${2:servicio-nombre-español}Service.ts"
+    ],
+    "description": "Snippet para crear servicios TypeScript con naming correcto"
+  },
+  "naming-interface-typescript": {
+    "prefix": "naming-interface",
+    "body": [
+      "// ✅ CORRECTO - Formato: PascalCase",
+      "// Ejemplo: ${1:InterfaceName}",
+      "// Regla: Interfaces en PascalCase, inglés",
+      "",
+      "interface ${1:InterfaceName} {",
+      "  id: string;",
+      "  // Propiedades de la interface",
+      "}",
+      "",
+      "// ❌ INCORRECTO",
+      "// interface ${2:nombreInterfaceEspañol} {}"
+    ],
+    "description": "Snippet para crear interfaces TypeScript con naming correcto"
+  },
+  "naming-constants-typescript": {
+    "prefix": "naming-constants",
+    "body": [
+      "// ✅ CORRECTO - Formato: UPPER_SNAKE_CASE",
+      "// Ejemplo: ${1:CONSTANT_NAME}",
+      "// Regla: Constantes en UPPER_SNAKE_CASE, inglés",
+      "",
+      "const ${1:CONSTANT_NAME} = '${2:value}';",
+      "const ${3:ANOTHER_CONSTANT} = ${4:value};",
+      "",
+      "// ❌ INCORRECTO",
+      "// const ${5:nombreConstanteEspañol} = 'valor';"
+    ],
+    "description": "Snippet para crear constantes TypeScript con naming correcto"
+  },
+  "naming-function-typescript": {
+    "prefix": "naming-function",
+    "body": [
+      "// ✅ CORRECTO - Formato: camelCase",
+      "// Ejemplo: ${1:functionName}",
+      "// Regla: Funciones en camelCase, inglés",
+      "",
+      "const ${1:functionName} = (${2:param}: ${3:type}): ${4:returnType} => {",
+      "  // Lógica de la función",
+      "  return ${5:value};",
+      "};",
+      "",
+      "// ❌ INCORRECTO",
+      "// const ${6:nombreFuncionEspañol} = () => {};"
+    ],
+    "description": "Snippet para crear funciones TypeScript con naming correcto"
+  },
+  "naming-variable-typescript": {
+    "prefix": "naming-variable",
+    "body": [
+      "// ✅ CORRECTO - Formato: camelCase",
+      "// Ejemplo: ${1:variableName}",
+      "// Regla: Variables en camelCase, inglés",
+      "",
+      "const ${1:variableName} = ${2:value};",
+      "let ${3:anotherVariable} = ${4:value};",
+      "",
+      "// ❌ INCORRECTO",
+      "// const ${5:nombreVariableEspañol} = valor;"
+    ],
+    "description": "Snippet para crear variables TypeScript con naming correcto"
+  },
+  "naming-folder-structure": {
+    "prefix": "naming-folder",
+    "body": [
+      "// ✅ CORRECTO - Estructura de carpetas en inglés",
+      "// Ejemplo:",
+      "src/",
+      "├── components/",
+      "│   ├── ui/              # shadcn/ui components",
+      "│   ├── admin/           # Admin panels",
+      "│   └── layout/          # Layout components",
+      "├── hooks/               # Custom hooks",
+      "├── pages/               # Page components",
+      "├── utils/               # Utilities and helpers",
+      "└── types/               # Type definitions",
+      "",
+      "docs/",
+      "├── research/            # Research documents",
+      "├── development/         # Development guides",
+      "├── architecture/        # Architecture decisions",
+      "└── user-documentation/  # User guides",
+      "",
+      "// ❌ INCORRECTO",
+      "// src/componentes/",
+      "// docs/investigacion/",
+      "// docs/desarrollo/"
+    ],
+    "description": "Snippet para estructura de carpetas con naming correcto"
+  },
+  "naming-validation-checklist": {
+    "prefix": "naming-checklist",
+    "body": [
+      "// 📋 Checklist de Validación de Naming",
+      "",
+      "// Antes de Crear un Archivo:",
+      "// [ ] ¿El nombre del archivo está en inglés?",
+      "// [ ] ¿Sigue el formato kebab-case?",
+      "// [ ] ¿Es descriptivo y claro?",
+      "// [ ] ¿No contiene caracteres especiales?",
+      "",
+      "// Antes de Escribir Contenido:",
+      "// [ ] ¿El título del documento está en inglés?",
+      "// [ ] ¿El contenido interno está en español?",
+      "// [ ] ¿Las tablas y métricas están en español?",
+      "// [ ] ¿Los ejemplos de código siguen las convenciones?",
+      "",
+      "// Antes de Escribir Código:",
+      "// [ ] ¿Las variables y funciones están en inglés?",
+      "// [ ] ¿Siguen camelCase/PascalCase según corresponda?",
+      "// [ ] ¿Las interfaces y types están en PascalCase?",
+      "// [ ] ¿Las constantes están en UPPER_SNAKE_CASE?"
+    ],
+    "description": "Checklist para validar naming conventions"
+  },
+  "naming-anti-patterns": {
+    "prefix": "naming-anti-patterns",
+    "body": [
+      "// 🚫 Anti-Patterns a Evitar",
+      "",
+      "// ❌ Nombres de Archivos",
+      "// nueva-validacion-saas-integracion.md",
+      "// analisis-cumplimiento-sede-electronica.md",
+      "// guia-desarrollo.md",
+      "// convenciones-naming.md",
+      "",
+      "// ❌ Nombres de Variables",
+      "// const perfilUsuario = {};",
+      "// const apiGobierno = new APIGobierno();",
+      "// function procesarDocumentoElectronico() {}",
+      "// interface DocumentoGobierno {}",
+      "",
+      "// ❌ Nombres de Carpetas",
+      "// docs/investigacion/",
+      "// src/componentes/",
+      "// src/servicios/",
+      "// docs/desarrollo/"
+    ],
+    "description": "Lista de anti-patterns de naming a evitar"
+  }
+} 

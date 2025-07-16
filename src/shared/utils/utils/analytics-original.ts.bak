@@ -1,0 +1,521 @@
+/**
+ * Analytics System
+ * 
+ * Centralized analytics and event tracking
+ * - Event tracking with metadata
+ * - User behavior analytics
+ * - Performance metrics
+ * - Integration with external services
+ * 
+ * @author AI Pair Platform
+ * @version 1.0.0
+ */
+
+import { useAuth } from '@/shared/hooks/useAuth';
+import { useCookies } from '@/shared/hooks/useCookies';
+import { usePersonalization } from '@/shared/hooks/stubs/hooks-stubs';
+
+// Analytics event types
+export const ANALYTICS_EVENTS = {
+  // User interactions
+  USER_LOGIN: 'user_login',
+  USER_LOGOUT: 'user_logout',
+  USER_REGISTER: 'user_register',
+  USER_PROFILE_UPDATE: 'user_profile_update',
+  
+  // Navigation
+  PAGE_VIEW: 'page_view',
+  NAVIGATION: 'navigation',
+  SEARCH: 'search',
+  
+  // Feature usage
+  FEATURE_ACCESS: 'feature_access',
+  FEATURE_ACTION: 'feature_action',
+  MODULE_ACCESS: 'module_access',
+  
+  // Business events
+  TICKET_CREATED: 'ticket_created',
+  TICKET_UPDATED: 'ticket_updated',
+  TICKET_RESOLVED: 'ticket_resolved',
+  LEAD_CREATED: 'lead_created',
+  OPPORTUNITY_CREATED: 'opportunity_created',
+  
+  // System events
+  ERROR_OCCURRED: 'error_occurred',
+  PERFORMANCE_ISSUE: 'performance_issue',
+  API_CALL: 'api_call',
+  
+  // AI interactions
+  AI_CHAT_STARTED: 'ai_chat_started',
+  AI_CHAT_COMPLETED: 'ai_chat_completed',
+  AI_FEATURE_USED: 'ai_feature_used',
+  
+  // Compliance
+  CONSENT_UPDATED: 'consent_updated',
+  PRIVACY_ACTION: 'privacy_action',
+  COMPLIANCE_CHECK: 'compliance_check'
+} as const;
+
+export type AnalyticsEvent = typeof ANALYTICS_EVENTS[keyof typeof ANALYTICS_EVENTS];
+
+// Event metadata interface
+interface EventMetadata {
+  [key: string]: any;
+}
+
+// Analytics event interface
+interface AnalyticsEventData {
+  event: AnalyticsEvent;
+  timestamp: string;
+  userId?: string;
+  companyId?: string;
+  sessionId: string;
+  metadata: EventMetadata;
+  userAgent: string;
+  url: string;
+  referrer?: string;
+}
+
+// Analytics configuration
+interface AnalyticsConfig {
+  enabled: boolean;
+  debug: boolean;
+  trackPageViews: boolean;
+  trackErrors: boolean;
+  trackPerformance: boolean;
+  externalServices: {
+    googleAnalytics?: {
+      measurementId: string;
+      enabled: boolean;
+    };
+    mixpanel?: {
+      token: string;
+      enabled: boolean;
+    };
+    amplitude?: {
+      apiKey: string;
+      enabled: boolean;
+    };
+  };
+}
+
+// Performance metrics
+interface PerformanceMetrics {
+  pageLoadTime: number;
+  apiResponseTime: number;
+  renderTime: number;
+  memoryUsage: number;
+  networkLatency: number;
+}
+
+// Analytics service interface
+interface AnalyticsService {
+  track(event: AnalyticsEvent, metadata?: EventMetadata): void;
+  trackPageView(url: string, title?: string): void;
+  trackError(error: Error, context?: EventMetadata): void;
+  trackPerformance(metrics: PerformanceMetrics): void;
+  setUser(userId: string, properties?: EventMetadata): void;
+  setCompany(companyId: string, properties?: EventMetadata): void;
+  identify(userId: string, traits?: EventMetadata): void;
+}
+
+// Default configuration - TEMPORALMENTE DESHABILITADO
+const defaultConfig: AnalyticsConfig = {
+  enabled: false, // FORZADO A FALSE - Analytics temporalmente deshabilitado
+  debug: false, // import.meta.env.DEV,
+  trackPageViews: false,
+  trackErrors: false,
+  trackPerformance: false,
+  externalServices: {
+    googleAnalytics: {
+      measurementId: '', // import.meta.env.VITE_GA_MEASUREMENT_ID || '',
+      enabled: false // !!import.meta.env.VITE_GA_MEASUREMENT_ID
+    },
+    mixpanel: {
+      token: '', // import.meta.env.VITE_MIXPANEL_TOKEN || '',
+      enabled: false // !!import.meta.env.VITE_MIXPANEL_TOKEN
+    },
+    amplitude: {
+      apiKey: '', // import.meta.env.VITE_AMPLITUDE_API_KEY || '',
+      enabled: false // !!import.meta.env.VITE_AMPLITUDE_API_KEY
+    }
+  }
+};
+
+// Session management
+let sessionId: string;
+let currentUserId: string | undefined;
+let currentCompanyId: string | undefined;
+
+// Initialize session
+const initializeSession = () => {
+  sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  
+  // Store session in localStorage
+  localStorage.setItem('analytics_session_id', sessionId);
+  
+  // Track session start
+  // track(ANALYTICS_EVENTS.PAGE_VIEW, { // Disabled during development
+    session_start: true,
+    referrer: document.referrer
+  });
+};
+
+// Get or create session
+const getSessionId = (): string => {
+  if (!sessionId) {
+    sessionId = localStorage.getItem('analytics_session_id') || '';
+    if (!sessionId) {
+      initializeSession();
+    }
+  }
+  return sessionId;
+};
+
+// Generate event data
+const generateEventData = (
+  event: AnalyticsEvent,
+  metadata: EventMetadata = {}
+): AnalyticsEventData => {
+  return {
+    event,
+    timestamp: new Date().toISOString(),
+    userId: currentUserId,
+    companyId: currentCompanyId,
+    sessionId: getSessionId(),
+    metadata: {
+      ...metadata,
+      url: window.location.href,
+      userAgent: navigator.userAgent,
+      screen: {
+        width: window.screen.width,
+        height: window.screen.height
+      },
+      viewport: {
+        width: window.innerWidth,
+        height: window.innerHeight
+      }
+    },
+    userAgent: navigator.userAgent,
+    url: window.location.href,
+    referrer: document.referrer
+  };
+};
+
+// Send event to external services
+const sendToExternalServices = (eventData: AnalyticsEventData) => {
+  const { externalServices } = defaultConfig;
+  
+  // Google Analytics 4
+  if (externalServices.googleAnalytics?.enabled && typeof gtag !== 'undefined') {
+    gtag('event', eventData.event, {
+      event_category: 'ai_pair_platform',
+      event_label: eventData.metadata.url,
+      value: 1,
+      custom_parameters: eventData.metadata
+    });
+  }
+  
+  // Mixpanel
+  if (false) { // Disabled during development
+    // mixpanel.track(eventData.event, {
+      ...eventData.metadata,
+      session_id: eventData.sessionId,
+      timestamp: eventData.timestamp
+    });
+  }
+  
+  // Amplitude
+  if (false) { // Disabled during development
+    // amplitude.getInstance().logEvent(eventData.event, {
+      ...eventData.metadata,
+      session_id: eventData.sessionId,
+      timestamp: eventData.timestamp
+    });
+  }
+};
+
+// Send event to internal API
+const sendToInternalAPI = async (eventData: AnalyticsEventData) => {
+  try {
+    const response = await fetch('/api/analytics/events', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('auth_token')}`
+      },
+      body: JSON.stringify(eventData)
+    });
+    
+    if (!response.ok) {
+      console.warn('Failed to send analytics event to internal API');
+    }
+  } catch (error) {
+    console.warn('Error sending analytics event:', error);
+  }
+};
+
+// Main analytics service
+class Analytics implements AnalyticsService {
+  private config: AnalyticsConfig;
+  private queue: AnalyticsEventData[] = [];
+  private isProcessing = false;
+  
+  constructor(config: Partial<AnalyticsConfig> = {}) {
+    this.config = { ...defaultConfig, ...config };
+    this.initialize();
+  }
+  
+  private initialize() {
+    if (!this.config.enabled) return;
+    
+    // Initialize session
+    getSessionId();
+    
+    // Track initial page view
+    if (this.config.trackPageViews) {
+      this.trackPageView(window.location.href, document.title);
+    }
+    
+    // Set up error tracking
+    if (this.config.trackErrors) {
+      this.setupErrorTracking();
+    }
+    
+    // Set up performance tracking
+    if (this.config.trackPerformance) {
+      this.setupPerformanceTracking();
+    }
+    
+    // Process queue periodically
+    setInterval(() => this.processQueue(), 5000);
+  }
+  
+  private setupErrorTracking() {
+    window.addEventListener('error', (event) => {
+      this.trackError(new Error(event.message), {
+        filename: event.filename,
+        lineno: event.lineno,
+        colno: event.colno,
+        error: event.error?.stack
+      });
+    });
+    
+    window.addEventListener('unhandledrejection', (event) => {
+      this.trackError(new Error(event.reason), {
+        type: 'unhandledrejection',
+        promise: event.promise
+      });
+    });
+  }
+  
+  private setupPerformanceTracking() {
+    if ('performance' in window) {
+      window.addEventListener('load', () => {
+        const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+        const paint = performance.getEntriesByType('paint');
+        
+        const metrics: PerformanceMetrics = {
+          pageLoadTime: navigation.loadEventEnd - navigation.loadEventStart,
+          apiResponseTime: 0, // Will be tracked per API call
+          renderTime: paint.find(p => p.name === 'first-contentful-paint')?.startTime || 0,
+          memoryUsage: (performance as any).memory?.usedJSHeapSize || 0,
+          networkLatency: navigation.responseStart - navigation.requestStart
+        };
+        
+        this.trackPerformance(metrics);
+      });
+    }
+  }
+  
+  private async processQueue() {
+    if (this.isProcessing || this.queue.length === 0) return;
+    
+    this.isProcessing = true;
+    const events = [...this.queue];
+    this.queue = [];
+    
+    for (const event of events) {
+      try {
+        // Send to external services
+        sendToExternalServices(event);
+        
+        // Send to internal API
+        await sendToInternalAPI(event);
+        
+        if (this.config.debug) {
+          console.log('Analytics event sent:', event);
+        }
+      } catch (error) {
+        console.warn('Failed to process analytics event:', error);
+        // Re-queue failed events
+        this.queue.push(event);
+      }
+    }
+    
+    this.isProcessing = false;
+  }
+  
+  track(event: AnalyticsEvent, metadata: EventMetadata = {}) {
+    if (!this.config.enabled) return;
+    
+    const eventData = generateEventData(event, metadata);
+    
+    // Add to queue for processing
+    this.queue.push(eventData);
+    
+    if (this.config.debug) {
+      console.log('Analytics event queued:', eventData);
+    }
+  }
+  
+  trackPageView(url: string, title?: string) {
+    this.track(ANALYTICS_EVENTS.PAGE_VIEW, {
+      page_url: url,
+      page_title: title,
+      page_type: 'page_view'
+    });
+  }
+  
+  trackError(error: Error, context: EventMetadata = {}) {
+    this.track(ANALYTICS_EVENTS.ERROR_OCCURRED, {
+      error_message: error.message,
+      error_stack: error.stack,
+      error_name: error.name,
+      ...context
+    });
+  }
+  
+  trackPerformance(metrics: PerformanceMetrics) {
+    this.track(ANALYTICS_EVENTS.PERFORMANCE_ISSUE, {
+      ...metrics,
+      performance_type: 'page_load'
+    });
+  }
+  
+  setUser(userId: string, properties: EventMetadata = {}) {
+    currentUserId = userId;
+    
+    // Update external services
+    if (defaultConfig.externalServices.mixpanel?.enabled && typeof mixpanel !== 'undefined') {
+      mixpanel.identify(userId);
+      if (Object.keys(properties).length > 0) {
+        mixpanel.people.set(properties);
+      }
+    }
+    
+    if (defaultConfig.externalServices.amplitude?.enabled && typeof amplitude !== 'undefined') {
+      amplitude.getInstance().setUserId(userId);
+      if (Object.keys(properties).length > 0) {
+        amplitude.getInstance().setUserProperties(properties);
+      }
+    }
+  }
+  
+  setCompany(companyId: string, properties: EventMetadata = {}) {
+    currentCompanyId = companyId;
+    
+    // Update external services with company info
+    if (defaultConfig.externalServices.mixpanel?.enabled && typeof mixpanel !== 'undefined') {
+      mixpanel.people.set({
+        company_id: companyId,
+        ...properties
+      });
+    }
+    
+    if (defaultConfig.externalServices.amplitude?.enabled && typeof amplitude !== 'undefined') {
+      amplitude.getInstance().setUserProperties({
+        company_id: companyId,
+        ...properties
+      });
+    }
+  }
+  
+  identify(userId: string, traits: EventMetadata = {}) {
+    this.setUser(userId, traits);
+  }
+}
+
+// Global analytics instance
+export const analytics = new Analytics();
+
+// React hook for analytics
+export function useAnalytics() {
+  const { user } = useAuth();
+  const { hasConsent } = useCookies();
+  const { companyConfig } = usePersonalization();
+  
+  // Set user and company when available
+  React.useEffect(() => {
+    if (user?.id && hasConsent('analytics')) {
+      analytics.setUser(user.id, {
+        email: user.email,
+        role: user.role,
+        company_name: user.company?.name
+      });
+    }
+  }, [user, hasConsent]);
+  
+  React.useEffect(() => {
+    if (user?.company_id && hasConsent('analytics')) {
+      analytics.setCompany(user.company_id, {
+        company_name: companyConfig.branding.companyName,
+        plan: user.company?.subscription_plan
+      });
+    }
+  }, [user?.company_id, companyConfig, hasConsent]);
+  
+  return analytics;
+}
+
+// Utility functions
+export const AnalyticsUtils = {
+  /**
+   * Track feature usage
+   */
+  trackFeatureUsage: (feature: string, action?: string, metadata?: EventMetadata) => {
+    analytics.track(ANALYTICS_EVENTS.FEATURE_ACTION, {
+      feature,
+      action: action || 'used',
+      ...metadata
+    });
+  },
+  
+  /**
+   * Track module access
+   */
+  trackModuleAccess: (module: string, metadata?: EventMetadata) => {
+    analytics.track(ANALYTICS_EVENTS.MODULE_ACCESS, {
+      module,
+      ...metadata
+    });
+  },
+  
+  /**
+   * Track API call
+   */
+  trackAPICall: (endpoint: string, method: string, duration: number, success: boolean) => {
+    analytics.track(ANALYTICS_EVENTS.API_CALL, {
+      endpoint,
+      method,
+      duration,
+      success,
+      timestamp: new Date().toISOString()
+    });
+  },
+  
+  /**
+   * Track user interaction
+   */
+  trackInteraction: (element: string, action: string, metadata?: EventMetadata) => {
+    analytics.track(ANALYTICS_EVENTS.FEATURE_ACTION, {
+      element,
+      action,
+      interaction_type: 'user_action',
+      ...metadata
+    });
+  }
+};
+
+// Export types
+export type { AnalyticsEventData, EventMetadata, PerformanceMetrics, AnalyticsConfig }; 

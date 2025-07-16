@@ -1,0 +1,82 @@
+{
+  "AIPAIR Session Initialization": {
+    "prefix": "aipair",
+    "body": [
+      "INIT_AIPAIR_SESSION",
+      "",
+      "## 👤 Identificación de Usuario",
+      "- **Nombre:** Marcelo Escallón",
+      "- **Rol:** CEO/CTO",
+      "- **Email:** marcelo@aipair.com",
+      "- **Empresa:** AI-Pair Orchestrator Pro",
+      "",
+      "## 📅 Contexto Temporal",
+      "- **Fecha:** $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+      "- **Zona Horaria:** UTC-5",
+      "- **Ubicación:** Bogotá, Colombia",
+      "",
+      "## 📊 Estado del Proyecto",
+      "- **Objetivo Principal:** $1",
+      "- **Tareas Pendientes:** $2",
+      "- **Problemas Urgentes:** $3",
+      "",
+      "## ⚙️ Contexto Técnico",
+      "- **Entorno:** Local/Dev",
+      "- **Herramientas:** Cursor IDE, Supabase, React",
+      "- **Dispositivo:** PC Windows"
+    ],
+    "description": "Inicializar sesión AIPAIR con contexto completo"
+  },
+  "AIPAIR Quick Init": {
+    "prefix": "init",
+    "body": [
+      "INIT_AIPAIR_SESSION",
+      "",
+      "👤 **Usuario:** Marcelo Escallón (CEO/CTO)",
+      "📅 **Fecha:** $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+      "🎯 **Objetivo:** $1",
+      "💻 **Entorno:** Local/Dev"
+    ],
+    "description": "Inicialización rápida de sesión AIPAIR"
+  },
+  "AIPAIR Context Update": {
+    "prefix": "update",
+    "body": [
+      "UPDATE_CONTEXT $1 $2",
+      "",
+      "## 📝 Actualización de Contexto",
+      "- **Campo:** $1",
+      "- **Valor:** $2",
+      "- **Fecha:** $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"
+    ],
+    "description": "Actualizar contexto específico de AIPAIR"
+  },
+  "AIPAIR Session Save": {
+    "prefix": "save",
+    "body": [
+      "SAVE_SESSION",
+      "",
+      "## 💾 Sesión Guardada",
+      "- **Fecha:** $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+      "- **Hora:** $CURRENT_HOUR:$CURRENT_MINUTE",
+      "- **Usuario:** Marcelo Escallón",
+      "- **Estado:** Completada"
+    ],
+    "description": "Guardar sesión actual de AIPAIR"
+  },
+  "AIPAIR Help": {
+    "prefix": "help",
+    "body": [
+      "AIPAIR_HELP",
+      "",
+      "## 🤖 Comandos AIPAIR Disponibles",
+      "- `INIT_AIPAIR_SESSION` - Inicializar sesión",
+      "- `CHECK_CONTEXT` - Verificar contexto",
+      "- `UPDATE_CONTEXT` - Actualizar información",
+      "- `SAVE_SESSION` - Guardar sesión",
+      "- `LOAD_SESSION` - Cargar sesión anterior",
+      "- `SHOW_SESSION_HISTORY` - Ver historial"
+    ],
+    "description": "Mostrar ayuda de comandos AIPAIR"
+  }
+} 

@@ -1,0 +1,11 @@
+[
+  {
+    "title": "🚀 Comando útil para developers",
+    "commands": [
+      {
+        "cmd": "npm install",
+        "desc": ""
+      }
+    ]
+  }
+]

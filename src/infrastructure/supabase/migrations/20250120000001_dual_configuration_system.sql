@@ -1,0 +1,1 @@
+-- Migración Sistema de Configuración Dual

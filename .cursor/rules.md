@@ -1,0 +1,1 @@
+﻿#  Cursor IDE Rules - AI-Pair Orchestrator Pro਍

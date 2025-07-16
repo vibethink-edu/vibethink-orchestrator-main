@@ -1,0 +1,408 @@
+{
+  "dashboard": {
+    "welcome": "Bienvenido, {{name}}",
+    "subtitle": "Panel de control de {{company}}",
+    "prompt_placeholder": "Escribe tu consulta para IA aquí...",
+    "run": "Ejecutar",
+    "quick_actions": "Acciones Rápidas",
+    "activity_title": "Actividad Reciente",
+    "activity_description": "Últimas acciones realizadas en el sistema",
+    "recent_activity": "Actividad Reciente"
+  },
+  "header": {
+    "search": "Buscar...",
+    "searchPlaceholder": "Buscar...",
+    "profile": "Perfil",
+    "settings": "Configuración",
+    "logout": "Cerrar Sesión",
+    "VibeThink": "VibeThink",
+    "superAdmin": "Super Admin",
+    "showSettings": "Mostrar panel de configuración",
+    "hideSettings": "Ocultar panel de configuración",
+    "userSettings": "Configuración de usuario",
+    "signOut": "Cerrar sesión",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "navigation": {
+    "chat": "Chat",
+    "history": "Historial",
+    "projects": "Proyectos",
+    "admin": "Admin",
+    "users": "Usuarios",
+    "company": "Empresa",
+    "super_admin": "Super Admin",
+    "companies": "Empresas",
+    "config": "Configuración",
+    "dashboard": "Inicio",
+    "principal": "Principal",
+    "company_admin": "Admin Empresarial",
+    "platform_admin": "Admin Plataforma"
+  },
+  "tooltips": {
+    "go_to_chat": "Ir al chat principal",
+    "view_history": "Ver historial de conversaciones", 
+    "manage_projects": "Gestionar proyectos y documentación",
+    "admin_panel": "Panel de administración empresarial",
+    "user_management": "Gestión de usuarios de la empresa",
+    "company_admin": "Administración de empresa",
+    "super_admin_panel": "Panel de administración de plataforma",
+    "expand_sidebar": "Expandir sidebar",
+    "collapse_sidebar": "Colapsar sidebar",
+    "close_menu": "Cerrar menú",
+    "open_navigation": "Abrir menú de navegación",
+    "search_app": "Buscar en toda la aplicación",
+    "view_notifications": "Ver notificaciones",
+    "show_settings": "Mostrar panel de configuración",
+    "hide_settings": "Ocultar panel de configuración",
+    "user_profile": "Perfil de usuario",
+    "quick_search": "Búsqueda rápida",
+    "user_menu": "Menú de usuario",
+    "platform_administration": "Administración de plataforma",
+    "company_configuration": "Configuración empresarial"
+  },
+  "language": {
+    "spanish": "Español",
+    "english": "Inglés",
+    "title": "Idioma",
+    "current": "Actual",
+    "switcher": "Cambiar idioma",
+    "switch": "Cambiar idioma"
+  },
+  "theme": {
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
+  "auth": {
+    "title": "Acceso a VibeThink",
+    "subtitle": "Plataforma de IA empresarial",
+    "loginSubtitle": "Ingresa tus credenciales para acceder",
+    "signin": "Iniciar Sesión",
+    "signup": "Registrarse",
+    "email": "Email",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar Contraseña",
+    "fullName": "Nombre Completo",
+    "companyName": "Nombre de la Empresa",
+    "loggingIn": "Iniciando sesión...",
+    "loginButton": "Iniciar Sesión",
+    "creatingAccount": "Creando cuenta...",
+    "signupButton": "Crear Cuenta",
+    "passwordsDontMatch": "Las contraseñas no coinciden",
+    "passwordTooShort": "La contraseña debe tener al menos 6 caracteres",
+    "signupSuccess": "Cuenta creada exitosamente. Revisa tu email para verificar tu cuenta.",
+    "continueWithGoogle": "Continuar con Google",
+    "continueWithMicrosoft": "Continuar con Microsoft",
+    "continueWithApple": "Continuar con Apple",
+    "continueWithGitHub": "Continuar con GitHub",
+    "continueWithLinkedIn": "Continuar con LinkedIn",
+    "orContinueWith": "O continúa con",
+    "login": {
+      "title": "Iniciar Sesión",
+      "subtitle": "Ingresa tu email y contraseña para acceder",
+      "email": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "password": "Contraseña",
+      "passwordPlaceholder": "Ingresa tu contraseña",
+      "signInButton": "Iniciar Sesión",
+      "signingIn": "Iniciando sesión...",
+      "noAccount": "¿No tienes una cuenta?",
+      "signUpLink": "Regístrate aquí",
+      "testCredentialsTitle": "Credenciales de Prueba:",
+      "errors": {
+        "testPassword": "Para las pruebas, usa la contraseña: 12345",
+        "invalidEmail": "Ingresa un email válido",
+        "loginError": "Error al iniciar sesión"
+      },
+      "roles": {
+        "superAdmin": "Super Admin",
+        "admin": "Admin",
+        "manager": "Manager", 
+        "employee": "Employee"
+      }
+    }
+  },
+  "admin": {
+    "title": "Panel de Administración Empresarial",
+    "subtitle": "Gestiona usuarios, permisos y configuraciones de tu empresa",
+    "context": {
+      "clientMode": "Modo: Cliente VibeThink",
+      "goToSuperAdmin": "🚀 Ir a Admin Plataforma",
+      "companyManagement": "Gestión Empresarial de {{company}}"
+    },
+    "stats": {
+      "companyUsers": "Usuarios de la Empresa",
+      "activeModules": "Módulos Activos",
+      "monthlyAIUsage": "Uso Mensual IA",
+      "averageTime": "Tiempo Promedio",
+      "changeFromLastMonth": "desde el mes pasado"
+    },
+    "actions": {
+      "title": "Gestión Empresarial",
+      "userManagement": {
+        "title": "Gestión de Usuarios",
+        "description": "Administrar usuarios de tu empresa"
+      },
+      "permissions": {
+        "title": "Permisos y Roles",
+        "description": "Configurar permisos dentro de tu empresa"
+      },
+      "limits": {
+        "title": "Límites y Configuración",
+        "description": "Gestionar límites y configuración empresarial"
+      },
+      "companyConfig": {
+        "title": "Configuración Empresarial",
+        "description": "Configurar datos y preferencias de la empresa"
+      },
+      "access": "Acceder"
+    },
+    "recentActivity": {
+      "title": "Actividad Reciente",
+      "description": "Últimas acciones realizadas en tu empresa",
+      "actions": {
+        "userCreated": "Usuario creado",
+        "permissionsModified": "Permisos modificados",
+        "limitUpdated": "Límite actualizado",
+        "userSuspended": "Usuario suspendido",
+        "configChanged": "Configuración cambiada"
+      },
+      "timeAgo": {
+        "hoursAgo": "Hace {{count}} horas",
+        "daysAgo": "Hace {{count}} día"
+      }
+    },
+    "limits": {
+      "title": "Límites y Cuotas",
+      "subtitle": "Gestiona límites de uso y cuotas de IA por usuario y departamento",
+      "comingSoon": {
+        "title": "Control de Límites",
+        "description": "Próximamente podrás configurar límites de uso, cuotas mensuales y alertas automáticas.",
+        "features": {
+          "quotas": {
+            "title": "Cuotas",
+            "description": "Límites mensuales"
+          },
+          "monitoring": {
+            "title": "Monitoreo",
+            "description": "Seguimiento en tiempo real"
+          },
+          "alerts": {
+            "title": "Alertas",
+            "description": "Notificaciones automáticas"
+          }
+        }
+      }
+    },
+    "permissions": {
+      "title": "Permisos y Accesos",
+      "subtitle": "Configura permisos por módulo, departamento y usuario",
+      "comingSoon": {
+        "title": "Sistema de Permisos",
+        "description": "Próximamente podrás configurar permisos granulares por módulo, departamento y usuario.",
+        "features": {
+          "modules": {
+            "title": "Módulos",
+            "description": "Control por módulo"
+          },
+          "departments": {
+            "title": "Departamentos",
+            "description": "Permisos por departamento"
+          },
+          "users": {
+            "title": "Usuarios",
+            "description": "Permisos individuales"
+          }
+        }
+      }
+    }
+  },
+  "superadmin": {
+    "title": "Panel de Administración de Plataforma",
+    "subtitle": "Gestiona empresas, usuarios globales y configuración de la plataforma",
+    "context": {
+      "platformMode": "Modo: Administración de Plataforma",
+      "globalManagement": "Gestión Global de VibeThink"
+    },
+    "stats": {
+      "totalCompanies": "Total de Empresas",
+      "totalUsers": "Total de Usuarios",
+      "activeCompanies": "Empresas Activas",
+      "monthlyRevenue": "Ingresos Mensuales",
+      "changeFromLastMonth": "desde el mes pasado"
+    },
+    "actions": {
+      "title": "Gestión de Plataforma",
+      "companyManagement": {
+        "title": "Gestión de Empresas",
+        "description": "Administrar todas las empresas de la plataforma"
+      },
+      "globalUsers": {
+        "title": "Usuarios Globales",
+        "description": "Gestionar usuarios de todas las empresas"
+      },
+      "platformConfig": {
+        "title": "Configuración de Plataforma",
+        "description": "Configurar parámetros globales de la plataforma"
+      },
+      "analytics": {
+        "title": "Analíticas Globales",
+        "description": "Ver métricas y estadísticas de toda la plataforma"
+      },
+      "access": "Acceder"
+    },
+    "recentActivity": {
+      "title": "Actividad Global Reciente",
+      "description": "Últimas acciones realizadas en toda la plataforma",
+      "actions": {
+        "companyCreated": "Empresa creada",
+        "companySuspended": "Empresa suspendida",
+        "userCreated": "Usuario creado",
+        "userSuspended": "Usuario suspendido",
+        "configChanged": "Configuración cambiada"
+      },
+      "timeAgo": {
+        "hoursAgo": "Hace {{count}} horas",
+        "daysAgo": "Hace {{count}} día"
+      }
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "create": "Crear",
+    "update": "Actualizar",
+    "close": "Cerrar",
+    "back": "Volver",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "confirm": "Confirmar",
+    "yes": "Sí",
+    "no": "No",
+    "ok": "OK",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "refresh": "Actualizar",
+    "export": "Exportar",
+    "import": "Importar",
+    "download": "Descargar",
+    "upload": "Subir",
+    "view": "Ver",
+    "details": "Detalles",
+    "settings": "Configuración",
+    "profile": "Perfil",
+    "logout": "Cerrar Sesión",
+    "notifications": "Notificaciones",
+    "help": "Ayuda",
+    "support": "Soporte",
+    "feedback": "Comentarios",
+    "report": "Reportar",
+    "bug": "Error",
+    "feature": "Funcionalidad",
+    "improvement": "Mejora",
+    "other": "Otro"
+  },
+  "errors": {
+    "general": "Ha ocurrido un error",
+    "network": "Error de conexión",
+    "unauthorized": "No autorizado",
+    "forbidden": "Acceso denegado",
+    "notFound": "No encontrado",
+    "serverError": "Error del servidor",
+    "validation": "Error de validación",
+    "timeout": "Tiempo de espera agotado",
+    "unknown": "Error desconocido"
+  },
+  "validation": {
+    "required": "Este campo es obligatorio",
+    "email": "Ingresa un email válido",
+    "minLength": "Debe tener al menos {{min}} caracteres",
+    "maxLength": "Debe tener máximo {{max}} caracteres",
+    "password": "La contraseña debe tener al menos 6 caracteres",
+    "passwordMatch": "Las contraseñas no coinciden",
+    "invalidFormat": "Formato inválido"
+  },
+  "bundui": {
+    "dashboard": {
+      "title": "Panel de Control",
+      "subtitle": "Gestiona mantenelo el layout y widgets originales, solo cambia el texto y los nombres de las personas.",
+      "download": "Descargar"
+    },
+    "chat": {
+      "new_message": "Nuevo mensaje",
+      "type_message": "Escribe tu mensaje...",
+      "send": "Enviar",
+      "messages": {
+        "agent_welcome": "Hola, ¿cómo puedo ayudarte hoy?",
+        "user_problem": "Hola, tengo problemas con mi cuenta.",
+        "agent_question": "¿Cuál parece ser el problema?",
+        "user_login_issue": "No puedo iniciar sesión."
+      }
+    },
+    "sidebar": {
+      "get_pro": "Obtener VibeThink Pro",
+      "pro_description": "¿Necesitas más módulos y funcionalidades avanzadas? Obtén acceso completo a VibeThink Pro.",
+      "get_pro_button": "Obtener Pro",
+      "view_features": "Ver Características"
+    },
+    "login": {
+      "welcome": "Bienvenido de nuevo",
+      "signin_subtitle": "Por favor inicia sesión en tu cuenta",
+      "email_address": "Dirección de correo",
+      "password": "Contraseña",
+      "forgot_password": "¿Olvidaste tu contraseña?",
+      "sign_in": "Iniciar Sesión",
+      "no_account": "¿No tienes una cuenta?",
+      "sign_up": "Regístrate"
+    },
+    "routes": {
+      "dashboard": "Panel de Control",
+      "overview": "Vista General",
+      "analytics": "Analíticas",
+      "reports": "Reportes",
+      "vibeThink_modules": "Módulos VibeThink",
+      "crm_sales": "CRM y Ventas",
+      "customer_management": "Gestión de Clientes",
+      "sales_pipeline": "Pipeline de Ventas",
+      "lead_generation": "Generación de Leads",
+      "deal_tracking": "Seguimiento de Oportunidades",
+      "ai_automation": "IA y Automatización",
+      "ai_assistant": "Asistente IA",
+      "workflow_automation": "Automatización de Flujos",
+      "smart_analytics": "Analíticas Inteligentes",
+      "predictive_models": "Modelos Predictivos",
+      "document_management": "Gestión de Documentos",
+      "document_center": "Centro de Documentos",
+      "templates": "Plantillas",
+      "collaboration": "Colaboración",
+      "version_control": "Control de Versiones",
+      "communication": "Comunicación",
+      "email_management": "Gestión de Emails",
+      "chat_system": "Sistema de Chat",
+      "notifications": "Notificaciones",
+      "integrations": "Integraciones",
+      "administration": "Administración",
+      "user_management": "Gestión de Usuarios",
+      "all_users": "Todos los Usuarios",
+      "roles_permissions": "Roles y Permisos",
+      "department_assignment": "Asignación de Departamentos",
+      "activity_logs": "Registros de Actividad",
+      "company_settings": "Configuración de Empresa",
+      "company_profile": "Perfil de Empresa",
+      "billing_plans": "Facturación y Planes",
+      "security_settings": "Configuración de Seguridad",
+      "system_configuration": "Configuración del Sistema",
+      "global_settings": "Configuración Global",
+      "quality_standards": "Estándares de Calidad",
+      "performance_monitoring": "Monitoreo de Rendimiento",
+      "backup_recovery": "Respaldo y Recuperación"
+    }
+  }
+} 

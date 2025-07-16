@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Logs & Notificaciones - Dev Portal</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; background: #f8f9fa; }
+    h1 { color: #2c3e50; }
+    .back-link { margin-bottom: 2em; }
+    .back-link a { color: #2980b9; text-decoration: none; font-weight: bold; }
+    .logs-container { background: white; padding: 2em; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .log-entry { padding: 1em; border-left: 4px solid #ddd; margin: 1em 0; background: #fafafa; border-radius: 0 4px 4px 0; }
+    .log-entry.info { border-left-color: #2196f3; background: #e3f2fd; }
+    .log-entry.warning { border-left-color: #ff9800; background: #fff3e0; }
+    .log-entry.error { border-left-color: #f44336; background: #ffebee; }
+    .log-entry.success { border-left-color: #4caf50; background: #e8f5e8; }
+    .log-timestamp { color: #666; font-size: 0.9em; }
+    .log-level { padding: 0.3em 0.6em; border-radius: 4px; font-size: 0.8em; font-weight: bold; display: inline-block; margin-right: 1em; }
+    .level-info { background: #e3f2fd; color: #1565c0; }
+    .level-warning { background: #fff3e0; color: #ef6c00; }
+    .level-error { background: #ffebee; color: #c62828; }
+    .level-success { background: #e8f5e8; color: #2e7d32; }
+    .log-message { margin: 0.5em 0; }
+    .log-details { font-family: monospace; background: #f5f5f5; padding: 0.5em; border-radius: 4px; margin-top: 0.5em; font-size: 0.9em; }
+    .filters { margin-bottom: 2em; }
+    .filter-button { background: #ddd; border: none; padding: 0.5em 1em; margin-right: 0.5em; border-radius: 4px; cursor: pointer; }
+    .filter-button.active { background: #2196f3; color: white; }
+    .filter-button:hover { background: #1976d2; color: white; }
+    .auto-refresh { margin-bottom: 2em; }
+    .refresh-toggle { background: #4caf50; color: white; border: none; padding: 0.5em 1em; border-radius: 4px; cursor: pointer; }
+    .refresh-toggle.inactive { background: #f44336; }
+  </style>
+</head>
+<body>
+  <div class="back-link">
+    <a href="index.html">← Volver al Dev Portal</a>
+  </div>
+  
+  <h1>Logs & Notificaciones - VThink 1.0</h1>
+  
+  <div class="auto-refresh">
+    <button class="refresh-toggle" id="refreshToggle">Auto-refresh: ON</button>
+    <span style="margin-left: 1em; color: #666;">Actualiza logs automáticamente cada 30 segundos</span>
+  </div>
+  
+  <div class="filters">
+    <button class="filter-button active" data-level="all">Todos</button>
+    <button class="filter-button" data-level="info">Info</button>
+    <button class="filter-button" data-level="warning">Warning</button>
+    <button class="filter-button" data-level="error">Error</button>
+    <button class="filter-button" data-level="success">Success</button>
+  </div>
+  
+  <div class="logs-container" id="logsContainer">
+    <!-- Los logs se cargarán dinámicamente -->
+  </div>
+
+  <script>
+    let logs = [
+      {
+        timestamp: '2025-01-25 15:30:45',
+        level: 'info',
+        message: 'Sistema VThink 1.0 iniciado correctamente',
+        details: 'Multi-tenant architecture loaded, RLS policies active'
+      },
+      {
+        timestamp: '2025-01-25 15:29:30',
+        level: 'success',
+        message: 'Build completado exitosamente',
+        details: 'Bundle size: 2.1MB, Coverage: 87%, Type check: PASS'
+      },
+      {
+        timestamp: '2025-01-25 15:28:15',
+        level: 'warning',
+        message: 'Performance warning detectado',
+        details: 'Component UserManagement taking 150ms to render, threshold: 100ms'
+      },
+      {
+        timestamp: '2025-01-25 15:27:00',
+        level: 'info',
+        message: 'CMMI evidence generada',
+        details: 'Process areas: REQM, PP, PMC, SAM, MA, PPQA, CM'
+      },
+      {
+        timestamp: '2025-01-25 15:26:45',
+        level: 'error',
+        message: 'Error en validación multi-tenant',
+        details: 'Query without company_id filter detected in UserService.getUsers()'
+      },
+      {
+        timestamp: '2025-01-25 15:25:30',
+        level: 'success',
+        message: 'Security audit completado',
+        details: '0 vulnerabilities found, 15 security checks passed'
+      },
+      {
+        timestamp: '2025-01-25 15:24:15',
+        level: 'info',
+        message: 'Database migration aplicada',
+        details: 'Migration: 20250125_add_user_roles, Status: SUCCESS'
+      },
+      {
+        timestamp: '2025-01-25 15:23:00',
+        level: 'warning',
+        message: 'Memory usage elevado',
+        details: 'Current: 85%, Threshold: 80%, Component: AdminPanel'
+      },
+      {
+        timestamp: '2025-01-25 15:22:45',
+        level: 'success',
+        message: 'E2E tests pasaron',
+        details: '45/45 tests passed, Duration: 2m 30s'
+      },
+      {
+        timestamp: '2025-01-25 15:21:30',
+        level: 'info',
+        message: 'AI integration configurada',
+        details: 'OpenAI, Firecrawl, Knotie APIs connected successfully'
+      },
+      {
+        timestamp: '2025-01-25 15:20:15',
+        level: 'error',
+        message: 'Error en autenticación',
+        details: 'Invalid JWT token in request from 192.168.1.100'
+      },
+      {
+        timestamp: '2025-01-25 15:19:00',
+        level: 'success',
+        message: 'Deployment a producción completado',
+        details: 'Version: v1.2.3, Environment: production, Status: HEALTHY'
+      }
+    ];
+
+    let currentFilter = 'all';
+    let autoRefresh = true;
+
+    function renderLogs() {
+      const container = document.getElementById('logsContainer');
+      container.innerHTML = '';
+      
+      const filteredLogs = logs.filter(log => 
+        currentFilter === 'all' || log.level === currentFilter
+      );
+      
+      filteredLogs.forEach(log => {
+        const logEntry = document.createElement('div');
+        logEntry.className = `log-entry ${log.level}`;
+        
+        logEntry.innerHTML = `
+          <div>
+            <span class="log-timestamp">${log.timestamp}</span>
+            <span class="log-level level-${log.level}">${log.level.toUpperCase()}</span>
+          </div>
+          <div class="log-message">${log.message}</div>
+          <div class="log-details">${log.details}</div>
+        `;
+        
+        container.appendChild(logEntry);
+      });
+    }
+
+    function addNewLog() {
+      const levels = ['info', 'warning', 'error', 'success'];
+      const messages = [
+        'Nueva conexión de usuario detectada',
+        'Backup automático completado',
+        'Sincronización de datos iniciada',
+        'Validación de permisos ejecutada',
+        'Cache actualizado correctamente'
+      ];
+      
+      const newLog = {
+        timestamp: new Date().toLocaleString('es-CO'),
+        level: levels[Math.floor(Math.random() * levels.length)],
+        message: messages[Math.floor(Math.random() * messages.length)],
+        details: 'Auto-generated log entry for testing purposes'
+      };
+      
+      logs.unshift(newLog);
+      
+      // Mantener solo los últimos 50 logs
+      if (logs.length > 50) {
+        logs = logs.slice(0, 50);
+      }
+      
+      renderLogs();
+    }
+
+    // Filtros
+    document.querySelectorAll('.filter-button').forEach(button => {
+      button.addEventListener('click', function() {
+        document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        currentFilter = this.dataset.level;
+        renderLogs();
+      });
+    });
+
+    // Auto-refresh toggle
+    document.getElementById('refreshToggle').addEventListener('click', function() {
+      autoRefresh = !autoRefresh;
+      this.textContent = autoRefresh ? 'Auto-refresh: ON' : 'Auto-refresh: OFF';
+      this.classList.toggle('inactive', !autoRefresh);
+    });
+
+    // Auto-refresh cada 30 segundos
+    setInterval(() => {
+      if (autoRefresh) {
+        addNewLog();
+      }
+    }, 30000);
+
+    // Renderizar logs iniciales
+    renderLogs();
+  </script>
+</body>
+</html> 

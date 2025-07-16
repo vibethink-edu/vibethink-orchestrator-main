@@ -1,0 +1,31 @@
+{
+  "version": "4.5.0",
+  "npmClient": "npm",
+  "packages": [
+    "apps/*",
+    "bundui"
+  ],
+  "command": {
+    "version": {
+      "conventionalCommits": true,
+      "message": "chore(release): publish %s",
+      "allowBranch": ["main", "develop"]
+    },
+    "publish": {
+      "conventionalCommits": true,
+      "message": "chore(release): publish %s",
+      "registry": "https://npm.pkg.github.com"
+    },
+    "bootstrap": {
+      "npmClientArgs": ["--legacy-peer-deps"]
+    }
+  },
+  "ignoreChanges": [
+    "**/*.md",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/docs/**",
+    "**/scripts/**",
+    "**/.husky/**"
+  ]
+}

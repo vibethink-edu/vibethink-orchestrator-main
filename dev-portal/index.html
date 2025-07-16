@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dev Portal Interno - Gestión de Desarrollo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; background: #f8f9fa; }
+    h1 { color: #2c3e50; }
+    nav { margin-bottom: 2em; }
+    nav a { margin-right: 2em; color: #2980b9; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    .desc { color: #555; font-size: 1em; margin-bottom: 2em; }
+    .alert { background: #ffeeba; color: #856404; padding: 1em; border-radius: 5px; margin-bottom: 2em; }
+    .footer { color: #888; font-size: 0.9em; margin-top: 3em; }
+  </style>
+</head>
+<body>
+  <h1>Dev Portal Interno</h1>
+  <div class="alert">
+    <strong>Uso interno:</strong> Este mini portal es discreto, temporal y solo para gestión interna de desarrollo, calidad y evidencia. <br>
+    <em>No es público ni debe ser expuesto fuera del equipo.</em>
+  </div>
+  <div class="desc">
+    Bienvenido al centro de gestión y evidencia del proyecto. Aquí puedes acceder rápidamente a tareas, evidencia, documentación, scripts y logs clave.<br>
+    <strong>Recuerda:</strong> Actualiza este portal si agregas nuevas herramientas o recursos importantes.
+  </div>
+  <nav>
+    <a href="tareas.html">Tareas & Backlog</a>
+    <a href="evidencia.html">Evidencia & Calidad</a>
+    <a href="docs.html">Documentación</a>
+    <a href="scripts.html">Scripts & Automatización</a>
+    <a href="logs.html">Logs & Notificaciones</a>
+  </nav>
+  <ul>
+    <li><b>Panel de Tareas:</b> Visualiza y gestiona el backlog central de tareas y reglas.</li>
+    <li><b>Evidencia & Calidad:</b> Acceso al dashboard visual y reportes de evidencia CMMI.</li>
+    <li><b>Documentación:</b> Enlaces a README, metodología, políticas y guías clave.</li>
+    <li><b>Scripts & Automatización:</b> Listado y explicación de scripts críticos del proyecto.</li>
+    <li><b>Logs & Notificaciones:</b> Visualización de logs de eventos y notificaciones automáticas.</li>
+  </ul>
+  <div class="footer">
+    Dev Portal Interno &copy; 2025 | Solo para uso del equipo de desarrollo y calidad.<br>
+    Última actualización: <span id="fecha"></span>
+  </div>
+  <script>document.getElementById('fecha').textContent = new Date().toLocaleString('es-CO');</script>
+</body>
+</html> 

@@ -1,0 +1,408 @@
+{
+  "dashboard": {
+    "welcome": "Welcome, {{name}}",
+    "subtitle": "{{company}} Dashboard",
+    "prompt_placeholder": "Type your AI query here...",
+    "run": "Run",
+    "quick_actions": "Quick Actions",
+    "activity_title": "Recent Activity",
+    "activity_description": "Latest actions performed in the system",
+    "recent_activity": "Recent Activity"
+  },
+  "header": {
+    "search": "Search...",
+    "searchPlaceholder": "Search...",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Sign Out",
+    "VibeThink": "VibeThink",
+    "superAdmin": "Super Admin",
+    "showSettings": "Show settings panel",
+    "hideSettings": "Hide settings panel",
+    "userSettings": "User settings",
+    "signOut": "Sign out",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "navigation": {
+    "chat": "Chat",
+    "history": "History", 
+    "projects": "Projects",
+    "admin": "Admin",
+    "users": "Users",
+    "company": "Company",
+    "super_admin": "Super Admin",
+    "companies": "Companies",
+    "config": "Settings",
+    "dashboard": "Home",
+    "principal": "Principal",
+    "company_admin": "Company Admin",
+    "platform_admin": "Platform Admin"
+  },
+  "tooltips": {
+    "go_to_chat": "Go to main chat",
+    "view_history": "View conversation history",
+    "manage_projects": "Manage projects and documentation",
+    "admin_panel": "Company administration panel",
+    "user_management": "Company user management",
+    "company_admin": "Company administration",
+    "super_admin_panel": "Platform administration panel",
+    "expand_sidebar": "Expand sidebar",
+    "collapse_sidebar": "Collapse sidebar",
+    "close_menu": "Close menu",
+    "open_navigation": "Open navigation menu",
+    "search_app": "Search throughout the application",
+    "view_notifications": "View notifications",
+    "show_settings": "Show settings panel",
+    "hide_settings": "Hide settings panel",
+    "user_profile": "User profile",
+    "quick_search": "Quick search",
+    "user_menu": "User menu",
+    "platform_administration": "Platform administration",
+    "company_configuration": "Company configuration"
+  },
+  "language": {
+    "spanish": "Spanish",
+    "english": "English",
+    "title": "Language",
+    "current": "Current",
+    "switcher": "Change language",
+    "switch": "Switch language"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "auth": {
+    "title": "Access to VibeThink",
+    "subtitle": "Enterprise AI Platform",
+    "loginSubtitle": "Enter your credentials to access",
+    "signin": "Sign In",
+    "signup": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "fullName": "Full Name",
+    "companyName": "Company Name",
+    "loggingIn": "Signing in...",
+    "loginButton": "Sign In",
+    "creatingAccount": "Creating account...",
+    "signupButton": "Create Account",
+    "passwordsDontMatch": "Passwords don't match",
+    "passwordTooShort": "Password must be at least 6 characters",
+    "signupSuccess": "Account created successfully. Check your email to verify your account.",
+    "continueWithGoogle": "Continue with Google",
+    "continueWithMicrosoft": "Continue with Microsoft",
+    "continueWithApple": "Continue with Apple",
+    "continueWithGitHub": "Continue with GitHub",
+    "continueWithLinkedIn": "Continue with LinkedIn",
+    "orContinueWith": "Or continue with",
+    "login": {
+      "title": "Sign In",
+      "subtitle": "Enter your email and password to access",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "signInButton": "Sign In",
+      "signingIn": "Signing in...",
+      "noAccount": "Don't have an account?",
+      "signUpLink": "Sign up here",
+      "testCredentialsTitle": "Test Credentials:",
+      "errors": {
+        "testPassword": "For testing, use password: 12345",
+        "invalidEmail": "Enter a valid email",
+        "loginError": "Error signing in"
+      },
+      "roles": {
+        "superAdmin": "Super Admin",
+        "admin": "Admin", 
+        "manager": "Manager",
+        "employee": "Employee"
+      }
+    }
+  },
+  "admin": {
+    "title": "Company Administration Panel",
+    "subtitle": "Manage your company's users, permissions and configurations",
+    "context": {
+      "clientMode": "Mode: VibeThink Client",
+      "goToSuperAdmin": "🚀 Go to Platform Admin",
+      "companyManagement": "Company Management of {{company}}"
+    },
+    "stats": {
+      "companyUsers": "Company Users",
+      "activeModules": "Active Modules",
+      "monthlyAIUsage": "Monthly AI Usage",
+      "averageTime": "Average Time",
+      "changeFromLastMonth": "from last month"
+    },
+    "actions": {
+      "title": "Company Management",
+      "userManagement": {
+        "title": "User Management",
+        "description": "Manage your company users"
+      },
+      "permissions": {
+        "title": "Permissions and Roles",
+        "description": "Configure permissions within your company"
+      },
+      "limits": {
+        "title": "Limits and Configuration",
+        "description": "Manage company limits and configuration"
+      },
+      "companyConfig": {
+        "title": "Company Configuration",
+        "description": "Configure company data and preferences"
+      },
+      "access": "Access"
+    },
+    "recentActivity": {
+      "title": "Recent Activity",
+      "description": "Latest actions performed in your company",
+      "actions": {
+        "userCreated": "User created",
+        "permissionsModified": "Permissions modified",
+        "limitUpdated": "Limit updated",
+        "userSuspended": "User suspended",
+        "configChanged": "Configuration changed"
+      },
+      "timeAgo": {
+        "hoursAgo": "{{count}} hours ago",
+        "daysAgo": "{{count}} day ago"
+      }
+    },
+    "limits": {
+      "title": "Limits and Quotas",
+      "subtitle": "Manage usage limits and AI quotas per user and department",
+      "comingSoon": {
+        "title": "Limit Control",
+        "description": "Soon you will be able to configure usage limits, monthly quotas and automatic alerts.",
+        "features": {
+          "quotas": {
+            "title": "Quotas",
+            "description": "Monthly limits"
+          },
+          "monitoring": {
+            "title": "Monitoring",
+            "description": "Real-time tracking"
+          },
+          "alerts": {
+            "title": "Alerts",
+            "description": "Automatic notifications"
+          }
+        }
+      }
+    },
+    "permissions": {
+      "title": "Permissions and Access",
+      "subtitle": "Configure permissions by module, department and user",
+      "comingSoon": {
+        "title": "Permission System",
+        "description": "Soon you will be able to configure granular permissions by module, department and user.",
+        "features": {
+          "modules": {
+            "title": "Modules",
+            "description": "Module control"
+          },
+          "departments": {
+            "title": "Departments",
+            "description": "Department permissions"
+          },
+          "users": {
+            "title": "Users",
+            "description": "Individual permissions"
+          }
+        }
+      }
+    }
+  },
+  "superadmin": {
+    "title": "Platform Administration Panel",
+    "subtitle": "Manage companies, global users and platform configuration",
+    "context": {
+      "platformMode": "Mode: Platform Administration",
+      "globalManagement": "Global VibeThink Management"
+    },
+    "stats": {
+      "totalCompanies": "Total Companies",
+      "totalUsers": "Total Users",
+      "activeCompanies": "Active Companies",
+      "monthlyRevenue": "Monthly Revenue",
+      "changeFromLastMonth": "from last month"
+    },
+    "actions": {
+      "title": "Platform Management",
+      "companyManagement": {
+        "title": "Company Management",
+        "description": "Manage all platform companies"
+      },
+      "globalUsers": {
+        "title": "Global Users",
+        "description": "Manage users from all companies"
+      },
+      "platformConfig": {
+        "title": "Platform Configuration",
+        "description": "Configure global platform parameters"
+      },
+      "analytics": {
+        "title": "Global Analytics",
+        "description": "View metrics and statistics from the entire platform"
+      },
+      "access": "Access"
+    },
+    "recentActivity": {
+      "title": "Recent Global Activity",
+      "description": "Latest actions performed across the entire platform",
+      "actions": {
+        "companyCreated": "Company created",
+        "companySuspended": "Company suspended",
+        "userCreated": "User created",
+        "userSuspended": "User suspended",
+        "configChanged": "Configuration changed"
+      },
+      "timeAgo": {
+        "hoursAgo": "{{count}} hours ago",
+        "daysAgo": "{{count}} day ago"
+      }
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "update": "Update",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "refresh": "Refresh",
+    "export": "Export",
+    "import": "Import",
+    "download": "Download",
+    "upload": "Upload",
+    "view": "View",
+    "details": "Details",
+    "settings": "Settings",
+    "profile": "Profile",
+    "logout": "Sign Out",
+    "notifications": "Notifications",
+    "help": "Help",
+    "support": "Support",
+    "feedback": "Feedback",
+    "report": "Report",
+    "bug": "Bug",
+    "feature": "Feature",
+    "improvement": "Improvement",
+    "other": "Other"
+  },
+  "errors": {
+    "general": "An error has occurred",
+    "network": "Connection error",
+    "unauthorized": "Unauthorized",
+    "forbidden": "Access denied",
+    "notFound": "Not found",
+    "serverError": "Server error",
+    "validation": "Validation error",
+    "timeout": "Request timeout",
+    "unknown": "Unknown error"
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "Enter a valid email",
+    "minLength": "Must have at least {{min}} characters",
+    "maxLength": "Must have maximum {{max}} characters",
+    "password": "Password must have at least 6 characters",
+    "passwordMatch": "Passwords don't match",
+    "invalidFormat": "Invalid format"
+  },
+  "bundui": {
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Manage and maintain the original layout and widgets, just change the text and people names.",
+      "download": "Download"
+    },
+    "chat": {
+      "new_message": "New message",
+      "type_message": "Type your message...",
+      "send": "Send",
+      "messages": {
+        "agent_welcome": "Hi, how can I help you today?",
+        "user_problem": "Hey, I'm having trouble with my account.",
+        "agent_question": "What seems to be the problem?",
+        "user_login_issue": "I can't log in."
+      }
+    },
+    "sidebar": {
+      "get_pro": "Get VibeThink Pro",
+      "pro_description": "Need more modules and advanced features? Get full access to VibeThink Pro.",
+      "get_pro_button": "Get Pro",
+      "view_features": "View Features"
+    },
+    "login": {
+      "welcome": "Welcome back",
+      "signin_subtitle": "Please sign in to your account",
+      "email_address": "Email address",
+      "password": "Password",
+      "forgot_password": "Forgot your password?",
+      "sign_in": "Sign In",
+      "no_account": "Don't have an account?",
+      "sign_up": "Sign up"
+    },
+    "routes": {
+      "dashboard": "Dashboard",
+      "overview": "Overview",
+      "analytics": "Analytics",
+      "reports": "Reports",
+      "vibeThink_modules": "VibeThink Modules",
+      "crm_sales": "CRM & Sales",
+      "customer_management": "Customer Management",
+      "sales_pipeline": "Sales Pipeline",
+      "lead_generation": "Lead Generation",
+      "deal_tracking": "Deal Tracking",
+      "ai_automation": "AI & Automation",
+      "ai_assistant": "AI Assistant",
+      "workflow_automation": "Workflow Automation",
+      "smart_analytics": "Smart Analytics",
+      "predictive_models": "Predictive Models",
+      "document_management": "Document Management",
+      "document_center": "Document Center",
+      "templates": "Templates",
+      "collaboration": "Collaboration",
+      "version_control": "Version Control",
+      "communication": "Communication",
+      "email_management": "Email Management",
+      "chat_system": "Chat System",
+      "notifications": "Notifications",
+      "integrations": "Integrations",
+      "administration": "Administration",
+      "user_management": "User Management",
+      "all_users": "All Users",
+      "roles_permissions": "Roles & Permissions",
+      "department_assignment": "Department Assignment",
+      "activity_logs": "Activity Logs",
+      "company_settings": "Company Settings",
+      "company_profile": "Company Profile",
+      "billing_plans": "Billing & Plans",
+      "security_settings": "Security Settings",
+      "system_configuration": "System Configuration",
+      "global_settings": "Global Settings",
+      "quality_standards": "Quality Standards",
+      "performance_monitoring": "Performance Monitoring",
+      "backup_recovery": "Backup & Recovery"
+    }
+  }
+} 

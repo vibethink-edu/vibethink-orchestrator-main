@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tareas & Backlog - Dev Portal</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; background: #f8f9fa; }
+    h1 { color: #2c3e50; }
+    .back-link { margin-bottom: 2em; }
+    .back-link a { color: #2980b9; text-decoration: none; font-weight: bold; }
+    .task-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1em; margin: 2em 0; }
+    .task-card { background: white; padding: 1.5em; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; }
+    .task-priority { padding: 0.3em 0.6em; border-radius: 4px; font-size: 0.8em; font-weight: bold; margin-right: 0.5em; }
+    .priority-high { background: #ffebee; color: #c62828; }
+    .priority-medium { background: #fff3e0; color: #ef6c00; }
+    .priority-low { background: #e8f5e8; color: #2e7d32; }
+    .task-status { padding: 0.3em 0.6em; border-radius: 4px; font-size: 0.8em; }
+    .status-todo { background: #e3f2fd; color: #1565c0; }
+    .status-progress { background: #fff8e1; color: #f57f17; }
+    .status-done { background: #e8f5e8; color: #2e7d32; }
+    .task-meta { font-size: 0.9em; color: #666; margin-top: 1em; }
+    .task-notes { background: #f5f5f5; padding: 0.8em; border-radius: 4px; margin-top: 1em; font-size: 0.9em; }
+    .task-actions { margin-top: 1em; }
+    .btn { padding: 0.5em 1em; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8em; margin-right: 0.5em; }
+    .btn-edit { background: #2196f3; color: white; }
+    .btn-delete { background: #f44336; color: white; }
+    .btn-save { background: #4caf50; color: white; }
+    .btn-cancel { background: #9e9e9e; color: white; }
+    .btn-note { background: #ff9800; color: white; }
+    .add-task { background: #4caf50; color: white; padding: 1em; border-radius: 8px; margin: 2em 0; }
+    .add-task input, .add-task textarea, .add-task select { width: 100%; margin: 0.5em 0; padding: 0.5em; border: 1px solid #ddd; border-radius: 4px; }
+    .add-task button { background: #2196f3; color: white; border: none; padding: 0.8em 1.5em; border-radius: 4px; cursor: pointer; }
+    .filters { background: white; padding: 1em; border-radius: 8px; margin: 1em 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .filters select, .filters input { margin: 0 0.5em; padding: 0.3em; border: 1px solid #ddd; border-radius: 4px; }
+    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); }
+    .modal-content { background-color: white; margin: 5% auto; padding: 2em; border-radius: 8px; width: 80%; max-width: 600px; }
+    .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+    .close:hover { color: #000; }
+    .note-input { width: 100%; min-height: 80px; margin: 1em 0; }
+    .stats { background: white; padding: 1em; border-radius: 8px; margin: 1em 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1em; }
+    .stat-item { text-align: center; padding: 1em; background: #f8f9fa; border-radius: 4px; }
+    .stat-number { font-size: 2em; font-weight: bold; color: #2196f3; }
+  </style>
+</head>
+<body>
+  <div class="back-link">
+    <a href="index.html">← Volver al Dev Portal</a>
+  </div>
+  
+  <h1>Tareas & Backlog - VThink 1.0</h1>
+
+  <!-- Estadísticas -->
+  <div class="stats">
+    <h3>📊 Estadísticas del Proyecto</h3>
+    <div class="stats-grid" id="statsGrid">
+      <!-- Estadísticas se cargarán dinámicamente -->
+    </div>
+  </div>
+
+  <!-- Filtros -->
+  <div class="filters">
+    <h3>🔍 Filtros</h3>
+    <select id="filterStatus">
+      <option value="">Todos los estados</option>
+      <option value="todo">Pendiente</option>
+      <option value="progress">En Progreso</option>
+      <option value="done">Completada</option>
+    </select>
+    <select id="filterPriority">
+      <option value="">Todas las prioridades</option>
+      <option value="high">Alta</option>
+      <option value="medium">Media</option>
+      <option value="low">Baja</option>
+    </select>
+    <select id="filterLevel">
+      <option value="">Todos los niveles</option>
+      <option value="1">Nivel 1 - Quick Fix</option>
+      <option value="2">Nivel 2 - Feature</option>
+      <option value="3">Nivel 3 - Feature Compleja</option>
+      <option value="4">Nivel 4 - Arquitectura</option>
+      <option value="5">Nivel 5 - Arquitectura Mayor</option>
+    </select>
+    <input type="text" id="searchTasks" placeholder="Buscar tareas...">
+  </div>
+  
+  <div class="add-task">
+    <h3>➕ Agregar Nueva Tarea</h3>
+    <form id="taskForm">
+      <input type="text" id="taskTitle" placeholder="Título de la tarea" required>
+      <textarea id="taskDescription" placeholder="Descripción detallada" rows="3"></textarea>
+      <select id="taskPriority">
+        <option value="low">Baja</option>
+        <option value="medium">Media</option>
+        <option value="high">Alta</option>
+      </select>
+      <select id="taskStatus">
+        <option value="todo">Pendiente</option>
+        <option value="progress">En Progreso</option>
+        <option value="done">Completada</option>
+      </select>
+      <select id="taskLevel">
+        <option value="1">Nivel 1 - Quick Fix</option>
+        <option value="2">Nivel 2 - Feature</option>
+        <option value="3">Nivel 3 - Feature Compleja</option>
+        <option value="4">Nivel 4 - Arquitectura</option>
+        <option value="5">Nivel 5 - Arquitectura Mayor</option>
+      </select>
+      <input type="text" id="taskAssignee" placeholder="Asignado a...">
+      <button type="submit">➕ Agregar Tarea</button>
+    </form>
+  </div>
+
+  <div class="task-grid" id="taskGrid">
+    <!-- Tareas se cargarán dinámicamente -->
+  </div>
+
+  <!-- Modal para editar tarea -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>✏️ Editar Tarea</h3>
+      <form id="editForm">
+        <input type="hidden" id="editTaskId">
+        <input type="text" id="editTaskTitle" placeholder="Título de la tarea" required>
+        <textarea id="editTaskDescription" placeholder="Descripción detallada" rows="3"></textarea>
+        <select id="editTaskPriority">
+          <option value="low">Baja</option>
+          <option value="medium">Media</option>
+          <option value="high">Alta</option>
+        </select>
+        <select id="editTaskStatus">
+          <option value="todo">Pendiente</option>
+          <option value="progress">En Progreso</option>
+          <option value="done">Completada</option>
+        </select>
+        <select id="editTaskLevel">
+          <option value="1">Nivel 1 - Quick Fix</option>
+          <option value="2">Nivel 2 - Feature</option>
+          <option value="3">Nivel 3 - Feature Compleja</option>
+          <option value="4">Nivel 4 - Arquitectura</option>
+          <option value="5">Nivel 5 - Arquitectura Mayor</option>
+        </select>
+        <input type="text" id="editTaskAssignee" placeholder="Asignado a...">
+        <button type="submit" class="btn btn-save">💾 Guardar Cambios</button>
+        <button type="button" class="btn btn-cancel" onclick="closeEditModal()">❌ Cancelar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal para agregar notas -->
+  <div id="noteModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>📝 Agregar Nota</h3>
+      <form id="noteForm">
+        <input type="hidden" id="noteTaskId">
+        <textarea id="noteContent" class="note-input" placeholder="Escribe tu nota aquí..." required></textarea>
+        <button type="submit" class="btn btn-save">💾 Guardar Nota</button>
+        <button type="button" class="btn btn-cancel" onclick="closeNoteModal()">❌ Cancelar</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Cargar tareas desde localStorage o usar las de ejemplo
+    let tasks = JSON.parse(localStorage.getItem('vtkTasks')) || [
+      {
+        id: 1,
+        title: "Implementar multi-tenant security",
+        description: "Asegurar que todas las consultas filtren por company_id",
+        priority: "high",
+        status: "progress",
+        level: 4,
+        created: "2025-01-25",
+        assignee: "Equipo Backend",
+        notes: ["Iniciado el 25/01/2025", "Revisar políticas RLS"],
+        updated: "2025-01-25"
+      },
+      {
+        id: 2,
+        title: "Validar RLS policies",
+        description: "Revisar políticas de Row Level Security en Supabase",
+        priority: "high",
+        status: "todo",
+        level: 3,
+        created: "2025-01-25",
+        assignee: "Equipo Seguridad",
+        notes: ["Pendiente de revisión"],
+        updated: "2025-01-25"
+      },
+      {
+        id: 3,
+        title: "Documentar VThink 1.0",
+        description: "Completar documentación de metodología VThink",
+        priority: "medium",
+        status: "progress",
+        level: 2,
+        created: "2025-01-25",
+        assignee: "Equipo Documentación",
+        notes: ["En progreso - 60% completado"],
+        updated: "2025-01-25"
+      },
+      {
+        id: 4,
+        title: "Optimizar bundle size",
+        description: "Reducir tamaño del bundle con code splitting",
+        priority: "low",
+        status: "todo",
+        level: 2,
+        created: "2025-01-25",
+        assignee: "Equipo Frontend",
+        notes: ["Análisis inicial completado"],
+        updated: "2025-01-25"
+      }
+    ];
+
+    // Guardar tareas en localStorage
+    function saveTasks() {
+      localStorage.setItem('vtkTasks', JSON.stringify(tasks));
+    }
+
+    // Actualizar estadísticas
+    function updateStats() {
+      const stats = {
+        total: tasks.length,
+        todo: tasks.filter(t => t.status === 'todo').length,
+        progress: tasks.filter(t => t.status === 'progress').length,
+        done: tasks.filter(t => t.status === 'done').length,
+        high: tasks.filter(t => t.priority === 'high').length,
+        medium: tasks.filter(t => t.priority === 'medium').length,
+        low: tasks.filter(t => t.priority === 'low').length
+      };
+
+      document.getElementById('statsGrid').innerHTML = `
+        <div class="stat-item">
+          <div class="stat-number">${stats.total}</div>
+          <div>Total Tareas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">${stats.todo}</div>
+          <div>Pendientes</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">${stats.progress}</div>
+          <div>En Progreso</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">${stats.done}</div>
+          <div>Completadas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">${stats.high}</div>
+          <div>Alta Prioridad</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">${Math.round((stats.done / stats.total) * 100)}%</div>
+          <div>Progreso</div>
+        </div>
+      `;
+    }
+
+    // Filtrar tareas
+    function filterTasks() {
+      const statusFilter = document.getElementById('filterStatus').value;
+      const priorityFilter = document.getElementById('filterPriority').value;
+      const levelFilter = document.getElementById('filterLevel').value;
+      const searchFilter = document.getElementById('searchTasks').value.toLowerCase();
+
+      const filteredTasks = tasks.filter(task => {
+        const statusMatch = !statusFilter || task.status === statusFilter;
+        const priorityMatch = !priorityFilter || task.priority === priorityFilter;
+        const levelMatch = !levelFilter || task.level.toString() === levelFilter;
+        const searchMatch = !searchFilter || 
+          task.title.toLowerCase().includes(searchFilter) ||
+          task.description.toLowerCase().includes(searchFilter) ||
+          task.assignee.toLowerCase().includes(searchFilter);
+
+        return statusMatch && priorityMatch && levelMatch && searchMatch;
+      });
+
+      renderTasks(filteredTasks);
+    }
+
+    function renderTasks(tasksToRender = tasks) {
+      const grid = document.getElementById('taskGrid');
+      grid.innerHTML = '';
+      
+      tasksToRender.forEach(task => {
+        const card = document.createElement('div');
+        card.className = 'task-card';
+        
+        const notesHtml = task.notes && task.notes.length > 0 
+          ? `<div class="task-notes"><strong>📝 Notas:</strong><br>${task.notes.map(note => `• ${note}`).join('<br>')}</div>`
+          : '';
+
+        card.innerHTML = `
+          <h3>${task.title}</h3>
+          <p>${task.description}</p>
+          <span class="task-priority priority-${task.priority}">${task.priority.toUpperCase()}</span>
+          <span class="task-status status-${task.status}">${getStatusText(task.status)}</span>
+          <div class="task-meta">
+            <strong>Nivel:</strong> ${task.level} | 
+            <strong>Asignado:</strong> ${task.assignee} | 
+            <strong>Creado:</strong> ${task.created} |
+            <strong>Actualizado:</strong> ${task.updated}
+          </div>
+          ${notesHtml}
+          <div class="task-actions">
+            <button class="btn btn-edit" onclick="editTask(${task.id})">✏️ Editar</button>
+            <button class="btn btn-note" onclick="addNote(${task.id})">📝 Nota</button>
+            <button class="btn btn-delete" onclick="deleteTask(${task.id})">🗑️ Eliminar</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function getStatusText(status) {
+      const statusMap = {
+        'todo': 'Pendiente',
+        'progress': 'En Progreso',
+        'done': 'Completada'
+      };
+      return statusMap[status] || status;
+    }
+
+    // Funciones de edición
+    function editTask(taskId) {
+      const task = tasks.find(t => t.id === taskId);
+      if (!task) return;
+
+      document.getElementById('editTaskId').value = task.id;
+      document.getElementById('editTaskTitle').value = task.title;
+      document.getElementById('editTaskDescription').value = task.description;
+      document.getElementById('editTaskPriority').value = task.priority;
+      document.getElementById('editTaskStatus').value = task.status;
+      document.getElementById('editTaskLevel').value = task.level;
+      document.getElementById('editTaskAssignee').value = task.assignee;
+
+      document.getElementById('editModal').style.display = 'block';
+    }
+
+    function closeEditModal() {
+      document.getElementById('editModal').style.display = 'none';
+    }
+
+    // Funciones de notas
+    function addNote(taskId) {
+      document.getElementById('noteTaskId').value = taskId;
+      document.getElementById('noteContent').value = '';
+      document.getElementById('noteModal').style.display = 'block';
+    }
+
+    function closeNoteModal() {
+      document.getElementById('noteModal').style.display = 'none';
+    }
+
+    // Eliminar tarea
+    function deleteTask(taskId) {
+      if (confirm('¿Estás seguro de que quieres eliminar esta tarea?')) {
+        tasks = tasks.filter(t => t.id !== taskId);
+        saveTasks();
+        renderTasks();
+        updateStats();
+      }
+    }
+
+    // Event listeners
+    document.getElementById('taskForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const newTask = {
+        id: Math.max(...tasks.map(t => t.id), 0) + 1,
+        title: document.getElementById('taskTitle').value,
+        description: document.getElementById('taskDescription').value,
+        priority: document.getElementById('taskPriority').value,
+        status: document.getElementById('taskStatus').value,
+        level: parseInt(document.getElementById('taskLevel').value),
+        created: new Date().toISOString().split('T')[0],
+        assignee: document.getElementById('taskAssignee').value || 'Sin asignar',
+        notes: [],
+        updated: new Date().toISOString().split('T')[0]
+      };
+      
+      tasks.push(newTask);
+      saveTasks();
+      renderTasks();
+      updateStats();
+      this.reset();
+    });
+
+    document.getElementById('editForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const taskId = parseInt(document.getElementById('editTaskId').value);
+      const task = tasks.find(t => t.id === taskId);
+      
+      if (task) {
+        task.title = document.getElementById('editTaskTitle').value;
+        task.description = document.getElementById('editTaskDescription').value;
+        task.priority = document.getElementById('editTaskPriority').value;
+        task.status = document.getElementById('editTaskStatus').value;
+        task.level = parseInt(document.getElementById('editTaskLevel').value);
+        task.assignee = document.getElementById('editTaskAssignee').value;
+        task.updated = new Date().toISOString().split('T')[0];
+        
+        saveTasks();
+        renderTasks();
+        updateStats();
+        closeEditModal();
+      }
+    });
+
+    document.getElementById('noteForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const taskId = parseInt(document.getElementById('noteTaskId').value);
+      const noteContent = document.getElementById('noteContent').value;
+      const task = tasks.find(t => t.id === taskId);
+      
+      if (task && noteContent.trim()) {
+        if (!task.notes) task.notes = [];
+        task.notes.push(`${noteContent} (${new Date().toLocaleDateString()})`);
+        task.updated = new Date().toISOString().split('T')[0];
+        
+        saveTasks();
+        renderTasks();
+        closeNoteModal();
+      }
+    });
+
+    // Filtros
+    document.getElementById('filterStatus').addEventListener('change', filterTasks);
+    document.getElementById('filterPriority').addEventListener('change', filterTasks);
+    document.getElementById('filterLevel').addEventListener('change', filterTasks);
+    document.getElementById('searchTasks').addEventListener('input', filterTasks);
+
+    // Cerrar modales
+    document.querySelectorAll('.close').forEach(closeBtn => {
+      closeBtn.addEventListener('click', function() {
+        this.closest('.modal').style.display = 'none';
+      });
+    });
+
+    // Cerrar modal al hacer clic fuera
+    window.addEventListener('click', function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+      }
+    });
+
+    // Inicializar
+    renderTasks();
+    updateStats();
+  </script>
+</body>
+</html> 

@@ -1,0 +1,367 @@
+# VTK 1.0 - Pendientes Centralizados
+# Protocolo de seguimiento automatizado y auditable
+# Última actualización: 2025-01-27
+# Responsable: Marcelo SALES + AI Assistant
+
+version: "1.0.0"
+metodologia: "VTK"
+fecha_creacion: "2025-01-27"
+ultima_actualizacion: "2025-01-27"
+responsable_global: "Marcelo SALES"
+
+# Configuración del protocolo
+configuracion:
+  validacion_automatica: true
+  integracion_cicd: true
+  reportes_automaticos: true
+  etiquetas_requeridas: ["VTK", "prioridad", "responsable"]
+
+# Estados disponibles
+estados:
+  - "pendiente"
+  - "en_progreso" 
+  - "revisando"
+  - "completado"
+  - "bloqueado"
+  - "cancelado"
+
+# Prioridades disponibles
+prioridades:
+  - "critica"
+  - "alta"
+  - "media"
+  - "baja"
+
+# Pendientes VTK 1.0
+pendientes:
+  # ========================================
+  # 🚨 PRIORIDAD CRÍTICA - Seguridad y Compliance
+  # ========================================
+  
+  - id: "VTK-001"
+    titulo: "Validar cumplimiento RLS en todos los queries Supabase"
+    descripcion: "Auditoría completa de seguridad multi-tenant - verificar que todos los queries incluyan company_id filter"
+    responsable: "AI Assistant"
+    prioridad: "critica"
+    estado: "pendiente"
+    fecha_creacion: "2025-01-27"
+    fecha_actualizacion: "2025-01-27"
+    fecha_limite: "2025-12-31"
+    vinculo_codigo: "src/vtk-v1.0/services/"
+    vinculo_docs: "docs/ACCESS_CONTROL_PROTOCOL.md"
+    etiquetas: ["VTK", "seguridad", "compliance", "multi-tenant", "RLS"]
+    esfuerzo_estimado: "3-5 días"
+    dependencias: []
+    notas: "Revisar todos los servicios VTK para asegurar company_id filtering"
+
+  - id: "VTK-002"
+    titulo: "Implementar auditoría automática de seguridad VTK"
+    descripcion: "Sistema de validación automática de políticas de seguridad en CI/CD"
+    responsable: "AI Assistant"
+    prioridad: "critica"
+    estado: "pendiente"
+    fecha_creacion: "2025-01-27"
+    fecha_actualizacion: "2025-01-27"
+    fecha_limite: "2025-12-31"
+    vinculo_codigo: "scripts/security/"
+    vinculo_docs: "docs/security/"
+    etiquetas: ["VTK", "seguridad", "automation", "CI/CD"]
+    esfuerzo_estimado: "1 semana"
+    dependencias: ["VTK-001"]
+    notas: "Crear script de validación automática de seguridad"
+
+  # ========================================
+  # 🚀 PRIORIDAD ALTA - Core VTK 1.0
+  # ========================================
+  
+  - id: "VTK-003"
+    titulo: "Implementar módulo de facturación multi-moneda"
+    descripcion: "Sistema completo de facturación con soporte multi-moneda y compliance fiscal"
+    responsable: "Marcelo SALES"
+    prioridad: "alta"
+    estado: "pendiente"
+    fecha_creacion: "2025-01-27"
+    fecha_actualizacion: "2025-01-27"
+    fecha_limite: "2025-12-31"
+    vinculo_codigo: "src/vtk-v1.0/billing/"
+    vinculo_docs: "docs/features/BILLING_SYSTEM.md"
+    etiquetas: ["VTK", "billing", "compliance", "multi-tenant", "multi-currency"]
+    esfuerzo_estimado: "4-6 semanas"
+    dependencias: []
+    notas: "Incluir integración con sistemas contables y compliance fiscal"
+
+  - id: "VTK-004"
+    titulo: "Decidir e implementar CMS (Strapi vs Payload)"
+    descripcion: "Evaluación final y implementación del CMS seleccionado para gestión de contenido"
+    responsable: "Marcelo SALES"
+    prioridad: "alta"
+    estado: "en_progreso"
+    fecha_creacion: "2025-01-27"
+    fecha_actualizacion: "2025-01-27"
+    fecha_limite: "2025-12-31"
+    vinculo_codigo: "src/vtk-v1.0/cms/"
+    vinculo_docs: "docs/features/CMS_STRATEGY_ANALYSIS.md"
+    etiquetas: ["VTK", "CMS", "content-management", "strapi", "payload"]
+    esfuerzo_estimado: "6-8 semanas"
+    dependencias: []
+    notas: "Evaluación en progreso - decisión pendiente entre Strapi y Payload"
+
+  - id: "VTK-005"
+    titulo: "Implementar módulos Helpdesk y PQRS"
+    descripcion: "Sistema completo de soporte al cliente con gestión de tickets y PQRS"
+    responsable: "Marcelo SALES"
+    prioridad: "alta"
+    estado: "pendiente"
+    fecha_creacion: "2025-01-27"
+    fecha_actualizacion: "2025-01-27"
+    fecha_limite: "2025-07-31"
+    vinculo_codigo: "src/vtk-v1.0/helpdesk/"
+    vinculo_docs: "docs/features/HELPDESK_PQRS_STRATEGY.md"
+    etiquetas: ["VTK", "helpdesk", "PQRS", "customer-support", "tickets"]
+    esfuerzo_estimado: "8-10 semanas"
+    dependencias: []
+    notas: "Incluir integración con sistema de tickets existente"
+
+  # ========================================
+  # 🔧 PRIORIDAD MEDIA - Módulos Especializados
+  # ========================================
+  
+  - id: "VTK-006"
+    titulo: "Implementar módulo PIM (Product Information Management)"
+    descripcion: "Sistema de gestión de productos y catálogos con atributos dinámicos"
+    responsable: "Marcelo SALES"
+    prioridad: "media"
+    estado: "pendiente"
+    fecha_creacion: "2025-01-27"
+    fecha_actualizacion: "2025-01-27"
+    fecha_limite: "2025-07-31"
+    vinculo_codigo: "src/vtk-v1.0/pim/"
+    vinculo_docs: "docs/features/PIM_MODULE_ANALYSIS.md"
+    etiquetas: ["VTK", "PIM", "products", "catalog", "ecommerce"]
+    esfuerzo_estimado: "6-8 semanas"
+    dependencias: ["VTK-004"]
+    notas: "Integrar con sistema de catálogos existente"
+
+  - id: "VTK-007"
+    titulo: "Desarrollar módulo para Developers (reemplaza Task)"
+    descripcion: "Módulo especializado para productividad del equipo de desarrollo"
+    responsable: "Marcelo SALES"
+    prioridad: "media"
+    estado: "pendiente"
+    fecha_creacion: "2025-01-27"
+    fecha_actualizacion: "2025-01-27"
+    fecha_limite: "2025-07-31"
+    vinculo_codigo: "src/vtk-v1.0/developers/"
+    vinculo_docs: "docs/features/"
+    etiquetas: ["VTK", "developers", "productivity", "internal-tools"]
+    esfuerzo_estimado: "4-6 semanas"
+    dependencias: []
+    notas: "Recuperar código base del módulo anterior y rediseñar"
+
+  - id: "VTK-008"
+    titulo: "Implementar sistema de Analytics Avanzado"
+    descripcion: "Dashboards de KPIs, métricas de negocio en tiempo real y reportes automatizados"
+    responsable: "Marcelo SALES"
+    prioridad: "media"
+    estado: "pendiente"
+    fecha_creacion: "2025-01-27"
+    fecha_actualizacion: "2025-01-27"
+    fecha_limite: "2025-08-31"
+    vinculo_codigo: "src/vtk-v1.0/analytics/"
+    vinculo_docs: "docs/features/"
+    etiquetas: ["VTK", "analytics", "KPIs", "dashboards", "reporting"]
+    esfuerzo_estimado: "6-8 semanas"
+    dependencias: []
+    notas: "Integración con Postiz Analytics y métricas de negocio"
+
+  # ========================================
+  # 🌐 PRIORIDAD MEDIA - Internacionalización
+  # ========================================
+  
+  - id: "VTK-009"
+    titulo: "Implementar soporte multi-idioma y multi-país"
+    descripcion: "Sistema completo de internacionalización con compliance local por país"
+    responsable: "Marcelo SALES"
+    prioridad: "media"
+    estado: "pendiente"
+    fecha_creacion: "2025-01-27"
+    fecha_actualizacion: "2025-01-27"
+    fecha_limite: "2025-09-30"
+    vinculo_codigo: "src/vtk-v1.0/i18n/"
+    vinculo_docs: "docs/features/"
+    etiquetas: ["VTK", "i18n", "multi-language", "multi-country", "compliance"]
+    esfuerzo_estimado: "8-10 semanas"
+    dependencias: ["VTK-003"]
+    notas: "Incluir compliance local por país y testing de internacionalización"
+
+  # ========================================
+  # 📊 PRIORIDAD BAJA - Mejoras y Optimizaciones
+  # ========================================
+  
+  - id: "VTK-010"
+    titulo: "Optimizar performance de features principales (<2s)"
+    descripcion: "Optimización de carga y respuesta en features críticas del sistema"
+    responsable: "AI Assistant"
+    prioridad: "baja"
+    estado: "pendiente"
+    fecha_creacion: "2025-01-27"
+    fecha_actualizacion: "2025-01-27"
+    fecha_limite: "2025-10-31"
+    vinculo_codigo: "src/vtk-v1.0/"
+    vinculo_docs: "docs/performance/"
+    etiquetas: ["VTK", "performance", "optimization", "UX"]
+    esfuerzo_estimado: "2-3 semanas"
+    dependencias: []
+    notas: "Métricas objetivo: <2s load time para features principales"
+
+  - id: "VTK-011"
+    titulo: "Implementar agente de voz VTK"
+    descripcion: "Sistema de asistente de voz integrado con VTK"
+    responsable: "Marcelo SALES"
+    prioridad: "baja"
+    estado: "pendiente"
+    fecha_creacion: "2025-01-27"
+    fecha_actualizacion: "2025-01-27"
+    fecha_limite: "2025-11-30"
+    vinculo_codigo: "src/vtk-v1.0/voice-agent/"
+    vinculo_docs: "docs/features/"
+    etiquetas: ["VTK", "voice", "AI", "assistant", "UX"]
+    esfuerzo_estimado: "6-8 semanas"
+    dependencias: []
+    notas: "Integración con sistemas de voz existentes"
+
+  # ========================================
+  # 🔄 MIGRACIONES Y CLIENTES
+  # ========================================
+  
+  - id: "VTK-012"
+    titulo: "Migración Cliente ICA - Kentico v12"
+    descripcion: "Sistema de migración automatizada desde Kentico v12 con compliance gubernamental"
+    responsable: "Marcelo SALES"
+    prioridad: "alta"
+    estado: "pendiente"
+    fecha_creacion: "2025-01-27"
+    fecha_actualizacion: "2025-01-27"
+    fecha_limite: "2025-08-31"
+    vinculo_codigo: "src/vtk-v1.0/migrations/ica/"
+    vinculo_docs: "docs/PROJECT/ANALYSIS_BACKLOG.md"
+    etiquetas: ["VTK", "migration", "kentico", "government", "compliance"]
+    esfuerzo_estimado: "15-22 semanas"
+    dependencias: ["VTK-001", "VTK-002"]
+    notas: "Incluir módulo de compliance gubernamental específico para ICA"
+
+  - id: "VTK-013"
+    titulo: "Migración Cliente MINCIT - Kentico v12"
+    descripcion: "Sistema de migración automatizada desde Kentico v12 con gestión de trámites empresariales"
+    responsable: "Marcelo SALES"
+    prioridad: "alta"
+    estado: "pendiente"
+    fecha_creacion: "2025-01-27"
+    fecha_actualizacion: "2025-01-27"
+    fecha_limite: "2025-07-31"
+    vinculo_codigo: "src/vtk-v1.0/migrations/mincit/"
+    vinculo_docs: "docs/PROJECT/ANALYSIS_BACKLOG.md"
+    etiquetas: ["VTK", "migration", "kentico", "government", "business-processes"]
+    esfuerzo_estimado: "17-24 semanas"
+    dependencias: ["VTK-001", "VTK-002"]
+    notas: "Incluir integración con sistemas de MINCIT y certificados digitales"
+
+  # ========================================
+  # 🤝 PARTNERSHIPS E INTEGRACIONES
+  # ========================================
+  
+  - id: "VTK-014"
+    titulo: "Partnership Strapi - Integración CMS"
+    descripcion: "Integración completa con Strapi CMS y generación automática de landing pages"
+    responsable: "Marcelo SALES"
+    prioridad: "media"
+    estado: "pendiente"
+    fecha_creacion: "2025-01-27"
+    fecha_actualizacion: "2025-01-27"
+    fecha_limite: "2025-07-31"
+    vinculo_codigo: "src/vtk-v1.0/integrations/strapi/"
+    vinculo_docs: "docs/integrations/STRAPI_INTEGRATION_PLAN.md"
+    etiquetas: ["VTK", "partnership", "strapi", "CMS", "landing-pages"]
+    esfuerzo_estimado: "4-6 semanas"
+    dependencias: ["VTK-004"]
+    notas: "Módulo de generación automática de landing pages"
+
+  - id: "VTK-015"
+    titulo: "Partnership Knotie - Integración AI"
+    descripcion: "Integración con Knotie AI para capacidades avanzadas de IA"
+    responsable: "Marcelo SALES"
+    prioridad: "media"
+    estado: "en_progreso"
+    fecha_creacion: "2025-01-27"
+    fecha_actualizacion: "2025-01-27"
+    fecha_limite: "2025-12-31"
+    vinculo_codigo: "src/vtk-v1.0/integrations/knotie/"
+    vinculo_docs: "docs/integrations/KNOTIE_AI_INTEGRATION_BLUEPRINT.md"
+    etiquetas: ["VTK", "partnership", "knotie", "AI", "integration"]
+    esfuerzo_estimado: "3-4 semanas"
+    dependencias: []
+    notas: "Integración con capacidades avanzadas de IA de Knotie"
+
+  - id: "VTK-016"
+    titulo: "Crear documento de seguimiento de tareas empresariales por departamento, equipo y responsable"
+    descripcion: |
+      Diseñar y documentar un sistema de seguimiento de tareas empresariales que permita visualizar y gestionar tareas por departamento, equipo y responsable. El documento debe incluir KPIs, plantillas, reglas de actualización y ejemplos. Debe ser escalable y migrable a un dashboard o módulo futuro.
+    responsable: "Marcelo Escallón"
+    prioridad: "media"
+    estado: "pendiente"
+    fecha_creacion: "2025-07-01"
+    fecha_actualizacion: "2025-07-01"
+    fecha_limite: "2025-08-15"
+    vinculo_codigo: "docs/operations/EMPRESARIAL_TASK_TRACKER.md"
+    vinculo_docs: "docs/operations/EMPRESARIAL_TASK_TRACKER.md"
+    etiquetas: ["VTK", "empresarial", "seguimiento", "tareas", "departamento", "equipo", "responsable"]
+    esfuerzo_estimado: "1 semana"
+    dependencias: []
+    notas: |
+      - Incluir estructura por departamento, equipo y responsable
+      - Plantilla para nuevas tareas
+      - KPIs y reglas de actualización
+      - Ejemplo de uso
+      - Pensar en migración futura a dashboard o módulo automatizado
+
+  - id: "VTK-017"
+    titulo: "Integrar indicadores mundiales para decisiones empresariales en tiempo real"
+    descripcion: |
+      Desarrollar un módulo que consuma y procese indicadores económicos y financieros globales (mercados, divisas, commodities, tasas, etc.).
+      Permitir configurar reglas y alertas para decisiones de compra, venta o movimientos financieros.
+      Integrar con el sistema de tareas empresariales para sugerir o automatizar acciones.
+      Incluir dashboards y reportes de impacto para toma de decisiones de último minuto.
+    responsable: "Marcelo Escallón"
+    prioridad: "alta"
+    estado: "pendiente"
+    fecha_creacion: "2025-07-01"
+    fecha_actualizacion: "2025-07-01"
+    fecha_limite: "2025-12-31"
+    vinculo_codigo: "src/vtk-v1.0/indicators/"
+    vinculo_docs: "docs/features/INDICATORS_REALTIME_DECISION.md"
+    etiquetas: ["VTK", "indicadores", "finanzas", "automatización", "decisiones", "realtime"]
+    esfuerzo_estimado: "4-8 semanas"
+    dependencias: []
+    notas: |
+      - Conectar a APIs de indicadores económicos y financieros globales
+      - Permitir configuración de alertas y reglas
+      - Integrar con tareas empresariales
+      - Escalable a IA y machine learning en el futuro
+
+# Métricas y estadísticas
+metricas:
+  total_pendientes: 15
+  criticos: 2
+  altos: 5
+  medios: 6
+  bajos: 2
+  en_progreso: 2
+  completados: 0
+  bloqueados: 0
+
+# Configuración de reportes
+reportes:
+  frecuencia: "semanal"
+  formato: ["markdown", "json", "yaml"]
+  destinatarios: ["Marcelo SALES", "AI Assistant"]
+  canales: ["email", "dashboard", "slack"] 
