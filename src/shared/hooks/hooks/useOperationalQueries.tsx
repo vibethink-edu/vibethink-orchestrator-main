@@ -148,7 +148,7 @@ export const useOperationalQueries = (filters: OperationalQueriesFilters = {}) =
       });
 
     } catch (error) {
-      console.error('Error fetching operational data:', error);
+      // TODO: log error fetching operational data
       setState(prev => ({
         ...prev,
         loading: false,
@@ -176,7 +176,7 @@ export const useOperationalQueries = (filters: OperationalQueriesFilters = {}) =
       const regex = new RegExp(pattern);
       return regex.test(name);
     } catch (error) {
-      console.error('Invalid regex pattern:', pattern, error);
+      // TODO: log invalid regex pattern error
       return false;
     }
   }, []);

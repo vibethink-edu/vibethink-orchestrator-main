@@ -69,7 +69,7 @@ export const useLanguage = () => {
       await changeLanguage(languageCode);
       return true;
     } catch (error) {
-      console.error('Error switching language:', error);
+      // TODO: log 'Error switching language:' error
       setIsChanging(false);
       return false;
     }

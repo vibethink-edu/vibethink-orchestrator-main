@@ -1,5 +1,5 @@
 /**
- * Fixed Validators System for VThink 1.0
+ * Fixed Validators System for VibeThink 1.0
  * 
  * Sistema de validación corregido con interfaces consistentes
  * 

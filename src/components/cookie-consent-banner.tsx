@@ -75,7 +75,7 @@ export function CookieConsentBanner({
         setTimeout(() => setIsVisible(false), 500);
       }
     } catch (error) {
-      console.error('Error al actualizar consentimientos:', error);
+      // TODO: log 'Error al actualizar consentimientos:' error
     }
   };
 
@@ -136,7 +136,7 @@ export function CookieConsentBanner({
         <CardContent className="space-y-4">
           {/* Mensaje principal */}
           <div className="text-sm text-muted-foreground leading-relaxed">
-            Utilizamos cookies para mejorar tu experiencia en VibeThink Orchestrator. 
+            Utilizamos cookies para mejorar tu experiencia en VibeThink. 
             Algunas son esenciales para el funcionamiento del sitio, mientras que otras 
             nos ayudan a mejorar nuestros servicios.
           </div>
@@ -306,9 +306,9 @@ export function CookieManagement({ tenantId, userId }: CookieManagementProps) {
     setIsLoading(true);
     try {
       const deletedCount = await cleanupExpiredCookies();
-      console.log(`Se eliminaron ${deletedCount} cookies expiradas`);
+      // TODO: log `Se eliminaron ${deletedCount} cookies expiradas`
     } catch (error) {
-      console.error('Error al limpiar cookies:', error);
+      // TODO: log 'Error al limpiar cookies:' error
     } finally {
       setIsLoading(false);
     }

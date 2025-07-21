@@ -123,7 +123,7 @@ export const documentPhase2Complete = () => {
     tags: ['validation', 'ux', 'forms', 'feedback']
   });
 
-  console.log('📝 Fase 2 documentada: Helpers y Utilities Enterprise completados');
+  // TODO: log '📝 Fase 2 documentada: Helpers y Utilities Enterprise completados'
 };
 
 export const planPhase3Details = () => {

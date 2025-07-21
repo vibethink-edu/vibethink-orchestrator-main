@@ -459,7 +459,7 @@ export function useVibeThinkOrchestratorCookieManager(tenantId: string, userId?:
       await cookieManager.updateConsent(newConsents);
       setConsents(prev => ({ ...prev, ...newConsents }));
     } catch (error) {
-      console.error('Error al actualizar consentimientos:', error);
+      // TODO: log 'Error al actualizar consentimientos:' error
     } finally {
       setIsLoading(false);
     }

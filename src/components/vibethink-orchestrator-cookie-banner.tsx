@@ -1,5 +1,5 @@
 /**
- * Banner de Consentimiento de Cookies - VibeThink Orchestrator
+ * Banner de Consentimiento de Cookies - VibeThink
  * Metodología: VThink 1.0
  * 
  * Banner moderno y accesible para gestión de cookies
@@ -7,8 +7,8 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { useVibeThinkOrchestratorCookieManager } from '@/lib/vibethink-orchestrator-cookie-manager';
-import { CookieConsent, ModernCookie } from '@/types/vibethink-orchestrator';
+import { useVibeThinkCookieManager } from '@/lib/vibethink-cookie-manager';
+import { CookieConsent, ModernCookie } from '@/types/vibethink';
 
 // ============================================================================
 // TIPOS DE PROPS
@@ -36,7 +36,7 @@ interface CookieCategoryProps {
 // COMPONENTE PRINCIPAL
 // ============================================================================
 
-export const VibeThinkOrchestratorCookieBanner: React.FC<CookieBannerProps> = ({
+export const VibeThinkCookieBanner: React.FC<CookieBannerProps> = ({
   tenantId,
   userId,
   language = 'es',
@@ -58,7 +58,7 @@ export const VibeThinkOrchestratorCookieBanner: React.FC<CookieBannerProps> = ({
     updateConsent,
     hasConsent,
     isLoading
-  } = useVibeThinkOrchestratorCookieManager(tenantId, userId);
+  } = useVibeThinkCookieManager(tenantId, userId);
 
   // Verificar si ya hay consentimiento guardado
   useEffect(() => {
@@ -72,7 +72,7 @@ export const VibeThinkOrchestratorCookieBanner: React.FC<CookieBannerProps> = ({
   const translations = {
     es: {
       title: 'Configuración de Cookies',
-      subtitle: 'VibeThink Orchestrator utiliza cookies para mejorar tu experiencia',
+      subtitle: 'VibeThink utiliza cookies para mejorar tu experiencia',
       description: 'Utilizamos cookies para personalizar contenido, proporcionar funciones de redes sociales y analizar nuestro tráfico. También compartimos información sobre tu uso de nuestro sitio con nuestros socios de redes sociales, publicidad y análisis.',
       acceptAll: 'Aceptar Todas',
       acceptEssential: 'Solo Esenciales',
@@ -107,7 +107,7 @@ export const VibeThinkOrchestratorCookieBanner: React.FC<CookieBannerProps> = ({
     },
     en: {
       title: 'Cookie Settings',
-      subtitle: 'VibeThink Orchestrator uses cookies to enhance your experience',
+      subtitle: 'VibeThink uses cookies to enhance your experience',
       description: 'We use cookies to personalize content, provide social media features and analyze our traffic. We also share information about your use of our site with our social media, advertising and analytics partners.',
       acceptAll: 'Accept All',
       acceptEssential: 'Essential Only',
@@ -377,7 +377,7 @@ interface CookieManagerProps {
   onCookieChange?: (cookies: ModernCookie[]) => void;
 }
 
-export const VibeThinkOrchestratorCookieManager: React.FC<CookieManagerProps> = ({
+export const VibeThinkCookieManager: React.FC<CookieManagerProps> = ({
   tenantId,
   userId,
   onCookieChange
@@ -390,7 +390,7 @@ export const VibeThinkOrchestratorCookieManager: React.FC<CookieManagerProps> = 
     deleteCookie,
     cleanupExpiredCookies,
     getCookieStats
-  } = useVibeThinkOrchestratorCookieManager(tenantId, userId);
+  } = useVibeThinkCookieManager(tenantId, userId);
 
   // Cargar cookies del usuario
   useEffect(() => {
@@ -401,7 +401,7 @@ export const VibeThinkOrchestratorCookieManager: React.FC<CookieManagerProps> = 
         setCookies(userCookies);
         onCookieChange?.(userCookies);
       } catch (error) {
-        console.error('Error al cargar cookies:', error);
+        // TODO: log 'Error al cargar cookies:' error
       } finally {
         setIsLoading(false);
       }
@@ -415,7 +415,7 @@ export const VibeThinkOrchestratorCookieManager: React.FC<CookieManagerProps> = 
       await deleteCookie(cookie.name, cookie.domain);
       setCookies(prev => prev.filter(c => c.id !== cookie.id));
     } catch (error) {
-      console.error('Error al eliminar cookie:', error);
+      // TODO: log 'Error al eliminar cookie:' error
     }
   };
 
@@ -429,7 +429,7 @@ export const VibeThinkOrchestratorCookieManager: React.FC<CookieManagerProps> = 
         onCookieChange?.(userCookies);
       }
     } catch (error) {
-      console.error('Error al limpiar cookies expiradas:', error);
+      // TODO: log 'Error al limpiar cookies expiradas:' error
     }
   };
 
@@ -502,4 +502,4 @@ export const VibeThinkOrchestratorCookieManager: React.FC<CookieManagerProps> = 
   );
 };
 
-export default VibeThinkOrchestratorCookieBanner; 
+export default VibeThinkCookieBanner; 

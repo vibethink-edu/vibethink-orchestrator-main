@@ -66,12 +66,12 @@ export const EmailTester: React.FC<EmailTesterProps> = ({ className }) => {
 
   const handlePreview = () => {
     // Aquí se podría implementar preview del template
-    console.log('Preview template:', testData.template);
+    // TODO: log 'Preview template:' testData.template
   };
 
   const handleDownload = () => {
     // Aquí se podría implementar descarga del template
-    console.log('Download template:', testData.template);
+    // TODO: log 'Download template:' testData.template
   };
 
   const getTemplatePreview = () => {

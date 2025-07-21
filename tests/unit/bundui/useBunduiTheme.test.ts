@@ -21,7 +21,7 @@ describe('useBunduiTheme', () => {
   it('initializes with default theme', () => {
     const { result } = renderHook(() => useBunduiTheme());
     
-    expect(result.current.currentTheme.name).toBe('vthink-default');
+    expect(result.current.currentTheme.name).toBe('vibethink-default');
     expect(result.current.currentTheme.primaryColor).toBe('#3b82f6');
   });
 
@@ -37,7 +37,7 @@ describe('useBunduiTheme', () => {
     
     expect(result.current.availableThemes).toHaveLength(4);
     expect(result.current.availableThemes.map(t => t.name)).toEqual([
-      'vthink-default',
+      'vibethink-default',
       'bundui-light',
       'enterprise-blue',
       'modern-dark'

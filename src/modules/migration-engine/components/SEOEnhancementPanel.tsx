@@ -171,6 +171,7 @@ export const SEOEnhancementPanel: React.FC<SEOEnhancementPanelProps> = ({
       onEnhancementComplete(enhancedContent);
       
     } catch (error) {
+      // TODO: log 'Error en mejora SEO:' error
       console.error('Error en mejora SEO:', error);
       setCurrentStep('Error en el proceso');
     } finally {

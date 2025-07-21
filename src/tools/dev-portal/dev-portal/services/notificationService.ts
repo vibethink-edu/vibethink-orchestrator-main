@@ -1,5 +1,5 @@
 /**
- * Servicio de Notificaciones Automáticas - VThink 1.0
+ * Servicio de Notificaciones Automáticas - VibeThink 1.0
  * Fecha: 05/07/2025
  * 
  * Este servicio maneja las notificaciones automáticas para alertas críticas
@@ -197,7 +197,7 @@ export class NotificationService {
   private async sendEmailNotification(notification: Notification) {
     try {
       // Aquí se integraría con un servicio de email como SendGrid, Nodemailer, etc.
-      console.log('📧 Enviando notificación por email:', notification.title);
+      // TODO: log '📧 Enviando notificación por email:' notification.title
       
       // Ejemplo de integración con API de email
       // await fetch('/api/notifications/email', {
@@ -206,7 +206,7 @@ export class NotificationService {
       //   body: JSON.stringify(notification)
       // });
     } catch (error) {
-      console.error('❌ Error enviando email:', error);
+      // TODO: log '❌ Error enviando email:' error
     }
   }
 
@@ -216,7 +216,7 @@ export class NotificationService {
   private async sendSlackNotification(notification: Notification) {
     try {
       // Aquí se integraría con la API de Slack
-      console.log('💬 Enviando notificación por Slack:', notification.title);
+      // TODO: log '💬 Enviando notificación por Slack:' notification.title
       
       // Ejemplo de integración con Slack
       // await fetch('/api/notifications/slack', {
@@ -225,7 +225,7 @@ export class NotificationService {
       //   body: JSON.stringify(notification)
       // });
     } catch (error) {
-      console.error('❌ Error enviando Slack:', error);
+      // TODO: log '❌ Error enviando Slack:' error
     }
   }
 
@@ -251,7 +251,7 @@ export class NotificationService {
       oscillator.start(audioContext.currentTime);
       oscillator.stop(audioContext.currentTime + 0.2);
     } catch (error) {
-      console.warn('⚠️ No se pudo reproducir sonido de notificación:', error);
+      // TODO: log '⚠️ No se pudo reproducir sonido de notificación:' error
     }
   }
 
@@ -259,7 +259,7 @@ export class NotificationService {
    * Maneja acciones de notificación
    */
   private handleNotificationAction(notification: Notification, action: string) {
-    console.log(`🔧 Acción de notificación: ${action}`, notification);
+    // TODO: log `🔧 Acción de notificación: ${action}` notification
 
     switch (action) {
       case 'view_details':
@@ -291,7 +291,7 @@ export class NotificationService {
    */
   private async executeUpgrade(notification: Notification) {
     try {
-      console.log('🚀 Ejecutando upgrade:', notification.metadata?.package);
+      // TODO: log '🚀 Ejecutando upgrade:' notification.metadata?.package
       
       // Aquí se ejecutaría el comando de upgrade
       // const response = await fetch('/api/upgrades/execute', {
@@ -308,7 +308,7 @@ export class NotificationService {
         message: `Se actualizó ${notification.metadata?.package} exitosamente`
       });
     } catch (error) {
-      console.error('❌ Error ejecutando upgrade:', error);
+      // TODO: log '❌ Error ejecutando upgrade:' error
       
       // Notificar error
       await this.sendNotification({
@@ -324,7 +324,7 @@ export class NotificationService {
    * Reintenta una operación
    */
   private async retryOperation(notification: Notification) {
-    console.log('🔄 Reintentando operación:', notification.title);
+    // TODO: log '🔄 Reintentando operación:' notification.title
     
     // Aquí se reintentaría la operación
     // await this.executeUpgrade(notification);

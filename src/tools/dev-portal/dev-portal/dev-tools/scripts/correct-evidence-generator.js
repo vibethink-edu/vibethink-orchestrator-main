@@ -10,9 +10,9 @@ import path from 'path';
 import os from 'os';
 import { execSync } from 'child_process';
 
-console.log('🔍 GENERADOR DE EVIDENCIAS - UBICACIÓN CORRECTA');
-console.log('📁 Ubicación: docs/PROJECT/09_EVIDENCES/');
-console.log('='.repeat(60));
+// TODO: log '🔍 GENERADOR DE EVIDENCIAS - UBICACIÓN CORRECTA'
+// TODO: log '📁 Ubicación: docs/PROJECT/09_EVIDENCES/'
+// TODO: log '='.repeat(60)
 
 const timestamp = new Date().toISOString();
 const formName = process.argv[2] || 'LoginForm';
@@ -20,27 +20,27 @@ const executionId = `${timestamp.replace(/[:.]/g, '-')}-${Math.random().toString
 
 // Get user information from multiple sources
 function getUserInfo() {
-  console.log('\n🔍 DETECTANDO INFORMACIÓN DEL USUARIO...');
+  // TODO: log '\n🔍 DETECTANDO INFORMACIÓN DEL USUARIO...'
   
   // Method 1: Environment variables
   const envUsername = process.env.USERNAME || process.env.USER;
   const envEmail = process.env.USEREMAIL || process.env.EMAIL;
   const envFullName = process.env.USERFULLNAME;
   
-  console.log(`📌 Variables de entorno:`);
-  console.log(`   USERNAME/USER: ${envUsername || 'no encontrado'}`);
-  console.log(`   EMAIL: ${envEmail || 'no encontrado'}`);
-  console.log(`   FULLNAME: ${envFullName || 'no encontrado'}`);
+  // TODO: log `📌 Variables de entorno:`
+  // TODO: log `   USERNAME/USER: ${envUsername || 'no encontrado'}`
+  // TODO: log `   EMAIL: ${envEmail || 'no encontrado'}`
+  // TODO: log `   FULLNAME: ${envFullName || 'no encontrado'}`
   
   // Method 2: OS user info
   let osUser = {};
   try {
     osUser = os.userInfo();
-    console.log(`📌 Sistema operativo:`);
-    console.log(`   os.userInfo().username: ${osUser.username}`);
-    console.log(`   os.userInfo().homedir: ${osUser.homedir}`);
+    // TODO: log `📌 Sistema operativo:`
+    // TODO: log `   os.userInfo().username: ${osUser.username}`
+    // TODO: log `   os.userInfo().homedir: ${osUser.homedir}`
   } catch (error) {
-    console.log(`❌ os.userInfo() falló: ${error.message}`);
+    // TODO: log `❌ os.userInfo() falló: ${error.message}`
   }
   
   // Method 3: Git configuration
@@ -48,18 +48,18 @@ function getUserInfo() {
   try {
     gitUser.name = execSync('git config user.name', { encoding: 'utf8' }).trim();
     gitUser.email = execSync('git config user.email', { encoding: 'utf8' }).trim();
-    console.log(`📌 Configuración Git:`);
-    console.log(`   git config user.name: ${gitUser.name}`);
-    console.log(`   git config user.email: ${gitUser.email}`);
+    // TODO: log `📌 Configuración Git:`
+    // TODO: log `   git config user.name: ${gitUser.name}`
+    // TODO: log `   git config user.email: ${gitUser.email}`
   } catch (error) {
-    console.log(`❌ Git config falló: ${error.message}`);
+    // TODO: log `❌ Git config falló: ${error.message}`
   }
   
   // Method 4: Computer/Machine name
   const hostname = os.hostname();
-  console.log(`📌 Información del sistema:`);
-  console.log(`   hostname: ${hostname}`);
-  console.log(`   platform: ${os.platform()}`);
+  // TODO: log `📌 Información del sistema:`
+  // TODO: log `   hostname: ${hostname}`
+  // TODO: log `   platform: ${os.platform()}`
   
   // Combine all sources with priority
   const finalUserInfo = {
@@ -77,12 +77,12 @@ function getUserInfo() {
     }
   };
   
-  console.log(`\n✅ INFORMACIÓN FINAL DEL USUARIO:`);
-  console.log(`   👤 Nombre completo: ${finalUserInfo.full_name} (fuente: ${finalUserInfo.source_priority.fullname_from})`);
-  console.log(`   📧 Email: ${finalUserInfo.email} (fuente: ${finalUserInfo.source_priority.email_from})`);
-  console.log(`   💻 Username: ${finalUserInfo.username} (fuente: ${finalUserInfo.source_priority.username_from})`);
-  console.log(`   🏢 Departamento: ${finalUserInfo.department}`);
-  console.log(`   🆔 Employee ID: ${finalUserInfo.employee_id}`);
+  // TODO: log `\n✅ INFORMACIÓN FINAL DEL USUARIO:`
+  // TODO: log `   👤 Nombre completo: ${finalUserInfo.full_name} (fuente: ${finalUserInfo.source_priority.fullname_from})`
+  // TODO: log `   📧 Email: ${finalUserInfo.email} (fuente: ${finalUserInfo.source_priority.email_from})`
+  // TODO: log `   💻 Username: ${finalUserInfo.username} (fuente: ${finalUserInfo.source_priority.username_from})`
+  // TODO: log `   🏢 Departamento: ${finalUserInfo.department}`
+  // TODO: log `   🆔 Employee ID: ${finalUserInfo.employee_id}`
   
   return finalUserInfo;
 }
@@ -101,11 +101,11 @@ function createEvidenceStructure() {
     'docs/PROJECT/09_EVIDENCES/consolidated/by-execution-id'
   ];
 
-  console.log('\n📁 CREANDO ESTRUCTURA DE EVIDENCIAS...');
+  // TODO: log '\n📁 CREANDO ESTRUCTURA DE EVIDENCIAS...'
   dirs.forEach(dir => {
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
-      console.log(`✅ Creado: ${dir}`);
+      // TODO: log `✅ Creado: ${dir}`
     }
   });
 }
@@ -149,27 +149,27 @@ function generateEvidence() {
   const evidencePath = `docs/PROJECT/09_EVIDENCES/by-application/login/components/${formName}/evidence-complete-${executionId}.json`;
   fs.writeFileSync(evidencePath, JSON.stringify(evidenceData, null, 2));
   
-  console.log(`\n✅ EVIDENCIA GENERADA:`);
-  console.log(`📁 Ubicación: ${evidencePath}`);
-  console.log(`👤 Ejecutado por: ${userInfo.full_name}`);
-  console.log(`🔑 Execution ID: ${executionId}`);
+  // TODO: log `\n✅ EVIDENCIA GENERADA:`
+  // TODO: log `📁 Ubicación: ${evidencePath}`
+  // TODO: log `👤 Ejecutado por: ${userInfo.full_name}`
+  // TODO: log `🔑 Execution ID: ${executionId}`
   
   return evidencePath;
 }
 
 // Main execution
 function main() {
-  console.log(`\n🎯 Generando evidencias para: ${formName}`);
-  console.log(`📍 Ubicación correcta: docs/PROJECT/09_EVIDENCES/`);
+  // TODO: log `\n🎯 Generando evidencias para: ${formName}`
+  // TODO: log `📍 Ubicación correcta: docs/PROJECT/09_EVIDENCES/`
   
   createEvidenceStructure();
   const evidencePath = generateEvidence();
   
-  console.log('\n' + '='.repeat(60));
-  console.log('🎉 EVIDENCIAS GENERADAS EN UBICACIÓN CORRECTA');
-  console.log(`📁 Base path: docs/PROJECT/09_EVIDENCES/`);
-  console.log(`📄 Evidencia principal: ${evidencePath}`);
-  console.log('='.repeat(60));
+  // TODO: log '\n' + '='.repeat(60)
+  // TODO: log '🎉 EVIDENCIAS GENERADAS EN UBICACIÓN CORRECTA'
+  // TODO: log `📁 Base path: docs/PROJECT/09_EVIDENCES/`
+  // TODO: log `📄 Evidencia principal: ${evidencePath}`
+  // TODO: log '='.repeat(60)
 }
 
 // Execute

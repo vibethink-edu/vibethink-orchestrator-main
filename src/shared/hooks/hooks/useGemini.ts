@@ -261,7 +261,7 @@ Provide only the completion that should be inserted at the cursor position.`;
         suggestions: result.suggestions
       };
     } catch (error) {
-      console.error('Auto-complete failed:', error);
+      // TODO: log 'Auto-complete failed:' error
       return null;
     }
   }, [generateCode, options.enableAutoComplete]);

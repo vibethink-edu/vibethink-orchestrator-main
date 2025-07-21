@@ -3,7 +3,7 @@
 /**
  * 🚨 ANTI-PATTERN DETECTOR 
  * Detecta menciones de componentes externos sin evaluación formal
- * Parte del VThink 1.0 Component Evaluation Framework
+ * Parte del VibeThink 1.0 Component Evaluation Framework
  */
 
 const fs = require('fs');
@@ -389,7 +389,7 @@ function main() {
     const args = process.argv.slice(2);
     
     if (args.length === 0) {
-        console.log('🚨 Anti-Pattern Detector - VThink 1.0');
+        console.log('🚨 Anti-Pattern Detector - VibeThink 1.0');
         console.log('');
         console.log('Usage:');
         console.log('  node detect-antipatterns.cjs [options]');

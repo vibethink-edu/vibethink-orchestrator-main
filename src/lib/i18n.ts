@@ -129,7 +129,7 @@ i18n
     
     // Configuración de parse
     parseMissingKeyHandler: (key: string) => {
-      console.warn(`Missing translation key: ${key}`);
+      // TODO: log `Missing translation key: ${key}`
       return key;
     },
     
@@ -156,14 +156,14 @@ i18n.on('languageChanged', (lng: string) => {
 // Función helper para cambiar idioma con validación
 export const changeLanguage = async (language: string): Promise<void> => {
   if (!supportedLanguages.includes(language)) {
-    console.warn(`Unsupported language: ${language}`);
+    // TODO: log `Unsupported language: ${language}`
     return;
   }
   
   try {
     await i18n.changeLanguage(language);
   } catch (error) {
-    console.error('Error changing language:', error);
+    // TODO: log 'Error changing language:' error
     throw error;
   }
 };

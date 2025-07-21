@@ -466,7 +466,7 @@ export const useGovernmentCompliance = () => {
       };
     });
     
-    console.log('🏛️ Capacidades gubernamentales activadas');
+    // TODO: log '🏛️ Capacidades gubernamentales activadas'
     addReminder('🏛️ Verificar configuración de capacidades gubernamentales activadas');
   }, [currentModule, addReminder]);
 
@@ -491,7 +491,7 @@ export const useGovernmentCompliance = () => {
       };
     });
     
-    console.log('🏛️ Capacidades gubernamentales desactivadas');
+    // TODO: log '🏛️ Capacidades gubernamentales desactivadas'
   }, [currentModule]);
 
   /**

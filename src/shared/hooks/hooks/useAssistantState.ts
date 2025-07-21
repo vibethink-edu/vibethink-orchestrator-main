@@ -118,7 +118,9 @@ export function useAssistantState(): UseAssistantStateReturn {
             actionLabel: 'Ver resumen',
             category: 'reporting',
             priority: 'high',
-            action: () => console.log('Opening executive summary...')
+            action: () => {
+              // TODO: log opening executive summary
+            }
           },
           {
             title: 'Agenda de reuniones estratégicas',
@@ -127,7 +129,9 @@ export function useAssistantState(): UseAssistantStateReturn {
             actionLabel: 'Ver agenda',
             category: 'scheduling',
             priority: 'high',
-            action: () => console.log('Opening strategic agenda...')
+            action: () => {
+              // TODO: log opening strategic agenda
+            }
           }
         )
         break
@@ -141,7 +145,9 @@ export function useAssistantState(): UseAssistantStateReturn {
             actionLabel: 'Ver status',
             category: 'projects',
             priority: 'high',
-            action: () => console.log('Opening project status...')
+            action: () => {
+              // TODO: log opening project status
+            }
           },
           {
             title: 'Preparación para 1-on-1s',
@@ -150,7 +156,9 @@ export function useAssistantState(): UseAssistantStateReturn {
             actionLabel: 'Ver preparación',
             category: 'meetings',
             priority: 'medium',
-            action: () => console.log('Opening 1-on-1 prep...')
+            action: () => {
+              // TODO: log opening 1-on-1 prep
+            }
           }
         )
         break
@@ -164,7 +172,9 @@ export function useAssistantState(): UseAssistantStateReturn {
             actionLabel: 'Ver organización',
             category: 'organization',
             priority: 'medium',
-            action: () => console.log('Opening file organization...')
+            action: () => {
+              // TODO: log opening file organization
+            }
           },
           {
             title: 'Revisión de agenda',
@@ -173,7 +183,9 @@ export function useAssistantState(): UseAssistantStateReturn {
             actionLabel: 'Ver agenda',
             category: 'scheduling',
             priority: 'low',
-            action: () => console.log('Opening optimized agenda...')
+            action: () => {
+              // TODO: log opening optimized agenda
+            }
           }
         )
     }
@@ -199,7 +211,9 @@ export function useAssistantState(): UseAssistantStateReturn {
         actionLabel: 'Comenzar tour',
         category: 'onboarding',
         confidence: 0.9,
-        action: () => console.log('Starting basic tour...')
+        action: () => {
+          // TODO: log starting basic tour
+        }
       })
     }
 
@@ -212,7 +226,9 @@ export function useAssistantState(): UseAssistantStateReturn {
           actionLabel: 'Ver análisis',
           category: 'analytics',
           confidence: 0.8,
-          action: () => console.log('Opening trend analysis...')
+          action: () => {
+            // TODO: log opening trend analysis
+          }
         })
         break
 
@@ -223,7 +239,9 @@ export function useAssistantState(): UseAssistantStateReturn {
           actionLabel: 'Optimizar',
           category: 'efficiency',
           confidence: 0.7,
-          action: () => console.log('Opening meeting optimization...')
+          action: () => {
+            // TODO: log opening meeting optimization
+          }
         })
         break
     }
@@ -248,7 +266,9 @@ export function useAssistantState(): UseAssistantStateReturn {
         description: 'He identificado tareas repetitivas que podemos automatizar',
         impact: 'medium',
         actionable: true,
-        action: () => console.log('Opening automation opportunities...')
+        action: () => {
+          // TODO: log opening automation opportunities
+        }
       })
     }
 

@@ -168,7 +168,7 @@ export const AITranslationPanel: React.FC<AITranslationPanelProps> = ({
       onTranslationComplete(results.map(r => r.translatedContent));
       
     } catch (error) {
-      console.error('Error en traducción:', error);
+      // TODO: log 'Error en traducción:' error
       setCurrentStep('Error en el proceso de traducción');
     } finally {
       setIsProcessing(false);

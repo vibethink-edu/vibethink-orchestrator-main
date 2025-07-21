@@ -87,7 +87,7 @@ export const useAIProvider = (): AIProviderState & AIProviderActions => {
         await updateProviderState(manager);
         
       } catch (error) {
-        console.error('Failed to initialize AI providers:', error);
+        // TODO: log failed to initialize AI providers
       }
     };
 
@@ -131,7 +131,7 @@ export const useAIProvider = (): AIProviderState & AIProviderActions => {
           }] : []
       }));
     } catch (error) {
-      console.error('Failed to update provider state:', error);
+      // TODO: log failed to update provider state
     }
   };
 
@@ -148,7 +148,7 @@ export const useAIProvider = (): AIProviderState & AIProviderActions => {
       await updateProviderState(providerManager);
       return response;
     } catch (error) {
-      console.error('Text generation failed:', error);
+      // TODO: log text generation failed
       throw error;
     }
   }, [providerManager]);
@@ -172,7 +172,7 @@ export const useAIProvider = (): AIProviderState & AIProviderActions => {
         throw new Error(`Rapid deployment not available with ${provider.name}`);
       }
     } catch (error) {
-      console.error('App deployment failed:', error);
+      // TODO: log app deployment failed
       throw error;
     }
   }, [providerManager]);
@@ -201,7 +201,7 @@ export const useAIProvider = (): AIProviderState & AIProviderActions => {
         };
       }
     } catch (error) {
-      console.error('Failed to get usage stats:', error);
+      // TODO: log failed to get usage stats
       throw error;
     }
   }, [providerManager]);
@@ -216,10 +216,10 @@ export const useAIProvider = (): AIProviderState & AIProviderActions => {
 
     try {
       // Implementar migración forzada
-      console.log(`Forcing migration to ${targetProvider}`);
+      // TODO: log forcing migration to target provider
       await updateProviderState(providerManager);
     } catch (error) {
-      console.error('Forced migration failed:', error);
+      // TODO: log forced migration failed
       throw error;
     }
   }, [providerManager]);

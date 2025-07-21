@@ -4,12 +4,12 @@
  * ✅ Validador de Migración
  * 
  * Este script valida que una migración de porte cumple con todos los
- * estándares y requisitos del framework VThink 1.0. Ejecuta verificaciones
+ * estándares y requisitos del framework VibeThink 1.0. Ejecuta verificaciones
  * técnicas, de calidad y de integración.
  * 
  * Uso: node scripts/migration-validator.js [modulo]
  * 
- * VThink 1.0 - Framework de Porte
+ * VibeThink 1.0 - Framework de Porte
  */
 
 const fs = require('fs').promises;
@@ -483,7 +483,7 @@ class MigrationValidator {
     const report = {
       module: this.moduleName,
       validation_date: this.timestamp,
-      framework_version: 'VThink 1.0',
+      framework_version: 'VibeThink 1.0',
       summary: {
         total_checks: this.validationResults.passed.length + this.validationResults.failed.length + this.validationResults.warnings.length,
         passed: this.validationResults.passed.length,

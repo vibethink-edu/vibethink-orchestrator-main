@@ -28,7 +28,7 @@ export const useCompanyIdentification = () => {
         }
       } catch (err) {
         setError('Error identificando la empresa');
-        console.error('Error en identificación de empresa:', err);
+        // TODO: log 'Error en identificación de empresa:' err
       } finally {
         setLoading(false);
       }

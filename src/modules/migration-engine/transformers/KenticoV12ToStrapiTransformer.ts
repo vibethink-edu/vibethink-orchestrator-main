@@ -18,7 +18,7 @@ export class KenticoV12ToStrapiTransformer implements BaseTransformer {
     options: MigrationOptions
   ): Promise<UniversalContent[]> {
     
-    console.log('🔄 Transformando datos de Kentico v12 a Strapi v4...');
+    // TODO: log '🔄 Transformando datos de Kentico v12 a Strapi v4...'
     
     try {
       const transformedData: UniversalContent[] = [];
@@ -28,12 +28,12 @@ export class KenticoV12ToStrapiTransformer implements BaseTransformer {
         transformedData.push(transformedItem);
       }
       
-      console.log(`✅ Transformación completada: ${transformedData.length} elementos`);
+      // TODO: log `✅ Transformación completada: ${transformedData.length} elementos`
       
       return transformedData;
       
     } catch (error) {
-      console.error('❌ Error en transformación Kentico v12 → Strapi:', error);
+      // TODO: log '❌ Error en transformación Kentico v12 → Strapi:' error
       throw new Error(`Kentico v12 to Strapi transformation failed: ${error.message}`);
     }
   }

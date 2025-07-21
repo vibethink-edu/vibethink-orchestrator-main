@@ -15,7 +15,7 @@ import { chromium, FullConfig } from '@playwright/test';
 import { createClient } from '@supabase/supabase-js';
 
 async function globalSetup(config: FullConfig) {
-  console.log('🚀 Starting global test setup...');
+  // TODO: log '🚀 Starting global test setup...'
 
   // Setup test environment variables
   process.env.NODE_ENV = 'test';
@@ -38,15 +38,15 @@ async function globalSetup(config: FullConfig) {
     // Setup test companies and users
     await setupTestData(supabase);
     
-    console.log('✅ Global setup completed successfully');
+    // TODO: log '✅ Global setup completed successfully'
   } catch (error) {
-    console.error('❌ Global setup failed:', error);
+    // TODO: log '❌ Global setup failed:' error
     throw error;
   }
 }
 
 async function setupTestDatabase(supabase: any) {
-  console.log('📊 Setting up test database...');
+  // TODO: log '📊 Setting up test database...'
 
   // Create test companies
   const testCompanies = [
@@ -76,7 +76,7 @@ async function setupTestDatabase(supabase: any) {
       .upsert(company, { onConflict: 'slug' });
     
     if (error) {
-      console.warn(`Warning: Could not setup company ${company.slug}:`, error.message);
+      // TODO: log `Warning: Could not setup company ${company.slug}:` error.message
     }
   }
 
@@ -114,7 +114,7 @@ async function setupTestDatabase(supabase: any) {
       .upsert(user, { onConflict: 'id' });
     
     if (error) {
-      console.warn(`Warning: Could not setup user ${user.email}:`, error.message);
+      // TODO: log `Warning: Could not setup user ${user.email}:` error.message
     }
   }
 
@@ -142,13 +142,13 @@ async function setupTestDatabase(supabase: any) {
       .upsert(config, { onConflict: 'category,config_key' });
     
     if (error) {
-      console.warn(`Warning: Could not setup configuration ${config.config_key}:`, error.message);
+      // TODO: log `Warning: Could not setup configuration ${config.config_key}:` error.message
     }
   }
 }
 
 async function setupTestAuthentication() {
-  console.log('🔐 Setting up test authentication...');
+  // TODO: log '🔐 Setting up test authentication...'
 
   // Create test authentication tokens
   const testTokens = {
@@ -162,7 +162,7 @@ async function setupTestAuthentication() {
 }
 
 async function setupTestData(supabase: any) {
-  console.log('📝 Setting up test data...');
+  // TODO: log '📝 Setting up test data...'
 
   // Create test usage data
   const testUsage = [
@@ -190,7 +190,7 @@ async function setupTestData(supabase: any) {
       .insert(usage);
     
     if (error) {
-      console.warn(`Warning: Could not setup usage data:`, error.message);
+      // TODO: log `Warning: Could not setup usage data:` error.message
     }
   }
 
@@ -213,7 +213,7 @@ async function setupTestData(supabase: any) {
       .upsert(billing, { onConflict: 'company_id,billing_month' });
     
     if (error) {
-      console.warn(`Warning: Could not setup billing data:`, error.message);
+      // TODO: log `Warning: Could not setup billing data:` error.message
     }
   }
 }

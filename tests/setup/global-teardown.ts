@@ -15,7 +15,7 @@ import { FullConfig } from '@playwright/test';
 import { createClient } from '@supabase/supabase-js';
 
 async function globalTeardown(config: FullConfig) {
-  console.log('🧹 Starting global test cleanup...');
+  // TODO: log '🧹 Starting global test cleanup...'
 
   // Initialize Supabase client for cleanup
   const supabase = createClient(
@@ -33,15 +33,15 @@ async function globalTeardown(config: FullConfig) {
     // Cleanup test companies
     await cleanupTestCompanies(supabase);
     
-    console.log('✅ Global cleanup completed successfully');
+    // TODO: log '✅ Global cleanup completed successfully'
   } catch (error) {
-    console.error('❌ Global cleanup failed:', error);
+    // TODO: log '❌ Global cleanup failed:' error
     // Don't throw error in teardown to avoid masking test failures
   }
 }
 
 async function cleanupTestData(supabase: any) {
-  console.log('🗑️ Cleaning up test data...');
+  // TODO: log '🗑️ Cleaning up test data...'
 
   // Cleanup usage tracking
   const { error: usageError } = await supabase
@@ -50,7 +50,7 @@ async function cleanupTestData(supabase: any) {
     .like('company_id', 'test-%');
   
   if (usageError) {
-    console.warn('Warning: Could not cleanup usage data:', usageError.message);
+    // TODO: log 'Warning: Could not cleanup usage data:' usageError.message
   }
 
   // Cleanup monthly billing
@@ -60,7 +60,7 @@ async function cleanupTestData(supabase: any) {
     .like('company_id', 'test-%');
   
   if (billingError) {
-    console.warn('Warning: Could not cleanup billing data:', billingError.message);
+    // TODO: log 'Warning: Could not cleanup billing data:' billingError.message
   }
 
   // Cleanup configuration overrides
@@ -70,7 +70,7 @@ async function cleanupTestData(supabase: any) {
     .like('company_id', 'test-%');
   
   if (configError) {
-    console.warn('Warning: Could not cleanup configuration overrides:', configError.message);
+    // TODO: log 'Warning: Could not cleanup configuration overrides:' configError.message
   }
 
   // Cleanup audit logs
@@ -80,12 +80,12 @@ async function cleanupTestData(supabase: any) {
     .like('company_id', 'test-%');
   
   if (auditError) {
-    console.warn('Warning: Could not cleanup audit logs:', auditError.message);
+    // TODO: log 'Warning: Could not cleanup audit logs:' auditError.message
   }
 }
 
 async function cleanupTestUsers(supabase: any) {
-  console.log('👥 Cleaning up test users...');
+  // TODO: log '👥 Cleaning up test users...'
 
   const testUserIds = [
     'test-admin-user',
@@ -100,13 +100,13 @@ async function cleanupTestUsers(supabase: any) {
       .eq('id', userId);
     
     if (error) {
-      console.warn(`Warning: Could not cleanup user ${userId}:`, error.message);
+      // TODO: log `Warning: Could not cleanup user ${userId}:` error.message
     }
   }
 }
 
 async function cleanupTestCompanies(supabase: any) {
-  console.log('🏢 Cleaning up test companies...');
+  // TODO: log '🏢 Cleaning up test companies...'
 
   const testCompanySlugs = [
     'test-company-a',
@@ -120,7 +120,7 @@ async function cleanupTestCompanies(supabase: any) {
       .eq('slug', slug);
     
     if (error) {
-      console.warn(`Warning: Could not cleanup company ${slug}:`, error.message);
+      // TODO: log `Warning: Could not cleanup company ${slug}:` error.message
     }
   }
 }

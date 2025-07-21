@@ -26,7 +26,7 @@ export class SEOEnhancementService {
    * Mejorar SEO del contenido migrado
    */
   async enhanceSEO(content: UniversalContent, options?: SEOEnhancementOptions): Promise<EnhancedContent> {
-    console.log('🔍 Mejorando SEO para:', content.title);
+    // TODO: log '🔍 Mejorando SEO para:' content.title
     
     const enhancedContent = { ...content };
     const enhancementOptions = {
@@ -44,55 +44,55 @@ export class SEOEnhancementService {
       // 1. Generar meta título optimizado
       if (enhancementOptions.generateTitles && this.needsTitleEnhancement(content)) {
         enhancedContent.seo.title = await this.generateOptimizedTitle(content);
-        console.log('✅ Título optimizado generado');
+        // TODO: log '✅ Título optimizado generado'
       }
       
       // 2. Generar meta descripción
       if (enhancementOptions.generateDescriptions && this.needsDescriptionEnhancement(content)) {
         enhancedContent.seo.description = await this.generateMetaDescription(content);
-        console.log('✅ Meta descripción generada');
+        // TODO: log '✅ Meta descripción generada'
       }
       
       // 3. Extraer keywords relevantes
       if (enhancementOptions.extractKeywords) {
         enhancedContent.seo.keywords = await this.extractKeywords(content);
-        console.log('✅ Keywords extraídas');
+        // TODO: log '✅ Keywords extraídas'
       }
       
       // 4. Generar schema markup
       if (enhancementOptions.generateSchema) {
         enhancedContent.schema = await this.generateSchemaMarkup(content);
-        console.log('✅ Schema markup generado');
+        // TODO: log '✅ Schema markup generado'
       }
       
       // 5. Optimizar URLs canónicas
       if (enhancementOptions.optimizeCanonical) {
         enhancedContent.seo.canonicalUrl = this.optimizeCanonicalUrl(content);
-        console.log('✅ URL canónica optimizada');
+        // TODO: log '✅ URL canónica optimizada'
       }
       
       // 6. Generar Open Graph tags
       if (enhancementOptions.generateOGTags) {
         const ogTags = await this.generateOGTags(content);
         enhancedContent.seo = { ...enhancedContent.seo, ...ogTags };
-        console.log('✅ Open Graph tags generados');
+        // TODO: log '✅ Open Graph tags generados'
       }
       
       // 7. Generar Twitter Cards
       if (enhancementOptions.generateTwitterCards) {
         enhancedContent.seo.twitterCard = 'summary_large_image';
-        console.log('✅ Twitter Card configurado');
+        // TODO: log '✅ Twitter Card configurado'
       }
       
       // 8. Calcular score SEO
       enhancedContent.seoScore = this.calculateSEOScore(enhancedContent);
       
-      console.log('🎯 SEO mejorado completado. Score:', enhancedContent.seoScore);
+      // TODO: log '🎯 SEO mejorado completado. Score:' enhancedContent.seoScore
       
       return enhancedContent;
       
     } catch (error) {
-      console.error('❌ Error mejorando SEO:', error);
+      // TODO: log '❌ Error mejorando SEO:' error
       throw new Error(`SEO enhancement failed: ${error.message}`);
     }
   }
@@ -193,7 +193,7 @@ export class SEOEnhancementService {
       const keywords = JSON.parse(response);
       return Array.isArray(keywords) ? keywords : [];
     } catch (error) {
-      console.error('Error parsing keywords:', error);
+      // TODO: log 'Error parsing keywords:' error
       return [];
     }
   }
@@ -229,7 +229,7 @@ export class SEOEnhancementService {
       const schema = JSON.parse(response);
       return this.validateSchema(schema, schemaType);
     } catch (error) {
-      console.error('Error parsing schema:', error);
+      // TODO: log 'Error parsing schema:' error
       return this.generateBasicSchema(content, schemaType);
     }
   }

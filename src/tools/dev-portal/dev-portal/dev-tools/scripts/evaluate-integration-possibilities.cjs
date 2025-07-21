@@ -9,7 +9,7 @@
  * 
  * Uso: node scripts/evaluate-integration-possibilities.cjs [app-name]
  * 
- * VThink 1.0 - Integration Possibilities Evaluator
+ * VibeThink 1- Integration Possibilities Evaluator
  */
 
 const fs = require('fs').promises;
@@ -439,7 +439,7 @@ class IntegrationEvaluator {
         app_name: this.appName,
         app_display_name: this.appConfig.name,
         evaluation_date: this.timestamp,
-        evaluator_version: 'VThink 1.0'
+        evaluator_version: 'VibeThink 1.0'
       },
       
       app_characteristics: this.appConfig,
@@ -578,7 +578,7 @@ ${report.next_steps.map(step => `- ${step}`).join('\n')}
 
 ---
 
-*Evaluación generada automáticamente por AI Pair Orchestrator Pro - VThink 1.0*
+*Evaluación generada automáticamente por AI Pair Orchestrator Pro - VibeThink 1.0*
 `;
 
     await fs.writeFile(summaryPath, summary);

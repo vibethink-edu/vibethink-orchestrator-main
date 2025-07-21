@@ -6,6 +6,7 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import { useAuth } from '@/shared/hooks/useAuth';
+import { logger } from '@/shared/utils/logger';
 
 // ============================================================================
 // TIPOS Y INTERFACES
@@ -312,13 +313,30 @@ export class HybridAPIClient implements APIClient {
    */
   async execute<T>(operation: Operation): Promise<T> {
     try {
-      if (this.shouldUsePython(operation)) {
+      const shouldUsePython = this.shouldUsePython(operation);
+      
+      if (shouldUsePython) {
+        logger.info({ 
+          service: 'HybridAPIClient', 
+          operation: operation.type,
+          endpoint: operation.endpoint 
+        }, 'Ejecutando operación Python');
         return await this.executePythonOperation<T>(operation);
       } else {
+        logger.info({ 
+          service: 'HybridAPIClient', 
+          operation: operation.type,
+          endpoint: operation.endpoint 
+        }, 'Ejecutando operación React');
         return await this.executeReactOperation<T>(operation);
       }
     } catch (error) {
-      // TODO: log Error ejecutando operación: error
+      logger.error({ 
+        service: 'HybridAPIClient', 
+        operation: operation.type,
+        endpoint: operation.endpoint,
+        error: error instanceof Error ? error.message : 'Unknown error'
+      }, 'Error ejecutando operación');
       throw error;
     }
   }

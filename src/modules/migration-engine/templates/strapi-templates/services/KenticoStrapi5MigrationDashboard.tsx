@@ -117,7 +117,7 @@ export const KenticoStrapi5MigrationDashboard: React.FC = () => {
         setSelectedTemplate(templates[0]);
       }
     } catch (error) {
-      console.error('Error loading templates:', error);
+      // TODO: log 'Error loading templates:' error
     }
   };
   

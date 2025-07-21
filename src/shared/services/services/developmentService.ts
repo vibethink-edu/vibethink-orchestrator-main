@@ -65,7 +65,7 @@ export class DevelopmentService {
       if (error) throw error;
       return data;
     } catch (error) {
-      console.error('Error creating project:', error);
+      // TODO: log 'Error creating project:' error
       throw new Error(`Error al crear proyecto: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -99,7 +99,7 @@ export class DevelopmentService {
       if (error) throw error;
       return data || [];
     } catch (error) {
-      console.error('Error fetching projects:', error);
+      // TODO: log 'Error fetching projects:' error
       throw new Error(`Error al obtener proyectos: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -119,7 +119,7 @@ export class DevelopmentService {
       if (error) throw error;
       return data;
     } catch (error) {
-      console.error('Error fetching project:', error);
+      // TODO: log 'Error fetching project:' error
       throw new Error(`Error al obtener proyecto: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -140,7 +140,7 @@ export class DevelopmentService {
       if (error) throw error;
       return data;
     } catch (error) {
-      console.error('Error updating project:', error);
+      // TODO: log 'Error updating project:' error
       throw new Error(`Error al actualizar proyecto: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -158,7 +158,7 @@ export class DevelopmentService {
 
       if (error) throw error;
     } catch (error) {
-      console.error('Error deleting project:', error);
+      // TODO: log 'Error deleting project:' error
       throw new Error(`Error al eliminar proyecto: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -189,7 +189,7 @@ export class DevelopmentService {
       if (error) throw error;
       return data;
     } catch (error) {
-      console.error('Error creating task:', error);
+      // TODO: log 'Error creating task:' error
       throw new Error(`Error al crear tarea: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -238,7 +238,7 @@ export class DevelopmentService {
       if (error) throw error;
       return data || [];
     } catch (error) {
-      console.error('Error fetching tasks:', error);
+      // TODO: log 'Error fetching tasks:' error
       throw new Error(`Error al obtener tareas: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -264,7 +264,7 @@ export class DevelopmentService {
       if (error) throw error;
       return data;
     } catch (error) {
-      console.error('Error fetching task:', error);
+      // TODO: log 'Error fetching task:' error
       throw new Error(`Error al obtener tarea: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -289,7 +289,7 @@ export class DevelopmentService {
       if (error) throw error;
       return data;
     } catch (error) {
-      console.error('Error updating task:', error);
+      // TODO: log 'Error updating task:' error
       throw new Error(`Error al actualizar tarea: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -307,7 +307,7 @@ export class DevelopmentService {
 
       if (error) throw error;
     } catch (error) {
-      console.error('Error deleting task:', error);
+      // TODO: log 'Error deleting task:' error
       throw new Error(`Error al eliminar tarea: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -336,7 +336,7 @@ export class DevelopmentService {
       if (error) throw error;
       return data;
     } catch (error) {
-      console.error('Error creating milestone:', error);
+      // TODO: log 'Error creating milestone:' error
       throw new Error(`Error al crear hito: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -359,7 +359,7 @@ export class DevelopmentService {
       if (error) throw error;
       return data || [];
     } catch (error) {
-      console.error('Error fetching milestones:', error);
+      // TODO: log 'Error fetching milestones:' error
       throw new Error(`Error al obtener hitos: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -383,7 +383,7 @@ export class DevelopmentService {
       if (error) throw error;
       return data;
     } catch (error) {
-      console.error('Error updating milestone:', error);
+      // TODO: log 'Error updating milestone:' error
       throw new Error(`Error al actualizar hito: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -415,7 +415,7 @@ export class DevelopmentService {
       if (error) throw error;
       return data;
     } catch (error) {
-      console.error('Error assigning task:', error);
+      // TODO: log 'Error assigning task:' error
       throw new Error(`Error al asignar tarea: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -434,7 +434,7 @@ export class DevelopmentService {
 
       if (error) throw error;
     } catch (error) {
-      console.error('Error unassigning task:', error);
+      // TODO: log 'Error unassigning task:' error
       throw new Error(`Error al desasignar tarea: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -468,7 +468,7 @@ export class DevelopmentService {
       if (error) throw error;
       return data;
     } catch (error) {
-      console.error('Error logging time:', error);
+      // TODO: log 'Error logging time:' error
       throw new Error(`Error al registrar tiempo: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -492,7 +492,7 @@ export class DevelopmentService {
       if (error) throw error;
       return data || [];
     } catch (error) {
-      console.error('Error fetching time logs:', error);
+      // TODO: log 'Error fetching time logs:' error
       throw new Error(`Error al obtener logs de tiempo: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -523,7 +523,7 @@ export class DevelopmentService {
       if (error) throw error;
       return data;
     } catch (error) {
-      console.error('Error generating report:', error);
+      // TODO: log 'Error generating report:' error
       throw new Error(`Error al generar reporte: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }
@@ -550,7 +550,7 @@ export class DevelopmentService {
       if (error) throw error;
       return data || [];
     } catch (error) {
-      console.error('Error fetching reports:', error);
+      // TODO: log 'Error fetching reports:' error
       throw new Error(`Error al obtener reportes: ${error instanceof Error ? error.message : 'Error desconocido'}`);
     }
   }

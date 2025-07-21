@@ -2,11 +2,11 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
-// VThink Test Configuration
-const VTHINK_CONFIG = {
-  test_coverage_target: "90%",
-  performance_target: "< 2 segundos",
-  balance_humano_ia_target: "70/30",
+// VibeThink Test Configuration
+const VIBETHINK_CONFIG = {
+  test_coverage_target: 90,
+  performance_target: "<2ndos",
+  balance_humano_ia_target: 70/30,
   handoff_efficiency_target: "95%"
 };
 
@@ -36,7 +36,7 @@ const MockLogin = () => {
   );
 };
 
-describe('VThink Login Component Tests', () => {
+describe('VibeThink Login Component Tests', () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
@@ -171,20 +171,18 @@ describe('VThink Login Component Tests', () => {
     });
   });
 
-  describe('VThink Metrics Validation', () => {
-    it('should meet VThink coverage requirements', () => {
-      expect(VTHINK_CONFIG.test_coverage_target).toBe("90%");
-      expect(VTHINK_CONFIG.performance_target).toBe("< 2 segundos");
-      expect(VTHINK_CONFIG.balance_humano_ia_target).toBe("70/30");
+  describe('VibeThink Metrics Validation', () => {
+    it('should meet VibeThink coverage requirements', () => {
+      expect(VIBETHINK_CONFIG.test_coverage_target).toBe(90);
+      expect(VIBETHINK_CONFIG.performance_target).toBe("<2ndos");
+      expect(VIBETHINK_CONFIG.balance_humano_ia_target).toBe(70/30);
     });
 
-    it('should validate VThink handoff efficiency', () => {
+    it('should validate VibeThink handoff efficiency', () => {
       const handoffStart = performance.now();
-      
       setTimeout(() => {
         const handoffEnd = performance.now();
         const handoffTime = handoffEnd - handoffStart;
-        
         expect(handoffTime).toBeLessThan(150000);
       }, 100);
     });

@@ -343,6 +343,6 @@ export const useApiIntegrationTracking = () => {
 // Función simulada para guardar en base de datos
 async function saveApiIntegrationUsage(data: any) {
   // En un entorno real, esto guardaría en la base de datos
-  console.log('Saving API integration usage:', data);
+  // TODO: log saving API integration usage
   return Promise.resolve();
 } 

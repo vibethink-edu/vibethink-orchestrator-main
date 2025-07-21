@@ -114,7 +114,7 @@ export function extractContextFromURL(url: string): Partial<HierarchicalContext>
     
     return {};
   } catch (error) {
-    console.error('Error extracting context from URL:', error);
+    // TODO: log 'Error extracting context from URL:' error
     return {};
   }
 }
@@ -185,7 +185,7 @@ export async function isSlugAvailable(
         return false;
     }
   } catch (error) {
-    console.error('Error checking slug availability:', error);
+    // TODO: log 'Error checking slug availability:' error
     return false;
   }
 }

@@ -1,5 +1,4 @@
-// Rutas del Dev Portal
-// VThink 1.0 - Dev Portal Routes
+// VibeThink 1.0 - Dev Portal Routes
 
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';

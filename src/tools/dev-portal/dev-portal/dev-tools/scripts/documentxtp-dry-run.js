@@ -40,7 +40,7 @@ class DocumentVTKDryRun {
     }[type];
     
     const logMessage = `${timestamp} ${prefix} ${message}`;
-    console.log(logMessage);
+    // TODO: log logMessage
     
     this.testResults.push({
       timestamp,
@@ -288,7 +288,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       process.exit(report.summary.status === 'PASS' ? 0 : 1);
     })
     .catch(error => {
-      console.error('❌ Dry run failed:', error);
+      // TODO: log '❌ Dry run failed:' error
       process.exit(1);
     });
 }

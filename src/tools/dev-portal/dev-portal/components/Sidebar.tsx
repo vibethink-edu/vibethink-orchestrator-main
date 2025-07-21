@@ -1,5 +1,4 @@
-// Sidebar del Dev Portal
-// VThink 1.0 - Dev Portal Sidebar
+// VibeThink 1.0 - Dev Portal Sidebar
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
@@ -71,7 +70,7 @@ export const Sidebar: React.FC = () => {
   return (
     <div className="flex flex-col w-64 bg-white shadow-lg">
       <div className="flex items-center justify-center h-16 px-4 border-b">
-        <h1 className="text-xl font-bold text-gray-900">Dev Portal</h1>
+        <h1 className="text-xl font-bold text-gray-900">VibeThink1 Dev Portal</h1>
       </div>
       
       <nav className="flex-1 px-4 py-6 space-y-2">
@@ -96,7 +95,7 @@ export const Sidebar: React.FC = () => {
       
       <div className="p-4 border-t">
         <div className="text-xs text-gray-500">
-          VThink 1.0 Dev Portal
+          VibeThink 1.0 Dev Portal
         </div>
       </div>
     </div>

@@ -177,9 +177,9 @@ const DevPortal: React.FC = () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       setLastUpdate(new Date());
-      console.log('✅ Datos actualizados');
+      // TODO: log '✅ Datos actualizados'
     } catch (error) {
-      console.error('❌ Error actualizando datos:', error);
+      // TODO: log '❌ Error actualizando datos:' error
     } finally {
       setIsLoading(false);
     }
@@ -203,7 +203,7 @@ const DevPortal: React.FC = () => {
         {/* Header */}
         <div className="flex justify-between items-center">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Dev Portal - VThink 1.0</h1>
+            <h1 className="text-3xl font-bold text-gray-900">Dev Portal - VibeThink 1.0</h1>
             <p className="text-gray-600">Sistema de gestión de upgrades y monitoreo del stack</p>
           </div>
           <div className="flex items-center space-x-4">

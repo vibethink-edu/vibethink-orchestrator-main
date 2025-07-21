@@ -52,7 +52,7 @@ export const useBrandingContext = () => {
       setBranding(config);
 
     } catch (err) {
-      console.error('Error fetching branding config:', err);
+      // TODO: log 'Error fetching branding config:' err
       setError(err instanceof Error ? err.message : 'Error desconocido');
     } finally {
       setLoading(false);
@@ -111,7 +111,7 @@ export const useBrandingContext = () => {
       await fetchBrandingConfig();
 
     } catch (err) {
-      console.error('Error updating branding config:', err);
+      // TODO: log 'Error updating branding config:' err
       setError(err instanceof Error ? err.message : 'Error desconocido');
     } finally {
       setLoading(false);

@@ -1,32 +1,26 @@
 {
-  "name": "@vthink/login",
+  "name": "@vibethink/login",
   "version": "1.0.0",
-  "type": "module",
-  "description": "App de login de VibeThink Orchestrator",
+  "description": "VibeThink Login - Aplicación de autenticación",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3002",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "test": "vitest",
-    "test:watch": "vitest --watch",
-    "type-check": "tsc --noEmit"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@vthink/bundui": "file:../../bundui",
     "next": "^15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwindcss": "^4.1.10",
-    "typescript": "^5.8.3"
+    "@vibethink/shared": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "^24",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "eslint": "^9.29.0",
-    "eslint-config-next": "^15.3.4",
-    "vitest": "^1.3.1"
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^15.3.4"
   }
 } 

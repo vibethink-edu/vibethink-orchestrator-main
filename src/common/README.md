@@ -2,7 +2,7 @@
 
 ## 🎯 **Propósito**
 
-Esta carpeta contiene los **patrones de diseño, configuraciones y middleware común** que se utilizan en todo el sistema VibeThink Orchestrator.
+Esta carpeta contiene los **patrones de diseño, configuraciones y middleware común** que se utilizan en todo el sistema VibeThink.
 
 ## 📁 **Estructura**
 

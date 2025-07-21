@@ -15,7 +15,7 @@ interface ScrapeRequest {
 }
 
 serve(async (req) => {
-  console.log('Resource scraper function called');
+  // TODO: log 'Resource scraper function called'
 
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
@@ -29,7 +29,7 @@ serve(async (req) => {
 
     const { url, extractionType, tags = [], userId }: ScrapeRequest = await req.json();
 
-    console.log('Scraping URL:', url, 'Type:', extractionType);
+    // TODO: log 'Scraping URL:' url 'Type:' extractionType
 
     // Step 1: Scrape with Firecrawl
     const firecrawlResponse = await fetch('https://api.firecrawl.dev/v0/scrape', {
@@ -63,7 +63,7 @@ serve(async (req) => {
     }
 
     const scrapeResult = await firecrawlResponse.json();
-    console.log('Scraping completed');
+    // TODO: log 'Scraping completed'
 
     // Step 2: AI-powered content analysis and categorization
     const analysisResponse = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -121,7 +121,7 @@ serve(async (req) => {
       };
     }
 
-    console.log('AI analysis completed');
+    // TODO: log 'AI analysis completed'
 
     // Step 3: Store in database
     const { data: resourceRecord, error: dbError } = await supabase
@@ -144,11 +144,11 @@ serve(async (req) => {
       .single();
 
     if (dbError) {
-      console.error('Database error:', dbError);
+      // TODO: log 'Database error:' dbError
       throw new Error(`Failed to store resource: ${dbError.message}`);
     }
 
-    console.log('Resource stored with ID:', resourceRecord.id);
+    // TODO: log 'Resource stored with ID:' resourceRecord.id
 
     // Step 4: Send real-time notification
     const channel = supabase.channel('resources');
@@ -175,7 +175,7 @@ serve(async (req) => {
     });
 
   } catch (error) {
-    console.error('Error in resource-scraper:', error);
+    // TODO: log 'Error in resource-scraper:' error
     return new Response(JSON.stringify({
       error: error.message,
       success: false,

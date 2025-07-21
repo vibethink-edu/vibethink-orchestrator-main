@@ -1,5 +1,5 @@
 /**
- * Tipos Unificados VThink 1.0 - Esquema de Base de Datos
+ * Tipos Unificados VibeThink 1.0 - Esquema de Base de Datos
  * 
  * Este archivo define todos los tipos TypeScript necesarios
  * para el sistema unificado con cookies modernas.
@@ -108,7 +108,7 @@ export interface User {
 }
 
 export type UserRole = 
-  // VThink Internal (_VT)
+  // VibeThink Internal (_VT)
   | 'SUPER_ADMIN_VT' | 'SUPPORT_VT' | 'DEVELOPER_VT' | 'MANAGER_VT' | 'EMPLOYEE_VT'
   // Customer (_CUST)
   | 'OWNER_CUST' | 'ADMIN_CUST' | 'MANAGER_CUST' | 'EMPLOYEE_CUST'
@@ -353,7 +353,7 @@ export interface AuditLog {
 // TIPOS DE CONTEXTO GLOBAL
 // ============================================================================
 
-export interface VThinkContextType {
+export interface OrchestratorContextType {
   tenant: Tenant | null;
   user: User | null;
   isLoading: boolean;

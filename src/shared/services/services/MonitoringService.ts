@@ -1,6 +1,7 @@
 import { supabase } from '@/integrations/supabase/client';
 import { timelineService } from './TimelineService';
 import { planLimitService } from './PlanLimitService';
+import { logger } from '@/shared/utils/logger';
 
 // Tipos para monitoreo
 export interface SystemMetric {
@@ -93,9 +94,12 @@ export class MonitoringService {
       
       // Iniciar monitoreo automático
       this.startAutomaticMonitoring();
-      // TODO: log Monitoreo del sistema inicializado en desarrollo
+      logger.info({ service: 'MonitoringService' }, 'Monitoreo del sistema inicializado');
     } catch (error) {
-      // TODO: log Error inicializando monitoreo en desarrollo
+      logger.error({ 
+        service: 'MonitoringService', 
+        error: error instanceof Error ? error.message : 'Unknown error' 
+      }, 'Error inicializando monitoreo');
     }
   }
 
@@ -172,7 +176,10 @@ export class MonitoringService {
       await this.performHealthChecks();
     }, 30000);
 
-    // TODO: log Monitoreo automático iniciado (intervalo: 30s)
+    logger.info({ 
+      service: 'MonitoringService', 
+      interval: '30s' 
+    }, 'Monitoreo automático iniciado');
   }
 
   /**
@@ -182,7 +189,7 @@ export class MonitoringService {
     if (this.monitoringInterval) {
       clearInterval(this.monitoringInterval);
       this.monitoringInterval = undefined;
-      // TODO: log Monitoreo automático detenido
+      logger.info({ service: 'MonitoringService' }, 'Monitoreo automático detenido');
     }
   }
 

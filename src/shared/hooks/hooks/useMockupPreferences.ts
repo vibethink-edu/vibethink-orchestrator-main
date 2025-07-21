@@ -89,7 +89,7 @@ export function useMockupPreferences() {
 
       setPreferences(finalPreferences);
     } catch (err) {
-      console.error('Error cargando preferencias:', err);
+      // TODO: log error loading preferences
       setError('Error al cargar las preferencias');
       setPreferences(DEFAULT_PREFERENCES);
     } finally {
@@ -103,7 +103,7 @@ export function useMockupPreferences() {
    */
   const updatePreferences = useCallback(async (newPreferences: Partial<UserPreferences>) => {
     if (!user) {
-      console.warn('Usuario no autenticado, no se pueden guardar preferencias');
+      // TODO: log user not authenticated, cannot save preferences
       return;
     }
 
@@ -128,7 +128,7 @@ export function useMockupPreferences() {
       applyFontToDOM(updatedPreferences.font);
 
     } catch (err) {
-      console.error('Error guardando preferencias:', err);
+      // TODO: log error saving preferences
       setError('Error al guardar las preferencias');
       // Revertir cambios en caso de error
       setPreferences(preferences);
@@ -200,7 +200,7 @@ export function useMockupPreferences() {
 
       return null; // Temporal hasta implementar BD
     } catch (err) {
-      console.error('Error cargando preferencias de empresa:', err);
+      // TODO: log error loading company preferences
       throw err;
     }
   }, [user, hasPermission]);
@@ -230,7 +230,7 @@ export function useMockupPreferences() {
       // Recargar preferencias para aplicar herencia
       await loadPreferences();
     } catch (err) {
-      console.error('Error guardando preferencias de empresa:', err);
+      // TODO: log error saving company preferences
       throw err;
     }
   }, [user, hasPermission, loadPreferences]);

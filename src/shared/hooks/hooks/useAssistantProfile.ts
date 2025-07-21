@@ -74,25 +74,33 @@ export function useAssistantProfile(): UseAssistantProfileReturn {
               label: 'Resumen del día',
               icon: BarChart3,
               category: 'reporting',
-              handler: () => console.log('Generating daily summary...')
+              handler: () => {
+                // TODO: log generating daily summary
+              }
             },
             {
               label: 'Agendar meeting',
               icon: Calendar,
               category: 'scheduling',
-              handler: () => console.log('Opening calendar...')
+              handler: () => {
+                // TODO: log opening calendar
+              }
             },
             {
               label: 'Análisis financiero',
               icon: DollarSign,
               category: 'finance',
-              handler: () => console.log('Opening financial analysis...')
+              handler: () => {
+                // TODO: log opening financial analysis
+              }
             },
             {
               label: 'Reporte de equipo',
               icon: Users,
               category: 'team',
-              handler: () => console.log('Generating team report...')
+              handler: () => {
+                // TODO: log generating team report
+              }
             }
           ],
           learningPriorities: [
@@ -126,25 +134,33 @@ export function useAssistantProfile(): UseAssistantProfileReturn {
               label: 'Status de proyectos',
               icon: Target,
               category: 'projects',
-              handler: () => console.log('Opening project status...')
+              handler: () => {
+                // TODO: log opening project status
+              }
             },
             {
               label: 'Preparar 1-on-1',
               icon: MessageSquare,
               category: 'meetings',
-              handler: () => console.log('Preparing 1-on-1...')
+              handler: () => {
+                // TODO: log preparing 1-on-1
+              }
             },
             {
               label: 'Revisar equipo',
               icon: Users,
               category: 'team',
-              handler: () => console.log('Opening team review...')
+              handler: () => {
+                // TODO: log opening team review
+              }
             },
             {
               label: 'Planning semanal',
               icon: Calendar,
               category: 'planning',
-              handler: () => console.log('Opening weekly planning...')
+              handler: () => {
+                // TODO: log opening weekly planning
+              }
             }
           ],
           learningPriorities: [
@@ -180,25 +196,33 @@ export function useAssistantProfile(): UseAssistantProfileReturn {
               label: 'Organizar archivos',
               icon: FileText,
               category: 'organization',
-              handler: () => console.log('Organizing files...')
+              handler: () => {
+                // TODO: log organizing files
+              }
             },
             {
               label: 'Crear documento',
               icon: FileText,
               category: 'creation',
-              handler: () => console.log('Creating document...')
+              handler: () => {
+                // TODO: log creating document
+              }
             },
             {
               label: 'Revisar agenda',
               icon: Calendar,
               category: 'scheduling',
-              handler: () => console.log('Opening calendar...')
+              handler: () => {
+                // TODO: log opening calendar
+              }
             },
             {
               label: 'Buscar información',
               icon: Brain,
               category: 'search',
-              handler: () => console.log('Opening search...')
+              handler: () => {
+                // TODO: log opening search
+              }
             }
           ],
           learningPriorities: [
@@ -243,7 +267,7 @@ export function useAssistantProfile(): UseAssistantProfileReturn {
         }))
       }
     } catch (error) {
-      console.error('Error detecting profile:', error)
+      // TODO: log error detecting profile
     } finally {
       setLoading(false)
     }

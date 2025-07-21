@@ -56,6 +56,7 @@ export const useCurrencyExchange = () => {
         }
       }
     } catch (error) {
+      // TODO: log 'Error reading cached rates:' error
       console.error('Error reading cached rates:', error);
     }
     return null;
@@ -68,6 +69,7 @@ export const useCurrencyExchange = () => {
       localStorage.setItem(CACHE_TIMESTAMP_KEY, timestamp.toString());
       setLastUpdated(new Date(timestamp));
     } catch (error) {
+      // TODO: log 'Error caching rates:' error
       console.error('Error caching rates:', error);
     }
   };
@@ -94,11 +96,12 @@ export const useCurrencyExchange = () => {
         
         setExchangeRates(data.rates);
         setCachedRates(data.rates);
-        console.log('Exchange rates updated successfully');
+        // TODO: log 'Exchange rates updated successfully'
       } else {
         throw new Error('Invalid API response');
       }
     } catch (error) {
+      // TODO: log 'Error fetching exchange rates, using fallback:' error
       console.error('Error fetching exchange rates, using fallback:', error);
       setError('Using cached/fallback rates');
       
@@ -122,7 +125,7 @@ export const useCurrencyExchange = () => {
     if (cached) {
       setExchangeRates(cached.rates);
       setLastUpdated(cached.timestamp);
-      console.log('Loaded cached exchange rates');
+      // TODO: log 'Loaded cached exchange rates'
     } else {
       // Si no hay caché válido, usar tasas de respaldo temporalmente
       setExchangeRates(fallbackRates);

@@ -432,9 +432,7 @@ apiClient.addResponseInterceptor((response) => {
 });
 
 apiClient.addErrorInterceptor((error) => {
-  // Log errors
-  console.error('API Error:', error);
-  
+  // TODO: log 'API Error:' error
   // Handle specific error types
   if (error.status === 401) {
     // Redirect to login

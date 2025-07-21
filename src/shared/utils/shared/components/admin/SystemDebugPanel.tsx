@@ -1,5 +1,5 @@
 /**
- * SystemDebugPanel - VThink 1.0
+ * SystemDebugPanel - VibeThink 1.0
  * 
  * Panel de debugging para monitoreo de variables del sistema en tiempo real.
  * Se puede agregar a cualquier página para debugging rápido.

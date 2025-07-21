@@ -9,7 +9,7 @@
  * 
  * Uso: node scripts/check-blockers.cjs [repo-url]
  * 
- * VThink 1.0 - Acceptance Rules Blocker Check
+ * VibeThink 1- Acceptance Rules Blocker Check
  */
 
 const fs = require('fs').promises;
@@ -317,7 +317,7 @@ class BlockerChecker {
     const report = {
       repository_url: this.repoUrl,
       analysis_date: new Date().toISOString(),
-      blocker_check_version: 'VThink 1.0',
+      blocker_check_version: 'VibeThink 1.0',
       
       summary: {
         decision,

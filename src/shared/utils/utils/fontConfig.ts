@@ -165,7 +165,9 @@ export function applyFontToDocument(font: FontType): void {
   root.classList.add(fontClass);
   
   // Cargar la fuente si no está disponible
-  loadGoogleFont(font).catch(console.error);
+        loadGoogleFont(font).catch((error) => {
+        // TODO: log font loading error
+      });
 }
 
 /**
@@ -266,7 +268,9 @@ export function useFonts() {
 
   // Cargar fuentes al montar el componente
   useEffect(() => {
-    loadAllFonts().catch(console.error);
+    loadAllFonts().catch((error) => {
+      // TODO: log font loading error
+    });
   }, []);
 
   return {

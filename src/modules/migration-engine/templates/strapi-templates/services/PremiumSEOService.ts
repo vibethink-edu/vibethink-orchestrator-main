@@ -174,7 +174,7 @@ export class PremiumSEOService {
    */
   async analyzeContent(content: any): Promise<SEOAnalysisResult> {
     
-    console.log('🔍 Iniciando análisis SEO premium...');
+    // TODO: log '🔍 Iniciando análisis SEO premium...'
     
     const analysis: SEOAnalysisResult = {
       score: 0,
@@ -207,7 +207,7 @@ export class PremiumSEOService {
     // Calcular score final
     analysis.score = this.calculateSEOScore(analysis);
     
-    console.log(`✅ Análisis SEO completado. Score: ${analysis.score}/100`);
+    // TODO: log `✅ Análisis SEO completado. Score: ${analysis.score}/100`
     
     return analysis;
   }
@@ -217,7 +217,7 @@ export class PremiumSEOService {
    */
   private async analyzeCompetitors(): Promise<CompetitorAnalysis[]> {
     
-    console.log('🏆 Analizando competidores...');
+    // TODO: log '🏆 Analizando competidores...'
     
     const competitors: CompetitorAnalysis[] = [];
     
@@ -226,7 +226,7 @@ export class PremiumSEOService {
         const analysis = await this.analyzeSingleCompetitor(competitorUrl);
         competitors.push(analysis);
       } catch (error) {
-        console.warn(`⚠️ Error analizando competidor ${competitorUrl}:`, error.message);
+        // TODO: log `⚠️ Error analizando competidor ${competitorUrl}:` error.message
       }
     }
     
@@ -276,7 +276,7 @@ export class PremiumSEOService {
    */
   private async analyzeKeywords(content: any): Promise<KeywordAnalysis[]> {
     
-    console.log('🔑 Analizando keywords...');
+    // TODO: log '🔑 Analizando keywords...'
     
     const keywords: KeywordAnalysis[] = [];
     
@@ -382,7 +382,7 @@ export class PremiumSEOService {
    */
   private async analyzeTechnicalSEO(content: any): Promise<TechnicalIssue[]> {
     
-    console.log('🔧 Analizando SEO técnico...');
+    // TODO: log '🔧 Analizando SEO técnico...'
     
     const issues: TechnicalIssue[] = [];
     
@@ -478,7 +478,7 @@ export class PremiumSEOService {
    */
   private async analyzePerformance(content: any): Promise<PerformanceMetrics> {
     
-    console.log('⚡ Analizando performance...');
+    // TODO: log '⚡ Analizando performance...'
     
     return {
       lighthouse: {
@@ -507,7 +507,7 @@ export class PremiumSEOService {
    */
   private async generateAdvancedSchema(content: any): Promise<SchemaMarkup> {
     
-    console.log('🏷️ Generando schema markup avanzado...');
+    // TODO: log '🏷️ Generando schema markup avanzado...'
     
     const schemaTypes = ['Article', 'WebPage', 'Organization'];
     
@@ -587,7 +587,7 @@ export class PremiumSEOService {
     analysis: SEOAnalysisResult
   ): Promise<SEORecommendation[]> {
     
-    console.log('💡 Generando recomendaciones SEO...');
+    // TODO: log '💡 Generando recomendaciones SEO...'
     
     const recommendations: SEORecommendation[] = [];
     
@@ -710,7 +710,7 @@ export class PremiumSEOService {
    */
   async autoOptimizeContent(content: any): Promise<any> {
     
-    console.log('🤖 Iniciando optimización automática...');
+    // TODO: log '🤖 Iniciando optimización automática...'
     
     const optimizedContent = { ...content };
     
@@ -734,7 +734,7 @@ export class PremiumSEOService {
       optimizedContent.keywords = await this.generateKeywords(content);
     }
     
-    console.log('✅ Optimización automática completada');
+    // TODO: log '✅ Optimización automática completada'
     
     return optimizedContent;
   }
@@ -815,7 +815,7 @@ export class PremiumSEOService {
    */
   async generatePremiumReport(content: any): Promise<any> {
     
-    console.log('📊 Generando reporte SEO premium...');
+    // TODO: log '📊 Generando reporte SEO premium...'
     
     const analysis = await this.analyzeContent(content);
     const optimizedContent = await this.autoOptimizeContent(content);

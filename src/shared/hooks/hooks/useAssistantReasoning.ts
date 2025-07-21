@@ -88,7 +88,7 @@ export function useAssistantReasoning(): UseAssistantReasoningReturn {
     // Simular tiempo de pensamiento
     await new Promise(resolve => setTimeout(resolve, 500))
     
-    console.log('🤔 Assistant thinking:', thought)
+    // TODO: log '🤔 Assistant thinking:' thought
   }, [profile, user])
 
   // ===== HERRAMIENTA SEARCH =====
@@ -134,7 +134,7 @@ export function useAssistantReasoning(): UseAssistantReasoningReturn {
       })
     }
 
-    console.log('🔍 Assistant searching:', query, 'Results:', results.length)
+    // TODO: log '🔍 Assistant searching:' query 'Results:' results.length
     return results
   }, [])
 
@@ -172,7 +172,7 @@ export function useAssistantReasoning(): UseAssistantReasoningReturn {
       ]
     }
 
-    console.log('📊 Assistant analyzing:', analysis)
+    // TODO: log '📊 Assistant analyzing:' analysis
     return analysis
   }, [])
 
@@ -228,11 +228,11 @@ export function useAssistantReasoning(): UseAssistantReasoningReturn {
         nextActions: generateNextActions(query, profile)
       }
 
-      console.log('✅ Reasoning completed:', result)
+      // TODO: log '✅ Reasoning completed:' result
       return result
 
     } catch (error) {
-      console.error('❌ Reasoning error:', error)
+      // TODO: log '❌ Reasoning error:' error
       return {
         success: false,
         response: 'Lo siento, tuve un problema procesando tu consulta. ¿Puedes reformularla?',

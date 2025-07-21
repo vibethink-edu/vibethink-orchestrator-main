@@ -8,7 +8,7 @@
  * 
  * Uso: node scripts/demo-evaluation-process.cjs
  * 
- * VThink 1.0 - Demostración del Proceso
+ * VibeThink 1- Demostración del Proceso
  */
 
 const fs = require('fs').promises;
@@ -52,7 +52,7 @@ class EvaluationDemo {
     console.log('🚀 DEMOSTRACIÓN DEL PROCESO DE EVALUACIÓN DE COMPONENTES');
     console.log('=' .repeat(60));
     console.log(`📅 Fecha: ${new Date().toLocaleDateString()}`);
-    console.log(`🎯 Metodología: VThink 1.0\n`);
+    console.log(`🎯 Metodología: VibeThink 1.0\n`);
 
     try {
       // 1. Explicar el proceso
@@ -257,7 +257,7 @@ El proceso de evaluación tiene 3 fases principales:
     const report = {
       demo_info: {
         date: this.demoDate,
-        version: 'VThink 1.0',
+        version: 'VibeThink 1.0',
         methodology: 'Evaluación de Componentes con Reglas de Aceptación'
       },
       

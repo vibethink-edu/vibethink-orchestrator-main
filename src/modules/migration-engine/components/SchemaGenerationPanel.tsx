@@ -174,6 +174,7 @@ export const SchemaGenerationPanel: React.FC<SchemaGenerationPanelProps> = ({
       onSchemaGenerated(generatedSchema);
       
     } catch (error) {
+      // TODO: log 'Error generando schema:' error
       console.error('Error generando schema:', error);
       setCurrentStep('Error en la generación del schema');
     } finally {

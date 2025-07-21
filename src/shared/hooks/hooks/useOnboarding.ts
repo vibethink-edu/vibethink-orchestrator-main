@@ -39,7 +39,7 @@ export const useOnboarding = () => {
         setLastActivity(new Date(parsed.lastActivity));
         updateProgress(parsed.currentStep);
       } catch (error) {
-        console.error('Error loading onboarding progress:', error);
+        // TODO: log error loading onboarding progress
         // Si hay error, reiniciar
         resetOnboarding();
       }
@@ -73,7 +73,7 @@ export const useOnboarding = () => {
     try {
       localStorage.setItem(ONBOARDING_STORAGE_KEY, JSON.stringify(progressData));
     } catch (error) {
-      console.error('Error saving onboarding progress:', error);
+      // TODO: log error saving onboarding progress
     }
   };
 
@@ -161,9 +161,9 @@ export const useOnboarding = () => {
         throw new Error('Failed to save onboarding data');
       }
 
-      console.log('Onboarding data saved successfully');
+      // TODO: log onboarding data saved successfully
     } catch (error) {
-      console.error('Error saving onboarding data:', error);
+      // TODO: log error saving onboarding data
     }
   };
 

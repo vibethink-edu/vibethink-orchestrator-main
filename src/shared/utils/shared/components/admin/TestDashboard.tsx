@@ -29,7 +29,7 @@ const TestDashboard: React.FC = () => {
     return (
       <div className="flex items-center justify-center h-screen bg-gray-50">
         <div className="text-center max-w-md">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">VThink Admin</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">VibeThink Admin</h1>
           <p className="text-gray-600 mb-6">No estás autenticado</p>
           <Link 
             to="/admin/login"
@@ -46,9 +46,7 @@ const TestDashboard: React.FC = () => {
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-4xl mx-auto">
         <div className="bg-white rounded-lg shadow-lg p-6">
-          <h1 className="text-3xl font-bold text-gray-900 mb-6">
-            🧪 Test Dashboard - VThink Admin
-          </h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">VibeThink Admin</h1>
           
           <div className="grid gap-6 md:grid-cols-2">
             {/* Información del Usuario */}
@@ -82,7 +80,7 @@ const TestDashboard: React.FC = () => {
           {/* Navegación */}
           <div className="mt-8">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
-              🧭 Navegación de Prueba
+              🧪 Test Dashboard - VibeThink Admin
             </h2>
             
             <div className="grid gap-4 md:grid-cols-3">

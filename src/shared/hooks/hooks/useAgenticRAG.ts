@@ -83,7 +83,7 @@ export function useAgenticRAG(): UseAgenticRAGReturn {
 
     try {
       // ===== PASO 1: Búsqueda única en knowledge base =====
-      console.log('🔍 Traditional RAG: Búsqueda única para:', query)
+      // TODO: log traditional RAG search
       
       const searchResults = await performKnowledgeSearch(query, {
         limit: 5,
@@ -108,11 +108,11 @@ export function useAgenticRAG(): UseAgenticRAGReturn {
         sources: searchResults.map(r => r.source)
       }
 
-      console.log('✅ Traditional RAG completado:', result)
+      // TODO: log traditional RAG completed
       return result
 
     } catch (error) {
-      console.error('❌ Traditional RAG error:', error)
+      // TODO: log traditional RAG error
       return {
         success: false,
         response: 'Error en búsqueda tradicional',
@@ -157,7 +157,7 @@ export function useAgenticRAG(): UseAgenticRAGReturn {
         context.searchCount = searchIndex + 1
         context.currentSearch = currentQuery
 
-        console.log(`🔍 Agentic RAG: Búsqueda ${searchIndex + 1} para:`, currentQuery)
+        // TODO: log agentic RAG search iteration
 
         // Realizar búsqueda
         const searchResults = await performKnowledgeSearch(currentQuery, {
@@ -211,11 +211,11 @@ export function useAgenticRAG(): UseAgenticRAGReturn {
         sources: [...new Set(allSearchResults.map(r => r.source))]
       }
 
-      console.log('✅ Agentic RAG completado:', result)
+      // TODO: log agentic RAG completed
       return result
 
     } catch (error) {
-      console.error('❌ Agentic RAG error:', error)
+      // TODO: log agentic RAG error
       return {
         success: false,
         response: 'Error en búsqueda agentic',

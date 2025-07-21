@@ -22,7 +22,7 @@ export const useEmailGovernance = () => {
   const updateGovernanceRules = async (rules: Partial<EmailGovernanceRules>) => {
     setLoading(true);
     try {
-      console.log('Updating governance rules:', rules);
+      // TODO: log 'Updating governance rules:' rules
       
       // Simular actualización
       const updatedRules: EmailGovernanceRules = {
@@ -47,7 +47,7 @@ export const useEmailGovernance = () => {
       toast.success('Reglas de governance actualizadas');
       return updatedRules;
     } catch (error) {
-      console.error('Error updating governance rules:', error);
+      // TODO: log 'Error updating governance rules:' error
       toast.error('Error al actualizar reglas');
       return null;
     } finally {
@@ -69,7 +69,7 @@ export const useEmailGovernance = () => {
       toast.success('Template de email creado');
       return newTemplate;
     } catch (error) {
-      console.error('Error creating email template:', error);
+      // TODO: log 'Error creating email template:' error
       toast.error('Error al crear template');
       return null;
     } finally {
@@ -125,7 +125,7 @@ export const useEmailGovernance = () => {
       toast.success('Borrador creado para revisión');
       return newDraft;
     } catch (error) {
-      console.error('Error creating email draft:', error);
+      // TODO: log 'Error creating email draft:' error
       toast.error('Error al crear borrador');
       return null;
     } finally {
@@ -151,7 +151,7 @@ export const useEmailGovernance = () => {
       toast.success('Borrador aprobado');
       return true;
     } catch (error) {
-      console.error('Error approving draft:', error);
+      // TODO: log 'Error approving draft:' error
       toast.error('Error al aprobar borrador');
       return false;
     } finally {
@@ -203,7 +203,7 @@ export const useEmailGovernance = () => {
       toast.success('Reglas de Drive actualizadas');
       return updatedRules;
     } catch (error) {
-      console.error('Error updating drive rules:', error);
+      // TODO: log 'Error updating drive rules:' error
       toast.error('Error al actualizar reglas de Drive');
       return null;
     } finally {
@@ -239,7 +239,7 @@ export const useEmailGovernance = () => {
 
       return newTask;
     } catch (error) {
-      console.error('Error organizing file:', error);
+      // TODO: log 'Error organizing file:' error
       toast.error('Error al organizar archivo');
       return null;
     } finally {

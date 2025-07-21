@@ -327,7 +327,7 @@ export const useCommandXTR = (config: Partial<CommandXTRConfig> = {}) => {
 
       // Audit if enabled
       if (configRef.current.enableAudit) {
-        console.log(`[AUDIT] Command executed: ${command} by user ${user.id}`);
+        // TODO: log command executed audit
       }
 
       return result;

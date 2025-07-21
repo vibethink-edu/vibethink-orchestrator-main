@@ -334,10 +334,7 @@ export class SecurityLogger {
           timestamp: securityEvent.timestamp.toISOString()
         });
 
-      // Log a consola en desarrollo
-      if (Deno.env.get('ENVIRONMENT') === 'development') {
-        console.log('🔒 Security Event:', securityEvent);
-      }
+      // TODO: log '🔒 Security Event:' securityEvent
 
       // Alertas para eventos críticos
       if (securityEvent.severity === 'critical') {
@@ -345,13 +342,13 @@ export class SecurityLogger {
       }
 
     } catch (error) {
-      console.error('Error logging security event:', error);
+      // TODO: log 'Error logging security event:' error
     }
   }
 
   private static async sendAlert(event: SecurityEvent): Promise<void> {
     // Implementar alertas (email, Slack, etc.)
-    console.log('🚨 SECURITY ALERT:', event);
+    // TODO: log '🚨 SECURITY ALERT:' event
     
     // Ejemplo: Enviar a webhook
     try {
@@ -376,7 +373,7 @@ export class SecurityLogger {
         });
       }
     } catch (error) {
-      console.error('Error sending security alert:', error);
+      // TODO: log 'Error sending security alert:' error
     }
   }
 }

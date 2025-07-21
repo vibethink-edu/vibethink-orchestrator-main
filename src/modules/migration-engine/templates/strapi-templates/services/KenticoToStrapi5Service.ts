@@ -344,7 +344,7 @@ export class KenticoToStrapi5Service {
    */
   async migrateKenticoToStrapi5(config: KenticoToStrapi5Config): Promise<any> {
     
-    console.log(`🚀 Iniciando migración Kentico ${config.kenticoVersion} → Strapi 5`);
+    // TODO: log `🚀 Iniciando migración Kentico ${config.kenticoVersion} → Strapi 5`
     
     try {
       // 1. Extraer contenido de Kentico
@@ -382,12 +382,12 @@ export class KenticoToStrapi5Service {
       // 7. Configurar características específicas de Strapi 5
       const strapi5Content = await this.configureStrapi5Features(mappedContent, config);
       
-      console.log(`✅ Migración completada: ${strapi5Content.pages.length} páginas, ${strapi5Content.articles.length} artículos`);
+      // TODO: log `✅ Migración completada: ${strapi5Content.pages.length} páginas, ${strapi5Content.articles.length} artículos`
       
       return strapi5Content;
       
     } catch (error) {
-      console.error(`❌ Error en migración: ${error.message}`);
+      // TODO: log `❌ Error en migración: ${error.message}`
       throw error;
     }
   }
@@ -396,12 +396,12 @@ export class KenticoToStrapi5Service {
    * Extraer contenido de Kentico
    */
   private async extractKenticoContent(kenticoVersion: string): Promise<any> {
-    console.log(`📥 Extrayendo contenido de Kentico ${kenticoVersion}`);
+    // TODO: log `📥 Extrayendo contenido de Kentico ${kenticoVersion}`
     
     const extractor = this.kenticoExtractor.getExtractor(kenticoVersion);
     const content = await extractor.extractAll();
     
-    console.log(`📊 Contenido extraído: ${content.pages.length} páginas, ${content.articles.length} artículos`);
+    // TODO: log `📊 Contenido extraído: ${content.pages.length} páginas, ${content.articles.length} artículos`
     
     return content;
   }
@@ -414,7 +414,7 @@ export class KenticoToStrapi5Service {
     contentMapping: KenticoContentMapping[]
   ): Promise<any> {
     
-    console.log(`🔄 Mapeando contenido a Strapi 5`);
+    // TODO: log `🔄 Mapeando contenido a Strapi 5`
     
     const mappedContent = {
       pages: [],
@@ -513,7 +513,7 @@ export class KenticoToStrapi5Service {
     customizations?: Record<string, any>
   ): Promise<any> {
     
-    console.log(`🎨 Aplicando plantilla: ${templateId}`);
+    // TODO: log `🎨 Aplicando plantilla: ${templateId}`
     
     const templatedContent = { ...content };
     
@@ -564,7 +564,7 @@ export class KenticoToStrapi5Service {
    */
   private async configureStrapi5Features(content: any, config: KenticoToStrapi5Config): Promise<any> {
     
-    console.log(`⚙️ Configurando características de Strapi 5`);
+    // TODO: log `⚙️ Configurando características de Strapi 5`
     
     const configuredContent = { ...content };
     

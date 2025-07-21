@@ -1,0 +1,35 @@
+{
+  "apiKey": "",
+  "projectId": "vibethink-orchestrator",
+  "workspace": "VThink-1.0",
+  "integrations": {
+    "github": {
+      "enabled": true,
+      "repo": "VibeThink-Orchestrator",
+      "syncIssues": true
+    },
+    "supabase": {
+      "enabled": true,
+      "table": "tasks"
+    }
+  },
+  "workflows": {
+    "meetingProcessor": {
+      "enabled": true,
+      "priority": "HIGH"
+    },
+    "resourceScraper": {
+      "enabled": true,
+      "priority": "MEDIUM"
+    },
+    "contentPipeline": {
+      "enabled": false,
+      "priority": "LOW"
+    }
+  },
+  "notifications": {
+    "email": true,
+    "slack": false,
+    "discord": false
+  }
+} 

@@ -12,6 +12,7 @@
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/shared/hooks/useAuth';
 import { QueryBuilder } from '@/integrations/supabase/QueryBuilder';
+import { logger } from '@/shared/utils/logger';
 
 // ============================================================================
 // TIPOS Y INTERFACES
@@ -198,18 +199,31 @@ export class WorkflowEngine {
           ...definition,
           company_id: this.companyId,
           workspace_id: this.workspaceId,
-          created_by: this.userId,
-          created_at: new Date(),
-          updated_at: new Date()
+          created_by: this.userId
         })
         .select()
         .single();
 
       if (error) throw error;
+
+      logger.info({ 
+        service: 'WorkflowEngine', 
+        operation: 'createWorkflowDefinition',
+        workflowId: data.id,
+        name: definition.name,
+        category: definition.category
+      }, 'Definición de workflow creada exitosamente');
+
       return data;
     } catch (error) {
-      // TODO: log Error creating workflow definition: error
-      throw new Error('No se pudo crear la definición del workflow');
+      logger.error({ 
+        service: 'WorkflowEngine', 
+        operation: 'createWorkflowDefinition',
+        name: definition.name,
+        category: definition.category,
+        error: error instanceof Error ? error.message : 'Unknown error'
+      }, 'Error creando definición de workflow');
+      throw error;
     }
   }
 
@@ -292,44 +306,47 @@ export class WorkflowEngine {
     inputData: Record<string, any>
   ): Promise<WorkflowExecution> {
     try {
-      // Obtener definición del workflow
-      const definition = await this.getWorkflowDefinition(workflowId);
-      if (!definition) {
-        throw new Error('Workflow no encontrado');
+      const workflowDef = await this.getWorkflowDefinition(workflowId);
+      if (!workflowDef) {
+        throw new Error('Workflow definition not found');
       }
-
-      // Validar que el workflow esté activo
-      if (definition.status !== 'active') {
-        throw new Error('El workflow no está activo');
-      }
-
-      // Crear ejecución
-      const execution: Omit<WorkflowExecution, 'id'> = {
-        workflow_id: workflowId,
-        company_id: this.companyId,
-        workspace_id: this.workspaceId,
-        status: 'pending',
-        input_data: inputData,
-        started_at: new Date(),
-        initiated_by: this.userId,
-        logs: []
-      };
 
       const { data, error } = await supabase
         .from('workflow_executions')
-        .insert(execution)
+        .insert({
+          workflow_id: workflowId,
+          company_id: this.companyId,
+          workspace_id: this.workspaceId,
+          status: 'pending',
+          input_data: inputData,
+          initiated_by: this.userId,
+          started_at: new Date().toISOString()
+        })
         .select()
         .single();
 
       if (error) throw error;
 
-      // Iniciar ejecución asíncrona
+      logger.info({ 
+        service: 'WorkflowEngine', 
+        operation: 'startWorkflowExecution',
+        executionId: data.id,
+        workflowId,
+        status: 'pending'
+      }, 'Ejecución de workflow iniciada');
+
+      // Ejecutar workflow de forma asíncrona
       this.executeWorkflowAsync(data.id);
 
       return data;
     } catch (error) {
-      // TODO: log Error starting workflow execution: error
-      throw new Error('No se pudo iniciar la ejecución del workflow');
+      logger.error({ 
+        service: 'WorkflowEngine', 
+        operation: 'startWorkflowExecution',
+        workflowId,
+        error: error instanceof Error ? error.message : 'Unknown error'
+      }, 'Error iniciando ejecución de workflow');
+      throw error;
     }
   }
 

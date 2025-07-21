@@ -1,5 +1,5 @@
 // Página de Gestión de Tareas Pendientes - Dev Portal
-// VThink 1.0 - Task Management Page
+// VibeThink 1.0 - Task Management Page
 
 import React from 'react';
 import { TaskManagement } from '../components/TaskManagement';
@@ -13,7 +13,7 @@ export const TaskManagementPage: React.FC = () => {
             Gestión de Tareas Pendientes
           </h1>
           <p className="text-gray-600 mt-2">
-            Sistema centralizado de seguimiento de tareas del proyecto VThink Orchestrator
+            Sistema centralizado de seguimiento de tareas del proyecto VibeThink
           </p>
         </div>
         

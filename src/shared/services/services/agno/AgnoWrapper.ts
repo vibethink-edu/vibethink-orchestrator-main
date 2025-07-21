@@ -77,7 +77,7 @@ export class AgnoWrapper {
 
       return agent;
     } catch (error) {
-      console.error('Error creating Agno agent:', error);
+      // TODO: log 'Error creating Agno agent:' error
       throw error;
     }
   }
@@ -180,7 +180,7 @@ export class AgnoWrapper {
 
       return team;
     } catch (error) {
-      console.error('Error creating Agno team:', error);
+      // TODO: log 'Error creating Agno team:' error
       throw error;
     }
   }

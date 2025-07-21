@@ -298,7 +298,7 @@ export class UniversalMigrationService {
     
     // Validar que use API legacy para versiones antiguas
     if (['v9', 'v10'].includes(config.version) && !config.legacyApi) {
-      console.warn('Legacy API recommended for Kentico v9 and v10');
+      // TODO: log 'Legacy API recommended for Kentico v9 and v10'
     }
   }
 
@@ -561,7 +561,7 @@ class KenticoExtractor implements BaseExtractor {
   async extract(config: KenticoConfig, contentTypes?: string[], filters?: MigrationFilters): Promise<UniversalContent[]> {
     // Implementación específica para Kentico tradicional (v9-12)
     // Usa API legacy para v9-10, API moderna para v11-12
-    console.log(`Extracting from Kentico ${config.version} using ${config.legacyApi ? 'legacy' : 'modern'} API`);
+    // TODO: log `Extracting from Kentico ${config.version} using ${config.legacyApi ? 'legacy' : 'modern'} API`
     return [];
   }
 }
@@ -569,7 +569,7 @@ class KenticoExtractor implements BaseExtractor {
 class KenticoTransformer implements BaseTransformer {
   async transform(data: UniversalContent[], target: TargetSystem, options: MigrationOptions): Promise<UniversalContent[]> {
     // Transformación específica para Kentico tradicional
-    console.log('Transforming Kentico traditional data');
+    // TODO: log 'Transforming Kentico traditional data'
     return data;
   }
 }
@@ -579,23 +579,23 @@ class KenticoXperienceExtractor implements BaseExtractor {
   async extract(config: KenticoXperienceConfig, contentTypes?: string[], filters?: MigrationFilters): Promise<UniversalContent[]> {
     // Implementación específica para Kentico Xperience (v13+)
     // Usa REST API o GraphQL según configuración
-    console.log(`Extracting from Kentico Xperience ${config.version} using ${config.useRESTAPI ? 'REST API' : 'GraphQL'}`);
+    // TODO: log `Extracting from Kentico Xperience ${config.version} using ${config.useRESTAPI ? 'REST API' : 'GraphQL'}`
     
     // Características específicas de Xperience
     if (config.includePersonalization) {
-      console.log('Including personalization data');
+      // TODO: log 'Including personalization data'
     }
     
     if (config.includeAITest) {
-      console.log('Including AI test data');
+      // TODO: log 'Including AI test data'
     }
     
     if (config.includeContentStaging) {
-      console.log('Including content staging data');
+      // TODO: log 'Including content staging data'
     }
     
     if (config.includeMarketingAutomation) {
-      console.log('Including marketing automation data');
+      // TODO: log 'Including marketing automation data'
     }
     
     return [];
@@ -605,7 +605,7 @@ class KenticoXperienceExtractor implements BaseExtractor {
 class KenticoXperienceTransformer implements BaseTransformer {
   async transform(data: UniversalContent[], target: TargetSystem, options: MigrationOptions): Promise<UniversalContent[]> {
     // Transformación específica para Kentico Xperience
-    console.log('Transforming Kentico Xperience data');
+    // TODO: log 'Transforming Kentico Xperience data'
     return data;
   }
 }

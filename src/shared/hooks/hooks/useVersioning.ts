@@ -86,7 +86,7 @@ export const useVersioning = (options: UseVersioningOptions = {}) => {
 
     // Auto-track si está habilitado
     if (autoTrack) {
-      console.log(`[Versioning] Change added: ${type} - ${description}`);
+      // TODO: log change added
     }
   }, [autoTrack]);
 
@@ -197,7 +197,7 @@ export const useVersioning = (options: UseVersioningOptions = {}) => {
     }));
 
     if (details) {
-      console.log(`[Versioning] Testing ${status}: ${details}`);
+      // TODO: log testing status
     }
   }, []);
 
@@ -238,7 +238,7 @@ export const useVersioning = (options: UseVersioningOptions = {}) => {
       );
       
       if (complianceChanges.length > 0) {
-        console.log(`[Versioning] Compliance changes detected:`, complianceChanges);
+        // TODO: log compliance changes detected
       }
     }
   }, [state.pendingChanges, complianceTracking]);
@@ -256,7 +256,7 @@ export const useVersioning = (options: UseVersioningOptions = {}) => {
           riskLevel: newRiskLevel
         }));
         
-        console.log(`[Versioning] Risk level updated: ${newRiskLevel}`);
+        // TODO: log risk level updated
       }
     }
   }, [state.pendingChanges, state.riskLevel, riskAssessment, engine]);

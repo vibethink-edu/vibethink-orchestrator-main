@@ -2,162 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-/* =============================================================================
- * LOGIN GLOBAL STYLES
- * =============================================================================
- * 
- * Estilos globales para la app login.
- * Incluye variables CSS y estilos base.
- *
- * VThink 1.0 Compliance:
- * - ✅ Multi-tenant compatible
- * - ✅ Bundui integration
- * - ✅ Performance optimized
- * ============================================================================= */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
 
-@layer base {
+@media (prefers-color-scheme: dark) {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 215.4 16.3% 46.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
 
-/* =============================================================================
- * LOGIN SPECIFIC STYLES
- * ============================================================================= */
-
-.login-container {
-  @apply min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted;
-}
-
-.login-card {
-  @apply w-full max-w-md p-8 space-y-6 bg-card border shadow-lg rounded-lg;
-}
-
-.login-form {
-  @apply space-y-4;
-}
-
-.login-input {
-  @apply w-full px-3 py-2 border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-md;
-}
-
-.login-button {
-  @apply w-full py-2 px-4 bg-primary text-primary-foreground hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-md transition-colors;
-}
-
-.login-divider {
-  @apply relative my-6;
-}
-
-.login-divider::before {
-  @apply absolute inset-0 flex items-center;
-  content: "";
-}
-
-.login-divider::after {
-  @apply relative flex justify-center text-xs uppercase;
-  content: "o continuar con";
-}
-
-/* =============================================================================
- * MULTI-TENANT STYLES
- * ============================================================================= */
-
-[data-company-id] .login-card {
-  /* Estilos específicos por empresa */
-}
-
-.company-theme .login-button {
-  /* Tema personalizado de empresa */
-}
-
-/* =============================================================================
- * RESPONSIVE DESIGN
- * ============================================================================= */
-
-@media (max-width: 640px) {
-  .login-card {
-    @apply mx-4 p-6;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
 
-/* =============================================================================
- * ANIMATIONS
- * ============================================================================= */
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.slide-in {
-  animation: slideIn 0.5s ease-out;
-}
-
-/* =============================================================================
- * UTILITY CLASSES
- * ============================================================================= */
-
-.text-balance {
-  text-wrap: balance;
-}
-
-.focus-visible {
-  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+/* Login-specific styles */
+#login-root {
+  min-height: 100vh;
+  background-color: #f9fafb;
 } 

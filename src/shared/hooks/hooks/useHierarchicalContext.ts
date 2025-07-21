@@ -100,7 +100,7 @@ export const useHierarchicalContext = () => {
       });
 
     } catch (err) {
-      console.error('Error fetching hierarchical context:', err);
+      // TODO: log error fetching hierarchical context
       setError(err instanceof Error ? err.message : 'Error desconocido');
     } finally {
       setLoading(false);
@@ -252,7 +252,7 @@ export const useHierarchicalContext = () => {
           return '';
       }
     } catch (err) {
-      console.error('Error getting context name:', err);
+      // TODO: log error getting context name
       return '';
     }
   }, [context, getContextLevel]);

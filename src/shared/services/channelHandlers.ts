@@ -37,7 +37,7 @@ export const slackHandler = async (alert: Alert): Promise<void> => {
   try {
     const webhookUrl = process.env.SLACK_WEBHOOK_URL;
     if (!webhookUrl) {
-      console.warn('⚠️ Slack webhook URL not configured');
+      // TODO: log '⚠️ Slack webhook URL not configured'
       return;
     }
 
@@ -88,9 +88,9 @@ export const slackHandler = async (alert: Alert): Promise<void> => {
       throw new Error(`Slack error: ${response.statusText}`);
     }
 
-    console.log('✅ Alert sent to Slack:', alert.title);
+    // TODO: log '✅ Alert sent to Slack:' alert.title
   } catch (error) {
-    console.error('❌ Error sending to Slack:', error);
+    // TODO: log '❌ Error sending to Slack:' error
   }
 };
 
@@ -120,9 +120,9 @@ export const emailHandler = async (alert: Alert): Promise<void> => {
       throw new Error(`Email error: ${response.statusText}`);
     }
 
-    console.log('✅ Alert sent via Email:', alert.title);
+    // TODO: log '✅ Alert sent via Email:' alert.title
   } catch (error) {
-    console.error('❌ Error sending email:', error);
+    // TODO: log '❌ Error sending email:' error
   }
 };
 
@@ -156,9 +156,9 @@ export const smsHandler = async (alert: Alert): Promise<void> => {
       }
     }
 
-    console.log('✅ Alert sent via SMS:', alert.title);
+    // TODO: log '✅ Alert sent via SMS:' alert.title
   } catch (error) {
-    console.error('❌ Error sending SMS:', error);
+    // TODO: log '❌ Error sending SMS:' error
   }
 };
 
@@ -255,7 +255,7 @@ export const discordHandler = async (alert: Alert): Promise<void> => {
   try {
     const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
     if (!webhookUrl) {
-      console.warn('⚠️ Discord webhook URL not configured');
+      // TODO: log '⚠️ Discord webhook URL not configured'
       return;
     }
 
@@ -299,9 +299,9 @@ export const discordHandler = async (alert: Alert): Promise<void> => {
       throw new Error(`Discord error: ${response.statusText}`);
     }
 
-    console.log('✅ Alert sent to Discord:', alert.title);
+    // TODO: log '✅ Alert sent to Discord:' alert.title
   } catch (error) {
-    console.error('❌ Error sending to Discord:', error);
+    // TODO: log '❌ Error sending to Discord:' error
   }
 };
 
@@ -312,7 +312,7 @@ export const teamsHandler = async (alert: Alert): Promise<void> => {
   try {
     const webhookUrl = process.env.TEAMS_WEBHOOK_URL;
     if (!webhookUrl) {
-      console.warn('⚠️ Teams webhook URL not configured');
+      // TODO: log '⚠️ Teams webhook URL not configured'
       return;
     }
 
@@ -365,9 +365,9 @@ export const teamsHandler = async (alert: Alert): Promise<void> => {
       throw new Error(`Teams error: ${response.statusText}`);
     }
 
-    console.log('✅ Alert sent to Teams:', alert.title);
+    // TODO: log '✅ Alert sent to Teams:' alert.title
   } catch (error) {
-    console.error('❌ Error sending to Teams:', error);
+    // TODO: log '❌ Error sending to Teams:' error
   }
 };
 

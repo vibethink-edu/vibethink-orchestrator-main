@@ -1,5 +1,5 @@
 /**
- * Performance Monitor Stub for VThink 1.0 Development
+ * Performance Monitor Stub for VibeThink 10Development
  * 
  * Stub para sistema de monitoreo de performance
  * Se habilitará en fases futuras según roadmap

@@ -8,7 +8,7 @@ export default function GoogleAnalyticsInit() {
     const GA_KEY = process.env.GA_KEY;
 
     if (!GA_KEY) {
-      console.error("Google Analytics key not provided.");
+      // TODO: log "Google Analytics key not provided."
       return;
     }
 

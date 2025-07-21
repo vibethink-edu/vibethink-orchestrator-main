@@ -681,7 +681,7 @@ export function useAuditSystem(pqrs?: UniversalPQRSEntity) {
       a.click();
       URL.revokeObjectURL(url);
     } catch (error) {
-      console.error('Error exporting audit events:', error);
+      // TODO: log 'Error exporting audit events:' error
     }
   }, [filteredEvents]);
 

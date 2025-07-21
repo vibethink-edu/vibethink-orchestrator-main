@@ -11,10 +11,10 @@
  * @author VTK Framework v4.3
  */
 
-console.log('⚠️ LEGACY WRAPPER NOTICE:');
-console.log('📍 DocumentVTK se ha movido a: scripts/methodology/DocumentVTK.js');
-console.log('💡 Para mejor rendimiento, usar directamente la nueva ubicación');
-console.log('🔄 Redirigiendo automáticamente...\n');
+// TODO: log '⚠️ LEGACY WRAPPER NOTICE:'
+// TODO: log '📍 DocumentVTK se ha movido a: scripts/methodology/DocumentVTK.js'
+// TODO: log '💡 Para mejor rendimiento, usar directamente la nueva ubicación'
+// TODO: log '🔄 Redirigiendo automáticamente...\n'
 
 try {
   // Importar dinámicamente desde la nueva ubicación
@@ -37,7 +37,7 @@ try {
     }
     
     // Usar configuración VibeThink por defecto
-    console.log('🚀 Ejecutando DocumentVTK desde nueva ubicación...');
+    // TODO: log '🚀 Ejecutando DocumentVTK desde nueva ubicación...'
     const documentVTK = new DocumentVTKVibeThink(options);
     await documentVTK.execute();
   }
@@ -46,7 +46,7 @@ try {
   await main();
   
 } catch (error) {
-  console.error('❌ Error ejecutando DocumentVTK:', error.message);
+  // TODO: log '❌ Error ejecutando DocumentVTK:' error.message
   console.log('\n💡 SOLUCIÓN:');
   console.log('   Usar directamente: node scripts/methodology/DocumentVTK.js');
   console.log('   O verificar que la nueva estructura esté completa');

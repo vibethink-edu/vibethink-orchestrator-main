@@ -167,7 +167,7 @@ export const useMultiCountryConfiguration = (countryCode?: string) => {
   const { data: countryConfig, isLoading: countryLoading } = useQuery({
     queryKey: ['country-configuration', currentCountryCode],
     queryFn: async () => {
-      console.log('🌍 Cargando configuración del país:', currentCountryCode);
+      // TODO: log '🌍 Cargando configuración del país:' currentCountryCode
       
       const { data, error } = await supabase
         .from('country_configurations')
@@ -177,7 +177,7 @@ export const useMultiCountryConfiguration = (countryCode?: string) => {
         .single();
       
       if (error) {
-        console.error('❌ Error cargando configuración del país:', error);
+        // TODO: log error loading country configuration
         throw error;
       }
       
@@ -204,7 +204,7 @@ export const useMultiCountryConfiguration = (countryCode?: string) => {
         updatedAt: data.updated_at
       };
       
-      console.log('✅ Configuración del país cargada:', transformed.countryName);
+      // TODO: log '✅ Configuración del país cargada:' transformed.countryName
       return transformed as CountryConfiguration;
     },
     enabled: !!currentCountryCode,
@@ -217,7 +217,7 @@ export const useMultiCountryConfiguration = (countryCode?: string) => {
     queryFn: async () => {
       if (!company?.id) return null;
       
-      console.log('🏢 Cargando configuración de empresa para país:', currentCountryCode);
+      // TODO: log '🏢 Cargando configuración de empresa para país:' currentCountryCode
       
       const { data, error } = await supabase
         .from('company_country_settings')
@@ -228,12 +228,12 @@ export const useMultiCountryConfiguration = (countryCode?: string) => {
         .single();
       
       if (error && error.code !== 'PGRST116') {
-        console.error('❌ Error cargando configuración de empresa:', error);
+        // TODO: log error loading company configuration
         throw error;
       }
       
       if (!data) {
-        console.log('ℹ️ No hay configuración específica de empresa para este país');
+        // TODO: log 'ℹ️ No hay configuración específica de empresa para este país'
         return null;
       }
       
@@ -254,7 +254,7 @@ export const useMultiCountryConfiguration = (countryCode?: string) => {
         updatedAt: data.updated_at
       };
       
-      console.log('✅ Configuración de empresa cargada');
+      // TODO: log '✅ Configuración de empresa cargada'
       return transformed as CompanyCountrySettings;
     },
     enabled: !!company?.id && !!currentCountryCode,
@@ -265,7 +265,7 @@ export const useMultiCountryConfiguration = (countryCode?: string) => {
   const { data: countryPlans, isLoading: plansLoading } = useQuery({
     queryKey: ['country-plans', currentCountryCode],
     queryFn: async () => {
-      console.log('📋 Cargando planes del país:', currentCountryCode);
+      // TODO: log '📋 Cargando planes del país:' currentCountryCode
       
       const { data, error } = await supabase
         .from('country_plans')
@@ -275,7 +275,7 @@ export const useMultiCountryConfiguration = (countryCode?: string) => {
         .order('base_price', { ascending: true });
       
       if (error) {
-        console.error('❌ Error cargando planes del país:', error);
+        // TODO: log error loading country plans
         throw error;
       }
       
@@ -295,7 +295,7 @@ export const useMultiCountryConfiguration = (countryCode?: string) => {
         updatedAt: plan.updated_at
       }));
       
-      console.log('✅ Planes del país cargados:', transformed.length);
+      // TODO: log '✅ Planes del país cargados:' transformed.length
       return transformed as CountryPlan[];
     },
     enabled: !!currentCountryCode,
@@ -311,7 +311,7 @@ export const useMultiCountryConfiguration = (countryCode?: string) => {
     mutationFn: async (settings: Partial<CompanyCountrySettings>) => {
       if (!company?.id) throw new Error('No hay empresa seleccionada');
       
-      console.log('🔄 Actualizando configuración de empresa para país:', currentCountryCode);
+      // TODO: log '🔄 Actualizando configuración de empresa para país:' currentCountryCode
       
       const updateData = {
         company_id: company.id,
@@ -337,7 +337,7 @@ export const useMultiCountryConfiguration = (countryCode?: string) => {
       
       if (updateError && updateError.code === 'PGRST116') {
         // Si no existe, crear nuevo registro
-        console.log('📝 Creando nueva configuración de empresa para país');
+        // TODO: log '📝 Creando nueva configuración de empresa para país'
         
         const { data: insertResult, error: insertError } = await supabase
           .from('company_country_settings')
@@ -346,7 +346,7 @@ export const useMultiCountryConfiguration = (countryCode?: string) => {
           .single();
         
         if (insertError) {
-          console.error('❌ Error creando configuración de empresa:', insertError);
+          // TODO: log error creating company configuration
           throw insertError;
         }
         
@@ -354,7 +354,7 @@ export const useMultiCountryConfiguration = (countryCode?: string) => {
       }
       
       if (updateError) {
-        console.error('❌ Error actualizando configuración de empresa:', updateError);
+        // TODO: log error updating company configuration
         throw updateError;
       }
       
@@ -365,7 +365,7 @@ export const useMultiCountryConfiguration = (countryCode?: string) => {
       toast.success('Configuración de empresa actualizada exitosamente');
     },
     onError: (error) => {
-      console.error('Error actualizando configuración de empresa:', error);
+      // TODO: log error updating company configuration
       toast.error('Error al actualizar la configuración de empresa');
     }
   });
@@ -398,7 +398,7 @@ export const useMultiCountryConfiguration = (countryCode?: string) => {
   
   // Cambiar país
   const changeCountry = useCallback((newCountryCode: string) => {
-    console.log('🌍 Cambiando país de', currentCountryCode, 'a', newCountryCode);
+    // TODO: log '🌍 Cambiando país de' currentCountryCode 'a' newCountryCode
     setCurrentCountryCode(newCountryCode);
   }, [currentCountryCode]);
   

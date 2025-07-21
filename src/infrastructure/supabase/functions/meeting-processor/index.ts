@@ -133,7 +133,7 @@ serve(async (req) => {
       .rpc('get_company_limits', { company_id: requestData.company_id })
 
     if (limitsError) {
-      console.error('Error fetching company limits:', limitsError)
+      // TODO: log 'Error fetching company limits:' limitsError
       return new Response(
         JSON.stringify({ success: false, error: 'Failed to check company limits' }),
         { 
@@ -162,7 +162,7 @@ serve(async (req) => {
     const audioBlob = new Blob([audioData], { type: requestData.file_type })
 
     // Step 1: Transcribe audio with OpenAI Whisper
-    console.log('Starting transcription with Whisper...')
+    // TODO: log 'Starting transcription with Whisper...'
     const openaiApiKey = Deno.env.get('OPENAI_API_KEY')!
     
     const transcriptionFormData = new FormData()
@@ -181,7 +181,7 @@ serve(async (req) => {
 
     if (!transcriptionResponse.ok) {
       const error = await transcriptionResponse.text()
-      console.error('Whisper transcription failed:', error)
+      // TODO: log 'Whisper transcription failed:' error
       return new Response(
         JSON.stringify({ 
           success: false, 
@@ -198,7 +198,7 @@ serve(async (req) => {
     const transcription = transcriptionResult.text
     const transcriptionDuration = transcriptionResult.duration || 0
 
-    console.log('Transcription completed. Starting analysis with GPT-4o...')
+    // TODO: log 'Transcription completed. Starting analysis with GPT-4o...'
 
     // Step 2: Analyze transcription with GPT-4o for structured minutes
     const analysisPrompt = `
@@ -273,7 +273,7 @@ IMPORTANTE:
 
     if (!analysisResponse.ok) {
       const error = await analysisResponse.text()
-      console.error('GPT-4o analysis failed:', error)
+      // TODO: log 'GPT-4o analysis failed:' error
       return new Response(
         JSON.stringify({ 
           success: false, 
@@ -294,8 +294,8 @@ IMPORTANTE:
     try {
       meetingMinutes = JSON.parse(analysisContent)
     } catch (parseError) {
-      console.error('Failed to parse GPT-4o response:', parseError)
-      console.error('Raw response:', analysisContent)
+      // TODO: log 'Failed to parse GPT-4o response:' parseError
+      // TODO: log 'Raw response:' analysisContent
       
       // Fallback: create basic structure from transcription
       meetingMinutes = {
@@ -331,7 +331,7 @@ IMPORTANTE:
       })
 
     if (usageError) {
-      console.error('Failed to log usage:', usageError)
+      // TODO: log 'Failed to log usage:' usageError
       // Don't fail the request, just log the error
     }
 
@@ -356,7 +356,7 @@ IMPORTANTE:
       .single()
 
     if (meetingError) {
-      console.error('Failed to store meeting:', meetingError)
+      // TODO: log 'Failed to store meeting:' meetingError
       return new Response(
         JSON.stringify({ 
           success: false, 
@@ -383,7 +383,7 @@ IMPORTANTE:
       }
     }
 
-    console.log('Meeting processing completed successfully')
+    // TODO: log 'Meeting processing completed successfully'
 
     return new Response(
       JSON.stringify(response),
@@ -394,7 +394,7 @@ IMPORTANTE:
     )
 
   } catch (error) {
-    console.error('Unexpected error:', error)
+    // TODO: log 'Unexpected error:' error
     return new Response(
       JSON.stringify({ 
         success: false, 

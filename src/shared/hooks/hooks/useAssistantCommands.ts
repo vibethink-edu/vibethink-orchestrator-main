@@ -58,7 +58,7 @@ export function useAssistantCommands(): UseAssistantCommandsReturn {
       description: 'Muestra todos los comandos disponibles',
       category: 'help',
       action: async () => {
-        console.log('Mostrando comandos disponibles...')
+        // TODO: log showing available commands
         recordInteraction('help_command')
       },
       requiresAuth: false,
@@ -72,7 +72,7 @@ export function useAssistantCommands(): UseAssistantCommandsReturn {
       description: 'Muestra tu estado actual y progreso',
       category: 'productivity',
       action: async () => {
-        console.log('Mostrando estado del usuario...')
+        // TODO: log showing user status
         recordInteraction('status_command')
       },
       requiresAuth: true,
@@ -86,14 +86,16 @@ export function useAssistantCommands(): UseAssistantCommandsReturn {
       description: 'Organiza tus archivos y documentos',
       category: 'productivity',
       action: async () => {
-        console.log('Organizando archivos...')
+        // TODO: log organizing files
         recordInteraction('organize_command')
         addTask({
           title: 'Organización de archivos completada',
           description: 'Tus documentos han sido organizados por prioridad',
           category: 'organization',
           priority: 'medium',
-          action: () => console.log('Opening organized files...'),
+          action: () => {
+            // TODO: log opening organized files
+          },
           actionLabel: 'Ver archivos'
         })
       },
@@ -119,14 +121,16 @@ export function useAssistantCommands(): UseAssistantCommandsReturn {
             description: 'Genera un resumen ejecutivo del día',
             category: 'analytics',
             action: async () => {
-              console.log('Generando resumen ejecutivo...')
+              // TODO: log generating executive summary
               recordInteraction('executive_summary_command')
               addTask({
                 title: 'Resumen ejecutivo listo',
                 description: 'He preparado un resumen de las métricas clave del día',
                 category: 'reporting',
                 priority: 'high',
-                action: () => console.log('Opening executive summary...'),
+                action: () => {
+                  // TODO: log opening executive summary
+                },
                 actionLabel: 'Ver resumen'
               })
             },
@@ -141,7 +145,7 @@ export function useAssistantCommands(): UseAssistantCommandsReturn {
             description: 'Agenda una reunión estratégica',
             category: 'communication',
             action: async () => {
-              console.log('Abriendo agenda de reuniones...')
+              // TODO: log opening meeting agenda
               recordInteraction('schedule_meeting_command')
             },
             requiresAuth: true,
@@ -160,14 +164,16 @@ export function useAssistantCommands(): UseAssistantCommandsReturn {
             description: 'Muestra el estado actual del equipo',
             category: 'analytics',
             action: async () => {
-              console.log('Mostrando estado del equipo...')
+              // TODO: log showing team status
               recordInteraction('team_status_command')
               addTask({
                 title: 'Estado del equipo actualizado',
                 description: 'Revisé el progreso de todos los proyectos del equipo',
                 category: 'team',
                 priority: 'high',
-                action: () => console.log('Opening team status...'),
+                action: () => {
+                  // TODO: log opening team status
+                },
                 actionLabel: 'Ver equipo'
               })
             },
@@ -182,7 +188,7 @@ export function useAssistantCommands(): UseAssistantCommandsReturn {
             description: 'Prepara puntos para una reunión 1-on-1',
             category: 'communication',
             action: async () => {
-              console.log('Preparando 1-on-1...')
+              // TODO: log preparing 1-on-1
               recordInteraction('prepare_1on1_command')
             },
             requiresAuth: true,
@@ -201,7 +207,7 @@ export function useAssistantCommands(): UseAssistantCommandsReturn {
             description: 'Inicia una revisión de código',
             category: 'productivity',
             action: async () => {
-              console.log('Iniciando revisión de código...')
+              // TODO: log starting code review
               recordInteraction('code_review_command')
             },
             requiresAuth: true,
@@ -215,7 +221,7 @@ export function useAssistantCommands(): UseAssistantCommandsReturn {
             description: 'Inicia el proceso de deployment',
             category: 'automation',
             action: async () => {
-              console.log('Iniciando deployment...')
+              // TODO: log starting deployment
               recordInteraction('deploy_command')
             },
             requiresAuth: true,
@@ -238,7 +244,7 @@ export function useAssistantCommands(): UseAssistantCommandsReturn {
       description: 'Compose y envía un email',
       category: 'communication',
       action: async () => {
-        console.log('Abriendo compositor de email...')
+        // TODO: log opening email composer
         recordInteraction('send_email_command')
       },
       requiresAuth: true,
@@ -252,7 +258,7 @@ export function useAssistantCommands(): UseAssistantCommandsReturn {
       description: 'Crea una nueva reunión',
       category: 'communication',
       action: async () => {
-        console.log('Creando nueva reunión...')
+        // TODO: log creating new meeting
         recordInteraction('create_meeting_command')
       },
       requiresAuth: true,
@@ -270,8 +276,8 @@ export function useAssistantCommands(): UseAssistantCommandsReturn {
       description: 'Muestra analytics y métricas',
       category: 'analytics',
       action: async () => {
-        console.log('Mostrando analytics...')
-        recordInteraction('analytics_command')
+        // TODO: log showing analytics
+        recordInteraction('show_analytics_command')
       },
       requiresAuth: true,
       availableForRoles: ['*'],
@@ -284,8 +290,8 @@ export function useAssistantCommands(): UseAssistantCommandsReturn {
       description: 'Analiza tendencias y patrones',
       category: 'analytics',
       action: async () => {
-        console.log('Analizando tendencias...')
-        recordInteraction('trends_command')
+        // TODO: log analyzing trends
+        recordInteraction('analyze_trends_command')
       },
       requiresAuth: true,
       availableForRoles: ['*'],
@@ -357,14 +363,13 @@ export function useAssistantCommands(): UseAssistantCommandsReturn {
 
   // Reconocimiento de voz (simulado)
   const startVoiceRecognition = useCallback(() => {
+    // TODO: log starting voice recognition
     setIsListening(true)
-    console.log('Iniciando reconocimiento de voz...')
-    // Aquí se integraría con Web Speech API o similar
   }, [])
 
   const stopVoiceRecognition = useCallback(() => {
+    // TODO: log stopping voice recognition
     setIsListening(false)
-    console.log('Deteniendo reconocimiento de voz...')
   }, [])
 
   return {

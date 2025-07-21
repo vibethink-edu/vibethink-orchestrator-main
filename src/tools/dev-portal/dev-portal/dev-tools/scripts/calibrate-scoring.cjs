@@ -14,7 +14,7 @@
  * 
  * Uso: node scripts/calibrate-scoring.cjs
  * 
- * VThink 1.0 - Calibración de Proceso
+ * VibeThink1Calibración de Proceso
  */
 
 const fs = require('fs').promises;
@@ -291,7 +291,7 @@ class ProcessCalibrator {
         date: new Date().toISOString(),
         case_name: POSTIZ_CASE.name,
         repository: POSTIZ_CASE.repo_url,
-        calibrator_version: 'VThink 1.0'
+        calibrator_version: 'VibeThink 1.0'
       },
       
       expected_results: POSTIZ_CASE.expected_results,

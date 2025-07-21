@@ -243,7 +243,7 @@ export const useUniversalMigration = () => {
     
     // Validar configuración específica para versiones antiguas
     if (['v9', 'v10'].includes(version)) {
-      console.warn('Legacy API recommended for Kentico v9 and v10');
+      // TODO: log 'Legacy API recommended for Kentico v9 and v10'
     }
   }, []);
 

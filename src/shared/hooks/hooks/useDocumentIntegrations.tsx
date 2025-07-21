@@ -44,7 +44,7 @@ export const useDocumentIntegrations = () => {
         toast.error('Error al conectar con Google Workspace');
       }
     } catch (error) {
-      console.error('Google connection error:', error);
+      // TODO: log 'Google connection error:' error
       toast.error('Error al conectar con Google Workspace');
     } finally {
       setLoading(false);
@@ -72,7 +72,7 @@ export const useDocumentIntegrations = () => {
         return null;
       }
     } catch (error) {
-      console.error('Error creating Google Doc:', error);
+      // TODO: log 'Error creating Google Doc:' error
       toast.error('Error al crear documento');
       return null;
     } finally {
@@ -100,7 +100,7 @@ export const useDocumentIntegrations = () => {
         return null;
       }
     } catch (error) {
-      console.error('Error creating Google Sheet:', error);
+      // TODO: log 'Error creating Google Sheet:' error
       toast.error('Error al crear hoja de cálculo');
       return null;
     } finally {
@@ -126,7 +126,7 @@ export const useDocumentIntegrations = () => {
         toast.error('Error al conectar con Office 365');
       }
     } catch (error) {
-      console.error('Office 365 connection error:', error);
+      // TODO: log 'Office 365 connection error:' error
       toast.error('Error al conectar con Office 365');
     } finally {
       setLoading(false);
@@ -154,7 +154,7 @@ export const useDocumentIntegrations = () => {
         return null;
       }
     } catch (error) {
-      console.error('Error creating Word doc:', error);
+      // TODO: log 'Error creating Word doc:' error
       toast.error('Error al crear documento');
       return null;
     } finally {
@@ -182,7 +182,7 @@ export const useDocumentIntegrations = () => {
         return null;
       }
     } catch (error) {
-      console.error('Error creating Excel workbook:', error);
+      // TODO: log 'Error creating Excel workbook:' error
       toast.error('Error al crear libro de Excel');
       return null;
     } finally {
@@ -194,7 +194,7 @@ export const useDocumentIntegrations = () => {
   const executeDocumentWorkflow = async (workflow: DocumentWorkflow, inputData: Record<string, any>) => {
     setLoading(true);
     try {
-      console.log('Executing document workflow:', workflow.name, inputData);
+      // TODO: log 'Executing document workflow:' workflow.name inputData
 
       if (workflow.platform === 'google') {
         if (workflow.documentType === 'docs') {
@@ -227,7 +227,7 @@ export const useDocumentIntegrations = () => {
       toast.error('Tipo de workflow no soportado');
       return null;
     } catch (error) {
-      console.error('Error executing workflow:', error);
+      // TODO: log 'Error executing workflow:' error
       toast.error('Error al ejecutar workflow');
       return null;
     } finally {

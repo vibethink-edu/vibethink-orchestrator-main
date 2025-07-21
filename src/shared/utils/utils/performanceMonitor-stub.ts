@@ -1,5 +1,5 @@
 /**
- * Performance Monitor Stub for VThink 1.0 Development
+ * Performance Monitor Stub for VibeThink 1.0Development
  * 
  * Stub para sistema de monitoreo de performance
  * Se habilitará en fases futuras según roadmap
@@ -17,7 +17,7 @@ export const monitorQueryPerformance = (queryName: string, duration: number) => 
 
 export const monitorMemoryUsage = () => {
   if (import.meta.env.DEV) {
-    console.log('[Performance Monitor Stub] Memory usage check');
+    // TODO: log '[Performance Monitor Stub] Memory usage check'
   }
   
   return {
@@ -29,7 +29,7 @@ export const monitorMemoryUsage = () => {
 
 export const trackPageLoad = (pageName: string, loadTime: number) => {
   if (import.meta.env.DEV) {
-    console.log('[Performance Monitor Stub] Page load:', pageName, 'Time:', loadTime + 'ms');
+    // TODO: log '[Performance Monitor Stub] Page load:' pageName 'Time:' loadTime + 'ms'
   }
 };
 

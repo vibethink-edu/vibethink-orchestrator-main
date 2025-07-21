@@ -11,7 +11,7 @@
  * 
  * Uso: node scripts/estimate-effort-by-scenario.cjs [component] [apps-affected]
  * 
- * VThink 1.0 - Stack Receptor Principles
+ * VibeThink1eceptor Principles
  */
 
 const fs = require('fs').promises;
@@ -439,7 +439,7 @@ class EffortEstimator {
       estimation_info: {
         component_name: this.componentName,
         analysis_date: this.timestamp,
-        estimator_version: 'VThink 1.0',
+        estimator_version: 'VibeThink 1.0',
         apps_considered: this.affectedApps
       },
       

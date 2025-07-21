@@ -97,11 +97,11 @@ export class AgnoUsageTracker {
         });
 
       if (error) {
-        console.error('Error tracking Agno usage:', error);
+        // TODO: log 'Error tracking Agno usage:' error
         // No lanzar error para no interrumpir el flujo principal
       }
     } catch (error) {
-      console.error('Exception tracking Agno usage:', error);
+      // TODO: log 'Exception tracking Agno usage:' error
     }
   }
 
@@ -182,10 +182,10 @@ export class AgnoUsageTracker {
         });
 
       if (error) {
-        console.error('Error tracking Agno team usage:', error);
+        // TODO: log 'Error tracking Agno team usage:' error
       }
     } catch (error) {
-      console.error('Exception tracking Agno team usage:', error);
+      // TODO: log 'Exception tracking Agno team usage:' error
     }
   }
 
@@ -240,7 +240,7 @@ export class AgnoUsageTracker {
       .eq('status', 'completed');
 
     if (error || !logs) {
-      console.error('Error fetching usage stats:', error);
+      // TODO: log 'Error fetching usage stats:' error
       return {
         totalRequests: 0,
         totalTokens: 0,

@@ -195,6 +195,7 @@ export const useBilling = () => {
       setUsage(mockUsage);
     } catch (err) {
       setError('Error cargando datos de facturación');
+      // TODO: log 'Error loading billing data:' err
       console.error('Error loading billing data:', err);
     } finally {
       setLoading(false);
@@ -306,8 +307,7 @@ export const useBilling = () => {
       }
 
       // Aquí iría la lógica real de generación/descarga de PDF
-      console.log('Descargando PDF para factura:', invoice.number);
-      
+      // TODO: log 'Descargando PDF para factura:' invoice.number
       return invoice.pdfUrl;
     } catch (err) {
       setError('Error descargando factura');
@@ -327,8 +327,7 @@ export const useBilling = () => {
       }
 
       // Aquí iría la lógica real de envío de email
-      console.log('Enviando factura por email:', invoice.number, 'a', email);
-      
+      // TODO: log 'Enviando factura por email:' invoice.number 'a' email
       return true;
     } catch (err) {
       setError('Error enviando factura por email');

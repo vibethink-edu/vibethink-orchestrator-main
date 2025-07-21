@@ -199,7 +199,7 @@ export function useCookies(): CookiesReturn {
       setShowBanner(false);
     },
     savePreferences: () => {
-      console.log('Saving cookie preferences:', consent);
+      // TODO: log 'Saving cookie preferences:' consent
     },
     setCookie: (name: string, value: string, options?: CookieOptions) => {
       document.cookie = buildCookieString(name, value, options);
@@ -215,7 +215,7 @@ export function useCookies(): CookiesReturn {
     showBanner,
     hideBanner: () => setShowBanner(false),
     trackConsent: () => {
-      console.log('Tracking consent:', consent);
+      // TODO: log 'Tracking consent:' consent
     },
     exportConsent: () => JSON.stringify(consent)
   };

@@ -107,14 +107,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const setMockUserFunction = (newMockUser: AuthUser | null) => {
     setMockUser(newMockUser);
     setIsMockMode(!!newMockUser);
-    console.log('🧪 Mock user set:', newMockUser?.email);
+    // TODO: log '🧪 Mock user set:' newMockUser?.email
   };
 
   /**
    * Initialize authentication listener
    */
   useEffect(() => {
-    console.log('🔐 Initializing Supabase authentication...');
+    // TODO: log '🔐 Initializing Supabase authentication...'
 
     // Check for mock user in localStorage first (for SimpleLogin)
     const storedAuthUser = localStorage.getItem('auth_user');
@@ -125,7 +125,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         const mockUser = JSON.parse(storedAuthUser);
         const mockSession = JSON.parse(storedAuthSession);
         
-        console.log('🧪 Found mock user in localStorage:', mockUser.email);
+        // TODO: log '🧪 Found mock user in localStorage:' mockUser.email
         
         setMockUser(mockUser);
         setSession(mockSession);
@@ -133,7 +133,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setLoading(false);
         return; // Don't continue with Supabase auth if we have mock data
       } catch (error) {
-        console.error('❌ Error parsing localStorage auth data:', error);
+        // TODO: log '❌ Error parsing localStorage auth data:' error
         // Clear invalid data
         localStorage.removeItem('auth_user');
         localStorage.removeItem('auth_session');
@@ -143,7 +143,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // Set up auth state listener
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
-        console.log('🔄 Auth event:', event, session?.user?.email);
+        // TODO: log '🔄 Auth event:' event session?.user?.email
         
         setSession(session);
         
@@ -181,7 +181,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
    */
   const fetchUserProfile = async (userId: string): Promise<{ profile: UserProfile | null, company: Company | null }> => {
     try {
-      console.log('📊 Fetching user profile for:', userId);
+      // TODO: log '📊 Fetching user profile for:' userId
 
       // Fetch user profile with company data
       const { data: profile, error: profileError } = await supabase
@@ -194,18 +194,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         .single();
 
       if (profileError) {
-        console.error('❌ Error fetching user profile:', profileError);
+        // TODO: log '❌ Error fetching user profile:' profileError
         return { profile: null, company: null };
       }
 
-      console.log('✅ Profile fetched successfully:', profile);
+      // TODO: log '✅ Profile fetched successfully:' profile
 
       return { 
         profile: profile as UserProfile, 
         company: (profile as any).companies as Company 
       };
     } catch (error) {
-      console.error('❌ Error in fetchUserProfile:', error);
+      // TODO: log '❌ Error in fetchUserProfile:' error
       return { profile: null, company: null };
     }
   };
@@ -256,7 +256,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
    */
   const signIn = async (email: string, password: string) => {
     try {
-      console.log('🔐 Attempting sign in for:', email);
+      // TODO: log '🔐 Attempting sign in for:' email
       
       const { error } = await supabase.auth.signInWithPassword({
         email,
@@ -264,14 +264,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       });
       
       if (error) {
-        console.error('❌ Sign in error:', error);
+        // TODO: log '❌ Sign in error:' error
       } else {
-        console.log('✅ Sign in successful');
+        // TODO: log '✅ Sign in successful'
       }
       
       return { error };
     } catch (error) {
-      console.error('❌ Sign in exception:', error);
+      // TODO: log '❌ Sign in exception:' error
       return { error };
     }
   };
@@ -300,7 +300,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
    * Sign out function
    */
   const signOut = async () => {
-    console.log('�� Signing out...');
+    // TODO: log '🔐 Signing out...'
     
     // Clear localStorage if in mock mode
     if (isMockMode) {

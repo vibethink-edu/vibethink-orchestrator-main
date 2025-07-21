@@ -98,9 +98,9 @@ EXAMPLES:
       return;
     }
 
-    console.log(`\n📋 PENDING DECISIONS (${files.length})\n`);
-    console.log('| Decision ID | Component | Change | Risk | Score | Deadline |');
-    console.log('|-------------|-----------|--------|------|-------|----------|');
+    // TODO: log `\n📋 PENDING DECISIONS (${files.length})\n`
+    // TODO: log '| Decision ID | Component | Change | Risk | Score | Deadline |'
+    // TODO: log '|-------------|-----------|--------|------|-------|----------|'
 
     files.forEach(decision => {
       const deadline = new Date(decision.decision_deadline);
@@ -108,10 +108,10 @@ EXAMPLES:
       const deadlineStr = deadline.toLocaleDateString();
       const overdueMarker = isOverdue ? ' ⚠️' : '';
       
-      console.log(`| ${decision.id} | ${decision.component} | ${decision.change.from} → ${decision.change.to} | ${decision.evaluation.risk} | ${decision.evaluation.score}/10 | ${deadlineStr}${overdueMarker} |`);
+      // TODO: log `| ${decision.id} | ${decision.component} | ${decision.change.from} → ${decision.change.to} | ${decision.evaluation.risk} | ${decision.evaluation.score}/10 | ${deadlineStr}${overdueMarker} |`
     });
 
-    console.log('\n💡 Use "review <decision-id>" to see details');
+    // TODO: log '\n💡 Use "review <decision-id>" to see details'
   }
 
   async reviewDecision(decisionId) {
@@ -129,34 +129,34 @@ EXAMPLES:
 
     const decision = JSON.parse(fs.readFileSync(decisionPath, 'utf8'));
     
-    console.log(`\n🔍 DECISION REVIEW: ${decision.id}\n`);
-    console.log(`**Component**: ${decision.component} (${decision.repo})`);
-    console.log(`**Change**: ${decision.change.from} → ${decision.change.to}`);
-    console.log(`**Type**: ${decision.change.type}`);
-    console.log(`**Status**: ${decision.status}`);
-    console.log(`**Created**: ${new Date(decision.created_at).toLocaleString()}`);
-    console.log(`**Deadline**: ${new Date(decision.decision_deadline).toLocaleString()}`);
+    // TODO: log `\n🔍 DECISION REVIEW: ${decision.id}\n`
+    // TODO: log `**Component**: ${decision.component} (${decision.repo})`
+    // TODO: log `**Change**: ${decision.change.from} → ${decision.change.to}`
+    // TODO: log `**Type**: ${decision.change.type}`
+    // TODO: log `**Status**: ${decision.status}`
+    // TODO: log `**Created**: ${new Date(decision.created_at).toLocaleString()}`
+    // TODO: log `**Deadline**: ${new Date(decision.decision_deadline).toLocaleString()}`
     
     const isOverdue = new Date(decision.decision_deadline) < new Date();
     if (isOverdue) {
-      console.log('⚠️  **This decision is OVERDUE**');
+      // TODO: log '⚠️  **This decision is OVERDUE**'
     }
 
-    console.log(`\n📊 **EVALUATION SUMMARY**:`);
-    console.log(`- **Overall Score**: ${decision.evaluation.score}/10`);
-    console.log(`- **Risk Level**: ${decision.evaluation.risk}`);
-    console.log(`- **Recommendation**: ${decision.evaluation.recommendation}`);
+    // TODO: log `\n📊 **EVALUATION SUMMARY**:`
+    // TODO: log `- **Overall Score**: ${decision.evaluation.score}/10`
+    // TODO: log `- **Risk Level**: ${decision.evaluation.risk}`
+    // TODO: log `- **Recommendation**: ${decision.evaluation.recommendation}`
 
     // Try to load full evaluation if available
     const evalPath = path.join(EVALUATIONS_DIR, `${decision.evaluation.id}.md`);
     if (fs.existsSync(evalPath)) {
-      console.log(`\n📄 **Full evaluation available**: ${evalPath}`);
+      // TODO: log `\n📄 **Full evaluation available**: ${evalPath}`
     }
 
-    console.log(`\n⚡ **AVAILABLE ACTIONS**:`);
-    console.log(`- accept ${decisionId} "reason" - Accept the update`);
-    console.log(`- reject ${decisionId} "reason" - Reject the update`);
-    console.log(`- defer ${decisionId} "reason" - Defer to later`);
+    // TODO: log `\n⚡ **AVAILABLE ACTIONS**:`
+    // TODO: log `- accept ${decisionId} "reason" - Accept the update`
+    // TODO: log `- reject ${decisionId} "reason" - Reject the update`
+    // TODO: log `- defer ${decisionId} "reason" - Defer to later`
   }
 
   async makeDecision(decisionId, action, reason) {
@@ -277,7 +277,7 @@ ${decision.decision_rationale}
         if (!component.ignored_versions.includes(decision.change.to)) {
           component.ignored_versions.push(decision.change.to);
           fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
-          console.log(`🚫 Version ${decision.change.to} marked as ignored for ${decision.component}`);
+          console.log(`�� Version ${decision.change.to} marked as ignored for ${decision.component}`);
         }
       }
     }

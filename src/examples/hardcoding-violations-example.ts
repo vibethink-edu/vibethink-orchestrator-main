@@ -1,5 +1,5 @@
-/**
- * Ejemplo de Violaciones de Hardcoding - AI Pair Orchestrator Pro
+Buen/**
+ * Ejemplo de Violaciones de Hardcoding - AI Pair VibeThink Pro
  * 
  * Este archivo contiene ejemplos de código que VIOLAN las reglas de hardcoding
  * y serían detectadas por el sistema de prevención.

@@ -9,7 +9,7 @@
  * 
  * Uso: node scripts/generate-porte-analysis.js [nombre] [repo_url]
  * 
- * VThink 1.0 - Framework de Porte
+ * VibeThink 1- Framework de Porte
  */
 
 const fs = require('fs').promises;
@@ -375,7 +375,7 @@ class PorteAnalyzer {
       component_name: this.componentName,
       repository_url: this.repoUrl,
       analysis_date: this.timestamp,
-      analysis_version: 'VThink 1.0',
+      analysis_version: 'VibeThink 1.0',
       status: 'INITIAL_ANALYSIS_COMPLETE',
       next_steps: [
         'Review generated reports',
@@ -399,7 +399,7 @@ class PorteAnalyzer {
 
 **Fecha de Análisis**: ${this.timestamp}  
 **Repositorio Original**: ${this.repoUrl}  
-**Framework**: VThink 1.0 - Reglas de Porte  
+**Framework**: VibeThink 1- Reglas de Porte  
 
 ## 📋 Estado del Análisis
 

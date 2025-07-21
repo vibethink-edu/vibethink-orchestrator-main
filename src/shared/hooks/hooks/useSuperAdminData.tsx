@@ -84,7 +84,7 @@ export const useSuperAdminData = () => {
       
       setCompanies(transformedData);
     } catch (error) {
-      console.error('Error fetching companies:', error);
+      // TODO: log error fetching companies
       toast.error('Error al cargar empresas');
     } finally {
       setLoading(false);
@@ -111,7 +111,7 @@ export const useSuperAdminData = () => {
       
       setPlanDefinitions(transformedData);
     } catch (error) {
-      console.error('Error fetching plan definitions:', error);
+      // TODO: log error fetching plan definitions
       toast.error('Error al cargar definiciones de planes');
     }
   };
@@ -132,7 +132,7 @@ export const useSuperAdminData = () => {
           user_agent: navigator.userAgent
         });
     } catch (error) {
-      console.error('Error logging plan change:', error);
+      // TODO: log error logging plan change
     }
   };
 
@@ -157,9 +157,9 @@ export const useSuperAdminData = () => {
       await fetchCompanies();
       toast.success(`Plan ${planName} asignado exitosamente`);
       
-      console.log(`🔄 PLAN ASSIGNMENT LOGGED: Company ${companyId} → Plan ${planName}`);
+      // TODO: log plan assignment
     } catch (error) {
-      console.error('Error assigning plan:', error);
+      // TODO: log error assigning plan
       toast.error('Error al asignar plan');
     }
   };
@@ -197,9 +197,9 @@ export const useSuperAdminData = () => {
       await fetchCompanies();
       toast.success('Override aplicado exitosamente');
       
-      console.log(`⚠️ OVERRIDE APPLIED LOGGED: Company ${companyId}`, overrides);
+      // TODO: log override applied
     } catch (error) {
-      console.error('Error adding override:', error);
+      // TODO: log error adding override
       toast.error('Error al aplicar override');
     }
   };
@@ -243,9 +243,9 @@ export const useSuperAdminData = () => {
       await fetchCompanies();
       toast.success('Override removido exitosamente');
       
-      console.log(`🗑️ OVERRIDE REMOVED LOGGED: Company ${companyId} - Type: ${overrideType}`);
+      // TODO: log override removed
     } catch (error) {
-      console.error('Error removing override:', error);
+      // TODO: log error removing override
       toast.error('Error al remover override');
     }
   };

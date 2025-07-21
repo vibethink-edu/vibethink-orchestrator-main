@@ -226,7 +226,7 @@ export const PremiumServicesDashboard: React.FC = () => {
       setSeoResults(results);
       
     } catch (error) {
-      console.error('Error in SEO analysis:', error);
+      // TODO: log 'Error in SEO analysis:' error
     } finally {
       setIsAnalyzing(false);
     }
@@ -249,7 +249,7 @@ export const PremiumServicesDashboard: React.FC = () => {
       setTranslationResults(results);
       
     } catch (error) {
-      console.error('Error in translation:', error);
+      // TODO: log 'Error in translation:' error
     } finally {
       setIsTranslating(false);
     }

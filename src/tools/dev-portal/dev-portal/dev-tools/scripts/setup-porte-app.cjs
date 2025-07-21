@@ -9,7 +9,7 @@
  * 
  * Uso: node scripts/setup-porte-app.js [modulo] [nombre]
  * 
- * VThink 1.0 - Framework de Porte
+ * VibeThink 1- Framework de Porte
  */
 
 const fs = require('fs').promises;

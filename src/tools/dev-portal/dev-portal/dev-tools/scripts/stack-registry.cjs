@@ -6,7 +6,7 @@
  * Sistema de registro y versionado del stack tecnológico oficial
  * Mantiene AP_STACK_PROD y AP_STACK_DEV sincronizados y documentados
  * 
- * VThink 1.0 - Stack Management System
+ * VibeThink 1- Stack Management System
  */
 
 const fs = require('fs').promises;
@@ -579,7 +579,7 @@ Cada cambio en el stack debe incluir:
 
 ---
 
-*Generado por AI Pair Orchestrator Pro - VThink 1.0*  
+*Generado por AI Pair Orchestrator Pro - VibeThink 1.0*  
 *Stack Registry System - Versión 1.0*  
 *Fecha: ${this.currentDate}*
 `;

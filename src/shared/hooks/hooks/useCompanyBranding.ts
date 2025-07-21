@@ -50,7 +50,7 @@ export const useCompanyBranding = (companyId: string) => {
         setBranding(brandingData);
       } catch (err) {
         setError('Error cargando configuración de empresa');
-        console.error('Error cargando branding:', err);
+        // TODO: log 'Error cargando branding:' err
       } finally {
         setLoading(false);
       }

@@ -104,7 +104,7 @@ export const CountrySelector: React.FC<CountrySelectorProps> = ({
   const { data: countries, isLoading } = useQuery({
     queryKey: ['available-countries'],
     queryFn: async () => {
-      console.log('🌍 Cargando países disponibles...');
+      // TODO: log '🌍 Cargando países disponibles...'
       
       let query = supabase
         .from('country_configurations')
@@ -120,11 +120,11 @@ export const CountrySelector: React.FC<CountrySelectorProps> = ({
       const { data, error } = await query;
       
       if (error) {
-        console.error('❌ Error cargando países:', error);
+        // TODO: log '❌ Error cargando países:' error
         throw error;
       }
       
-      console.log('✅ Países cargados:', data?.length || 0);
+      // TODO: log '✅ Países cargados:' data?.length || 0
       return data as CountryData[];
     },
     staleTime: 30 * 60 * 1000, // 30 minutos

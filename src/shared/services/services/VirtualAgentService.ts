@@ -1,5 +1,6 @@
 import { supabase } from '@/integrations/supabase/client';
 import { timelineService } from './TimelineService';
+import { logger } from '@/shared/utils/logger';
 
 // Tipos para agentes virtuales
 export interface VirtualAgent {
@@ -99,14 +100,22 @@ export class VirtualAgentService {
 
       if (!existingAgents || existingAgents.length === 0) {
         await this.createDefaultAgents();
+        logger.info({ service: 'VirtualAgentService' }, 'Agentes por defecto creados');
       } else {
         // Cargar agentes existentes en memoria
         existingAgents.forEach(agent => {
           this.agents.set(agent.id, agent);
         });
+        logger.info({ 
+          service: 'VirtualAgentService', 
+          agentCount: existingAgents.length 
+        }, 'Agentes existentes cargados');
       }
     } catch (error) {
-      // TODO: log Error initializing default agents: error
+      logger.error({ 
+        service: 'VirtualAgentService', 
+        error: error instanceof Error ? error.message : 'Unknown error' 
+      }, 'Error inicializando agentes por defecto');
     }
   }
 
@@ -194,9 +203,23 @@ export class VirtualAgentService {
       };
       this.agents.set(data.id, newAgent);
 
+      logger.info({ 
+        service: 'VirtualAgentService', 
+        operation: 'createAgent',
+        agentId: data.id,
+        type: agentData.type,
+        name: agentData.name
+      }, 'Agente virtual creado exitosamente');
+
       return data.id;
     } catch (error) {
-      // TODO: log Error creating virtual agent: error
+      logger.error({ 
+        service: 'VirtualAgentService', 
+        operation: 'createAgent',
+        type: agentData.type,
+        name: agentData.name,
+        error: error instanceof Error ? error.message : 'Unknown error'
+      }, 'Error creando agente virtual');
       throw new Error('Failed to create virtual agent');
     }
   }

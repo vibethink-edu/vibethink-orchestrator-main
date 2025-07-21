@@ -18,7 +18,7 @@ export class StrapiV4Loader implements BaseLoader {
     options: MigrationOptions
   ): Promise<UniversalContent[]> {
     
-    console.log('📤 Cargando datos en Strapi v4...');
+    // TODO: log '📤 Cargando datos en Strapi v4...'
     
     try {
       // 1. Validar conexión con Strapi
@@ -33,7 +33,7 @@ export class StrapiV4Loader implements BaseLoader {
       
       for (let i = 0; i < data.length; i += batchSize) {
         const batch = data.slice(i, i + batchSize);
-        console.log(`📦 Procesando lote ${Math.floor(i / batchSize) + 1}/${Math.ceil(data.length / batchSize)}`);
+        // TODO: log `📦 Procesando lote ${Math.floor(i / batchSize) + 1}/${Math.ceil(data.length / batchSize)}`
         
         const batchResults = await this.loadBatch(batch, config, options);
         loadedData.push(...batchResults);
@@ -44,12 +44,12 @@ export class StrapiV4Loader implements BaseLoader {
         }
       }
       
-      console.log(`✅ Carga completada: ${loadedData.length} elementos cargados en Strapi v4`);
+      // TODO: log `✅ Carga completada: ${loadedData.length} elementos cargados en Strapi v4`
       
       return loadedData;
       
     } catch (error) {
-      console.error('❌ Error cargando datos en Strapi v4:', error);
+      // TODO: log '❌ Error cargando datos en Strapi v4:' error
       throw new Error(`Strapi v4 loading failed: ${error.message}`);
     }
   }
@@ -58,7 +58,7 @@ export class StrapiV4Loader implements BaseLoader {
    * Rollback de migración
    */
   async rollback(migration: any): Promise<RollbackResult> {
-    console.log('🔄 Iniciando rollback de migración Strapi v4...');
+    // TODO: log '🔄 Iniciando rollback de migración Strapi v4...'
     
     const startTime = Date.now();
     const rolledBackItems: any[] = [];
@@ -155,7 +155,7 @@ export class StrapiV4Loader implements BaseLoader {
         throw new Error(`Strapi connection failed: ${response.status} ${response.statusText}`);
       }
       
-      console.log('✅ Conexión con Strapi v4 validada');
+      // TODO: log '✅ Conexión con Strapi v4 validada'
       
     } catch (error) {
       throw new Error(`Strapi v4 connection validation failed: ${error.message}`);
@@ -166,7 +166,7 @@ export class StrapiV4Loader implements BaseLoader {
    * Asegurar que los tipos de contenido existen en Strapi
    */
   private async ensureContentTypes(data: UniversalContent[], config: TargetConfig): Promise<void> {
-    console.log('🔧 Verificando tipos de contenido en Strapi...');
+    // TODO: log '🔧 Verificando tipos de contenido en Strapi...'
     
     const contentTypes = [...new Set(data.map(item => item.type))];
     
@@ -174,7 +174,7 @@ export class StrapiV4Loader implements BaseLoader {
       try {
         await this.createContentTypeIfNotExists(contentType, config);
       } catch (error) {
-        console.warn(`Warning: Could not create content type ${contentType}:`, error);
+        // TODO: log `Warning: Could not create content type ${contentType}:` error
       }
     }
   }
@@ -199,7 +199,7 @@ export class StrapiV4Loader implements BaseLoader {
       }
       
     } catch (error) {
-      console.warn(`Could not verify content type ${contentType}:`, error);
+      // TODO: log `Could not verify content type ${contentType}:` error
     }
   }
   
@@ -228,7 +228,7 @@ export class StrapiV4Loader implements BaseLoader {
       throw new Error(`Failed to create content type ${contentType}: ${response.status}`);
     }
     
-    console.log(`✅ Content type ${contentType} created in Strapi`);
+    // TODO: log `✅ Content type ${contentType} created in Strapi`
   }
   
   /**
@@ -343,10 +343,10 @@ export class StrapiV4Loader implements BaseLoader {
         loadedItems.push(loadedItem);
         
         // Log progreso
-        console.log(`✅ Loaded: ${item.type} - ${item.title}`);
+        // TODO: log `✅ Loaded: ${item.type} - ${item.title}`
         
       } catch (error) {
-        console.error(`❌ Failed to load ${item.type} - ${item.title}:`, error);
+        // TODO: log `❌ Failed to load ${item.type} - ${item.title}:` error
         
         // Si rollbackOnFailure está habilitado, lanzar error
         if (options.rollbackOnFailure) {

@@ -116,7 +116,7 @@ export const KenticoV12MigrationDashboard: React.FC<KenticoV12MigrationDashboard
       setCurrentMigration(result);
       setShowConfigDialog(false);
     } catch (error) {
-      console.error('Migration failed:', error);
+      // TODO: log 'Migration failed:' error
     }
   };
 
@@ -124,7 +124,7 @@ export const KenticoV12MigrationDashboard: React.FC<KenticoV12MigrationDashboard
     try {
       await rollbackMigration(migrationId);
     } catch (error) {
-      console.error('Rollback failed:', error);
+      // TODO: log 'Rollback failed:' error
     }
   };
 

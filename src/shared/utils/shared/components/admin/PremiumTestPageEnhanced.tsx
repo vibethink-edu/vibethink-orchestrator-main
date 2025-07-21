@@ -1,5 +1,5 @@
 /**
- * PremiumTestPageEnhanced - VThink 1.0 
+ * PremiumTestPageEnhanced - VibeThink 1.0
  * 
  * Página de testing mejorada para debugging de variables del sistema,
  * testing de componentes y monitoreo en tiempo real.

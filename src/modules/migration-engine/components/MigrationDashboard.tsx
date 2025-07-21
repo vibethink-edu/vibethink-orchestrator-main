@@ -27,22 +27,18 @@ export const MigrationDashboard: React.FC<MigrationDashboardProps> = ({ companyI
   const handleStartMigration = async (config: MigrationConfig) => {
     try {
       await executeMigration(config);
-      // Mostrar notificación de éxito
-      console.log('Migration started successfully');
+      // TODO: log 'Migration started successfully'
     } catch (error) {
-      // Mostrar error
-      console.error('Migration failed:', error);
+      // TODO: log 'Migration failed:' error
     }
   };
 
   const handleRollbackMigration = async (migrationId: string) => {
     try {
       await rollbackMigration(migrationId);
-      // Mostrar notificación de éxito
-      console.log('Migration rollback completed');
+      // TODO: log 'Migration rollback completed'
     } catch (error) {
-      // Mostrar error
-      console.error('Rollback failed:', error);
+      // TODO: log 'Rollback failed:' error
     }
   };
 

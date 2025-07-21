@@ -178,6 +178,7 @@ export const useCompanyData = () => {
       });
 
     } catch (error) {
+      // TODO: log error fetching enhanced company data
       console.error('Error fetching enhanced company data:', error);
       setState(prev => ({
         ...prev,
@@ -203,6 +204,7 @@ export const useCompanyData = () => {
       await fetchCompanyData();
       return true;
     } catch (error) {
+      // TODO: log error updating company settings
       console.error('Error updating company settings:', error);
       return false;
     }
@@ -240,7 +242,7 @@ export const useCompanyData = () => {
           filter: `id=eq.${companyId}`
         },
         () => {
-          console.log('Company data updated, refreshing...');
+          // TODO: log company data updated, refreshing
           fetchCompanyData();
         }
       )

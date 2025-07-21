@@ -547,7 +547,7 @@ class ComponentEvaluator {
     const reportData = {
       metadata: {
         evaluation_date: this.timestamp,
-        evaluator_version: "VThink 1.0",
+        evaluator_version: "VibeThink 1.0",
         methodology: "Stack Compatibility Analysis"
       },
       ...this.evaluation

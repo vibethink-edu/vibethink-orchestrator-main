@@ -165,7 +165,7 @@ export function useDepartmentalPermissions() {
         }
       }
     } catch (error) {
-      console.error('Error checking permission:', error)
+      // TODO: log 'Error checking permission:' error
       return {
         hasPermission: false,
         permissionLevel: null,
@@ -213,7 +213,7 @@ export function useDepartmentalPermissions() {
         restrictions: hasAccess ? [] : [`Acceso requerido: ${dataPath} (${action})`]
       }
     } catch (error) {
-      console.error('Error checking data access:', error)
+      // TODO: log 'Error checking data access:' error
       return {
         hasAccess: false,
         permissionLevel: null,
@@ -286,7 +286,7 @@ export function useDepartmentalPermissions() {
       toast.success('Departamento creado exitosamente')
     },
     onError: (error) => {
-      console.error('Error creating department:', error)
+      // TODO: log 'Error creating department:' error
       toast.error('Error al crear departamento')
     }
   })
@@ -327,7 +327,7 @@ export function useDepartmentalPermissions() {
       toast.success('Usuario asignado al departamento exitosamente')
     },
     onError: (error) => {
-      console.error('Error assigning user to department:', error)
+      // TODO: log 'Error assigning user to department:' error
       toast.error('Error al asignar usuario al departamento')
     }
   })
@@ -363,7 +363,7 @@ export function useDepartmentalPermissions() {
       toast.success('Permiso departamental configurado')
     },
     onError: (error) => {
-      console.error('Error setting department permission:', error)
+      // TODO: log 'Error setting department permission:' error
       toast.error('Error al configurar permiso departamental')
     }
   })
@@ -405,7 +405,7 @@ export function useDepartmentalPermissions() {
       toast.success('Acceso a datos configurado')
     },
     onError: (error) => {
-      console.error('Error setting department data access:', error)
+      // TODO: log 'Error setting department data access:' error
       toast.error('Error al configurar acceso a datos')
     }
   })

@@ -92,7 +92,7 @@ export default function () {
 }
 
 function testAuthenticationSecurity(baseUrl) {
-  console.log('🔐 Testing authentication security...');
+  // TODO: log '🔐 Testing authentication security...'
   
   // Test 1: Attempt to access protected routes without authentication
   const protectedRoutes = [
@@ -160,7 +160,7 @@ function testAuthenticationSecurity(baseUrl) {
 }
 
 function testAuthorizationSecurity(baseUrl) {
-  console.log('🔒 Testing authorization security...');
+  // TODO: log '🔒 Testing authorization security...'
   
   // Login as employee (lower privileges)
   const employeeToken = getAuthToken(baseUrl, 'employee@testcompany.com', '12345');
@@ -211,7 +211,7 @@ function testAuthorizationSecurity(baseUrl) {
 }
 
 function testInputValidation(baseUrl) {
-  console.log('✅ Testing input validation...');
+  // TODO: log '✅ Testing input validation...'
   
   // Test various input validation scenarios
   const invalidInputs = [
@@ -246,7 +246,7 @@ function testInputValidation(baseUrl) {
 }
 
 function testSQLInjection(baseUrl) {
-  console.log('💉 Testing SQL injection prevention...');
+  // TODO: log '💉 Testing SQL injection prevention...'
   
   // Test SQL injection in various endpoints
   maliciousPayloads.sqlInjection.forEach(payload => {
@@ -284,7 +284,7 @@ function testSQLInjection(baseUrl) {
 }
 
 function testXSSPrevention(baseUrl) {
-  console.log('🛡️ Testing XSS prevention...');
+  // TODO: log '🛡️ Testing XSS prevention...'
   
   // Test XSS in various input fields
   maliciousPayloads.xss.forEach(payload => {
@@ -323,7 +323,7 @@ function testXSSPrevention(baseUrl) {
 }
 
 function testCSRFProtection(baseUrl) {
-  console.log('🔄 Testing CSRF protection...');
+  // TODO: log '🔄 Testing CSRF protection...'
   
   // Test CSRF protection on state-changing operations
   const csrfEndpoints = [
@@ -351,7 +351,7 @@ function testCSRFProtection(baseUrl) {
 }
 
 function testPathTraversal(baseUrl) {
-  console.log('📁 Testing path traversal prevention...');
+  // TODO: log '📁 Testing path traversal prevention...'
   
   maliciousPayloads.pathTraversal.forEach(payload => {
     // Test in file upload endpoint
@@ -386,7 +386,7 @@ function testPathTraversal(baseUrl) {
 }
 
 function testRateLimiting(baseUrl) {
-  console.log('⏱️ Testing rate limiting...');
+  // TODO: log '⏱️ Testing rate limiting...'
   
   // Test rate limiting on authentication endpoint
   for (let i = 0; i < 20; i++) {
@@ -449,8 +449,8 @@ function getAuthToken(baseUrl, email, password) {
 
 // Setup function
 export function setup() {
-  console.log('🚀 Starting security tests...');
-  console.log(`Base URL: ${__ENV.BASE_URL || 'http://localhost:5173'}`);
+  // TODO: log '🚀 Starting security tests...'
+  // TODO: log `Base URL: ${__ENV.BASE_URL || 'http://localhost:5173'}`
   
   // Verify test environment
   const healthCheck = http.get(`${__ENV.BASE_URL || 'http://localhost:5173'}/health`);
@@ -459,13 +459,13 @@ export function setup() {
     throw new Error('Test environment is not ready. Health check failed.');
   }
   
-  console.log('✅ Security test environment is ready');
+  // TODO: log '✅ Security test environment is ready'
   return { baseUrl: __ENV.BASE_URL || 'http://localhost:5173' };
 }
 
 // Teardown function
 export function teardown(data) {
-  console.log('🧹 Cleaning up security test data...');
+  // TODO: log '🧹 Cleaning up security test data...'
   
   // Cleanup any test data created during security tests
   const cleanupResponse = http.post(`${data.baseUrl}/api/test/cleanup`, {}, {
@@ -473,18 +473,18 @@ export function teardown(data) {
   });
   
   if (cleanupResponse.status === 200) {
-    console.log('✅ Security test cleanup completed');
+    // TODO: log '✅ Security test cleanup completed'
   } else {
-    console.warn('⚠️ Security test cleanup failed');
+    // TODO: log '⚠️ Security test cleanup failed'
   }
 }
 
 // Handle test results
 export function handleSummary(data) {
-  console.log('🔒 Security test results:');
-  console.log(`Security failures: ${data.metrics.security_failures.values.rate * 100}%`);
-  console.log(`Auth bypass attempts: ${data.metrics.auth_bypass_attempts.values.rate * 100}%`);
-  console.log(`Injection attempts: ${data.metrics.injection_attempts.values.rate * 100}%`);
+  // TODO: log '🔒 Security test results:'
+  // TODO: log `Security failures: ${data.metrics.security_failures.values.rate * 100}%`
+  // TODO: log `Auth bypass attempts: ${data.metrics.auth_bypass_attempts.values.rate * 100}%`
+  // TODO: log `Injection attempts: ${data.metrics.injection_attempts.values.rate * 100}%`
   
   return {
     'security-results.json': JSON.stringify(data, null, 2),

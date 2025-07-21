@@ -101,7 +101,7 @@ export const useUsers = (options: UseUsersOptions = {}) => {
     queryFn: async () => {
       if (!currentUser?.company?.id) {
         // Return mock data for development
-        console.log('No company ID found, using mock data');
+        // TODO: log no company ID found, using mock data
         return mockUsers;
       }
 
@@ -140,7 +140,7 @@ export const useUsers = (options: UseUsersOptions = {}) => {
       const { data, error } = await query.order('created_at', { ascending: false });
 
       if (error) {
-        console.error('Database error, using mock data:', error);
+        // TODO: log database error, using mock data
         return mockUsers;
       }
 
@@ -184,7 +184,7 @@ export const useUsers = (options: UseUsersOptions = {}) => {
       toast.success('Usuario creado exitosamente');
     },
     onError: (error) => {
-      console.error('Error creating user:', error);
+      // TODO: log error creating user
       toast.error('Error al crear el usuario');
     }
   });
@@ -212,7 +212,7 @@ export const useUsers = (options: UseUsersOptions = {}) => {
       toast.success('Usuario actualizado exitosamente');
     },
     onError: (error) => {
-      console.error('Error updating user:', error);
+      // TODO: log error updating user
       toast.error('Error al actualizar el usuario');
     }
   });
@@ -237,7 +237,7 @@ export const useUsers = (options: UseUsersOptions = {}) => {
       toast.success('Usuario eliminado exitosamente');
     },
     onError: (error) => {
-      console.error('Error deleting user:', error);
+      // TODO: log error deleting user
       toast.error('Error al eliminar el usuario');
     }
   });
@@ -265,7 +265,7 @@ export const useUsers = (options: UseUsersOptions = {}) => {
       toast.success('Usuario suspendido exitosamente');
     },
     onError: (error) => {
-      console.error('Error suspending user:', error);
+      // TODO: log error suspending user
       toast.error('Error al suspender el usuario');
     }
   });
@@ -293,7 +293,7 @@ export const useUsers = (options: UseUsersOptions = {}) => {
       toast.success('Usuario activado exitosamente');
     },
     onError: (error) => {
-      console.error('Error activating user:', error);
+      // TODO: log error activating user
       toast.error('Error al activar el usuario');
     }
   });

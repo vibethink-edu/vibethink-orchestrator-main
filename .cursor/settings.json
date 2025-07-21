@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "dart": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "dart-mcp-server@latest"
+      ],
+      "env": {
+        "DART_TOKEN": "${env:DART_TOKEN}"
+      }
+    }
+  }
+}

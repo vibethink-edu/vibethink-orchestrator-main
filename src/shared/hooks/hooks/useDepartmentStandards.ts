@@ -72,7 +72,7 @@ export const useDepartmentStandards = (): DepartmentStandardsState & DepartmentS
       });
 
     } catch (error) {
-      console.error('Error loading department standards:', error);
+      // TODO: log 'Error loading department standards:' error
       setState(prev => ({
         ...prev,
         loading: false,
@@ -109,7 +109,7 @@ export const useDepartmentStandards = (): DepartmentStandardsState & DepartmentS
       await loadDepartmentStandards();
       return true;
     } catch (error) {
-      console.error('Error enabling standard:', error);
+      // TODO: log 'Error enabling standard:' error
       return false;
     }
   }, [user?.company_id, loadDepartmentStandards]);
@@ -136,7 +136,7 @@ export const useDepartmentStandards = (): DepartmentStandardsState & DepartmentS
       await loadDepartmentStandards();
       return true;
     } catch (error) {
-      console.error('Error disabling standard:', error);
+      // TODO: log 'Error disabling standard:' error
       return false;
     }
   }, [user?.company_id, loadDepartmentStandards]);
@@ -164,7 +164,7 @@ export const useDepartmentStandards = (): DepartmentStandardsState & DepartmentS
       await loadDepartmentStandards();
       return true;
     } catch (error) {
-      console.error('Error setting validation required:', error);
+      // TODO: log 'Error setting validation required:' error
       return false;
     }
   }, [user?.company_id, loadDepartmentStandards]);
@@ -211,7 +211,7 @@ export const useDepartmentStandards = (): DepartmentStandardsState & DepartmentS
 
       return validation;
     } catch (error) {
-      console.error('Error validating document:', error);
+      // TODO: log 'Error validating document:' error
       return {
         document_id: documentId,
         department_id: departmentId,
@@ -234,7 +234,7 @@ export const useDepartmentStandards = (): DepartmentStandardsState & DepartmentS
       if (error && error.code !== 'PGRST116') throw error;
       return data;
     } catch (error) {
-      console.error('Error getting document validation:', error);
+      // TODO: log 'Error getting document validation:' error
       return null;
     }
   }, []);

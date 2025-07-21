@@ -156,19 +156,19 @@ export function useParametricConfiguration(
   const validateConfiguration = useCallback((config: any): config is ParametricConfiguration => {
     // TODO: VALIDAR ESTRUCTURA COMPLETA
     if (!config) {
-      console.error('Configuration is null or undefined');
+      // TODO: log configuration is null or undefined
       return false;
     }
 
     // PENDIENTE: Validar campos requeridos
     if (!config.country?.code || !config.industry?.code) {
-      console.error('Missing required configuration fields');
+      // TODO: log missing required configuration fields
       return false;
     }
 
     // FIXME: Validar tipos de datos
     if (typeof config.country.code !== 'string') {
-      console.error('Invalid country code type');
+      // TODO: log invalid country code type
       return false;
     }
 
@@ -226,7 +226,7 @@ export function useParametricConfiguration(
       }));
 
     } catch (error) {
-      console.error('Error cargando configuración paramétrica:', error);
+      // TODO: log error loading parametric configuration
       
       setLoadingState(prev => ({
         ...prev,

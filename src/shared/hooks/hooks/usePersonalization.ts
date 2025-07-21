@@ -312,7 +312,7 @@ export function usePersonalization(): PersonalizationReturn {
         updateCompanyConfig(config.companyConfig);
       }
     } catch (error) {
-      console.error('Error importing configuration:', error);
+      // TODO: log error importing configuration
       throw new Error('Invalid configuration format');
     }
   }, [updatePreferences, updateCompanyConfig]);

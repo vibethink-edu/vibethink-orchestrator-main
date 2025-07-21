@@ -127,11 +127,11 @@ export class StrapiTemplateService {
   registerTemplate(template: StrapiTemplate): void {
     // Validar compatibilidad con versión
     if (!this.isTemplateCompatible(template)) {
-      console.warn(`⚠️ Plantilla ${template.name} puede no ser compatible con Strapi ${this.strapiVersion}`);
+      // TODO: log `⚠️ Plantilla ${template.name} puede no ser compatible con Strapi ${this.strapiVersion}`
     }
     
     this.templates.set(template.id, template);
-    console.log(`✅ Plantilla registrada: ${template.name} (Strapi ${this.strapiVersion})`);
+    // TODO: log `✅ Plantilla registrada: ${template.name} (Strapi ${this.strapiVersion})`
   }
   
   /**
@@ -212,7 +212,7 @@ export class StrapiTemplateService {
       throw new Error(`Plantilla no encontrada: ${templateId}`);
     }
     
-    console.log(`🎨 Aplicando plantilla: ${template.name} (Strapi ${this.strapiVersion})`);
+    // TODO: log `🎨 Aplicando plantilla: ${template.name} (Strapi ${this.strapiVersion})`
     
     try {
       // Aplicar componentes de la plantilla
@@ -227,12 +227,12 @@ export class StrapiTemplateService {
       // Aplicar configuraciones específicas de versión
       const versionSpecificContent = await this.applyVersionSpecificFeatures(template, styledContent);
       
-      console.log(`✅ Plantilla aplicada exitosamente: ${template.name}`);
+      // TODO: log `✅ Plantilla aplicada exitosamente: ${template.name}`
       
       return versionSpecificContent;
       
     } catch (error) {
-      console.error(`❌ Error aplicando plantilla: ${error.message}`);
+      // TODO: log `❌ Error aplicando plantilla: ${error.message}`
       throw error;
     }
   }
@@ -521,7 +521,7 @@ export class StrapiTemplateService {
       throw new Error(`Plantilla no encontrada: ${templateId}`);
     }
     
-    console.log(`🚀 Generando contenido desde plantilla: ${template.name} (Strapi ${this.strapiVersion})`);
+    // TODO: log `🚀 Generando contenido desde plantilla: ${template.name} (Strapi ${this.strapiVersion})`
     
     try {
       // Crear contenido base
@@ -547,12 +547,12 @@ export class StrapiTemplateService {
       // Aplicar plantilla
       const generatedContent = await this.applyTemplate(templateId, baseContent, data);
       
-      console.log(`✅ Contenido generado exitosamente desde: ${template.name}`);
+      // TODO: log `✅ Contenido generado exitosamente desde: ${template.name}`
       
       return generatedContent;
       
     } catch (error) {
-      console.error(`❌ Error generando contenido: ${error.message}`);
+      // TODO: log `❌ Error generando contenido: ${error.message}`
       throw error;
     }
   }
@@ -722,7 +722,7 @@ export class StrapiTemplateService {
       throw new Error(`Plantilla no encontrada: ${templateId}`);
     }
     
-    console.log(`🔄 Migrando plantilla ${template.name} a Strapi ${targetVersion}`);
+    // TODO: log `🔄 Migrando plantilla ${template.name} a Strapi ${targetVersion}`
     
     // Crear nueva instancia del servicio con la versión objetivo
     const targetService = new StrapiTemplateService(targetVersion);
@@ -743,7 +743,7 @@ export class StrapiTemplateService {
       throw new Error(`Error migrando plantilla: ${validation.errors.join(', ')}`);
     }
     
-    console.log(`✅ Plantilla migrada exitosamente a Strapi ${targetVersion}`);
+    // TODO: log `✅ Plantilla migrada exitosamente a Strapi ${targetVersion}`
     
     return migratedTemplate;
   }

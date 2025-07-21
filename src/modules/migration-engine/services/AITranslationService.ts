@@ -31,7 +31,7 @@ export class AITranslationService {
     options?: TranslationOptions
   ): Promise<TranslatedContent[]> {
     
-    console.log('🌐 Iniciando traducción automática para idiomas:', targetLanguages);
+    // TODO: log '🌐 Iniciando traducción automática para idiomas:' targetLanguages
     
     const translationOptions = {
       preserveFormatting: true,
@@ -45,7 +45,7 @@ export class AITranslationService {
     
     try {
       for (const language of targetLanguages) {
-        console.log(`🔄 Traduciendo a ${language}...`);
+        // TODO: log `🔄 Traduciendo a ${language}...`
         
         const translatedContent = await this.translateToLanguage(
           content, 
@@ -54,15 +54,15 @@ export class AITranslationService {
         );
         
         translations.push(translatedContent);
-        console.log(`✅ Traducción a ${language} completada`);
+        // TODO: log `✅ Traducción a ${language} completada`
       }
       
-      console.log(`🎯 Traducción completada: ${translations.length} idiomas`);
+      // TODO: log `🎯 Traducción completada: ${translations.length} idiomas`
       
       return translations;
       
     } catch (error) {
-      console.error('❌ Error en traducción automática:', error);
+      // TODO: log '❌ Error en traducción automática:' error
       throw new Error(`AI translation failed: ${error.message}`);
     }
   }
@@ -171,7 +171,7 @@ export class AITranslationService {
     if (options.qualityCheck) {
       const qualityScore = await this.checkTranslationQuality(text, response, targetLanguage);
       if (qualityScore < 0.7) {
-        console.warn(`⚠️ Low translation quality (${qualityScore}) for text: ${text.substring(0, 50)}...`);
+        // TODO: log `⚠️ Low translation quality (${qualityScore}) for text: ${text.substring(0, 50)}...`
       }
     }
     
@@ -385,7 +385,7 @@ export class AITranslationService {
       const score = parseFloat(response);
       return isNaN(score) ? 0.5 : Math.max(0, Math.min(1, score));
     } catch (error) {
-      console.error('Error checking translation quality:', error);
+      // TODO: log 'Error checking translation quality:' error
       return 0.5; // Default score
     }
   }

@@ -210,7 +210,7 @@ export class PremiumTranslationService {
    */
   async translateContent(content: any): Promise<TranslationResult> {
     
-    console.log('🌍 Iniciando traducción premium...');
+    // TODO: log '🌍 Iniciando traducción premium...'
     
     const result: TranslationResult = {
       originalContent: content,
@@ -234,7 +234,7 @@ export class PremiumTranslationService {
     
     // Traducir a cada idioma objetivo
     for (const targetLanguage of this.config.targetLanguages) {
-      console.log(`🔄 Traduciendo a ${targetLanguage}...`);
+      // TODO: log `🔄 Traduciendo a ${targetLanguage}...`
       
       const translatedContent = await this.translateToLanguage(content, targetLanguage);
       result.translatedContent[targetLanguage] = translatedContent;
@@ -281,7 +281,7 @@ export class PremiumTranslationService {
       }
     }
     
-    console.log('✅ Traducción premium completada');
+    // TODO: log '✅ Traducción premium completada'
     
     return result;
   }
@@ -921,7 +921,7 @@ export class PremiumTranslationService {
    */
   async generateTranslationReport(content: any): Promise<any> {
     
-    console.log('📊 Generando reporte de traducción premium...');
+    // TODO: log '📊 Generando reporte de traducción premium...'
     
     const translationResult = await this.translateContent(content);
     

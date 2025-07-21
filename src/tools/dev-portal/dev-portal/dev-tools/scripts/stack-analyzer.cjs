@@ -9,7 +9,7 @@
  * 
  * Uso: node scripts/stack-analyzer.cjs [repo_url] [--output=json|markdown]
  * 
- * VThink 1.0 - Framework de Evaluación de Componentes
+ * VibeThink 1- Framework de Evaluación de Componentes
  */
 
 const fs = require('fs').promises;
@@ -647,12 +647,12 @@ class StackAnalyzer {
       metadata: {
         repository: this.repoUrl,
         analysis_date: this.timestamp,
-        analyzer_version: 'VThink 1.0',
+        analyzer_version: 'VibeThink 1.0',
         component_name: analysis.packageAnalysis.name || 'Unknown'
       },
       stack_comparison: {
         candidate_stack: analysis.packageAnalysis.stackAnalysis,
-        official_stack_version: 'VThink 1.0',
+        official_stack_version: 'VibeThink 1.0',
         compatibility_score: analysis.compatibilityScore
       },
       blockers: analysis.packageAnalysis.blockersFound || [],
@@ -752,7 +752,7 @@ ${report.blockers.length > 0 ?
 
 ---
 
-*Generado por Stack Analyzer VThink 1.0*
+*Generado por Stack Analyzer VibeThink 1.0*
 `;
   }
 

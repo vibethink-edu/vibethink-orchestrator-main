@@ -1,5 +1,5 @@
 // Componente de Gestión de Tareas Pendientes - Dev Portal
-// VThink 1.0 - Task Management Component
+// VibeThink 1.0 - Task Management Component
 
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card';
@@ -77,7 +77,7 @@ export const TaskManagement: React.FC = () => {
         {
           id: '1',
           title: 'Revisión de Estructura Actual',
-          description: 'Analizar estructura completa del proyecto y verificar compatibilidad con VThink 1.0',
+          description: 'Analizar estructura completa del proyecto y verificar compatibilidad con VibeThink 1.0',
           status: 'pending',
           priority: 'high',
           type: 'architecture',
@@ -85,7 +85,7 @@ export const TaskManagement: React.FC = () => {
           dueDate: '2025-07-15',
           createdAt: '2025-07-05T10:00:00Z',
           updatedAt: '2025-07-05T10:00:00Z',
-          tags: ['opción-c', 'estructura', 'vthink-1.0']
+          tags: ['opción-c', 'estructura', 'vibethink-1.0']
         },
         {
           id: '2',
@@ -242,7 +242,7 @@ export const TaskManagement: React.FC = () => {
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-2xl font-bold text-gray-900">Gestión de Tareas Pendientes</h2>
-          <p className="text-gray-600">Sistema de seguimiento de tareas del proyecto VThink</p>
+          <p className="text-gray-600">Sistema de seguimiento de tareas del proyecto VibeThink</p>
         </div>
         <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
           <DialogTrigger asChild>

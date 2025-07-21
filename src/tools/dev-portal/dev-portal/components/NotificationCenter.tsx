@@ -94,7 +94,7 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({
 
   // Función para manejar acciones de notificación
   const handleNotificationAction = (notification: Notification, action: string) => {
-    console.log('🔧 Acción de notificación:', action, notification);
+    // TODO: log '🔧 Acción de notificación:' action notification
     
     // Aquí se manejarían las acciones específicas
     switch (action) {

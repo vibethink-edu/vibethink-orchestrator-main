@@ -97,7 +97,7 @@ export default function () {
   const token = generateAuthToken(user.email, user.password);
   
   if (!token) {
-    console.error('Authentication failed for user:', user.email);
+    // TODO: log 'Authentication failed for user:' user.email
     return;
   }
   
@@ -211,9 +211,9 @@ export default function () {
 
 // Setup function for test initialization
 export function setup() {
-  console.log('🚀 Starting performance load tests...');
-  console.log(`Base URL: ${__ENV.BASE_URL || 'http://localhost:5173'}`);
-  console.log(`Test duration: ${options.stages.reduce((total, stage) => total + stage.duration, 0)} minutes`);
+  // TODO: log '🚀 Starting performance load tests...'
+  // TODO: log `Base URL: ${__ENV.BASE_URL || 'http://localhost:5173'}`
+  // TODO: log `Test duration: ${options.stages.reduce((total, stage) => total + stage.duration, 0)} minutes`
   
   // Verify test environment is ready
   const healthCheck = http.get(`${__ENV.BASE_URL || 'http://localhost:5173'}/health`);
@@ -222,13 +222,13 @@ export function setup() {
     throw new Error('Test environment is not ready. Health check failed.');
   }
   
-  console.log('✅ Test environment is ready');
+  // TODO: log '✅ Test environment is ready'
   return { baseUrl: __ENV.BASE_URL || 'http://localhost:5173' };
 }
 
 // Teardown function for cleanup
 export function teardown(data) {
-  console.log('🧹 Cleaning up performance test data...');
+  // TODO: log '🧹 Cleaning up performance test data...'
   
   // Cleanup any test data created during performance tests
   const cleanupResponse = http.post(`${data.baseUrl}/api/test/cleanup`, {}, {
@@ -236,19 +236,19 @@ export function teardown(data) {
   });
   
   if (cleanupResponse.status === 200) {
-    console.log('✅ Performance test cleanup completed');
+    // TODO: log '✅ Performance test cleanup completed'
   } else {
-    console.warn('⚠️ Performance test cleanup failed');
+    // TODO: log '⚠️ Performance test cleanup failed'
   }
 }
 
 // Handle test results
 export function handleSummary(data) {
-  console.log('📊 Performance test results:');
-  console.log(`Total requests: ${data.metrics.http_reqs.values.count}`);
-  console.log(`Average response time: ${data.metrics.http_req_duration.values.avg}ms`);
-  console.log(`95th percentile: ${data.metrics.http_req_duration.values['p(95)']}ms`);
-  console.log(`Error rate: ${(data.metrics.http_req_failed.values.rate * 100).toFixed(2)}%`);
+  // TODO: log '📊 Performance test results:'
+  // TODO: log `Total requests: ${data.metrics.http_reqs.values.count}`
+  // TODO: log `Average response time: ${data.metrics.http_req_duration.values.avg}ms`
+  // TODO: log `95th percentile: ${data.metrics.http_req_duration.values['p(95)']}ms`
+  // TODO: log `Error rate: ${(data.metrics.http_req_failed.values.rate * 100).toFixed(2)}%`
   
   return {
     'performance-results.json': JSON.stringify(data, null, 2),

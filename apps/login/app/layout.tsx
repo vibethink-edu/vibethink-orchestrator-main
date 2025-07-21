@@ -1,28 +1,20 @@
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
+import type { Metadata, Viewport } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
 
-import { BunduiThemeProvider, defaultTheme } from "@vthink/bundui"
-
-// =============================================================================
-// LOGIN LAYOUT
-// =============================================================================
-// 
-// Layout de la app login que consume Bundui.
-// Implementa el mismo diseño que la demo de Shadcn UI Kit.
-//
-// VThink 1.0 Compliance:
-// - ✅ Multi-tenant ready
-// - ✅ Bundui integration
-// - ✅ Performance optimized
-// - ✅ Type-safe
-// =============================================================================
-
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "VibeThink Login",
-  description: "Iniciar sesión en VibeThink Orchestrator",
+  title: 'VibeThink - Login',
+  description: 'Autenticación de VibeThink Orchestrator',
+  keywords: 'VibeThink, Login, autenticación, multi-tenant',
+  authors: [{ name: 'VibeThink Team' }],
+  robots: 'noindex, nofollow',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function LoginLayout({
@@ -31,11 +23,11 @@ export default function LoginLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es">
       <body className={inter.className}>
-        <BunduiThemeProvider theme={defaultTheme}>
+        <div id="login-root">
           {children}
-        </BunduiThemeProvider>
+        </div>
       </body>
     </html>
   )

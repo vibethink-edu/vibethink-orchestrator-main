@@ -1,4 +1,5 @@
 import { supabase } from '@/integrations/supabase/client';
+import { logger } from '@/shared/utils/logger';
 
 // Tipos para planes y límites
 export interface PlanLimit {
@@ -99,6 +100,7 @@ export class PlanLimitService {
 
       if (!existingPlans || existingPlans.length === 0) {
         await this.createDefaultPlans();
+        logger.info({ service: 'PlanLimitService' }, 'Planes por defecto creados');
       } else {
         // Cargar planes existentes en memoria
         existingPlans.forEach(plan => {
@@ -108,9 +110,16 @@ export class PlanLimitService {
             updatedAt: new Date(plan.updated_at)
           });
         });
+        logger.info({ 
+          service: 'PlanLimitService', 
+          planCount: existingPlans.length 
+        }, 'Planes existentes cargados');
       }
     } catch (error) {
-      // TODO: log Error initializing plans: error
+      logger.error({ 
+        service: 'PlanLimitService', 
+        error: error instanceof Error ? error.message : 'Unknown error' 
+      }, 'Error inicializando planes');
     }
   }
 

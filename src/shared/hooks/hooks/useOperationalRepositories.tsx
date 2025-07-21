@@ -61,7 +61,7 @@ export const useOperationalRepositories = () => {
       
       setRepositories(mappedRepositories);
     } catch (error) {
-      console.error('Error fetching repositories:', error);
+      // TODO: log error fetching repositories
       toast.error('Error al cargar repositorios');
     } finally {
       setLoading(false);
@@ -92,7 +92,7 @@ export const useOperationalRepositories = () => {
 
       setOrchestrators(mappedOrchestrators);
     } catch (error) {
-      console.error('Error fetching orchestrators:', error);
+      // TODO: log error fetching orchestrators
     }
   };
 
@@ -129,7 +129,7 @@ export const useOperationalRepositories = () => {
 
       setPromptTemplates(mappedTemplates);
     } catch (error) {
-      console.error('Error fetching prompt templates:', error);
+      // TODO: log error fetching prompt templates
     }
   };
 
@@ -162,7 +162,7 @@ export const useOperationalRepositories = () => {
 
       setNamingConventions(mappedConventions);
     } catch (error) {
-      console.error('Error fetching naming conventions:', error);
+      // TODO: log error fetching naming conventions
     }
   };
 
@@ -195,7 +195,7 @@ export const useOperationalRepositories = () => {
 
       setFolderStructures(mappedStructures);
     } catch (error) {
-      console.error('Error fetching folder structures:', error);
+      // TODO: log error fetching folder structures
     }
   };
 
@@ -258,7 +258,7 @@ export const useOperationalRepositories = () => {
       toast.success('Template de prompt creado exitosamente');
       return data;
     } catch (error) {
-      console.error('Error creating prompt template:', error);
+      // TODO: log error creating prompt template
       toast.error('Error al crear template de prompt');
     }
   };
@@ -363,10 +363,10 @@ export const useOperationalRepositories = () => {
     }
 
     try {
-      console.log('Generating folder structure:', template.structure);
+      // TODO: log 'Generating folder structure:'
       
       if (template.googleDriveIntegration?.enabled && googleDrivePath) {
-        console.log('Creating in Google Drive:', googleDrivePath);
+        // TODO: log 'Creating in Google Drive:'
       }
 
       toast.success('Estructura de carpetas generada exitosamente');

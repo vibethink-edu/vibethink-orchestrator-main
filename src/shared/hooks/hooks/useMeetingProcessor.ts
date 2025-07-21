@@ -70,7 +70,7 @@ export function useMeetingProcessor() {
       }
     },
     onError: (error: Error) => {
-      console.error('Meeting processing error:', error)
+      // TODO: log 'Meeting processing error:' error
       toast.error(error.message || 'Error al procesar la reunión')
     },
   })
@@ -169,7 +169,7 @@ export function useDeleteMeeting() {
       queryClient.invalidateQueries({ queryKey: ['meetings'] })
     },
     onError: (error: Error) => {
-      console.error('Delete meeting error:', error)
+      // TODO: log 'Delete meeting error:' error
       toast.error('Error al eliminar la reunión')
     },
   })

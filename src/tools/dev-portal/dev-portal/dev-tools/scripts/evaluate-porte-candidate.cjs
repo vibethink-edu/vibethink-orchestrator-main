@@ -10,7 +10,7 @@
  * 
  * Uso: node scripts/evaluate-porte-candidate.cjs [nombre] [repo-url]
  * 
- * VThink 1.0 - Framework de Porte - Evaluador Calibrado
+ * VibeThink 1- Framework de Porte - Evaluador Calibrado
  */
 
 const fs = require('fs').promises;
@@ -660,7 +660,7 @@ class CalibratedPorteEvaluator {
         component_name: this.componentName,
         repository_url: this.repoUrl,
         evaluation_date: this.timestamp,
-        framework_version: 'VThink 1.0 - Calibrado',
+        framework_version: 'VibeThink 10Calibrado',
         evaluator_version: '1.0'
       },
       executive_summary: {

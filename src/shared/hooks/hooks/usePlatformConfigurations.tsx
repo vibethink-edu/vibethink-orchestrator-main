@@ -66,7 +66,7 @@ export const usePlatformConfigurations = () => {
     queryFn: async () => {
       if (!shouldFetch) return [];
       
-      console.log('🔧 Fetching platform configurations...');
+      // TODO: log fetching platform configurations
       const { data, error } = await supabase
         .from('platform_configurations')
         .select('*')
@@ -74,11 +74,11 @@ export const usePlatformConfigurations = () => {
         .order('config_key', { ascending: true });
       
       if (error) {
-        console.error('❌ Error fetching platform configurations:', error);
+        // TODO: log error fetching platform configurations
         throw error;
       }
       
-      console.log('✅ Platform configurations loaded:', data?.length || 0);
+      // TODO: log platform configurations loaded
       return data as PlatformConfiguration[];
     },
     enabled: shouldFetch,
@@ -92,7 +92,7 @@ export const usePlatformConfigurations = () => {
     queryFn: async () => {
       if (!shouldFetch) return [];
       
-      console.log('🔧 Fetching company overrides...');
+      // TODO: log fetching company overrides
       const { data, error } = await supabase
         .from('company_configuration_overrides')
         .select(`
@@ -102,11 +102,11 @@ export const usePlatformConfigurations = () => {
         .order('created_at', { ascending: false });
       
       if (error) {
-        console.error('❌ Error fetching company overrides:', error);
+        // TODO: log error fetching company overrides
         throw error;
       }
       
-      console.log('✅ Company overrides loaded:', data?.length || 0);
+      // TODO: log company overrides loaded
       return data as CompanyOverride[];
     },
     enabled: shouldFetch,
@@ -120,7 +120,7 @@ export const usePlatformConfigurations = () => {
     queryFn: async () => {
       if (!shouldFetch) return [];
       
-      console.log('🔧 Fetching audit log...');
+      // TODO: log fetching audit log
       const { data, error } = await supabase
         .from('configuration_audit_log')
         .select(`
@@ -132,12 +132,12 @@ export const usePlatformConfigurations = () => {
         .limit(100);
       
       if (error) {
-        console.error('❌ Error fetching audit log:', error);
+        // TODO: log error fetching audit log
         // Don't throw error for audit log, just return empty array
         return [];
       }
       
-      console.log('✅ Audit log loaded:', data?.length || 0);
+      // TODO: log audit log loaded
       
       // Transform data to match our interface with proper null handling
       return (data || []).map(item => {
@@ -192,7 +192,7 @@ export const usePlatformConfigurations = () => {
       toast.success('Configuración actualizada exitosamente');
     },
     onError: (error) => {
-      console.error('Error updating configuration:', error);
+      // TODO: log error updating configuration
       toast.error('Error al actualizar la configuración');
     }
   });
@@ -213,7 +213,7 @@ export const usePlatformConfigurations = () => {
       toast.success('Configuración eliminada exitosamente');
     },
     onError: (error) => {
-      console.error('Error deleting configuration:', error);
+      // TODO: log error deleting configuration
       toast.error('Error al eliminar la configuración');
     }
   });
@@ -254,7 +254,7 @@ export const usePlatformConfigurations = () => {
       toast.success('Override creado exitosamente');
     },
     onError: (error) => {
-      console.error('Error creating override:', error);
+      // TODO: log error creating override
       toast.error('Error al crear el override');
     }
   });
@@ -275,7 +275,7 @@ export const usePlatformConfigurations = () => {
       toast.success('Override eliminado exitosamente');
     },
     onError: (error) => {
-      console.error('Error deleting override:', error);
+      // TODO: log error deleting override
       toast.error('Error al eliminar el override');
     }
   });

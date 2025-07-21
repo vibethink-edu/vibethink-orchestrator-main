@@ -45,18 +45,18 @@ export const UniversalMigrationDashboard: React.FC<UniversalMigrationDashboardPr
   const handleStartMigration = async (config: UniversalMigrationConfig) => {
     try {
       const result = await executeMigration(config);
-      console.log('Migration started successfully:', result);
+      // TODO: log 'Migration started successfully:' result
     } catch (error) {
-      console.error('Migration failed:', error);
+      // TODO: log 'Migration failed:' error
     }
   };
 
   const handleRollbackMigration = async (migrationId: string) => {
     try {
       const result = await rollbackMigration(migrationId);
-      console.log('Migration rollback completed:', result);
+      // TODO: log 'Migration rollback completed:' result
     } catch (error) {
-      console.error('Rollback failed:', error);
+      // TODO: log 'Rollback failed:' error
     }
   };
 
@@ -481,7 +481,7 @@ export const UniversalMigrationDashboard: React.FC<UniversalMigrationDashboardPr
               setShowTemplateModal(false);
               setSelectedTemplate(null);
             } catch (error) {
-              console.error('Failed to use template:', error);
+              // TODO: log 'Failed to use template:' error
             }
           }}
           loading={loading}

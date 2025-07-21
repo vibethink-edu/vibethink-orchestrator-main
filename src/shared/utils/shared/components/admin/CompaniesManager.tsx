@@ -105,7 +105,7 @@ const CompaniesManager = () => {
 
   const handleCompanyCreated = () => {
     // TODO: log en cada punto donde había console.log, console.error o console.warn
-    console.log('🏢 Company created successfully, refreshing data...');
+    // console.log('🏢 Company created successfully, refreshing data...');
     setCreateCompanyDialogOpen(false);
     refetch(); // Refresh the companies list
   };
@@ -248,7 +248,7 @@ const CompaniesManager = () => {
                     className="bg-primary hover:bg-primary/90"
                     onClick={() => {
                       // TODO: log en cada punto donde había console.log, console.error o console.warn
-                      console.log('🔘 Opening company creation dialog...');
+                      // console.log('🔘 Opening company creation dialog...');
                       setCreateCompanyDialogOpen(true);
                     }}
                   >

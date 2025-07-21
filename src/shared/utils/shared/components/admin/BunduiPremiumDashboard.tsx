@@ -1,8 +1,8 @@
 /**
- * BunduiPremiumDashboard - VThink 1.0 Integration
+ * BunduiPremiumDashboard - VibeThink1gration
  * 
  * Dashboard premium de exploración completa que muestra todos los componentes
- * premium de Bundui disponibles para VThink Orchestrator.
+ * premium de Bundui disponibles para VibeThink.
  */
 
 import React, { useState } from 'react';
@@ -163,7 +163,7 @@ import { ExportButton as CardActionMenus } from '@/shared/components/bundui-prem
 import Icon from '@/shared/components/bundui-premium/components/icon';
 import ActiveTheme from '@/shared/components/bundui-premium/components/ActiveTheme';
 
-// Hooks y utilidades VThink
+// Hooks y utilidades VibeThink
 import { useAuth } from '@/shared/hooks/useAuth';
 import SystemDebugPanel from './SystemDebugPanel';
 import DashboardNavigator from './DashboardNavigator';
@@ -225,7 +225,7 @@ const BunduiPremiumDashboard: React.FC = () => {
                 </div>
                 <div>
                   <h1 className="text-xl font-semibold text-slate-900 dark:text-white">
-                    VThink Premium Explorer
+                    VibeThink Premium Explorer
                   </h1>
                   <p className="text-sm text-slate-500 dark:text-slate-400">
                     Exploración Completa de Componentes Bundui
@@ -657,7 +657,7 @@ const BunduiPremiumDashboard: React.FC = () => {
                                 <NavigationMenuLink asChild>
                                   <a className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
                                     <div className="mb-2 mt-4 text-lg font-medium">
-                                      VThink Dashboard
+                                      VibeThink Dashboard
                                     </div>
                                     <p className="text-sm leading-tight text-muted-foreground">
                                       Panel principal de administración
@@ -838,9 +838,9 @@ const BunduiPremiumDashboard: React.FC = () => {
                   <CardContent>
                     <Accordion type="single" collapsible>
                       <AccordionItem value="item-1">
-                        <AccordionTrigger>¿Qué es VThink?</AccordionTrigger>
+                        <AccordionTrigger>¿Qué es VibeThink?</AccordionTrigger>
                         <AccordionContent>
-                          VThink es una plataforma de orquestación empresarial que integra
+                          VibeThink es una plataforma de orquestación empresarial que integra
                           múltiples herramientas y servicios en una sola solución.
                         </AccordionContent>
                       </AccordionItem>

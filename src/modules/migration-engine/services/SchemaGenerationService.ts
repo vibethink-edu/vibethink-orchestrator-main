@@ -28,7 +28,7 @@ export class SchemaGenerationService {
     options?: SchemaGenerationOptions
   ): Promise<any> {
     
-    console.log('🏷️ Generando schema markup para:', content.title);
+    // TODO: log '🏷️ Generando schema markup para:' content.title
     
     const schemaOptions = {
       enableAI: true,
@@ -60,12 +60,12 @@ export class SchemaGenerationService {
         schema = this.optimizeSchemaForSEO(schema, content);
       }
       
-      console.log('✅ Schema markup generado:', schemaType);
+      // TODO: log '✅ Schema markup generado:' schemaType
       
       return schema;
       
     } catch (error) {
-      console.error('❌ Error generando schema markup:', error);
+      // TODO: log '❌ Error generando schema markup:' error
       // Fallback a schema básico
       return this.generateBasicSchema(content);
     }
@@ -107,7 +107,7 @@ export class SchemaGenerationService {
       const schema = JSON.parse(response);
       return this.enhanceSchemaWithMetadata(schema, content);
     } catch (error) {
-      console.error('Error parsing AI-generated schema:', error);
+      // TODO: log 'Error parsing AI-generated schema:' error
       return this.generateSchemaByRules(content, schemaType);
     }
   }
@@ -478,7 +478,7 @@ export class SchemaGenerationService {
     
     for (const field of requiredFields) {
       if (!schema[field]) {
-        console.warn(`⚠️ Missing required field '${field}' for schema type '${schemaType}'`);
+        // TODO: log `⚠️ Missing required field '${field}' for schema type '${schemaType}'`
       }
     }
     

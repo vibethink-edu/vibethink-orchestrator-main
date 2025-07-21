@@ -1,5 +1,6 @@
 import { supabase } from '@/integrations/supabase/client';
 import { Database } from '@/integrations/supabase/types';
+import { logger } from '@/shared/utils/logger';
 
 // Tipos de la base de datos
 type Timeline = Database['public']['Tables']['universal_timelines']['Row'];
@@ -69,9 +70,24 @@ export class TimelineService {
       });
 
       if (error) throw error;
+      
+      logger.info({ 
+        service: 'TimelineService', 
+        operation: 'createTimeline',
+        timelineId,
+        type: data.type,
+        companyId: data.companyId
+      }, 'Línea de tiempo creada exitosamente');
+      
       return timelineId;
     } catch (error) {
-      // TODO: log Error creating timeline: error
+      logger.error({ 
+        service: 'TimelineService', 
+        operation: 'createTimeline',
+        type: data.type,
+        companyId: data.companyId,
+        error: error instanceof Error ? error.message : 'Unknown error'
+      }, 'Error creando línea de tiempo');
       throw new Error('Failed to create timeline');
     }
   }
@@ -88,9 +104,21 @@ export class TimelineService {
         .single();
 
       if (error) throw error;
+      
+      logger.info({ 
+        service: 'TimelineService', 
+        operation: 'getTimeline',
+        timelineId
+      }, 'Línea de tiempo obtenida');
+      
       return data;
     } catch (error) {
-      // TODO: log Error fetching timeline: error
+      logger.error({ 
+        service: 'TimelineService', 
+        operation: 'getTimeline',
+        timelineId,
+        error: error instanceof Error ? error.message : 'Unknown error'
+      }, 'Error obteniendo línea de tiempo');
       return null;
     }
   }
@@ -130,9 +158,24 @@ export class TimelineService {
       const { data, error } = await query;
 
       if (error) throw error;
+      
+      logger.info({ 
+        service: 'TimelineService', 
+        operation: 'getTimelinesByCompany',
+        companyId,
+        timelineCount: data?.length || 0,
+        filters
+      }, 'Líneas de tiempo obtenidas por empresa');
+      
       return data || [];
     } catch (error) {
-      // TODO: log Error fetching timelines: error
+      logger.error({ 
+        service: 'TimelineService', 
+        operation: 'getTimelinesByCompany',
+        companyId,
+        filters,
+        error: error instanceof Error ? error.message : 'Unknown error'
+      }, 'Error obteniendo líneas de tiempo por empresa');
       return [];
     }
   }

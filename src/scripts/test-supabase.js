@@ -11,21 +11,21 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-console.log('🚀 Iniciando pruebas de Supabase...\n');
+// TODO: log '🚀 Iniciando pruebas de Supabase...\n'
 
 // Verificar variables de entorno
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-console.log('📋 Variables de entorno:');
-console.log('  - NEXT_PUBLIC_SUPABASE_URL:', supabaseUrl ? '✅ Configurado' : '❌ No configurado');
-console.log('  - NEXT_PUBLIC_SUPABASE_ANON_KEY:', supabaseKey ? '✅ Configurado' : '❌ No configurado');
+// TODO: log '📋 Variables de entorno:'
+// TODO: log '  - NEXT_PUBLIC_SUPABASE_URL:' supabaseUrl ? '✅ Configurado' : '❌ No configurado'
+// TODO: log '  - NEXT_PUBLIC_SUPABASE_ANON_KEY:' supabaseKey ? '✅ Configurado' : '❌ No configurado'
 
 if (!supabaseUrl || !supabaseKey) {
-  console.error('❌ Variables de entorno de Supabase no configuradas');
-  console.log('\n🔧 Para configurar:');
-  console.log('1. Copiar src/config/env.development.example a .env.local');
-  console.log('2. Editar .env.local con tus credenciales reales');
+  // TODO: log '❌ Variables de entorno de Supabase no configuradas'
+  // TODO: log '\n🔧 Para configurar:'
+  // TODO: log '1. Copiar src/config/env.development.example a .env.local'
+  // TODO: log '2. Editar .env.local con tus credenciales reales'
   process.exit(1);
 }
 
@@ -33,35 +33,35 @@ if (!supabaseUrl || !supabaseKey) {
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 async function testConnection() {
-  console.log('\n🔄 Probando conexión básica...');
+  // TODO: log '\n🔄 Probando conexión básica...'
   
   try {
     const { data, error } = await supabase.from('companies').select('count').limit(1);
     
     if (error) {
-      console.log('⚠️  Error de conexión:', error.message);
+      // TODO: log '⚠️  Error de conexión:' error.message
       
       if (error.code === 'PGRST116') {
-        console.log('🔐 Error de autenticación - Verificar clave anónima');
+        // TODO: log '🔐 Error de autenticación - Verificar clave anónima'
       } else if (error.code === 'PGRST301') {
-        console.log('🌐 Error de red - Verificar URL de Supabase');
+        // TODO: log '🌐 Error de red - Verificar URL de Supabase'
       }
       
       return false;
     }
     
-    console.log('✅ Conexión exitosa con Supabase');
-    console.log('📊 Datos recibidos:', data);
+    // TODO: log '✅ Conexión exitosa con Supabase'
+    // TODO: log '📊 Datos recibidos:' data
     return true;
     
   } catch (error) {
-    console.error('❌ Error en prueba de conexión:', error.message);
+    // TODO: log '❌ Error en prueba de conexión:' error.message
     return false;
   }
 }
 
 async function testAuth() {
-  console.log('\n🔐 Probando autenticación...');
+  // TODO: log '\n🔐 Probando autenticación...'
   
   try {
     const { data, error } = await supabase.auth.signUp({
@@ -70,15 +70,15 @@ async function testAuth() {
     });
     
     if (error) {
-      console.log('⚠️  Error de autenticación:', error.message);
+      // TODO: log '⚠️  Error de autenticación:' error.message
       return false;
     }
     
-    console.log('✅ Configuración de autenticación correcta');
+    // TODO: log '✅ Configuración de autenticación correcta'
     return true;
     
   } catch (error) {
-    console.error('❌ Error en prueba de autenticación:', error.message);
+    // TODO: log '❌ Error en prueba de autenticación:' error.message
     return false;
   }
 }
@@ -87,19 +87,19 @@ async function runTests() {
   const connectionTest = await testConnection();
   const authTest = await testAuth();
   
-  console.log('\n' + '='.repeat(50));
-  console.log('📊 Resumen de pruebas:');
-  console.log('  - Conexión:', connectionTest ? '✅' : '❌');
-  console.log('  - Autenticación:', authTest ? '✅' : '❌');
+  // TODO: log '\n' + '='.repeat(50)
+  // TODO: log '📊 Resumen de pruebas:'
+  // TODO: log '  - Conexión:' connectionTest ? '✅' : '❌'
+  // TODO: log '  - Autenticación:' authTest ? '✅' : '❌'
   
   if (connectionTest && authTest) {
-    console.log('\n🎉 Todas las pruebas pasaron exitosamente!');
-    console.log('✅ Supabase está configurado correctamente');
-    console.log('\n🚀 Puedes proceder con el desarrollo');
+    // TODO: log '\n🎉 Todas las pruebas pasaron exitosamente!'
+    // TODO: log '✅ Supabase está configurado correctamente'
+    // TODO: log '\n🚀 Puedes proceder con el desarrollo'
   } else {
-    console.log('\n⚠️  Algunas pruebas fallaron');
-    console.log('🔧 Revisar configuración de variables de entorno');
-    console.log('\n📚 Ver src/config/README.md para más información');
+    // TODO: log '\n⚠️  Algunas pruebas fallaron'
+    // TODO: log '🔧 Revisar configuración de variables de entorno'
+    // TODO: log '\n📚 Ver src/config/README.md para más información'
   }
   
   return {

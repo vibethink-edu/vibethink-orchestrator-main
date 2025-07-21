@@ -139,7 +139,7 @@ const EfficiencyDashboard: React.FC = () => {
       });
 
     } catch (error) {
-      console.error('Error cargando datos de eficiencia:', error);
+      // TODO: log 'Error cargando datos de eficiencia:' error
     } finally {
       setLoading(false);
     }
@@ -158,7 +158,7 @@ const EfficiencyDashboard: React.FC = () => {
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold">Dashboard de Eficiencia - Stack Evaluation</h1>
         <Badge variant="outline" className="text-sm">
-          VThink 1.0 - Optimizado
+          VibeThink10 Optimizado
         </Badge>
       </div>
       
