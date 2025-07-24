@@ -1,4 +1,8 @@
-# Universal Migration Platform - VThink 1.0
+# Universal Migration Platform
+
+> **ES:** Este módulo sigue los principios de la metodología VThink 1.0. VThink 1.0 es únicamente la metodología, no el nombre del producto ni del sistema.
+> 
+> **EN:** This module follows the principles of the VThink 1.0 methodology. VThink 1.0 is only the methodology, not the name of the product or system.
 
 ## 🚀 **Plataforma Universal de Migración de Propósito General**
 

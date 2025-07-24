@@ -1,4 +1,8 @@
-# Meeting Processor - VThink 1.0
+# Meeting Processor
+
+> **ES:** Este módulo sigue los principios de la metodología VThink 1.0. VThink 1.0 es únicamente la metodología, no como branding de producto.
+> 
+> **EN:** This module follows the principles of the VThink 1.0 methodology. VThink 1.0 is only the methodology, not the name of the product or system.
 
 ## Descripción
 Módulo para procesamiento automático de reuniones usando DartAI y OpenAI.

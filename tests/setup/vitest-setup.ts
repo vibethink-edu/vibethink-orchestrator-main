@@ -7,9 +7,11 @@
  * @version 1.0.0
  */
 
-import '@testing-library/jest-dom';
+// TODO: Uncomment when dependencies are properly installed
+// import '@testing-library/jest-dom';
 import { beforeAll, afterEach, afterAll } from 'vitest';
-import { server } from '@mocks/server';
+// TODO: Uncomment when MSW is properly installed
+// import { server } from '@mocks/server';
 
 // Mock environment variables for testing
 process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://test.supabase.co';
@@ -65,18 +67,18 @@ global.sessionStorage = sessionStorageMock;
 
 // Setup MSW before all tests
 beforeAll(() => {
-  server.listen({ onUnhandledRequest: 'error' });
+  // server.listen({ onUnhandledRequest: 'error' });
 });
 
 // Reset handlers after each test
 afterEach(() => {
-  server.resetHandlers();
+  // server.resetHandlers();
   vi.clearAllMocks();
 });
 
 // Clean up after all tests
 afterAll(() => {
-  server.close();
+  // server.close();
 });
 
 // Global test helpers

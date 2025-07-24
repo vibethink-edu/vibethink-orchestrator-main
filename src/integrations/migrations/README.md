@@ -1,4 +1,8 @@
-# Sistema de Migraciones de CMS - VThink 1.0
+# Sistema de Migraciones de CMS
+
+> **ES:** Este sistema sigue los principios de la metodología VThink 1.0. VThink 1.0 es únicamente la metodología, no el nombre del producto ni del sistema.
+> 
+> **EN:** This system follows the principles of the VThink 1.0 methodology. VThink 1.0 is only the methodology, not the name of the product or system.
 
 ## 🎯 **Propósito**
 

@@ -1,4 +1,8 @@
-# Sistema de Plantillas para Strapi 4 y 5 - VThink 1.0
+# Sistema de Plantillas para Strapi 4 y 5
+
+> **ES:** Este módulo sigue los principios de la metodología VThink 1.0. VThink 1.0 es únicamente la metodología, no el nombre del producto ni del sistema.
+> 
+> **EN:** This module follows the principles of the VThink 1.0 methodology. VThink 1.0 is only the methodology, not the name of the product or system.
 
 ## 🎯 **Sistema de Plantillas Inteligentes Multi-Versión**
 

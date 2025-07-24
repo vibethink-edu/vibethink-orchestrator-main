@@ -1,4 +1,8 @@
-# Universal Assistant - VThink 1.0
+# Universal Assistant
+
+> **ES:** Este componente sigue los principios de la metodología VThink 1.0. VThink 1.0 es únicamente la metodología, no el nombre del producto ni del sistema.
+> 
+> **EN:** This component follows the principles of the VThink 1.0 methodology. VThink 1.0 is only the methodology, not the name of the product or system.
 
 ## 🎯 **Concepto: Agente Universal Contextual**
 
