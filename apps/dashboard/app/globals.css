@@ -181,19 +181,64 @@
   }
 }
 
-/* Eliminate sidebar gap for tighter layout */
-[data-slot="sidebar-gap"] {
-  display: none !important;
+/* Desktop only: Eliminate sidebar gap for tighter layout */
+@media (min-width: 768px) {
+  [data-slot="sidebar-gap"] {
+    display: none !important;
+  }
+
+  /* Adjust sidebar inset to compensate for removed gap */
+  [data-slot="sidebar-inset"] {
+    margin-left: 0 !important;
+  }
+
+  /* Position content directly after the fixed sidebar */
+  .sidebar-content-tight {
+    margin-left: calc(var(--sidebar-width)) !important;
+  }
 }
 
-/* Adjust sidebar inset to compensate for removed gap */
-[data-slot="sidebar-inset"] {
-  margin-left: 0 !important;
+/* Mobile: Reset margins for full width content */
+@media (max-width: 767px) {
+  .sidebar-content-tight {
+    margin-left: 0 !important;
+  }
 }
 
-/* Position content directly after the fixed sidebar */
-.sidebar-content-tight {
-  margin-left: calc(var(--sidebar-width)) !important;
+/* Mobile sidebar animations - ensure they work properly */
+@media (max-width: 767px) {
+  /* Force sidebar animations for mobile */
+  [data-mobile="true"] {
+    background-color: hsl(var(--sidebar-background)) !important;
+  }
+  
+  /* Ensure slide animations work */
+  [data-state="open"][data-side="left"] {
+    animation: slide-in-from-left 0.5s ease-out;
+  }
+  
+  [data-state="closed"][data-side="left"] {
+    animation: slide-out-to-left 0.3s ease-out;
+  }
+}
+
+/* Animation keyframes for mobile sidebar */
+@keyframes slide-in-from-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-to-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 /* =============================================================================
