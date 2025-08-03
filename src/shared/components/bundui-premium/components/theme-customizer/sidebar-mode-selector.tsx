@@ -1,8 +1,8 @@
 "use client";
 
-import { Label } from "@/components/ui/label";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { useSidebar } from "@/components/ui/sidebar";
+import { Label } from "@/shared/components/bundui-premium/components/ui/label";
+import { ToggleGroup, ToggleGroupItem } from "@/shared/components/bundui-premium/components/ui/toggle-group";
+import { useSidebar } from "@/shared/components/bundui-premium/components/ui/sidebar";
 
 export function SidebarModeSelector() {
   const { toggleSidebar } = useSidebar();

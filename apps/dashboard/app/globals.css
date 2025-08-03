@@ -16,6 +16,10 @@
  * ============================================================================= */
 
 @layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+  
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -42,6 +46,19 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    
+    /* Sidebar Variables - CRITICAL for shadcn/ui sidebar layout */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-width: 16rem;
+    --sidebar-width-icon: 5rem;
+    --sidebar-width-mobile: 16rem;
   }
 
   .dark {
@@ -64,13 +81,20 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+    
+    /* Dark Mode Sidebar Variables */
+    --sidebar-background: 222.2 84% 4.9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 210 40% 98%;
+    --sidebar-primary-foreground: 222.2 47.4% 11.2%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 212.7 26.8% 83.9%;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
     @apply bg-background text-foreground;
   }
@@ -84,6 +108,7 @@
   @apply min-h-screen bg-background;
 }
 
+/* Legacy sidebar classes - kept for backward compatibility */
 .dashboard-sidebar {
   @apply fixed left-0 top-0 z-40 h-screen w-64 -translate-x-full transform bg-card transition-transform duration-300 ease-in-out;
 }
@@ -98,6 +123,77 @@
 
 .dashboard-main.sidebar-open {
   @apply ml-64;
+}
+
+/* =============================================================================
+ * SHADCN/UI SIDEBAR INTEGRATION
+ * ============================================================================= */
+
+/* Fix sidebar width - prevent width animation but allow size change */
+[data-slot="sidebar-container"] {
+  /* Remove width from transition - instant width changes */
+  transition: left 200ms ease-linear, right 200ms ease-linear !important;
+}
+
+/* Ensure collapsed state has proper width instantly */
+[data-collapsible="icon"] [data-slot="sidebar-container"] {
+  /* Instant width change, no animation */
+  transition: none !important;
+  width: var(--sidebar-width-icon) !important;
+}
+
+/* Ensure peer selectors work correctly for SidebarInset */
+[data-slot="sidebar-inset"] {
+  /* Force the margin calculations to apply correctly */
+  transition: margin-left 200ms ease-linear;
+}
+
+/* Ensure peer CSS selectors work by making the sidebar a peer */
+[data-slot="sidebar"] {
+  /* This ensures the sidebar is recognized as a peer element */
+}
+
+/* Force proper margins when peer selectors might fail */
+.sidebar-peer-expanded + [data-slot="sidebar-inset"],
+[data-variant="sidebar"][data-state="expanded"] ~ [data-slot="sidebar-inset"] {
+  margin-left: calc(var(--sidebar-width)) !important;
+}
+
+.sidebar-peer-collapsed + [data-slot="sidebar-inset"],
+[data-variant="sidebar"][data-state="collapsed"] ~ [data-slot="sidebar-inset"] {
+  margin-left: calc(var(--sidebar-width-icon)) !important;
+}
+
+/* Explicit sidebar layout utilities */
+.sidebar-layout-expanded {
+  margin-left: calc(var(--sidebar-width)) !important; /* 16rem = 256px */
+}
+
+.sidebar-layout-collapsed {
+  margin-left: calc(var(--sidebar-width-icon)) !important; /* 5rem = 80px */
+}
+
+/* Mobile sidebar layout */
+@media (max-width: 768px) {
+  .sidebar-layout-expanded,
+  .sidebar-layout-collapsed {
+    margin-left: 0 !important;
+  }
+}
+
+/* Eliminate sidebar gap for tighter layout */
+[data-slot="sidebar-gap"] {
+  display: none !important;
+}
+
+/* Adjust sidebar inset to compensate for removed gap */
+[data-slot="sidebar-inset"] {
+  margin-left: 0 !important;
+}
+
+/* Position content directly after the fixed sidebar */
+.sidebar-content-tight {
+  margin-left: calc(var(--sidebar-width)) !important;
 }
 
 /* =============================================================================

@@ -3,15 +3,11 @@
 /**
  * BunduiCompleteLayout - Layout completo con sidebar y header idéntico al demo
  * Replica exactamente el layout de shadcnuikit.com/default
- * Implementa el sistema modular de Sidebar de Bundui Premium con:
- * - SidebarProvider con collapsible="icon" y variant="floating"
- * - Tooltips automáticos en modo colapsado
- * - Sub-menús completos con navegación jerárquica
- * - Footer adaptativo con upgrade prompt
  */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { PanelLeft, Search, Bell, Settings, Sun, Moon, User, ChartPie, ShoppingBag, BadgeDollarSign, ChartBarDecreasing, Gauge, FolderDot, Folder, WalletMinimal, GraduationCap, Activity, Brain, StickyNote, MessageSquare, Mail, SquareCheck, Calendar, ArchiveRestore, Key, Cookie, Users, Fingerprint, Proportions, Component, ClipboardMinus, SquareKanban, Crown, ImageIcon, ChevronDown, Plus, List, PackageOpen, UserCheck, CreditCard, Monitor, Eye, AlertTriangle, FileX, Server, Shield, TrendingUp } from 'lucide-react';
 import { Button } from '@/shared/components/bundui-premium/components/ui/button';
 import { Input } from '@/shared/components/bundui-premium/components/ui/input';
@@ -21,6 +17,7 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuSeparator
 } from '@/shared/components/bundui-premium/components/ui/dropdown-menu';
 import {
@@ -65,6 +62,43 @@ import {
   VThinkThemeProvider,
   useThemeConfig
 } from '@/shared/components/bundui-premium/components/theme-customizer';
+import { useIsTablet } from '@/shared/components/bundui-premium/hooks/use-mobile';
+
+// Independent SidebarTrigger que maneja su propia rotación
+const IndependentSidebarTrigger = () => {
+  const { toggleSidebar } = useSidebar();
+  const [isRotated, setIsRotated] = useState(false);
+
+  const handleClick = () => {
+    setIsRotated(!isRotated);
+    toggleSidebar();
+  };
+
+  return (
+    <Button
+      variant="ghost"
+      size="icon"
+      onClick={handleClick}
+      className="transition-all duration-300"
+    >
+      <PanelLeft 
+        className={`h-4 w-4 transition-transform duration-300 ${
+          isRotated ? 'rotate-180' : 'rotate-0'
+        }`}
+      />
+    </Button>
+  );
+};
+
+// Enhanced SidebarInset with tight layout (no gap)
+const EnhancedSidebarInset = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <SidebarInset className="sidebar-content-tight transition-all duration-200">
+      {children}
+    </SidebarInset>
+  );
+};
+
 
 interface BunduiCompleteLayoutProps {
   children: React.ReactNode;
@@ -80,147 +114,17 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
   const [errorPagesOpen, setErrorPagesOpen] = React.useState(false);
   const { theme: themeConfig } = useThemeConfig();
   
-  // Mobile view state para todo el layout
-  const [isMobileView, setIsMobileView] = React.useState(false);
-  
-  React.useEffect(() => {
-    const checkMobile = () => {
-      setIsMobileView(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
     document.documentElement.className = newTheme;
   };
 
-  // Componente Header que tiene acceso al contexto del sidebar
-  const DynamicHeader = () => {
-    const { state, isMobile } = useSidebar();
-    const [headerLeftOffset, setHeaderLeftOffset] = React.useState('0px');
-    
-    React.useEffect(() => {
-      // Mobile-first responsive logic
-      if (isMobileView) {
-        // En móvil, header siempre ocupa ancho completo
-        setHeaderLeftOffset('0px');
-      } else {
-        // En desktop, sincronizar con sidebar state
-        if (state === 'expanded') {
-          setHeaderLeftOffset('256px'); // w-64 = 256px
-        } else {
-          setHeaderLeftOffset('80px'); // w-20 = 80px (sidebar colapsado)
-        }
-      }
-    }, [state, isMobileView]);
-
-    return (
-      <header 
-        className={`fixed top-0 z-50 flex h-14 items-center gap-2 md:gap-4 bg-background/95 px-2 md:px-4 backdrop-blur supports-[backdrop-filter]:bg-background/60 lg:h-[60px] border-b transition-all duration-200 ease-linear ${
-          isMobileView ? 'left-0 right-0' : 'right-0'
-        }`}
-        style={{ left: isMobileView ? '0px' : headerLeftOffset }}
-      >
-        {/* Sidebar Trigger */}
-        <SidebarTrigger />
-
-        {/* Search - Adaptativo en móvil */}
-        <div className={`flex-1 ${isMobileView ? 'max-w-[120px]' : 'max-w-md'}`}>
-          <div className="relative">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input 
-              placeholder={isMobileView ? "Search" : "Search..."} 
-              className="pl-8 text-sm"
-            />
-          </div>
-        </div>
-
-        {/* Header Actions - Compacto en móvil */}
-        <div className={`flex items-center ${isMobileView ? 'gap-1 header-mobile-compact' : 'gap-2'}`}>
-          {/* Notifications - Icono más pequeño en móvil */}
-          <Button variant="outline" size={isMobileView ? "sm" : "icon"} className={isMobileView ? "h-8 w-8" : ""}>
-            <Bell className={isMobileView ? "h-3 w-3" : "h-4 w-4"} />
-          </Button>
-
-          {/* Theme Customizer - Adaptativo en móvil */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size={isMobileView ? "sm" : "icon"} className={`relative ${isMobileView ? "h-8 w-8" : ""}`}>
-                <Settings className={isMobileView ? "h-3 w-3 animate-pulse" : "h-4 w-4 animate-pulse"} />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              className={`shadow-xl bg-background border rounded-lg overflow-y-auto ${
-                isMobileView 
-                  ? 'w-[280px] p-4 max-h-[80vh] mx-2 theme-customizer-mobile' 
-                  : 'me-4 w-80 p-6 max-h-[85vh] lg:me-0'
-              }`}
-              align="end"
-              side={isMobileView ? "bottom" : "bottom"}
-            >
-              <div className="space-y-6">
-                <div className="pb-2 border-b">
-                  <h3 className="font-semibold text-base">Theme Customizer</h3>
-                  <p className="text-sm text-muted-foreground">Customize your dashboard appearance</p>
-                </div>
-                
-                <PresetSelector />
-                <ThemeScaleSelector />
-                <ThemeRadiusSelector />
-                <ColorModeSelector />
-                <ContentLayoutSelector />
-                <SidebarModeSelector />
-                
-                <div className="pt-4 border-t">
-                  <ResetThemeButton />
-                </div>
-              </div>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          {/* Theme Toggle - Oculto en móvil muy pequeño */}
-          {!isMobileView && (
-            <Button variant="outline" size="icon" onClick={toggleTheme}>
-              {theme === 'light' ? (
-                <Sun className="h-4 w-4" />
-              ) : (
-                <Moon className="h-4 w-4" />
-              )}
-            </Button>
-          )}
-
-          {/* User Menu - Compacto en móvil */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size={isMobileView ? "sm" : "icon"} className={isMobileView ? "h-8 w-8" : ""}>
-                <Avatar className={isMobileView ? "h-6 w-6" : "h-8 w-8"}>
-                  <AvatarFallback className={isMobileView ? "text-xs" : ""}>U</AvatarFallback>
-                </Avatar>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </header>
-    );
-  };
-
   return (
     <SidebarProvider defaultOpen={true}>
+      {/* Sidebar Modular */}
       <TooltipProvider>
-        <div className={`min-h-screen bg-background overflow-x-hidden ${theme}`}>
-          {/* Sidebar Modular */}
-          <Sidebar collapsible="icon" variant="sidebar" className="bg-background">
+        <Sidebar collapsible="icon" variant="sidebar" className="bg-muted/30 transition-all duration-200">
             <SidebarHeader>
               <SidebarMenu>
                 <SidebarMenuItem>
@@ -268,27 +172,20 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                         >
                           <CollapsibleTrigger asChild>
                             <SidebarMenuButton 
-                              className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
+                              className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 justify-between"
                               tooltip="E-commerce Dashboard"
                             >
-                              <ShoppingBag className="h-4 w-4" />
-                              <span className="group-data-[collapsible=icon]:hidden">E-commerce</span>
-                              <ChevronDown className={`ml-8 h-4 w-4 transition-transform duration-200 expand-icon ${ecommerceOpen ? 'rotate-180' : ''}`} />
+                              <div className="flex items-center gap-2">
+                                <ShoppingBag className="h-4 w-4" />
+                                <span className="group-data-[collapsible=icon]:hidden">E-commerce</span>
+                              </div>
+                              <ChevronDown className={`group-data-[collapsible=icon]:ml-1 h-4 w-4 shrink-0 transition-transform duration-200 expand-icon ${ecommerceOpen ? 'rotate-180' : ''}`} />
                             </SidebarMenuButton>
                           </CollapsibleTrigger>
                           <CollapsibleContent>
                             <SidebarMenuSub>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton 
-                                  onClick={() => window.open('https://shadcnuikit.com/dashboard/ecommerce', '_blank')}
-                                  className="cursor-pointer"
-                                >
-                                  <ChartPie className="h-3 w-3" />
-                                  <span>Dashboard (Original)</span>
-                                </SidebarMenuSubButton>
-                              </SidebarMenuSubItem>
-                              <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Enhanced Dashboard">
                                   <Link href="/ecommerce-dashboard" className="w-full flex items-center gap-2">
                                     <ChartBarDecreasing className="h-3 w-3" />
                                     <span>Enhanced Dashboard</span>
@@ -296,31 +193,31 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton>
+                                <SidebarMenuSubButton tooltip="Product List">
                                   <List className="h-3 w-3" />
                                   <span>Product List</span>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton>
+                                <SidebarMenuSubButton tooltip="Product Detail">
                                   <PackageOpen className="h-3 w-3" />
                                   <span>Product Detail</span>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton>
+                                <SidebarMenuSubButton tooltip="Add Product">
                                   <Plus className="h-3 w-3" />
                                   <span>Add Product</span>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton>
+                                <SidebarMenuSubButton tooltip="Order List">
                                   <List className="h-3 w-3" />
                                   <span>Order List</span>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton>
+                                <SidebarMenuSubButton tooltip="Order Detail">
                                   <PackageOpen className="h-3 w-3" />
                                   <span>Order Detail</span>
                                 </SidebarMenuSubButton>
@@ -337,7 +234,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                           tooltip="Sales Dashboard"
                         >
                           <BadgeDollarSign className="h-4 w-4" />
-                          <span className="">Sales</span>
+                          <span>Sales</span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
 
@@ -347,7 +244,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                           tooltip="CRM Dashboard"
                         >
                           <ChartBarDecreasing className="h-4 w-4" />
-                          <span className="">CRM</span>
+                          <span>CRM</span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
 
@@ -357,7 +254,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                           tooltip="Website Analytics"
                         >
                           <Gauge className="h-4 w-4" />
-                          <span className="">Website Analytics</span>
+                          <span>Website Analytics</span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
 
@@ -367,7 +264,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                           tooltip="Project Management"
                         >
                           <FolderDot className="h-4 w-4" />
-                          <span className="">Project Management</span>
+                          <span>Project Management</span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
 
@@ -387,7 +284,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                           tooltip="Crypto Dashboard"
                         >
                           <WalletMinimal className="h-4 w-4" />
-                          <span className="">Crypto</span>
+                          <span>Crypto</span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
 
@@ -397,7 +294,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                           tooltip="Academy/School"
                         >
                           <GraduationCap className="h-4 w-4" />
-                          <span className="">Academy/School</span>
+                          <span>Academy/School</span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
 
@@ -422,12 +319,14 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                   <SidebarGroupContent>
                     <SidebarMenu className="space-y-1">
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer"
                           tooltip="AI Chat"
                         >
-                          <Brain className="h-4 w-4" />
-                          <span>AI Chat</span>
+                          <Link href="/ai-chat" className="w-full flex items-center gap-2">
+                            <Brain className="h-4 w-4" />
+                            <span>AI Chat</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
@@ -475,9 +374,9 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                         >
                           <div className="flex items-center gap-3">
                             <MessageSquare className="h-4 w-4" />
-                            <span>Chats</span>
+                            <span className="group-data-[collapsible=icon]:hidden">Chats</span>
                           </div>
-                          <span className="text-xs bg-primary text-primary-foreground rounded-full px-1.5 py-0.5">4</span>
+                          <span className="text-xs bg-primary text-primary-foreground rounded-full px-1.5 py-0.5 group-data-[collapsible=icon]:hidden">4</span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
@@ -487,9 +386,9 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                         >
                           <div className="flex items-center gap-3">
                             <Mail className="h-4 w-4" />
-                            <span>Mail</span>
+                            <span className="group-data-[collapsible=icon]:hidden">Mail</span>
                           </div>
-                          <span className="text-xs bg-blue-500 text-white rounded-sm px-1">New</span>
+                          <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
@@ -499,9 +398,9 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                         >
                           <div className="flex items-center gap-3">
                             <SquareCheck className="h-4 w-4" />
-                            <span>Todo List App</span>
+                            <span className="group-data-[collapsible=icon]:hidden">Todo List App</span>
                           </div>
-                          <span className="text-xs bg-blue-500 text-white rounded-sm px-1">New</span>
+                          <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
@@ -549,9 +448,9 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                         >
                           <div className="flex items-center gap-3">
                             <Cookie className="h-4 w-4" />
-                            <span>POS App</span>
+                            <span className="group-data-[collapsible=icon]:hidden">POS App</span>
                           </div>
-                          <span className="text-xs bg-blue-500 text-white rounded-sm px-1">New</span>
+                          <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                     </SidebarMenu>
@@ -589,12 +488,14 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                         <Collapsible open={settingsOpen} onOpenChange={setSettingsOpen} className="group/collapsible">
                           <CollapsibleTrigger asChild>
                             <SidebarMenuButton 
-                              className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
+                              className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 justify-between"
                               tooltip="Settings"
                             >
-                              <Settings className="h-4 w-4" />
-                              <span>Settings</span>
-                              <ChevronDown className={`ml-8 h-4 w-4 transition-transform duration-200 expand-icon ${settingsOpen ? 'rotate-180' : ''}`} />
+                              <div className="flex items-center gap-2">
+                                <Settings className="h-4 w-4" />
+                                <span className="group-data-[collapsible=icon]:hidden">Settings</span>
+                              </div>
+                              <ChevronDown className={`group-data-[collapsible=icon]:ml-1 h-4 w-4 shrink-0 transition-transform duration-200 expand-icon ${settingsOpen ? 'rotate-180' : ''}`} />
                             </SidebarMenuButton>
                           </CollapsibleTrigger>
                           <CollapsibleContent>
@@ -639,12 +540,14 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                         <Collapsible open={pricingOpen} onOpenChange={setPricingOpen} className="group/collapsible">
                           <CollapsibleTrigger asChild>
                             <SidebarMenuButton 
-                              className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
+                              className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 justify-between"
                               tooltip="Pricing"
                             >
-                              <BadgeDollarSign className="h-4 w-4" />
-                              <span>Pricing</span>
-                              <ChevronDown className={`ml-8 h-4 w-4 transition-transform duration-200 expand-icon ${pricingOpen ? 'rotate-180' : ''}`} />
+                              <div className="flex items-center gap-2">
+                                <BadgeDollarSign className="h-4 w-4" />
+                                <span className="group-data-[collapsible=icon]:hidden">Pricing</span>
+                              </div>
+                              <ChevronDown className={`group-data-[collapsible=icon]:ml-1 h-4 w-4 shrink-0 transition-transform duration-200 expand-icon ${pricingOpen ? 'rotate-180' : ''}`} />
                             </SidebarMenuButton>
                           </CollapsibleTrigger>
                           <CollapsibleContent>
@@ -677,12 +580,14 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                         <Collapsible open={authOpen} onOpenChange={setAuthOpen} className="group/collapsible">
                           <CollapsibleTrigger asChild>
                             <SidebarMenuButton 
-                              className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
+                              className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 justify-between"
                               tooltip="Authentication"
                             >
-                              <Fingerprint className="h-4 w-4" />
-                              <span>Authentication</span>
-                              <ChevronDown className={`ml-8 h-4 w-4 transition-transform duration-200 expand-icon ${authOpen ? 'rotate-180' : ''}`} />
+                              <div className="flex items-center gap-2">
+                                <Fingerprint className="h-4 w-4" />
+                                <span className="group-data-[collapsible=icon]:hidden">Authentication</span>
+                              </div>
+                              <ChevronDown className={`group-data-[collapsible=icon]:ml-1 h-4 w-4 shrink-0 transition-transform duration-200 expand-icon ${authOpen ? 'rotate-180' : ''}`} />
                             </SidebarMenuButton>
                           </CollapsibleTrigger>
                           <CollapsibleContent>
@@ -727,12 +632,14 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                         <Collapsible open={errorPagesOpen} onOpenChange={setErrorPagesOpen} className="group/collapsible">
                           <CollapsibleTrigger asChild>
                             <SidebarMenuButton 
-                              className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
+                              className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 justify-between"
                               tooltip="Error Pages"
                             >
-                              <AlertTriangle className="h-4 w-4" />
-                              <span>Error Pages</span>
-                              <ChevronDown className={`ml-8 h-4 w-4 transition-transform duration-200 expand-icon ${errorPagesOpen ? 'rotate-180' : ''}`} />
+                              <div className="flex items-center gap-2">
+                                <AlertTriangle className="h-4 w-4" />
+                                <span className="group-data-[collapsible=icon]:hidden">Error Pages</span>
+                              </div>
+                              <ChevronDown className={`group-data-[collapsible=icon]:ml-1 h-4 w-4 shrink-0 transition-transform duration-200 expand-icon ${errorPagesOpen ? 'rotate-180' : ''}`} />
                             </SidebarMenuButton>
                           </CollapsibleTrigger>
                           <CollapsibleContent>
@@ -835,26 +742,71 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                 </SidebarMenuItem>
               </SidebarMenu>
             </SidebarFooter>
-          </Sidebar>
-
-          {/* Header dinámico que respeta el sidebar */}
-          <DynamicHeader />
-
-          {/* Main Content Area */}
-          <SidebarInset>
-
-            {/* Content con padding-top para el header fijo - Adaptativo móvil */}
-            <div className={`${isMobileView ? 'pt-14' : 'pt-14 lg:pt-[60px]'}`}>
-              {/* Page Content */}
-              <main className={`flex-1 space-y-4 p-4 md:p-8 ${
-                themeConfig.contentLayout === 'full' ? 'max-w-none' : 'max-w-7xl mx-auto'
-              }`}>
-                {children}
-              </main>
-            </div>
-          </SidebarInset>
-        </div>
+        </Sidebar>
       </TooltipProvider>
+        
+      {/* Main Content Area - Using Enhanced SidebarInset */}
+      <EnhancedSidebarInset>
+          <header className="flex h-16 shrink-0 items-center gap-2 px-4">
+            <IndependentSidebarTrigger />
+            <div className="flex-1"></div>
+            <div className="flex items-center gap-2">
+              <div className="relative max-w-md">
+                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                <Input 
+                  placeholder="Search..." 
+                  className="pl-8 text-sm w-64"
+                />
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <Button variant="ghost" size="icon">
+                <Bell className="h-4 w-4" />
+              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <Settings className="h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-72 p-4" align="end">
+                  <div className="grid space-y-4">
+                    <PresetSelector />
+                    <ThemeScaleSelector />
+                    <ThemeRadiusSelector />
+                    <ColorModeSelector />
+                    <ContentLayoutSelector />
+                    <SidebarModeSelector />
+                  </div>
+                  <ResetThemeButton />
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <Button variant="ghost" size="icon" onClick={toggleTheme}>
+                {theme === 'light' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <Avatar className="h-8 w-8">
+                      <AvatarFallback>U</AvatarFallback>
+                    </Avatar>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem>Profile</DropdownMenuItem>
+                  <DropdownMenuItem>Settings</DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>Logout</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+          </header>
+          
+          {/* Content container siguiendo el patrón exacto del original */}
+          <div className="@container/main p-4 xl:group-data-[theme-content-layout=centered]/layout:container xl:group-data-[theme-content-layout=centered]/layout:mx-auto xl:group-data-[theme-content-layout=centered]/layout:mt-8">
+            {children}
+          </div>
+        </EnhancedSidebarInset>
     </SidebarProvider>
   );
 };
