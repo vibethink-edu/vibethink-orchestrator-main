@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-
-import { BunduiThemeProvider, defaultTheme } from "@vthink/bundui"
+import { VThinkThemeProvider } from "@/shared/components/bundui-premium/components/theme-customizer"
+import { NextThemeProvider } from "./theme-provider"
 
 // =============================================================================
 // DASHBOARD LAYOUT
@@ -33,9 +33,11 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={inter.className}>
-        <BunduiThemeProvider theme={defaultTheme}>
-          {children}
-        </BunduiThemeProvider>
+        <NextThemeProvider>
+          <VThinkThemeProvider>
+            {children}
+          </VThinkThemeProvider>
+        </NextThemeProvider>
       </body>
     </html>
   )

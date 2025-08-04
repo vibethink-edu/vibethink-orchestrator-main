@@ -1,12 +1,12 @@
 "use client";
 
 import { Settings } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/shared/components/bundui-premium/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
+} from "@/shared/components/bundui-premium/components/ui/dropdown-menu";
 import {
   PresetSelector,
   SidebarModeSelector,
@@ -15,7 +15,7 @@ import {
   ContentLayoutSelector,
   ThemeRadiusSelector,
   ResetThemeButton
-} from "@/components/theme-customizer/index";
+} from "./index";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 export function ThemeCustomizerPanel() {
