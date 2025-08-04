@@ -185,41 +185,52 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                           <CollapsibleContent>
                             <SidebarMenuSub>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Enhanced Dashboard">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Enhanced Dashboard (New)">
                                   <Link href="/ecommerce-dashboard" className="w-full flex items-center gap-2">
                                     <ChartBarDecreasing className="h-3 w-3" />
                                     <span>Enhanced Dashboard</span>
+                                    <span className="text-[10px] bg-blue-500 text-white rounded px-1 py-0 leading-none ml-auto">New</span>
                                   </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Product List">
-                                  <List className="h-3 w-3" />
-                                  <span>Product List</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Product List">
+                                  <Link href="/ecommerce-dashboard/products" className="w-full flex items-center gap-2">
+                                    <List className="h-3 w-3" />
+                                    <span>Product List</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Product Detail">
-                                  <PackageOpen className="h-3 w-3" />
-                                  <span>Product Detail</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Product Detail">
+                                  <Link href="/ecommerce-dashboard/product-detail" className="w-full flex items-center gap-2">
+                                    <PackageOpen className="h-3 w-3" />
+                                    <span>Product Detail</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Add Product">
-                                  <Plus className="h-3 w-3" />
-                                  <span>Add Product</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Add Product">
+                                  <Link href="/ecommerce-dashboard/add-product" className="w-full flex items-center gap-2">
+                                    <Plus className="h-3 w-3" />
+                                    <span>Add Product</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Order List">
-                                  <List className="h-3 w-3" />
-                                  <span>Order List</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Order List">
+                                  <Link href="/ecommerce-dashboard/orders" className="w-full flex items-center gap-2">
+                                    <List className="h-3 w-3" />
+                                    <span>Order List</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Order Detail">
-                                  <PackageOpen className="h-3 w-3" />
-                                  <span>Order Detail</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Order Detail">
+                                  <Link href="/ecommerce-dashboard/order-detail" className="w-full flex items-center gap-2">
+                                    <PackageOpen className="h-3 w-3" />
+                                    <span>Order Detail</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                             </SidebarMenuSub>
@@ -229,62 +240,107 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
 
                       {/* Other Dashboard Items */}
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
-                          tooltip="Sales Dashboard"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer justify-between"
+                          tooltip="Sales Dashboard (New)"
                         >
-                          <BadgeDollarSign className="h-4 w-4" />
-                          <span>Sales</span>
+                          <Link href="/sales-dashboard" className="w-full flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <BadgeDollarSign className="h-4 w-4" />
+                              <span className="group-data-[collapsible=icon]:hidden">Sales</span>
+                            </div>
+                            <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
 
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
-                          tooltip="CRM Dashboard"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer justify-between"
+                          tooltip="CRM Dashboard (New)"
                         >
-                          <ChartBarDecreasing className="h-4 w-4" />
-                          <span>CRM</span>
+                          <Link href="/crm-dashboard" className="w-full flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <ChartBarDecreasing className="h-4 w-4" />
+                              <span className="group-data-[collapsible=icon]:hidden">CRM</span>
+                            </div>
+                            <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
 
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
-                          tooltip="Website Analytics"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer justify-between"
+                          tooltip="Website Analytics (New)"
                         >
-                          <Gauge className="h-4 w-4" />
-                          <span>Website Analytics</span>
+                          <Link href="/website-analytics-dashboard" className="w-full flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <Gauge className="h-4 w-4" />
+                              <span className="group-data-[collapsible=icon]:hidden">Website Analytics</span>
+                            </div>
+                            <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
 
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
-                          tooltip="Project Management"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer justify-between"
+                          tooltip="Project Management (New)"
                         >
-                          <FolderDot className="h-4 w-4" />
-                          <span>Project Management</span>
+                          <Link href="/project-management-dashboard" className="w-full flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <FolderDot className="h-4 w-4" />
+                              <span className="group-data-[collapsible=icon]:hidden">Project Management</span>
+                            </div>
+                            <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
 
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
-                          tooltip="File Manager"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer justify-between"
+                          tooltip="File Manager Dashboard (New)"
                         >
-                          <Folder className="h-4 w-4" />
-                          <span>File Manager</span>
+                          <Link href="/file-manager-dashboard" className="w-full flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <Folder className="h-4 w-4" />
+                              <span className="group-data-[collapsible=icon]:hidden">File Manager</span>
+                            </div>
+                            <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
 
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
-                          tooltip="Crypto Dashboard"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer justify-between"
+                          tooltip="Crypto Dashboard (New)"
                         >
-                          <WalletMinimal className="h-4 w-4" />
-                          <span>Crypto</span>
+                          <Link href="/crypto-dashboard" className="w-full flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <WalletMinimal className="h-4 w-4" />
+                              <span className="group-data-[collapsible=icon]:hidden">Crypto</span>
+                            </div>
+                            <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
+                          </Link>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+
+                      <SidebarMenuItem>
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer justify-between"
+                          tooltip="Finance Dashboard (New)"
+                        >
+                          <Link href="/finance-dashboard" className="w-full flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <TrendingUp className="h-4 w-4" />
+                              <span className="group-data-[collapsible=icon]:hidden">Finance</span>
+                            </div>
+                            <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
 
@@ -321,11 +377,14 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                       <SidebarMenuItem>
                         <SidebarMenuButton asChild
                           className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer"
-                          tooltip="AI Chat"
+                          tooltip="AI Chat (New)"
                         >
-                          <Link href="/ai-chat" className="w-full flex items-center gap-2">
-                            <Brain className="h-4 w-4" />
-                            <span>AI Chat</span>
+                          <Link href="/ai-chat-dashboard" className="w-full flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <Brain className="h-4 w-4" />
+                              <span className="group-data-[collapsible=icon]:hidden">AI Chat</span>
+                            </div>
+                            <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
                           </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
@@ -350,21 +409,31 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                   <SidebarGroupContent>
                     <SidebarMenu className="space-y-1">
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
-                          tooltip="Kanban Board"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer justify-between"
+                          tooltip="Kanban Board (New)"
                         >
-                          <SquareKanban className="h-4 w-4" />
-                          <span>Kanban</span>
+                          <Link href="/kanban-dashboard" className="w-full flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <SquareKanban className="h-4 w-4" />
+                              <span className="group-data-[collapsible=icon]:hidden">Kanban</span>
+                            </div>
+                            <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
-                          tooltip="Notes App"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer justify-between"
+                          tooltip="Notes App (New)"
                         >
-                          <StickyNote className="h-4 w-4" />
-                          <span>Notes</span>
+                          <Link href="/notes-dashboard" className="w-full flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <StickyNote className="h-4 w-4" />
+                              <span className="group-data-[collapsible=icon]:hidden">Notes</span>
+                            </div>
+                            <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
@@ -380,15 +449,17 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 justify-between"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer justify-between"
                           tooltip="Mail App (New)"
                         >
-                          <div className="flex items-center gap-3">
-                            <Mail className="h-4 w-4" />
-                            <span className="group-data-[collapsible=icon]:hidden">Mail</span>
-                          </div>
-                          <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
+                          <Link href="/mail-dashboard" className="w-full flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <Mail className="h-4 w-4" />
+                              <span className="group-data-[collapsible=icon]:hidden">Mail</span>
+                            </div>
+                            <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
@@ -404,22 +475,30 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
-                          tooltip="Tasks"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer justify-between"
+                          tooltip="Tasks (New)"
                         >
-                          <SquareCheck className="h-4 w-4" />
-                          <span>Tasks</span>
+                          <Link href="/tasks-dashboard" className="w-full flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <SquareCheck className="h-4 w-4" />
+                              <span className="group-data-[collapsible=icon]:hidden">Tasks</span>
+                            </div>
+                            <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
                         <SidebarMenuButton asChild
                           className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer"
-                          tooltip="Calendar Application"
+                          tooltip="Calendar Application (New)"
                         >
-                          <Link href="/calendar" className="w-full flex items-center gap-2">
-                            <Calendar className="h-4 w-4" />
-                            <span className="group-data-[collapsible=icon]:hidden">Calendar</span>
+                          <Link href="/calendar-dashboard" className="w-full flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <Calendar className="h-4 w-4" />
+                              <span className="group-data-[collapsible=icon]:hidden">Calendar</span>
+                            </div>
+                            <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
                           </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
@@ -442,15 +521,17 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 justify-between"
-                          tooltip="POS App (New)"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer justify-between"
+                          tooltip="POS System (New)"
                         >
-                          <div className="flex items-center gap-3">
-                            <Cookie className="h-4 w-4" />
-                            <span className="group-data-[collapsible=icon]:hidden">POS App</span>
-                          </div>
-                          <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
+                          <Link href="/pos-system-dashboard" className="w-full flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <Cookie className="h-4 w-4" />
+                              <span className="group-data-[collapsible=icon]:hidden">POS System</span>
+                            </div>
+                            <span className="text-xs bg-blue-500 text-white rounded-sm px-1 group-data-[collapsible=icon]:hidden">New</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                     </SidebarMenu>
@@ -465,21 +546,25 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                   <SidebarGroupContent>
                     <SidebarMenu className="space-y-1">
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer"
                           tooltip="Users List"
                         >
-                          <Users className="h-4 w-4" />
-                          <span>Users List</span>
+                          <Link href="/users" className="w-full flex items-center gap-2">
+                            <Users className="h-4 w-4" />
+                            <span className="group-data-[collapsible=icon]:hidden">Users List</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer"
                           tooltip="Profile"
                         >
-                          <User className="h-4 w-4" />
-                          <span>Profile</span>
+                          <Link href="/profile" className="w-full flex items-center gap-2">
+                            <User className="h-4 w-4" />
+                            <span className="group-data-[collapsible=icon]:hidden">Profile</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
 
@@ -501,33 +586,43 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                           <CollapsibleContent>
                             <SidebarMenuSub>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Profile">
-                                  <User className="h-3 w-3" />
-                                  <span>Profile</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Profile">
+                                  <Link href="/settings/profile" className="w-full flex items-center gap-2">
+                                    <User className="h-3 w-3" />
+                                    <span>Profile</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Account">
-                                  <UserCheck className="h-3 w-3" />
-                                  <span>Account</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Account">
+                                  <Link href="/settings/account" className="w-full flex items-center gap-2">
+                                    <UserCheck className="h-3 w-3" />
+                                    <span>Account</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Appearance">
-                                  <Monitor className="h-3 w-3" />
-                                  <span>Appearance</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Appearance">
+                                  <Link href="/settings/appearance" className="w-full flex items-center gap-2">
+                                    <Monitor className="h-3 w-3" />
+                                    <span>Appearance</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Notifications">
-                                  <Bell className="h-3 w-3" />
-                                  <span>Notifications</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Notifications">
+                                  <Link href="/settings/notifications" className="w-full flex items-center gap-2">
+                                    <Bell className="h-3 w-3" />
+                                    <span>Notifications</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Display">
-                                  <Eye className="h-3 w-3" />
-                                  <span>Display</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Display">
+                                  <Link href="/settings/display" className="w-full flex items-center gap-2">
+                                    <Eye className="h-3 w-3" />
+                                    <span>Display</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                             </SidebarMenuSub>
@@ -553,21 +648,27 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                           <CollapsibleContent>
                             <SidebarMenuSub>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Column Pricing">
-                                  <List className="h-3 w-3" />
-                                  <span>Column Pricing</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Column Pricing">
+                                  <Link href="/pricing/table" className="w-full flex items-center gap-2">
+                                    <List className="h-3 w-3" />
+                                    <span>Column Pricing</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Table Pricing">
-                                  <Proportions className="h-3 w-3" />
-                                  <span>Table Pricing</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Table Pricing">
+                                  <Link href="/pricing/cards" className="w-full flex items-center gap-2">
+                                    <Proportions className="h-3 w-3" />
+                                    <span>Table Pricing</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Single Pricing">
-                                  <CreditCard className="h-3 w-3" />
-                                  <span>Single Pricing</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Single Pricing">
+                                  <Link href="/pricing" className="w-full flex items-center gap-2">
+                                    <CreditCard className="h-3 w-3" />
+                                    <span>Single Pricing</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                             </SidebarMenuSub>
@@ -593,33 +694,43 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                           <CollapsibleContent>
                             <SidebarMenuSub>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Login v1">
-                                  <User className="h-3 w-3" />
-                                  <span>Login v1</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Login v1">
+                                  <Link href="/auth/signin" className="w-full flex items-center gap-2">
+                                    <User className="h-3 w-3" />
+                                    <span>Login v1</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Login v2">
-                                  <User className="h-3 w-3" />
-                                  <span>Login v2</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Login v2">
+                                  <Link href="/auth/signin" className="w-full flex items-center gap-2">
+                                    <User className="h-3 w-3" />
+                                    <span>Login v2</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Register v1">
-                                  <UserCheck className="h-3 w-3" />
-                                  <span>Register v1</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Register v1">
+                                  <Link href="/auth/signup" className="w-full flex items-center gap-2">
+                                    <UserCheck className="h-3 w-3" />
+                                    <span>Register v1</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Register v2">
-                                  <UserCheck className="h-3 w-3" />
-                                  <span>Register v2</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Register v2">
+                                  <Link href="/auth/signup" className="w-full flex items-center gap-2">
+                                    <UserCheck className="h-3 w-3" />
+                                    <span>Register v2</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="Forgot Password">
-                                  <Shield className="h-3 w-3" />
-                                  <span>Forgot Password</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Forgot Password">
+                                  <Link href="/auth/forgot-password" className="w-full flex items-center gap-2">
+                                    <Shield className="h-3 w-3" />
+                                    <span>Forgot Password</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                             </SidebarMenuSub>
@@ -645,21 +756,27 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                           <CollapsibleContent>
                             <SidebarMenuSub>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="404">
-                                  <FileX className="h-3 w-3" />
-                                  <span>404</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="404 Not Found">
+                                  <Link href="/error/404" className="w-full flex items-center gap-2">
+                                    <FileX className="h-3 w-3" />
+                                    <span>404</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="500">
-                                  <Server className="h-3 w-3" />
-                                  <span>500</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="500 Server Error">
+                                  <Link href="/error/500" className="w-full flex items-center gap-2">
+                                    <Server className="h-3 w-3" />
+                                    <span>500</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton tooltip="403">
-                                  <Shield className="h-3 w-3" />
-                                  <span>403</span>
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="503 Maintenance">
+                                  <Link href="/error/503" className="w-full flex items-center gap-2">
+                                    <Shield className="h-3 w-3" />
+                                    <span>503</span>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                             </SidebarMenuSub>
@@ -678,48 +795,58 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                   <SidebarGroupContent>
                     <SidebarMenu className="space-y-1">
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer"
                           tooltip="Components"
                         >
-                          <Component className="h-4 w-4" />
-                          <span>Components</span>
+                          <Link href="/components" className="w-full flex items-center gap-2">
+                            <Component className="h-4 w-4" />
+                            <span className="group-data-[collapsible=icon]:hidden">Components</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer"
                           tooltip="Blocks"
                         >
-                          <Component className="h-4 w-4" />
-                          <span>Blocks</span>
+                          <Link href="/blocks" className="w-full flex items-center gap-2">
+                            <Component className="h-4 w-4" />
+                            <span className="group-data-[collapsible=icon]:hidden">Blocks</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer"
                           tooltip="Templates"
                         >
-                          <Proportions className="h-4 w-4" />
-                          <span>Templates</span>
+                          <Link href="/templates" className="w-full flex items-center gap-2">
+                            <Proportions className="h-4 w-4" />
+                            <span className="group-data-[collapsible=icon]:hidden">Templates</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer"
                           tooltip="Landing Page"
                         >
-                          <Proportions className="h-4 w-4" />
-                          <span>Landing Page</span>
+                          <Link href="/landing" className="w-full flex items-center gap-2">
+                            <Proportions className="h-4 w-4" />
+                            <span className="group-data-[collapsible=icon]:hidden">Landing Page</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
-                        <SidebarMenuButton 
-                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10"
+                        <SidebarMenuButton asChild
+                          className="hover:text-foreground active:text-foreground hover:bg-primary/10 active:bg-primary/10 w-full cursor-pointer"
                           tooltip="Shadcn UI Kit Download"
                         >
-                          <ClipboardMinus className="h-4 w-4" />
-                          <span>Shadcn UI Kit Download</span>
+                          <Link href="https://shadcnuikit.com" target="_blank" className="w-full flex items-center gap-2">
+                            <ClipboardMinus className="h-4 w-4" />
+                            <span className="group-data-[collapsible=icon]:hidden">Shadcn UI Kit Download</span>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                     </SidebarMenu>

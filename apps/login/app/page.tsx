@@ -1,4 +1,6 @@
-import { BunduiButton, BunduiCard, BunduiInput } from "@vthink/bundui"
+import { Button } from "@/shared/components/bundui-premium/components/ui/button"
+import { Card } from "@/shared/components/bundui-premium/components/ui/card"
+import { Input } from "@/shared/components/bundui-premium/components/ui/input"
 
 // =============================================================================
 // LOGIN PAGE

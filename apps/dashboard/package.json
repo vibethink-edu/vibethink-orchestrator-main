@@ -1,11 +1,10 @@
 {
   "name": "@vthink/dashboard",
   "version": "1.0.0",
-  "type": "module",
   "description": "Dashboard principal de VibeThink Orchestrator",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3001",
+    "dev": "next dev -p 4001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

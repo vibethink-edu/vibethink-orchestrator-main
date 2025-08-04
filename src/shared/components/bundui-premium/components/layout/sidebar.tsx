@@ -1,8 +1,9 @@
 import { Fragment, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { page_routes } from "@/lib/routes-config";
 import { ChevronRight, ChevronsUpDown } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { cn } from "@/shared/lib/utils";
 
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/shared/components/bundui-premium/components/ui/collapsible";
 import {
@@ -37,8 +38,7 @@ import { Button } from "@/shared/components/bundui-premium/components/ui/button"
 import { useIsTablet } from "@/hooks/use-mobile";
 
 export default function Sidebar() {
-  const location = useLocation();
-  const pathname = location.pathname;
+  const pathname = usePathname();
   const { setOpen, setOpenMobile, isMobile } = useSidebar();
   const isTablet = useIsTablet();
 
@@ -78,7 +78,7 @@ export default function Sidebar() {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent className="overflow-hidden">
-        <ScrollArea className="h-full">
+        <div className="h-full overflow-y-auto">
           {page_routes.map((route, key) => (
             <SidebarGroup key={key}>
               <SidebarGroupLabel className="text-xs tracking-wider uppercase">
@@ -114,10 +114,28 @@ export default function Sidebar() {
                                   <DropdownMenuLabel>{item.title}</DropdownMenuLabel>
                                   {item.items.map((item) => (
                                     <DropdownMenuItem
-                                      className="hover:text-foreground active:text-foreground hover:bg-[var(--primary)]/10! active:bg-[var(--primary)]/10!"
+                                      className="hover:text-foreground active:text-foreground hover:bg-[var(--primary)]/10! active:bg-[var(--primary)]/10! min-h-[2.5rem] py-2"
                                       asChild
                                       key={item.title}>
-                                      <a href={item.href}>{item.title}</a>
+                                      <a href={item.href} className="flex items-center">
+                                        <span className="flex-1 leading-normal">{item.title}</span>
+                                        {!!item.isNew && (
+                                          <span 
+                                            className="ml-auto inline-flex items-center justify-center px-2 py-1 text-xs font-medium rounded-md"
+                                            style={{ 
+                                              border: '1px solid #4ade80', 
+                                              color: '#059669',
+                                              backgroundColor: 'transparent' 
+                                            }}>
+                                            New
+                                          </span>
+                                        )}
+                                        {!!item.isComing && (
+                                          <span className="ml-auto inline-flex items-center justify-center px-2 py-1 text-xs font-medium opacity-50 rounded-md border">
+                                            Coming
+                                          </span>
+                                        )}
+                                      </a>
                                     </DropdownMenuItem>
                                   ))}
                                 </DropdownMenuContent>
@@ -144,21 +162,37 @@ export default function Sidebar() {
                                 {item.items.map((subItem, key) => (
                                   <SidebarMenuSubItem key={key}>
                                     <SidebarMenuSubButton
-                                      className="hover:text-foreground active:text-foreground hover:bg-[var(--primary)]/10 active:bg-[var(--primary)]/10"
+                                      className="hover:text-foreground active:text-foreground hover:bg-[var(--primary)]/10 active:bg-[var(--primary)]/10 !h-auto !min-h-[2.5rem] !py-2 !overflow-visible !items-start"
                                       isActive={pathname === subItem.href}
                                       asChild>
                                       <Link
-                                        to={subItem.href}
+                                        href={subItem.href || "#"}
                                         target={subItem.newTab ? "_blank" : ""}>
                                         {subItem.icon && (
                                           <Icon
                                             name={subItem.icon}
-                                            className="accent-sidebar-foreground size-4"
+                                            className="accent-sidebar-foreground size-4 mt-0.5"
                                           />
                                         )}
-                                        <span>{subItem.title}</span>
+                                        <span className="leading-normal">{subItem.title}</span>
                                       </Link>
                                     </SidebarMenuSubButton>
+                                    {!!subItem.isNew && (
+                                      <SidebarMenuBadge 
+                                        className="peer-hover/menu-button:text-green-600"
+                                        style={{ 
+                                          border: '1px solid #4ade80', 
+                                          color: '#059669',
+                                          backgroundColor: 'transparent' 
+                                        }}>
+                                        New
+                                      </SidebarMenuBadge>
+                                    )}
+                                    {!!subItem.isComing && (
+                                      <SidebarMenuBadge className="peer-hover/menu-button:text-foreground opacity-50">
+                                        Coming
+                                      </SidebarMenuBadge>
+                                    )}
                                   </SidebarMenuSubItem>
                                 ))}
                               </SidebarMenuSub>
@@ -171,7 +205,7 @@ export default function Sidebar() {
                           asChild
                           tooltip={item.title}
                           isActive={pathname === item.href}>
-                          <Link to={item.href} target={item.newTab ? "_blank" : ""}>
+                          <Link href={item.href || "#"}>
                             {item.icon && (
                               <Icon name={item.icon} className="accent-sidebar-foreground size-4" />
                             )}
@@ -200,18 +234,11 @@ export default function Sidebar() {
               </SidebarGroupContent>
             </SidebarGroup>
           ))}
-        </ScrollArea>
+        </div>
       </SidebarContent>
       <SidebarFooter>
         <div className="p-2 group-data-[collapsible=icon]:hidden">
-          <div className="bg-muted rounded-lg p-2">
-            <div className="text-xs font-medium text-center">VThink Pro</div>
-            <Button size="sm" className="w-full mt-1 text-xs h-6" asChild>
-              <Link to="/upgrade">
-                Upgrade
-              </Link>
-            </Button>
-          </div>
+          <div className="text-xs font-medium text-center text-muted-foreground">VibeThink</div>
         </div>
       </SidebarFooter>
     </SidebarContainer>

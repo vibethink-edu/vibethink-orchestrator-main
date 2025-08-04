@@ -5,7 +5,7 @@ type PageRoutesType = {
 
 type PageRoutesItemType = {
   title: string;
-  href: string;
+  href?: string;
   icon?: string;
   isComing?: boolean;
   isDataBadge?: string;
@@ -20,42 +20,118 @@ export const page_routes: PageRoutesType[] = [
     items: [
       {
         title: "Default",
-        href: "/admin/test-premium-dashboard",
+        href: "/",
         icon: "ChartPie"
       },
       {
         title: "E-commerce",
-        href: "#",
+        href: "/ecommerce-dashboard",
         icon: "ShoppingBag",
         items: [
-          { title: "Dashboard", href: "/admin/test-ecommerce" },
-          { title: "Analytics", href: "/admin/test-analytics" },
-          { title: "CRM", href: "/admin/test-crm" },
-          { title: "Finance", href: "/admin/test-finance" },
-          { title: "Marketing", href: "/admin/test-marketing" }
+          {
+            title: "Enhanced Dashboard",
+            href: "/ecommerce-dashboard",
+            icon: "ChartBarDecreasing",
+            isNew: true
+          },
+          {
+            title: "Product List",
+            href: "/ecommerce-dashboard/products",
+            icon: "List"
+          },
+          {
+            title: "Product Detail",
+            href: "/ecommerce-dashboard/product-detail",
+            icon: "PackageOpen"
+          },
+          {
+            title: "Add Product",
+            href: "/ecommerce-dashboard/add-product",
+            icon: "Plus"
+          },
+          {
+            title: "Order List",
+            href: "/ecommerce-dashboard/orders",
+            icon: "List"
+          },
+          {
+            title: "Order Detail",
+            href: "/ecommerce-dashboard/order-detail",
+            icon: "PackageOpen"
+          }
         ]
       },
-      { title: "Sales", href: "/admin/test-analytics", icon: "BadgeDollarSign" },
-      { title: "CRM", href: "/admin/test-crm", icon: "ChartBarDecreasing" },
+      {
+        title: "Sales",
+        href: "/sales-dashboard",
+        icon: "BadgeDollarSign",
+        isNew: true
+      },
+      {
+        title: "CRM",
+        href: "/crm-dashboard",
+        icon: "ChartBarDecreasing",
+        isNew: true
+      },
       {
         title: "Website Analytics",
-        href: "/admin/test-analytics",
-        icon: "Gauge"
+        href: "/website-analytics-dashboard",
+        icon: "Gauge",
+        isNew: true
       },
       {
         title: "Project Management",
-        href: "/admin/premium-test",
-        icon: "FolderDot"
+        href: "/project-management-dashboard",
+        icon: "FolderDot",
+        isNew: true
       },
       {
         title: "File Manager",
-        href: "/admin/premium-test",
-        icon: "Folder"
+        href: "/file-manager-dashboard",
+        icon: "Folder",
+        isNew: true
       },
-      { title: "Crypto", href: "/admin/test-finance", icon: "WalletMinimal" },
-      { title: "Academy/School", href: "/admin/premium-test", icon: "GraduationCap" },
-      { title: "Hospital Management", href: "/admin/premium-test", icon: "Activity" },
-      { title: "Hotel Dashboard", href: "/admin/premium-test", icon: "Building2", isComing: true }
+      {
+        title: "Crypto",
+        href: "/crypto-dashboard",
+        icon: "WalletMinimal",
+        isNew: true
+      },
+      {
+        title: "Finance",
+        href: "/finance-dashboard",
+        icon: "TrendingUp",
+        isNew: true
+      },
+      {
+        title: "Academy/School",
+        href: "/academy-school",
+        icon: "GraduationCap",
+        isComing: true
+      },
+      {
+        title: "Hospital Management",
+        href: "/hospital-management",
+        icon: "Activity",
+        isComing: true
+      }
+    ]
+  },
+  {
+    title: "AI",
+    items: [
+      {
+        title: "AI Chat",
+        href: "/ai-chat-dashboard",
+        icon: "Brain",
+        isNew: true
+      },
+      {
+        title: "Image Generator",
+        href: "/image-generator",
+        icon: "ImageIcon",
+        isComing: true
+      }
     ]
   },
   {
@@ -63,92 +139,174 @@ export const page_routes: PageRoutesType[] = [
     items: [
       {
         title: "Kanban",
-        href: "/admin/premium-test",
+        href: "/kanban-dashboard",
         icon: "SquareKanban",
-        isComing: true
+        isNew: true
       },
-      { title: "AI Chat", href: "/admin/premium-test", icon: "Brain", isNew: true },
-      { title: "Notes", href: "/admin/premium-test", icon: "StickyNote" },
-      { title: "Chats", href: "/admin/premium-test", icon: "MessageSquare", isDataBadge: "4" },
-      { title: "Mail", href: "/admin/premium-test", icon: "Mail", isNew: true },
+      {
+        title: "Notes",
+        href: "/notes-dashboard",
+        icon: "StickyNote",
+        isNew: true
+      },
+      {
+        title: "Chats",
+        href: "/chats",
+        icon: "MessageSquare",
+        isDataBadge: "4"
+      },
+      {
+        title: "Mail",
+        href: "/mail-dashboard",
+        icon: "Mail",
+        isNew: true
+      },
       {
         title: "Todo List App",
-        href: "/admin/premium-test",
+        href: "/todo-list",
         icon: "SquareCheck",
-        isComing: true
+        isNew: true
       },
-      { title: "Calendar", href: "/admin/premium-test", icon: "Calendar" },
+      {
+        title: "Tasks",
+        href: "/tasks-dashboard",
+        icon: "SquareCheck",
+        isNew: true
+      },
+      {
+        title: "Calendar",
+        href: "/calendar-dashboard",
+        icon: "Calendar",
+        isNew: true
+      },
       {
         title: "File Manager",
-        href: "/admin/premium-test",
-        icon: "ArchiveRestore",
-        isComing: true
+        href: "/file-manager-app",
+        icon: "ArchiveRestore"
       },
-      { title: "Api Keys", href: "/admin/premium-test", icon: "Key" },
-      { title: "POS App", href: "/admin/premium-test", icon: "Cookie", isNew: true }
+      {
+        title: "API Keys",
+        href: "/api-keys",
+        icon: "Key"
+      },
+      {
+        title: "POS App",
+        href: "/pos-system-dashboard",
+        icon: "Cookie",
+        isNew: true
+      }
     ]
   },
   {
     title: "Pages",
     items: [
       {
-        title: "Users",
-        href: "/admin/premium-test",
-        icon: "Users",
-        items: [
-          { title: "Users List", href: "/admin/premium-test" },
-          { title: "Profile", href: "/admin/premium-test" }
-        ]
+        title: "Users List",
+        href: "/users",
+        icon: "Users"
+      },
+      {
+        title: "Profile",
+        href: "/profile",
+        icon: "User"
       },
       {
         title: "Settings",
-        href: "/admin/premium-test",
+        href: "/settings",
         icon: "Settings",
         items: [
-          { title: "Profile", href: "/admin/premium-test" },
-          { title: "Account", href: "/admin/premium-test" },
-          { title: "Appearance", href: "/admin/premium-test" },
-          { title: "Notifications", href: "/admin/premium-test" },
-          { title: "Display", href: "/admin/premium-test" }
+          {
+            title: "Profile",
+            href: "/settings/profile",
+            icon: "User"
+          },
+          {
+            title: "Account",
+            href: "/settings/account",
+            icon: "UserCheck"
+          },
+          {
+            title: "Appearance",
+            href: "/settings/appearance",
+            icon: "Monitor"
+          },
+          {
+            title: "Notifications",
+            href: "/settings/notifications",
+            icon: "Bell"
+          },
+          {
+            title: "Display",
+            href: "/settings/display",
+            icon: "Eye"
+          }
         ]
       },
       {
         title: "Pricing",
-        href: "#",
-        icon: "BadgeDollarSign",
+        href: "/pricing",
+        icon: "CreditCard",
         items: [
-          { title: "Column Pricing", href: "/admin/premium-test" },
-          { title: "Table Pricing", href: "/admin/premium-test" },
-          { title: "Single Pricing", href: "/admin/premium-test" }
+          {
+            title: "Pricing Table",
+            href: "/pricing/table",
+            icon: "CreditCard"
+          },
+          {
+            title: "Pricing Cards",
+            href: "/pricing/cards",
+            icon: "CreditCard"
+          }
         ]
       },
       {
         title: "Authentication",
-        href: "/",
-        icon: "Fingerprint",
+        href: "/auth",
+        icon: "Shield",
         items: [
-          { title: "Login v1", href: "/admin/login" },
-          { title: "Login v2", href: "/admin/login" },
-          { title: "Register v1", href: "/admin/login" },
-          { title: "Register v2", href: "/admin/login" },
-          { title: "Forgot Password", href: "/admin/login" }
+          {
+            title: "Sign In",
+            href: "/auth/signin",
+            icon: "LogIn"
+          },
+          {
+            title: "Sign Up",
+            href: "/auth/signup",
+            icon: "UserPlus"
+          },
+          {
+            title: "Forgot Password",
+            href: "/auth/forgot-password",
+            icon: "KeyRound"
+          },
+          {
+            title: "Reset Password",
+            href: "/auth/reset-password",
+            icon: "RotateCcw"
+          }
         ]
       },
       {
         title: "Error Pages",
-        href: "/",
-        icon: "Fingerprint",
+        href: "/error",
+        icon: "AlertTriangle",
         items: [
-          { title: "404", href: "/admin/premium-test" },
-          { title: "500", href: "/admin/premium-test" },
-          { title: "403", href: "/admin/premium-test" }
+          {
+            title: "404 Not Found",
+            href: "/error/404",
+            icon: "FileX"
+          },
+          {
+            title: "500 Server Error",
+            href: "/error/500",
+            icon: "Server"
+          },
+          {
+            title: "503 Maintenance",
+            href: "/error/503",
+            icon: "Settings"
+          }
         ]
-      },
-      {
-        title: "VThink Platform",
-        href: "/dashboard",
-        icon: "Proportions",
-        newTab: false
       }
     ]
   },
@@ -157,27 +315,54 @@ export const page_routes: PageRoutesType[] = [
     items: [
       {
         title: "Components",
-        href: "/admin/premium-test",
-        icon: "Component",
-        newTab: false
+        href: "/components",
+        icon: "Component"
       },
       {
         title: "Blocks",
-        href: "/admin/premium-test",
-        icon: "Component",
-        newTab: false
+        href: "/blocks",
+        icon: "Blocks"
       },
       {
         title: "Templates",
-        href: "/admin/premium-test",
-        icon: "Proportions",
-        newTab: false
+        href: "/templates",
+        icon: "ClipboardMinus"
       },
       {
-        title: "Documentation",
-        href: "/admin/premium-test",
-        icon: "ClipboardMinus",
-        isComing: true
+        title: "Landing Page",
+        href: "/landing",
+        icon: "Globe"
+      },
+      {
+        title: "Shadcn UI Kit Download",
+        href: "https://shadcnuikit.com",
+        icon: "Download",
+        newTab: true
+      },
+      {
+        title: "Mobile Test",
+        href: "/mobile-test",
+        icon: "Smartphone"
+      },
+      {
+        title: "Debug",
+        href: "/debug",
+        icon: "Bug"
+      },
+      {
+        title: "Premium",
+        href: "/premium",
+        icon: "Crown"
+      },
+      {
+        title: "Test",
+        href: "/test",
+        icon: "TestTube"
+      },
+      {
+        title: "Test Charts",
+        href: "/test-charts",
+        icon: "ChartBar"
       }
     ]
   }
