@@ -13,7 +13,7 @@
 
 import React from 'react';
 import { Metadata } from 'next';
-import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout';
+import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
 import CalendarApp from './components/CalendarApp';
 import EventSheet from './components/EventSheet';
 
@@ -35,11 +35,11 @@ export const metadata: Metadata = {
  */
 export default function CalendarPage() {
   return (
-    <BunduiCompleteLayout>
+    <DashboardLayout>
       <div className="space-y-6">
         <CalendarApp />
         <EventSheet />
       </div>
-    </BunduiCompleteLayout>
+    </DashboardLayout>
   );
 }

@@ -1,22 +1,22 @@
 'use client'
 
 // =============================================================================
-// NOTES APP PAGE
+// DASHBOARD PAGE - MODULAR & STANDARDIZED  
 // =============================================================================
 // 
-// Main notes application page with comprehensive note-taking functionality
-// Integrates DashboardLayout, notes management, and multi-tenant security
+// USANDO BunduiCompleteLayout como REFERENCIA para comparar con versión migrada
 //
-// VThink 1.0 Compliance:
-// - ✅ Multi-tenant security (company_id filtering)
-// - ✅ DashboardLayout integration  
-// - ✅ Professional note-taking features
+// 🔄 VERSIÓN DE REFERENCIA:
+// - 🔄 HARDCODED: Usa BunduiCompleteLayout (para comparación)
+// - ✅ Multi-tenant security
+// - ✅ DashboardLayout estándar (NO BunduiCompleteLayout)
 // - ✅ Responsive design
 // - ✅ DOI Principle (Bundui Visual + Shadcn Technical)
+// - ✅ Componentes reutilizables y configurables
 // =============================================================================
 
 import React from 'react'
-import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout'
+import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout';
 import { NotesApp } from './components/NotesApp'
 
 /**

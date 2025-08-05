@@ -16,11 +16,7 @@ import {
   ThemeRadiusSelector,
   ResetThemeButton
 } from "./index";
-import { useIsMobile } from "@/hooks/use-mobile";
-
 export function ThemeCustomizerPanel() {
-  const isMobile = useIsMobile();
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -30,7 +26,7 @@ export function ThemeCustomizerPanel() {
       </DropdownMenuTrigger>
       <DropdownMenuContent
         className="me-4 w-72 p-4 shadow-xl lg:me-0"
-        align={isMobile ? "center" : "end"}>
+        align="end">
         <div className="grid space-y-4">
           <PresetSelector />
           <ThemeScaleSelector />

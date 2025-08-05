@@ -4,7 +4,7 @@
  * Enhanced Dashboard Page - VThink 1.0
  * 
  * Dashboard mejorado que combina:
- * - BunduiCompleteLayout (sidebar modular ORIGINAL)
+ * - DashboardLayout (sidebar modular ESTÁNDAR)
  * - ShadcnStyleDashboard (componentes premium)
  * - AI Consensus Framework workflow
  * 
@@ -13,13 +13,13 @@
  */
 
 import React from 'react';
-import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout';
+import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
 import EnhancedDashboardContent from '@/components/enhanced-dashboard/EnhancedDashboardContent';
 
 export default function EnhancedDashboardPage() {
   return (
-    <BunduiCompleteLayout>
+    <DashboardLayout>
       <EnhancedDashboardContent />
-    </BunduiCompleteLayout>
+    </DashboardLayout>
   );
 }

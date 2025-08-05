@@ -4,7 +4,7 @@
  * Esta página incluye debugging para sidebar y sistema general
  */
 
-import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout';
+import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
 import { SystemDebugPanel } from '@/shared/components/bundui-premium';
 import { SystemDebugPanelFixed } from '@/shared/components/bundui-premium/components/SystemDebugPanelFixed';
 import { ClientOnly } from '@/shared/components/ClientOnly';
@@ -12,7 +12,7 @@ import SidebarTestPage from './sidebar-test';
 
 export default function DebugPage() {
   return (
-    <BunduiCompleteLayout>
+    <DashboardLayout>
       <div className="space-y-6">
         {/* Sidebar Debug Test */}
         <div className="mb-8">
@@ -36,6 +36,6 @@ export default function DebugPage() {
           </ClientOnly>
         </div>
       </div>
-    </BunduiCompleteLayout>
+    </DashboardLayout>
   );
 }

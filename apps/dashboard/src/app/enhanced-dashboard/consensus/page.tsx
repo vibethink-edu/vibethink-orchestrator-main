@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout';
+import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/bundui-premium/components/ui/card';
 import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
 import { Progress } from '@/shared/components/bundui-premium/components/ui/progress';
@@ -9,7 +9,7 @@ import { Brain, Users, Target, CheckCircle } from 'lucide-react';
 
 const ConsensusPage = () => {
   return (
-    <BunduiCompleteLayout>
+    <DashboardLayout>
       <div className="space-y-6 p-6">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">AI Consensus</h1>
@@ -91,7 +91,7 @@ const ConsensusPage = () => {
           </CardContent>
         </Card>
       </div>
-    </BunduiCompleteLayout>
+    </DashboardLayout>
   );
 };
 

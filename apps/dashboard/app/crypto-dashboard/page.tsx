@@ -9,7 +9,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout'
+import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/ui/tabs'
 import { Card, CardContent } from '@/shared/components/ui/card'
 import { 
@@ -138,7 +138,7 @@ export default function CryptoDashboardPage() {
 
   if (error) {
     return (
-      <BunduiCompleteLayout>
+      <DashboardLayout>
         <div className="flex items-center justify-center h-96">
           <Card>
             <CardContent className="p-6">
@@ -156,12 +156,12 @@ export default function CryptoDashboardPage() {
             </CardContent>
           </Card>
         </div>
-      </BunduiCompleteLayout>
+      </DashboardLayout>
     )
   }
 
   return (
-    <BunduiCompleteLayout>
+    <DashboardLayout>
       <div className="space-y-6">
         {/* Header with filters and actions */}
         <CryptoHeader
@@ -554,6 +554,6 @@ export default function CryptoDashboardPage() {
           </div>
         )}
       </div>
-    </BunduiCompleteLayout>
+    </DashboardLayout>
   )
 }

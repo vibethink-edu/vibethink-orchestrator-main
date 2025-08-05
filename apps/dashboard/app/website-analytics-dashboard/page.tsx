@@ -1,6 +1,6 @@
 'use client'
 
-import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout'
+import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
 import { 
   AnalyticsHeader,
   WebsiteAnalyticsCard,
@@ -57,7 +57,7 @@ export default function WebsiteAnalyticsPage() {
   }
 
   return (
-    <BunduiCompleteLayout>
+    <DashboardLayout>
       <div className="space-y-6">
         {/* Analytics Header with Date Filters and Export Controls */}
         <AnalyticsHeader
@@ -157,7 +157,7 @@ export default function WebsiteAnalyticsPage() {
           </div>
         )}
       </div>
-    </BunduiCompleteLayout>
+    </DashboardLayout>
   )
 }
 

@@ -5,6 +5,8 @@ import { SidebarInset, SidebarProvider } from "@/shared/components/bundui-premiu
 import Sidebar from "@/shared/components/bundui-premium/components/layout/sidebar";
 import Header from "@/shared/components/bundui-premium/components/layout/header/index";
 import { Toaster } from "@/shared/components/bundui-premium/components/ui/sonner";
+import { VThinkThemeProvider } from "@/shared/components/bundui-premium/components/theme-customizer";
+import { TooltipProvider } from "@/shared/components/bundui-premium/components/ui/tooltip";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -20,15 +22,19 @@ export default function DashboardLayout({
   defaultOpen = true 
 }: DashboardLayoutProps) {
   return (
-    <SidebarProvider defaultOpen={defaultOpen}>
-      <Sidebar />
-      <SidebarInset>
-        <Header />
-        <div className="@container/main p-4 xl:group-data-[theme-content-layout=centered]/layout:container xl:group-data-[theme-content-layout=centered]/layout:mx-auto xl:group-data-[theme-content-layout=centered]/layout:mt-8">
-          {children}
-        </div>
-        <Toaster position="top-center" />
-      </SidebarInset>
-    </SidebarProvider>
+    <VThinkThemeProvider>
+      <TooltipProvider>
+        <SidebarProvider defaultOpen={defaultOpen}>
+          <Sidebar />
+          <SidebarInset>
+            <Header />
+            <div className="@container/main p-4 xl:group-data-[theme-content-layout=centered]/layout:container xl:group-data-[theme-content-layout=centered]/layout:mx-auto xl:group-data-[theme-content-layout=centered]/layout:mt-8">
+              {children}
+            </div>
+            <Toaster position="top-center" />
+          </SidebarInset>
+        </SidebarProvider>
+      </TooltipProvider>
+    </VThinkThemeProvider>
   );
 } 

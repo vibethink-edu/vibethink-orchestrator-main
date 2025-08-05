@@ -9,7 +9,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout'
+import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/ui/tabs'
 import { Card, CardContent } from '@/shared/components/ui/card'
 import { Button } from '@/shared/components/ui/button'
@@ -93,7 +93,7 @@ export default function TasksManagementPage() {
   }
 
   return (
-    <BunduiCompleteLayout>
+    <DashboardLayout>
       <div className="space-y-6">
         {/* Header */}
         <TasksHeader
@@ -444,6 +444,6 @@ export default function TasksManagementPage() {
           editingTask={selectedTask}
           teamMembers={teamMembers}
         />
-    </BunduiCompleteLayout>
+    </DashboardLayout>
   )
 }

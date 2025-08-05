@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout'
+import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
 import { 
   MailHeader, 
   EmailList, 
@@ -186,7 +186,7 @@ export default function MailPage() {
   }, [composeError])
 
   return (
-    <BunduiCompleteLayout>
+    <DashboardLayout>
       <div className="space-y-6">
         {/* Mail Header */}
         <div className="flex items-center justify-between">
@@ -306,6 +306,6 @@ export default function MailPage() {
           isSending={isSending}
         />
       </div>
-    </BunduiCompleteLayout>
+    </DashboardLayout>
   )
 }

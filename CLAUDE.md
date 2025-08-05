@@ -289,6 +289,25 @@ import { Component } from '../../../shared/components';
 - **Base Components**: Prefer shadcn/ui components over custom implementations
 - **Future-proof**: Prevents refactoring when adding new shadcn components
 
+#### **VThink UX Improvements over Bundui-Premium - DO NOT REMOVE:**
+**CRITICAL**: These are improvements we made that are BETTER than bundui-premium reference:
+
+1. **Sidebar Collapsed Mode Sub-menu Indicator** (src/shared/components/bundui-premium/components/layout/sidebar.tsx:117):
+   ```tsx
+   {/* Indicador de sub-opciones en modo collapsed */}
+   <ChevronRight className="absolute -bottom-0.5 -right-0.5 size-2 bg-background rounded-full border border-border" />
+   ```
+   - **WHY**: Bundui-premium doesn't show visual indicator when collapsed sidebar items have sub-options
+   - **UX BENEFIT**: Users immediately know which items have dropdown menus
+   - **IMPLEMENTATION**: Small ChevronRight in bottom-right corner of icon, only visible in collapsed mode
+   - **STATUS**: Superior UX to bundui-premium - NEVER REMOVE this improvement
+
+2. **Dual-Behavior Dropdown Pattern**:
+   - **Collapsed Mode**: DropdownMenu lateral popup (like bundui-premium)
+   - **Expanded Mode**: Collapsible accordion with controlled state
+   - **Enhancement**: Added visual indicator for collapsed mode (our innovation)
+   - **Location**: sidebar.tsx lines 103-160 (collapsed), 161-220 (expanded)
+
 #### **Bundui Premium Component Path Structure:**
 ```typescript
 // ✅ CORRECT: Bundui components location

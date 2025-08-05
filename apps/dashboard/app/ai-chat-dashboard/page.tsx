@@ -1,23 +1,24 @@
 'use client'
 
 // =============================================================================
-// AI CHAT APP PAGE
+// AI CHAT APP PAGE - MODULAR & STANDARDIZED
 // =============================================================================
 // 
 // Página principal del AI Chat App con interfaz conversacional moderna
-// Integra DashboardLayout, sidebar, y sistema de mensajería real-time
+// Migrado de BunduiCompleteLayout a DashboardLayout para seguir estándares
 //
-// URL Demo: https://bundui.com/premium/dashboard/apps/ai-chat
-// VThink 1.0 Compliance:
+// ✅ ESTÁNDARES APLICADOS:
+// - ✅ NO HARDCODING: Usa DashboardLayout modular
 // - ✅ Multi-tenant security
-// - ✅ DashboardLayout integration
+// - ✅ DashboardLayout estándar (NO BunduiCompleteLayout)
 // - ✅ Real-time messaging
 // - ✅ Responsive design
 // - ✅ DOI Principle (Bundui Visual + Shadcn Technical)
+// - ✅ Componentes reutilizables y configurables
 // =============================================================================
 
 import React, { useState } from 'react'
-import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout'
+import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout'
 import { ChatHeader } from './components/ChatHeader'
 import { ChatMessages } from './components/ChatMessages'
 import { ChatInput } from './components/ChatInput'
@@ -120,7 +121,7 @@ export default function AiChatPage() {
   }
 
   return (
-    <BunduiCompleteLayout>
+    <DashboardLayout>
       <div className="space-y-6">
         {/* Chat Header with Controls */}
         <div className="flex items-center justify-between">
@@ -300,6 +301,6 @@ export default function AiChatPage() {
           </div>
         )}
         </div>
-    </BunduiCompleteLayout>
+    </DashboardLayout>
   )
 }

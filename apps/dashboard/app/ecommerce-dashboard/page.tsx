@@ -15,7 +15,7 @@
  */
 
 import React, { useState } from 'react';
-import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout';
+import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
 import {
   Card,
   CardContent,
@@ -23,6 +23,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/shared/components/bundui-premium/components/ui/card';
+import { MiniChart, MiniBarChart } from '@/shared/components/dashboard/MiniChart';
 import { Button } from '@/shared/components/bundui-premium/components/ui/button';
 import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
 import { Progress } from '@/shared/components/bundui-premium/components/ui/progress';
@@ -295,18 +296,12 @@ const EcommerceDashboard: React.FC = () => {
   };
 
   return (
-    <BunduiCompleteLayout>
-      <div className="space-y-6">
-        {/* Header */}
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">E-Commerce Dashboard</h1>
-            <p className="text-muted-foreground">
-              Track your sales, products, and customer analytics
-            </p>
-          </div>
-          
-          <div className="flex items-center space-x-4">
+    <DashboardLayout>
+      <div className="space-y-4">
+        {/* Header - Bundui Premium Style */}
+        <div className="flex flex-row items-center justify-between">
+          <h1 className="text-xl font-bold tracking-tight lg:text-2xl">E-Commerce Dashboard</h1>
+          <div className="flex items-center space-x-2">
             <Select value={dateRange} onValueChange={setDateRange}>
               <SelectTrigger className="w-[200px]">
                 <SelectValue />
@@ -317,13 +312,18 @@ const EcommerceDashboard: React.FC = () => {
                 <SelectItem value="1 Jan 2025 - 31 Dec 2025">This year</SelectItem>
               </SelectContent>
             </Select>
+            <Button>
+              <Gift className="h-4 w-4 mr-2" />
+              <span className="hidden lg:inline">Download</span>
+            </Button>
           </div>
         </div>
 
-        {/* Revenue Cards con Charts Mejorados */}
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {/* Metrics Grid - Bundui Premium Style */}
+        <div className="space-y-4">
+          <div className="grid gap-4 lg:grid-cols-12">
           {/* Revenue Card con Mini Chart */}
-          <Card>
+          <Card className="lg:col-span-4">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Revenue</CardTitle>
               <DollarSign className="h-4 w-4 text-muted-foreground" />
@@ -343,25 +343,21 @@ const EcommerceDashboard: React.FC = () => {
               </div>
               
               {/* Mini Chart */}
-              <div className="mt-4 h-[60px]">
-                <div className="flex items-end space-x-1 h-full">
-                  {revenueData.chartData.map((item, index) => (
-                    <div 
-                      key={index}
-                      className="bg-primary/20 rounded-sm flex-1"
-                      style={{ 
-                        height: `${(item.revenue / 305) * 100}%`,
-                        minHeight: '4px'
-                      }}
-                    />
-                  ))}
-                </div>
+              <div className="mt-4">
+                <MiniBarChart 
+                  data={revenueData.chartData.map(item => ({
+                    name: item.month,
+                    value: item.revenue
+                  }))}
+                  color="hsl(var(--chart-1))"
+                  height={60}
+                />
               </div>
             </CardContent>
           </Card>
 
           {/* Sales Card con Mini Chart */}
-          <Card>
+          <Card className="lg:col-span-4">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Sales</CardTitle>
               <ShoppingCart className="h-4 w-4 text-muted-foreground" />
@@ -381,25 +377,21 @@ const EcommerceDashboard: React.FC = () => {
               </div>
               
               {/* Mini Chart */}
-              <div className="mt-4 h-[60px]">
-                <div className="flex items-end space-x-1 h-full">
-                  {salesData.chartData.map((item, index) => (
-                    <div 
-                      key={index}
-                      className="bg-blue-500/20 rounded-sm flex-1"
-                      style={{ 
-                        height: `${(item.sales / 195) * 100}%`,
-                        minHeight: '4px'
-                      }}
-                    />
-                  ))}
-                </div>
+              <div className="mt-4">
+                <MiniBarChart 
+                  data={salesData.chartData.map(item => ({
+                    name: item.month,
+                    value: item.sales
+                  }))}
+                  color="hsl(var(--chart-2))"
+                  height={60}
+                />
               </div>
             </CardContent>
           </Card>
 
           {/* New Customers Card */}
-          <Card>
+          <Card className="lg:col-span-4">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">New Customers</CardTitle>
               <Users className="h-4 w-4 text-muted-foreground" />
@@ -425,10 +417,10 @@ const EcommerceDashboard: React.FC = () => {
               </div>
             </CardContent>
           </Card>
-        </div>
-
-        {/* Main Content Grid */}
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+          </div>
+          
+          {/* Main Content Grid - Bundui Premium Style */}
+          <div className="space-y-4 xl:grid xl:grid-cols-2 xl:gap-4 xl:space-y-0">
           {/* Best Selling Products - Mejorado con más detalles */}
           <Card className="col-span-4">
             <CardHeader>
@@ -548,7 +540,7 @@ const EcommerceDashboard: React.FC = () => {
             </CardContent>
           </Card>
         </div>
-
+        
         {/* Bottom Grid - Mejorado */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
           {/* Sales by Location - Mejorado */}
@@ -683,8 +675,9 @@ const EcommerceDashboard: React.FC = () => {
             </CardContent>
           </Card>
         </div>
+        </div>
       </div>
-    </BunduiCompleteLayout>
+    </DashboardLayout>
   );
 };
 

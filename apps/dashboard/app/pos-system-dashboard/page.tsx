@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout';
+import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
 import { Card } from "@/shared/components/ui/card";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
@@ -113,7 +113,7 @@ export default function PosSystemPage() {
   }
 
   return (
-    <BunduiCompleteLayout>
+    <DashboardLayout>
       <div className="flex flex-col space-y-6">
         {/* POS Header */}
         <PosHeader activeView={activeView} sessionData={sessionData} />
@@ -194,6 +194,6 @@ export default function PosSystemPage() {
           {renderActiveView()}
         </div>
       </div>
-    </BunduiCompleteLayout>
+    </DashboardLayout>
   );
 }

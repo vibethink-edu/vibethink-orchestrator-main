@@ -10,7 +10,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout'
+import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
 import { Card, CardContent } from '@/shared/components/ui/card'
 import { 
   Upload,
@@ -177,7 +177,7 @@ export default function FileManagerPage() {
   }
 
   return (
-    <BunduiCompleteLayout>
+    <DashboardLayout>
       <div className="space-y-6">
         {/* Header with actions */}
         <div className="flex flex-col space-y-4 lg:flex-row lg:items-center lg:justify-between lg:space-y-0">
@@ -368,6 +368,6 @@ export default function FileManagerPage() {
           </div>
         )}
       </div>
-    </BunduiCompleteLayout>
+    </DashboardLayout>
   )
 }

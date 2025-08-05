@@ -4,7 +4,7 @@
   "description": "Dashboard principal de VibeThink Orchestrator",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 4001",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

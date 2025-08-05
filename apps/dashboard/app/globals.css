@@ -187,20 +187,32 @@
     display: none !important;
   }
 
-  /* Adjust sidebar inset to compensate for removed gap */
-  [data-slot="sidebar-inset"] {
+  /* Allow sidebar inset to use default behavior */
+  /* [data-slot="sidebar-inset"] {
     margin-left: 0 !important;
-  }
+  } */
 
   /* Position content directly after the fixed sidebar */
   .sidebar-content-tight {
     margin-left: calc(var(--sidebar-width)) !important;
   }
+
+  /* Responsive sidebar content - adjusts to collapsed/expanded states */
+  .sidebar-content-responsive {
+    margin-left: calc(var(--sidebar-width)) !important;
+  }
+
+  /* When sidebar is collapsed, use icon width */
+  [data-state="collapsed"] ~ * .sidebar-content-responsive,
+  [data-collapsible="icon"][data-state="collapsed"] ~ * .sidebar-content-responsive {
+    margin-left: calc(var(--sidebar-width-icon)) !important;
+  }
 }
 
 /* Mobile: Reset margins for full width content */
 @media (max-width: 767px) {
-  .sidebar-content-tight {
+  .sidebar-content-tight,
+  .sidebar-content-responsive {
     margin-left: 0 !important;
   }
 }

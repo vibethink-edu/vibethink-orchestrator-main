@@ -6,8 +6,10 @@ import { useEffect, useState } from "react";
  */
 export function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth < 1024);
     };
@@ -22,7 +24,7 @@ export function useIsMobile() {
     return () => window.removeEventListener('resize', checkIsMobile);
   }, []);
 
-  return isMobile;
+  return mounted ? isMobile : false;
 }
 
 /**
@@ -31,8 +33,10 @@ export function useIsMobile() {
  */
 export function useIsTablet() {
   const [isTablet, setIsTablet] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const checkIsTablet = () => {
       const width = window.innerWidth;
       setIsTablet(width >= 768 && width < 1024);
@@ -48,5 +52,5 @@ export function useIsTablet() {
     return () => window.removeEventListener('resize', checkIsTablet);
   }, []);
 
-  return isTablet;
+  return mounted ? isTablet : false;
 } 

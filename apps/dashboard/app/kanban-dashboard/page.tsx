@@ -19,7 +19,7 @@
  */
 
 import React, { useState } from 'react';
-import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout';
+import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
 import { DragDropContext, DropResult } from '@hello-pangea/dnd';
 import { Plus, Search, Filter, Clock, AlertCircle, TrendingUp, Users, Target } from 'lucide-react';
 import { Button } from '@/shared/components/bundui-premium/components/ui/button';
@@ -194,7 +194,7 @@ export default function KanbanPage() {
   const filterOptions = getFilterOptions(board.columns);
 
   return (
-    <BunduiCompleteLayout>
+    <DashboardLayout>
       <div className="space-y-6">
         {/* Page Header */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
@@ -382,6 +382,6 @@ export default function KanbanPage() {
           </div>
         </div>
       </div>
-    </BunduiCompleteLayout>
+    </DashboardLayout>
   );
 }
