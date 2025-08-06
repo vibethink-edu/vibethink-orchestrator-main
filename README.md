@@ -1,4 +1,4 @@
-# 🛡️ VThink Orchestrator - AI Stability Rules
+# 🛡️ VibeThink Orchestrator - AI Stability Rules
 
 ## ⚠️ CRITICAL: AI MUST READ BEFORE ANY CHANGES
 
@@ -196,9 +196,24 @@ vibethink-orchestrator-main/
 ├── src/
 │   └── shared/            # Shared components and utilities
 ├── AI_STABILITY_RULES.md  # ⚠️ CRITICAL: AI must read
+├── VTHINK_METHODOLOGY_LAW.md  # 🛡️ VThink Law (INQUEBRANTABLE)
 ├── validate-stability-rules.js  # 🛡️ Stability validator
+├── validate-vthink-law.js  # 🛡️ VThink Law validator
 └── package.json           # AI-friendly scripts
 ```
+
+## 🛡️ VTHINK METHODOLOGY LAW - INQUEBRANTABLE
+
+### 📋 VThink = METHODOLOGY, VibeThink = SOFTWARE
+
+**⚠️ CRITICAL: This project follows the VThink Methodology Law:**
+
+- **VThink 1.0** = Development methodology (CMMI-ML3 compliant)
+- **VibeThink Orchestrator** = Software platform name
+- **VThink** = Process, standards, workflow, methodology
+- **VibeThink** = Application, platform, brand, software
+
+**🚨 NEVER CONFUSE: VThink is methodology, VibeThink is software**
 
 ## 🛡️ AI Safety Features
 

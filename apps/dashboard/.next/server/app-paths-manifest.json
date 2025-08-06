@@ -1,4 +1,6 @@
 {
   "/ai-chat-dashboard/page": "app/ai-chat-dashboard/page.js",
-  "/ecommerce-dashboard/page": "app/ecommerce-dashboard/page.js"
+  "/ecommerce-dashboard/page": "app/ecommerce-dashboard/page.js",
+  "/crm-dashboard/page": "app/crm-dashboard/page.js",
+  "/website-analytics-dashboard/page": "app/website-analytics-dashboard/page.js"
 }

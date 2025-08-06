@@ -11,13 +11,16 @@
     "test": "cd apps/dashboard && npm run test",
     "validate:stability": "node validate-stability-rules.js",
     "validate:vtk": "node validate-stability-rules.js",
-    "pre-commit": "node validate-stability-rules.js",
-    "ai:safe-commit": "npm run validate:stability && git add . && git commit -m",
-    "ai:test-changes": "npm run validate:stability && npm run dev",
-    "ai:recovery": "git stash && npm run validate:stability && git stash pop",
+    "validate:vthink-law": "node validate-vthink-law.js",
+    "validate:all": "npm run validate:stability && npm run validate:vthink-law",
+    "pre-commit": "npm run validate:all",
+    "ai:safe-commit": "npm run validate:all && git add . && git commit -m",
+    "ai:test-changes": "npm run validate:all && npm run dev",
+    "ai:recovery": "git stash && npm run validate:all && git stash pop",
     "ai:stability-check": "echo '🛡️ AI STABILITY CHECK' && node validate-stability-rules.js",
-    "ai:before-changes": "npm run validate:stability",
-    "ai:after-changes": "npm run validate:stability && npm run dev"
+    "ai:vthink-law-check": "echo '🛡️ VTHINK LAW CHECK' && node validate-vthink-law.js",
+    "ai:before-changes": "npm run validate:all",
+    "ai:after-changes": "npm run validate:all && npm run dev"
   },
   "keywords": [
     "vibethink",

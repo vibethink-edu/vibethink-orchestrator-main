@@ -1,5 +1,5 @@
 {
-  "name": "@vthink/dashboard",
+  "name": "vibethink-orchestrator-dashboard",
   "version": "1.0.0",
   "description": "Dashboard principal de VibeThink Orchestrator",
   "private": true,

@@ -1,5 +1,21 @@
-# 🛡️ AI STABILITY RULES - VThink 1.0
+# 🛡️ AI STABILITY RULES - VThink 1.0 Methodology
 # ⚠️ CRITICAL: AI MUST FOLLOW THESE RULES - DO NOT OMIT
+
+## 📋 VTHINK METHODOLOGY LAW COMPLIANCE
+**⚠️ CRITICAL: This project follows the VThink Methodology Law:**
+
+### ✅ CORRECT USAGE:
+- **VThink 1.0** = Development methodology (CMMI-ML3 compliant)
+- **VibeThink Orchestrator** = Software platform name
+- **VThink** = Process, standards, workflow, methodology
+- **VibeThink** = Application, platform, brand, software
+
+### ❌ FORBIDDEN USAGE:
+- **VThink** = Software names, application names, brand names
+- **VibeThink** = Methodology, process, standards, workflow
+
+**🚨 NEVER CONFUSE: VThink is methodology, VibeThink is software**
+**📋 VThink = METHODOLOGY, VibeThink = SOFTWARE**
 
 ## 🚨 MANDATORY COMPLIANCE CHECKLIST
 **EVERY AI INTERACTION MUST VERIFY THESE RULES BEFORE MAKING ANY CHANGES:**
