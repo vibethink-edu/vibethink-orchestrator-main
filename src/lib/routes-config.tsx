@@ -129,7 +129,7 @@ export const page_routes: PageRoutesType[] = [
       {
         title: "Image Generator",
         href: "/image-generator",
-        icon: "ImageIcon",
+        icon: "Image",
         isComing: true
       }
     ]
@@ -289,7 +289,7 @@ export const page_routes: PageRoutesType[] = [
       {
         title: "Error Pages",
         href: "/error",
-        icon: "AlertTriangle",
+        icon: "TriangleAlert",
         items: [
           {
             title: "404 Not Found",

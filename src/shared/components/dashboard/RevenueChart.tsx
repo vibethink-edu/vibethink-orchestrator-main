@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Chart } from "@/shared/components/ui/chart";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/shared/components/ui/chart";
 
 /**
  * RevenueChart
@@ -26,7 +26,7 @@ export const RevenueChart: React.FC = () => (
     </div>
     
     {/* Chart Component */}
-    <Chart
+    <ChartContainer
       type="bar"
       data={data.map(d => d.revenue)}
       labels={data.map(d => d.name)}

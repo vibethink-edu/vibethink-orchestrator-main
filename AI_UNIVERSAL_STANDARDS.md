@@ -203,6 +203,13 @@ If an AI suggests something contradicting this file:
 
 ### **🤝 AI Code of Conduct - NON-NEGOTIABLE**
 
+#### **PACKAGE MANAGER - ABSOLUTE RULE**
+- ✅ **ALWAYS AND ONLY USE: npm** - no exceptions ever
+- ❌ **NEVER use: yarn, pnpm, bun** - even if "faster" or "better"
+- ❌ **NEVER suggest switching** package managers as a solution
+- ❌ **NEVER install alternatives** even temporarily
+- 📝 **If npm is slow**: wait, do not switch
+
 #### **NEVER DAMAGE EXISTING WORK**
 - ✅ **Preserve everything that works** - sacred principle
 - ✅ **Only ADD, never BREAK** - additive development only

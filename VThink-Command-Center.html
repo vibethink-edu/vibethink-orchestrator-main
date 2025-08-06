@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VThink Command Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 2px solid #0f4c75;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%230f4c75" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,213.3C1248,235,1344,213,1392,202.7L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') no-repeat;
+            opacity: 0.3;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #3fbac2;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .action-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-card:hover {
+            transform: translateY(-2px);
+            border-color: #3fbac2;
+            box-shadow: 0 8px 16px rgba(63, 186, 194, 0.2);
+        }
+
+        .action-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3fbac2, #0f4c75);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .action-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .action-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .action-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 0.25rem;
+        }
+
+        .action-desc {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .category-section {
+            margin-bottom: 2rem;
+        }
+
+        .category-header {
+            background: #1e293b;
+            padding: 1rem 1.5rem;
+            border-radius: 8px 8px 0 0;
+            border: 1px solid #334155;
+            border-bottom: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .category-icon {
+            font-size: 1.5rem;
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            color: #3fbac2;
+        }
+
+        .commands-grid {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            padding: 1rem;
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .command-item {
+            background: #1e293b;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .command-item:hover {
+            background: #334155;
+            transform: translateX(4px);
+        }
+
+        .command-name {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #3fbac2;
+            font-size: 0.9rem;
+        }
+
+        .command-desc {
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        .copy-btn {
+            background: #3fbac2;
+            color: #0a0a0a;
+            border: none;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background: #2dd4bf;
+            transform: scale(1.05);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 1rem;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            color: #e0e0e0;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #3fbac2;
+            box-shadow: 0 0 0 3px rgba(63, 186, 194, 0.1);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-running {
+            background: #10b981;
+            color: #fff;
+        }
+
+        .status-stopped {
+            background: #ef4444;
+            color: #fff;
+        }
+
+        .floating-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #3fbac2;
+            color: #0a0a0a;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(63, 186, 194, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(63, 186, 194, 0.6);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(63, 186, 194, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(63, 186, 194, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(63, 186, 194, 0); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎯 VThink Command Center</h1>
+        <div class="subtitle">Centro de Control de Comandos y Scripts</div>
+    </div>
+
+    <div class="container">
+        <input type="text" class="search-box" placeholder="🔍 Buscar comandos..." id="searchBox">
+
+        <div class="quick-actions">
+            <div class="action-card" onclick="copyCommand('start-dashboard.bat')">
+                <div class="action-icon">🚀</div>
+                <div class="action-title">Iniciar Dashboard</div>
+                <div class="action-desc">Puerto 3001</div>
+            </div>
+
+            <div class="action-card" onclick="copyCommand('.\\dev-tools\\master-orchestrator.ps1 -List')">
+                <div class="action-icon">🎛️</div>
+                <div class="action-title">Master Orchestrator</div>
+                <div class="action-desc">Sistema central</div>
+            </div>
+
+            <div class="action-card" onclick="copyCommand('npm run validate:ecosystem')">
+                <div class="action-icon">✅</div>
+                <div class="action-title">Validar Ecosistema</div>
+                <div class="action-desc">Verificación completa</div>
+            </div>
+
+            <div class="action-card" onclick="copyCommand('npm run test')">
+                <div class="action-icon">🧪</div>
+                <div class="action-title">Ejecutar Tests</div>
+                <div class="action-desc">Suite completa</div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-icon">💻</div>
+                <div class="category-title">Desarrollo</div>
+            </div>
+            <div class="commands-grid">
+                <div class="command-item">
+                    <div>
+                        <div class="command-name">npm run dev</div>
+                        <div class="command-desc">Iniciar servidor desarrollo</div>
+                    </div>
+                    <button class="copy-btn" onclick="copyCommand('npm run dev')">Copiar</button>
+                </div>
+                <div class="command-item">
+                    <div>
+                        <div class="command-name">npm run build</div>
+                        <div class="command-desc">Construir para producción</div>
+                    </div>
+                    <button class="copy-btn" onclick="copyCommand('npm run build')">Copiar</button>
+                </div>
+                <div class="command-item">
+                    <div>
+                        <div class="command-name">Start-VThinkDashboard.ps1</div>
+                        <div class="command-desc">Script PowerShell avanzado</div>
+                    </div>
+                    <button class="copy-btn" onclick="copyCommand('.\\Start-VThinkDashboard.ps1')">Copiar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-icon">🧪</div>
+                <div class="category-title">Testing</div>
+            </div>
+            <div class="commands-grid">
+                <div class="command-item">
+                    <div>
+                        <div class="command-name">npm run test</div>
+                        <div class="command-desc">Ejecutar todos los tests</div>
+                    </div>
+                    <button class="copy-btn" onclick="copyCommand('npm run test')">Copiar</button>
+                </div>
+                <div class="command-item">
+                    <div>
+                        <div class="command-name">npm run test:coverage</div>
+                        <div class="command-desc">Tests con reporte de cobertura</div>
+                    </div>
+                    <button class="copy-btn" onclick="copyCommand('npm run test:coverage')">Copiar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-icon">✅</div>
+                <div class="category-title">Validación</div>
+            </div>
+            <div class="commands-grid">
+                <div class="command-item">
+                    <div>
+                        <div class="command-name">npm run validate:ecosystem</div>
+                        <div class="command-desc">Validación completa del ecosistema</div>
+                    </div>
+                    <button class="copy-btn" onclick="copyCommand('npm run validate:ecosystem')">Copiar</button>
+                </div>
+                <div class="command-item">
+                    <div>
+                        <div class="command-name">npm run validate:security</div>
+                        <div class="command-desc">Verificación de seguridad</div>
+                    </div>
+                    <button class="copy-btn" onclick="copyCommand('npm run validate:security')">Copiar</button>
+                </div>
+                <div class="command-item">
+                    <div>
+                        <div class="command-name">npm run pre-commit</div>
+                        <div class="command-desc">Todas las validaciones pre-commit</div>
+                    </div>
+                    <button class="copy-btn" onclick="copyCommand('npm run pre-commit')">Copiar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-icon">📚</div>
+                <div class="category-title">Documentación</div>
+            </div>
+            <div class="commands-grid">
+                <div class="command-item">
+                    <div>
+                        <div class="command-name">npm run start:sites</div>
+                        <div class="command-desc">Iniciar sitios Docusaurus</div>
+                    </div>
+                    <button class="copy-btn" onclick="copyCommand('npm run start:sites')">Copiar</button>
+                </div>
+                <div class="command-item">
+                    <div>
+                        <div class="command-name">npm run migrate:docs</div>
+                        <div class="command-desc">Migrar documentación</div>
+                    </div>
+                    <button class="copy-btn" onclick="copyCommand('npm run migrate:docs')">Copiar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-btn pulse" onclick="openTerminal()" title="Abrir Terminal">
+        💻
+    </div>
+
+    <script>
+        function copyCommand(command) {
+            navigator.clipboard.writeText(command).then(() => {
+                // Visual feedback
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✓ Copiado!';
+                btn.style.background = '#10b981';
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '#3fbac2';
+                }, 1500);
+            });
+        }
+
+        function openTerminal() {
+            // Intenta abrir Windows Terminal o CMD
+            window.location.href = 'wt://';
+        }
+
+        // Búsqueda en tiempo real
+        document.getElementById('searchBox').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const commandItems = document.querySelectorAll('.command-item');
+            
+            commandItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Atajos de teclado
+        document.addEventListener('keydown', (e) => {
+            // Ctrl+K para focus en búsqueda
+            if (e.ctrlKey && e.key === 'k') {
+                e.preventDefault();
+                document.getElementById('searchBox').focus();
+            }
+            
+            // Ctrl+T para abrir terminal
+            if (e.ctrlKey && e.key === 't') {
+                e.preventDefault();
+                openTerminal();
+            }
+        });
+    </script>
+</body>
+</html>

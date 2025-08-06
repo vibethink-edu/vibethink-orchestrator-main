@@ -27,16 +27,20 @@ export function VThinkThemeProvider({
   children: ReactNode;
   initialTheme?: ThemeType;
 }) {
-  const [theme, setTheme] = useState<ThemeType>(() =>
-    initialTheme ? initialTheme : DEFAULT_THEME
-  );
+  const [theme, setTheme] = useState<ThemeType>(() => {
+    console.log("🎨 VThinkThemeProvider: Initializing with theme:", initialTheme || DEFAULT_THEME);
+    return initialTheme ? initialTheme : DEFAULT_THEME;
+  });
 
   useEffect(() => {
+    console.log("🎨 VThinkThemeProvider: Applying theme changes:", theme);
+    
     const root = document.documentElement;
     const body = document.body;
 
     // Apply theme preset colors
     if (theme.preset !== "default") {
+      console.log("🎨 VThinkThemeProvider: Applying preset:", theme.preset);
       setThemeCookie("theme_preset", theme.preset);
       body.setAttribute("data-theme-preset", theme.preset);
       
@@ -46,8 +50,10 @@ export function VThinkThemeProvider({
         const colorHsl = themeData.colors[0].replace("hsl(", "").replace(")", "");
         root.style.setProperty("--primary", colorHsl);
         root.style.setProperty("--chart-1", colorHsl);
+        console.log("🎨 VThinkThemeProvider: Applied color:", colorHsl);
       }
     } else {
+      console.log("🎨 VThinkThemeProvider: Resetting to default theme");
       setThemeCookie("theme_preset", null);
       body.removeAttribute("data-theme-preset");
       // Reset to default primary color
@@ -66,6 +72,7 @@ export function VThinkThemeProvider({
     
     const radiusValue = radiusMap[theme.radius as keyof typeof radiusMap];
     if (radiusValue) {
+      console.log("🎨 VThinkThemeProvider: Applying radius:", theme.radius, "=", radiusValue);
       setThemeCookie("theme_radius", theme.radius);
       body.setAttribute("data-theme-radius", theme.radius);
       root.style.setProperty("--radius", radiusValue);
@@ -80,6 +87,7 @@ export function VThinkThemeProvider({
     
     const scaleValue = scaleMap[theme.scale as keyof typeof scaleMap];
     if (scaleValue) {
+      console.log("🎨 VThinkThemeProvider: Applying scale:", theme.scale, "=", scaleValue);
       setThemeCookie("theme_scale", theme.scale);
       body.setAttribute("data-theme-scale", theme.scale);
       root.style.setProperty("--scale", scaleValue);
@@ -87,19 +95,24 @@ export function VThinkThemeProvider({
     }
 
     // Apply content layout
+    console.log("🎨 VThinkThemeProvider: Applying content layout:", theme.contentLayout);
     setThemeCookie("theme_content_layout", theme.contentLayout);
     body.setAttribute("data-theme-content-layout", theme.contentLayout);
 
     // Apply sidebar mode
     if (theme.sidebarMode && theme.sidebarMode !== "default") {
+      console.log("🎨 VThinkThemeProvider: Applying sidebar mode:", theme.sidebarMode);
       setThemeCookie("theme_sidebar_mode", theme.sidebarMode);
       body.setAttribute("data-sidebar-mode", theme.sidebarMode);
     } else {
+      console.log("🎨 VThinkThemeProvider: Resetting sidebar mode to default");
       setThemeCookie("theme_sidebar_mode", null);
       body.removeAttribute("data-sidebar-mode");
     }
 
   }, [theme.preset, theme.radius, theme.scale, theme.contentLayout, theme.sidebarMode]);
+
+  console.log("🎨 VThinkThemeProvider: Rendering with theme:", theme);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

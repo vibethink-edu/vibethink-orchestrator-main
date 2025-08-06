@@ -138,7 +138,7 @@ export const page_routes: PageRoutesType[] = [
       {
         title: "Error Pages",
         href: "/",
-        icon: "Fingerprint",
+        icon: "Folder",
         items: [
           { title: "404", href: "/dashboard/pages/error/404" },
           { title: "500", href: "/dashboard/pages/error/500" },

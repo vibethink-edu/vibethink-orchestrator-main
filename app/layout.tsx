@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import '../src/index.css';
+import { VThinkThemeProvider } from '@/shared/components/bundui-premium/components/theme-customizer/ThemeProvider';
 
 export const metadata: Metadata = {
   title: 'VibeThink Dashboard',
@@ -13,7 +14,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <VThinkThemeProvider>
+          {children}
+        </VThinkThemeProvider>
+      </body>
     </html>
   );
 }

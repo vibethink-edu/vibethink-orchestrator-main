@@ -8,7 +8,7 @@
  * - Strict type safety for all calendar operations
  */
 
-import { EventInput, EventClickArg, DateClickArg } from '@fullcalendar/core';
+import { EventInput, EventClickArg, DateSelectArg } from '@fullcalendar/core';
 
 // =============================================================================
 // BASE TYPES
@@ -320,5 +320,5 @@ export interface CalendarApiEndpoints {
 export type {
   EventInput,
   EventClickArg,
-  DateClickArg,
+  DateSelectArg,
 };

@@ -511,7 +511,7 @@ const EcommerceDashboard: React.FC = () => {
           </Card>
 
           {/* Recent Orders */}
-          <Card className="col-span-3">
+          <Card className="col-span-4">
             <CardHeader>
               <CardTitle>Recent Orders</CardTitle>
               <CardDescription>

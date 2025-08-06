@@ -1,17 +1,29 @@
 /**
- * @file client.ts
- * @description Inicializa el cliente de Supabase para la integración con la plataforma.
- * @see https://supabase.com/docs/reference/javascript/initializing
+ * @file client.ts  
+ * @description VTHINK OPTIMIZED - Cliente universal compatible mock/real DB
+ * Mantiene rendimiento optimal y facilita transición
  */
 
 import { createClient } from '@supabase/supabase-js';
+import { createDatabaseClient } from '@/shared/lib/database-adapter';
 
-// Configuración temporal para desarrollo
+// ✅ MODO DESARROLLO - Mock para rendimiento
+const USE_MOCK_DB = process.env.NODE_ENV !== 'production' || process.env.VTHINK_USE_MOCK === 'true';
+
+// ✅ CONFIGURACIÓN REAL SUPABASE (para cuando esté listo)
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://pikywaoqlekupfynnclg.supabase.co';
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'test-key';
 
 /**
- * Cliente global de Supabase.
- * @type {ReturnType<typeof createClient>}
+ * ✅ CLIENTE OPTIMIZADO - Auto-selecciona mock vs real
+ * - Desarrollo: Mock rápido para UI development
+ * - Producción: Real Supabase cuando esté configurado
  */
-export const supabase = createClient(supabaseUrl, supabaseAnonKey); 
+export const supabase = USE_MOCK_DB 
+  ? createDatabaseClient() 
+  : createClient(supabaseUrl, supabaseAnonKey);
+
+// ✅ COMPATIBILITY EXPORT - Para transición fácil
+export { supabase as default };
+
+console.log(`🔧 Database Mode: ${USE_MOCK_DB ? 'MOCK (Fast Development)' : 'REAL (Production)'}`); 

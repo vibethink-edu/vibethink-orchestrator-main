@@ -42,7 +42,19 @@
       "Bash(timeout 10 npm run dev -- --port 3003)",
       "Bash(timeout 120 npm run dev)",
       "Bash(timeout 5 npm run dev)",
-      "Bash(timeout 120 npm run dev -- --port 3006)"
+      "Bash(timeout 120 npm run dev -- --port 3006)",
+      "Bash(yarn install)",
+      "Bash(npm cache clean:*)",
+      "Bash(npx next@15.3.4 dev -p 3001)",
+      "Bash(ping:*)",
+      "Bash(npm --version)",
+      "Bash(npm config set:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm run dev:*)",
+      "Bash(pnpm dev:*)",
+      "Bash(pnpm add:*)",
+      "Bash(npx next dev:*)",
+      "Bash(npx update-browserslist-db:*)"
     ],
     "deny": []
   }

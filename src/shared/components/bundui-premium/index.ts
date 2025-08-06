@@ -64,3 +64,5 @@ export * from './hooks/use-file-upload';
 export { cn } from './lib/utils';
 export * from './lib/themes';
 // export * from './lib/fonts'; // Comentado - depende de Next.js (next/font module) 
+// Debug Panel
+export { default as SystemDebugPanel } from "./components/debug/SystemDebugPanel";

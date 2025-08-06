@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { page_routes } from "@/lib/routes-config";
-import { ChevronRight, ChevronsUpDown, Plus, Settings } from "lucide-react";
+import { ChevronRight, ChevronsUpDown, Plus, Settings, Building2, Check, LogOut, BadgeCheck, CreditCard, Bell, Sparkles } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/shared/components/bundui-premium/components/ui/collapsible";
@@ -10,6 +10,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuGroup,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger
@@ -37,6 +38,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/sha
 import Icon from "@/shared/components/bundui-premium/components/icon";
 import Logo from "@/shared/components/bundui-premium/components/layout/logo";
 import { Button } from "@/shared/components/bundui-premium/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/shared/components/bundui-premium/components/ui/avatar";
 import { useIsTablet } from "@/hooks/use-mobile";
 
 export default function Sidebar() {
@@ -68,41 +70,39 @@ export default function Sidebar() {
           <SidebarMenuItem>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <SidebarMenuButton className="hover:text-foreground rounded-none group-data-[collapsible=icon]:px-0! hover:bg-[var(--primary)]/10">
-                  <Logo />
-                  <div className="truncate font-semibold group-data-[collapsible=icon]:hidden">
-                    VibeThink
+                <SidebarMenuButton className="hover:text-foreground rounded-none hover:bg-[var(--primary)]/10 data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground group-data-[collapsible=icon]:!justify-center">
+                  <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                    <Logo />
                   </div>
-                  <ChevronsUpDown className="ml-auto group-data-[collapsible=icon]:hidden" />
+                  <div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden">
+                    <span className="truncate font-semibold">VibeThink</span>
+                    <span className="truncate text-xs text-muted-foreground">Enterprise</span>
+                  </div>
+                  <ChevronsUpDown className="ml-auto size-4 group-data-[collapsible=icon]:hidden" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-64 p-2">
                 <DropdownMenuLabel className="px-2 py-1.5 text-xs font-medium text-muted-foreground">
                   Switch Project
                 </DropdownMenuLabel>
-                <DropdownMenuItem className="flex items-center gap-2 px-2 py-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <div className="flex-1">
-                    <div className="font-medium">VibeThink Orchestrator</div>
-                    <div className="text-xs text-muted-foreground">AI Platform</div>
+                <DropdownMenuItem className="gap-2 p-2 opacity-60" disabled>
+                  <div className="flex size-6 items-center justify-center rounded-sm border">
+                    <Building2 className="size-4 shrink-0" />
                   </div>
-                  <Badge variant="secondary" className="text-xs">Active</Badge>
+                  <div className="line-clamp-1 flex-1 pr-2 font-medium text-muted-foreground">VibeThink Orchestrator</div>
+                  <Check className="ml-auto size-4" />
                 </DropdownMenuItem>
-                <DropdownMenuItem className="flex items-center gap-2 px-2 py-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <div className="flex-1">
-                    <div className="font-medium">Ecommerce Dashboard</div>
-                    <div className="text-xs text-muted-foreground">Sales Platform</div>
+                <DropdownMenuItem className="gap-2 p-2">
+                  <div className="flex size-6 items-center justify-center rounded-sm border">
+                    <Building2 className="size-4 shrink-0" />
                   </div>
-                  <Badge variant="outline" className="text-xs">Live</Badge>
+                  <div className="line-clamp-1 flex-1 pr-2 font-medium">Ecommerce Dashboard</div>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="flex items-center gap-2 px-2 py-2">
-                  <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                  <div className="flex-1">
-                    <div className="font-medium">Analytics Hub</div>
-                    <div className="text-xs text-muted-foreground">Data Platform</div>
+                <DropdownMenuItem className="gap-2 p-2">
+                  <div className="flex size-6 items-center justify-center rounded-sm border">
+                    <Building2 className="size-4 shrink-0" />
                   </div>
-                  <Badge variant="outline" className="text-xs">Beta</Badge>
+                  <div className="line-clamp-1 flex-1 pr-2 font-medium">Analytics Hub</div>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem className="flex items-center gap-2 px-2 py-2">
@@ -157,6 +157,7 @@ export default function Sidebar() {
                                                                  <DropdownMenuContent
                                    side={isMobile ? "bottom" : "right"}
                                    align={isMobile ? "end" : "start"}
+                                   sideOffset={isMobile ? 4 : -80} // Negative offset to compensate for sidebar container padding
                                    className="min-w-48 rounded-lg">
                                   <DropdownMenuLabel>{item.title}</DropdownMenuLabel>
                                   {item.items.map((subItem) => (
@@ -173,13 +174,7 @@ export default function Sidebar() {
                                         )}
                                         <span className="flex-1 leading-normal">{subItem.title}</span>
                                         {!!subItem.isNew && (
-                                          <span 
-                                            className="ml-auto inline-flex items-center justify-center px-2 py-1 text-xs font-medium rounded-md"
-                                            style={{ 
-                                              border: '1px solid #4ade80', 
-                                              color: '#059669',
-                                              backgroundColor: 'transparent' 
-                                            }}>
+                                          <span className="ml-auto inline-flex items-center justify-center px-2 py-1 text-xs font-medium rounded-md border border-green-400 text-green-600">
                                             New
                                           </span>
                                         )}
@@ -237,13 +232,7 @@ export default function Sidebar() {
                                       </Link>
                                     </SidebarMenuSubButton>
                                     {!!subItem.isNew && (
-                                      <SidebarMenuBadge 
-                                        className="peer-hover/menu-button:text-green-600"
-                                        style={{ 
-                                          border: '1px solid #4ade80', 
-                                          color: '#059669',
-                                          backgroundColor: 'transparent' 
-                                        }}>
+                                      <SidebarMenuBadge className="peer-hover/menu-button:text-green-600 border border-green-400 text-green-600 bg-transparent">
                                         New
                                       </SidebarMenuBadge>
                                     )}
@@ -296,9 +285,89 @@ export default function Sidebar() {
         </ScrollArea>
       </SidebarContent>
       <SidebarFooter>
-        <div className="p-2 group-data-[collapsible=icon]:hidden">
-          <div className="text-xs font-medium text-center text-muted-foreground">VibeThink</div>
-        </div>
+        <Card className="bg-muted gap-4 overflow-hidden py-4 group-data-[collapsible=icon]:hidden">
+          <CardHeader className="px-3">
+            <CardTitle>Upgrade to Pro</CardTitle>
+            <CardDescription>
+              Get pro now to own all dashboards, templates and components for life.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="px-3">
+            <Button className="w-full" asChild>
+              <Link href="https://vibethink.com/pricing" target="_blank">
+                Get VibeThink Pro
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <SidebarMenuButton className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
+                  <div className="relative group-data-[collapsible=icon]:flex group-data-[collapsible=icon]:items-center group-data-[collapsible=icon]:justify-center">
+                    <Avatar className="h-8 w-8 rounded-lg group-data-[collapsible=icon]:h-6 group-data-[collapsible=icon]:w-6">
+                      <AvatarImage src="/placeholder.svg" alt="User avatar" />
+                      <AvatarFallback className="rounded-lg">MR</AvatarFallback>
+                    </Avatar>
+                    <ChevronsUpDown className="absolute -bottom-0.5 -right-0.5 size-3 rounded-full bg-background border border-border group-data-[collapsible=icon]:flex hidden group-data-[collapsible=icon]:flex" />
+                  </div>
+                  <div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden">
+                    <span className="truncate font-semibold">Marcelo Rodriguez</span>
+                    <span className="truncate text-xs text-muted-foreground">m@example.com</span>
+                  </div>
+                  <ChevronsUpDown className="ml-auto size-4 group-data-[collapsible=icon]:hidden" />
+                </SidebarMenuButton>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                className="w-[--radix-dropdown-menu-trigger-width] min-w-[14rem] rounded-lg"
+                side="right"
+                align="start"
+                sideOffset={8}
+              >
+                <DropdownMenuLabel className="p-0 font-normal">
+                  <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                    <Avatar className="h-8 w-8 rounded-lg">
+                      <AvatarImage src="/placeholder.svg" alt="User avatar" />
+                      <AvatarFallback className="rounded-lg">MR</AvatarFallback>
+                    </Avatar>
+                    <div className="grid flex-1 text-left text-sm leading-tight">
+                      <span className="truncate font-semibold">Marcelo Rodriguez</span>
+                      <span className="truncate text-xs text-muted-foreground">m@example.com</span>
+                    </div>
+                  </div>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuGroup>
+                  <DropdownMenuItem>
+                    <Sparkles className="mr-2 h-4 w-4" />
+                    Upgrade to Pro
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+                <DropdownMenuSeparator />
+                <DropdownMenuGroup>
+                  <DropdownMenuItem>
+                    <BadgeCheck className="mr-2 h-4 w-4" />
+                    Account
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <CreditCard className="mr-2 h-4 w-4" />
+                    Billing
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Bell className="mr-2 h-4 w-4" />
+                    Notifications
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <LogOut className="mr-2 h-4 w-4" />
+                  Log out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarFooter>
     </SidebarContainer>
   );

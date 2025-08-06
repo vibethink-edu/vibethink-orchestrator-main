@@ -74,8 +74,49 @@ Our improvements follow these UX principles:
 - **Consistency**: Similar patterns across all dropdown items
 - **Subtlety**: Enhancements shouldn't overwhelm the design
 
+## 🔧 Technical Debt & Future Improvements
+
+### 3. Tooltip & Dropdown Positioning Issue
+**File**: `src/shared/components/bundui-premium/components/ui/sidebar.tsx`
+**Status**: ⚠️ TEMPORARY FIX - NEEDS PROPER SOLUTION
+
+#### Current Issue:
+- Tooltips and dropdown menus appear too far from collapsed sidebar edge
+- Currently using `sideOffset={-80}` as a workaround
+- This negative value compensates for unknown container padding/margin
+
+#### Temporary Solution:
+```tsx
+// In SidebarMenuButton
+<TooltipPrimitive.Content
+  side="right"
+  align="center"
+  sideOffset={-80} // Negative offset to compensate for sidebar container padding
+  //...
+/>
+
+// In sidebar.tsx (layout)
+<DropdownMenuContent
+  side={isMobile ? "bottom" : "right"}
+  align={isMobile ? "end" : "start"}
+  sideOffset={isMobile ? 4 : -80} // Negative offset to compensate for sidebar container padding
+  //...
+/>
+```
+
+#### Proper Solution Needed:
+1. **Investigate** the sidebar container structure to find source of extra spacing
+2. **Remove** unnecessary padding/margin from parent containers
+3. **Use standard positive sideOffset** values (e.g., 4 or 8)
+4. **Test** across different screen sizes and sidebar states
+
+#### Technical Notes:
+- The issue appears to be related to nested containers with padding
+- Standard Radix UI positioning should work without negative offsets
+- This affects both tooltips and dropdown menus in collapsed sidebar mode
+
 ---
 
-**Last Updated**: 2025-01-04
+**Last Updated**: 2025-01-05
 **Maintainer**: VThink UX Team
 **AI Instruction**: PRESERVE THESE IMPROVEMENTS - THEY ARE FEATURES, NOT BUGS

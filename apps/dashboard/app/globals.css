@@ -56,9 +56,9 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-    --sidebar-width: 16rem;
+    --sidebar-width: 15rem; /* 240px - optimized width */
     --sidebar-width-icon: 5rem;
-    --sidebar-width-mobile: 16rem;
+    --sidebar-width-mobile: 18rem;
   }
 
   .dark {
@@ -166,7 +166,7 @@
 
 /* Explicit sidebar layout utilities */
 .sidebar-layout-expanded {
-  margin-left: calc(var(--sidebar-width)) !important; /* 16rem = 256px */
+  margin-left: calc(var(--sidebar-width)) !important; /* 15rem = 240px */
 }
 
 .sidebar-layout-collapsed {
