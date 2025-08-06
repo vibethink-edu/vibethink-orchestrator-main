@@ -1,32 +1,8 @@
-# 🛡️ VThink Orchestrator - AI Stability Rules
+# 🛡️ AI STABILITY RULES - VThink 1.0
+# ⚠️ CRITICAL: AI MUST FOLLOW THESE RULES - DO NOT OMIT
 
-## ⚠️ CRITICAL: AI MUST READ BEFORE ANY CHANGES
-
-**🚨 MANDATORY COMPLIANCE: This project has strict stability rules that AI MUST follow**
-
-### 🎯 Quick AI Commands
-
-```bash
-# ✅ BEFORE making any changes
-npm run ai:before-changes
-
-# ✅ AFTER making changes
-npm run ai:after-changes
-
-# ✅ Test changes safely
-npm run ai:test-changes
-
-# ✅ Safe commit with validation
-npm run ai:safe-commit "your commit message"
-
-# ✅ Recovery procedure
-npm run ai:recovery
-
-# ✅ Check stability
-npm run ai:stability-check
-```
-
-## 🛡️ AI STABILITY RULES - MANDATORY
+## 🚨 MANDATORY COMPLIANCE CHECKLIST
+**EVERY AI INTERACTION MUST VERIFY THESE RULES BEFORE MAKING ANY CHANGES:**
 
 ### 1. HYDRATION SAFETY RULES
 ```typescript
@@ -72,6 +48,17 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+// ❌ FORBIDDEN: Never omit VThinkThemeProvider
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body>
+        {children}  // ❌ NO - theme customizer won't work
+      </body>
+    </html>
+  );
+}
 ```
 
 ### 4. TESTING RULES
@@ -80,9 +67,24 @@ export default function RootLayout({ children }) {
 npm run dev  # ✅ MUST test server startup
 curl http://localhost:3001  # ✅ MUST test server response
 # ✅ MUST open browser and verify functionality
+
+# ❌ FORBIDDEN: Never skip testing
+# Making changes without testing ❌ NO
 ```
 
-## 🚨 AI COMPLIANCE VERIFICATION
+### 5. GIT SAFETY RULES
+```bash
+# ✅ MANDATORY: Always backup before major changes
+git stash  # ✅ MUST backup current state
+# Make changes
+npm run dev  # ✅ MUST test after changes
+git stash pop  # ✅ MUST restore if broken
+
+# ❌ FORBIDDEN: Never make changes without backup
+# Direct changes without git stash ❌ NO
+```
+
+## 🎯 AI COMPLIANCE VERIFICATION
 
 ### BEFORE ANY CODE CHANGE, AI MUST:
 1. ✅ Check if changes affect hydration-sensitive components
@@ -97,7 +99,7 @@ curl http://localhost:3001  # ✅ MUST test server response
 - ❌ **REVERT CHANGES**
 - ❌ **FOLLOW RECOVERY PROCEDURE**
 
-## 🔧 Recovery Procedure
+## 🔧 RECOVERY PROCEDURE
 
 ### If Hydration Issues Occur:
 ```typescript
@@ -132,89 +134,23 @@ import { VThinkThemeProvider } from '@/shared/components/bundui-premium/componen
 </VThinkThemeProvider>
 ```
 
-## 📊 Stability Metrics
+## 📊 STABILITY METRICS
 
-### ✅ Success Indicators:
+### ✅ SUCCESS INDICATORS:
 - Header loads in < 2 seconds
 - No layout shifts during hydration
 - Theme customizer opens and works
 - Server starts without errors
 - All dependencies use exact versions
 
-### ❌ Failure Indicators:
+### ❌ FAILURE INDICATORS:
 - Header loads slowly or with blur effect
 - Tooltips appear far from triggers
 - Theme customizer doesn't open
 - Server fails to start
 - Dependencies use caret versions
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js >= 18.0.0
-- npm >= 9.0.0
-
-### Installation
-```bash
-# Clone the repository
-git clone https://github.com/mescallo-edu/vibethink-orchestrator-main.git
-cd vibethink-orchestrator-main
-
-# Install dependencies
-npm install
-
-# Validate stability rules
-npm run validate:stability
-
-# Start development server
-npm run dev
-```
-
-### AI Development Workflow
-```bash
-# 1. Before making changes
-npm run ai:before-changes
-
-# 2. Make your changes
-
-# 3. After making changes
-npm run ai:after-changes
-
-# 4. Test changes
-npm run ai:test-changes
-
-# 5. Safe commit
-npm run ai:safe-commit "feat: your feature description"
-```
-
-## 📁 Project Structure
-
-```
-vibethink-orchestrator-main/
-├── apps/
-│   └── dashboard/          # Main dashboard application
-├── src/
-│   └── shared/            # Shared components and utilities
-├── AI_STABILITY_RULES.md  # ⚠️ CRITICAL: AI must read
-├── validate-stability-rules.js  # 🛡️ Stability validator
-└── package.json           # AI-friendly scripts
-```
-
-## 🛡️ AI Safety Features
-
-### Automatic Validation
-- **Pre-commit hooks**: Automatically validate stability rules
-- **AI scripts**: Safe commands for AI development
-- **Recovery procedures**: Automatic recovery from issues
-
-### Validation Commands
-```bash
-npm run validate:stability  # Full stability check
-npm run validate:vtk        # VThink-specific validation
-npm run ai:stability-check  # Quick stability check
-```
-
-## 🚨 Emergency Contacts
+## 🚨 EMERGENCY CONTACTS
 
 ### If AI Cannot Follow These Rules:
 1. **STOP** all development
@@ -226,4 +162,4 @@ npm run ai:stability-check  # Quick stability check
 ---
 
 **⚠️ CRITICAL: AI MUST READ AND FOLLOW THESE RULES BEFORE ANY CODE CHANGE ⚠️**
-**🚨 VIOLATION OF THESE RULES WILL CAUSE SYSTEM INSTABILITY 🚨**
+**🚨 VIOLATION OF THESE RULES WILL CAUSE SYSTEM INSTABILITY 🚨** 

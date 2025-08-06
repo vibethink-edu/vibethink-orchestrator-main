@@ -39,11 +39,10 @@ import Icon from "@/shared/components/bundui-premium/components/icon";
 import Logo from "@/shared/components/bundui-premium/components/layout/logo";
 import { Button } from "@/shared/components/bundui-premium/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/shared/components/bundui-premium/components/ui/avatar";
-import { useIsTablet } from "@/hooks/use-mobile";
-
 export default function Sidebar() {
   // Estados para controlar dropdowns
   const [openDropdowns, setOpenDropdowns] = useState<Record<string, boolean>>({});
+  const [mounted, setMounted] = useState(false);
   
   const toggleDropdown = (itemTitle: string) => {
     setOpenDropdowns(prev => ({
@@ -53,7 +52,27 @@ export default function Sidebar() {
   };
   const pathname = usePathname();
   const { setOpen, setOpenMobile, isMobile, state } = useSidebar();
-  const isTablet = useIsTablet();
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  
+  // Safe tablet detection with mounted state
+  const [isTablet, setIsTablet] = useState(false);
+  
+  useEffect(() => {
+    if (mounted) {
+      const checkTablet = () => {
+        const width = window.innerWidth;
+        setIsTablet(width >= 768 && width < 1024);
+      };
+      
+      checkTablet();
+      window.addEventListener('resize', checkTablet);
+      
+      return () => window.removeEventListener('resize', checkTablet);
+    }
+  }, [mounted]);
 
   useEffect(() => {
     if (isMobile) setOpenMobile(false);

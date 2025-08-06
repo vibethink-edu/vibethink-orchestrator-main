@@ -1,6 +1,4 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/ai-chat-dashboard/page": "app/ai-chat-dashboard/page.js",
-  "/crm-dashboard/page": "app/crm-dashboard/page.js",
   "/ecommerce-dashboard/page": "app/ecommerce-dashboard/page.js"
 }
