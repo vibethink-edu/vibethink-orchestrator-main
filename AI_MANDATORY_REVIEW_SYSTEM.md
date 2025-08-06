@@ -1,13 +1,20 @@
-# 🛡️ AI MANDATORY REVIEW SYSTEM - VThink 1.0
+# 🛡️ AI MANDATORY REVIEW SYSTEM - VibeThink 1.0
 # ⚠️ CRÍTICO: CUALQUIER IA DEBE SEGUIR ESTE SISTEMA ANTES DE CREAR ALGO NUEVO
 
 ## 🚨 **MANDATORY PRE-CREATION CHECKLIST**
 
 ### **ANTES de crear cualquier script, componente, o funcionalidad:**
 
-#### **1. REVISAR SISTEMA EXISTENTE (OBLIGATORIO)**
+#### **1. VALIDACIÓN DE ARQUITECTURA (OBLIGATORIO)**
 ```bash
-# ✅ SIEMPRE ejecutar estos comandos primero:
+# ✅ SIEMPRE ejecutar PRIMERO:
+npm run validate:architecture           # Validar estructura según ARCHITECTURE_RULES.md
+# Si hay errores → CORREGIR ANTES de continuar
+```
+
+#### **2. REVISAR SISTEMA EXISTENTE (OBLIGATORIO)**
+```bash
+# ✅ SIEMPRE ejecutar estos comandos después:
 npm run validate:ecosystem              # Sistema completo existente
 npm run validate:cross-app-compatibility # Validación cross-app
 npm run validate:shared-component-impact # Impacto de componentes
@@ -18,7 +25,7 @@ npm run validate:external-update        # Validación de dependencias
 ```bash
 # ✅ SIEMPRE revisar estos archivos:
 cat CLAUDE.md                           # Guía AI-Friendly completa
-ls docs/methodologies/VThink-1.0/05_BEST_PRACTICES/
+ls docs/methodologies/VibeThink-1.0/05_BEST_PRACTICES/
 ls dev-tools/validation/                # 100+ scripts existentes
 ls dev-tools/automation/                # Automatización existente
 ```
@@ -50,7 +57,7 @@ node dev-tools/validation/performance-validator.cjs
 const ecosystemAnalysis = {
   existingScripts: "dev-tools/validation/*.cjs",
   existingCommands: "npm run validate:*",
-  existingDocs: "docs/methodologies/VThink-1.0/",
+  existingDocs: "docs/methodologies/VibeThink-1.0/",
   existingAutomation: "dev-tools/automation/*.js"
 };
 ```
@@ -85,7 +92,7 @@ const integrateFeature = (newFeature) => {
     return "Integrar en dev-tools/automation/";
   }
   if (isDocumentationFeature(newFeature)) {
-    return "Integrar en docs/methodologies/VThink-1.0/";
+    return "Integrar en docs/methodologies/VibeThink-1.0/";
   }
 };
 ```
@@ -153,7 +160,7 @@ fi
 
 #### **✅ ANÁLISIS PREVIO (OBLIGATORIO)**
 - [ ] Revisar `dev-tools/validation/` - 100+ scripts existentes
-- [ ] Revisar `docs/methodologies/VThink-1.0/` - Documentación completa
+- [ ] Revisar `docs/methodologies/VibeThink-1.0/` - Documentación completa
 - [ ] Revisar `CLAUDE.md` - Guía AI-Friendly
 - [ ] Revisar `package.json` scripts - Comandos existentes
 - [ ] Revisar `dev-tools/automation/` - Automatización existente
@@ -193,8 +200,8 @@ fi
 2. ✅ **Sin duplicación** - Solo agrega lo faltante
 3. ✅ **Consistencia universal** - Funciona con todas las IAs
 4. ✅ **Eficiencia máxima** - Aprovecha 100+ scripts existentes
-5. ✅ **Calidad garantizada** - Sigue estándares VThink 1.0
+5. ✅ **Calidad garantizada** - Sigue estándares VibeThink 1.0
 
 ---
 
-**⚠️ CRÍTICO: CUALQUIER IA QUE NO SIGA ESTE SISTEMA ESTÁ VIOLANDO LOS ESTÁNDARES VTHINK 1.0** 
+**⚠️ CRÍTICO: CUALQUIER IA QUE NO SIGA ESTE SISTEMA ESTÁ VIOLANDO LOS ESTÁNDARES VIBETHINK 1.0** 

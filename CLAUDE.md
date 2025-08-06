@@ -16,7 +16,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 🤖 Universal AI Standards
 
-**CRITICAL**: Before making any architectural decisions, consult `AI_UNIVERSAL_STANDARDS.md` - these rules apply to ALL AI assistants (Claude, Gemini, Cursor, etc.) to ensure consistency across different AI interactions.
+**🚨 CRÍTICO**: **SIEMPRE** leer `AI_UNIVERSAL_STANDARDS.md` ANTES de hacer cualquier cambio. Estas reglas aplican a TODAS las IAs (Claude, Gemini, Cursor, etc.) para asegurar consistencia.
+
+### **PROTOCOLO OBLIGATORIO:**
+1. ✅ **LEER** `AI_UNIVERSAL_STANDARDS.md` primero
+2. ✅ **EJECUTAR** `npm run validate:quick` antes de cambios
+3. ✅ **EJECUTAR** `npm run validate:universal` después de cambios
 
 ## Essential Commands
 
@@ -38,10 +43,14 @@ npm run type-check            # TypeScript type checking (in dashboard app)
 
 ### Validation & Quality
 ```bash
+# CRITICAL: ALWAYS validate before making changes
+npm run validate:quick        # Quick validation before any changes
+npm run validate:architecture # Full architecture validation
+npm run validate:universal    # Complete validation after changes
+
 # Core Validations
 npm run validate:reports       # Validate documentation reports
 npm run validate:organization  # Validate code organization
-npm run validate:architecture  # Validate architectural rules
 npm run validate:root         # Validate root directory cleanliness
 npm run pre-commit            # Run all validations (used as pre-commit hook)
 
