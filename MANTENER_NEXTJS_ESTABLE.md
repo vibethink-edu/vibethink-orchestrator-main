@@ -1,3 +1,13 @@
+# 🔴 Aviso Importante (NPM-only)
+
+Este repositorio usa exclusivamente NPM como gestor de paquetes (NPM-only). Las referencias a PNPM en este documento son históricas y no deben usarse. Para cualquier comando mostrado con `pnpm`, utilice el equivalente con `npm` desde la raíz del monorepo.
+
+- Gestor permitido: `npm`
+- Prohibidos: `pnpm`, `yarn`, `bun`
+- Lockfiles: mantener solo `package-lock.json`
+
+---
+
 # 🛡️ Guía para Mantener Next.js Estable
 
 ## Comandos Recomendados para Iniciar el Dashboard
