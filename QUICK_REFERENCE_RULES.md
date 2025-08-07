@@ -1,4 +1,48 @@
-# ⚡ REGLAS DE REFERENCIA RÁPIDA - VThink 1.0
+# 🚨 QUICK REFERENCE RULES - REGLAS ABSOLUTAS
+
+## 🚨 **REGLAS ABSOLUTAS - NUNCA VIOLAR**
+
+### **📦 DEPENDENCY MANAGEMENT RULES (OBLIGATORIAS):**
+```json
+// ✅ MANDATORY: Use exact versions only
+"next": "15.3.4"  // ✅ YES - exact version
+"@radix-ui/react-tooltip": "1.0.7"  // ✅ YES - exact version
+
+// ❌ FORBIDDEN: Never use caret versions
+"next": "^15.3.4"  // ❌ NO - causes instability
+"@radix-ui/react-tooltip": "^1.0.7"  // ❌ NO - causes instability
+```
+
+### **🏗️ MONOREPO RULES (OBLIGATORIAS):**
+```bash
+# ✅ MANDATORY: Install only in root for shared dependencies
+npm install clsx tailwind-merge --save  # ✅ ONLY in root
+
+# ❌ FORBIDDEN: Never install in both places
+npm install clsx --save  # ❌ NO in apps/dashboard
+npm install clsx --save  # ❌ NO in root (duplicate)
+```
+
+### **🛡️ STABILITY RULES (OBLIGATORIAS):**
+```typescript
+// ✅ MANDATORY: Never change working code
+// If it works, DON'T TOUCH IT
+
+// ❌ FORBIDDEN: Don't "improve" working code
+// Don't update versions "just because"
+// Don't add dependencies "to fix errors"
+```
+
+### **📋 MANDATORY CHECKLIST BEFORE ANY CHANGE:**
+1. ✅ **READ** existing rules in README.md lines 47-60
+2. ✅ **VALIDATE** if change is really necessary
+3. ✅ **USE** exact versions (no ^)
+4. ✅ **INSTALL** only where appropriate
+5. ✅ **DON'T TOUCH** working code
+
+---
+
+# Quick Reference Rules - VThink 1.0
 
 ## 🚨 **ANTES DE CUALQUIER CAMBIO - LEER ESTO**
 
