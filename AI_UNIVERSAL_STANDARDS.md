@@ -233,3 +233,9 @@ npm run test                  # ✅ Testing
 ---
 
 **🚨 RECORDATORIO: Este archivo es OBLIGATORIO para TODAS las IAs. NUNCA hacer cambios sin seguir estas reglas.**
+
+## 🏗️ Build Policy (AI)
+- NPM-only (no pnpm/yarn/bun)
+- Dashboard build: usar script root → `npm run build:dashboard` (internamente: `cd apps/dashboard && npx --no-install next build`)
+- No ejecutar `next build` directo en apps fuera de scripts root
+- Dependencias solo en root; apps sin node_modules

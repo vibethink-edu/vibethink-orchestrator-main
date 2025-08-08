@@ -242,3 +242,10 @@ npm run ai:stability-check  # Quick stability check
 
 **⚠️ CRITICAL: AI MUST READ AND FOLLOW THESE RULES BEFORE ANY CODE CHANGE ⚠️**
 **🚨 VIOLATION OF THESE RULES WILL CAUSE SYSTEM INSTABILITY 🚨**
+
+## 🤖 AI Build & Execution Policy (Claude, Gemini, OpenAI)
+- NPM-only: no pnpm/yarn/bun
+- Dashboard build: ejecutar desde root con `npm run build:dashboard` (internamente: `cd apps/dashboard && npx --no-install next build`)
+- No ejecutar `next build` directamente dentro de apps
+- Dependencias solo en root; apps sin node_modules
+- Versiones exactas (sin ^ ni ~ ni latest)

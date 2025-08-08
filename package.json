@@ -11,11 +11,12 @@
     "dev:helpdesk": "npx lerna run dev --scope vibethink-orchestrator-helpdesk",
     "dev:all": "concurrently \"npm run dev:dashboard\" \"npm run dev:admin\" \"npm run dev:login\" \"npm run dev:helpdesk\"",
     "build": "npm run build:all",
-    "build:dashboard": "npx lerna run build --scope vibethink-orchestrator-dashboard",
+    "build:dashboard": "cd apps/dashboard && ..\\..\\node_modules\\.bin\\next build",
     "build:admin": "npx lerna run build --scope vibethink-orchestrator-admin",
     "build:login": "npx lerna run build --scope vibethink-orchestrator-login",
     "build:helpdesk": "npx lerna run build --scope vibethink-orchestrator-helpdesk",
     "build:all": "npm run build:dashboard && npm run build:admin && npm run build:login && npm run build:helpdesk",
+    "build:dashboard:npx": "cd apps/dashboard && npx next build",
     "start": "npm run start:dashboard",
     "start:dashboard": "cd apps/dashboard && npm run start",
     "start:admin": "cd apps/admin && npm run start",
@@ -55,6 +56,8 @@
     "install:apps": "cd apps/dashboard && npm install && cd ../admin && npm install && cd ../login && npm install && cd ../helpdesk && npm install",
     "clean": "npm run clean:all",
     "clean:all": "rm -rf node_modules && rm -rf apps/*/node_modules && rm -rf .next && rm -rf apps/*/.next",
+    "clean:all:win": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"if (Test-Path 'node_modules') { Remove-Item -Recurse -Force 'node_modules' } ; Get-ChildItem 'apps' -Directory | ForEach-Object { $nm = Join-Path $_.FullName 'node_modules'; if (Test-Path $nm) { Remove-Item -Recurse -Force $nm } ; $next = Join-Path $_.FullName '.next'; if (Test-Path $next) { Remove-Item -Recurse -Force $next } } ; if (Test-Path '.next') { Remove-Item -Recurse -Force '.next' }\"",
+    "clean:next:win": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"Get-ChildItem 'apps' -Directory | ForEach-Object { $next = Join-Path $_.FullName '.next'; if (Test-Path $next) { Remove-Item -Recurse -Force $next } } ; if (Test-Path '.next') { Remove-Item -Recurse -Force '.next' }\"",
     "setup": "npm run clean && npm run install:all"
   },
   "keywords": [

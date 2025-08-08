@@ -706,4 +706,11 @@ npm run backup:before       # Create backup before changes
 ---
 
 **Follow these rules to maintain VThink 1.0 compliance, security, and quality in the codebase.**
-```
+
+# AI Build Policy — VibeThink Orchestrator
+
+- NPM-only (no pnpm/yarn/bun)
+- Builds de dashboard: ejecutar SIEMPRE vía script root
+  - `npm run build:dashboard` → internamente: `cd apps/dashboard && npx --no-install next build`
+- No ejecutar `next build` directamente en apps si no es vía script root
+- Dependencias solo en root; apps sin node_modules
