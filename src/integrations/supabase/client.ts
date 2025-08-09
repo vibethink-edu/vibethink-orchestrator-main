@@ -11,8 +11,9 @@ import { createDatabaseClient } from '@/shared/lib/database-adapter';
 const USE_MOCK_DB = process.env.NODE_ENV !== 'production' || process.env.VTHINK_USE_MOCK === 'true';
 
 // ✅ CONFIGURACIÓN REAL SUPABASE (para cuando esté listo)
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://pikywaoqlekupfynnclg.supabase.co';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'test-key';
+// En Next.js usamos process.env en lugar de import.meta.env (no Vite)
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://pikywaoqlekupfynnclg.supabase.co';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'test-key';
 
 /**
  * ✅ CLIENTE OPTIMIZADO - Auto-selecciona mock vs real

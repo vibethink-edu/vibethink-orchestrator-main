@@ -59,6 +59,7 @@ const initialState: CalendarState = {
   
   // UI State
   isEventSheetOpen: false,
+  isSidebarOpen: true,
   selectedCalendars: ['default'],
   
   // Filters

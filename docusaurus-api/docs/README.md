@@ -1,6 +1,6 @@
-# Bienvenido a VThink API Documentation
+# Bienvenido a VibeThink Orchestrator API Documentation
 
-Documentación completa de las APIs y endpoints del ecosistema VThink.
+Documentación completa de las APIs y endpoints del ecosistema VibeThink Orchestrator.
 
 ## 🚀 Características
 
@@ -46,7 +46,7 @@ Documentación completa de las APIs y endpoints del ecosistema VThink.
 - [Java SDK](./api/sdks/java.md)
 
 ### Postman Collections
-- [VThink API Collection](./api/postman-collection.md)
+- [VibeThink Orchestrator API Collection](./api/postman-collection.md)
 
 ## 📊 Estado de APIs
 

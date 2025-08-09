@@ -13,11 +13,11 @@
 import { createClient } from '@supabase/supabase-js';
 
 // Configuration
-const SUPABASE_URL = 'https://pikywaoqlekupfynnclg.supabase.co';
+const SUPABASE_URL = process.env.SUPABASE_URL || '';
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || '';
 
-if (!SUPABASE_SERVICE_KEY) {
-  console.error('❌ SUPABASE_SERVICE_KEY environment variable is required');
+if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
+  console.error('❌ SUPABASE_URL and SUPABASE_SERVICE_KEY environment variables are required');
   console.log('💡 Get it from: https://supabase.com/dashboard/project/pikywaoqlekupfynnclg/settings/api');
   process.exit(1);
 }

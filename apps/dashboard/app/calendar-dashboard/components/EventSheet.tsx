@@ -103,7 +103,8 @@ const eventFormSchema = z.object({
   path: ["end"],
 });
 
-type EventFormData = z.infer<typeof eventFormSchema>;
+// Nota: usar z.input para alinear con el tipo que espera zodResolver (valores de entrada)
+type EventFormData = z.input<typeof eventFormSchema>;
 
 /**
  * Event Sheet Component

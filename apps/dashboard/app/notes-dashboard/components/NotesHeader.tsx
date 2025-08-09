@@ -249,7 +249,20 @@ export function NotesHeader({
                       onCreateFolder={async (name, parentId) => {
                         // This should be handled by the parent component
                         console.log('Create folder:', name, parentId);
-                        return { id: 'temp', title: name } as NoteFolder;
+                        return {
+                          id: 'temp',
+                          name,
+                          description: '',
+                          color: 'hsl(221 83% 53%)',
+                          icon: 'folder',
+                          parent_folder_id: parentId || null,
+                          company_id: 'company_1',
+                          user_id: 'user_1',
+                          share_level: 'private',
+                          order: 0,
+                          created_at: new Date().toISOString(),
+                          updated_at: new Date().toISOString(),
+                        } as NoteFolder;
                       }}
                       selectedFolderId={filters.filters.folder_id || null}
                     />

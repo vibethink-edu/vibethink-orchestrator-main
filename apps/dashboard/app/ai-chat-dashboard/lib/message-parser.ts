@@ -311,7 +311,11 @@ export class ChatCommands {
    * Verificar si un texto es un comando
    */
   static isCommand(text: string): boolean {
-    return text.startsWith('/') && this.commands[text.substring(1).split(' ')[0]]
+    if (!text.startsWith('/')) {
+      return false
+    }
+    const commandName = text.substring(1).split(' ')[0].toLowerCase()
+    return Object.prototype.hasOwnProperty.call(this.commands, commandName)
   }
 }
 

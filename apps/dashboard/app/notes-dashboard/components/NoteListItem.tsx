@@ -49,6 +49,7 @@ interface NoteListItemProps {
   labels: NoteLabel[];
   folders: NoteFolder[];
   className?: string;
+  compact?: boolean;
 }
 
 // Note type icons

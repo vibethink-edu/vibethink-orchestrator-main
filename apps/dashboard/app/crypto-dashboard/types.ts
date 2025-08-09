@@ -442,6 +442,16 @@ export interface UseCryptoFiltersReturn {
   filterHoldings: (holdings: CryptoHolding[]) => CryptoHolding[]
   filterTransactions: (transactions: CryptoTransaction[]) => CryptoTransaction[]
   hasActiveFilters: boolean
+  getFilterOptions: (holdings: CryptoHolding[], transactions: CryptoTransaction[]) => {
+    cryptoSymbols: string[]
+    platforms: string[]
+    transactionTypes: string[]
+    valueRange: { min: number; max: number }
+  }
+  applyQuickFilter: (preset: string) => void
+  exportFilters: () => Record<string, any>
+  importFilters: (filterParams: Record<string, any>) => void
+  getFilterSummary: () => string
 }
 
 export interface UseMarketDataReturn {
@@ -452,6 +462,21 @@ export interface UseMarketDataReturn {
   error: string | null
   refreshMarketData: () => Promise<void>
   refreshNews: () => Promise<void>
+  getTrendingCryptos: () => CryptoCurrency[]
+  getTopGainers: () => CryptoCurrency[]
+  getTopLosers: () => CryptoCurrency[]
+  searchCryptos: (query: string) => CryptoCurrency[]
+  getCryptoById: (id: string) => CryptoCurrency | undefined
+  getMarketSummary: () => {
+    total_market_cap: number
+    total_volume: number
+    gainers_count: number
+    losers_count: number
+    stable_count: number
+    average_price_change: number
+    bitcoin_dominance: number
+    fear_greed_index: number
+  } | null
 }
 
 export interface UseTradingReturn {
@@ -464,6 +489,18 @@ export interface UseTradingReturn {
   deleteStrategy: (id: string) => Promise<void>
   createDCATrade: (trade: Omit<DCATrade, 'id' | 'created_at'>) => Promise<void>
   refreshAll: () => Promise<void>
+  getPerformanceSummary: () => {
+    total_strategies: number
+    active_strategies: number
+    total_trades: number
+    average_win_rate: number
+    average_return: number
+    average_sharpe_ratio: number
+    best_performing: { name: string; return: number }
+    worst_performing: { name: string; return: number }
+  } | null
+  getUpcomingExecutions: () => DCATrade[]
+  toggleStrategy: (id: string, isActive: boolean) => Promise<void>
 }
 
 // =============================================================================

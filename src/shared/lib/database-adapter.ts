@@ -29,7 +29,7 @@ class MockQueryBuilder<T> implements VTQueryBuilder<T> {
     // Simular delay de DB real para testing
     await new Promise(resolve => setTimeout(resolve, 10));
     
-    const mockData = this.generateMockData();
+    const mockData = this.generateMockData() as unknown as T;
     const response: VTQueryResponse<T> = {
       data: mockData,
       error: null

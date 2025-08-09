@@ -1,6 +1,4 @@
 'use client'
-
-import { Doughnut } from 'react-chartjs-2'
 import { Headphones, Clock, CheckCircle, AlertTriangle, Star } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card'
 import { Badge } from '@/shared/components/ui/badge'

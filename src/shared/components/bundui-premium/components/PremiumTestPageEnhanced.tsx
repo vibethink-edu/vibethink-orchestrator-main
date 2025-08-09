@@ -158,7 +158,7 @@ const PremiumTestPageEnhanced: React.FC = () => {
   const stats = getTestStats();
 
   // Verificar permisos premium
-  if (!hasPermission('ADMIN')) {
+  if (!hasPermission()) {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
@@ -355,15 +355,13 @@ const PremiumTestPageEnhanced: React.FC = () => {
                 <div>
                   <Label>Date Time Picker</Label>
                   <DateTimePicker 
-                    value={selectedDate}
-                    onChange={setSelectedDate}
+                    date={selectedDate}
+                    setDate={setSelectedDate}
                   />
                 </div>
                 <div>
                   <Label>Custom Date Range</Label>
-                  <CustomDateRangePicker 
-                    onDateChange={() => {}}
-                  />
+                  <CustomDateRangePicker />
                 </div>
               </CardContent>
             </Card>

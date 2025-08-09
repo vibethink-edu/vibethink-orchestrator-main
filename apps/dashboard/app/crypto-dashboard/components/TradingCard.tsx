@@ -50,7 +50,8 @@ const tradingSchema = z.object({
   limit_price: z.string().optional()
 })
 
-type TradingFormData = z.infer<typeof tradingSchema>
+// Alinear con zodResolver: usar z.input para el tipo de entrada
+type TradingFormData = z.input<typeof tradingSchema>
 
 interface TradingCardProps {
   loading?: boolean

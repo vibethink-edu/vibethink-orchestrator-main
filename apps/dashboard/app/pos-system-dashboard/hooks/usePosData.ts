@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import supabaseClient from "@/integrations/supabase/client";
 import { 
   Product, 
   ProductCategory, 
@@ -19,6 +19,8 @@ const mockUser = {
 };
 
 export function usePosData() {
+  // For type compatibility in mock/real client union, treat as any for chaining
+  const supabase: any = supabaseClient as any;
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<ProductCategory[]>([]);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -240,7 +242,7 @@ export function usePosData() {
           ...productData,
           company_id: mockUser.company_id // Multi-tenant security
         }])
-        .select()
+        .select('*')
         .single();
 
       if (error) throw error;
@@ -263,7 +265,7 @@ export function usePosData() {
         .update(updates)
         .eq('id', productId)
         .eq('company_id', mockUser.company_id) // Multi-tenant security
-        .select()
+        .select('*')
         .single();
 
       if (error) throw error;
@@ -283,9 +285,9 @@ export function usePosData() {
     try {
       const { error } = await supabase
         .from('products')
-        .delete()
         .eq('id', productId)
-        .eq('company_id', mockUser.company_id); // Multi-tenant security
+        .eq('company_id', mockUser.company_id) // Multi-tenant security
+        .delete();
 
       if (error) throw error;
 

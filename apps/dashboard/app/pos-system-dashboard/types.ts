@@ -310,6 +310,7 @@ export interface ReceiptData {
   };
   receipt_number: string;
   print_time: string;
+  lines?: ReceiptLine[];
 }
 
 export interface ReceiptLine {

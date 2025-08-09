@@ -143,7 +143,7 @@ export default function RecentTasksTable({
       case 'documentation':
         return <Edit className={iconClass} />
       case 'meeting':
-        return <Users className={iconClass} />
+        return <User className={iconClass} />
       case 'research':
         return <Target className={iconClass} />
       default:

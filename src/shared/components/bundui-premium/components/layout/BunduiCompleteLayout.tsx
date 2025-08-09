@@ -185,7 +185,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                           <CollapsibleContent>
                             <SidebarMenuSub>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Enhanced Dashboard (New)">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/ecommerce-dashboard" className="w-full flex items-center gap-2">
                                     <ChartBarDecreasing className="h-3 w-3" />
                                     <span>Enhanced Dashboard</span>
@@ -194,7 +194,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Product List">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/ecommerce-dashboard/products" className="w-full flex items-center gap-2">
                                     <List className="h-3 w-3" />
                                     <span>Product List</span>
@@ -202,7 +202,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Product Detail">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/ecommerce-dashboard/product-detail" className="w-full flex items-center gap-2">
                                     <PackageOpen className="h-3 w-3" />
                                     <span>Product Detail</span>
@@ -210,7 +210,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Add Product">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/ecommerce-dashboard/add-product" className="w-full flex items-center gap-2">
                                     <Plus className="h-3 w-3" />
                                     <span>Add Product</span>
@@ -218,7 +218,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Order List">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/ecommerce-dashboard/orders" className="w-full flex items-center gap-2">
                                     <List className="h-3 w-3" />
                                     <span>Order List</span>
@@ -226,7 +226,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Order Detail">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/ecommerce-dashboard/order-detail" className="w-full flex items-center gap-2">
                                     <PackageOpen className="h-3 w-3" />
                                     <span>Order Detail</span>
@@ -586,7 +586,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                           <CollapsibleContent>
                             <SidebarMenuSub>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Profile">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/settings/profile" className="w-full flex items-center gap-2">
                                     <User className="h-3 w-3" />
                                     <span>Profile</span>
@@ -594,7 +594,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Account">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/settings/account" className="w-full flex items-center gap-2">
                                     <UserCheck className="h-3 w-3" />
                                     <span>Account</span>
@@ -602,7 +602,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Appearance">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/settings/appearance" className="w-full flex items-center gap-2">
                                     <Monitor className="h-3 w-3" />
                                     <span>Appearance</span>
@@ -610,7 +610,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Notifications">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/settings/notifications" className="w-full flex items-center gap-2">
                                     <Bell className="h-3 w-3" />
                                     <span>Notifications</span>
@@ -618,7 +618,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Display">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/settings/display" className="w-full flex items-center gap-2">
                                     <Eye className="h-3 w-3" />
                                     <span>Display</span>
@@ -648,7 +648,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                           <CollapsibleContent>
                             <SidebarMenuSub>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Column Pricing">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/pricing/table" className="w-full flex items-center gap-2">
                                     <List className="h-3 w-3" />
                                     <span>Column Pricing</span>
@@ -656,7 +656,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Table Pricing">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/pricing/cards" className="w-full flex items-center gap-2">
                                     <Proportions className="h-3 w-3" />
                                     <span>Table Pricing</span>
@@ -664,7 +664,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Single Pricing">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/pricing" className="w-full flex items-center gap-2">
                                     <CreditCard className="h-3 w-3" />
                                     <span>Single Pricing</span>
@@ -694,7 +694,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                           <CollapsibleContent>
                             <SidebarMenuSub>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Login v1">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/auth/signin" className="w-full flex items-center gap-2">
                                     <User className="h-3 w-3" />
                                     <span>Login v1</span>
@@ -702,7 +702,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Login v2">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/auth/signin" className="w-full flex items-center gap-2">
                                     <User className="h-3 w-3" />
                                     <span>Login v2</span>
@@ -710,7 +710,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Register v1">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/auth/signup" className="w-full flex items-center gap-2">
                                     <UserCheck className="h-3 w-3" />
                                     <span>Register v1</span>
@@ -718,7 +718,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Register v2">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/auth/signup" className="w-full flex items-center gap-2">
                                     <UserCheck className="h-3 w-3" />
                                     <span>Register v2</span>
@@ -726,7 +726,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="Forgot Password">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/auth/forgot-password" className="w-full flex items-center gap-2">
                                     <Shield className="h-3 w-3" />
                                     <span>Forgot Password</span>
@@ -756,7 +756,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                           <CollapsibleContent>
                             <SidebarMenuSub>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="404 Not Found">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/error/404" className="w-full flex items-center gap-2">
                                     <FileX className="h-3 w-3" />
                                     <span>404</span>
@@ -764,7 +764,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="500 Server Error">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/error/500" className="w-full flex items-center gap-2">
                                     <Server className="h-3 w-3" />
                                     <span>500</span>
@@ -772,7 +772,7 @@ const BunduiCompleteLayoutInner: React.FC<BunduiCompleteLayoutProps> = ({ childr
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                               <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild className="w-full cursor-pointer" tooltip="503 Maintenance">
+                                <SidebarMenuSubButton asChild className="w-full cursor-pointer">
                                   <Link href="/error/503" className="w-full flex items-center gap-2">
                                     <Shield className="h-3 w-3" />
                                     <span>503</span>

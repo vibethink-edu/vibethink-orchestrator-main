@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/shared/components/ui/chart";
+import { ChartContainer } from "@/shared/components/ui/chart";
+import { ResponsiveContainer, BarChart, Bar, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
 /**
  * RevenueChart
@@ -26,12 +27,17 @@ export const RevenueChart: React.FC = () => (
     </div>
     
     {/* Chart Component */}
-    <ChartContainer
-      type="bar"
-      data={data.map(d => d.revenue)}
-      labels={data.map(d => d.name)}
-      className="h-48"
-    />
+    <ChartContainer config={{ revenue: { label: "Revenue", color: "hsl(var(--chart-1))" } }} className="h-48">
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
+          <XAxis dataKey="name" tickLine={false} axisLine={false} />
+          <YAxis tickLine={false} axisLine={false} />
+          <Tooltip />
+          <Bar dataKey="revenue" fill="hsl(var(--chart-1))" radius={[4,4,0,0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartContainer>
     
     {/* Summary */}
     <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">

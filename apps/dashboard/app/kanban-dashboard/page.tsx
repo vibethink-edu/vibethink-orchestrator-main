@@ -18,7 +18,7 @@
  * - shadcn/ui components for UI consistency
  */
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
 import { DragDropContext, DropResult } from '@hello-pangea/dnd';
 import { Plus, Search, Filter, Clock, AlertCircle, TrendingUp, Users, Target } from 'lucide-react';
@@ -38,7 +38,7 @@ import { useKanbanData, useKanbanFilters } from './hooks';
 import KanbanColumn from './components/KanbanColumn';
 
 // Main Kanban Page Component
-export default function KanbanPage() {
+function KanbanPageInner() {
   // Hooks for data management and filtering
   const { 
     board, 
@@ -383,5 +383,13 @@ export default function KanbanPage() {
         </div>
       </div>
     </DashboardLayout>
+  );
+}
+
+export default function KanbanPage() {
+  return (
+    <Suspense fallback={<div className="p-6">Loading Kanban...</div>}>
+      <KanbanPageInner />
+    </Suspense>
   );
 }

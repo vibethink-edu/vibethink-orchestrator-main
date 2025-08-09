@@ -26,7 +26,7 @@ import {
   NotePriority 
 } from '../types';
 
-interface UseNoteFiltersReturn {
+export interface UseNoteFiltersReturn {
   // Current filters
   filters: NoteFilters;
   sortOptions: NoteSortOptions;
@@ -109,7 +109,7 @@ export function useNoteFilters(): UseNoteFiltersReturn {
   const [savedFilters, setSavedFilters] = useState<SavedFilter[]>([]);
 
   // Debounced search
-  const debouncedSearchQuery = useDebounce(searchQuery, 300);
+  const debouncedSearchQuery = useDebounce(searchQuery, { delay: 300 });
 
   /**
    * Load saved state from localStorage

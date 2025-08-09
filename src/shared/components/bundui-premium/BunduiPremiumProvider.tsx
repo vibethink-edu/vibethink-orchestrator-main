@@ -39,10 +39,15 @@ export const BunduiPremiumProvider: React.FC<BunduiPremiumProviderProps> = ({
     premiumComponents: true,
   },
 }) => {
+  const normalizedFeatures: BunduiPremiumContextType['features'] = {
+    advancedCharts: features?.advancedCharts ?? true,
+    customThemes: features?.customThemes ?? true,
+    premiumComponents: features?.premiumComponents ?? true,
+  };
   const contextValue: BunduiPremiumContextType = {
     isPremiumEnabled,
     theme,
-    features,
+    features: normalizedFeatures,
   };
 
   return (

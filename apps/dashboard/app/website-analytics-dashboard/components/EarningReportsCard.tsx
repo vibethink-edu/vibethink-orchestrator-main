@@ -230,7 +230,7 @@ export function EarningReportsCard({
                       fill="url(#fillProfit)"
                       strokeWidth={2}
                     />
-                    <ChartLegend content={<ChartLegendContent />} />
+                    <ChartLegend />
                   </AreaChart>
                 </ResponsiveContainer>
               </ChartContainer>
@@ -279,7 +279,7 @@ export function EarningReportsCard({
                       strokeWidth={3}
                       dot={{ fill: 'hsl(var(--chart-2))', strokeWidth: 2, r: 4 }}
                     />
-                    <ChartLegend content={<ChartLegendContent />} />
+                    <ChartLegend />
                   </LineChart>
                 </ResponsiveContainer>
               </ChartContainer>

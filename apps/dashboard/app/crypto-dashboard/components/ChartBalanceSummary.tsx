@@ -197,10 +197,7 @@ export const ChartBalanceSummary: React.FC<ChartBalanceSummaryProps> = ({
               tickMargin={8}
               tickFormatter={(value) => value.slice(0, 3)}
             />
-            <ChartTooltip 
-              cursor={false} 
-              content={ChartTooltipContent} 
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
             <Line
               dataKey="received"
               type="monotone"

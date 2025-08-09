@@ -90,7 +90,7 @@ const BunduiPremiumDashboard: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
 
   // Verificar permisos premium
-  if (!hasPermission('ADMIN')) {
+  if (typeof hasPermission === 'function' ? !hasPermission() : false) {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
@@ -270,8 +270,8 @@ const BunduiPremiumDashboard: React.FC = () => {
                 </CardHeader>
                 <CardContent>
                   <DateTimePicker 
-                    value={new Date()}
-                    onChange={() => {}}
+                    date={new Date()}
+                    setDate={() => {}}
                   />
                 </CardContent>
               </Card>
@@ -540,10 +540,10 @@ const BunduiPremiumDashboard: React.FC = () => {
                   </div>
                   
                   <div className="flex items-center space-x-2">
-                    <Checkbox 
+                      <Checkbox 
                       id="checkbox-demo"
                       checked={checkboxValue}
-                      onCheckedChange={setCheckboxValue}
+                      onCheckedChange={(v) => setCheckboxValue(v === true)}
                     />
                     <Label htmlFor="checkbox-demo">Checkbox</Label>
                   </div>
@@ -609,9 +609,7 @@ const BunduiPremiumDashboard: React.FC = () => {
                   <CardDescription>Selector de rango de fechas avanzado</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <CustomDateRangePicker 
-                    onDateChange={() => {}}
-                  />
+                  <CustomDateRangePicker />
                 </CardContent>
               </Card>
 

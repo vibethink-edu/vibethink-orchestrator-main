@@ -36,7 +36,7 @@ interface NotesContentProps {
   notes: Note[];
   selectedNote: Note | null;
   onSelectNote: (noteId: string | null) => void;
-  onUpdateNote: (updates: any) => void;
+  onUpdateNote: (updates: Partial<Note>) => Promise<void>;
   onDeleteNote: (noteId: string) => void;
   onShareNote: () => void;
   onCreateNote: () => void;

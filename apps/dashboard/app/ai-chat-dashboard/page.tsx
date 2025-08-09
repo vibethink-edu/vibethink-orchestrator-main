@@ -178,7 +178,7 @@ export default function AiChatPage() {
                         {session.title || 'New Chat'}
                       </p>
                       <p className="text-xs text-muted-foreground">
-                        {session.messages_count} messages
+                        {session.id === currentChat?.id ? `${messages.length} messages` : '—'}
                       </p>
                     </div>
                   ))}

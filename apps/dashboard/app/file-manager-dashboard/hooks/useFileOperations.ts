@@ -30,22 +30,37 @@ const useAuth = () => ({
 // Mock Supabase client - in real app this would be your actual Supabase client
 const supabase = {
   from: (table: string) => ({
-    select: (columns: string) => ({
-      eq: (column: string, value: any) => ({
+    select: (columns: string) => {
+      const query = {
+        eq: (_column: string, _value: any) => query,
         single: () => Promise.resolve({ data: getMockFile(), error: null })
-      })
-    }),
+      } as any
+      return query
+    },
     insert: (data: any) => ({
+      error: null as any,
       select: () => ({
         single: () => Promise.resolve({ data: getMockFile(), error: null })
       })
     }),
-    update: (data: any) => ({
-      eq: (column: string, value: any) => Promise.resolve({ data: getMockFile(), error: null })
-    }),
-    delete: () => ({
-      eq: (column: string, value: any) => Promise.resolve({ error: null })
-    })
+    update: (data: any) => {
+      const query = {
+        eq: (_column: string, _value: any) => query,
+        error: null as any,
+        select: () => ({
+          single: () => Promise.resolve({ data: getMockFile(), error: null })
+        })
+      } as any
+      return query
+    },
+    delete: () => {
+      const query = {
+        eq: (_column: string, _value: any) => query,
+        error: null as any,
+        then: (onFulfilled: any) => Promise.resolve({ error: null }).then(onFulfilled)
+      } as any
+      return query
+    }
   }),
   auth: {
     getUser: () => Promise.resolve({ 
@@ -480,7 +495,20 @@ export function useFileOperations(): UseFileOperations {
       }
 
       return {
-        ...folder,
+        id: folder.id,
+        name: folder.name,
+        description: '',
+        color: 'hsl(221 83% 53%)',
+        icon: 'folder',
+        file_count: 0,
+        total_size: 0,
+        modified_at: folder.modified_at,
+        created_at: folder.created_at,
+        company_id: folder.company_id,
+        user_id: folder.user_id,
+        parent_id: folder.parent_id,
+        path: folder.path,
+        is_shared: folder.is_shared ?? false,
         permissions: []
       }
     } catch (err) {

@@ -9,15 +9,15 @@
 
 import { createClient } from '@supabase/supabase-js';
 
-// Configuración de Supabase (usando la URL conocida)
-const SUPABASE_URL = "https://pikywaoqlekupfynnclg.supabase.co";
+// Configuración de Supabase (usar env o placeholder)
+const SUPABASE_URL = process.env.SUPABASE_URL || "https://your-project.supabase.co";
 
 console.log('🔍 Supabase Project Information\n');
 console.log('='.repeat(50));
 
 console.log('📋 PROJECT DETAILS:');
 console.log(`   URL: ${SUPABASE_URL}`);
-console.log(`   Project ID: pikywaoqlekupfynnclg`);
+console.log(`   Project ID: (set via env)`);
 console.log(`   Region: (auto-detected)`);
 
 console.log('\n🔑 API KEYS NEEDED:');
@@ -50,8 +50,8 @@ console.log('   2. Select project: pikywaoqlekupfynnclg');
 console.log('   3. Go to Settings > API');
 console.log('   4. Copy the "anon public" key');
 console.log('   5. Create .env.local file with:');
-console.log('      VITE_SUPABASE_URL=https://pikywaoqlekupfynnclg.supabase.co');
-console.log('      VITE_SUPABASE_ANON_KEY=your_anon_key_here');
+console.log('      NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co');
+console.log('      NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key_here');
 
 console.log('\n' + '='.repeat(50));
 console.log('✨ Information retrieved successfully!'); 

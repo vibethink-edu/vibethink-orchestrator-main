@@ -16,19 +16,29 @@ import { CalendarIcon } from "lucide-react";
 import type { DateRange } from "react-day-picker";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Button } from "@/shared/components/bundui-premium/components/ui/button";
+import { Calendar } from "@/shared/components/bundui-premium/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/shared/components/bundui-premium/components/ui/popover";
+import { ToggleGroup, ToggleGroupItem } from "@/shared/components/bundui-premium/components/ui/toggle-group";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/shared/components/bundui-premium/components/ui/tooltip";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@/components/ui/select";
-import { useIsMobile } from "@/hooks/use-mobile";
+} from "@/shared/components/bundui-premium/components/ui/select";
+// Local hook to detect mobile screen width without external dependency
+function useLocalIsMobile() {
+  const [isMobile, setIsMobile] = React.useState(false);
+  React.useEffect(() => {
+    const update = () => setIsMobile(typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches);
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+  return isMobile;
+}
 
 const dateFilterPresets = [
   { name: "Today", value: "today" },
@@ -44,7 +54,7 @@ const dateFilterPresets = [
 export default function CalendarDateRangePicker({
   className
 }: React.HTMLAttributes<HTMLDivElement>) {
-  const isMobile = useIsMobile();
+  const isMobile = useLocalIsMobile();
   const today = new Date();
   const twentyEightDaysAgo = startOfDay(subDays(today, 27));
 

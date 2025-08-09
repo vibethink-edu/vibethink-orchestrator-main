@@ -19,20 +19,31 @@ import { Email, EmailFolder, EmailLabel, EmailThread, EmailMetrics, EmailFilters
 // Mock Supabase client for demo - replace with real implementation
 const supabase = {
   from: (table: string) => ({
-    select: (columns: string) => ({
-      eq: (column: string, value: string) => ({
-        order: (column: string, options: any) => ({
-          limit: (count: number) => Promise.resolve({ data: [], error: null })
+    select: (columns: string) => {
+      const query = {
+        eq: (_column: string, _value: string | boolean) => query,
+        or: (_expr: string) => query,
+        order: (_column: string, _options: any) => ({
+          limit: (_count: number) => Promise.resolve({ data: [], error: null })
         })
-      })
-    }),
+      } as any
+      return query
+    },
     insert: (data: any) => Promise.resolve({ data: null, error: null }),
-    update: (data: any) => ({
-      eq: (column: string, value: string) => Promise.resolve({ data: null, error: null })
-    }),
-    delete: () => ({
-      eq: (column: string, value: string) => Promise.resolve({ data: null, error: null })
-    })
+    update: (data: any) => {
+      const query = {
+        eq: (_column: string, _value: string | boolean) => query,
+        error: null as any
+      } as any
+      return query
+    },
+    delete: () => {
+      const query = {
+        eq: (_column: string, _value: string) => query,
+        error: null as any
+      } as any
+      return query
+    }
   })
 }
 

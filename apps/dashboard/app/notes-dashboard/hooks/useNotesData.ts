@@ -59,6 +59,7 @@ const createMockQueryBuilder = (data: any) => ({
   neq: (column: string, value: string) => createMockQueryBuilder(data),
   in: (column: string, values: any[]) => createMockQueryBuilder(data),
   or: (condition: string) => createMockQueryBuilder(data),
+  not: (column: string, operator: string, value: any) => createMockQueryBuilder(data),
   gte: (column: string, value: any) => createMockQueryBuilder(data),
   lte: (column: string, value: any) => createMockQueryBuilder(data),
   order: (column: string, options?: any) => createMockQueryBuilder(data),
@@ -283,7 +284,7 @@ export function useNotesData(): UseNotesDataReturn {
       const { data, error: createError } = await supabase
         .from('notes')
         .insert([noteData])
-        .select()
+        .select('*')
         .single();
 
       if (createError) {
@@ -317,16 +318,17 @@ export function useNotesData(): UseNotesDataReturn {
       setIsUpdating(true);
       setError(null);
 
-      const updateData = {
-        ...payload,
+      const updateData: Partial<Note> = {
+        ...(payload as Partial<Note>),
         updated_at: new Date().toISOString(),
         last_accessed_at: new Date().toISOString()
       };
 
       // Update word count and read time if content changed
       if (payload.content !== undefined) {
-        updateData.word_count = payload.content.split(/\s+/).length;
-        updateData.estimated_read_time = Math.ceil(updateData.word_count / 200);
+        const updatedWordCount = payload.content.split(/\s+/).length;
+        updateData.word_count = updatedWordCount;
+        updateData.estimated_read_time = Math.ceil(updatedWordCount / 200);
       }
 
       const { data, error: updateError } = await supabase
@@ -334,7 +336,7 @@ export function useNotesData(): UseNotesDataReturn {
         .update(updateData)
         .eq('id', payload.id)
         .eq('company_id', companyId) // CRITICAL: Multi-tenant security
-        .select()
+        .select('*')
         .single();
 
       if (updateError) {

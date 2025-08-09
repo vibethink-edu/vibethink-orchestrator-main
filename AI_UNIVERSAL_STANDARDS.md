@@ -126,6 +126,27 @@ if (hasPermission('ADMIN')) {
 npm run validate:branding
 ```
 
+## 🌐 Domains & Sites Architecture (CANÓNICO)
+
+- Producto/Website (marketing): vibethink.co
+  - www.vibethink.co → Website público en `apps/website` (Next.js, sin auth, sin multi-tenant)
+  - docs.vibethink.co → Documentación/Blog en `docusaurus-docs`
+  - status.vibethink.co → Status page (externo recomendado; opcional `apps/status`)
+- Aplicación SaaS: vibethink.ai
+  - app.vibethink.ai → `apps/dashboard`
+  - admin.vibethink.ai → `apps/admin`
+  - help.vibethink.ai → `apps/helpdesk`
+
+Políticas:
+- Website está exento de multi-tenant/RLS y no persiste sesión. Solo redirige a `app.vibethink.ai/login`.
+- Mantener reglas mínimas del monorepo: dependencias exactas en root; build/start vía scripts root; sin node_modules en apps.
+- Supabase: Allowed Redirect URLs deben incluir `.ai` y `.co`. Autenticación siempre concluye en `.ai`.
+
+Referencias canónicas:
+- `docs/architecture/DOMAINS_AND_SITES.md`
+- `docusaurus-dev/docs/architecture/DOMAINS_AND_SITES.md`
+- `docusaurus-docs/docs/architecture/domains-and-sites.md`
+
 ## 🛠️ **DESARROLLO - REGLAS ABSOLUTAS**
 
 ### **Antes de cambios:**

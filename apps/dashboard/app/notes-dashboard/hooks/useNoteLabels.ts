@@ -112,7 +112,7 @@ export function useNoteLabels(): UseNoteLabelsReturn {
     const { data, error } = await supabase
       .from('note_labels')
       .insert([labelData])
-      .select()
+      .select('*')
       .single();
 
     if (error) throw error;
@@ -129,7 +129,7 @@ export function useNoteLabels(): UseNoteLabelsReturn {
       .update({ ...updates, updated_at: new Date().toISOString() })
       .eq('id', id)
       .eq('company_id', user.company_id)
-      .select()
+      .select('*')
       .single();
 
     if (error) throw error;
@@ -143,9 +143,9 @@ export function useNoteLabels(): UseNoteLabelsReturn {
 
     const { error } = await supabase
       .from('note_labels')
-      .delete()
       .eq('id', id)
-      .eq('company_id', user.company_id);
+      .eq('company_id', user.company_id)
+      .delete();
 
     if (error) throw error;
     

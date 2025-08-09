@@ -76,6 +76,7 @@ export const THEME_COLORS = {
 /**
  * Helper para obtener el tema activo
  */
-export function getActiveTheme(theme: string = DEFAULT_THEME) {
-  return THEME_COLORS[theme] || THEME_COLORS[DEFAULT_THEME];
+export function getActiveTheme(theme: keyof typeof THEME_COLORS | string = 'light') {
+  const key = (typeof theme === 'string' ? theme : 'light') as keyof typeof THEME_COLORS;
+  return THEME_COLORS[key] || THEME_COLORS['light'];
 } 

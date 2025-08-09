@@ -19,7 +19,12 @@ export async function testSupabaseConnection() {
       throw new Error('❌ Variables de entorno de Supabase no configuradas');
     }
     // TODO: log Probando conexión básica en desarrollo
-    const { data, error } = await supabase.from('companies').select('count').limit(1);
+    const mockCompanyId = 'dev-company';
+    const { data, error } = await supabase
+      .from('companies')
+      .select('count')
+      .eq('id', mockCompanyId)
+      .limit(1);
     if (error) {
       // TODO: log Error de conexión en desarrollo
       // Verificar si es un error de autenticación

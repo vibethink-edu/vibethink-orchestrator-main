@@ -33,7 +33,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/shared/lib/utils';
 import { Note, NoteType, ChecklistItem } from '../types';
-import { UseNoteEditorReturn } from '../hooks/useNoteEditor';
+import type { UseNoteEditorReturn } from '../hooks/useNoteEditor';
 
 interface NoteEditorProps {
   note: Note;

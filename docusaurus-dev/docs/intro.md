@@ -1,11 +1,11 @@
 ---
 id: intro
-title: 🛠️ Portal de Desarrollo - VibeThink
+title: 🛠️ Portal de Desarrollo - VibeThink Orchestrator
 sidebar_label: Introducción
 description: Portal centralizado para desarrolladores con decisiones técnicas, roadmap y herramientas
 ---
 
-# 🛠️ **Portal de Desarrollo - VibeThink**
+# 🛠️ **Portal de Desarrollo — VibeThink Orchestrator**
 
 ## 🎯 **Propósito**
 

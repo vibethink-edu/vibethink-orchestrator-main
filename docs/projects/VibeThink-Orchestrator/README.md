@@ -1,4 +1,4 @@
-# VThink Orchestrator - Proyecto Principal
+# VibeThink Orchestrator - Proyecto Principal
 
 ## 📅 Fecha: 05/07/2025
 ## 🎯 Objetivo: Sistema central de gestión VThink 1.0

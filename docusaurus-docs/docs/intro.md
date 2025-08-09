@@ -1,13 +1,13 @@
 ---
 id: intro
-title: Introducción a VibeThink
+title: Introducción a VibeThink Orchestrator
 sidebar_label: Introducción
 slug: /
 ---
 
-# Bienvenido a VibeThink
+# Bienvenido a VibeThink Orchestrator
 
-VibeThink es una plataforma SaaS multi-tenant diseñada para empresas que buscan optimizar sus procesos de gestión y colaboración.
+VibeThink Orchestrator es una plataforma SaaS multi-tenant diseñada para empresas que buscan optimizar sus procesos de gestión y colaboración, desarrollada siguiendo la metodología VThink 1.0.
 
 ## 🚀 Características Principales
 

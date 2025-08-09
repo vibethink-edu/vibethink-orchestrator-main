@@ -47,7 +47,8 @@ import {
 } from '@/shared/components/ui/select'
 import type { FileUploadDialogProps } from '../types'
 
-interface UploadFile extends File {
+type UploadFile = {
+  file: File
   id: string
   status: 'pending' | 'uploading' | 'completed' | 'error'
   progress: number
@@ -104,14 +105,13 @@ export function FileUploadDialog({
   }
 
   const processFiles = (fileList: FileList) => {
-    const newFiles: UploadFile[] = Array.from(fileList).map(file => ({
-      ...file,
+    const newFiles: UploadFile[] = Array.from(fileList).map((file) => ({
+      file,
       id: `${file.name}-${Date.now()}-${Math.random()}`,
-      status: 'pending' as const,
-      progress: 0
+      status: 'pending',
+      progress: 0,
     }))
-    
-    setFiles(prev => [...prev, ...newFiles])
+    setFiles((prev) => [...prev, ...newFiles])
   }
 
   const handleFileSelect = () => {
@@ -195,7 +195,7 @@ export function FileUploadDialog({
           }))
         }, 200)
 
-        await onUpload(file, uploadOptions)
+        await onUpload(file.file, uploadOptions)
         
         clearInterval(progressInterval)
         setFiles(prev => prev.map(f => 
@@ -236,7 +236,7 @@ export function FileUploadDialog({
     }
   }
 
-  const totalSize = files.reduce((sum, file) => sum + file.size, 0)
+  const totalSize = files.reduce((sum, f) => sum + f.file.size, 0)
   const completedFiles = files.filter(f => f.status === 'completed').length
   const errorFiles = files.filter(f => f.status === 'error').length
 
@@ -414,8 +414,8 @@ export function FileUploadDialog({
               
               <div className="space-y-2 max-h-60 overflow-y-auto">
                 {files.map((file) => {
-                  const FileIcon = getFileIcon(file)
-                  const iconColor = getFileIconColor(file)
+                  const FileIcon = getFileIcon(file.file)
+                  const iconColor = getFileIconColor(file.file)
                   
                   return (
                     <div
@@ -428,9 +428,9 @@ export function FileUploadDialog({
                       />
                       
                       <div className="flex-1 min-w-0">
-                        <p className="font-medium truncate">{file.name}</p>
+                        <p className="font-medium truncate">{file.file.name}</p>
                         <p className="text-sm text-muted-foreground">
-                          {formatBytes(file.size)}
+                          {formatBytes(file.file.size)}
                         </p>
                         
                         {file.status === 'uploading' && (

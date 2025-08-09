@@ -10,8 +10,13 @@
 import { createClient } from '@supabase/supabase-js';
 
 // Configuración de Supabase
-const SUPABASE_URL = "https://pikywaoqlekupfynnclg.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBpa3l3YW9xbGVrdXBmeW5uY2xnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk5NTE3NTgsImV4cCI6MjA2NTUyNzc1OH0.jt_uLXm-GhrcrPd4VXe4ZcEHIdKH35sj5o8aABCUutE";
+const SUPABASE_URL = process.env.SUPABASE_URL || "";
+const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || "";
+
+if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+  console.error('❌ Missing SUPABASE_URL / SUPABASE_ANON_KEY in env for testing.');
+  process.exit(1);
+}
 
 // Crear cliente Supabase
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);

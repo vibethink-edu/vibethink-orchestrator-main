@@ -18,7 +18,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { useDebounce } from '@/shared/hooks/hooks/base/useDebounce';
 import { Note, UpdateNotePayload, NoteType } from '../types';
 
-interface UseNoteEditorReturn {
+export interface UseNoteEditorReturn {
   // Editor state
   title: string;
   content: string;
@@ -96,8 +96,8 @@ export function useNoteEditor(options: UseNoteEditorOptions = {}): UseNoteEditor
   const editorRef = useRef<HTMLTextAreaElement | null>(null);
   
   // Debounced content for auto-save
-  const debouncedTitle = useDebounce(title, autoSaveInterval);
-  const debouncedContent = useDebounce(content, autoSaveInterval);
+  const debouncedTitle = useDebounce(title, { delay: autoSaveInterval });
+  const debouncedContent = useDebounce(content, { delay: autoSaveInterval });
 
   /**
    * Set title with dirty tracking

@@ -274,10 +274,10 @@ export const useCalendarData = (): UseCalendarDataReturn => {
       //   .single();
 
       // Simulate API call
-      const newEvent: VThinkCalendarEvent = {
+      const newEvent = {
         ...newEventData,
         id: `event_${Date.now()}`,
-      };
+      } as VThinkCalendarEvent;
 
       // Optimistic update
       setEvents(prev => [...prev, newEvent]);
@@ -384,14 +384,14 @@ export const useCalendarData = (): UseCalendarDataReturn => {
     }
 
     try {
-      const newEvents: VThinkCalendarEvent[] = eventsData.map((eventData, index) => ({
+      const newEvents = eventsData.map((eventData, index) => ({
         ...eventData,
         id: `bulk_event_${Date.now()}_${index}`,
         company_id: user.company_id, // CRITICAL: Security enforcement
         created_by: user.id,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
-      }));
+      })) as VThinkCalendarEvent[];
 
       // Optimistic update
       setEvents(prev => [...prev, ...newEvents]);

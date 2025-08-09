@@ -233,7 +233,7 @@ export default function MailPage() {
                       onClick={() => handleFolderSelect(folder.id)}
                     >
                       <p className="text-sm font-medium">{folder.name}</p>
-                      <p className="text-xs text-muted-foreground">{folder.count} emails</p>
+                      <p className="text-xs text-muted-foreground">{folder.total_count} emails</p>
                     </div>
                   ))}
                 </div>

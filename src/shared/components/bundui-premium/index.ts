@@ -66,3 +66,6 @@ export * from './lib/themes';
 // export * from './lib/fonts'; // Comentado - depende de Next.js (next/font module) 
 // Debug Panel
 export { default as SystemDebugPanel } from "./components/debug/SystemDebugPanel";
+// Premium dashboards/pages
+export { default as BunduiPremiumDashboard } from './components/BunduiPremiumDashboard';
+export { default as PremiumTestPageEnhanced } from './components/PremiumTestPageEnhanced';

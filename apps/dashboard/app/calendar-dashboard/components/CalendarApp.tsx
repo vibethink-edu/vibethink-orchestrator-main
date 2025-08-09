@@ -19,12 +19,12 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
-import interactionPlugin, {
-  DateClickArg,
-  EventDragStopArg,
-  EventResizeStopArg
-} from '@fullcalendar/interaction';
+import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction';
 import { EventClickArg, EventInput } from '@fullcalendar/core';
+// Local minimal types to keep strict typing without depending on specific FC arg names
+type CalendarEventApi = { id: string; start?: Date | null; end?: Date | null };
+type EventDropInfo = { event: CalendarEventApi; revert: () => void };
+type EventResizeInfo = { event: CalendarEventApi; revert: () => void };
 import { toast } from 'sonner';
 
 import { useCalendarData } from '../hooks/useCalendarData';
@@ -180,7 +180,7 @@ const CalendarApp: React.FC = () => {
   /**
    * Handle Event Drag & Drop
    */
-  const handleEventDrop = useCallback(async (dropInfo: EventDragStopArg) => {
+  const handleEventDrop = useCallback(async (dropInfo: EventDropInfo) => {
     const eventId = dropInfo.event.id;
     const event = events.find((e) => e.id === eventId);
     
@@ -209,7 +209,7 @@ const CalendarApp: React.FC = () => {
   /**
    * Handle Event Resize
    */
-  const handleEventResize = useCallback(async (resizeInfo: EventResizeStopArg) => {
+  const handleEventResize = useCallback(async (resizeInfo: EventResizeInfo) => {
     const eventId = resizeInfo.event.id;
     const event = events.find((e) => e.id === eventId);
     

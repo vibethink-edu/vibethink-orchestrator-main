@@ -305,6 +305,7 @@ export interface CreateNotePayload {
 
 export interface UpdateNotePayload extends Partial<CreateNotePayload> {
   id: string;
+  status?: NoteStatus;
 }
 
 /**
