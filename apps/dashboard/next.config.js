@@ -12,11 +12,6 @@ const nextConfig = {
       },
     ];
   },
-};
-
-module.exports = nextConfig;
-/** @type {import('next').NextConfig} */
-const nextConfig = {
   transpilePackages: ['@radix-ui/react-icons'],
   webpack: (config) => {
     config.resolve.alias = {
@@ -25,6 +20,6 @@ const nextConfig = {
     };
     return config;
   },
-}
+};
 
-module.exports = nextConfig 
+module.exports = nextConfig;

@@ -88,7 +88,7 @@ export default function Sidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
+              <DropdownMenuTrigger>
                 <SidebarMenuButton className="hover:text-foreground rounded-none hover:bg-[var(--primary)]/10 data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground group-data-[collapsible=icon]:!justify-center">
                   <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                     <Logo />
@@ -153,7 +153,7 @@ export default function Sidebar() {
                           {/* Collapsed Mode: DropdownMenu lateral */}
                           <div className="hidden group-data-[collapsible=icon]:block">
                             <DropdownMenu>
-                              <DropdownMenuTrigger asChild>
+              <DropdownMenuTrigger>
                                 <SidebarMenuButton
                                   className="hover:text-foreground! active:text-foreground! hover:bg-[var(--primary)]/10! active:bg-[var(--primary)]/10! relative"
                                   tooltip={item.title}>
@@ -322,7 +322,7 @@ export default function Sidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
+              <DropdownMenuTrigger>
                 <SidebarMenuButton className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
                   <div className="relative group-data-[collapsible=icon]:flex group-data-[collapsible=icon]:items-center group-data-[collapsible=icon]:justify-center">
                     <Avatar className="h-8 w-8 rounded-lg group-data-[collapsible=icon]:h-6 group-data-[collapsible=icon]:w-6">
