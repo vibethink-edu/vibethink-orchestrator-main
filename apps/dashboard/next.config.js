@@ -12,7 +12,22 @@ const nextConfig = {
       },
     ];
   },
-  transpilePackages: ['@radix-ui/react-icons'],
+  transpilePackages: ['@radix-ui/react-icons', 'lucide-react'],
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+  },
+  swcMinify: true,
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,

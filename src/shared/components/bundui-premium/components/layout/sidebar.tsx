@@ -88,8 +88,9 @@ export default function Sidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <DropdownMenu>
-              <DropdownMenuTrigger>
-                <SidebarMenuButton className="hover:text-foreground rounded-none hover:bg-[var(--primary)]/10 data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground group-data-[collapsible=icon]:!justify-center">
+              <DropdownMenuTrigger asChild>
+                {/* Evitar button dentro de button: el trigger asChild envuelve un div clickable */}
+                <div className="hover:text-foreground rounded-none hover:bg-[var(--primary)]/10 data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground group-data-[collapsible=icon]:!justify-center flex items-center gap-2 px-2 py-1.5 cursor-pointer rounded-md">
                   <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                     <Logo />
                   </div>
@@ -98,7 +99,7 @@ export default function Sidebar() {
                     <span className="truncate text-xs text-muted-foreground">Enterprise</span>
                   </div>
                   <ChevronsUpDown className="ml-auto size-4 group-data-[collapsible=icon]:hidden" />
-                </SidebarMenuButton>
+                </div>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-64 p-2">
                 <DropdownMenuLabel className="px-2 py-1.5 text-xs font-medium text-muted-foreground">
@@ -153,24 +154,25 @@ export default function Sidebar() {
                           {/* Collapsed Mode: DropdownMenu lateral */}
                           <div className="hidden group-data-[collapsible=icon]:block">
                             <DropdownMenu>
-              <DropdownMenuTrigger>
-                                <SidebarMenuButton
-                                  className="hover:text-foreground! active:text-foreground! hover:bg-[var(--primary)]/10! active:bg-[var(--primary)]/10! relative"
-                                  tooltip={item.title}>
+                              <DropdownMenuTrigger asChild>
+                                {/* Evitar button dentro de button en collapsed mode */}
+                                <div
+                                  className="hover:text-foreground active:text-foreground hover:bg-[var(--primary)]/10 active:bg-[var(--primary)]/10 relative flex items-center gap-2 px-2 py-1.5 cursor-pointer rounded-md"
+                                  title={item.title}
+                                >
                                   {item.icon && (
                                     <div className="relative">
                                       <Icon
                                         name={item.icon}
                                         className="accent-sidebar-foreground size-4"
                                       />
-                                      {/* Indicador de sub-opciones en modo collapsed - VThink UX Innovation */}
                                       <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs">
                                         &gt;
                                       </div>
                                     </div>
                                   )}
                                   <span>{item.title}</span>
-                                </SidebarMenuButton>
+                                </div>
                               </DropdownMenuTrigger>
                               {item.items?.length ? (
                                                                  <DropdownMenuContent
@@ -322,8 +324,8 @@ export default function Sidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <DropdownMenu>
-              <DropdownMenuTrigger>
-                <SidebarMenuButton className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
+              <DropdownMenuTrigger asChild>
+                <div className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground flex items-center gap-2 px-2 py-1.5 cursor-pointer rounded-md">
                   <div className="relative group-data-[collapsible=icon]:flex group-data-[collapsible=icon]:items-center group-data-[collapsible=icon]:justify-center">
                     <Avatar className="h-8 w-8 rounded-lg group-data-[collapsible=icon]:h-6 group-data-[collapsible=icon]:w-6">
                       <AvatarImage src="/placeholder.svg" alt="User avatar" />
@@ -336,7 +338,7 @@ export default function Sidebar() {
                     <span className="truncate text-xs text-muted-foreground">m@example.com</span>
                   </div>
                   <ChevronsUpDown className="ml-auto size-4 group-data-[collapsible=icon]:hidden" />
-                </SidebarMenuButton>
+                </div>
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 className="w-[--radix-dropdown-menu-trigger-width] min-w-[14rem] rounded-lg"
