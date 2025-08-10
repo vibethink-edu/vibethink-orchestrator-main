@@ -88,9 +88,9 @@ export default function Sidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                {/* Evitar button dentro de button: el trigger asChild envuelve un div clickable */}
-                <div className="hover:text-foreground rounded-none hover:bg-[var(--primary)]/10 data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground group-data-[collapsible=icon]:!justify-center flex items-center gap-2 px-2 py-1.5 cursor-pointer rounded-md">
+              <DropdownMenuTrigger>
+                {/* Trigger propio (Radix genera button); evitamos nested button moviendo el contenido a div interno */}
+                <div className="hover:text-foreground rounded-none hover:bg-[var(--primary)]/10 data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground group-data-[collapsible=icon]:!justify-center flex items-center gap-2 px-2 py-1.5">
                   <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                     <Logo />
                   </div>
@@ -154,12 +154,9 @@ export default function Sidebar() {
                           {/* Collapsed Mode: DropdownMenu lateral */}
                           <div className="hidden group-data-[collapsible=icon]:block">
                             <DropdownMenu>
-                              <DropdownMenuTrigger asChild>
-                                {/* Evitar button dentro de button en collapsed mode */}
-                                <div
-                                  className="hover:text-foreground active:text-foreground hover:bg-[var(--primary)]/10 active:bg-[var(--primary)]/10 relative flex items-center gap-2 px-2 py-1.5 cursor-pointer rounded-md"
-                                  title={item.title}
-                                >
+                              <DropdownMenuTrigger>
+                                {/* Trigger propio; contenido en div para evitar nested button */}
+                                <div className="hover:text-foreground active:text-foreground hover:bg-[var(--primary)]/10 active:bg-[var(--primary)]/10 relative flex items-center gap-2 px-2 py-1.5" title={item.title}>
                                   {item.icon && (
                                     <div className="relative">
                                       <Icon
@@ -324,8 +321,8 @@ export default function Sidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <div className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground flex items-center gap-2 px-2 py-1.5 cursor-pointer rounded-md">
+              <DropdownMenuTrigger>
+                <div className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground flex items-center gap-2 px-2 py-1.5">
                   <div className="relative group-data-[collapsible=icon]:flex group-data-[collapsible=icon]:items-center group-data-[collapsible=icon]:justify-center">
                     <Avatar className="h-8 w-8 rounded-lg group-data-[collapsible=icon]:h-6 group-data-[collapsible=icon]:w-6">
                       <AvatarImage src="/placeholder.svg" alt="User avatar" />

@@ -27,7 +27,6 @@ const nextConfig = {
       },
     ],
   },
-  swcMinify: true,
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
