@@ -387,18 +387,25 @@
   --color-accent-foreground: hsl(var(--accent-foreground));
   --color-popover: hsl(var(--popover));
   --color-popover-foreground: hsl(var(--popover-foreground));
+  /* Tailwind v4 color tokens for sidebar-* utilities used by shadcn/ui */
+  --color-sidebar-background: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
 }
 
 /* =============================================================================
  * DROPDOWN MENU FIX - FORCE SOLID BACKGROUND
  * ============================================================================= */
 
-[data-slot="dropdown-menu-content"] {
-  background-color: hsl(var(--popover)) !important;
+/* Ensure dropdown popover background color works with Tailwind v4 tokens */
+[data-slot="dropdown-menu-content"],
+.bg-popover {
+  background-color: var(--color-popover) !important;
+  color: var(--color-popover-foreground) !important;
   opacity: 1 !important;
 }
-
-.bg-popover {
-  background-color: hsl(var(--popover)) !important;
-  opacity: 1 !important;
-} 
