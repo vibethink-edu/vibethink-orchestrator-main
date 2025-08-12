@@ -10,7 +10,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
+import { cn } from '@/shared/lib/utils';
 import { Button } from '@/shared/components/bundui-premium/components/ui/button';
 import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
 import { 
@@ -23,10 +23,18 @@ import {
   Home,
   Activity,
   Users,
-  FileText
+  FileText,
+  Layout
 } from 'lucide-react';
 
 const dashboardNavigation = [
+  {
+    title: "Default",
+    href: "/default",
+    icon: Layout,
+    description: "Default dashboard (Bundui Reference)",
+    badge: "Bundui"
+  },
   {
     title: "Overview",
     href: "/enhanced-dashboard",

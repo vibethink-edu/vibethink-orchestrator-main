@@ -68,7 +68,7 @@ export const TranslationCompletedEmail: React.FC<TranslationCompletedEmailProps>
               src="https://vthink.com/logo.png"
               width="150"
               height="40"
-              alt="VThink"
+              alt="VibeThink"
               style={logo}
             />
           </Section>
@@ -194,7 +194,7 @@ export const TranslationCompletedEmail: React.FC<TranslationCompletedEmailProps>
             </Text>
 
             <Text style={footer}>
-              © 2024 VThink. Todos los derechos reservados.
+              © 2024 VibeThink. Todos los derechos reservados.
             </Text>
           </Section>
         </Container>

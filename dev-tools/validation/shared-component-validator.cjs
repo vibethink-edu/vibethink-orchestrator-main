@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Shared Component Validator - VThink 1.0
+ * Shared Component Validator - VibeThink Orchestrator
  * Validates shared components integrity and usage across monorepo
  */
 
@@ -368,7 +368,7 @@ ${this.warnings.map(item => `- ${item}`).join('\n')}
 ## ❌ Errores Críticos
 ${this.errors.map(item => `- ${item}`).join('\n')}
 
-## 🎯 Recomendaciones VThink 1.0
+## 🎯 Recomendaciones VibeThink Orchestrator
 
 ### Estructura Óptima
 \`\`\`
@@ -402,7 +402,7 @@ import { Component } from '../../../shared/components/ui/component';
 - Componentes reutilizables solo en shared/
 
 ---
-*Generado automáticamente por VThink 1.0 Shared Component Validator*
+*Generado automáticamente por VibeThink Orchestrator Shared Component Validator*
 `;
 
     fs.writeFileSync(reportFile, report);

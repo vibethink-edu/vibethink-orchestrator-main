@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, createContext, useContext, useEffect, useState } from "react";
-import { DEFAULT_THEME, ThemeType } from "@/lib/themes";
+import { DEFAULT_THEME, ThemeType } from "@/shared/lib/themes";
 
 function setThemeCookie(key: string, value: string | null) {
   if (typeof window === "undefined") return;

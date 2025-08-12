@@ -1,7 +1,7 @@
 import tracer fromdd-trace;
 
 /**
- * DataDog Observability Module - VThink1
+ * DataDog Observability Module - VibeThink1
  * 
  * Proporciona:
  * - Distributed tracing

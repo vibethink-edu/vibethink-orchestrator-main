@@ -241,7 +241,7 @@ export default function CustomSidebar() {
       <div style={{ padding: '16px', borderTop: '1px solid hsl(220, 20%, 90%)' }}>
         <div style={menuItemStyle}>
           <User size={16} />
-          <span>VThink User</span>
+          <span>VibeThink User</span>
         </div>
       </div>
     </div>

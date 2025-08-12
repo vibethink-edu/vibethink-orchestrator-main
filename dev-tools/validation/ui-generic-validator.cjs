@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * UI Generic Principles Validator - VThink 1.0
+ * UI Generic Principles Validator - VibeThink Orchestrator
  * Valida que los componentes sigan los principios de UI genérico
  */
 

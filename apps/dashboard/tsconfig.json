@@ -21,8 +21,9 @@
     "paths": {
       "@/*": ["../../src/*"],
       "@/shared/*": ["../../src/shared/*"],
-      "@/lib/*": ["../../src/lib/*"],
-      "@/components/*": ["./src/components/*"]
+      "@/lib/*": ["./lib/*"],
+      "@/components/*": ["./src/components/*", "./src/shared/components/bundui-premium/components/*"],
+      "@/hooks/*": ["./hooks/*"]
     },
     "plugins": [
       {

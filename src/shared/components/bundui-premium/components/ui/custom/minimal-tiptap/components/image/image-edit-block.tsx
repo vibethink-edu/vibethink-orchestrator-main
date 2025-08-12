@@ -1,8 +1,8 @@
 import * as React from 'react'
 import type { Editor } from '@tiptap/react'
-import { Button } from '@/components/ui/button'
-import { Label } from '@/components/ui/label'
-import { Input } from '@/components/ui/input'
+import { Button } from "@/shared/components/bundui-premium/components/ui/button"
+import { Label } from "@/shared/components/bundui-premium/components/ui/label"
+import { Input } from "@/shared/components/bundui-premium/components/ui/input"
 
 interface ImageEditBlockProps {
   editor: Editor

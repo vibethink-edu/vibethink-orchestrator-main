@@ -23,7 +23,7 @@ interface PasswordResetEmailProps {
 }
 
 export const PasswordResetEmail: React.FC<PasswordResetEmailProps> = ({ user, resetToken }) => {
-  const previewText = 'Restablece tu contraseña de VThink';
+  const previewText = 'Restablece tu contraseña de VibeThink';
   const resetUrl = `${process.env.NEXT_PUBLIC_APP_URL}/reset-password?token=${resetToken}`;
 
   return (
@@ -37,7 +37,7 @@ export const PasswordResetEmail: React.FC<PasswordResetEmailProps> = ({ user, re
               src="https://vthink.com/logo.png"
               width="150"
               height="40"
-              alt="VThink"
+              alt="VibeThink"
               style={logo}
             />
           </Section>
@@ -86,7 +86,7 @@ export const PasswordResetEmail: React.FC<PasswordResetEmailProps> = ({ user, re
             </Text>
 
             <Text style={footer}>
-              © 2024 VThink. Todos los derechos reservados.
+              © 2024 VibeThink. Todos los derechos reservados.
             </Text>
           </Section>
         </Container>

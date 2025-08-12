@@ -5,7 +5,7 @@
 // Definiciones TypeScript para el sistema AI Chat completo
 // Aplica patterns de multi-tenant security y database types
 //
-// VThink 1.0 Compliance:
+
 // - ✅ Multi-tenant ready
 // - ✅ Type-safe
 // - ✅ Database aligned

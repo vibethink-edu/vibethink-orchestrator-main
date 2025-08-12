@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Architecture Guard - VThink 1.0
+ * Architecture Guard - VibeThink Orchestrator
  * Previene violaciones de arquitectura ANTES de que ocurran
  */
 

@@ -166,7 +166,7 @@ export default function UnifiedSidebar() {
               tooltip="User Settings"
             >
               <User className="h-4 w-4" />
-              <span className="group-data-[collapsible=icon]:hidden">VThink User</span>
+              <span className="group-data-[collapsible=icon]:hidden">VibeThink User</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

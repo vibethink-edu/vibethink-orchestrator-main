@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Performance Validator - VThink 1.0
+ * Performance Validator - VibeThink Orchestrator
  * Validates performance metrics and optimization standards
  */
 
@@ -451,7 +451,7 @@ ${this.errors.map(item => `- ${item}`).join('\n')}
 - Considerar alternativas más ligeras
 
 ---
-*Generado automáticamente por VThink 1.0 Performance Validator*
+*Generado automáticamente por VibeThink Orchestrator Performance Validator*
 `;
 
     fs.writeFileSync(reportFile, report);
@@ -497,7 +497,7 @@ ${this.errors.map(item => `- ${item}`).join('\n')}
     console.log(`❌ Errores críticos: ${this.errors.length}`);
     
     if (this.errors.length === 0) {
-      console.log('\n✅ Performance dentro de estándares VThink 1.0');
+      console.log('\n✅ Performance dentro de estándares VibeThink Orchestrator');
     } else {
       console.log('\n❌ Se encontraron problemas críticos de performance');
     }

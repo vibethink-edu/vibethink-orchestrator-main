@@ -249,3 +249,76 @@ npm run ai:stability-check  # Quick stability check
 - No ejecutar `next build` directamente dentro de apps
 - Dependencias solo en root; apps sin node_modules
 - Versiones exactas (sin ^ ni ~ ni latest)
+
+---
+
+## 📦 **DEPENDENCY MANAGEMENT - MONOREPO NPM RULES**
+
+### 🚨 **CRITICAL: NPM Monorepo Management**
+
+**📋 SINGLE SOURCE OF TRUTH**: All dependency management rules are documented in:
+- **[NPM_MONOREPO_RULES.md](./NPM_MONOREPO_RULES.md)** - Complete reference guide
+- **[CLAUDE.md](./CLAUDE.md)** - Quick reference for AI assistants
+
+### **⚡ Quick Commands**
+```bash
+# Validate dependency state
+npm run validate:npm-install
+
+# Fix duplications automatically  
+npm run fix:npm-duplications
+
+# Complete validation
+npm run validate:universal
+```
+
+### **📊 Decision Table**
+| Dependency Type | Install Location | Command Example |
+|----------------|------------------|-----------------|
+| **Core** (react, next, typescript) | **RAÍZ** | `npm install react next` |
+| **Shared** (clsx, zod, supabase) | **RAÍZ** | `npm install clsx zod` |
+| **App-specific** (fullcalendar, framer) | **APP** | `cd apps/dashboard && npm install` |
+
+### **🔴 CRITICAL RULES**
+1. **NEVER DUPLICATE**: Core dependencies must only exist in root
+2. **EXACT VERSIONS**: No caret (^) versions for core apps  
+3. **MARKETING EXCEPTION**: Website can use React 19 and caret versions
+4. **VALIDATION REQUIRED**: Always run `validate:npm-install` before commits
+
+### **❌ ANTI-PATTERNS**
+```bash
+# ❌ FORBIDDEN: Installing core deps in apps
+cd apps/dashboard && npm install react typescript
+
+# ❌ FORBIDDEN: Using caret versions (except website)
+"react": "^18.3.1"  
+
+# ❌ FORBIDDEN: Bypassing validation
+git commit -m "changes" # Without running validate:universal
+```
+
+### **✅ CORRECT PATTERNS**
+```bash
+# ✅ CORRECT: Install shared dependency
+npm install @supabase/supabase-js
+
+# ✅ CORRECT: Install app-specific dependency
+cd apps/dashboard && npm install @fullcalendar/react
+
+# ✅ CORRECT: Validate before committing
+npm run validate:universal && git commit
+```
+
+### **🔧 ERROR CORRECTION**
+```bash
+# 1. Detect issues
+npm run validate:npm-install
+
+# 2. Fix automatically (recommended)
+npm run fix:npm-duplications
+
+# 3. Verify fix
+npm run validate:npm-install
+```
+
+**📖 For complete rules, examples, and troubleshooting**: [NPM_MONOREPO_RULES.md](./NPM_MONOREPO_RULES.md)

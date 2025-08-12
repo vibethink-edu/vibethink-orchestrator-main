@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Pre-Command Validator - VThink 1.0
+ * Pre-Command Validator - VibeThink Orchestrator
  * Se ejecuta ANTES de cada comando para prevenir violaciones
  */
 

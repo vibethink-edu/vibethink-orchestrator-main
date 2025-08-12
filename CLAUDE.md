@@ -4,7 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 🤖 Meta-Documentation Principle
 
-**AI-FIRST DOCUMENTATION**: All documentation in this repository follows AI-friendly patterns for optimal AI-human collaboration. When creating or updating any documentation:
+**AI-FIRST DOCUMENTATION**: All documentation in this repository follows AI-friendly patterns for optimal AI-human collaboration.
+
+## 📚 Critical Documentation References
+
+**MUST READ BEFORE ANY CHANGES:**
+- 📦 **NPM Dependencies**: See `NPM_MONOREPO_RULES.md` for mandatory npm install rules
+- 🌍 **Multilang/i18n**: See `MULTILANG_VALIDATION_RULES.md` for internationalization rules
+- 🏗️ **Architecture**: See architecture rules below and in respective docs
+
+When creating or updating any documentation:
 
 - ✅ **Structure**: Use clear headers, bullets, code blocks
 - ✅ **Examples**: Always include "do this" vs "don't do this" 
@@ -20,25 +29,67 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### **📋 REGLAS ABSOLUTAS - NUNCA VIOLAR:**
 
-#### **📦 DEPENDENCY MANAGEMENT RULES (OBLIGATORIAS):**
+#### **📦 DEPENDENCY MANAGEMENT RULES (POR TIPO DE APP):**
+
+**🔴 CORE APPS (dashboard, admin, login, helpdesk, main-app):**
 ```json
 // ✅ MANDATORY: Use exact versions only
 "next": "15.3.4"  // ✅ YES - exact version
 "@radix-ui/react-tooltip": "1.0.7"  // ✅ YES - exact version
 
-// ❌ FORBIDDEN: Never use caret versions
-"next": "^15.3.4"  // ❌ NO - causes instability
-"@radix-ui/react-tooltip": "^1.0.7"  // ❌ NO - causes instability
+// ❌ FORBIDDEN: Never use caret versions in core apps
+"next": "^15.3.4"  // ❌ NO - causes instability in critical systems
+"@radix-ui/react-tooltip": "^1.0.7"  // ❌ NO - breaks reproducibility
 ```
 
-#### **🏗️ MONOREPO RULES (OBLIGATORIAS):**
-```bash
-# ✅ MANDATORY: Install only in root for shared dependencies
-npm install clsx tailwind-merge --save  # ✅ ONLY in root
+**🟡 MARKETING APPS (website):**
+```json
+// ✅ PERMITIDO: Caret for patch/minor updates
+"next": "^15.3.4"  // ✅ YES - marketing can use caret for speed
+"@radix-ui/react-tooltip": "^1.0.7"  // ✅ YES - faster iteration allowed
 
-# ❌ FORBIDDEN: Never install in both places
-npm install clsx --save  # ❌ NO in apps/dashboard
-npm install clsx --save  # ❌ NO in root (duplicate)
+// ⚠️ PREFERIDO: Exact versions still recommended for stability
+"react": "19.0.0"  // ⚠️ MEJOR que "^19.0.0" pero no obligatorio
+
+// ❌ EVITAR: Tilde versions
+"next": "~15.3.4"  // ❌ Preferir ^ sobre ~ en marketing
+```
+
+#### **🏗️ MONOREPO NPM INSTALL RULES (CRÍTICAS):**
+
+**📁 DESDE RAÍZ (`/`) - DEPENDENCIAS COMPARTIDAS:**
+```bash
+# ✅ SIEMPRE instalar en raíz:
+npm install react react-dom next typescript    # Core dependencies
+npm install clsx tailwind-merge zustand       # Shared utilities
+npm install -D eslint prettier postcss        # Dev tools
+
+# ❌ NUNCA en raíz:
+npm install @fullcalendar/react  # ❌ Específico de dashboard
+npm install framer-motion        # ❌ Específico de website
+```
+
+**📁 DESDE APPS (`/apps/[nombre]`) - DEPENDENCIAS ESPECÍFICAS:**
+```bash
+# ✅ PERMITIDO en app específica:
+cd apps/dashboard && npm install @fullcalendar/react  # ✅ Solo dashboard usa
+cd apps/website && npm install framer-motion         # ✅ Solo website usa
+
+# ❌ PROHIBIDO en apps:
+cd apps/dashboard && npm install react      # ❌ Duplicaría React
+cd apps/admin && npm install typescript     # ❌ Duplicaría TypeScript
+cd apps/login && npm install clsx          # ❌ Ya está en raíz
+```
+
+**⚠️ EXCEPCIONES DOCUMENTADAS:**
+```bash
+# Website (marketing) puede usar React 19:
+cd apps/website && npm install react@^19    # ✅ Excepción permitida
+```
+
+**🚨 COMANDO DE VALIDACIÓN:**
+```bash
+npm run validate:npm-install     # Verifica instalaciones correctas
 ```
 
 #### **🛡️ STABILITY RULES (OBLIGATORIAS):**
@@ -325,18 +376,18 @@ import { Component } from '../../../shared/components';
 - Implement proper error handling with typed responses
 
 ### Component Development
-- Follow the **Component Evaluation Guidelines** in `docs/development/COMPONENT_EVALUATION_GUIDELINES.md`
+- Follow the **UI Master Guide** in `UI_MASTER_GUIDE.md` - SINGLE SOURCE OF TRUTH for all UI standards
 - For any Bundui Premium inspired components, follow strict decoupling and validation process
 - All premium components must be reimplemented, not copied
 - **Graphics Development**: Use `docs/development/BUNDUI_DECOUPLING_GUIDE.md` for chart/UI components
 - **Chart Implementation**: Charts use Recharts with `hsl(var(--chart-X))` color variables
 
 #### **DOI Principle - CRITICAL for ALL Components:**
-**Rule**: Bundui Visual Fidelity + Shadcn Technical Compatibility
-- **Colors**: Use HSL format `hsl(12 88% 59%)` NOT oklch - ensures shadcn/ui compatibility
-- **Variables**: Always use `hsl(var(--variable))` pattern for theming
-- **Base Components**: Prefer shadcn/ui components over custom implementations
-- **Future-proof**: Prevents refactoring when adding new shadcn components
+**Rule**: Bundui Premium Exact Implementation - 100% Fidelity
+- **Colors**: Use OKLCH format `oklch(0.5827 0.2418 12.23)` - exactly as Bundui Premium
+- **Variables**: Follow Bundui Premium's exact variable patterns
+- **Base Components**: Use bundui-premium components exactly as they are
+- **No Deviations**: Match Bundui Premium demo 100% - no conversions or adaptations
 
 #### **VThink UX Improvements over Bundui-Premium - DO NOT REMOVE:**
 **CRITICAL**: These are improvements we made that are BETTER than bundui-premium reference:
@@ -373,18 +424,18 @@ src/shared/components/bundui-premium/
 
 #### **Color System - MANDATORY for Charts:**
 ```css
-/* ✅ ALWAYS USE: HSL format for shadcn compatibility */
+/* ✅ ALWAYS USE: OKLCH format exactly as Bundui Premium */
 :root {
-  --chart-1: 12 76% 61%;
-  --chart-2: 173 58% 39%;
-  --chart-3: 197 37% 24%;
+  --primary: oklch(0.5827 0.2418 12.23);
+  --chart-1: oklch(0.5827 0.2418 12.23);
+  --chart-2: oklch(0.765 0.177 163.22);
 }
 
 /* ✅ In components: */
-color: "hsl(var(--chart-1))"
-
-/* ❌ NEVER USE: OKLCH format breaks shadcn/ui */
 color: "oklch(0.5827 0.2418 12.23)"
+
+/* ✅ BUNDUI PREMIUM WAY: Direct OKLCH values */
+background-color: oklch(0.765 0.177 163.22);
 ```
 
 ## Testing Strategy

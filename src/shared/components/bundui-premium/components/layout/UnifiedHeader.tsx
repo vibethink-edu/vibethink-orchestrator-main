@@ -3,7 +3,7 @@
 /**
  * UnifiedHeader - Header único para todos los dashboards
  * Extraído del BunduiCompleteLayout para ser el punto único de control
- * de la barra superior en todo el sistema VThink
+ * de la barra superior en todo el sistema VibeThink
  */
 
 import React from 'react';

@@ -1,44 +1,52 @@
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { VThinkThemeProvider } from "@/shared/components/bundui-premium/components/theme-customizer"
-import { NextThemeProvider } from "./theme-provider"
+import React from "react";
+import { cookies } from "next/headers";
+import { cn } from "@/shared/lib/utils";
+import { ThemeProvider } from "next-themes";
+import { fontVariables } from "@/shared/components/bundui-premium/lib/fonts";
 
-// =============================================================================
-// DASHBOARD LAYOUT
-// =============================================================================
-// 
-// Layout principal de la app dashboard que consume Bundui.
-// Implementa el mismo diseño que la demo de Shadcn UI Kit.
-//
-// VThink 1.0 Compliance:
-// - ✅ Multi-tenant ready
-// - ✅ Bundui integration
-// - ✅ Performance optimized
-// - ✅ Type-safe
-// =============================================================================
+import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] })
+import { ActiveThemeProvider } from "@/shared/components/bundui-premium/components/active-theme";
+import { DEFAULT_THEME } from "@/shared/lib/themes";
+import { Toaster } from "@/shared/components/bundui-premium/components/ui/sonner";
 
-export const metadata: Metadata = {
-  title: "VibeThink Dashboard",
-  description: "Dashboard principal de VibeThink Orchestrator",
-}
+export default async function RootLayout({
+  children
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const cookieStore = await cookies();
+  const themeSettings = {
+    preset: (cookieStore.get("theme_preset")?.value ?? DEFAULT_THEME.preset) as any,
+    scale: (cookieStore.get("theme_scale")?.value ?? DEFAULT_THEME.scale) as any,
+    radius: (cookieStore.get("theme_radius")?.value ?? DEFAULT_THEME.radius) as any,
+    contentLayout: (cookieStore.get("theme_content_layout")?.value ??
+      DEFAULT_THEME.contentLayout) as any
+  };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+  const bodyAttributes = Object.fromEntries(
+    Object.entries(themeSettings)
+      .filter(([_, value]) => value)
+      .map(([key, value]) => [`data-theme-${key.replace(/([A-Z])/g, "-$1").toLowerCase()}`, value])
+  );
+
   return (
-    <html lang="es" suppressHydrationWarning>
-      <body className={inter.className}>
-        <NextThemeProvider>
-          <VThinkThemeProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        suppressHydrationWarning
+        className={cn("bg-background group/layout font-sans", fontVariables)}
+        {...bodyAttributes}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange>
+          <ActiveThemeProvider initialTheme={themeSettings}>
             {children}
-          </VThinkThemeProvider>
-        </NextThemeProvider>
+            <Toaster position="top-center" richColors />
+          </ActiveThemeProvider>
+        </ThemeProvider>
       </body>
     </html>
-  )
+  );
 } 

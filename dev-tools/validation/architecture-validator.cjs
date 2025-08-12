@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Architecture Validator - VThink 1.0
+ * Architecture Validator - VibeThink Orchestrator
  * Valida que la estructura del proyecto siga ARCHITECTURE_RULES.md
  */
 
@@ -43,7 +43,7 @@ const ARCHITECTURE_RULES = {
 };
 
 function checkArchitecture() {
-  console.log('🏗️  Validando Arquitectura - VThink 1.0\n');
+  console.log('🏗️  Validando Arquitectura - VibeThink Orchestrator\n');
   
   let hasErrors = false;
   const errors = [];

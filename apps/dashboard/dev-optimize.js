@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Optimizador de Desarrollo - VThink 1.0
+ * Optimizador de Desarrollo
  * Script para acelerar el servidor de desarrollo
  */
 
@@ -9,7 +9,7 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-console.log('🚀 VThink Dev Optimizer - Iniciando optimización...\n');
+console.log('🚀 Dev Optimizer - Iniciando optimización...\n');
 
 // 1. Limpieza de caches
 console.log('1️⃣ Limpiando caches...');

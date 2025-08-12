@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Security Validator - VThink 1.0
+ * Security Validator - VibeThink Orchestrator
  * Validates security standards for multi-tenant SaaS platform
  */
 
@@ -14,6 +14,20 @@ class SecurityValidator {
     this.errors = [];
     this.warnings = [];
     this.success = [];
+    
+    // Apps that don't require multi-tenant security (marketing/reference)
+    this.STANDALONE_APPS = ['website', 'bundui-reference'];
+  }
+
+  /**
+   * Check if a file path should be excluded from multitenant security checks
+   */
+  shouldSkipMultiTenantChecks(filePath) {
+    const relativePath = path.relative(this.projectRoot, filePath);
+    return this.STANDALONE_APPS.some(app => 
+      relativePath.includes(`apps/${app}/`) || 
+      relativePath.includes(`apps\\${app}\\`)
+    );
   }
 
   async validate() {
@@ -59,6 +73,11 @@ class SecurityValidator {
         if (stat.isDirectory() && !item.startsWith('.') && item !== 'node_modules') {
           scanForQueries(itemPath);
         } else if (item.endsWith('.ts') || item.endsWith('.tsx')) {
+          // Skip multitenant security checks for standalone apps
+          if (this.shouldSkipMultiTenantChecks(itemPath)) {
+            return;
+          }
+          
           const content = fs.readFileSync(itemPath, 'utf8');
           
           // Buscar queries de Supabase
@@ -473,7 +492,7 @@ ${this.warnings.map(item => `- ${item}`).join('\n')}
 ## ❌ Errores Críticos de Seguridad
 ${this.errors.map(item => `- ${item}`).join('\n')}
 
-## 🛡️ Estándares de Seguridad VThink 1.0
+## 🛡️ Estándares de Seguridad VibeThink Orchestrator
 
 ### Multi-tenant Security (CRÍTICO)
 \`\`\`typescript
@@ -506,7 +525,7 @@ const data = await supabase.from('users').select('*');
 - ✅ CORS configuration
 
 ---
-*Generado automáticamente por VThink 1.0 Security Validator*
+*Generado automáticamente por VibeThink Orchestrator Security Validator*
 `;
 
     fs.writeFileSync(reportFile, report);
@@ -520,7 +539,7 @@ const data = await supabase.from('users').select('*');
     console.log(`❌ Errores críticos: ${this.errors.length}`);
     
     if (this.errors.length === 0) {
-      console.log('\n✅ Seguridad cumple con estándares VThink 1.0');
+      console.log('\n✅ Seguridad cumple con estándares VibeThink Orchestrator');
     } else {
       console.log('\n❌ Se encontraron vulnerabilidades críticas - resolver inmediatamente');
     }

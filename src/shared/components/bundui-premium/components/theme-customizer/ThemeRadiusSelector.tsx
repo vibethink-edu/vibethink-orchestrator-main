@@ -2,7 +2,7 @@
 
 import { Label } from "@/shared/components/bundui-premium/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/shared/components/bundui-premium/components/ui/toggle-group";
-import { useThemeConfig } from "./ThemeProvider";
+import { useThemeConfig } from "../active-theme";
 import { BanIcon } from "lucide-react";
 
 export function ThemeRadiusSelector() {

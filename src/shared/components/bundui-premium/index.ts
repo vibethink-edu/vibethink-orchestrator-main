@@ -1,5 +1,5 @@
 // Bundui Premium Components - VThink 1.0 Integration
-// Exporta todos los componentes premium de Bundui para uso en VThink Orchestrator
+// Exporta todos los componentes premium de Bundui para uso en VibeThink Orchestrator
 
 // Componentes principales
 export { default as ActiveTheme } from './components/ActiveTheme';
@@ -49,6 +49,7 @@ export * from './components/ui/toggle';
 export * from './components/ui/tooltip';
 
 // Layout components
+export { default as DashboardLayout } from './components/layout/DashboardLayout';
 // export { default as Sidebar } from './components/layout/sidebar'; // Comentado - depende de Next.js
 // export { default as Logo } from './components/layout/logo'; // Comentado - depende de Next.js
 
@@ -69,3 +70,13 @@ export { default as SystemDebugPanel } from "./components/debug/SystemDebugPanel
 // Premium dashboards/pages
 export { default as BunduiPremiumDashboard } from './components/BunduiPremiumDashboard';
 export { default as PremiumTestPageEnhanced } from './components/PremiumTestPageEnhanced';
+export { default as BunduiDefaultDashboard } from './components/BunduiDefaultDashboard';
+
+// Dashboard components (100% identical to Bundui-Premium)
+export { TeamMembersCard } from './components/dashboard-components/TeamMembersCard';
+export { SubscriptionsCard } from './components/dashboard-components/SubscriptionsCard';
+export { TotalRevenueCard } from './components/dashboard-components/TotalRevenueCard';
+export { ChatWidget } from './components/dashboard-components/ChatWidget';
+export { ExerciseMinutes } from './components/dashboard-components/ExerciseMinutes';
+export { LatestPayments } from './components/dashboard-components/LatestPayments';
+export { PaymentMethodCard } from './components/dashboard-components/PaymentMethodCard';

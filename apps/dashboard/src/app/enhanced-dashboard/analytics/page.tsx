@@ -1,15 +1,15 @@
 "use client";
 
 import React from 'react';
-import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout';
+import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/bundui-premium/components/ui/card';
 import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
 import { BarChart3, TrendingUp, Activity, PieChart } from 'lucide-react';
 
 const AnalyticsPage = () => {
   return (
-    <BunduiCompleteLayout>
-      <div className="space-y-6 p-6">
+    <DashboardLayout>
+      <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Analytics</h1>
           <p className="text-muted-foreground">
@@ -105,7 +105,7 @@ const AnalyticsPage = () => {
           </Card>
         </div>
       </div>
-    </BunduiCompleteLayout>
+    </DashboardLayout>
   );
 };
 

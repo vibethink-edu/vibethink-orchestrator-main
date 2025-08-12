@@ -7,4 +7,4 @@ export * from "./SidebarModeSelector";
 export * from "./ThemeScaleSelector";
 export * from "./panel";
 export { ThemeCustomizerPanel } from "./panel";
-export { VThinkThemeProvider, useThemeConfig } from "./ThemeProvider";
+export { ActiveThemeProvider, useThemeConfig } from "../active-theme";

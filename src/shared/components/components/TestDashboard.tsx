@@ -47,7 +47,7 @@ const TestDashboard: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         <div className="bg-white rounded-lg shadow-lg p-6">
           <h1 className="text-3xl font-bold text-gray-900 mb-6">
-            🧪 Test Dashboard - VThink Admin
+            🧪 Test Dashboard - VibeThink Admin
           </h1>
           
           <div className="grid gap-6 md:grid-cols-2">

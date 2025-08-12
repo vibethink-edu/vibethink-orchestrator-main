@@ -1,8 +1,14 @@
 # 🌍 Guía de Internacionalización (i18n) - VibeThink Orchestrator
 
-## 📋 Resumen
+> **🚨 DOCUMENTO MIGRADO**  
+> **Esta guía se ha consolidado en:** [`MULTILANG_CONSOLIDATED_RULES.md`](../MULTILANG_VALIDATION_RULES.md)  
+> **Usa el documento consolidado para todas las reglas, implementación y validación multilang.**
 
-VibeThink Orchestrator utiliza **i18next + JSON** como solución de internacionalización, permitiendo soporte completo para múltiples idiomas con detección automática y cambio dinámico.
+---
+
+## 📋 Resumen DEPRECADO
+
+**IMPORTANTE:** Este contenido ha sido migrado y consolidado. Ver documento principal.
 
 ## 🏗️ Arquitectura
 

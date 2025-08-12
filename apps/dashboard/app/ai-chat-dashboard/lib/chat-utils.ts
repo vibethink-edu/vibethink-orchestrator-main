@@ -5,7 +5,7 @@
 // Utilidades para manejo de chat, formateo y validación
 // Funciones helper para el sistema AI Chat
 //
-// VThink 1.0 Compliance:
+
 // - ✅ Multi-tenant security
 // - ✅ Data validation
 // - ✅ Performance optimized

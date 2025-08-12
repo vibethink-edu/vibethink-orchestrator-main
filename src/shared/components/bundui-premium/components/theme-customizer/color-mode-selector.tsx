@@ -1,7 +1,7 @@
 "use client";
 
-import { Label } from "@/components/ui/label";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { Label } from "@/shared/components/bundui-premium/components/ui/label";
+import { ToggleGroup, ToggleGroupItem } from "@/shared/components/bundui-premium/components/ui/toggle-group";
 import { useTheme } from "next-themes";
 
 export function ColorModeSelector() {

@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { Button } from '@/components/ui/button'
-import { Label } from '@/components/ui/label'
-import { Switch } from '@/components/ui/switch'
-import { Input } from '@/components/ui/input'
-import { cn } from '@/lib/utils'
+import { Button } from "@/shared/components/bundui-premium/components/ui/button"
+import { Label } from "@/shared/components/bundui-premium/components/ui/label"
+import { Switch } from "@/shared/components/bundui-premium/components/ui/switch"
+import { Input } from "@/shared/components/bundui-premium/components/ui/input"
+import { cn } from "@/lib/utils"
 
 export interface LinkEditorProps extends React.HTMLAttributes<HTMLDivElement> {
   defaultUrl?: string

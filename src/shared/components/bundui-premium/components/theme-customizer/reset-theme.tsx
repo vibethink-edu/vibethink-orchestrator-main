@@ -1,8 +1,8 @@
 "use client";
 
-import { useThemeConfig } from "@/components/active-theme";
-import { Button } from "@/components/ui/button";
-import { DEFAULT_THEME } from "@/lib/themes";
+import { useThemeConfig } from "@/shared/components/bundui-premium/components/active-theme";
+import { Button } from "@/shared/components/bundui-premium/components/ui/button";
+import { DEFAULT_THEME } from "@/shared/lib/themes";
 
 export function ResetThemeButton() {
   const { setTheme } = useThemeConfig();

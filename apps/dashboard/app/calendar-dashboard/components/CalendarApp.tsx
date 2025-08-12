@@ -29,7 +29,7 @@ import { toast } from 'sonner';
 
 import { useCalendarData } from '../hooks/useCalendarData';
 import { useCalendarStore, useCalendarActions, useCalendarViewState } from '../hooks/useCalendarStore';
-import { VThinkCalendarEvent, CalendarEventColor } from '../types';
+import { VibeThinkCalendarEvent, CalendarEventColor } from '../types';
 import CalendarToolbar from './CalendarToolbar';
 import { CalendarHeader } from './CalendarHeader';
 import { Card, CardContent } from '../../../../../src/shared/components/bundui-premium/components/ui/card';
@@ -39,7 +39,7 @@ import { AlertTriangle } from 'lucide-react';
 
 /**
  * Event Color Mapping - Using HSL format for theme compatibility
- * Following VThink DOI principle for shadcn/ui compatibility
+ * Following VibeThink DOI principle for shadcn/ui compatibility
  */
 const eventColorClasses: Record<CalendarEventColor, string> = {
   blue: 'bg-blue-500 border-blue-600 text-white hover:bg-blue-600',
@@ -103,7 +103,7 @@ const CalendarApp: React.FC = () => {
    * Applies color styling and ensures proper data structure
    */
   const formattedEvents: EventInput[] = useMemo(() => {
-    return events.map((event: VThinkCalendarEvent) => ({
+    return events.map((event: VibeThinkCalendarEvent) => ({
       id: event.id,
       title: event.title,
       start: event.start,
@@ -146,7 +146,7 @@ const CalendarApp: React.FC = () => {
    */
   const handleDateClick = useCallback((arg: DateClickArg) => {
     // Create a new event template with the clicked date
-    const newEventTemplate: Partial<VThinkCalendarEvent> = {
+    const newEventTemplate: Partial<VibeThinkCalendarEvent> = {
       title: 'New Event',
       start: arg.date.toISOString(),
       end: new Date(arg.date.getTime() + 60 * 60 * 1000).toISOString(), // 1 hour duration
@@ -158,7 +158,7 @@ const CalendarApp: React.FC = () => {
       location: '',
     };
 
-    setSelectedEvent(newEventTemplate as VThinkCalendarEvent);
+    setSelectedEvent(newEventTemplate as VibeThinkCalendarEvent);
     setEventSheetOpen(true);
   }, [setSelectedEvent, setEventSheetOpen]);
 
@@ -264,7 +264,7 @@ const CalendarApp: React.FC = () => {
   /**
    * Handle Event Selection from Header
    */
-  const handleEventSelect = useCallback((event: VThinkCalendarEvent) => {
+  const handleEventSelect = useCallback((event: VibeThinkCalendarEvent) => {
     setSelectedEvent(event);
     setEventSheetOpen(true);
   }, [setSelectedEvent, setEventSheetOpen]);

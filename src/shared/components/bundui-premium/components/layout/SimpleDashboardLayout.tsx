@@ -112,7 +112,7 @@ export default function SimpleDashboardLayout({ children }: SimpleDashboardLayou
             </div>
             {sidebarOpen && (
               <div className="flex flex-col gap-0.5 leading-none">
-                <span className="font-semibold">VThink Dashboard</span>
+                <span className="font-semibold">VibeThink Dashboard</span>
                 <span className="text-xs text-muted-foreground">Bundui Premium</span>
               </div>
             )}

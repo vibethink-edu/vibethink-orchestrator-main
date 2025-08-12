@@ -20,7 +20,7 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export function VThinkThemeProvider({
+export function VibeThinkThemeProvider({
   children,
   initialTheme
 }: {
@@ -28,91 +28,72 @@ export function VThinkThemeProvider({
   initialTheme?: ThemeType;
 }) {
   const [theme, setTheme] = useState<ThemeType>(() => {
-    console.log("🎨 VThinkThemeProvider: Initializing with theme:", initialTheme || DEFAULT_THEME);
-    return initialTheme ? initialTheme : DEFAULT_THEME;
+    const defaultTheme = initialTheme || DEFAULT_THEME;
+    return defaultTheme;
   });
 
   useEffect(() => {
-    console.log("🎨 VThinkThemeProvider: Applying theme changes:", theme);
     
     const root = document.documentElement;
     const body = document.body;
 
-    // Apply theme preset colors
+    // Apply theme preset - BUNDUI PREMIUM WAY: Only set data attributes, CSS handles colors
     if (theme.preset !== "default") {
-      console.log("🎨 VThinkThemeProvider: Applying preset:", theme.preset);
       setThemeCookie("theme_preset", theme.preset);
       body.setAttribute("data-theme-preset", theme.preset);
-      
-      // Find the theme colors and apply them
-      const themeData = THEMES.find(t => t.value === theme.preset);
-      if (themeData && themeData.colors[0]) {
-        const colorHsl = themeData.colors[0].replace("hsl(", "").replace(")", "");
-        root.style.setProperty("--primary", colorHsl);
-        root.style.setProperty("--chart-1", colorHsl);
-        console.log("🎨 VThinkThemeProvider: Applied color:", colorHsl);
-      }
     } else {
-      console.log("🎨 VThinkThemeProvider: Resetting to default theme");
       setThemeCookie("theme_preset", null);
       body.removeAttribute("data-theme-preset");
-      // Reset to default primary color
-      root.style.setProperty("--primary", "221.2 83.2% 53.3%");
-      root.style.setProperty("--chart-1", "12 76% 61%");
     }
 
-    // Apply border radius
-    const radiusMap = {
-      "reset": "0.5rem",
-      "sm": "0.125rem", 
-      "md": "0.375rem",
-      "lg": "0.75rem",
-      "xl": "1rem"
-    };
-    
-    const radiusValue = radiusMap[theme.radius as keyof typeof radiusMap];
-    if (radiusValue) {
-      console.log("🎨 VThinkThemeProvider: Applying radius:", theme.radius, "=", radiusValue);
-      setThemeCookie("theme_radius", theme.radius);
-      body.setAttribute("data-theme-radius", theme.radius);
-      root.style.setProperty("--radius", radiusValue);
-    }
+    // Apply border radius - BUNDUI PREMIUM WAY: Only data attributes, CSS handles values
+    setThemeCookie("theme_radius", theme.radius);
+    body.setAttribute("data-theme-radius", theme.radius);
 
-    // Apply scale
-    const scaleMap = {
-      "reset": "100%",
-      "xs": "90%",
-      "lg": "110%"
-    };
-    
-    const scaleValue = scaleMap[theme.scale as keyof typeof scaleMap];
-    if (scaleValue) {
-      console.log("🎨 VThinkThemeProvider: Applying scale:", theme.scale, "=", scaleValue);
-      setThemeCookie("theme_scale", theme.scale);
-      body.setAttribute("data-theme-scale", theme.scale);
-      root.style.setProperty("--scale", scaleValue);
-      body.style.fontSize = scaleValue;
-    }
+    // Apply scale - BUNDUI PREMIUM WAY: Only data attributes, CSS handles values
+    setThemeCookie("theme_scale", theme.scale);
+    body.setAttribute("data-theme-scale", theme.scale);
 
     // Apply content layout
-    console.log("🎨 VThinkThemeProvider: Applying content layout:", theme.contentLayout);
     setThemeCookie("theme_content_layout", theme.contentLayout);
     body.setAttribute("data-theme-content-layout", theme.contentLayout);
 
     // Apply sidebar mode
     if (theme.sidebarMode && theme.sidebarMode !== "default") {
-      console.log("🎨 VThinkThemeProvider: Applying sidebar mode:", theme.sidebarMode);
       setThemeCookie("theme_sidebar_mode", theme.sidebarMode);
       body.setAttribute("data-sidebar-mode", theme.sidebarMode);
     } else {
-      console.log("🎨 VThinkThemeProvider: Resetting sidebar mode to default");
       setThemeCookie("theme_sidebar_mode", null);
       body.removeAttribute("data-sidebar-mode");
     }
 
-  }, [theme.preset, theme.radius, theme.scale, theme.contentLayout, theme.sidebarMode]);
+    // Apply light/dark mode - BUNDUI PREMIUM WAY
+    const applyMode = (mode: string) => {
+      // Remove existing classes
+      root.classList.remove('light', 'dark');
+      
+      if (mode === 'system') {
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        root.classList.add(systemPrefersDark ? 'dark' : 'light');
+      } else {
+        root.classList.add(mode); // 'light' or 'dark' in lowercase
+      }
+    };
 
-  console.log("🎨 VThinkThemeProvider: Rendering with theme:", theme);
+    applyMode(theme.mode);
+    setThemeCookie("theme_mode", theme.mode);
+
+    // Listen to system changes if mode is 'system'
+    if (theme.mode === 'system') {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const handleChange = () => applyMode('system');
+      mediaQuery.addEventListener('change', handleChange);
+      return () => mediaQuery.removeEventListener('change', handleChange);
+    }
+
+  }, [theme.preset, theme.radius, theme.scale, theme.contentLayout, theme.sidebarMode, theme.mode]);
+
+  // Logs moved to useEffect to reduce render noise
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
@@ -124,7 +105,7 @@ export function VThinkThemeProvider({
 export function useThemeConfig() {
   const context = useContext(ThemeContext);
   if (context === undefined) {
-    throw new Error("useThemeConfig must be used within a VThinkThemeProvider");
+    throw new Error("useThemeConfig must be used within a VibeThinkThemeProvider");
   }
   return context;
 }

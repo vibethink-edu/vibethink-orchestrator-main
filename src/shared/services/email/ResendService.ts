@@ -238,7 +238,7 @@ export const resendService = new ResendService(
   process.env.RESEND_API_KEY || '',
   {
     from: process.env.RESEND_FROM_EMAIL || 'noreply@vthink.com',
-    fromName: process.env.RESEND_FROM_NAME || 'VThink',
+    fromName: process.env.RESEND_FROM_NAME || 'VibeThink',
     replyTo: process.env.RESEND_REPLY_TO || 'support@vthink.com',
   }
 ); 

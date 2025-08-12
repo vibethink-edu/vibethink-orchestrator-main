@@ -5,8 +5,6 @@ import { SidebarInset, SidebarProvider } from "@/shared/components/bundui-premiu
 import Sidebar from "@/shared/components/bundui-premium/components/layout/sidebar";
 import Header from "@/shared/components/bundui-premium/components/layout/header/index";
 import { Toaster } from "@/shared/components/bundui-premium/components/ui/sonner";
-import { VThinkThemeProvider } from "@/shared/components/bundui-premium/components/theme-customizer";
-import { TooltipProvider } from "@/shared/components/bundui-premium/components/ui/tooltip";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -14,27 +12,22 @@ interface DashboardLayoutProps {
 }
 
 /**
- * Layout completo para dashboard con sidebar, header y navegación
- * Basado en el layout original de Bundui Premium
+ * Layout básico para dashboard con sidebar, header y navegación
  */
 export default function DashboardLayout({ 
   children, 
   defaultOpen = true 
 }: DashboardLayoutProps) {
   return (
-    <VThinkThemeProvider>
-      <TooltipProvider>
-        <SidebarProvider defaultOpen={defaultOpen}>
-          <Sidebar />
-          <SidebarInset>
-            <Header />
-            <div className="@container/main p-4 xl:group-data-[theme-content-layout=centered]/layout:container xl:group-data-[theme-content-layout=centered]/layout:mx-auto xl:group-data-[theme-content-layout=centered]/layout:mt-8">
-              {children}
-            </div>
-            <Toaster position="top-center" />
-          </SidebarInset>
-        </SidebarProvider>
-      </TooltipProvider>
-    </VThinkThemeProvider>
+    <SidebarProvider defaultOpen={defaultOpen}>
+      <Sidebar />
+      <SidebarInset>
+        <Header />
+        <main className="p-4">
+          {children}
+        </main>
+        <Toaster position="top-center" />
+      </SidebarInset>
+    </SidebarProvider>
   );
 } 

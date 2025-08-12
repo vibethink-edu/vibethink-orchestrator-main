@@ -12,7 +12,7 @@ export default function MobileTestPage() {
         <div className="flex flex-col space-y-2">
           <h1 className="text-3xl font-bold tracking-tight">Mobile Responsivity Test</h1>
           <p className="text-muted-foreground">
-            Testing VThink sidebar and header innovations across device sizes
+            Testing sidebar and header responsivity across device sizes
           </p>
         </div>
 
@@ -46,8 +46,8 @@ export default function MobileTestPage() {
                 <Badge variant="secondary">768px - 1024px</Badge>
                 <div className="text-sm text-muted-foreground">
                   <div>✅ Header: Dynamic positioning</div>
-                  <div>✅ Navigation: VThink 5rem icon mode</div>
-                  <div>✅ Sub-options: Visible innovation</div>
+                  <div>✅ Navigation: 5rem icon mode</div>
+                  <div>✅ Sub-options: Visible indicators</div>
                   <div>✅ Transitions: 200ms smooth</div>
                 </div>
               </div>
@@ -64,7 +64,7 @@ export default function MobileTestPage() {
                 <Badge variant="secondary">≥ 1024px</Badge>
                 <div className="text-sm text-muted-foreground">
                   <div>✅ Header: Left offset sync</div>
-                  <div>✅ Navigation: Full VThink features</div>
+                  <div>✅ Navigation: Full features</div>
                   <div>✅ Theme customizer: Full panel</div>
                   <div>✅ Performance: Optimized</div>
                 </div>
@@ -73,12 +73,12 @@ export default function MobileTestPage() {
           </Card>
         </div>
 
-        {/* VThink Innovation Status */}
+        {/* Dashboard Features Status */}
         <Card className="border-orange-200">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Wifi className="h-5 w-5 text-orange-600" />
-              VThink Innovations Status
+              Dashboard Features Status
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -86,7 +86,7 @@ export default function MobileTestPage() {
               <div className="space-y-2">
                 <h4 className="font-semibold text-sm">Intelligent Navigation</h4>
                 <div className="text-sm text-muted-foreground space-y-1">
-                  <div>🎯 5rem width in icon mode (Beyond Bundui)</div>
+                  <div>🎯 5rem width in icon mode</div>
                   <div>🎯 Sub-options remain visible</div>
                   <div>🎯 Smooth expand/collapse animations</div>
                   <div>🎯 Context-aware positioning</div>

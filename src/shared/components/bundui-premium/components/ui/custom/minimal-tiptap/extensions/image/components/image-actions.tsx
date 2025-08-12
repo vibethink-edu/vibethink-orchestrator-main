@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/shared/components/bundui-premium/components/ui/tooltip"
+import { cn } from "@/lib/utils"
+import { Button } from "@/shared/components/bundui-premium/components/ui/button"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/shared/components/bundui-premium/components/ui/dropdown-menu"
 import { ClipboardCopyIcon, DotsHorizontalIcon, DownloadIcon, Link2Icon, SizeIcon } from '@radix-ui/react-icons'
 
 interface ImageActionsProps {

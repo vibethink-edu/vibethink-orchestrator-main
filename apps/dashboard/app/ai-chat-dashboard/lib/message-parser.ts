@@ -5,7 +5,6 @@
 // Parser para procesar y formatear mensajes de chat
 // Incluye markdown, mentions, commands y formatting
 //
-// VThink 1.0 Compliance:
 // - ✅ Security-first parsing
 // - ✅ Type-safe
 // - ✅ Performance optimized

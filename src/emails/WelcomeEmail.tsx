@@ -56,7 +56,7 @@ export const WelcomeEmail: React.FC<WelcomeEmailProps> = ({ user, company }) => 
             </Text>
             
             <Text style={text}>
-              Tu cuenta ha sido creada exitosamente en la plataforma VThink. 
+              Tu cuenta ha sido creada exitosamente en la plataforma VibeThink. 
               Estamos emocionados de tenerte como parte de nuestro ecosistema.
             </Text>
 
@@ -85,7 +85,7 @@ export const WelcomeEmail: React.FC<WelcomeEmailProps> = ({ user, company }) => 
             </Section>
 
             <Text style={text}>
-              Con VThink tendrás acceso a:
+              Con VibeThink tendrás acceso a:
             </Text>
 
             <Section style={features}>
@@ -135,7 +135,7 @@ export const WelcomeEmail: React.FC<WelcomeEmailProps> = ({ user, company }) => 
             </Text>
 
             <Text style={footer}>
-              © 2024 VThink. Todos los derechos reservados.
+              © 2024 VibeThink. Todos los derechos reservados.
             </Text>
           </Section>
         </Container>

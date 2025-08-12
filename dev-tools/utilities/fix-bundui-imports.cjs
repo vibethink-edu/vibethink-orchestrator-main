@@ -1,67 +1,106 @@
 const fs = require('fs');
 const path = require('path');
 
-// Función para corregir imports en un archivo
-function fixImportsInFile(filePath) {
+// Función para encontrar archivos recursivamente
+function findFiles(dir, extensions = ['.ts', '.tsx']) {
+  let results = [];
+  
   try {
-    let content = fs.readFileSync(filePath, 'utf8');
-    let modified = false;
-
-    // Corregir imports de componentes UI
-    const uiComponentPatterns = [
-      { from: '@/components/ui/', to: '@/shared/components/ui/' },
-      { from: '@/components/icons', to: '@/shared/components/ui/icons' },
-      { from: '@/components/card-action-menus', to: '@/shared/components/ui/card-action-menus' }
-    ];
-
-    uiComponentPatterns.forEach(pattern => {
-      const regex = new RegExp(pattern.from.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
-      if (content.includes(pattern.from)) {
-        content = content.replace(regex, pattern.to);
-        modified = true;
-        console.log(`✅ Corregido en ${filePath}: ${pattern.from} → ${pattern.to}`);
+    const files = fs.readdirSync(dir);
+    
+    for (const file of files) {
+      const filePath = path.join(dir, file);
+      const stat = fs.statSync(filePath);
+      
+      if (stat.isDirectory()) {
+        results = results.concat(findFiles(filePath, extensions));
+      } else if (extensions.some(ext => file.endsWith(ext))) {
+        results.push(filePath);
       }
-    });
-
-    if (modified) {
-      fs.writeFileSync(filePath, content, 'utf8');
-      return true;
     }
-    return false;
   } catch (error) {
-    console.error(`❌ Error procesando ${filePath}:`, error.message);
-    return false;
+    console.log(`Warning: Could not read directory ${dir}`);
   }
+  
+  return results;
 }
 
-// Función para procesar directorio recursivamente
-function processDirectory(dirPath) {
-  const files = fs.readdirSync(dirPath);
-  let totalFixed = 0;
+// Función para corregir imports en un archivo
+function fixImportsInFile(filePath) {
+  let content = fs.readFileSync(filePath, 'utf8');
+  let modified = false;
 
-  files.forEach(file => {
-    const filePath = path.join(dirPath, file);
-    const stat = fs.statSync(filePath);
+  // Correcciones de imports
+  const replacements = [
+    // UI components
+    [/from ["']@\/components\/ui\/([^"']+)["']/g, 'from "@/shared/components/bundui-premium/components/ui/$1"'],
+    
+    // Lib utils
+    [/from ["']@\/lib\/utils["']/g, 'from "@/shared/lib/utils"'],
+    [/from ["']@\/lib\/themes["']/g, 'from "@/shared/lib/themes"'],
+    
+    // Hooks
+    [/from ["']@\/hooks\/use-mobile["']/g, 'from "@/shared/components/bundui-premium/hooks/use-mobile"'],
+    [/from ["']@\/hooks\/([^"']+)["']/g, 'from "@/shared/components/bundui-premium/hooks/$1"'],
+    
+    // Active theme
+    [/from ["']@\/components\/active-theme["']/g, 'from "@/shared/components/bundui-premium/components/active-theme"'],
+    
+    // Theme customizer
+    [/from ["']@\/components\/theme-customizer\/index["']/g, 'from "./index"'],
+    
+    // Hook name changes
+    [/useIsMobile/g, 'useMobile'],
+  ];
 
-    if (stat.isDirectory()) {
-      totalFixed += processDirectory(filePath);
-    } else if (file.endsWith('.tsx') || file.endsWith('.ts')) {
-      if (fixImportsInFile(filePath)) {
-        totalFixed++;
-      }
+  // Aplicar reemplazos
+  replacements.forEach(([pattern, replacement]) => {
+    const newContent = content.replace(pattern, replacement);
+    if (newContent !== content) {
+      content = newContent;
+      modified = true;
     }
   });
 
-  return totalFixed;
+  // Guardar si se modificó
+  if (modified) {
+    fs.writeFileSync(filePath, content, 'utf8');
+    console.log(`✅ Fixed: ${path.relative(process.cwd(), filePath)}`);
+    return true;
+  }
+  
+  return false;
 }
 
-// Procesar archivos de Bundui
-const bunduiPath = path.join(__dirname, '../src/shared/components/bundui');
-console.log('🔧 Corrigiendo imports de Bundui...');
+// Función principal
+function fixAllImports() {
+  console.log('🔧 Fixing Bundui Premium imports...\n');
+  
+  // Buscar todos los archivos TypeScript/JavaScript en bundui-premium
+  const bundUIDir = path.join(process.cwd(), 'src', 'shared', 'components', 'bundui-premium');
+  
+  if (!fs.existsSync(bundUIDir)) {
+    console.log('❌ Bundui Premium directory not found!');
+    return;
+  }
+  
+  const files = findFiles(bundUIDir, ['.ts', '.tsx']);
+  console.log(`Found ${files.length} files to check...\n`);
 
-if (fs.existsSync(bunduiPath)) {
-  const fixedCount = processDirectory(bunduiPath);
-  console.log(`\n✅ Proceso completado. ${fixedCount} archivos corregidos.`);
-} else {
-  console.log('❌ No se encontró el directorio de Bundui');
-} 
+  let fixedCount = 0;
+  
+  files.forEach(filePath => {
+    if (fixImportsInFile(filePath)) {
+      fixedCount++;
+    }
+  });
+
+  console.log(`\n🎉 Fixed ${fixedCount} files with import issues!`);
+  
+  if (fixedCount === 0) {
+    console.log('✨ No files needed fixing - all imports are correct!');
+  }
+}
+
+// Ejecutar script
+fixAllImports();

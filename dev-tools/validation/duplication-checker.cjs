@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Duplication Checker - VThink 1.0
- * Universal validator for all AIs to check for duplication before creating new features
+ * Duplication Checker - VibeThink Orchestrator
+ * AI-agnostic validator for VibeThink Orchestrator - checks for code duplication before creating new features
  */
 
 const fs = require('fs');

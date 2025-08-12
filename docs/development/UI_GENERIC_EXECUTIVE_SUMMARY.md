@@ -1,3 +1,31 @@
+# ⚠️ DEPRECATED - Use UI_MASTER_GUIDE.md
+
+> **🚨 IMPORTANT:** This generic UI summary has been consolidated into **[UI_MASTER_GUIDE.md](../../UI_MASTER_GUIDE.md)**
+
+## Migration Notice
+
+All UI principles including generic patterns are now part of the consolidated UI guide:
+
+### 📍 **New Location: [UI_MASTER_GUIDE.md](../../UI_MASTER_GUIDE.md)**
+
+### What's Preserved:
+- ✅ All UI generic principles from this document
+- ✅ Component reusability patterns
+- ✅ Bundui-Premium elegance principles
+- ✅ Validation rules and checklists
+- ✅ Enhanced with DOI Principle documentation
+
+The new guide follows Bundui-Premium elegance as the north star for all UI decisions.
+
+---
+
+**Deprecated Date:** 2025-08-11  
+**Replacement:** [UI_MASTER_GUIDE.md](../../UI_MASTER_GUIDE.md)
+
+---
+
+## 🚀 ORIGINAL CONTENT (Preserved for reference)
+
 # 🎨 UI Generic Principles - Executive Summary
 
 ## 📋 **RESUMEN EJECUTIVO**

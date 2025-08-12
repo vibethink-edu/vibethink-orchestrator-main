@@ -68,7 +68,7 @@ export type RecurrencePattern =
  * 
  * CRITICAL: ALL calendar events MUST include company_id for security
  */
-export interface VThinkCalendarEvent extends Omit<EventInput, 'id'> {
+export interface VibeThinkCalendarEvent extends Omit<EventInput, 'id'> {
   id: string;
   title: string;
   start: string | Date;
@@ -186,8 +186,8 @@ export interface CalendarConfig {
  * Calendar State Management Interface
  */
 export interface CalendarState {
-  events: VThinkCalendarEvent[];
-  selectedEvent: VThinkCalendarEvent | null;
+  events: VibeThinkCalendarEvent[];
+  selectedEvent: VibeThinkCalendarEvent | null;
   currentDate: Date;
   currentView: CalendarView;
   isLoading: boolean;
@@ -219,18 +219,18 @@ export interface CalendarState {
  * Calendar Data Hook Return Type
  */
 export interface UseCalendarDataReturn {
-  events: VThinkCalendarEvent[];
+  events: VibeThinkCalendarEvent[];
   isLoading: boolean;
   error: string | null;
   refetch: () => Promise<void>;
   
   // CRUD operations with multi-tenant security
-  createEvent: (event: Omit<VThinkCalendarEvent, 'id' | 'created_at' | 'updated_at'>) => Promise<VThinkCalendarEvent>;
-  updateEvent: (id: string, updates: Partial<VThinkCalendarEvent>) => Promise<VThinkCalendarEvent>;
+  createEvent: (event: Omit<VibeThinkCalendarEvent, 'id' | 'created_at' | 'updated_at'>) => Promise<VibeThinkCalendarEvent>;
+  updateEvent: (id: string, updates: Partial<VibeThinkCalendarEvent>) => Promise<VibeThinkCalendarEvent>;
   deleteEvent: (id: string) => Promise<void>;
   
   // Bulk operations
-  createMultipleEvents: (events: Omit<VThinkCalendarEvent, 'id' | 'created_at' | 'updated_at'>[]) => Promise<VThinkCalendarEvent[]>;
+  createMultipleEvents: (events: Omit<VibeThinkCalendarEvent, 'id' | 'created_at' | 'updated_at'>[]) => Promise<VibeThinkCalendarEvent[]>;
   deleteMultipleEvents: (ids: string[]) => Promise<void>;
 }
 
@@ -247,7 +247,7 @@ export interface UseCalendarFiltersReturn {
   clearFilters: () => void;
   
   // Filtered data
-  filteredEvents: VThinkCalendarEvent[];
+  filteredEvents: VibeThinkCalendarEvent[];
 }
 
 // =============================================================================
@@ -261,10 +261,10 @@ export interface CalendarAppProps {
   className?: string;
   initialView?: CalendarView;
   height?: string | number;
-  onEventClick?: (event: VThinkCalendarEvent) => void;
+  onEventClick?: (event: VibeThinkCalendarEvent) => void;
   onDateClick?: (date: Date) => void;
-  onEventDrop?: (event: VThinkCalendarEvent, newStart: Date, newEnd?: Date) => void;
-  onEventResize?: (event: VThinkCalendarEvent, newStart: Date, newEnd: Date) => void;
+  onEventDrop?: (event: VibeThinkCalendarEvent, newStart: Date, newEnd?: Date) => void;
+  onEventResize?: (event: VibeThinkCalendarEvent, newStart: Date, newEnd: Date) => void;
 }
 
 /**
@@ -280,10 +280,10 @@ export interface CalendarSidebarProps {
  * Event Sheet Component Props  
  */
 export interface EventSheetProps {
-  event?: VThinkCalendarEvent | null;
+  event?: VibeThinkCalendarEvent | null;
   isOpen: boolean;
   onClose: () => void;
-  onSave: (event: VThinkCalendarEvent) => Promise<void>;
+  onSave: (event: VibeThinkCalendarEvent) => Promise<void>;
   onDelete?: (eventId: string) => Promise<void>;
   mode?: 'create' | 'edit' | 'view';
 }
@@ -306,10 +306,10 @@ export interface CalendarApiResponse<T = any> {
  * Calendar Events API Endpoints
  */
 export interface CalendarApiEndpoints {
-  getEvents: (companyId: string, filters?: Partial<CalendarState['filters']>) => Promise<CalendarApiResponse<VThinkCalendarEvent[]>>;
-  getEvent: (companyId: string, eventId: string) => Promise<CalendarApiResponse<VThinkCalendarEvent>>;
-  createEvent: (event: Omit<VThinkCalendarEvent, 'id' | 'created_at' | 'updated_at'>) => Promise<CalendarApiResponse<VThinkCalendarEvent>>;
-  updateEvent: (companyId: string, eventId: string, updates: Partial<VThinkCalendarEvent>) => Promise<CalendarApiResponse<VThinkCalendarEvent>>;  
+  getEvents: (companyId: string, filters?: Partial<CalendarState['filters']>) => Promise<CalendarApiResponse<VibeThinkCalendarEvent[]>>;
+  getEvent: (companyId: string, eventId: string) => Promise<CalendarApiResponse<VibeThinkCalendarEvent>>;
+  createEvent: (event: Omit<VibeThinkCalendarEvent, 'id' | 'created_at' | 'updated_at'>) => Promise<CalendarApiResponse<VibeThinkCalendarEvent>>;
+  updateEvent: (companyId: string, eventId: string, updates: Partial<VibeThinkCalendarEvent>) => Promise<CalendarApiResponse<VibeThinkCalendarEvent>>;  
   deleteEvent: (companyId: string, eventId: string) => Promise<CalendarApiResponse<void>>;
 }
 

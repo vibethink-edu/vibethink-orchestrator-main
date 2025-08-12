@@ -36,7 +36,7 @@ import Icon from "@/shared/components/bundui-premium/components/icon";
 import { Button } from "@/shared/components/bundui-premium/components/ui/button";
 import { useMobile } from "@/shared/components/bundui-premium/hooks/use-mobile";
 
-// VThink Dashboard Routes - All Available Dashboards
+// VibeThink Dashboard Routes - All Available Dashboards
 const page_routes = [
   {
     title: "Main Dashboard",
@@ -119,7 +119,7 @@ export default function Sidebar() {
               <BarChart3 className="size-4" />
             </div>
             <div className="flex flex-col gap-0.5 leading-none">
-              <span className="font-semibold">VThink Dashboard</span>
+              <span className="font-semibold">VibeThink Dashboard</span>
               <span className="text-xs text-muted-foreground">Bundui Premium</span>
             </div>
           </div>

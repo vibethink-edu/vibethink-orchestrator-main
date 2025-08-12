@@ -1,8 +1,8 @@
 "use client";
 
-import { Label } from "@/components/ui/label";
-import { useThemeConfig } from "@/components/active-theme";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { Label } from "@/shared/components/bundui-premium/components/ui/label";
+import { useThemeConfig } from "@/shared/components/bundui-premium/components/active-theme";
+import { ToggleGroup, ToggleGroupItem } from "@/shared/components/bundui-premium/components/ui/toggle-group";
 import { BanIcon } from "lucide-react";
 
 export function ThemeRadiusSelector() {

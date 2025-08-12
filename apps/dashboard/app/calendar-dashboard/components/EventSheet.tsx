@@ -73,7 +73,7 @@ import {
 
 import { useCalendarData } from '../hooks/useCalendarData';
 import { useCalendarActions, useCalendarUIState, useCalendarEventState } from '../hooks/useCalendarStore';
-import { VThinkCalendarEvent, CalendarEventColor, EventPriority, EventStatus } from '../types';
+import { VibeThinkCalendarEvent, CalendarEventColor, EventPriority, EventStatus } from '../types';
 
 /**
  * Event Form Schema with Validation
@@ -194,7 +194,7 @@ const EventSheet: React.FC = () => {
         : [];
 
       // Build event data with multi-tenant security
-      const eventData: Omit<VThinkCalendarEvent, 'id' | 'created_at' | 'updated_at'> = {
+      const eventData: Omit<VibeThinkCalendarEvent, 'id' | 'created_at' | 'updated_at'> = {
         title: data.title,
         description: data.description,
         location: data.location,

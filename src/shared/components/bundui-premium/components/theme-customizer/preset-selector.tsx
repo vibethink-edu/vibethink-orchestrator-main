@@ -1,15 +1,15 @@
 "use client";
 
-import { DEFAULT_THEME, THEMES } from "@/lib/themes";
-import { useThemeConfig } from "@/components/active-theme";
+import { DEFAULT_THEME, THEMES } from "@/shared/lib/themes";
+import { useThemeConfig } from "@/shared/components/bundui-premium/components/active-theme";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
+} from "@/shared/components/bundui-premium/components/ui/select";
+import { Label } from "@/shared/components/bundui-premium/components/ui/label";
 
 export function PresetSelector() {
   const { theme, setTheme } = useThemeConfig();

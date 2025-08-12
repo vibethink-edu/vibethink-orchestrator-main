@@ -13,7 +13,7 @@
 
 import { create, StateCreator } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import { VThinkCalendarEvent, CalendarView, CalendarState } from '../types';
+import { VibeThinkCalendarEvent, CalendarView, CalendarState } from '../types';
 
 /**
  * Calendar Store Interface
@@ -26,7 +26,7 @@ import { VThinkCalendarEvent, CalendarView, CalendarState } from '../types';
  */
 interface CalendarStore extends CalendarState {
   // Event Management Actions
-  setSelectedEvent: (event: VThinkCalendarEvent | null) => void;
+  setSelectedEvent: (event: VibeThinkCalendarEvent | null) => void;
   
   // UI State Actions
   setEventSheetOpen: (isOpen: boolean) => void;

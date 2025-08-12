@@ -48,7 +48,7 @@ const DashboardSidebar: React.FC = () => {
             </div>
             {open && (
               <div>
-                <h1 className="text-lg font-semibold">VThink AI</h1>
+                <h1 className="text-lg font-semibold">AI Dashboard</h1>
                 <p className="text-xs text-muted-foreground">Consensus Dashboard</p>
               </div>
             )}

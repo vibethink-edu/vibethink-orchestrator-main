@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Quick Validator - VThink 1.0
- * Validación rápida para cualquier IA
+ * Quick Validator - VibeThink Orchestrator
+ * AI-agnostic quick validator for VibeThink Orchestrator - rapid validation for any AI assistant
  */
 
 const fs = require('fs');
@@ -20,7 +20,7 @@ const CRITICAL_RULES = {
 };
 
 function quickValidate() {
-  console.log('⚡ QUICK VALIDATION - VThink 1.0\n');
+  console.log('⚡ QUICK VALIDATION - VibeThink Orchestrator\n');
   
   let hasErrors = false;
   const errors = [];

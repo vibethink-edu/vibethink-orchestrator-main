@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "VThink Dashboard - AI Consensus Framework",
+  title: "VibeThink Dashboard - AI Consensus Framework",
   description: "Enhanced dashboard powered by multi-AI collaboration",
 };
 

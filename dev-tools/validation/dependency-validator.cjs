@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Dependency Validator - VThink 1.0
+ * Dependency Validator - VibeThink Orchestrator
  * Validates dependency compatibility and security across monorepo
  */
 
@@ -21,6 +21,7 @@ class DependencyValidator {
     console.log('🚀 Iniciando validación de dependencias...\n');
     
     try {
+      await this.checkExactVersions();
       await this.checkRootDependencies();
       await this.checkWorkspaceDependencies();
       await this.checkVersionConflicts();
@@ -36,6 +37,95 @@ class DependencyValidator {
     }
   }
 
+  async checkExactVersions() {
+    console.log('🎯 Validando versiones exactas (sin ^ o ~)...');
+    
+    const packageFiles = [
+      path.join(this.projectRoot, 'package.json'),
+      ...this.getWorkspacePackageFiles()
+    ];
+
+    for (const packageFile of packageFiles) {
+      if (!fs.existsSync(packageFile)) continue;
+
+      const packageJson = JSON.parse(fs.readFileSync(packageFile, 'utf8'));
+      const relativePath = path.relative(this.projectRoot, packageFile);
+
+      // Verificar dependencies
+      this.checkVersionsInSection(packageJson.dependencies, 'dependencies', relativePath);
+      this.checkVersionsInSection(packageJson.devDependencies, 'devDependencies', relativePath);
+      this.checkVersionsInSection(packageJson.peerDependencies, 'peerDependencies', relativePath);
+    }
+  }
+
+  checkVersionsInSection(deps, section, filePath) {
+    if (!deps) return;
+
+    // Determinar tipo de app por el path
+    const appType = this.getAppType(filePath);
+
+    for (const [name, version] of Object.entries(deps)) {
+      const hasCaretOrTilde = version.startsWith('^') || version.startsWith('~') || version.includes(' ');
+      
+      if (hasCaretOrTilde) {
+        if (appType === 'core') {
+          // Apps core: versiones exactas obligatorias
+          this.errors.push(`❌ ${filePath} ${section}["${name}"]: "${version}" - Core app DEBE usar versión exacta sin ^ o ~`);
+        } else if (appType === 'marketing') {
+          // Apps marketing: caret permitido para patches/minor
+          if (version.startsWith('^')) {
+            this.success.push(`✅ ${filePath} ${section}["${name}"]: ${version} (marketing app - caret permitido)`);
+          } else {
+            this.warnings.push(`⚠️ ${filePath} ${section}["${name}"]: "${version}" - Preferir ^ sobre ~ en marketing apps`);
+          }
+        }
+      } else if (!/^\d+\.\d+\.\d+(-.*)?$/.test(version)) {
+        this.warnings.push(`⚠️ ${filePath} ${section}["${name}"]: "${version}" - Formato de versión inusual`);
+      } else {
+        this.success.push(`✅ ${filePath} ${section}["${name}"]: ${version}`);
+      }
+    }
+  }
+
+  getAppType(filePath) {
+    // Clasificar apps por criticidad
+    const coreApps = ['dashboard', 'admin', 'login', 'helpdesk', 'main-app'];
+    const marketingApps = ['website'];
+    
+    const appName = filePath.split(/[\\/]/).find(segment => 
+      coreApps.includes(segment) || marketingApps.includes(segment)
+    );
+
+    if (coreApps.includes(appName)) {
+      return 'core';
+    } else if (marketingApps.includes(appName)) {
+      return 'marketing';
+    } else {
+      // Root package.json y otros: core por defecto
+      return 'core';
+    }
+  }
+
+  getWorkspacePackageFiles() {
+    const files = [];
+    const appsDir = path.join(this.projectRoot, 'apps');
+    
+    if (fs.existsSync(appsDir)) {
+      const apps = fs.readdirSync(appsDir).filter(app => 
+        fs.statSync(path.join(appsDir, app)).isDirectory()
+      );
+
+      for (const app of apps) {
+        const packageFile = path.join(appsDir, app, 'package.json');
+        if (fs.existsSync(packageFile)) {
+          files.push(packageFile);
+        }
+      }
+    }
+
+    return files;
+  }
+
   async checkRootDependencies() {
     console.log('📦 Validando dependencias raíz...');
     
@@ -47,13 +137,22 @@ class DependencyValidator {
 
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
     
-    // Verificar dependencias críticas para VThink 1.0
+    // Verificar dependencias críticas para VibeThink Orchestrator
+    // IMPORTANTE: Solo versiones exactas según reglas consolidadas
     const criticalDeps = {
-      'react': '^19.0.0',
-      'next': '^15.3.4',
-      'typescript': '^5.8.3',
-      '@supabase/supabase-js': '^2.51.0',
-      'tailwindcss': '^3.4.17'
+      'react': '18.3.1',           // React 18.3.1 ES el estándar actual estable
+      'next': '15.3.4',            // Next.js 15.3.4 estable
+      'typescript': '5.9.2',       // TypeScript 5.9.2 última estable
+      '@supabase/supabase-js': '2.53.0',  // Supabase actualizada
+      'tailwindcss': '4.1.11'      // TailwindCSS v4 usado en el proyecto
+    };
+
+    // Excepciones por app específica
+    const appExceptions = {
+      'website': {
+        'react': ['18.3.1', '19.0.0'],  // Website puede usar React 19
+        'react-dom': ['18.3.1', '19.0.0']
+      }
     };
 
     for (const [dep, expectedVersion] of Object.entries(criticalDeps)) {
@@ -233,7 +332,7 @@ ${this.errors.length === 0 ?
   '- 🔧 Resolver errores críticos antes de deployment\n- 📚 Revisar documentación de dependencias\n- 🔄 Ejecutar npm install para resolver conflictos'}
 
 ---
-*Generado automáticamente por VThink 1.0 Dependency Validator*
+*Generado automáticamente por VibeThink Orchestrator Dependency Validator*
 `;
 
     fs.writeFileSync(reportFile, report);

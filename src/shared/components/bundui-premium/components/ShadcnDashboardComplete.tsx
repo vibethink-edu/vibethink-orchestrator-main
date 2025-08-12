@@ -34,7 +34,7 @@ import { Input } from '@/shared/components/bundui-premium/components/ui/input';
 import { Progress } from '@/shared/components/bundui-premium/components/ui/progress';
 
 // Layout Components - Complete Bundui Layout
-import BunduiCompleteLayout from '@/shared/components/bundui-premium/components/layout/BunduiCompleteLayout';
+import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
 
 // Chart Components
 import { BunduiTotalRevenueChart } from '@/shared/components/dashboard/BunduiTotalRevenueChart';
@@ -371,9 +371,9 @@ const ShadcnDashboardComplete: React.FC<ShadcnDashboardCompleteProps> = ({
 
   if (withLayout) {
     return (
-      <BunduiCompleteLayout>
+      <DashboardLayout>
         {dashboardContent}
-      </BunduiCompleteLayout>
+      </DashboardLayout>
     );
   }
 

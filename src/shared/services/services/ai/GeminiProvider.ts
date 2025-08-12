@@ -1,7 +1,7 @@
 /**
  * Integra Gemini con el sistema VibeThink Orchestrator
  * Proporciona funcionalidades de IA avanzadas para el desarrollo
- * y análisis de código en la plataforma VThink
+ * y análisis de código en la plataforma VibeThink
  */
 
 import { GoogleGenerativeAI, GenerativeModel } from '@google/generative-ai';

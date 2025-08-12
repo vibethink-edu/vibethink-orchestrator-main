@@ -54,7 +54,17 @@
       "Bash(pnpm dev:*)",
       "Bash(pnpm add:*)",
       "Bash(npx next dev:*)",
-      "Bash(npx update-browserslist-db:*)"
+      "Bash(npx update-browserslist-db:*)",
+      "WebFetch(domain:ui.shadcn.com)",
+      "Bash(timeout 5 npm run dev -- --port 3005)",
+      "Bash(timeout:*)",
+      "Bash(npx next@15.3.4 dev -p 3006)",
+      "Bash(npx next@15.3.4 dev -p 3007)",
+      "Bash(npx next@15.3.4 dev -p 3008)",
+      "Bash(npx next@15.3.4 dev -p 3009)",
+      "Bash(npx next@15.3.4 dev -p 3010)",
+      "Bash(npx next@15.3.4 dev -p 3011)",
+      "Bash(cp:*)"
     ],
     "deny": []
   }

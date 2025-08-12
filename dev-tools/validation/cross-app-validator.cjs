@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Cross-App Validator - VThink 1.0
+ * Cross-App Validator - VibeThink Orchestrator
  * Validates compatibility and integration between monorepo apps
  */
 
@@ -371,7 +371,7 @@ apps/
 - Documentar diferencias específicas por app
 
 ---
-*Generado automáticamente por VThink 1.0 Cross-App Validator*
+*Generado automáticamente por VibeThink Orchestrator Cross-App Validator*
 `;
 
     fs.writeFileSync(reportFile, report);

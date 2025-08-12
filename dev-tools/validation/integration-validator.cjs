@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Integration Validator - VThink 1.0
- * Universal validator for all AIs to ensure proper integration with existing systems
+ * Integration Validator - VibeThink Orchestrator
+ * AI-agnostic validator for VibeThink Orchestrator - ensures proper integration between components
  */
 
 const fs = require('fs');

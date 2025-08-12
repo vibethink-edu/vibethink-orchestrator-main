@@ -38,7 +38,7 @@ import {
   CollapsibleTrigger,
 } from '../../../../../src/shared/components/bundui-premium/components/ui/collapsible';
 
-import { VThinkCalendarEvent, CalendarEventColor } from '../types';
+import { VibeThinkCalendarEvent, CalendarEventColor } from '../types';
 
 interface CalendarCategory {
   id: string;
@@ -49,10 +49,10 @@ interface CalendarCategory {
 
 interface CalendarHeaderProps {
   totalEvents: number;
-  upcomingEvents: VThinkCalendarEvent[];
+  upcomingEvents: VibeThinkCalendarEvent[];
   calendarCategories: CalendarCategory[];
   onCreateEvent: () => void;
-  onEventSelect: (event: VThinkCalendarEvent) => void;
+  onEventSelect: (event: VibeThinkCalendarEvent) => void;
 }
 
 /**
@@ -94,7 +94,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
   /**
    * Format event time for display
    */
-  const formatEventTime = (event: VThinkCalendarEvent) => {
+  const formatEventTime = (event: VibeThinkCalendarEvent) => {
     const start = new Date(event.start);
     const end = event.end ? new Date(event.end) : null;
     
@@ -123,7 +123,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
   /**
    * Format event date for display
    */
-  const formatEventDate = (event: VThinkCalendarEvent) => {
+  const formatEventDate = (event: VibeThinkCalendarEvent) => {
     const date = new Date(event.start);
     const today = new Date();
     const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);

@@ -2,10 +2,10 @@ import * as React from 'react'
 import type { Editor } from '@tiptap/react'
 import type { FormatAction } from '../types'
 import type { VariantProps } from 'class-variance-authority'
-import type { toggleVariants } from '@/components/ui/toggle'
-import { cn } from '@/lib/utils'
+import type { toggleVariants } from "@/shared/components/bundui-premium/components/ui/toggle"
+import { cn } from "@/lib/utils"
 import { CaretDownIcon } from '@radix-ui/react-icons'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/shared/components/bundui-premium/components/ui/dropdown-menu"
 import { ToolbarButton } from './toolbar-button'
 import { ShortcutKey } from './shortcut-key'
 import { getShortcutKey } from '../utils'

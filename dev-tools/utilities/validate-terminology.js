@@ -31,8 +31,8 @@ const PROBLEMATIC_PATTERNS = [
     message: '❌ ERROR: "VThink como plataforma" - VibeThink Orchestrator es la plataforma'
   },
   {
-    pattern: /VThink Orchestrator/gi,
-    message: '❌ ERROR: "VThink Orchestrator" - Debe ser "VibeThink Orchestrator"'
+    pattern: /VibeThink Orchestrator/gi,
+    message: '❌ ERROR: "VibeThink Orchestrator" - Debe ser "VibeThink Orchestrator"'
   }
 ];
 

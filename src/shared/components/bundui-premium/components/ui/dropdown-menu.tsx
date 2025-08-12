@@ -20,17 +20,8 @@ function DropdownMenuPortal({
   )
 }
 
-const DropdownMenuTrigger = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Trigger>
->(({ ...props }, ref) => (
-  <DropdownMenuPrimitive.Trigger
-    ref={ref}
-    data-slot="dropdown-menu-trigger"
-    {...props}
-  />
-))
-DropdownMenuTrigger.displayName = DropdownMenuPrimitive.Trigger.displayName
+// Using Bundui pattern - direct assignment without forwardRef to avoid React 19 warnings
+const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger
 
 const DropdownMenuContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Content>,

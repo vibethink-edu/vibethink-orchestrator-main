@@ -5,7 +5,7 @@
 // Integración con diferentes providers de AI
 // Manejo unificado de OpenAI, Anthropic, Google, etc.
 //
-// VThink 1.0 Compliance:
+
 // - ✅ Multi-provider support
 // - ✅ Error handling
 // - ✅ Type-safe

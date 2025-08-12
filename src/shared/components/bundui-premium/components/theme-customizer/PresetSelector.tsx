@@ -1,7 +1,7 @@
 "use client";
 
 import { DEFAULT_THEME, THEMES } from "@/shared/lib/themes";
-import { useThemeConfig } from "./ThemeProvider";
+import { useThemeConfig } from "../active-theme";
 import {
   Select,
   SelectContent,

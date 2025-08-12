@@ -4,7 +4,7 @@
  * ShadcnStyleDashboard - Dashboard estilo Shadcn UI Kit
  * 
  * Replica el diseño y funcionalidad del dashboard demo oficial de Shadcn UI Kit
- * con componentes premium de Bundui integrados en VThink.
+ * con componentes premium de Bundui integrados en VibeThink.
  */
 
 import React, { useState } from 'react';

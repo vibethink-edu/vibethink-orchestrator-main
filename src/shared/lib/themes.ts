@@ -1,9 +1,10 @@
 export const DEFAULT_THEME = {
   preset: "default",
-  radius: "reset", 
-  scale: "reset",
-  contentLayout: "full",
-  sidebarMode: "default"
+  radius: "md",  // Changed from "reset" to "md" for better UI appearance
+  scale: "lg",    // Changed from "reset" to "lg" for optimal sizing
+  contentLayout: "centered",  // Bundui demo uses constrained/centered layout
+  sidebarMode: "default",
+  mode: "light" as "light" | "dark" | "system"  // Add light/dark mode
 } as const;
 
 export type ThemeType = typeof DEFAULT_THEME;
@@ -12,42 +13,42 @@ export const THEMES = [
   {
     name: "Default",
     value: "default",
-    colors: ["hsl(210 40% 8%)"] // oklch(0.33 0 0) → hsl equivalent
+    colors: ["oklch(0.33 0 0)"]
   },
   {
     name: "Underground",
     value: "underground", 
-    colors: ["hsl(156 19% 53%)"] // oklch(0.5315 0.0694 156.19) → hsl equivalent
+    colors: ["oklch(0.5315 0.0694 156.19)"]
   },
   {
     name: "Rose Garden",
     value: "rose-garden",
-    colors: ["hsl(12 88% 59%)"] // oklch(0.5827 0.2418 12.23) → hsl equivalent
+    colors: ["oklch(0.5827 0.2418 12.23)"]
   },
   {
     name: "Lake View",
     value: "lake-view",
-    colors: ["hsl(163 77% 65%)"] // oklch(0.765 0.177 163.22) → hsl equivalent
+    colors: ["oklch(0.765 0.177 163.22)"]
   },
   {
     name: "Sunset Glow",
     value: "sunset-glow",
-    colors: ["hsl(37 87% 59%)"] // oklch(0.5827 0.2187 36.98) → hsl equivalent
+    colors: ["oklch(0.5827 0.2187 36.98)"]
   },
   {
     name: "Forest Whisper",
     value: "forest-whisper",
-    colors: ["hsl(182 72% 35%)"] // oklch(0.5276 0.1072 182.22) → hsl equivalent
+    colors: ["oklch(0.5276 0.1072 182.22)"]
   },
   {
     name: "Ocean Breeze",
     value: "ocean-breeze",
-    colors: ["hsl(277 65% 59%)"] // oklch(0.59 0.20 277.12) → hsl equivalent
+    colors: ["oklch(0.59 0.20 277.12)"]
   },
   {
     name: "Lavender Dream",
     value: "lavender-dream",
-    colors: ["hsl(294 58% 71%)"] // oklch(0.71 0.16 293.54) → hsl equivalent
+    colors: ["oklch(0.71 0.16 293.54)"]
   }
 ];
 

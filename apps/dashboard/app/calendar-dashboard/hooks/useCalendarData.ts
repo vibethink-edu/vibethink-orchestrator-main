@@ -12,7 +12,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { VThinkCalendarEvent, UseCalendarDataReturn } from '../types';
+import { VibeThinkCalendarEvent, UseCalendarDataReturn } from '../types';
 
 // Mock auth hook - replace with actual auth implementation
 const useAuth = () => ({
@@ -42,12 +42,12 @@ const useAuth = () => ({
  */
 export const useCalendarData = (): UseCalendarDataReturn => {
   const { user } = useAuth();
-  const [events, setEvents] = useState<VThinkCalendarEvent[]>([]);
+  const [events, setEvents] = useState<VibeThinkCalendarEvent[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   // Sample calendar events with multi-tenant security
-  const sampleEvents: VThinkCalendarEvent[] = useMemo(() => [
+  const sampleEvents: VibeThinkCalendarEvent[] = useMemo(() => [
     {
       id: '1',
       title: 'Marketing Strategy Meeting',
@@ -250,8 +250,8 @@ export const useCalendarData = (): UseCalendarDataReturn => {
    * CRITICAL: Automatically adds company_id for security
    */
   const createEvent = useCallback(async (
-    eventData: Omit<VThinkCalendarEvent, 'id' | 'created_at' | 'updated_at'>
-  ): Promise<VThinkCalendarEvent> => {
+    eventData: Omit<VibeThinkCalendarEvent, 'id' | 'created_at' | 'updated_at'>
+  ): Promise<VibeThinkCalendarEvent> => {
     if (!user?.company_id) {
       throw new Error('No company context available');
     }
@@ -277,7 +277,7 @@ export const useCalendarData = (): UseCalendarDataReturn => {
       const newEvent = {
         ...newEventData,
         id: `event_${Date.now()}`,
-      } as VThinkCalendarEvent;
+      } as VibeThinkCalendarEvent;
 
       // Optimistic update
       setEvents(prev => [...prev, newEvent]);
@@ -295,8 +295,8 @@ export const useCalendarData = (): UseCalendarDataReturn => {
    */
   const updateEvent = useCallback(async (
     eventId: string,
-    updates: Partial<VThinkCalendarEvent>
-  ): Promise<VThinkCalendarEvent> => {
+    updates: Partial<VibeThinkCalendarEvent>
+  ): Promise<VibeThinkCalendarEvent> => {
     if (!user?.company_id) {
       throw new Error('No company context available');
     }
@@ -325,7 +325,7 @@ export const useCalendarData = (): UseCalendarDataReturn => {
       //   .select()
       //   .single();
 
-      const updatedEvent: VThinkCalendarEvent = {
+      const updatedEvent: VibeThinkCalendarEvent = {
         ...existingEvent,
         ...updatedEventData,
       };
@@ -377,8 +377,8 @@ export const useCalendarData = (): UseCalendarDataReturn => {
    * Create Multiple Events (Bulk Operation)
    */
   const createMultipleEvents = useCallback(async (
-    eventsData: Omit<VThinkCalendarEvent, 'id' | 'created_at' | 'updated_at'>[]
-  ): Promise<VThinkCalendarEvent[]> => {
+    eventsData: Omit<VibeThinkCalendarEvent, 'id' | 'created_at' | 'updated_at'>[]
+  ): Promise<VibeThinkCalendarEvent[]> => {
     if (!user?.company_id) {
       throw new Error('No company context available');
     }
@@ -391,7 +391,7 @@ export const useCalendarData = (): UseCalendarDataReturn => {
         created_by: user.id,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
-      })) as VThinkCalendarEvent[];
+      })) as VibeThinkCalendarEvent[];
 
       // Optimistic update
       setEvents(prev => [...prev, ...newEvents]);

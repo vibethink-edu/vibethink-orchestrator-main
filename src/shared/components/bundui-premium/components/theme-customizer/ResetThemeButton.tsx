@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/shared/components/bundui-premium/components/ui/button";
-import { useThemeConfig } from "./ThemeProvider";
+import { useThemeConfig } from "../active-theme";
 import { DEFAULT_THEME } from "@/shared/lib/themes";
 import { RotateCcw } from "lucide-react";
 

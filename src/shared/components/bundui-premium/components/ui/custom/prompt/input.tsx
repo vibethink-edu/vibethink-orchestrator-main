@@ -1,7 +1,7 @@
 "use client";
 
-import { Textarea } from "@/components/ui/textarea";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Textarea } from "@/shared/components/bundui-premium/components/ui/textarea";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/shared/components/bundui-premium/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import React, { createContext, useContext, useEffect, useRef, useState } from "react";
 
