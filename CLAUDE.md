@@ -515,6 +515,66 @@ This project follows the **VThink 1.0 methodology** with these requirements:
 - **Never deploy changes without ecosystem validation** (`npm run validate:ecosystem`)
 - **Never update external dependencies without risk assessment** (`npm run validate:external-update`)
 
+## 🔄 Session Closure Protocol
+
+### **MANDATORY END-OF-WORK ROUTINE**
+
+When user indicates session end ("hasta mañana", "terminamos por hoy", etc.), **ALWAYS execute:**
+
+#### **Option 1: Automated Script (Recommended)**
+```bash
+# Run the automated save script
+powershell -ExecutionPolicy Bypass -File save-progress.ps1 "Brief description of today's work"
+```
+
+#### **Option 2: Manual Commands**
+```bash
+# 1. Check status
+git status --short
+
+# 2. Add all changes
+git add -A
+
+# 3. Commit with descriptive message
+git commit -m "feat: [description of today's work]
+
+- [change 1]
+- [change 2]
+- [change 3]
+
+🤖 Generated with [Claude Code](https://claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+
+# 4. Push to GitHub
+git push origin [current-branch]
+
+# 5. Confirm success
+git status
+```
+
+#### **CRITICAL SESSION CLOSURE RULES:**
+- ✅ **ALWAYS save progress** before session end
+- ✅ **ALWAYS push to GitHub** (both local git and remote)
+- ✅ **ALWAYS use descriptive commit messages**
+- ✅ **ALWAYS confirm push success** before ending
+- ✅ **NEVER leave unsaved work** - even if incomplete
+
+#### **Success Confirmation:**
+```
+✅ PROGRESO SALVADO EXITOSAMENTE!
+=======================================
+Rama: [branch-name]
+Commit: [commit-hash]
+GitHub: Actualizado
+Hora: [timestamp]
+
+LISTO PARA CONTINUAR MAÑANA
+=======================================
+```
+
+**This protocol ensures no work is lost and enables seamless session continuity.**
+
 ## Development Tools Ecosystem
 
 ### Comprehensive Automation Framework
