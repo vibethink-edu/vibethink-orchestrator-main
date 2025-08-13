@@ -1,6 +1,6 @@
 'use client'
 
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
+;
 
 import { SalesHeader } from './components/SalesHeader'
 import { SalesMetrics } from './components/SalesMetrics'
@@ -31,8 +31,7 @@ import { RecentDeals } from './components/RecentDeals'
  */
 export default function SalesDashboardPage() {
   return (
-    <DashboardLayout>
-      <div className="space-y-6">
+    <div className="space-y-6">
         {/* Header with filters and quick actions */}
         <SalesHeader />
         
@@ -58,6 +57,5 @@ export default function SalesDashboardPage() {
           </div>
         </div>
       </div>
-    </DashboardLayout>
   )
 }

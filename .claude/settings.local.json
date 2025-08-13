@@ -64,7 +64,12 @@
       "Bash(npx next@15.3.4 dev -p 3009)",
       "Bash(npx next@15.3.4 dev -p 3010)",
       "Bash(npx next@15.3.4 dev -p 3011)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(for:*)",
+      "Bash(do echo \"Processing $file\")",
+      "Bash(done)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": []
   }

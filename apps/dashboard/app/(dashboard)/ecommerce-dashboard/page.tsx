@@ -15,7 +15,7 @@
  */
 
 import React, { useState } from 'react';
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
+;
 import {
   Card,
   CardContent,
@@ -295,8 +295,7 @@ const EcommerceDashboard: React.FC = () => {
   };
 
   return (
-            <DashboardLayout>
-      <div className="space-y-6 p-6">
+            <div className="space-y-6 p-6">
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
@@ -684,7 +683,6 @@ const EcommerceDashboard: React.FC = () => {
           </Card>
         </div>
       </div>
-            </DashboardLayout>
   );
 };
 

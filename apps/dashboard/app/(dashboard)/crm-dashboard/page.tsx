@@ -1,6 +1,5 @@
 'use client'
 
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout'
 import { CrmHeader } from './components/CrmHeader'
 import { CrmMetrics } from './components/CrmMetrics'
 import { CustomerTable } from './components/CustomerTable'
@@ -10,8 +9,7 @@ import { QuickActions } from './components/QuickActions'
 
 export default function CrmDashboardPage() {
   return (
-    <DashboardLayout>
-      <div className="space-y-6 p-6">
+    <div className="space-y-6 p-6">
         <CrmHeader />
         
         <div className="grid gap-6">
@@ -30,6 +28,5 @@ export default function CrmDashboardPage() {
           </div>
         </div>
       </div>
-    </DashboardLayout>
   )
 }

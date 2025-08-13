@@ -25,23 +25,23 @@ import {
   Printer,
 } from 'lucide-react';
 
-import { Button } from '../../../../../src/shared/components/bundui-premium/components/ui/button';
+import { Button } from '@/shared/components/bundui-premium/components/ui/button';
 import { 
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../../../../../src/shared/components/bundui-premium/components/ui/select';
-import { Input } from '../../../../../src/shared/components/bundui-premium/components/ui/input';
+} from '@/shared/components/bundui-premium/components/ui/select';
+import { Input } from '@/shared/components/bundui-premium/components/ui/input';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '../../../../../src/shared/components/bundui-premium/components/ui/dropdown-menu';
-import { Badge } from '../../../../../src/shared/components/bundui-premium/components/ui/badge';
+} from '@/shared/components/bundui-premium/components/ui/dropdown-menu';
+import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
 
 import { useCalendarActions, useCalendarViewState } from '../hooks/useCalendarStore';
 import { CalendarView } from '../types';

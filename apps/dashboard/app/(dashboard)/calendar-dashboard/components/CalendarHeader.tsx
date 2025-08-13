@@ -26,17 +26,17 @@ import {
   Settings,
 } from 'lucide-react';
 
-import { Button } from '../../../../../src/shared/components/bundui-premium/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '../../../../../src/shared/components/bundui-premium/components/ui/card';
-import { Input } from '../../../../../src/shared/components/bundui-premium/components/ui/input';
-import { Badge } from '../../../../../src/shared/components/bundui-premium/components/ui/badge';
-import { Checkbox } from '../../../../../src/shared/components/bundui-premium/components/ui/checkbox';
-import { ScrollArea } from '../../../../../src/shared/components/ui/scroll-area';
+import { Button } from '@/shared/components/bundui-premium/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/bundui-premium/components/ui/card';
+import { Input } from '@/shared/components/bundui-premium/components/ui/input';
+import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
+import { Checkbox } from '@/shared/components/bundui-premium/components/ui/checkbox';
+import { ScrollArea } from '@/shared/components/bundui-premium/components/ui/scroll-area';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '../../../../../src/shared/components/bundui-premium/components/ui/collapsible';
+} from '@/shared/components/bundui-premium/components/ui/collapsible';
 
 import { VibeThinkCalendarEvent, CalendarEventColor } from '../types';
 

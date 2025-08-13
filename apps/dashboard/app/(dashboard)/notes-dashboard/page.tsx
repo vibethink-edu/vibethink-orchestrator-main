@@ -16,7 +16,7 @@
 // =============================================================================
 
 import React from 'react'
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
+;
 import { NotesApp } from './components/NotesApp'
 
 /**
@@ -56,11 +56,9 @@ import { NotesApp } from './components/NotesApp'
  */
 export default function NotesPage() {
   return (
-    <DashboardLayout>
-      <div className="space-y-6">
+    <div className="space-y-6">
         <NotesApp />
       </div>
-    </DashboardLayout>
   )
 }
 

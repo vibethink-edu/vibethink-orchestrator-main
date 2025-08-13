@@ -32,9 +32,9 @@ import { useCalendarStore, useCalendarActions, useCalendarViewState } from '../h
 import { VibeThinkCalendarEvent, CalendarEventColor } from '../types';
 import CalendarToolbar from './CalendarToolbar';
 import { CalendarHeader } from './CalendarHeader';
-import { Card, CardContent } from '../../../../../src/shared/components/bundui-premium/components/ui/card';
-import { Skeleton } from '../../../../../src/shared/components/bundui-premium/components/ui/skeleton';
-import { Alert, AlertDescription } from '../../../../../src/shared/components/bundui-premium/components/ui/alert';
+import { Card, CardContent } from '@/shared/components/bundui-premium/components/ui/card';
+import { Skeleton } from '@/shared/components/bundui-premium/components/ui/skeleton';
+import { Alert, AlertDescription } from '@/shared/components/bundui-premium/components/ui/alert';
 import { AlertTriangle } from 'lucide-react';
 
 /**

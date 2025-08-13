@@ -51,6 +51,7 @@ import {
   BrushCleaningIcon
 } from "lucide-react";
 import Link from "next/link";
+import { IconWrapper } from "./icon-wrapper";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/shared/components/bundui-premium/components/ui/collapsible";
 import { usePathname } from "next/navigation";
 import {
@@ -325,9 +326,9 @@ export function NavMain() {
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
                             <SidebarMenuButton tooltip={item.title}>
-                              {item.icon && <item.icon />}
+                              {item.icon && <IconWrapper icon={item.icon} />}
                               <span>{item.title}</span>
-                              <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                              <IconWrapper icon={ChevronRight} className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                             </SidebarMenuButton>
                           </DropdownMenuTrigger>
                           <DropdownMenuContent
@@ -351,9 +352,9 @@ export function NavMain() {
                           <SidebarMenuButton
                             className="hover:text-foreground active:text-foreground hover:bg-[var(--primary)]/10 active:bg-[var(--primary)]/10"
                             tooltip={item.title}>
-                            {item.icon && <item.icon />}
+                            {item.icon && <IconWrapper icon={item.icon} />}
                             <span>{item.title}</span>
-                            <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                            <IconWrapper icon={ChevronRight} className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                           </SidebarMenuButton>
                         </CollapsibleTrigger>
                         <CollapsibleContent>
@@ -381,7 +382,7 @@ export function NavMain() {
                       tooltip={item.title}
                       asChild>
                       <Link href={item.href} target={item.newTab ? "_blank" : ""}>
-                        {item.icon && <item.icon />}
+                        {item.icon && <IconWrapper icon={item.icon} />}
                         <span>{item.title}</span>
                       </Link>
                     </SidebarMenuButton>

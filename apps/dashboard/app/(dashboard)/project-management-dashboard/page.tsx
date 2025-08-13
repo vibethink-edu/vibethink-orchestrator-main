@@ -9,7 +9,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
+;
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/ui/tabs'
 import { Card, CardContent } from '@/shared/components/ui/card'
 import { Button } from '@/shared/components/ui/button'
@@ -77,8 +77,7 @@ export default function ProjectManagementPage() {
   }
 
   return (
-    <DashboardLayout>
-      <div className="space-y-6">
+    <div className="space-y-6">
         {/* Header */}
         <ProjectManagementHeader
           onCreateProject={handleCreateProject}
@@ -326,6 +325,5 @@ export default function ProjectManagementPage() {
           onOpenChange={setIsCreateTaskDialogOpen}
         />
         */}
-    </DashboardLayout>
   )
 }

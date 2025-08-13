@@ -19,7 +19,7 @@
  */
 
 import React, { useState, Suspense } from 'react';
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
+;
 import { DragDropContext, DropResult } from '@hello-pangea/dnd';
 import { Plus, Search, Filter, Clock, AlertCircle, TrendingUp, Users, Target } from 'lucide-react';
 import { Button } from '@/shared/components/bundui-premium/components/ui/button';
@@ -194,8 +194,7 @@ function KanbanPageInner() {
   const filterOptions = getFilterOptions(board.columns);
 
   return (
-    <DashboardLayout>
-      <div className="space-y-6">
+    <div className="space-y-6">
         {/* Page Header */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div>
@@ -382,7 +381,6 @@ function KanbanPageInner() {
           </div>
         </div>
       </div>
-    </DashboardLayout>
   );
 }
 

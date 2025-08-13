@@ -36,21 +36,21 @@ import {
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from '../../../../../src/shared/components/bundui-premium/components/ui/sheet';
-import { Button } from '../../../../../src/shared/components/bundui-premium/components/ui/button';
-import { Input } from '../../../../../src/shared/components/bundui-premium/components/ui/input';
-import { Textarea } from '../../../../../src/shared/components/bundui-premium/components/ui/textarea';
-import { Label } from '../../../../../src/shared/components/bundui-premium/components/ui/label';
+} from '@/shared/components/bundui-premium/components/ui/sheet';
+import { Button } from '@/shared/components/bundui-premium/components/ui/button';
+import { Input } from '@/shared/components/bundui-premium/components/ui/input';
+import { Textarea } from '@/shared/components/bundui-premium/components/ui/textarea';
+import { Label } from '@/shared/components/bundui-premium/components/ui/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../../../../../src/shared/components/bundui-premium/components/ui/select';
-import { Badge } from '../../../../../src/shared/components/bundui-premium/components/ui/badge';
-import { Switch } from '../../../../../src/shared/components/bundui-premium/components/ui/switch';
-import { Separator } from '../../../../../src/shared/components/bundui-premium/components/ui/separator';
+} from '@/shared/components/bundui-premium/components/ui/select';
+import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
+import { Switch } from '@/shared/components/bundui-premium/components/ui/switch';
+import { Separator } from '@/shared/components/bundui-premium/components/ui/separator';
 import {
   Form,
   FormControl,
@@ -59,7 +59,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '../../../../../src/shared/components/bundui-premium/components/ui/form';
+} from '@/shared/components/bundui-premium/components/ui/form';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -69,7 +69,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '../../../../../src/shared/components/bundui-premium/components/ui/alert-dialog';
+} from '@/shared/components/bundui-premium/components/ui/alert-dialog';
 
 import { useCalendarData } from '../hooks/useCalendarData';
 import { useCalendarActions, useCalendarUIState, useCalendarEventState } from '../hooks/useCalendarStore';

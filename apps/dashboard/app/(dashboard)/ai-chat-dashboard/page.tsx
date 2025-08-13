@@ -18,7 +18,6 @@
 // =============================================================================
 
 import React, { useState } from 'react'
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout'
 import { ChatHeader } from './components/ChatHeader'
 import { ChatMessages } from './components/ChatMessages'
 import { ChatInput } from './components/ChatInput'
@@ -121,8 +120,7 @@ export default function AiChatPage() {
   }
 
   return (
-    <DashboardLayout>
-      <div className="space-y-6">
+    <div className="space-y-6">
         {/* Chat Header with Controls */}
         <div className="flex items-center justify-between">
           <div>
@@ -301,6 +299,5 @@ export default function AiChatPage() {
           </div>
         )}
         </div>
-    </DashboardLayout>
   )
 }
