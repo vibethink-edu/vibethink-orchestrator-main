@@ -2,6 +2,52 @@
 
 **🚨 CRÍTICO: Este archivo DEBE ser leído por TODAS las IAs antes de hacer cambios**
 
+## 🔄 **UNIVERSAL AI SESSION CONTINUITY PROTOCOL**
+
+### **🤖 APLICABLE A TODAS LAS IAs (Claude, Gemini, Cursor, GPT, etc.)**
+
+#### **🌅 PROTOCOLO DE SALUDO UNIVERSAL:**
+**Cuando usuario saluda ("Buenos días", "Hola", etc.) → EJECUTAR AUTOMÁTICAMENTE:**
+
+```bash
+# 1. OBLIGATORIO - Estado del repositorio (CUALQUIER IA puede hacer)
+git status --short                    # Mostrar cambios pendientes
+git log --oneline -n 3               # Mostrar últimos 3 commits
+
+# 2. CRÍTICO - Leer contexto de sesión anterior
+# Si existe SESSION_SUMMARY.md, leerlo COMPLETO para contexto
+# Si no existe, informar que es nueva sesión limpia
+
+# 3. OPCIONAL - Si disponible, validación rápida
+npm run validate:quick               # Solo si existe el comando
+
+# 4. CRÍTICO - Mostrar VHELP Command Center
+npm run vhelp                        # Sistema interactivo de comandos con seguridad
+
+# 5. RECORDAR: De ahora en adelante, SIEMPRE consultar VHELP antes de ejecutar comandos
+# 6. PREGUNTAR al usuario: "¿En qué quieres que trabajemos hoy?"
+```
+
+#### **🌙 PROTOCOLO DE DESPEDIDA UNIVERSAL:**
+**Cuando usuario se despide ("hasta mañana", "terminamos", etc.) → SIEMPRE:**
+
+```bash
+# 1. OBLIGATORIO - PREGUNTAR PRIMERO (CUALQUIER IA):
+"¿Quieres que haga push del progreso a git y GitHub antes de terminar?"
+
+# 2. Si usuario responde SÍ, ejecutar según capacidades:
+# - PowerShell disponible: ./save-progress.ps1 "Descripción trabajo"
+# - Solo bash: git add -A && git commit -m "session end" && git push
+# - Crear resumen: ./create-session-summary.ps1 "Descripción trabajo"
+```
+
+#### **📋 ARCHIVOS CLAVE PARA CONTINUIDAD:**
+- **SESSION_SUMMARY.md** - Contexto completo de última sesión
+- **save-progress.ps1** - Script automatizado de guardado
+- **create-session-summary.ps1** - Generador de resumen de sesión
+
+---
+
 ## 🚨 **REGLAS ABSOLUTAS - NUNCA VIOLAR**
 
 ### **📦 DEPENDENCY MANAGEMENT RULES (OBLIGATORIAS):**
@@ -149,9 +195,44 @@ Referencias canónicas:
 
 ## 🛠️ **DESARROLLO - REGLAS ABSOLUTAS**
 
+### **🎨 COMPONENTES UI - BUNDUI REFERENCE FIRST:**
+**REGLA NUEVA: Antes de implementar CUALQUIER componente UI:**
+
+```bash
+# 1. 🥇 PRIMERO - Buscar en bundui-reference
+cd apps/bundui-reference
+grep -r "ComponentName\|pattern\|error" . --include="*.tsx"
+
+# 2. 🥈 SEGUNDO - Si existe, copiar implementación exacta
+# 3. 🥉 TERCERO - Solo si NO existe, consultar UI_MASTER_GUIDE.md
+# 4. 🏅 CUARTO - Integrar multitenant requirements
+```
+
+**Justificación:** bundui-reference ya tiene patrones probados y errores solucionados (ej: hydration).
+
+### **🧭 PROTOCOLO VHELP-FIRST OBLIGATORIO:**
+**ANTES de ejecutar CUALQUIER comando, seguir esta regla:**
+
+```bash
+# 1. 🎯 SIEMPRE consultar VHELP primero
+npm run vhelp
+
+# 2. 🔍 Buscar el comando apropiado en la salida
+# 3. 🛡️ Verificar nivel de seguridad:
+#    🟢 SEGURO: Ejecutar directo
+#    🟡 MODERADO: Revisar qué hace
+#    🔴 PELIGROSO: PEDIR AUTORIZACIÓN AL USUARIO
+
+# 4. ✅ Ejecutar comando oficial (no inventar soluciones)
+```
+
+**❌ PROHIBIDO:** Inventar comandos o usar puertos aleatorios
+**✅ OBLIGATORIO:** Usar comandos oficiales de VHELP
+
 ### **Antes de cambios:**
-1. ✅ Leer documentación existente
-2. ✅ Ejecutar `npm run validate:quick`
+1. ✅ **OBLIGATORIO:** `npm run vhelp` para ver comandos disponibles  
+2. ✅ Leer documentación existente
+3. ✅ Ejecutar `npm run validate:quick`
 3. ✅ Verificar arquitectura actual
 
 ### **Durante cambios:**

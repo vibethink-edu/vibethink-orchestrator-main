@@ -8,15 +8,15 @@
 
 ---
 
-## 🌟 **OFFICIAL FIRST POLICY - NEW STANDARD**
+## 🌟 **BUNDUI REFERENCE FIRST POLICY - NEW STANDARD**
 
-### **🚨 REGLA ABSOLUTA: CONSULTAR DOCS OFICIALES PRIMERO**
+### **🚨 REGLA ABSOLUTA: CONSULTAR BUNDUI REFERENCE PRIMERO**
 
 **Ante CUALQUIER implementación UI, seguir este orden:**
 
-1. ✅ **PRIMERO:** Consultar docs oficiales shadcn/ui
-2. ✅ **SEGUNDO:** Buscar blocks/examples oficiales  
-3. ✅ **TERCERO:** Adaptar con Bundui fidelity
+1. ✅ **PRIMERO:** Consultar BUNDUI Reference (apps/bundui-reference/)
+2. ✅ **SEGUNDO:** Adaptar implementación exacta de bundui-reference
+3. ✅ **TERCERO:** Consultar docs oficiales shadcn/ui si bundui-reference no tiene el patrón
 4. ✅ **CUARTO:** Integrar multitenant requirements
 
 ### **📚 REFERENCIAS OFICIALES OBLIGATORIAS**
@@ -84,12 +84,36 @@ Official shadcn/ui + Bundui-Premium + VibeThink Multitenant = GOLD STANDARD
 
 ## 🌟 **PHILOSOPHY: BUNDUI-PREMIUM FIDELITY + ARQUITECTURA INTELIGENTE**
 
-### **🔗 CADENA DE DEPENDENCIA CRÍTICA**
+### **🔗 CADENA DE DEPENDENCIA CRÍTICA - BUNDUI REFERENCE FIRST**
 ```
-VibeThink → Bundui-Premium → shadcn/ui → Radix UI
-    ↑           ↑              ↑           ↑
-Nuestro    Dashboard      Component    Primitive
-Sistema    Templates      Standards    Foundation
+VibeThink → BUNDUI Reference → Bundui-Premium → shadcn/ui → Radix UI
+    ↑            ↑                ↑              ↑           ↑
+Nuestro     FUENTE DE         Dashboard      Component    Primitive
+Sistema     VERDAD            Templates      Standards    Foundation
+```
+
+**🎯 NUEVA REGLA:** BUNDUI Reference es nuestra fuente de verdad local. Antes de buscar soluciones externas, siempre consultar primero cómo lo resuelve bundui-reference.
+
+### **🎪 ¿POR QUÉ BUNDUI REFERENCE PRIMERO?**
+
+#### **✅ VENTAJAS DE PRIORIZAR BUNDUI REFERENCE:**
+1. **🔍 Implementaciones probadas:** Ya funciona en nuestro proyecto
+2. **🚫 Errores conocidos solucionados:** Como hydration, iconos, etc.
+3. **⚡ Desarrollo más rápido:** No reinventar la rueda
+4. **🎯 Contexto específico:** Adaptado a nuestro monorepo
+5. **📋 Patrones consistentes:** Mantiene coherencia en el proyecto
+
+#### **🔄 WORKFLOW BUNDUI REFERENCE FIRST:**
+```bash
+# 1. Buscar en bundui-reference
+cd apps/bundui-reference
+find . -name "*.tsx" -exec grep -l "MessageCircle\|icon\|hydration" {} \;
+
+# 2. Revisar implementación
+cat apps/bundui-reference/path/to/component.tsx
+
+# 3. Adaptar a nuestro caso
+# 4. Solo si no existe el patrón, consultar docs oficiales
 ```
 
 ### **🌐 REFERENCIA EN VIVO - FUENTE DE VERDAD**

@@ -116,6 +116,40 @@ npm run validate:npm-install     # Verifica instalaciones correctas
 
 ## Essential Commands
 
+### 🧭 **VHELP-FIRST PROTOCOL - MANDATORY**
+
+**🚨 CRITICAL:** Before executing ANY command, ALWAYS follow this protocol:
+
+```bash
+# 1. 🎯 ALWAYS consult VHELP first
+npm run vhelp
+
+# 2. 🔍 Find the appropriate official command
+# 3. 🛡️ Check security level:
+#    🟢 SAFE: Execute directly
+#    🟡 MODERATE: Review what it does
+#    🔴 DANGEROUS: ASK USER AUTHORIZATION
+
+# 4. ✅ Execute OFFICIAL command (don't invent solutions)
+```
+
+**🔴 DANGEROUS Commands Authorization Template:**
+```
+"The command [name] is marked as DANGEROUS in VHELP.
+Do you confirm execution? This will: [description]
+⚠️ REQUIRES CONFIRMATION MANUAL"
+```
+
+**Example - Today's Case:**
+```bash
+# ❌ WRONG: Invent random port
+cd apps/dashboard && npm run dev -- -p 3098
+
+# ✅ CORRECT: Use VHELP official testing port  
+npm run vhelp  # See: "npm run dev:test # 🧪 Dashboard en puerto 3099 para pruebas"
+npm run dev:test  # Official testing command
+```
+
 ### Development
 ```bash
 npm run dev                    # Start Next.js development server
@@ -376,9 +410,34 @@ import { Component } from '../../../shared/components';
 - Implement proper error handling with typed responses
 
 ### Component Development
-- Follow the **UI Master Guide** in `UI_MASTER_GUIDE.md` - SINGLE SOURCE OF TRUTH for all UI standards
+
+#### **🎯 NEW PRIORITY: BUNDUI REFERENCE FIRST RULE**
+**Before implementing ANY UI component, follow this mandatory hierarchy:**
+
+1. **🥇 FIRST:** Check `apps/bundui-reference/` for existing implementation
+2. **🥈 SECOND:** Copy/adapt the exact bundui-reference pattern  
+3. **🥉 THIRD:** Only if not in bundui-reference, consult UI Master Guide
+4. **🏅 FOURTH:** Follow multitenant security requirements
+
+**Example workflow (actual case solved):**
+```bash
+# ❌ OLD WAY: User reports hydration error with MessageCircle
+# → We create complex ClientIcon wrapper
+# → We try various hydration solutions
+# → 15 minutes wasted
+
+# ✅ NEW WAY: BUNDUI REFERENCE FIRST
+grep -r "MessageCircle" apps/bundui-reference/
+# Found: apps/bundui-reference/.../tickets-card.tsx line 96
+# Pattern: Direct icon in "use client" component, no wrapper needed
+# Solution implemented in 30 seconds: <MessageCircle className="h-5 w-5" />
+```
+
+**🎉 Result:** What took 15 minutes to solve now takes 30 seconds by checking bundui-reference first.
+
+#### **📚 Additional Guidelines:**
+- Follow the **UI Master Guide** in `UI_MASTER_GUIDE.md` when bundui-reference doesn't have the pattern
 - For any Bundui Premium inspired components, follow strict decoupling and validation process
-- All premium components must be reimplemented, not copied
 - **Graphics Development**: Use `docs/development/BUNDUI_DECOUPLING_GUIDE.md` for chart/UI components
 - **Chart Implementation**: Charts use Recharts with `hsl(var(--chart-X))` color variables
 
@@ -515,7 +574,53 @@ This project follows the **VThink 1.0 methodology** with these requirements:
 - **Never deploy changes without ecosystem validation** (`npm run validate:ecosystem`)
 - **Never update external dependencies without risk assessment** (`npm run validate:external-update`)
 
-## 🔄 Session Continuity Protocol
+## 🛠️ VHELP - Command Center Crítico
+
+### **Sistema de Ayuda Interactivo con Seguridad Integrada**
+
+**VHELP** es el **Command Center** oficial de VibeThink Orchestrator - un sistema arquitectónicamente crítico que:
+
+#### **🎯 FUNCIONALIDAD ESENCIAL:**
+- **📋 Inventario Completo**: 60+ comandos clasificados por riesgo
+- **🛡️ Sistema de Seguridad**: Previene comandos destructivos accidentales  
+- **🤖 AI-Friendly**: Compatible con todas las IAs (Claude, Gemini, GPT, Cursor)
+- **⚡ Workflow Estandarizado**: 4 niveles de validación jerarquizados
+
+#### **🔍 COMANDOS PRINCIPALES:**
+```bash
+npm run vhelp                    # Mostrar centro de comandos con seguridad
+npm run vhelp:help               # Ayuda detallada del sistema
+```
+
+#### **🚨 CLASIFICACIÓN DE RIESGO:**
+- **🟢 SEGUROS (28 comandos)**: Solo lectura, validación, análisis
+- **🟡 MODERADOS (8 comandos)**: Modificaciones controladas, builds
+- **🔴 PELIGROSOS (6 comandos)**: Limpieza, eliminación de archivos
+
+#### **📚 DOCUMENTACIÓN TÉCNICA:**
+- **Configuración**: `dev-tools/utilities/vhelp-security-config.js`
+- **Sistema Principal**: `dev-tools/utilities/vhelp-enhanced.cjs`  
+- **Documentación**: `docs/development/VHELP_SECURITY_SYSTEM.md`
+
+#### **🔄 INTEGRACIÓN CON PROTOCOLO AI:**
+VHELP es **OBLIGATORIO** en el protocolo de saludo (AI_UNIVERSAL_STANDARDS.md línea 24):
+```bash
+npm run vhelp    # Paso 4 del protocolo de continuidad
+```
+
+#### **🏗️ VALOR ARQUITECTÓNICO:**
+- **Protege inversión** en desarrollo (previene pérdida accidental)
+- **CMMI-ML3 compliant** (documentación automatizada de procesos)
+- **Facilita onboarding** de desarrolladores y IAs
+- **Estandariza workflows** entre sesiones y equipos
+
+---
+
+## 🔄 Universal AI Session Continuity Protocol
+
+### **🤖 PARA TODAS LAS IAs (Claude, Gemini, Cursor, GPT, etc.)**
+
+Este protocolo funciona con **CUALQUIER IA** que tenga acceso a herramientas de terminal/bash.
 
 ### **1. SESSION START ROUTINE (Buenos días, Hola, etc.)**
 
@@ -523,14 +628,17 @@ When user initiates new session with greetings, **AUTOMATICALLY EXECUTE:**
 
 **"Buenos días! Voy a revisar qué dejamos pendiente..."**
 
-#### **Continuity Commands (Execute in parallel):**
+#### **Universal Continuity Commands (ANY AI can execute):**
 ```bash
-# Check current status
+# 1. Check current status (MANDATORY for ALL AIs)
 git status --short                    # Show any uncommitted changes
 git log --oneline -n 3               # Show last 3 commits for context
 
-# Quick project health check  
+# 2. Quick project health check (if available)
 npm run validate:quick               # Fast validation of current state
+
+# 3. Read session context (CRITICAL - ANY AI can do this)
+# If SESSION_SUMMARY.md exists, read it for complete context
 ```
 
 #### **Context Recovery Steps:**
@@ -542,17 +650,45 @@ npm run validate:quick               # Fast validation of current state
 
 ---
 
-### **2. SESSION CLOSURE ROUTINE (Hasta mañana, etc.)**
+### **2. UNIVERSAL SESSION CLOSURE ROUTINE (Hasta mañana, etc.)**
 
-When user indicates session end ("hasta mañana", "terminamos por hoy", etc.), **ALWAYS ASK FIRST:**
+**FOR ALL AIs:** When user indicates session end ("hasta mañana", "terminamos por hoy", etc.), **ALWAYS ASK FIRST:**
 
 **"¿Quieres que haga push del progreso a git y GitHub antes de terminar?"**
 
-Only proceed if user confirms YES. Then execute:
+Only proceed if user confirms YES. Then execute based on AI capabilities:
 
-#### **Option 1: Automated Script (Recommended)**
+#### **Option 1: PowerShell Script (Windows/Claude Code)**
 ```bash
 # Run the automated save script
+./save-progress.ps1 "Descripción del trabajo realizado"
+```
+
+#### **Option 2: Simple Universal Commands (ANY AI)**
+```bash
+# For AIs without PowerShell support
+git add -A
+git commit -m "feat: Session work completed
+
+- Progress saved from AI session  
+- Work completed and stable
+- Ready to continue tomorrow
+
+🤖 Generated with AI Session Protocol
+
+Co-Authored-By: AI-Assistant"
+git push
+
+# Then create session summary manually or run:
+./ai-session-start.cmd    # Windows
+./ai-session-start.sh     # Linux/Mac
+```
+
+#### **Option 3: Cross-Platform Scripts**
+```bash
+# Universal session start (ANY operating system)
+./ai-session-start.cmd    # Windows Command
+./ai-session-start.sh     # Bash (Linux/Mac/WSL)
 powershell -ExecutionPolicy Bypass -File save-progress.ps1 "Brief description of today's work"
 ```
 

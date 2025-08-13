@@ -23,57 +23,56 @@ export const commandRisks = {
   // 🟢 SAFE COMMANDS - Read-only, validation, analysis
   [RISK_LEVELS.SAFE]: [
     'vhelp',
+    'vhelp:help',
+    'validate',
     'validate:quick',
     'validate:universal', 
-    'validate:architecture',
-    'validate:ecosystem',
-    'validate:cross-app-compatibility',
-    'validate:shared-component-impact',
-    'validate:external-update',
-    'validate:security',
-    'validate:performance',
-    'validate:multilang',
-    'validate:npm-install',
-    'validate:duplication',
-    'validate:integration',
-    'validate:ui-generic',
     'validate:guard',
+    'validate:security',
+    'validate:arch',
+    'validate:perf',
     'lint',
+    'lint:all',
     'type-check',
     'test',
-    'test:dashboard',
+    'test:all',
+    'dev',
     'dev:dashboard',
     'dev:admin',
     'dev:login', 
     'dev:helpdesk',
+    'dev:website',
+    'dev:test',
     'dev:all',
-    'dev'
+    'dev:status',
+    'port-check',
+    'status',
+    'start',
+    'start:website',
+    'pre-commit',
+    'quick-start'
   ],
 
   // 🟡 MODERATE COMMANDS - Controlled modifications
   [RISK_LEVELS.MODERATE]: [
-    'fix:npm-duplications',
-    'ai:safe-commit',
-    'ai:before-changes',
-    'ai:after-changes',
+    'fix:deps',
+    'ai:commit',
     'ai:recovery',
     'install:all',
     'setup',
     'build',
+    'build:all',
     'build:dashboard',
-    'build:admin',
     'build:website',
-    'build:all'
+    'validate:full'
   ],
 
   // 🔴 DANGEROUS COMMANDS - File deletion, major changes
   [RISK_LEVELS.DANGEROUS]: [
     'clean',
-    'clean:all',
     'clean:force',
-    'clean:win',
-    'clean:unix',
-    'clean:next'
+    'kill-ports',
+    'emergency'
   ]
 };
 

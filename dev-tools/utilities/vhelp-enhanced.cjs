@@ -202,12 +202,16 @@ class VThinkHelperEnhanced {
   generateDescription(command, script) {
     const descriptions = {
       // Desarrollo
-      'dev': 'Inicia servidor de desarrollo (Dashboard)',
-      'dev:dashboard': 'Servidor de desarrollo - Dashboard',
-      'dev:admin': 'Servidor de desarrollo - Admin',
-      'dev:login': 'Servidor de desarrollo - Login',
-      'dev:helpdesk': 'Servidor de desarrollo - Helpdesk',
-      'dev:all': 'Inicia todos los servidores de desarrollo',
+      'dev': 'Dashboard en puerto 3001 - inicia servidor directamente',
+      'dev:dashboard': 'Dashboard en puerto 3001 - servidor directo',
+      'dev:admin': 'Admin en puerto 3002 - servidor directo',
+      'dev:login': 'Login en puerto 3003 - servidor directo',
+      'dev:helpdesk': 'Helpdesk en puerto 3004 - servidor directo',
+      'dev:website': 'Website en puerto 3005 - servidor directo',
+      'dev:test': '🧪 Dashboard en puerto 3099 para pruebas',
+      'dev:test:reserve': '📌 Reservar puerto 3099 (sin levantar servidor)',
+      'dev:all': 'Todos los servidores (3001-3004)',
+      'dev:status': '🔍 Ver qué puertos están ocupados',
       
       // Build
       'build': 'Construye todas las aplicaciones',
@@ -216,11 +220,15 @@ class VThinkHelperEnhanced {
       'build:website': 'Construye sitio web de marketing',
       'build:all': 'Construye todas las aplicaciones del monorepo',
       
-      // Validación - 4 NIVELES JERARQUICOS
-      'validate:quick': 'NIVEL 1 - Validación rápida (antes de empezar trabajo)',
+      // Validación - SIMPLIFICADO
+      'validate': 'Validación combinada (quick + universal)',
+      'validate:quick': 'NIVEL 1 - Validación rápida (antes de empezar)',
       'validate:universal': 'NIVEL 2 - Validación completa (antes de commit)',
+      'validate:full': 'Validación ecosistema completo con todas las verificaciones',
       'validate:guard': 'NIVEL 3 - Protección emergencia (cuando algo se rompe)',
-      'validate:ecosystem': 'NIVEL 4 - Validación ecosistema completo (CI/CD)',
+      'validate:security': 'Validación de cumplimiento de seguridad',
+      'validate:arch': 'Validación de arquitectura y estructura',
+      'validate:perf': 'Validación de métricas de rendimiento',
       
       // Validaciones especializadas
       'validate:cross-app-compatibility': 'Validación entre aplicaciones',
@@ -235,32 +243,39 @@ class VThinkHelperEnhanced {
       'validate:integration': 'Validación de integración entre componentes',
       'validate:ui-generic': 'Validación de componentes UI genéricos',
       
-      // Corrección
-      'fix:npm-duplications': 'Corrige automáticamente duplicaciones NPM',
+      // Corrección y utilidades
+      'fix:deps': 'Corrige automáticamente duplicaciones NPM',
+      'port-check': '🔍 Ver estado de todos los puertos (3001-3099)',
+      'kill-ports': '🚨 Liberar TODOS los puertos ocupados',
+      'quick-start': '⚡ Start inteligente con detección de puertos',
+      'emergency': '🚨 Limpieza de emergencia + liberar puertos',
+      'status': '📊 Estado completo del sistema + puertos',
       
       // AI
-      'ai:before-changes': 'Ejecutar antes de hacer cambios (AI)',
-      'ai:after-changes': 'Ejecutar después de hacer cambios (AI)',
-      'ai:safe-commit': 'Commit seguro con validación',
+      'ai:commit': 'Commit seguro con validación automática',
       'ai:recovery': 'Procedimiento de recuperación de errores',
       
       // Testing
-      'test': 'Ejecuta todas las pruebas',
-      'test:dashboard': 'Pruebas específicas del Dashboard',
-      'lint': 'Ejecuta linting en todas las apps',
+      'test': 'Ejecuta pruebas del dashboard principal',
+      'test:all': 'Ejecuta pruebas de todas las aplicaciones',
+      'lint': 'Ejecuta linting en dashboard principal',
+      'lint:all': 'Ejecuta linting en todas las apps',
       'type-check': 'Verificación de tipos TypeScript',
       
-      // Limpieza - Cross-platform
-      'clean': 'Limpieza inteligente (Windows con manejo de errores)',
-      'clean:all': 'Limpieza completa (alias de clean)',
-      'clean:win': 'Limpieza Windows con manejo de archivos bloqueados', 
-      'clean:unix': 'Limpieza Unix/Linux (rm -rf)',
-      'clean:next': 'Limpia solo archivos .next build',
-      'clean:force': 'Limpieza forzada (mata procesos Node)',
+      // Limpieza - SIMPLIFICADO
+      'clean': '🧹 Limpieza de node_modules y archivos .next',
+      'clean:force': '💀 Limpieza + mata procesos Node activos',
       
       // Mantenimiento  
-      'install:all': 'Instala dependencias en root y apps',
-      'setup': 'Configuración inicial completa del proyecto'
+      'install:all': 'Instala dependencias en root y todas las apps',
+      'setup': 'Setup completo: limpia + instala todo',
+      
+      // Utilidades principales
+      'pre-commit': 'Validación pre-commit automática',
+      'vhelp': 'Muestra este centro de comandos',
+      'vhelp:help': 'Ayuda detallada del sistema VHELP',
+      'start': 'Inicia dashboard en modo producción',
+      'start:website': 'Inicia website en modo producción'
     };
 
     return descriptions[command] || this.inferDescription(command, script);
@@ -421,13 +436,140 @@ class VThinkHelperEnhanced {
   }
 }
 
+// Función para mostrar ayuda detallada
+function showHelp() {
+  const colors = {
+    reset: '\x1b[0m',
+    cyan: '\x1b[36m',
+    yellow: '\x1b[33m',
+    green: '\x1b[32m',
+    red: '\x1b[31m',
+    bold: '\x1b[1m',
+    dim: '\x1b[2m'
+  };
+
+  console.log(`${colors.cyan}${colors.bold}
+🛠️  VHELP Enhanced - Sistema de Ayuda Interactivo
+${colors.reset}`);
+
+  console.log(`${colors.yellow}${colors.bold}DESCRIPCIÓN:${colors.reset}
+${colors.dim}VHELP es el Command Center oficial de VibeThink Orchestrator con sistema de seguridad integrado.
+Proporciona un inventario completo de 60+ comandos clasificados por nivel de riesgo para 
+prevenir comandos destructivos accidentales y facilitar el desarrollo AI-friendly.${colors.reset}
+
+${colors.yellow}${colors.bold}USO:${colors.reset}
+  npm run vhelp              ${colors.dim}# Mostrar centro de comandos interactivo${colors.reset}
+  npm run vhelp:help         ${colors.dim}# Mostrar esta ayuda detallada${colors.reset}
+  cat VHELP_COMPLETE_GUIDE.md ${colors.dim}# Documentación completa (400+ líneas)${colors.reset}
+
+${colors.yellow}${colors.bold}CLASIFICACIÓN DE RIESGO:${colors.reset}
+  ${colors.green}🟢 SEGUROS (28 comandos)${colors.reset}     ${colors.dim}# Solo lectura, validación, análisis${colors.reset}
+  ${colors.yellow}🟡 MODERADOS (8 comandos)${colors.reset}   ${colors.dim}# Modificaciones controladas, builds${colors.reset}  
+  ${colors.red}🔴 PELIGROSOS (6 comandos)${colors.reset}   ${colors.dim}# Eliminación archivos, cambios mayores${colors.reset}
+
+${colors.yellow}${colors.bold}CATEGORÍAS DE COMANDOS:${colors.reset}
+  ${colors.cyan}🚀 DESARROLLO Y CONSTRUCCIÓN${colors.reset}
+    - Servidores de desarrollo (dev:dashboard, dev:admin, etc.)
+    - Construcción de aplicaciones (build:all, build:dashboard, etc.)
+    - Gestión de procesos (start, kill-node)
+
+  ${colors.cyan}🔍 VALIDACIÓN Y CALIDAD${colors.reset}  
+    - 4 Niveles de validación jerarquizada:
+      ${colors.green}🟢 NIVEL 1${colors.reset}: validate:quick     ${colors.dim}# Antes de empezar trabajo${colors.reset}
+      ${colors.yellow}🟡 NIVEL 2${colors.reset}: validate:universal ${colors.dim}# Antes de commit${colors.reset}
+      ${colors.red}🔴 NIVEL 3${colors.reset}: validate:guard     ${colors.dim}# Emergencias/rollback${colors.reset}
+      ${colors.cyan}🚀 NIVEL 4${colors.reset}: validate:ecosystem ${colors.dim}# CI/CD completo${colors.reset}
+    - Linting y testing (lint, test, type-check)
+    - Validaciones especializadas (security, performance, architecture)
+
+  ${colors.cyan}🔧 CORRECCIÓN AUTOMÁTICA${colors.reset}
+    - Limpieza de archivos ${colors.red}(PELIGROSO)${colors.reset}: clean, clean:force
+    - Corrección de dependencias: fix:deps
+    - Instalación: install:all, setup
+
+  ${colors.cyan}🎮 PORT MANAGER - GESTIÓN DE PUERTOS${colors.reset}
+    ${colors.green}PUERTOS FIJOS DEL SISTEMA:${colors.reset}
+    ┌──────────────┬───────┬─────────────────────────┐
+    │ Dashboard    │ 3001  │ npm run dev              │
+    │ Admin        │ 3002  │ npm run dev:admin        │
+    │ Login        │ 3003  │ npm run dev:login        │
+    │ Helpdesk     │ 3004  │ npm run dev:helpdesk     │
+    │ Website      │ 3005  │ npm run dev:website      │
+    │ Test 🧪      │ 3099  │ npm run dev:test         │
+    └──────────────┴───────┴─────────────────────────┘
+    - port-check: Ver estado de todos los puertos
+    - kill-ports: Liberar todos los puertos ocupados
+    - emergency: Recuperación total del sistema
+
+  ${colors.cyan}🤖 COMANDOS AI-ESPECÍFICOS${colors.reset}
+    - ai:commit: Commit con validación automática
+    - ai:recovery: Recuperación de errores
+
+${colors.yellow}${colors.bold}SISTEMA DE SEGURIDAD:${colors.reset}
+  - ${colors.green}Comandos SEGUROS${colors.reset}: Se ejecutan sin restricciones
+  - ${colors.yellow}Comandos MODERADOS${colors.reset}: Muestran información antes de ejecutar  
+  - ${colors.red}Comandos PELIGROSOS${colors.reset}: Requieren confirmación manual explícita
+
+${colors.yellow}${colors.bold}INTEGRACIÓN AI:${colors.reset}
+  - Compatible con todas las IAs: Claude, Gemini, GPT, Cursor
+  - Parte del protocolo de saludo universal (AI_UNIVERSAL_STANDARDS.md)
+  - Workflow estandarizado para consistencia entre sesiones
+
+${colors.yellow}${colors.bold}COMANDOS ESENCIALES:${colors.reset}
+  ${colors.cyan}# 🚀 LEVANTAR SERVIDORES (PUERTOS FIJOS)${colors.reset}
+  npm run dev               ${colors.green}# Dashboard en puerto 3001${colors.reset}
+  npm run dev:admin         ${colors.green}# Admin en puerto 3002${colors.reset}
+  npm run dev:login         ${colors.green}# Login en puerto 3003${colors.reset}
+  npm run dev:helpdesk      ${colors.green}# Helpdesk en puerto 3004${colors.reset}
+  npm run dev:website       ${colors.green}# Website en puerto 3005${colors.reset}
+  npm run dev:test          ${colors.yellow}# 🧪 Puerto 3099 (pruebas aisladas)${colors.reset}
+  npm run dev:all           ${colors.cyan}# TODOS los servidores (3001-3004)${colors.reset}
+
+  ${colors.cyan}# 🔍 GESTIÓN Y CONTROL DE PUERTOS${colors.reset}
+  npm run port-check        ${colors.green}# Ver qué puertos están ocupados${colors.reset}
+  npm run dev:status        ${colors.green}# Estado de todos los servidores${colors.reset}
+  npm run quick-start       ${colors.green}# Start inteligente con detección${colors.reset}
+  npm run kill-ports        ${colors.yellow}# Liberar todos los puertos${colors.reset}
+
+  ${colors.cyan}# ✨ Workflow Diario${colors.reset}
+  npm run validate:quick    ${colors.green}# Validación rápida pre-trabajo${colors.reset}
+  npm run validate          ${colors.green}# Validación combinada${colors.reset}
+  npm run ai:commit         ${colors.green}# Commit con mensaje automático${colors.reset}
+
+  ${colors.cyan}# Emergencias${colors.reset}
+  npm run emergency         ${colors.red}# Recuperación total del sistema${colors.reset}
+  npm run clean:force       ${colors.red}# Limpieza + mata procesos${colors.reset}
+
+${colors.yellow}${colors.bold}ARCHIVOS TÉCNICOS:${colors.reset}
+  - Configuración: dev-tools/utilities/vhelp-security-config.js
+  - Sistema principal: dev-tools/utilities/vhelp-enhanced.cjs
+  - Documentación: docs/development/VHELP_SECURITY_SYSTEM.md
+
+${colors.yellow}${colors.bold}VALOR ARQUITECTÓNICO:${colors.reset}
+  ✅ Protege inversión en desarrollo (previene pérdida accidental)
+  ✅ CMMI-ML3 compliant (documentación automatizada)  
+  ✅ Facilita onboarding de desarrolladores y IAs
+  ✅ Estandariza workflows entre equipos
+
+${colors.dim}🤖 Sistema AI-Friendly diseñado para colaboración humano-IA óptima
+📍 VibeThink Orchestrator - VThink 1.0 Methodology${colors.reset}
+`);
+}
+
 // Ejecutar solo si es llamado directamente
 if (require.main === module) {
-  const helper = new VThinkHelperEnhanced();
-  helper.run().catch(error => {
-    console.error('Error fatal:', error);
-    process.exit(1);
-  });
+  // Verificar argumentos de línea de comandos
+  const args = process.argv.slice(2);
+  
+  if (args.includes('-h') || args.includes('--help')) {
+    showHelp();
+  } else {
+    const helper = new VThinkHelperEnhanced();
+    helper.run().catch(error => {
+      console.error('Error fatal:', error);
+      process.exit(1);
+    });
+  }
 }
 
 module.exports = VThinkHelperEnhanced;

@@ -256,7 +256,11 @@ export default function DashboardPage() {
               variant="chat"
               title="Sofia Davis"
               subtitle="m@example.com"
-              icon={<MessageCircle className="h-5 w-5" />}
+              icon={
+                <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center">
+                  <MessageCircle className="h-3 w-3 text-primary" />
+                </div>
+              }
             >
               <div className="space-y-3">
                 <div className="flex gap-2">
