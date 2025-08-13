@@ -7,10 +7,10 @@
 
 console.log('🧪 Probando flujo completo de login...\n');
 
-// Simular el proceso de SimpleLogin
+// Simular el proceso de SimpleLogin - SECURITY FIX: Use environment variables
 const testLogin = () => {
-  const email = 'superadmin@VibeThink.co';
-  const password = '12345';
+  const email = process.env.TEST_ADMIN_EMAIL || 'test@example.com';
+  const password = process.env.TEST_ADMIN_PASSWORD || 'test123';
   
   console.log('📋 Credenciales de prueba:');
   console.log(`  Email: ${email}`);

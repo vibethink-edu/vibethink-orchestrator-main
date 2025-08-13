@@ -20,7 +20,7 @@ export default async function DashboardLayout({
       defaultOpen={defaultOpen}
       style={
         {
-          "--sidebar-width": "calc(var(--spacing) * 64)",
+          "--sidebar-width": "calc(var(--spacing) * 64)", // Restored - same as bundui-reference
           "--header-height": "calc(var(--spacing) * 14)"
         } as React.CSSProperties
       }>

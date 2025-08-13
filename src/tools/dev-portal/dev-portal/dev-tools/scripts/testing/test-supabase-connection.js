@@ -9,9 +9,9 @@
 
 import { createClient } from '@supabase/supabase-js';
 
-// Configuración de Supabase
-const SUPABASE_URL = "https://pikywaoqlekupfynnclg.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBpa3l3YW9xbGVrdXBmeW5uY2xnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ5NzI4MDAsImV4cCI6MjA1MDU0ODgwMH0.placeholder_key_for_development";
+// Configuración de Supabase - SECURITY FIX: Use environment variables
+const SUPABASE_URL = process.env.SUPABASE_URL || process.env.REACT_APP_SUPABASE_URL;
+const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || process.env.REACT_APP_SUPABASE_ANON_KEY;
 
 // Crear cliente Supabase
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);

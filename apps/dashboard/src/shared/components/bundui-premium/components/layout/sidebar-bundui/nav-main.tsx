@@ -250,6 +250,26 @@ export const navItems: NavGroup[] = [
     ]
   },
   {
+    title: "Migrados",
+    items: [
+      { title: "AI Chat", href: "/ai-chat-dashboard", icon: BrainCircuitIcon },
+      { title: "Calendar", href: "/calendar-dashboard", icon: CalendarIcon },
+      { title: "CRM", href: "/crm-dashboard", icon: ChartBarDecreasingIcon },
+      { title: "Crypto", href: "/crypto-dashboard", icon: WalletMinimalIcon },
+      { title: "E-commerce", href: "/ecommerce-dashboard", icon: ShoppingBagIcon },
+      { title: "File Manager", href: "/file-manager-dashboard", icon: FolderIcon },
+      { title: "Finance", href: "/finance-dashboard", icon: BadgeDollarSignIcon },
+      { title: "Kanban", href: "/kanban-dashboard", icon: SquareKanbanIcon },
+      { title: "Mail", href: "/mail-dashboard", icon: MailIcon },
+      { title: "Notes", href: "/notes-dashboard", icon: StickyNoteIcon },
+      { title: "POS System", href: "/pos-system-dashboard", icon: CookieIcon },
+      { title: "Projects", href: "/project-management-dashboard", icon: FolderDotIcon },
+      { title: "Sales", href: "/sales-dashboard", icon: BadgeDollarSignIcon },
+      { title: "Tasks", href: "/tasks-dashboard", icon: ClipboardCheckIcon },
+      { title: "Analytics", href: "/website-analytics-dashboard", icon: GaugeIcon }
+    ]
+  },
+  {
     title: "Others",
     items: [
       {
