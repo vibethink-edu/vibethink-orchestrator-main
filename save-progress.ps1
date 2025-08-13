@@ -72,7 +72,15 @@ if ($LASTEXITCODE -eq 0) {
     Write-Host "=======================================" -ForegroundColor Red
 }
 
-# 8. Mostrar estado final
+# 8. Crear resumen de sesión automáticamente
+Write-Host "5. Creando resumen de sesión..." -ForegroundColor Yellow
+$summaryMessage = "Progreso salvado: $Message"
+./create-session-summary.ps1 $summaryMessage
+
+# 9. Mostrar estado final
 Write-Host ""
 Write-Host "ESTADO FINAL:" -ForegroundColor Cyan
 git status --short
+
+Write-Host ""
+Write-Host "📄 SESSION_SUMMARY.md actualizado para mañana" -ForegroundColor Green

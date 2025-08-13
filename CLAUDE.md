@@ -515,11 +515,40 @@ This project follows the **VThink 1.0 methodology** with these requirements:
 - **Never deploy changes without ecosystem validation** (`npm run validate:ecosystem`)
 - **Never update external dependencies without risk assessment** (`npm run validate:external-update`)
 
-## 🔄 Session Closure Protocol
+## 🔄 Session Continuity Protocol
 
-### **MANDATORY END-OF-WORK ROUTINE**
+### **1. SESSION START ROUTINE (Buenos días, Hola, etc.)**
 
-When user indicates session end ("hasta mañana", "terminamos por hoy", etc.), **ALWAYS execute:**
+When user initiates new session with greetings, **AUTOMATICALLY EXECUTE:**
+
+**"Buenos días! Voy a revisar qué dejamos pendiente..."**
+
+#### **Continuity Commands (Execute in parallel):**
+```bash
+# Check current status
+git status --short                    # Show any uncommitted changes
+git log --oneline -n 3               # Show last 3 commits for context
+
+# Quick project health check  
+npm run validate:quick               # Fast validation of current state
+```
+
+#### **Context Recovery Steps:**
+1. ✅ **Check for SESSION_SUMMARY.md** - read if exists for last session context
+2. ✅ **Review git status** - identify any pending changes
+3. ✅ **Scan for obvious issues** - broken builds, missing dependencies
+4. ✅ **Present current state** - summarize where we left off
+5. ✅ **Ask for today's priorities** - "¿En qué quieres que trabajemos hoy?"
+
+---
+
+### **2. SESSION CLOSURE ROUTINE (Hasta mañana, etc.)**
+
+When user indicates session end ("hasta mañana", "terminamos por hoy", etc.), **ALWAYS ASK FIRST:**
+
+**"¿Quieres que haga push del progreso a git y GitHub antes de terminar?"**
+
+Only proceed if user confirms YES. Then execute:
 
 #### **Option 1: Automated Script (Recommended)**
 ```bash
@@ -554,11 +583,11 @@ git status
 ```
 
 #### **CRITICAL SESSION CLOSURE RULES:**
-- ✅ **ALWAYS save progress** before session end
-- ✅ **ALWAYS push to GitHub** (both local git and remote)
-- ✅ **ALWAYS use descriptive commit messages**
-- ✅ **ALWAYS confirm push success** before ending
-- ✅ **NEVER leave unsaved work** - even if incomplete
+- ✅ **ALWAYS ask permission** before saving progress
+- ✅ **NEVER execute git commands without user consent**
+- ✅ **If user says YES:** Execute automated save with descriptive commit message
+- ✅ **If user says NO:** Simply say "¡Hasta mañana!" and end session
+- ✅ **Always be respectful** of user's choice to save or not
 
 #### **Success Confirmation:**
 ```
