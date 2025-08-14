@@ -1,5 +1,5 @@
 'use client'
-import { Headphones, Clock, CheckCircle, AlertTriangle, Star } from 'lucide-react'
+import { Headphones, ClockIcon, CheckCircle, AlertTriangle, Star } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card'
 import { Badge } from '@/shared/components/ui/badge'
 import { Progress } from '@/shared/components/ui/progress'
@@ -122,7 +122,7 @@ export function TicketsCard({
             variant="outline" 
             className={`gap-1 ${getStatusColor(responseTimeStatus)}`}
           >
-            <Clock className="h-3 w-3" />
+            <ClockIcon className="h-3 w-3" />
             {formatTime(ticketsData.averageResponseTime)} avg
           </Badge>
         </div>
@@ -211,7 +211,7 @@ export function TicketsCard({
             
             <div className="rounded-lg bg-yellow-50 p-2 dark:bg-yellow-950/20">
               <div className="flex items-center justify-center gap-1 mb-1">
-                <Clock className="h-3 w-3 text-yellow-600" />
+                <ClockIcon className="h-3 w-3 text-yellow-600" />
                 <span className="text-xs font-medium">Medium</span>
               </div>
               <div className="text-sm font-bold">{ticketsData.priorityBreakdown.medium}</div>
@@ -270,7 +270,7 @@ export function TicketsCard({
         <div className="rounded-lg bg-muted/50 p-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Clock className="h-4 w-4 text-chart-1" />
+              <ClockIcon className="h-4 w-4 text-chart-1" />
               <span className="text-sm font-medium">Response Time</span>
             </div>
             <div className="text-right">

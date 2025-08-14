@@ -147,9 +147,9 @@ export const navItems: NavGroup[] = [
     items: [
       {
         title: "Kanban",
-        href: "/dashboard/apps/kanban",
+        href: "/kanban-dashboard",
         icon: SquareKanbanIcon,
-        isComing: true
+        isNew: true
       },
       { title: "Notes", href: "/dashboard/apps/notes", icon: StickyNoteIcon, isDataBadge: "8" },
       { title: "Chats", href: "/dashboard/apps/chat", icon: MessageSquareIcon, isDataBadge: "5" },
@@ -253,21 +253,20 @@ export const navItems: NavGroup[] = [
   {
     title: "Migrados",
     items: [
-      { title: "AI Chat", href: "/ai-chat-dashboard", icon: BrainCircuitIcon },
-      { title: "Calendar", href: "/calendar-dashboard", icon: CalendarIcon },
-      { title: "CRM", href: "/crm-dashboard", icon: ChartBarDecreasingIcon },
-      { title: "Crypto", href: "/crypto-dashboard", icon: WalletMinimalIcon },
-      { title: "E-commerce", href: "/ecommerce-dashboard", icon: ShoppingBagIcon },
-      { title: "File Manager", href: "/file-manager-dashboard", icon: FolderIcon },
-      { title: "Finance", href: "/finance-dashboard", icon: BadgeDollarSignIcon },
-      { title: "Kanban", href: "/kanban-dashboard", icon: SquareKanbanIcon },
-      { title: "Mail", href: "/mail-dashboard", icon: MailIcon },
-      { title: "Notes", href: "/notes-dashboard", icon: StickyNoteIcon },
-      { title: "POS System", href: "/pos-system-dashboard", icon: CookieIcon },
-      { title: "Projects", href: "/project-management-dashboard", icon: FolderDotIcon },
-      { title: "Sales", href: "/sales-dashboard", icon: BadgeDollarSignIcon },
-      { title: "Tasks", href: "/tasks-dashboard", icon: ClipboardCheckIcon },
-      { title: "Analytics", href: "/website-analytics-dashboard", icon: GaugeIcon }
+      { title: "AI Chat", href: "/ai-chat-dashboard", icon: BrainCircuitIcon, isNew: true },
+      { title: "Calendar", href: "/calendar-dashboard", icon: CalendarIcon, isNew: true },
+      { title: "CRM", href: "/crm-dashboard", icon: ChartBarDecreasingIcon, isNew: true },
+      { title: "Crypto", href: "/crypto-dashboard", icon: WalletMinimalIcon, isNew: true },
+      { title: "E-commerce", href: "/ecommerce-dashboard", icon: ShoppingBagIcon, isNew: true },
+      { title: "File Manager", href: "/file-manager-dashboard", icon: FolderIcon, isNew: true },
+      { title: "Finance", href: "/finance-dashboard", icon: BadgeDollarSignIcon, isNew: true },
+      { title: "Mail", href: "/mail-dashboard", icon: MailIcon, isNew: true },
+      { title: "Notes", href: "/notes-dashboard", icon: StickyNoteIcon, isNew: true },
+      { title: "POS System", href: "/pos-system-dashboard", icon: CookieIcon, isNew: true },
+      { title: "Projects", href: "/project-management-dashboard", icon: FolderDotIcon, isNew: true },
+      { title: "Sales", href: "/sales-dashboard", icon: BadgeDollarSignIcon, isNew: true },
+      { title: "Tasks", href: "/tasks-dashboard", icon: ClipboardCheckIcon, isNew: true },
+      { title: "Analytics", href: "/website-analytics-dashboard", icon: GaugeIcon, isNew: true }
     ]
   },
   {

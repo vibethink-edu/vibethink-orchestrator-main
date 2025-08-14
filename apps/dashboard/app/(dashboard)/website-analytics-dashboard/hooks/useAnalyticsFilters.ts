@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
-import { subDays, startOfMonth, endOfMonth } from 'date-fns'
+import { subDays, startOfMonth, endOfMonth, format } from 'date-fns'
 import {
   AnalyticsFilters,
   AnalyticsDateRange,
@@ -146,8 +146,9 @@ export const useAnalyticsFilters = (): UseAnalyticsFiltersReturn => {
    */
   const getDateRangeLabel = useCallback(() => {
     const { from, to } = filters.dateRange
-    const fromStr = from.toLocaleDateString()
-    const toStr = to.toLocaleDateString()
+    // Use date-fns format like bundui-reference for consistency
+    const fromStr = format(from, "dd MMM yyyy")
+    const toStr = format(to, "dd MMM yyyy")
     
     if (fromStr === toStr) {
       return fromStr

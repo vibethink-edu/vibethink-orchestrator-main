@@ -16,7 +16,7 @@ export { EarningReportsCard } from './EarningReportsCard'
 // Performance and Sales Components
 export { SalesOverflowCard } from './SalesOverflowCard'
 export { SalesByCountriesCard } from './SalesByCountriesCard'
-export { AverageDailySales } from './AverageDailySales'
+export { AverageDailySalesCard } from './AverageDailySales'
 
 // Campaign and Support Components
 export { MonthlyCampaignState } from './MonthlyCampaignState'

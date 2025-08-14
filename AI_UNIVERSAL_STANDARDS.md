@@ -4,29 +4,39 @@
 
 ## 🔄 **UNIVERSAL AI SESSION CONTINUITY PROTOCOL**
 
-### **🤖 APLICABLE A TODAS LAS IAs (Claude, Gemini, Cursor, GPT, etc.)**
+### **🤖 PROTOCOLO DIFERENCIADO POR CAPACIDADES DE IA**
 
 #### **🌅 PROTOCOLO DE SALUDO UNIVERSAL:**
-**Cuando usuario saluda ("Buenos días", "Hola", etc.) → EJECUTAR AUTOMÁTICAMENTE:**
+**Cuando usuario saluda ("Buenos días", "Hola", etc.) → EJECUTAR SEGÚN CAPACIDADES:**
 
+#### **💪 FULL PROTOCOL - IAs con herramientas completas (Claude Code, etc.):**
 ```bash
-# 1. OBLIGATORIO - Estado del repositorio (CUALQUIER IA puede hacer)
-git status --short                    # Mostrar cambios pendientes
+# 1. OBLIGATORIO - Estado del repositorio
+git status --short                    # Mostrar cambios pendientes  
 git log --oneline -n 3               # Mostrar últimos 3 commits
 
 # 2. CRÍTICO - Leer contexto de sesión anterior
 # Si existe SESSION_SUMMARY.md, leerlo COMPLETO para contexto
-# Si no existe, informar que es nueva sesión limpia
 
-# 3. OPCIONAL - Si disponible, validación rápida
+# 3. OPCIONAL - Validación rápida
 npm run validate:quick               # Solo si existe el comando
 
 # 4. CRÍTICO - Mostrar VHELP Command Center
-npm run vhelp                        # Sistema interactivo de comandos con seguridad
+npm run vhelp                        # Sistema interactivo de comandos
 
-# 5. RECORDAR: De ahora en adelante, SIEMPRE consultar VHELP antes de ejecutar comandos
-# 6. PREGUNTAR al usuario: "¿En qué quieres que trabajemos hoy?"
+# 5. PREGUNTAR: "¿En qué quieres que trabajemos hoy?"
 ```
+
+#### **📝 LITE PROTOCOL - IAs con capacidades limitadas (GPT web sin plugins, etc.):**
+```
+# 1. OBLIGATORIO - Intentar leer SESSION_SUMMARY.md si es posible
+# 2. OBLIGATORIO - Declarar limitaciones ("No tengo acceso a terminal")
+# 3. OBLIGATORIO - Preguntar al usuario por estado actual del proyecto
+# 4. OBLIGATORIO - Mencionar que debe usar VHELP cuando sea posible
+# 5. PREGUNTAR: "¿En qué quieres que trabajemos hoy?"
+```
+
+**NOTA IMPORTANTE:** Cursor IDE **SÍ tiene acceso completo** a terminal/bash y debe seguir **FULL PROTOCOL**
 
 #### **🌙 PROTOCOLO DE DESPEDIDA UNIVERSAL:**
 **Cuando usuario se despide ("hasta mañana", "terminamos", etc.) → SIEMPRE:**
@@ -73,12 +83,67 @@ npm install clsx --save  # ❌ NO in root (duplicate)
 
 ### **🛡️ STABILITY RULES (OBLIGATORIAS):**
 ```typescript
-// ✅ MANDATORY: Never change working code
-// If it works, DON'T TOUCH IT
+// ✅ REGLA INTELIGENTE: Arregla errores locales/aislados libremente
+// 🔴 PERO si vas a cambiar entorno o código global que genere 
+//     daño colateral → PEDIR AUTORIZACIÓN primero
 
-// ❌ FORBIDDEN: Don't "improve" working code
-// Don't update versions "just because"
-// Don't add dependencies "to fix errors"
+// 🟢 SEGURO (OK para arreglar):
+// - Páginas individuales (components, pages específicas)
+// - Errores de sintaxis simples
+// - Features aisladas sin dependencias
+
+// 🔴 PELIGROSO (PEDIR AUTORIZACIÓN):
+// - Dependencias (.npmrc, package.json, npm install)
+// - Configuración global (tsconfig, eslint, etc.)
+// - Código compartido (src/shared/, utils, hooks)
+// - Arquitectura (monorepo structure)
+
+// 🚨 SI ALGO SE ROMPE:
+// 1. git reset --hard HEAD~1 (volver atrás)
+// 2. npm run clean && npm install (si son dependencias)
+// 3. Preguntar al usuario qué hacer
+```
+
+### **🚨 ARCHIVOS PELIGROSOS - NUNCA CREAR EN APPS:**
+```bash
+# ❌ NUNCA crear estos archivos en apps/[nombre]/
+.npmrc          # Rompe configuración monorepo
+.env.example    # Innecesario (usar root)
+package-lock.json # Conflictos con root
+yarn.lock       # Conflictos con root
+
+# ✅ Si necesitas configuración npm, usar root .npmrc
+# ✅ Si necesitas example env, usar root .env.example
+```
+
+### **🔗 VERSIONES DEPENDENCY - ALINEACIÓN BUNDUI REFERENCE (CRÍTICO):**
+```json
+// ✅ SIEMPRE usar versiones exactas de bundui-reference
+"lucide-react": "0.522.0"     // ✅ Evita hydration errors
+"lucide-react": "0.537.0"     // ❌ Causa hydration errors SVG
+
+// 🚨 ANTES de actualizar cualquier dependency compartida:
+// 1. Verificar versión en apps/bundui-reference/package.json
+// 2. Usar EXACTAMENTE la misma versión
+// 3. NUNCA actualizar sin verificar bundui-reference primero
+```
+
+### **🔧 SOLUCIÓN CUANDO SE ROMPEN DEPENDENCIAS:**
+```bash
+# 1. Eliminar archivos problemáticos
+rm apps/*/+(.npmrc|.env.example)
+
+# 2. Limpiar completamente
+npm run clean
+
+# 3. Limpiar cache corrupto
+npm cache clean --force
+
+# 4. Reinstalar limpio
+npm install
+
+# 5. Probar funcionamiento
+npm run dev:test
 ```
 
 ### **📋 MANDATORY CHECKLIST BEFORE ANY CHANGE:**
@@ -136,6 +201,11 @@ vibethink-orchestrator/
 - `pages/`
 - `src/app/`
 - `src/pages/`
+
+### **❌ NUNCA en apps/[nombre]:**
+- `.npmrc` (rompe configuración del monorepo)
+- `.env.example` (innecesario, usar root .env.example)
+- Duplicación de dependencias que están en root
 
 ## 🔒 **SEGURIDAD - REGLAS ABSOLUTAS**
 
@@ -195,8 +265,8 @@ Referencias canónicas:
 
 ## 🛠️ **DESARROLLO - REGLAS ABSOLUTAS**
 
-### **🎨 COMPONENTES UI - BUNDUI REFERENCE FIRST:**
-**REGLA NUEVA: Antes de implementar CUALQUIER componente UI:**
+### **🎨 COMPONENTES UI - BUNDUI REFERENCE FIRST (OBLIGATORIO):**
+**REGLA FUNDAMENTAL: Antes de implementar CUALQUIER componente UI:**
 
 ```bash
 # 1. 🥇 PRIMERO - Buscar en bundui-reference
@@ -208,7 +278,49 @@ grep -r "ComponentName\|pattern\|error" . --include="*.tsx"
 # 4. 🏅 CUARTO - Integrar multitenant requirements
 ```
 
+**🔧 PATRONES ESPECÍFICOS DE BUNDUI-REFERENCE (OBLIGATORIOS):**
+```typescript
+// ✅ FECHAS: Usar date-fns format (NUNCA toLocaleDateString)
+format(date, "dd MMM yyyy")  // ✅ Bundui way: "13 Aug 2025"
+date.toLocaleDateString()    // ❌ Causa hydration errors
+
+// ✅ FECHAS con null safety:
+{date ? format(date, "dd MMM yyyy") : 'None'}  // ✅ Bundui pattern con null check
+{date?.toLocaleDateString()}                   // ❌ Hidration mismatch
+
+// ✅ NÚMEROS: Especificar locale para consistencia
+number.toLocaleString('en-US')  // ✅ Formato consistente: "3,156"
+number.toLocaleString()         // ❌ Causa hydration errors
+
+// ✅ ICONOS: Usar nombres y sizing de bundui-reference
+<ClockIcon className="size-4" />       // ✅ Bundui way (ClockIcon + size)
+<Clock className="h-3 w-3" />          // ❌ Puede causar hydration errors
+<MessageCircle className="h-5 w-5" />  // ❌ Usar size-5 en su lugar
+<MessageCircle className="size-5" />   // ✅ Bundui pattern
+
+// ✅ COLORES: OKLCH format exacto
+oklch(0.5827 0.2418 12.23)  // ✅ Bundui Premium way
+```
+
 **Justificación:** bundui-reference ya tiene patrones probados y errores solucionados (ej: hydration).
+
+// ✅ SOLUCIÓN REDUX ERROR: Alinear con bundui-reference versión Recharts
+// 🎯 RECHARTS VERSION ALIGNMENT (OBLIGATORIO):
+
+// ✅ SOLUCIÓN IMPLEMENTADA: Recharts 2.15.4
+"recharts": "2.15.4"  // ✅ Alineado con bundui-reference - SIN Redux error
+
+// ❌ PROBLEMA ANTERIOR: Recharts 3.x requiere Redux para ChartTooltipContent
+"recharts": "3.1.2"   // ❌ Causaba error useAppSelector undefined
+
+// 🔧 PATRÓN CORRECTO (Post-downgrade):
+<ChartTooltip content={<ChartTooltipContent hideLabel />} />  // ✅ Funciona perfectamente
+
+// 📋 ARCHIVOS RESTAURADOS:
+// - SalesOverflowCard.tsx, SalesByCountriesCard.tsx, MonthlyCampaignState.tsx
+// - EarningReportsCard.tsx - ChartTooltipContent restaurado completamente
+
+// 📚 DOCUMENTACIÓN: docs/development/REDUX_CHARTOOLTIP_ERROR_GUIDE.md
 
 ### **🧭 PROTOCOLO VHELP-FIRST OBLIGATORIO:**
 **ANTES de ejecutar CUALQUIER comando, seguir esta regla:**
@@ -264,6 +376,8 @@ npm run vhelp
 - ❌ Crear archivos Next.js en root
 - ❌ Mover apps fuera de `apps/`
 - ❌ Usar imports relativos entre apps
+- ❌ **CRÍTICO: Crear archivos .npmrc en apps/** (rompe dependencias del monorepo)
+- ❌ **CRÍTICO: Agregar .env.example en apps/** (usar root .env.example)
 
 ### **Seguridad:**
 - ❌ Queries sin `company_id`

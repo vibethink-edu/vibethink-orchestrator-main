@@ -573,6 +573,11 @@ This project follows the **VThink 1.0 methodology** with these requirements:
 - **Never commit without proper testing** and documentation
 - **Never deploy changes without ecosystem validation** (`npm run validate:ecosystem`)
 - **Never update external dependencies without risk assessment** (`npm run validate:external-update`)
+- **🚨 CRITICAL: Never create .npmrc files in apps/** (breaks monorepo dependency management)
+- **🚨 CRITICAL: Never create .env.example files in apps/** (use root .env.example instead)
+- **🚨 CRITICAL: ALWAYS use bundui-reference dependency versions** (check apps/bundui-reference/package.json first)
+- **🚨 CRITICAL: lucide-react MUST be 0.522.0** (newer versions cause hydration errors)
+- **Never touch working code** without critical need (if it works, don't change it)
 
 ## 🛠️ VHELP - Command Center Crítico
 

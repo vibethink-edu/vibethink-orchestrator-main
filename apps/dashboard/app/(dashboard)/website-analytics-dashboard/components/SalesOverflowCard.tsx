@@ -5,9 +5,9 @@ import { TrendingUp, TrendingDown, ShoppingCart, Target, AlertTriangle } from 'l
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card'
 import { 
   ChartConfig, 
-  ChartContainer, 
-  ChartTooltip, 
-  ChartTooltipContent 
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent
 } from '@/shared/components/ui/chart'
 import { Badge } from '@/shared/components/ui/badge'
 import { Progress } from '@/shared/components/ui/progress'
@@ -199,14 +199,7 @@ export function SalesOverflowCard({
                   tick={{ fontSize: 11 }}
                   tickFormatter={(value) => `$${(value / 1000).toFixed(0)}K`}
                 />
-                <ChartTooltip 
-                  content={<ChartTooltipContent 
-                    formatter={(value, name) => [
-                      formatCurrency(value as number),
-                      name === 'sales' ? 'Sales' : name === 'target' ? 'Target' : 'Overflow'
-                    ]}
-                  />} 
-                />
+                <ChartTooltip content={<ChartTooltipContent hideLabel />} />
                 <Bar
                   dataKey="target"
                   fill="hsl(var(--chart-2))"

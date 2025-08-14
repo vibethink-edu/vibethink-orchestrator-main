@@ -5,11 +5,11 @@ import { TrendingUp, DollarSign, PieChart, BarChart3 } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card'
 import { 
   ChartConfig, 
-  ChartContainer, 
-  ChartTooltip, 
-  ChartTooltipContent,
+  ChartContainer,
   ChartLegend,
-  ChartLegendContent
+  ChartLegendContent,
+  ChartTooltip,
+  ChartTooltipContent
 } from '@/shared/components/ui/chart'
 import { Badge } from '@/shared/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/ui/tabs'
@@ -206,14 +206,7 @@ export function EarningReportsCard({
                       tickFormatter={(value) => `$${(value / 1000).toFixed(0)}K`}
                       tick={{ fontSize: 12 }}
                     />
-                    <ChartTooltip 
-                      content={<ChartTooltipContent 
-                        formatter={(value, name) => [
-                          formatCurrency(value as number),
-                          name === 'revenue' ? 'Revenue' : name === 'profit' ? 'Net Profit' : 'Expenses'
-                        ]}
-                      />} 
-                    />
+                    <ChartTooltip content={<ChartTooltipContent />} />
                     <Area
                       type="monotone"
                       dataKey="revenue"
@@ -257,14 +250,7 @@ export function EarningReportsCard({
                       tickFormatter={(value) => `$${(value / 1000).toFixed(0)}K`}
                       tick={{ fontSize: 12 }}
                     />
-                    <ChartTooltip 
-                      content={<ChartTooltipContent 
-                        formatter={(value, name) => [
-                          formatCurrency(value as number),
-                          name === 'revenue' ? 'Revenue' : 'Net Profit'
-                        ]}
-                      />} 
-                    />
+                    <ChartTooltip content={<ChartTooltipContent />} />
                     <Line
                       type="monotone"
                       dataKey="revenue"
@@ -306,11 +292,7 @@ export function EarningReportsCard({
                       tickFormatter={(value) => `${value}%`}
                       tick={{ fontSize: 12 }}
                     />
-                    <ChartTooltip 
-                      content={<ChartTooltipContent 
-                        formatter={(value) => [`${(value as number).toFixed(1)}%`, 'Growth Rate']}
-                      />} 
-                    />
+                    <ChartTooltip content={<ChartTooltipContent />} />
                     <Line
                       type="monotone"
                       dataKey="growthRate"

@@ -434,8 +434,6 @@ export default function TasksManagementPage() {
             </Card>
           </div>
         )}
-      </div>
-
         {/* Create/Edit Task Dialog */}
         <CreateTaskDialog
           open={isCreateTaskDialogOpen}
@@ -443,5 +441,6 @@ export default function TasksManagementPage() {
           editingTask={selectedTask}
           teamMembers={teamMembers}
         />
+      </div>
   )
 }

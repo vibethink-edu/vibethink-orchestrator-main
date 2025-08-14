@@ -5,9 +5,7 @@ import { ChevronUpIcon, DollarSign, HandCoins, TrendingUp, TrendingDown } from '
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card'
 import { 
   ChartConfig, 
-  ChartContainer, 
-  ChartTooltip, 
-  ChartTooltipContent 
+  ChartContainer
 } from '@/shared/components/ui/chart'
 import { Badge } from '@/shared/components/ui/badge'
 import { Skeleton } from '@/shared/components/ui/skeleton'

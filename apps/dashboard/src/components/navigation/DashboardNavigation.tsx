@@ -33,7 +33,7 @@ const dashboardNavigation = [
     href: "/default",
     icon: Layout,
     description: "Default dashboard (Bundui Reference)",
-    badge: "Bundui"
+    badge: "New"
   },
   {
     title: "Overview",
@@ -45,8 +45,7 @@ const dashboardNavigation = [
     title: "AI Consensus",
     href: "/enhanced-dashboard/consensus",
     icon: Brain,
-    description: "Multi-AI collaboration metrics",
-    badge: "New"
+    description: "Multi-AI collaboration metrics"
   },
   {
     title: "Analytics", 
@@ -64,8 +63,7 @@ const dashboardNavigation = [
     title: "Decisions",
     href: "/enhanced-dashboard/decisions",
     icon: Target,
-    description: "Evidence-based decisions",
-    badge: "AI"
+    description: "Evidence-based decisions"
   },
   {
     title: "Team",

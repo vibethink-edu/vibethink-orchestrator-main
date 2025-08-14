@@ -5,9 +5,9 @@ import { Megaphone, Target, TrendingUp, Eye, MousePointer } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card'
 import { 
   ChartConfig, 
-  ChartContainer, 
-  ChartTooltip, 
-  ChartTooltipContent 
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent
 } from '@/shared/components/ui/chart'
 import { Badge } from '@/shared/components/ui/badge'
 import { Progress } from '@/shared/components/ui/progress'
@@ -252,17 +252,7 @@ export function MonthlyCampaignState({
                   tick={{ fontSize: 11 }}
                   tickFormatter={(value) => formatNumber(value)}
                 />
-                <ChartTooltip 
-                  content={<ChartTooltipContent 
-                    formatter={(value, name) => [
-                      name === 'impressions' ? formatNumber(value as number) :
-                      name === 'clicks' ? formatNumber(value as number) :
-                      formatNumber(value as number),
-                      name === 'impressions' ? 'Impressions' :
-                      name === 'clicks' ? 'Clicks' : 'Conversions'
-                    ]}
-                  />} 
-                />
+                <ChartTooltip content={<ChartTooltipContent hideLabel />} />
                 <Bar
                   dataKey="impressions"
                   fill="hsl(var(--chart-1))"

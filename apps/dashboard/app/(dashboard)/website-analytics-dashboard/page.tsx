@@ -1,18 +1,17 @@
 'use client'
-
-;
 import { 
   AnalyticsHeader,
   WebsiteAnalyticsCard,
   TotalEarningCard,
   SalesOverflowCard,
   SalesByCountriesCard,
-  AverageDailySales,
+  AverageDailySalesCard,
   MonthlyCampaignState,
   TicketsCard
 } from './components'
 import { EarningReportsCard } from './components/SimplifiedEarningReportsCard'
-import { useAnalyticsData, useAnalyticsFilters } from './hooks'
+import { useAnalyticsFilters } from './hooks'
+import { format } from 'date-fns'
 
 /**
  * Website Analytics Dashboard Page
@@ -41,12 +40,15 @@ import { useAnalyticsData, useAnalyticsFilters } from './hooks'
  * Row 4: Geographic and campaign analysis (Countries, Earnings, Campaigns)
  */
 export default function WebsiteAnalyticsPage() {
-  const { isLoading, error, refetch } = useAnalyticsData()
   const { filters } = useAnalyticsFilters()
+  
+  // Following bundui-reference pattern: no global Redux state
+  const isLoading = false
+  const error = null
 
-  // Handle data refresh
+  // Handle data refresh - simplified for bundui-reference alignment
   const handleRefresh = async () => {
-    await refetch()
+    console.log('Refresh functionality - using static data like bundui-reference')
   }
 
   // Handle data export
@@ -79,7 +81,7 @@ export default function WebsiteAnalyticsPage() {
             />
             
             {/* Daily Sales Trends and Patterns */}
-            <AverageDailySales 
+            <AverageDailySalesCard 
               className="lg:col-span-1"
               isLoading={isLoading}
               error={error}
@@ -148,7 +150,7 @@ export default function WebsiteAnalyticsPage() {
                 <div>Filters Applied: {Object.keys(filters).length}</div>
               </div>
               <div>
-                <div>Date Range: {filters.dateRange?.from?.toLocaleDateString()} - {filters.dateRange?.to?.toLocaleDateString()}</div>
+                <div>Date Range: {filters.dateRange?.from ? format(filters.dateRange.from, "dd MMM yyyy") : 'None'} - {filters.dateRange?.to ? format(filters.dateRange.to, "dd MMM yyyy") : 'None'}</div>
                 <div>Country Filter: {filters.country || 'All Countries'}</div>
                 <div>Campaign Filter: {filters.campaign || 'All Campaigns'}</div>
               </div>

@@ -1,4 +1,4 @@
-# Cursor IDE Rules for AI Pair Orchestrator Pro - VThink 1.0
+# Cursor IDE Rules for AI Pair Orchestrator Pro - VibeThink
 
 ## 🚨 **REGLAS ABSOLUTAS - NUNCA VIOLAR**
 
@@ -31,6 +31,36 @@ npm install clsx --save  # ❌ NO in root (duplicate)
 // ❌ FORBIDDEN: Don't "improve" working code
 // Don't update versions "just because"
 // Don't add dependencies "to fix errors"
+```
+
+### **🚨 ARCHIVOS PELIGROSOS - NUNCA CREAR EN APPS:**
+```bash
+# ❌ NUNCA crear estos archivos en apps/[nombre]/
+.npmrc          # CRÍTICO: Rompe configuración monorepo y dependencias
+.env.example    # Innecesario (usar root .env.example)
+package-lock.json # Conflictos con root
+yarn.lock       # Conflictos con root
+
+# ✅ Si necesitas configuración npm, usar root .npmrc
+# ✅ Si necesitas example env, usar root .env.example
+```
+
+### **🔧 SOLUCIÓN CUANDO SE ROMPEN DEPENDENCIAS:**
+```bash
+# 1. Eliminar archivos problemáticos
+rm apps/*/.npmrc apps/*/.env.example
+
+# 2. Limpiar completamente  
+npm run clean
+
+# 3. Limpiar cache corrupto
+npm cache clean --force
+
+# 4. Reinstalar limpio
+npm install
+
+# 5. Probar funcionamiento
+npm run dev:test
 ```
 
 ### **📋 MANDATORY CHECKLIST BEFORE ANY CHANGE:**
@@ -135,12 +165,12 @@ try {
   return { 
     success: false, 
     error: error.message,
-    context: 'VThink 1.0 Error Handling'
+    context: 'VibeThink Error Handling'
   };
 }
 ```
 
-## 🚀 **Project Context - VThink 1.0**
+## 🚀 **Project Context - VibeThink**
 This is an enterprise SaaS platform built with React + TypeScript + Supabase featuring:
 - **VThink 1.0 Methodology** with CMMI-ML3 compliance
 - **Monorepo architecture** with Lerna management
@@ -152,9 +182,53 @@ This is an enterprise SaaS platform built with React + TypeScript + Supabase fea
 
 ## 📋 **Session Protocol - OBLIGATORIO**
 
+### **🌅 PROTOCOLO DE SALUDO UNIVERSAL - CURSOR:**
+**Cuando usuario saluda ("Buenos días", "Hola", etc.) → EJECUTAR AUTOMÁTICAMENTE:**
+
+```typescript
+// ✅ FULL PROTOCOL - Cursor Implementation:
+// Cursor TIENE acceso completo a herramientas (terminal, git, npm, etc.)
+const morningProtocol = {
+  // 1. OBLIGATORIO - Estado del repositorio
+  gitStatus: await execCommand("git status --short"),
+  gitLog: await execCommand("git log --oneline -n 3"),
+  
+  // 2. CRÍTICO - Leer contexto de sesión anterior
+  sessionContext: await readSessionSummary() || "Nueva sesión limpia",
+  
+  // 3. OPCIONAL - Validación rápida  
+  quickValidation: await execCommand("npm run validate:quick"),
+  
+  // 4. CRÍTICO - Mostrar VHELP Command Center
+  vhelpSystem: await execCommand("npm run vhelp"),
+  
+  // 5. PREGUNTAR - Trabajo del día
+  dailyQuestion: "¿En qué quieres que trabajemos hoy?"
+};
+```
+
+**✅ CORRECTO:** Cursor debe seguir **AI_UNIVERSAL_STANDARDS.md** - FULL PROTOCOL
+
+### **🧭 VHELP-FIRST PROTOCOL - OBLIGATORIO PARA CURSOR:**
+```typescript
+// ✅ ANTES de sugerir CUALQUIER comando:
+const vhelpFirst = {
+  step1: "Recordar al usuario: 'Ejecuta npm run vhelp primero'",
+  step2: "Buscar comando oficial en VHELP",
+  step3: "Verificar nivel de seguridad (🟢🟡🔴)",
+  step4: "Para 🔴 PELIGROSOS: Advertir 'REQUIERE AUTORIZACIÓN'",
+  step5: "Sugerir comando oficial de VHELP"
+};
+
+// ❌ PROHIBIDO para Cursor:
+// - Inventar comandos no documentados en VHELP
+// - Sugerir puertos aleatorios (usar 3099 para testing)
+// - Ignorar niveles de seguridad de VHELP
+```
+
 ### **Al iniciar cada sesión:**
 ```typescript
-// PROTOCOLO DE INICIO AUTOMÁTICO - VThink 1.0
+// PROTOCOLO DE INICIO AUTOMÁTICO - VibeThink
 const sessionInfo = {
   fecha: "DD-MM-YYYY",
   participante: "Nombre del participante", 
@@ -440,6 +514,30 @@ const adminData = await fetchAdminData(); // No permission check
 // ❌ NEVER do this:
 import { Component } from '../../../shared/components'; // Relative import
 const data = await fetchData(); // No error handling
+```
+
+### **🚨 CRITICAL FILE VIOLATIONS:**
+```bash
+# ❌ NUNCA crear estos archivos (ROMPEN EL SISTEMA):
+touch apps/dashboard/.npmrc      # CRÍTICO: Rompe dependencias
+touch apps/admin/.env.example    # Innecesario y problemático
+touch apps/*/package-lock.json   # Conflictos de dependencias
+
+# ✅ CORRECTO: Usar configuración centralizada
+# - .npmrc solo en root (si es necesario)
+# - .env.example solo en root
+# - package-lock.json solo en root
+```
+
+### **🔗 DEPENDENCY VERSION ALIGNMENT (CRÍTICO):**
+```bash
+# 🚨 REGLA DE ORO: SIEMPRE verificar bundui-reference primero
+grep "lucide-react" apps/bundui-reference/package.json  # Ver versión exacta
+npm install lucide-react@0.522.0                        # Usar versión bundui
+
+# ❌ NUNCA actualizar dependencies sin verificar bundui-reference
+# ❌ NUNCA usar versiones más nuevas que bundui-reference
+# ✅ SIEMPRE alinearse con bundui-reference package.json
 ```
 
 ### **VThink Violations:**

@@ -5,9 +5,9 @@ import { Globe, TrendingUp, TrendingDown, MapPin } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card'
 import { 
   ChartConfig, 
-  ChartContainer, 
-  ChartTooltip, 
-  ChartTooltipContent 
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent
 } from '@/shared/components/ui/chart'
 import { Badge } from '@/shared/components/ui/badge'
 import { Progress } from '@/shared/components/ui/progress'
@@ -209,7 +209,7 @@ export function SalesByCountriesCard({
             <div className="text-muted-foreground">Total Sales</div>
           </div>
           <div className="text-right">
-            <div className="font-medium">{totalOrders.toLocaleString()}</div>
+            <div className="font-medium">{totalOrders.toLocaleString('en-US')}</div>
             <div className="text-muted-foreground">Total Orders</div>
           </div>
         </div>
@@ -238,14 +238,7 @@ export function SalesByCountriesCard({
                     />
                   ))}
                 </Pie>
-                <ChartTooltip 
-                  content={<ChartTooltipContent 
-                    formatter={(value, name, props) => [
-                      formatCurrency(value as number),
-                      props.payload.country
-                    ]}
-                  />} 
-                />
+                <ChartTooltip content={<ChartTooltipContent />} />
               </PieChart>
             </ResponsiveContainer>
           </ChartContainer>
