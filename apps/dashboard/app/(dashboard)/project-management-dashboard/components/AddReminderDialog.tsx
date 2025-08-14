@@ -305,13 +305,13 @@ export const AddReminderDialog: React.FC<AddReminderDialogProps> = ({
             <Label htmlFor="project">Associate with Project (Optional)</Label>
             <Select 
               value={formData.project_id || ''} 
-              onValueChange={(value) => updateFormData('project_id', value || undefined)}
+              onValueChange={(value) => updateFormData('project_id', value === 'none' ? undefined : value)}
             >
               <SelectTrigger>
                 <SelectValue placeholder="Select project" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">No project</SelectItem>
+                <SelectItem value="none">No project</SelectItem>
                 {projects?.map((project) => (
                   <SelectItem key={project.id} value={project.id}>
                     {project.name}
@@ -327,13 +327,13 @@ export const AddReminderDialog: React.FC<AddReminderDialogProps> = ({
               <Label htmlFor="task">Associate with Task (Optional)</Label>
               <Select 
                 value={formData.task_id || ''} 
-                onValueChange={(value) => updateFormData('task_id', value || undefined)}
+                onValueChange={(value) => updateFormData('task_id', value === 'none' ? undefined : value)}
               >
                 <SelectTrigger>
                   <SelectValue placeholder="Select task" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">No task</SelectItem>
+                  <SelectItem value="none">No task</SelectItem>
                   {tasks?.filter(task => task.project_id === formData.project_id).map((task) => (
                     <SelectItem key={task.id} value={task.id}>
                       {task.title}

@@ -273,7 +273,7 @@ export const navItems: NavGroup[] = [
     title: "Others",
     items: [
       {
-        title: "Download Shadcn UI Kit",
+        title: "Download VibeThink Pro",
         href: "/pricing",
         icon: ClipboardMinusIcon,
         newTab: true

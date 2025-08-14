@@ -61,7 +61,7 @@ export default function Sidebar() {
                 <SidebarMenuButton className="hover:text-foreground rounded-none group-data-[collapsible=icon]:px-0! hover:bg-[var(--primary)]/10">
                   <Logo />
                   <div className="truncate font-semibold group-data-[collapsible=icon]:hidden">
-                    Shadcn UI Kit
+                    VibeThink Orchestrator
                   </div>
                   <ChevronsUpDown className="ml-auto group-data-[collapsible=icon]:hidden" />
                 </SidebarMenuButton>
@@ -214,7 +214,7 @@ export default function Sidebar() {
           <CardContent className="px-3">
             <Button className="w-full" asChild>
               <Link href="https://shadcnuikit.com/pricing" target="_blank">
-                Get Shadcn UI Kit
+                Get VibeThink Pro
               </Link>
             </Button>
           </CardContent>

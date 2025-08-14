@@ -152,7 +152,7 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
         <Select
           value={filters.status?.join(',') || ''}
           onValueChange={(value) => {
-            if (value) {
+            if (value && value !== 'all') {
               updateFilter('status', value.split(',') as any)
             } else {
               clearFilter('status')
@@ -163,7 +163,7 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
             <SelectValue placeholder="Status" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">All Statuses</SelectItem>
+            <SelectItem value="all">All Statuses</SelectItem>
             {projectStatusOptions.map((option) => (
               <SelectItem key={option.value} value={option.value}>
                 {option.label}
@@ -176,7 +176,7 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
         <Select
           value={filters.priority?.join(',') || ''}
           onValueChange={(value) => {
-            if (value) {
+            if (value && value !== 'all') {
               updateFilter('priority', value.split(',') as any)
             } else {
               clearFilter('priority')
@@ -187,7 +187,7 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
             <SelectValue placeholder="Priority" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">All Priorities</SelectItem>
+            <SelectItem value="all">All Priorities</SelectItem>
             {projectPriorityOptions.map((option) => (
               <SelectItem key={option.value} value={option.value}>
                 {option.label}
@@ -200,7 +200,7 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
         <Select
           value={filters.team_lead?.join(',') || ''}
           onValueChange={(value) => {
-            if (value) {
+            if (value && value !== 'all') {
               updateFilter('team_lead', value.split(','))
             } else {
               clearFilter('team_lead')
@@ -211,7 +211,7 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
             <SelectValue placeholder="Team Lead" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">All Team Leads</SelectItem>
+            <SelectItem value="all">All Team Leads</SelectItem>
             {teamMemberOptions.map((option) => (
               <SelectItem key={option.value} value={option.value}>
                 {option.label}

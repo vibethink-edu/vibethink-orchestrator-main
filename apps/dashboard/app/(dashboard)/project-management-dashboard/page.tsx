@@ -78,15 +78,15 @@ export default function ProjectManagementPage() {
 
   return (
     <div className="space-y-6">
-        {/* Header */}
-        <ProjectManagementHeader
-          onCreateProject={handleCreateProject}
-          onCreateTask={handleCreateTask}
-          onExportData={handleExportData}
-        />
+      {/* Header */}
+      <ProjectManagementHeader
+        onCreateProject={handleCreateProject}
+        onCreateTask={handleCreateTask}
+        onExportData={handleExportData}
+      />
 
-        {/* Main Dashboard Content */}
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
+      {/* Main Dashboard Content */}
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="overview" className="flex items-center space-x-2">
               <BarChart3 className="h-4 w-4" />
@@ -294,36 +294,36 @@ export default function ProjectManagementPage() {
           <TabsContent value="reports" className="space-y-6">
             <Reports />
           </TabsContent>
-        </Tabs>
+      </Tabs>
 
-        {/* Loading State */}
-        {isLoading && (
-          <div className="fixed inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-50">
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-4">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-                  <p className="text-lg font-medium">Loading project data...</p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        )}
-      </div>
+      {/* Loading State */}
+      {isLoading && (
+        <div className="fixed inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-50">
+          <Card>
+            <CardContent className="p-6">
+              <div className="flex items-center space-x-4">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                <p className="text-lg font-medium">Loading project data...</p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
 
-        {/* TODO: Add dialogs for creating/editing projects and tasks */}
-        {/* These would be implemented as separate components */}
-        {/*
-        <CreateProjectDialog
-          open={isCreateProjectDialogOpen}
-          onOpenChange={setIsCreateProjectDialogOpen}
-          editingProject={selectedProject}
-        />
-        
-        <CreateTaskDialog
-          open={isCreateTaskDialogOpen}
-          onOpenChange={setIsCreateTaskDialogOpen}
-        />
-        */}
+      {/* TODO: Add dialogs for creating/editing projects and tasks */}
+      {/* These would be implemented as separate components */}
+      {/*
+      <CreateProjectDialog
+        open={isCreateProjectDialogOpen}
+        onOpenChange={setIsCreateProjectDialogOpen}
+        editingProject={selectedProject}
+      />
+      
+      <CreateTaskDialog
+        open={isCreateTaskDialogOpen}
+        onOpenChange={setIsCreateTaskDialogOpen}
+      />
+      */}
+    </div>
   )
 }

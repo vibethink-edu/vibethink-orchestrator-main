@@ -23,7 +23,7 @@ export function generateMeta({
   canonical: string;
 }): Metadata {
   return {
-    title: `${title} - Shadcn UI Kit`,
+    title: `${title} - VibeThink Orchestrator`,
     description: description,
     metadataBase: new URL(`https://shadcnuikit.com`),
     alternates: {
