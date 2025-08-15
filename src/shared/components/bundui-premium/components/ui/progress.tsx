@@ -5,7 +5,7 @@ import * as ProgressPrimitive from "@radix-ui/react-progress";
 
 import { cn } from "@/lib/utils";
 
-interface CustomProgressProps
+interface ProgressProps
   extends React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root> {
   indicatorColor?: string;
 }
@@ -15,7 +15,7 @@ function Progress({
   indicatorColor,
   value,
   ...props
-}: React.ComponentProps<typeof ProgressPrimitive.Root> & CustomProgressProps) {
+}: ProgressProps) {
   return (
     <ProgressPrimitive.Root
       data-slot="progress"

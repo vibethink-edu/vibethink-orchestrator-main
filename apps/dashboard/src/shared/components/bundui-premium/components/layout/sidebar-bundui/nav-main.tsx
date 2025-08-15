@@ -85,7 +85,8 @@ export const navItems: NavGroup[] = [
       {
         title: "Default",
         href: "/dashboard/default",
-        icon: ChartPieIcon
+        icon: ChartPieIcon,
+        isNew: true
       },
       {
         title: "E-commerce",
@@ -100,26 +101,29 @@ export const navItems: NavGroup[] = [
           { title: "Order Detail", href: "/dashboard/pages/orders/detail" }
         ]
       },
-      { title: "Sales", href: "/dashboard/sales", icon: BadgeDollarSignIcon },
-      { title: "CRM", href: "/dashboard/crm", icon: ChartBarDecreasingIcon },
+      { title: "Sales", href: "/dashboard/sales", icon: BadgeDollarSignIcon, isNew: true },
+      { title: "CRM", href: "/dashboard/crm", icon: ChartBarDecreasingIcon, isNew: true },
       {
         title: "Website Analytics",
         href: "/dashboard/website-analytics",
-        icon: GaugeIcon
+        icon: GaugeIcon,
+        isNew: true
       },
       {
         title: "Project Management",
         href: "/dashboard/project-management",
-        icon: FolderDotIcon
+        icon: FolderDotIcon,
+        isNew: true
       },
       {
         title: "File Manager",
         href: "/dashboard/file-manager",
-        icon: FolderIcon
+        icon: FolderIcon,
+        isNew: true
       },
-      { title: "Crypto", href: "/dashboard/crypto", icon: WalletMinimalIcon },
-      { title: "Academy/School", href: "/dashboard/academy", icon: GraduationCapIcon },
-      { title: "Hospital Management", href: "/dashboard/hospital-management", icon: ActivityIcon },
+      { title: "Crypto", href: "/dashboard/crypto", icon: WalletMinimalIcon, isNew: true },
+      { title: "Academy/School", href: "/dashboard/academy", icon: GraduationCapIcon, isNew: true },
+      { title: "Hospital Management", href: "/dashboard/hospital-management", icon: ActivityIcon, isNew: true },
       { title: "Hotel Dashboard", href: "/dashboard/hotel", icon: Building2Icon, isComing: true },
       { title: "Finance", href: "/dashboard/finance", icon: WalletMinimalIcon, isNew: true }
     ]
@@ -127,7 +131,7 @@ export const navItems: NavGroup[] = [
   {
     title: "AI",
     items: [
-      { title: "AI Chat", href: "/dashboard/apps/ai-chat", icon: BrainCircuitIcon },
+      { title: "AI Chat", href: "/dashboard/apps/ai-chat", icon: BrainCircuitIcon, isNew: true },
       {
         title: "AI Chat V2",
         href: "/dashboard/apps/ai-chat",
@@ -151,8 +155,8 @@ export const navItems: NavGroup[] = [
         icon: SquareKanbanIcon,
         isNew: true
       },
-      { title: "Notes", href: "/dashboard/apps/notes", icon: StickyNoteIcon, isDataBadge: "8" },
-      { title: "Chats", href: "/dashboard/apps/chat", icon: MessageSquareIcon, isDataBadge: "5" },
+      { title: "Notes", href: "/dashboard/apps/notes", icon: StickyNoteIcon, isDataBadge: "8", isNew: true },
+      { title: "Chats", href: "/dashboard/apps/chat", icon: MessageSquareIcon, isDataBadge: "5", isNew: true },
       { title: "Mail", href: "/dashboard/apps/mail", icon: MailIcon, isNew: true },
       {
         title: "Todo List App",
@@ -163,17 +167,18 @@ export const navItems: NavGroup[] = [
       {
         title: "Tasks",
         href: "/dashboard/apps/tasks",
-        icon: ClipboardCheckIcon
+        icon: ClipboardCheckIcon,
+        isNew: true
       },
-      { title: "Calendar", href: "/dashboard/apps/calendar", icon: CalendarIcon },
+      { title: "Calendar", href: "/dashboard/apps/calendar", icon: CalendarIcon, isNew: true },
       {
         title: "File Manager",
         href: "/dashboard/apps/file-manager",
         icon: ArchiveRestoreIcon,
         isComing: true
       },
-      { title: "Api Keys", href: "/dashboard/apps/api-keys", icon: KeyIcon },
-      { title: "POS App", href: "/dashboard/apps/pos-system", icon: CookieIcon }
+      { title: "Api Keys", href: "/dashboard/apps/api-keys", icon: KeyIcon, isNew: true },
+      { title: "POS App", href: "/dashboard/apps/pos-system", icon: CookieIcon, isNew: true }
     ]
   },
   {
