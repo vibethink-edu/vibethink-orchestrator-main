@@ -235,3 +235,8 @@ export function displaySecurityBadge(command) {
   const info = getQuickSecurityInfo(command);
   return `${info.riskEmoji} ${info.riskColor}${info.riskLabel}${colors.reset}`;
 }
+
+
+
+
+

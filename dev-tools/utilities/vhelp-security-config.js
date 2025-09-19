@@ -261,3 +261,8 @@ export function requiresConfirmation(command) {
 export function getSecurityInfo(command) {
   return securityEnhancedDescriptions[command] || null;
 }
+
+
+
+
+
