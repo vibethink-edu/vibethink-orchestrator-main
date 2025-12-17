@@ -7,8 +7,8 @@
 'use client'
 
 import React from 'react'
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout'
-import { Button } from '@/shared/components/ui/button'
+import { DashboardLayout } from '@vibethink/ui'
+import { Button } from '@vibethink/ui'
 import { Download } from 'lucide-react'
 
 // Import Bundui-inspired components

@@ -9,7 +9,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Button } from '@/shared/components/ui/button'
+import { Button } from '@vibethink/ui'
 import { Input } from '@/shared/components/ui/input'
 import {
   Select,

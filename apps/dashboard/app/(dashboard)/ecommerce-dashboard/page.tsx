@@ -16,38 +16,30 @@
 
 import React, { useState } from 'react';
 ;
-import {
-  Card,
+import { Card,
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle,
-} from '@/shared/components/bundui-premium/components/ui/card';
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
-import { Progress } from '@/shared/components/bundui-premium/components/ui/progress';
-import {
-  Table,
+  CardTitle, } from '@vibethink/ui';
+import { Button } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { Progress } from '@vibethink/ui';
+import { Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
-} from '@/shared/components/bundui-premium/components/ui/table';
-import {
-  Select,
+  TableRow, } from '@vibethink/ui';
+import { Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-} from '@/shared/components/bundui-premium/components/ui/select';
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/bundui-premium/components/ui/avatar';
-import {
-  DropdownMenu,
+  SelectValue, } from '@vibethink/ui';
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui';
+import { DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/shared/components/bundui-premium/components/ui/dropdown-menu';
+  DropdownMenuTrigger, } from '@vibethink/ui';
 
 // Icons
 import { 

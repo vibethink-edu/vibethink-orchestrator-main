@@ -35,7 +35,7 @@ import {
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Icon from "@/components/icon";
 import Logo from "@/components/layout/logo";
-import { Button } from "@/components/ui/button";
+import { Button } from "@vibethink/ui";
 import { useIsTablet } from "@/hooks/use-mobile";
 
 export default function Sidebar() {

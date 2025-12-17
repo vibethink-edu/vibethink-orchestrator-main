@@ -15,10 +15,10 @@
 'use client';
 
 import React, { useRef, useEffect } from 'react';
-import { Textarea } from '@/shared/components/bundui-premium/components/ui/textarea';
-import { ScrollArea } from '@/shared/components/bundui-premium/components/ui/scroll-area';
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Checkbox } from '@/shared/components/bundui-premium/components/ui/checkbox';
+import { Textarea } from '@vibethink/ui';
+import { ScrollArea } from '@vibethink/ui';
+import { Button } from '@vibethink/ui';
+import { Checkbox } from '@vibethink/ui';
 import { 
   Bold, 
   Italic, 

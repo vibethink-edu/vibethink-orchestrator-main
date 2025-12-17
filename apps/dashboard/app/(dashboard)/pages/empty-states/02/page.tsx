@@ -10,7 +10,7 @@
 import { useState, useEffect } from "react";
 import type React from "react";
 import { Megaphone, SquareTerminal, CalendarDays, ChevronRight, ArrowRight } from "lucide-react";
-import { Card } from "@/shared/components/bundui-premium/components/ui/card";
+import { Card } from '@vibethink/ui';
 import Link from "next/link";
 
 export default function EmptyState02Page() {

@@ -32,31 +32,25 @@ import {
 } from 'lucide-react';
 import { Column, KanbanColumnProps } from '../types';
 import TaskCard from './TaskCard';
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
-import { Card, CardContent, CardHeader } from '@/shared/components/bundui-premium/components/ui/card';
-import {
-  DropdownMenu,
+import { Button } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { Card, CardContent, CardHeader } from '@vibethink/ui';
+import { DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/shared/components/bundui-premium/components/ui/dropdown-menu';
-import {
-  Tooltip,
+  DropdownMenuTrigger, } from '@vibethink/ui';
+import { Tooltip,
   TooltipContent,
   TooltipProvider,
-  TooltipTrigger,
-} from '@/shared/components/bundui-premium/components/ui/tooltip';
-import {
-  Dialog,
+  TooltipTrigger, } from '@vibethink/ui';
+import { Dialog,
   DialogContent,
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogTitle,
-} from '@/shared/components/bundui-premium/components/ui/dialog';
-import { Progress } from '@/shared/components/bundui-premium/components/ui/progress';
+  DialogTitle, } from '@vibethink/ui';
+import { Progress } from '@vibethink/ui';
 
 const KanbanColumn: React.FC<KanbanColumnProps> = ({ 
   column, 

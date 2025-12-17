@@ -3,7 +3,7 @@
  * Para debuggear por qué no se muestran los charts en el debug panel
  */
 
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
+import { DashboardLayout } from '@vibethink/ui';
 import { RevenueChart } from '@/shared/components/dashboard/RevenueChart';
 import { MetricCard } from '@/shared/components/dashboard/MetricCard';
 import { ClientOnly } from '@/shared/components/ClientOnly';

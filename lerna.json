@@ -3,13 +3,18 @@
   "npmClient": "npm",
   "packages": [
     "apps/*",
+    "apps/*",
+    "packages/*",
     "bundui"
   ],
   "command": {
     "version": {
       "conventionalCommits": true,
       "message": "chore(release): publish %s",
-      "allowBranch": ["main", "develop"]
+      "allowBranch": [
+        "main",
+        "develop"
+      ]
     },
     "publish": {
       "conventionalCommits": true,
@@ -17,7 +22,9 @@
       "registry": "https://npm.pkg.github.com"
     },
     "bootstrap": {
-      "npmClientArgs": ["--legacy-peer-deps"]
+      "npmClientArgs": [
+        "--legacy-peer-deps"
+      ]
     }
   },
   "ignoreChanges": [

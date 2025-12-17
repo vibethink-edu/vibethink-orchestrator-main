@@ -11,26 +11,22 @@ import { useState, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
-import {
-  Form,
+import { Button } from '@vibethink/ui';
+import { Form,
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
-} from "@/shared/components/bundui-premium/components/ui/form";
-import { Input } from "@/shared/components/bundui-premium/components/ui/input";
-import {
-  Select,
+  FormMessage } from '@vibethink/ui';
+import { Input } from '@vibethink/ui';
+import { Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
-} from "@/shared/components/bundui-premium/components/ui/select";
-import { Textarea } from "@/shared/components/bundui-premium/components/ui/textarea";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/bundui-premium/components/ui/card";
+  SelectValue } from '@vibethink/ui';
+import { Textarea } from '@vibethink/ui';
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui';
 import { toast } from "sonner";
 
 const profileFormSchema = z.object({

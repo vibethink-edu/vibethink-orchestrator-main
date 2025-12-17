@@ -10,18 +10,16 @@
 import { useState, useEffect } from "react";
 import { Check, X } from "lucide-react";
 
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
-import { Switch } from "@/shared/components/bundui-premium/components/ui/switch";
-import {
-  Table,
+import { Button } from '@vibethink/ui';
+import { Switch } from '@vibethink/ui';
+import { Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
-} from "@/shared/components/bundui-premium/components/ui/table";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/bundui-premium/components/ui/card";
-import { Badge } from "@/shared/components/bundui-premium/components/ui/badge";
+  TableRow } from '@vibethink/ui';
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
 
 export default function PricingTablePage() {
   const [mounted, setMounted] = useState(false);

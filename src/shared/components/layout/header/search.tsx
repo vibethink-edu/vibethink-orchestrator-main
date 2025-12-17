@@ -16,7 +16,7 @@ import {
   CommandSeparator
 } from "@/components/ui/command";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import { Button } from "@vibethink/ui";
 import { DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 

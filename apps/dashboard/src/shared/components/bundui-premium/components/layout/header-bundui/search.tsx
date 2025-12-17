@@ -2,21 +2,19 @@
 
 import React, { useEffect, useState } from "react";
 import { CommandIcon, SearchIcon } from "lucide-react";
-import { Input } from "@/shared/components/bundui-premium/components/ui/input";
+import { Input } from '@vibethink/ui';
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useRouter } from "next/navigation";
 
-import {
-  CommandDialog,
+import { CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator
-} from "@/shared/components/bundui-premium/components/ui/command";
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
-import { DialogHeader, DialogTitle } from "@/shared/components/bundui-premium/components/ui/dialog";
+  CommandSeparator } from '@vibethink/ui';
+import { Button } from '@vibethink/ui';
+import { DialogHeader, DialogTitle } from '@vibethink/ui';
 import { navItems } from "../sidebar-bundui/nav-main";
 
 export default function Search() {

@@ -8,24 +8,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
-import {
-  Card,
+import { Button } from '@vibethink/ui';
+import { Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle
-} from "@/shared/components/bundui-premium/components/ui/card";
-import { Switch } from "@/shared/components/bundui-premium/components/ui/switch";
+  CardTitle } from '@vibethink/ui';
+import { Switch } from '@vibethink/ui';
 import { Check } from "lucide-react";
-import {
-  Accordion,
+import { Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger
-} from "@/shared/components/bundui-premium/components/ui/accordion";
-import { Badge } from "@/shared/components/bundui-premium/components/ui/badge";
+  AccordionTrigger } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
 
 export default function PricingColumnPage() {
   const [mounted, setMounted] = useState(false);

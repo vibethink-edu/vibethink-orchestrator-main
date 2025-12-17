@@ -6,7 +6,7 @@ import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent
-} from "@/shared/components/ui/chart";
+} from "@vibethink/ui";
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 import {
   Select,

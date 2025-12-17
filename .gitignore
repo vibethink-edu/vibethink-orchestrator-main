@@ -166,3 +166,5 @@ external/
 
 # External software (for validation only - NOT in Git)
 external/
+
+nul

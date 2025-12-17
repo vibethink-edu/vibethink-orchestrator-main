@@ -8,18 +8,16 @@
  */
 
 import React from 'react';
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Input } from '@/shared/components/bundui-premium/components/ui/input';
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
-import {
-  DropdownMenu,
+import { Button } from '@vibethink/ui';
+import { Input } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/shared/components/bundui-premium/components/ui/dropdown-menu';
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/bundui-premium/components/ui/avatar';
+  DropdownMenuTrigger, } from '@vibethink/ui';
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui';
 import { 
   Bell, 
   Search, 

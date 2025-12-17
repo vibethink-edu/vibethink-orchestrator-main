@@ -15,10 +15,10 @@
 // =============================================================================
 
 import React, { useState, useRef, useCallback } from 'react'
-import { Button } from '@/shared/components/bundui-premium/components/ui/button'
-import { Progress } from '@/shared/components/bundui-premium/components/ui/progress'
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge'
-import { Alert, AlertDescription } from '@/shared/components/bundui-premium/components/ui/alert'
+import { Button } from '@vibethink/ui'
+import { Progress } from '@vibethink/ui'
+import { Badge } from '@vibethink/ui'
+import { Alert, AlertDescription } from '@vibethink/ui'
 import { 
   Upload,
   File,

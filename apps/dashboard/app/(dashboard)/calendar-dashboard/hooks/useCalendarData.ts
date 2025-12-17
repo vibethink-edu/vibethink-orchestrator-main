@@ -230,12 +230,9 @@ export const useCalendarData = (): UseCalendarDataReturn => {
       //   .eq('company_id', user.company_id) // CRITICAL: Multi-tenant filtering
       //   .order('start', { ascending: true });
 
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 500));
-
       // For now, use sample data filtered by company_id
       const filteredEvents = sampleEvents.filter(event => event.company_id === user.company_id);
-      
+
       setEvents(filteredEvents);
     } catch (err) {
       console.error('Error fetching calendar events:', err);
@@ -243,7 +240,7 @@ export const useCalendarData = (): UseCalendarDataReturn => {
     } finally {
       setIsLoading(false);
     }
-  }, [user?.company_id, sampleEvents]);
+  }, [user?.company_id, sampleEvents, setError, setIsLoading, setEvents]);
 
   /**
    * Create New Event
@@ -441,7 +438,7 @@ export const useCalendarData = (): UseCalendarDataReturn => {
     if (user?.company_id) {
       fetchEvents();
     }
-  }, [fetchEvents, user?.company_id]);
+  }, [user?.company_id]); // Remove fetchEvents dependency to avoid infinite loop
 
   return {
     events,

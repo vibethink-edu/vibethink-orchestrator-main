@@ -1,21 +1,17 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/shared/components/bundui-premium/components/ui/avatar";
-import {
-  DropdownMenu,
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui';
+import { DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger
-} from "@/shared/components/bundui-premium/components/ui/dropdown-menu";
-import {
-  SidebarMenu,
+  DropdownMenuTrigger } from '@vibethink/ui';
+import { SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar
-} from "@/shared/components/bundui-premium/components/ui/sidebar";
+  useSidebar } from '@vibethink/ui';
 import { BellIcon, CreditCardIcon, LogOutIcon, UserCircle2Icon } from "lucide-react";
 import { DotsVerticalIcon } from "@radix-ui/react-icons";
 

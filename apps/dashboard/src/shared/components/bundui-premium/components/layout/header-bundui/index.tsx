@@ -2,14 +2,14 @@
 
 import { PanelLeftIcon } from "lucide-react";
 
-import { Separator } from "@/shared/components/bundui-premium/components/ui/separator";
+import { Separator } from '@vibethink/ui';
 import Notifications from "./notifications";
 import Search from "./search";
 import ThemeSwitch from "./theme-switch";
 import UserMenu from "./user-menu";
-import { ThemeCustomizerPanel } from "@/shared/components/bundui-premium/components/theme-customizer";
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
-import { useSidebar } from "@/shared/components/bundui-premium/components/ui/sidebar";
+import { ThemeCustomizerPanel } from "@vibethink/ui";
+import { Button } from '@vibethink/ui';
+import { useSidebar } from '@vibethink/ui';
 
 export function SiteHeader() {
   const { toggleSidebar } = useSidebar();

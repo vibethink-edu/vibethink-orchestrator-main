@@ -2,8 +2,8 @@
 
 import { generateMeta } from "@/lib/utils";
 
-import CustomDateRangePicker from "@/shared/components/bundui-premium/components/custom-date-range-picker";
-import { Button } from "@/components/ui/button";
+// import CustomDateRangePicker from "@vibethink/bundui-ui/components/custom-date-range-picker"; // TODO: Usar DatePickerWithRange
+import { Button } from "@vibethink/ui";
 
 import {
   ChatWidget,
@@ -24,7 +24,8 @@ export default function Page() {
       <div className="flex flex-row items-center justify-between">
         <h1 className="text-xl font-bold tracking-tight lg:text-2xl">Dashboard</h1>
         <div className="flex items-center space-x-2">
-          <CustomDateRangePicker />
+          {/* <CustomDateRangePicker /> TODO: Implementar con DatePickerWithRange */}
+          <Button variant="outline">Date Range</Button>
           <Button>
             <Download />
             <span className="hidden lg:inline">Download</span>

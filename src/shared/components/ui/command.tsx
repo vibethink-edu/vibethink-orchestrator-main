@@ -11,7 +11,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "../bundui-premium/components/ui/dialog"
+} from "@vibethink/ui"
 
 function Command({
   className,

@@ -98,31 +98,12 @@ const calendarStoreCreator: StateCreator<
   // UI State Actions
   setEventSheetOpen: (isOpen) => {
     set(
-      (state) => {
-        // Auto-clear selected event when closing sheet
-        const updates: Partial<CalendarStore> = {
-          isEventSheetOpen: isOpen,
-        };
-        
-        if (!isOpen) {
-          // Clear selected event after a delay to allow for animations
-          setTimeout(() => {
-            set(
-              (currentState) => ({
-                ...currentState,
-                selectedEvent: null,
-              }),
-              false,
-              'clearSelectedEvent'
-            );
-          }, 300);
-        }
-        
-        return {
-          ...state,
-          ...updates,
-        };
-      },
+      (state) => ({
+        ...state,
+        isEventSheetOpen: isOpen,
+        // Clear selected event immediately when closing (no timeout to avoid loops)
+        selectedEvent: isOpen ? state.selectedEvent : null,
+      }),
       false,
       'setEventSheetOpen'
     );
@@ -226,33 +207,16 @@ const calendarStoreCreator: StateCreator<
 });
 
 /**
- * Calendar Store with Persistence
- * 
- * Persists user preferences like:
- * - Calendar view preference
- * - Sidebar visibility
- * - Selected calendars
- * - Filter preferences (but not active filters)
+ * Calendar Store - TEMPORARILY DISABLED PERSISTENCE
+ *
+ * NOTE: Persistence disabled to fix hydration error in Server Components
+ * TODO: Re-enable persistence with proper client-side wrapper
  */
 export const useCalendarStore = create<CalendarStore>()(
-  devtools(
-    persist(
-      calendarStoreCreator,
-      {
-        name: 'vibethink-calendar-store',
-        partialize: (state) => ({
-          // Only persist user preferences, not transient state
-          currentView: state.currentView,
-          selectedCalendars: state.selectedCalendars,
-        }),
-        version: 1,
-      }
-    ),
-    {
-      name: 'CalendarStore',
-      enabled: process.env.NODE_ENV === 'development',
-    }
-  )
+  devtools(calendarStoreCreator, {
+    name: 'CalendarStore',
+    enabled: process.env.NODE_ENV === 'development',
+  })
 );
 
 /**
@@ -261,56 +225,66 @@ export const useCalendarStore = create<CalendarStore>()(
  * Optimized selectors for specific pieces of state
  */
 
-// UI State Selectors
-export const useCalendarUIState = () => 
-  useCalendarStore((state) => ({
-    isEventSheetOpen: state.isEventSheetOpen,
-    isLoading: state.isLoading,
-    error: state.error,
-  }));
+// UI State Selectors - direct access to avoid selector issues
+export const useCalendarUIState = () => {
+  const isEventSheetOpen = useCalendarStore((state) => state.isEventSheetOpen);
+  const isLoading = useCalendarStore((state) => state.isLoading);
+  const error = useCalendarStore((state) => state.error);
 
-// Event State Selectors
-export const useCalendarEventState = () =>
-  useCalendarStore((state) => ({
-    selectedEvent: state.selectedEvent,
-    events: state.events,
-  }));
+  return { isEventSheetOpen, isLoading, error };
+};
 
-// View State Selectors with proper caching
-const viewStateSelector = (state: CalendarStore) => ({
-  currentView: state.currentView,
-  currentDate: state.currentDate,
-});
+// Event State Selectors - direct access to avoid selector issues
+export const useCalendarEventState = () => {
+  const selectedEvent = useCalendarStore((state) => state.selectedEvent);
+  const events = useCalendarStore((state) => state.events);
 
-export const useCalendarViewState = () =>
-  useCalendarStore(viewStateSelector);
+  return { selectedEvent, events };
+};
 
-// Filter State Selectors with proper caching
-const filterStateSelector = (state: CalendarStore) => ({
-  filters: state.filters,
-  selectedCalendars: state.selectedCalendars,
-});
+// View State Selectors - direct access to avoid selector issues
+export const useCalendarViewState = () => {
+  const currentView = useCalendarStore((state) => state.currentView);
+  const currentDate = useCalendarStore((state) => state.currentDate);
 
-export const useCalendarFilterState = () =>
-  useCalendarStore(filterStateSelector);
+  return { currentView, currentDate };
+};
+
+// Filter State Selectors - direct access to avoid selector issues
+export const useCalendarFilterState = () => {
+  const filters = useCalendarStore((state) => state.filters);
+  const selectedCalendars = useCalendarStore((state) => state.selectedCalendars);
+
+  return { filters, selectedCalendars };
+};
 
 /**
- * Calendar Actions Hook with proper caching
- * 
+ * Calendar Actions Hook - direct access to avoid selector issues
+ *
  * Provides all calendar actions in a single hook for convenience
  */
-const calendarActionsSelector = (state: CalendarStore) => ({
-  setSelectedEvent: state.setSelectedEvent,
-  setEventSheetOpen: state.setEventSheetOpen,
-  setCurrentView: state.setCurrentView,
-  setCurrentDate: state.setCurrentDate,
-  setLoading: state.setLoading,
-  setError: state.setError,
-  setSelectedCalendars: state.setSelectedCalendars,
-  updateFilters: state.updateFilters,
-  clearFilters: state.clearFilters,  
-  resetState: state.resetState,
-});
+export const useCalendarActions = () => {
+  const setSelectedEvent = useCalendarStore((state) => state.setSelectedEvent);
+  const setEventSheetOpen = useCalendarStore((state) => state.setEventSheetOpen);
+  const setCurrentView = useCalendarStore((state) => state.setCurrentView);
+  const setCurrentDate = useCalendarStore((state) => state.setCurrentDate);
+  const setLoading = useCalendarStore((state) => state.setLoading);
+  const setError = useCalendarStore((state) => state.setError);
+  const setSelectedCalendars = useCalendarStore((state) => state.setSelectedCalendars);
+  const updateFilters = useCalendarStore((state) => state.updateFilters);
+  const clearFilters = useCalendarStore((state) => state.clearFilters);
+  const resetState = useCalendarStore((state) => state.resetState);
 
-export const useCalendarActions = () =>
-  useCalendarStore(calendarActionsSelector);
+  return {
+    setSelectedEvent,
+    setEventSheetOpen,
+    setCurrentView,
+    setCurrentDate,
+    setLoading,
+    setError,
+    setSelectedCalendars,
+    updateFilters,
+    clearFilters,
+    resetState,
+  };
+};

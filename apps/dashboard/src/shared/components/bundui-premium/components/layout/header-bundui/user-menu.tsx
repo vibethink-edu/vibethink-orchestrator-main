@@ -1,18 +1,16 @@
 import { BadgeCheck, Bell, ChevronRightIcon, CreditCard, LogOut, Sparkles } from "lucide-react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/shared/components/bundui-premium/components/ui/avatar";
-import {
-  DropdownMenu,
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui';
+import { DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger
-} from "@/shared/components/bundui-premium/components/ui/dropdown-menu";
+  DropdownMenuTrigger } from '@vibethink/ui';
 import Link from "next/link";
 import * as React from "react";
-import { Progress } from "@/shared/components/bundui-premium/components/ui/progress";
+import { Progress } from '@vibethink/ui';
 
 export default function UserMenu() {
   return (

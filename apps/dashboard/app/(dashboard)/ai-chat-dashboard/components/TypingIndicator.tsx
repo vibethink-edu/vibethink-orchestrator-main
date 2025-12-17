@@ -15,8 +15,8 @@
 // =============================================================================
 
 import React from 'react'
-import { Avatar, AvatarFallback } from '@/shared/components/bundui-premium/components/ui/avatar'
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge'
+import { Avatar, AvatarFallback } from '@vibethink/ui'
+import { Badge } from '@vibethink/ui'
 import { Bot, Sparkles, Zap } from 'lucide-react'
 import { cn } from '@/shared/lib/utils'
 

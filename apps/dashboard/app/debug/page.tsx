@@ -4,10 +4,7 @@
  * Esta página incluye debugging para sidebar y sistema general
  */
 
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
-import { SystemDebugPanel } from '@/shared/components/bundui-premium';
-import { SystemDebugPanelFixed } from '@/shared/components/bundui-premium/components/SystemDebugPanelFixed';
-import { ClientOnly } from '@/shared/components/ClientOnly';
+import { DashboardLayout } from '@vibethink/ui';
 import SidebarTestPage from './sidebar-test';
 
 export default function DebugPage() {
@@ -20,20 +17,12 @@ export default function DebugPage() {
           <SidebarTestPage />
         </div>
         
-        {/* Original Debug Panel */}
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4 text-gray-700">Original Debug Panel</h2>
-          <ClientOnly>
-            <SystemDebugPanel />
-          </ClientOnly>
-        </div>
-
-        {/* Fixed Debug Panel for Comparison */}
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4 text-green-700">Fixed Debug Panel (Charts Always Visible)</h2>
-          <ClientOnly>
-            <SystemDebugPanelFixed />
-          </ClientOnly>
+        {/* Debug Panels - TODO: Migrar desde bundui-ui */}
+        <div className="mb-8 p-4 bg-muted rounded-lg">
+          <h2 className="text-xl font-semibold mb-4 text-gray-700">Debug Panels</h2>
+          <p className="text-muted-foreground">
+            SystemDebugPanel components pending migration from @vibethink/bundui-ui
+          </p>
         </div>
       </div>
     </DashboardLayout>

@@ -1,7 +1,7 @@
 // Placeholder component for label management modal
 'use client';
 import React from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/shared/components/bundui-premium/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@vibethink/ui';
 import { NoteLabel } from '../types';
 
 interface EditLabelsModalProps {

@@ -1,26 +1,22 @@
 'use client'
 
 import React from 'react';
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/bundui-premium/components/ui/card';
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Progress } from '@/shared/components/bundui-premium/components/ui/progress';
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/bundui-premium/components/ui/avatar';
-import { 
-  Table,
+import { DashboardLayout } from '@vibethink/ui';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { Button } from '@vibethink/ui';
+import { Progress } from '@vibethink/ui';
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui';
+import { Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
-} from '@/shared/components/bundui-premium/components/ui/table';
-import { 
-  DropdownMenu,
+  TableRow, } from '@vibethink/ui';
+import { DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger 
-} from '@/shared/components/bundui-premium/components/ui/dropdown-menu';
+  DropdownMenuTrigger } from '@vibethink/ui';
 import { 
   TrendingUp, 
   Users, 

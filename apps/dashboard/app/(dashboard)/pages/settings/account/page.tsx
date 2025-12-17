@@ -15,29 +15,25 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { cn } from "@/shared/lib/utils";
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
-import { Calendar } from "@/shared/components/bundui-premium/components/ui/calendar";
-import {
-  Command,
+import { Button } from '@vibethink/ui';
+import { Calendar } from '@vibethink/ui';
+import { Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-  CommandList
-} from "@/shared/components/bundui-premium/components/ui/command";
-import {
-  Form,
+  CommandList } from '@vibethink/ui';
+import { Form,
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
-} from "@/shared/components/bundui-premium/components/ui/form";
-import { Input } from "@/shared/components/bundui-premium/components/ui/input";
-import { Popover, PopoverContent, PopoverTrigger } from "@/shared/components/bundui-premium/components/ui/popover";
+  FormMessage } from '@vibethink/ui';
+import { Input } from '@vibethink/ui';
+import { Popover, PopoverContent, PopoverTrigger } from '@vibethink/ui';
 import { toast } from "sonner";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/bundui-premium/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui';
 
 const languages = [
   { label: "English", value: "en" },

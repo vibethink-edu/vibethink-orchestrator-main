@@ -45,11 +45,11 @@
   --chart-5: var(--base-300);
   --radius: 0.5rem;
   --sidebar: var(--base-100);
-  --sidebar-foreground: var(--base-800);
+  --sidebar-foreground: var(--base-500);
   --sidebar-primary: var(--base-950);
   --sidebar-primary-foreground: var(--color-white);
   --sidebar-accent: var(--base-200);
-  --sidebar-accent-foreground: var(--base-800);
+  --sidebar-accent-foreground: var(--base-950);
   --sidebar-border: var(--base-200);
   --sidebar-ring: var(--base-800);
 
@@ -189,7 +189,12 @@
   [data-slot="dropdown-menu-trigger"],
   [data-slot="popover-trigger"],
   [data-slot="tooltip-trigger"],
+  [data-slot="sheet-trigger"],
   [data-slot="collapsible-trigger"]{
     @apply cursor-pointer!
+  }
+
+  [data-slot="dialog-overlay"], [data-slot="sheet-overlay"], [data-slot="drawer-overlay"] {
+    @apply bg-black/20! backdrop-blur-sm;
   }
 }

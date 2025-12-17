@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { CalendarDays, Download, Filter, RefreshCw } from 'lucide-react'
-import { Button } from '@/shared/components/ui/button'
+import { Button } from '@vibethink/ui'
 import { 
   DropdownMenu, 
   DropdownMenuContent, 

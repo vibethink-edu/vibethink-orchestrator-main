@@ -13,11 +13,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/shared/components/bundui-premium/components/ui/dialog';
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Input } from '@/shared/components/bundui-premium/components/ui/input';
-import { Label } from '@/shared/components/bundui-premium/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/components/bundui-premium/components/ui/select';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@vibethink/ui';
+import { Button } from '@vibethink/ui';
+import { Input } from '@vibethink/ui';
+import { Label } from '@vibethink/ui';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@vibethink/ui';
 import { FileText, CheckSquare, Type, Image, Mic } from 'lucide-react';
 import { NoteFolder, NoteLabel, NoteType, CreateNotePayload } from '../types';
 

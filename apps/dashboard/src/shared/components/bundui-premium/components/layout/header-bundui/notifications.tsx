@@ -1,22 +1,20 @@
 import { BellIcon, ClockIcon } from "lucide-react";
 import Link from "next/link";
-import { useMobile } from "@/shared/components/bundui-premium/hooks/use-mobile";
+import { useIsMobile } from "@/hooks/use-mobile";
 
-import {
-  DropdownMenu,
+import { DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuTrigger
-} from "@/shared/components/bundui-premium/components/ui/dropdown-menu";
-import { ScrollArea } from "@/shared/components/bundui-premium/components/ui/scroll-area";
-import { Avatar, AvatarFallback, AvatarImage } from "@/shared/components/bundui-premium/components/ui/avatar";
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
+  DropdownMenuTrigger } from '@vibethink/ui';
+import { ScrollArea } from '@vibethink/ui';
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui';
+import { Button } from '@vibethink/ui';
 
 import { notifications, type Notification } from "./data";
 
 const Notifications = () => {
-  const isMobile = useMobile();
+  const isMobile = useIsMobile();
 
   return (
     <DropdownMenu>

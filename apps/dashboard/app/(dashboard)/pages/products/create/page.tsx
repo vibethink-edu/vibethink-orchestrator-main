@@ -15,27 +15,23 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { ChevronLeft, ImageIcon } from "lucide-react";
 
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
-import {
-  Form,
+import { Button } from '@vibethink/ui';
+import { Form,
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
-} from "@/shared/components/bundui-premium/components/ui/form";
-import { Input } from "@/shared/components/bundui-premium/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/bundui-premium/components/ui/card";
-import { Textarea } from "@/shared/components/bundui-premium/components/ui/textarea";
-import { Switch } from "@/shared/components/bundui-premium/components/ui/switch";
-import {
-  Select,
+  FormMessage } from '@vibethink/ui';
+import { Input } from '@vibethink/ui';
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui';
+import { Textarea } from '@vibethink/ui';
+import { Switch } from '@vibethink/ui';
+import { Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
-} from "@/shared/components/bundui-premium/components/ui/select";
+  SelectValue } from '@vibethink/ui';
 
 const FormSchema = z.object({
   name: z.string().min(2, {

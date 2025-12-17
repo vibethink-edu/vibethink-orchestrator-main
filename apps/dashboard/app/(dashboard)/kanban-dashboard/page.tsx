@@ -22,18 +22,16 @@ import React, { useState, Suspense } from 'react';
 ;
 import { DragDropContext, DropResult } from '@hello-pangea/dnd';
 import { Plus, Search, Filter, Clock, AlertCircle, TrendingUp, Users, Target } from 'lucide-react';
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Input } from '@/shared/components/bundui-premium/components/ui/input';
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
-import { Card, CardContent } from '@/shared/components/bundui-premium/components/ui/card';
-import {
-  Select,
+import { Button } from '@vibethink/ui';
+import { Input } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { Card, CardContent } from '@vibethink/ui';
+import { Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-} from '@/shared/components/bundui-premium/components/ui/select';
-import { Skeleton } from '@/shared/components/bundui-premium/components/ui/skeleton';
+  SelectValue, } from '@vibethink/ui';
+import { Skeleton } from '@vibethink/ui';
 import { useKanbanData, useKanbanFilters } from './hooks';
 import KanbanColumn from './components/KanbanColumn';
 

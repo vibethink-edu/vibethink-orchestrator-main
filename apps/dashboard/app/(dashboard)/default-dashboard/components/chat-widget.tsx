@@ -5,7 +5,7 @@ import { Check, Plus, Send } from "lucide-react";
 
 import { cn } from "@/shared/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/shared/components/ui/avatar";
-import { Button } from "@/shared/components/ui/button";
+import { Button } from "@vibethink/ui";
 import { Card, CardContent, CardFooter, CardHeader } from "@/shared/components/ui/card";
 import {
   Command,

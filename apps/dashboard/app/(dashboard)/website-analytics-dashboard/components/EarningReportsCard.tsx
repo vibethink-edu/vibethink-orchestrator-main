@@ -10,7 +10,7 @@ import {
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent
-} from '@/shared/components/ui/chart'
+} from '@vibethink/ui'
 import { Badge } from '@/shared/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/ui/tabs'
 import { Skeleton } from '@/shared/components/ui/skeleton'

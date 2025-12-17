@@ -8,7 +8,7 @@ import { TrendingDown } from "lucide-react";
 import {
   ChartConfig,
   ChartContainer
-} from "@/shared/components/ui/chart";
+} from "@vibethink/ui";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/components/ui/card";
 import { AnalyticsCardProps } from '../types'
 

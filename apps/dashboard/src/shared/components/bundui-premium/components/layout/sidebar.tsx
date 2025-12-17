@@ -1,17 +1,15 @@
 "use client"
 
-import {
-  Sidebar,
+import { Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem,
-} from "@/shared/components/bundui-premium/components/ui/sidebar"
-import { Avatar, AvatarFallback, AvatarImage } from "@/shared/components/bundui-premium/components/ui/avatar"
-import { Button } from "@/shared/components/bundui-premium/components/ui/button"
-import { Badge } from "@/shared/components/bundui-premium/components/ui/badge"
+  SidebarMenuItem, } from '@vibethink/ui'
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui'
+import { Button } from '@vibethink/ui'
+import { Badge } from '@vibethink/ui'
 import { 
   Home, 
   Layout, 

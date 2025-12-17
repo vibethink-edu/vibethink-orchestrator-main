@@ -8,7 +8,7 @@ import { cn } from '@/shared/utils'
 import { ChatMessageProps } from '../types'
 import { MessageStatusIcon } from './MessageStatusIcon'
 import { FileText, Image, Play, Mic, Download } from 'lucide-react'
-import { Button } from '@/shared/components/ui/button'
+import { Button } from '@vibethink/ui'
 
 interface MessageBubbleProps {
   message: ChatMessageProps

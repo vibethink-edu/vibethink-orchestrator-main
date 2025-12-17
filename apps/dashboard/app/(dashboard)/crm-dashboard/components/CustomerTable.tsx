@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
 import { Badge } from '@/shared/components/ui/badge'
 import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/ui/avatar'
-import { Button } from '@/shared/components/ui/button'
+import { Button } from '@vibethink/ui'
 import { Skeleton } from '@/shared/components/ui/skeleton'
 import { MoreHorizontal, Mail, Phone } from 'lucide-react'
 import { useCrmData } from '../hooks/useCrmData'

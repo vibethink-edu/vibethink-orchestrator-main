@@ -14,15 +14,13 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
-import {
-  DropdownMenu,
+import { Button } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/shared/components/bundui-premium/components/ui/dropdown-menu';
+  DropdownMenuTrigger, } from '@vibethink/ui';
 import { 
   MoreHorizontal, 
   Archive, 

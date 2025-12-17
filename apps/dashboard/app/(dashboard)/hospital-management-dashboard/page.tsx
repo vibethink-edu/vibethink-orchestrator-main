@@ -14,7 +14,7 @@ import {
   PatientsWithLastProcedure,
   UpcomingAppointments
 } from "./components";
-import { Button } from "@/shared/components/ui/button";
+import { Button } from "@vibethink/ui";
 import { Download } from "lucide-react";
 import { toast } from "sonner";
 

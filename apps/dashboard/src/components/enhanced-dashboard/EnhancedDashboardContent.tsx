@@ -14,27 +14,23 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import {
-  Card,
+import { Card,
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle,
-} from '@/shared/components/bundui-premium/components/ui/card';
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/bundui-premium/components/ui/tabs';
-import { Progress } from '@/shared/components/bundui-premium/components/ui/progress';
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/bundui-premium/components/ui/avatar';
-import { Input } from '@/shared/components/bundui-premium/components/ui/input';
-import { Separator } from '@/shared/components/bundui-premium/components/ui/separator';
-import {
-  Select,
+  CardTitle, } from '@vibethink/ui';
+import { Button } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui';
+import { Progress } from '@vibethink/ui';
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui';
+import { Input } from '@vibethink/ui';
+import { Separator } from '@vibethink/ui';
+import { Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-} from '@/shared/components/bundui-premium/components/ui/select';
+  SelectValue, } from '@vibethink/ui';
 
 // Icons
 import { 

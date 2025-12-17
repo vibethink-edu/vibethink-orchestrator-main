@@ -32,9 +32,9 @@ import { useCalendarStore, useCalendarActions, useCalendarViewState } from '../h
 import { VibeThinkCalendarEvent, CalendarEventColor } from '../types';
 import CalendarToolbar from './CalendarToolbar';
 import { CalendarHeader } from './CalendarHeader';
-import { Card, CardContent } from '@/shared/components/bundui-premium/components/ui/card';
-import { Skeleton } from '@/shared/components/bundui-premium/components/ui/skeleton';
-import { Alert, AlertDescription } from '@/shared/components/bundui-premium/components/ui/alert';
+import { Card, CardContent } from '@vibethink/ui';
+import { Skeleton } from '@vibethink/ui';
+import { Alert, AlertDescription } from '@vibethink/ui';
 import { AlertTriangle } from 'lucide-react';
 
 /**
@@ -52,6 +52,24 @@ const eventColorClasses: Record<CalendarEventColor, string> = {
   pink: 'bg-pink-500 border-pink-600 text-white hover:bg-pink-600',
   gray: 'bg-gray-500 border-gray-600 text-white hover:bg-gray-600',
 };
+
+/**
+ * Base CSS Classes for Calendar Events - Pre-computed for performance
+ * These classes are constant and don't change on every render
+ */
+const baseEventClasses = [
+  'rounded-md',
+  'px-2',
+  'py-1',
+  'text-xs',
+  'font-medium',
+  'transition-colors',
+  'duration-200',
+  'cursor-pointer',
+  'shadow-sm',
+  'border',
+  'border-l-4',
+].join(' ');
 
 /**
  * Calendar Categories Configuration
@@ -101,44 +119,44 @@ const CalendarApp: React.FC = () => {
   /**
    * Format events for FullCalendar
    * Applies color styling and ensures proper data structure
+   * Performance optimized: Base classes pre-computed, dynamic classes minimized
    */
   const formattedEvents: EventInput[] = useMemo(() => {
-    return events.map((event: VibeThinkCalendarEvent) => ({
-      id: event.id,
-      title: event.title,
-      start: event.start,
-      end: event.end,
-      allDay: event.allDay || false,
-      classNames: [
+    return events.map((event: VibeThinkCalendarEvent) => {
+      // Dynamic classes that change per event - minimized to only essential ones
+      const dynamicClasses = [
         eventColorClasses[event.color || 'blue'],
-        'rounded-md',
-        'px-2',
-        'py-1',
-        'text-xs',
-        'font-medium',
-        'transition-colors',
-        'duration-200',
-        'cursor-pointer',
-        'shadow-sm',
-        'border',
-        'border-l-4',
-        // Priority indicators
+        // Priority indicators (only 2 possible classes)
         event.priority === 'urgent' ? 'ring-2 ring-red-400' : '',
         event.priority === 'high' ? 'ring-1 ring-orange-300' : '',
-        // Status indicators
+        // Status indicators (only 2 possible classes)
         event.status === 'completed' ? 'opacity-60' : '',
         event.status === 'cancelled' ? 'opacity-40 line-through' : '',
-      ].filter(Boolean).join(' '),
-      // Pass additional data for event handling
-      extendedProps: {
-        description: event.description,
-        location: event.location,
-        priority: event.priority,
-        status: event.status,
-        attendees: event.attendees,
-        company_id: event.company_id, // Maintain multi-tenant context
-      },
-    }));
+      ].filter(Boolean).join(' ');
+
+      // Combine pre-computed base classes with dynamic classes
+      const classNames = dynamicClasses
+        ? `${baseEventClasses} ${dynamicClasses}`
+        : baseEventClasses;
+
+      return {
+        id: event.id,
+        title: event.title,
+        start: event.start,
+        end: event.end,
+        allDay: event.allDay || false,
+        classNames,
+        // Pass additional data for event handling
+        extendedProps: {
+          description: event.description,
+          location: event.location,
+          priority: event.priority,
+          status: event.status,
+          attendees: event.attendees,
+          company_id: event.company_id, // Maintain multi-tenant context
+        },
+      };
+    });
   }, [events]);
 
   /**

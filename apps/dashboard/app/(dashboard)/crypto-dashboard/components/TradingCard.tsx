@@ -29,7 +29,7 @@ import {
   FormDescription
 } from '@/shared/components/ui/form'
 import { Input } from '@/shared/components/ui/input'
-import { Button } from '@/shared/components/ui/button'
+import { Button } from '@vibethink/ui'
 import { Badge } from '@/shared/components/ui/badge'
 import { 
   ArrowUpDown,

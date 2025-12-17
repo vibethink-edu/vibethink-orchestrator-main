@@ -26,17 +26,15 @@ import {
   Settings,
 } from 'lucide-react';
 
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/bundui-premium/components/ui/card';
-import { Input } from '@/shared/components/bundui-premium/components/ui/input';
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
-import { Checkbox } from '@/shared/components/bundui-premium/components/ui/checkbox';
-import { ScrollArea } from '@/shared/components/bundui-premium/components/ui/scroll-area';
-import {
-  Collapsible,
+import { Button } from '@vibethink/ui';
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui';
+import { Input } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { Checkbox } from '@vibethink/ui';
+import { ScrollArea } from '@vibethink/ui';
+import { Collapsible,
   CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/shared/components/bundui-premium/components/ui/collapsible';
+  CollapsibleTrigger, } from '@vibethink/ui';
 
 import { VibeThinkCalendarEvent, CalendarEventColor } from '../types';
 

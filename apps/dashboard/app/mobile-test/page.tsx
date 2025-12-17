@@ -1,6 +1,6 @@
 "use client";
 
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
+import { DashboardLayout } from '@vibethink/ui';
 import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card';
 import { Badge } from '@/shared/components/ui/badge';
 import { Smartphone, Tablet, Monitor, Wifi } from 'lucide-react';

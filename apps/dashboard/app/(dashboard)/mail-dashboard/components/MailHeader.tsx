@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@/shared/components/ui/button'
+import { Button } from '@vibethink/ui'
 import { Input } from '@/shared/components/ui/input'
 import { Badge } from '@/shared/components/ui/badge'
 import { 

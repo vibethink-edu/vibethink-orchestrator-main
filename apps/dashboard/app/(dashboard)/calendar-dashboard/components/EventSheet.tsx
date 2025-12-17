@@ -30,46 +30,38 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 
-import {
-  Sheet,
+import { Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
-  SheetTitle,
-} from '@/shared/components/bundui-premium/components/ui/sheet';
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Input } from '@/shared/components/bundui-premium/components/ui/input';
-import { Textarea } from '@/shared/components/bundui-premium/components/ui/textarea';
-import { Label } from '@/shared/components/bundui-premium/components/ui/label';
-import {
-  Select,
+  SheetTitle, } from '@vibethink/ui';
+import { Button } from '@vibethink/ui';
+import { Input } from '@vibethink/ui';
+import { Textarea } from '@vibethink/ui';
+import { Label } from '@vibethink/ui';
+import { Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-} from '@/shared/components/bundui-premium/components/ui/select';
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
-import { Switch } from '@/shared/components/bundui-premium/components/ui/switch';
-import { Separator } from '@/shared/components/bundui-premium/components/ui/separator';
-import {
-  Form,
+  SelectValue, } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { Switch } from '@vibethink/ui';
+import { Separator } from '@vibethink/ui';
+import { Form,
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
-} from '@/shared/components/bundui-premium/components/ui/form';
-import {
-  AlertDialog,
+  FormMessage, } from '@vibethink/ui';
+import { AlertDialog,
   AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
-  AlertDialogTitle,
-} from '@/shared/components/bundui-premium/components/ui/alert-dialog';
+  AlertDialogTitle, } from '@vibethink/ui';
 
 import { useCalendarData } from '../hooks/useCalendarData';
 import { useCalendarActions, useCalendarUIState, useCalendarEventState } from '../hooks/useCalendarStore';

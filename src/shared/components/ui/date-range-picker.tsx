@@ -5,9 +5,7 @@ import { format } from 'date-fns'
 import { CalendarIcon } from 'lucide-react'
 import { DateRange } from 'react-day-picker'
 import { cn } from '@/shared/lib/utils'
-import { Button } from './button'
-import { Calendar } from './calendar'
-import { Popover, PopoverContent, PopoverTrigger } from './popover'
+import { Button, Calendar, Popover, PopoverContent, PopoverTrigger } from '@vibethink/ui'
 
 interface DatePickerWithRangeProps {
   from?: Date

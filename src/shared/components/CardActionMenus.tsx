@@ -7,7 +7,7 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
+import { Button } from "@vibethink/ui";
 
 export function ExportButton({ className }: { className?: string }) {
   return (

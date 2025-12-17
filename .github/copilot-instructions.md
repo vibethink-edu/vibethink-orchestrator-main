@@ -1,0 +1,41 @@
+# GitHub Copilot Instructions - VibeThink Orchestrator 1.0
+
+> **Inherits from:** `_vibethink-dev-kit/knowledge/ai-agents/COPILOT_INSTRUCTIONS.md`
+
+## 🔥 Quick Operations
+
+**Use these commands - NEVER guess:**
+
+| Action | Command | Port |
+|--------|---------|------|
+| **Start** | `.\scripts\start-dashboard.ps1` | 3005 |
+| **Stop** | `.\scripts\stop-dashboard.ps1` | - |
+| **Build** | `npm run build:dashboard` | - |
+| **Dev** | `npm run dev:dashboard` | 3000 |
+
+## 🛠️ Tech Stack
+
+- **Core:** React 19.0.0, TypeScript 5.9.2
+- **Build:** Next.js 15.3.4 (App Router)
+- **Styling:** Tailwind CSS 4.1.10
+- **UI:** Shadcn UI via `@vibethink/ui`
+
+## ❌ Never Do
+
+- Install Express 5 (use 4.21.2)
+- Install Vite (this is Next.js)
+- Use `@vibethink/bundui-ui` in production
+- Run npm in `apps/` directories
+- Guess ports without checking scripts
+
+## ✅ Always Do
+
+- Use `@vibethink/ui` for UI components
+- Run commands from monorepo root
+- Check `scripts/*.ps1` for operations
+- Read `AGENTS.md` before major changes
+
+## 📋 For Complete Rules
+
+Read `AGENTS.md` in project root.
+

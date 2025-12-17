@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/sha
 import { 
   ChartConfig, 
   ChartContainer
-} from '@/shared/components/ui/chart'
+} from '@vibethink/ui'
 import { Badge } from '@/shared/components/ui/badge'
 import { Skeleton } from '@/shared/components/ui/skeleton'
 import { useAnalyticsData } from '../hooks'

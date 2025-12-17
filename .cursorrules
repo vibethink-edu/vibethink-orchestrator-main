@@ -1,814 +1,178 @@
-# Cursor IDE Rules for AI Pair Orchestrator Pro - VibeThink
+# ============================================================================
+# VIBETHINK ORCHESTRATOR 1.0 - AI AGENT CONFIGURATION
+# ============================================================================
+# Inherits from: _vibethink-dev-kit
+# Last updated: 2025-12-16
+# ============================================================================
 
-## 🚨 **REGLAS ABSOLUTAS - NUNCA VIOLAR**
+<identity>
+You are working on **VibeThink Orchestrator 1.0**, an Enterprise SaaS Platform.
+All critical rules are in `AGENTS.md` (single source of truth).
+Universal rules are in `_vibethink-dev-kit/knowledge/ai-agents/AGENTS_UNIVERSAL.md`.
+</identity>
 
-### **📦 DEPENDENCY MANAGEMENT RULES (OBLIGATORIAS):**
-```json
-// ✅ MANDATORY: Use exact versions only
-"next": "15.3.4"  // ✅ YES - exact version
-"@radix-ui/react-tooltip": "1.0.7"  // ✅ YES - exact version
+<mandatory_first_actions>
+# ============================================================================
+# 🔥 MANDATORY FIRST ACTIONS - EXECUTE BEFORE ANY TASK
+# ============================================================================
 
-// ❌ FORBIDDEN: Never use caret versions
-"next": "^15.3.4"  // ❌ NO - causes instability
-"@radix-ui/react-tooltip": "^1.0.7"  // ❌ NO - causes instability
-```
+## When Starting ANY Session:
 
-### **🏗️ MONOREPO RULES (OBLIGATORIAS):**
+### Step 1: Check Project Scripts
 ```bash
-# ✅ MANDATORY: Install only in root for shared dependencies
-npm install clsx tailwind-merge --save  # ✅ ONLY in root
-
-# ❌ FORBIDDEN: Never install in both places
-npm install clsx --save  # ❌ NO in apps/dashboard
-npm install clsx --save  # ❌ NO in root (duplicate)
+list_dir project_root/scripts/   # Find operational scripts
+read_file scripts/start-dashboard.ps1  # Start script
+read_file scripts/stop-dashboard.ps1   # Stop script
 ```
 
-### **🛡️ STABILITY RULES (OBLIGATORIAS):**
-```typescript
-// ✅ MANDATORY: Never change working code
-// If it works, DON'T TOUCH IT
-
-// ❌ FORBIDDEN: Don't "improve" working code
-// Don't update versions "just because"
-// Don't add dependencies "to fix errors"
-```
-
-### **🚨 ARCHIVOS PELIGROSOS - NUNCA CREAR EN APPS:**
+### Step 2: Read Configuration
 ```bash
-# ❌ NUNCA crear estos archivos en apps/[nombre]/
-.npmrc          # CRÍTICO: Rompe configuración monorepo y dependencias
-.env.example    # Innecesario (usar root .env.example)
-package-lock.json # Conflictos con root
-yarn.lock       # Conflictos con root
-
-# ✅ Si necesitas configuración npm, usar root .npmrc
-# ✅ Si necesitas example env, usar root .env.example
+read_file AGENTS.md              # Project rules (this project)
+read_file package.json           # Available npm scripts
 ```
 
-### **🔧 SOLUCIÓN CUANDO SE ROMPEN DEPENDENCIAS:**
-```bash
-# 1. Eliminar archivos problemáticos
-rm apps/*/.npmrc apps/*/.env.example
+### Step 3: Report Available Commands
+**Tell user what operations are available before proceeding.**
 
-# 2. Limpiar completamente  
-npm run clean
+## ⚡ QUICK OPERATIONS (USE THESE)
 
-# 3. Limpiar cache corrupto
-npm cache clean --force
+| Action | Command | Port |
+|--------|---------|------|
+| **Start Dashboard** | `.\scripts\start-dashboard.ps1` | 3005 |
+| **Stop Dashboard** | `.\scripts\stop-dashboard.ps1` | - |
+| **Build** | `npm run build:dashboard` | - |
+| **Dev (npm)** | `npm run dev:dashboard` | 3000 |
 
-# 4. Reinstalar limpio
-npm install
+**CRITICAL:** Use project scripts, NEVER guess ports or commands.
+</mandatory_first_actions>
 
-# 5. Probar funcionamiento
-npm run dev:test
+<user_information>
+The USER's OS version is Windows.
+The user has active workspaces defined in AGENTS.md.
+You are not allowed to access files not in active workspaces.
+</user_information>
+
+<tool_calling>
+Call tools as you normally would. The following list provides additional guidance:
+- **Absolute paths only**. When using tools that accept file path arguments, ALWAYS use the absolute file path.
+- Check AGENTS.md for project-specific tool usage patterns.
+</tool_calling>
+
+<communication_style>
+- **Formatting**: Use GitHub-style markdown for better readability.
+- **Proactiveness**: Be proactive in completing tasks, but avoid surprising the user.
+- **Helpfulness**: Explain your work clearly and acknowledge mistakes.
+- **Ask for clarification**: If unsure about the USER's intent, always ask.
+- **Report discoveries**: When starting, tell user what scripts/commands you found.
+
+See AGENTS.md for project-specific communication guidelines.
+</communication_style>
+
+<project_rules>
+## VibeThink Orchestrator Specific Rules
+
+### Tech Stack (DO NOT CHANGE)
+- **Core**: React 19.0.0, TypeScript 5.9.2
+- **Build**: Next.js 15.3.4 (App Router)
+- **Styling**: Tailwind CSS 4.1.10
+- **UI**: Shadcn UI via `@vibethink/ui`
+- **Backend**: Express 4.21.2 (when needed)
+
+### ❌ NEVER Do (Project-Specific)
+- Install Express 5 (use 4.21.2)
+- Install `vite` (this is Next.js)
+- Use `@vibethink/bundui-ui` in production
+- Run npm commands inside `apps/` directories
+- Guess port numbers without checking scripts
+
+### ✅ ALWAYS Do (Project-Specific)
+- Use `@vibethink/ui` for UI components
+- Run commands from monorepo root
+- Use `scripts/*.ps1` for operations
+- Check AGENTS.md for workflows
+
+### Monorepo Structure
 ```
-
-### **📋 MANDATORY CHECKLIST BEFORE ANY CHANGE:**
-1. ✅ **READ** existing rules in README.md lines 47-60
-2. ✅ **VALIDATE** if change is really necessary
-3. ✅ **USE** exact versions (no ^)
-4. ✅ **INSTALL** only where appropriate
-5. ✅ **DON'T TOUCH** working code
-
-## 🤖 **CURSOR INTERACTIVE MODE CONFIGURATION**
-
-### **Agent Settings (Cursor Settings - Ctrl+,):**
-```json
-{
-  "agent.enabled": true,
-  "agent.mode": "interactive",
-  "agent.autoComplete": true,
-  "agent.autoExecute": true,
-  "agent.confirmationRequired": false,
-  "agent.contextWindow": "large",
-  "agent.inlineChat.enabled": true,
-  "agent.inlineChat.showToolbar": true,
-  "agent.inlineChat.autoExecute": true,
-  "agent.suggestions.enabled": true,
-  "agent.suggestions.showInline": true,
-  "agent.quickAction.autoExecute": true,
-  "agent.telemetry": false,
-  "agent.experimentalFeatures": true
-}
+apps/dashboard/      # Main dashboard (Next.js)
+packages/ui/         # @vibethink/ui (Shadcn components)
+packages/utils/      # Shared utilities
+scripts/             # Operational PowerShell scripts
 ```
-
-### **Keyboard Shortcuts for Interactive Mode:**
-```json
-{
-  "keybindings": [
-    { "key": "ctrl+shift+l", "command": "agent.chat" },
-    { "key": "ctrl+k", "command": "agent.quickAction" },
-    { "key": "ctrl+shift+p", "command": "workbench.action.showCommands" },
-    { "key": "ctrl+shift+i", "command": "agent.inlineChat" },
-    { "key": "ctrl+shift+a", "command": "agent.analyze" }
-  ]
-}
-```
-
-### **Interactive Mode Behaviors:**
-- **Auto-complete**: Always suggest context-aware completions
-- **Inline Chat**: Enable for quick questions without opening chat panel
-- **Context Awareness**: Maintain session context across file switches
-- **Multi-file Operations**: Support operations across multiple files
-- **Real-time Suggestions**: Provide suggestions as you type
-- **Error Detection**: Highlight potential issues before compilation
-
-### **Session Context Management:**
-```typescript
-// ✅ Interactive session context
-const interactiveContext = {
-  currentFile: activeFile,
-  recentFiles: lastModifiedFiles,
-  currentTask: activeTask,
-  userIntent: detectedIntent,
-  projectContext: {
-    methodology: 'VThink 1.0',
-    compliance: 'CMMI-ML3',
-    architecture: 'Multi-tenant SaaS'
-  }
-};
-```
-
-### **Agent Response Patterns:**
-- **Proactive Suggestions**: Suggest improvements without being asked
-- **Context-Aware Help**: Provide help based on current file and task
-- **Multi-step Solutions**: Break complex tasks into manageable steps
-- **Code Examples**: Always provide working code examples
-- **Explanation First**: Explain the "why" before the "how"
-
-### **Performance Optimizations:**
-- **Lazy Loading**: Load context only when needed
-- **Caching**: Cache frequently accessed project information
-- **Parallel Processing**: Handle multiple requests simultaneously
-- **Memory Management**: Clear context when switching major tasks
-
-### **AI Model Configuration:**
-```json
-{
-  "agent.model": "claude-3.5-sonnet",
-  "agent.temperature": 0.1,
-  "agent.maxTokens": 4000,
-  "agent.topP": 0.9,
-  "agent.frequencyPenalty": 0.0,
-  "agent.presencePenalty": 0.0
-}
-```
-
-### **Error Handling Patterns:**
-```typescript
-// ✅ Comprehensive error handling
-try {
-  const result = await riskyOperation();
-  return { success: true, data: result };
-} catch (error) {
-  console.error('Operation failed:', error);
-  return { 
-    success: false, 
-    error: error.message,
-    context: 'VibeThink Error Handling'
-  };
-}
-```
-
-## 🚀 **Project Context - VibeThink**
-This is an enterprise SaaS platform built with React + TypeScript + Supabase featuring:
-- **VThink 1.0 Methodology** with CMMI-ML3 compliance
-- **Monorepo architecture** with Lerna management
-- **Multi-tenant architecture** with company isolation
-- **5-tier role system** (EMPLOYEE → MANAGER → ADMIN → OWNER → SUPER_ADMIN)
-- **AI integration ready** (OpenAI, Firecrawl, Knotie)
-- **Dynamic plan management** with custom limits
-- **Comprehensive testing utilities** with CI/CD automation
-
-## 📋 **Session Protocol - OBLIGATORIO**
-
-### **🌅 PROTOCOLO DE SALUDO UNIVERSAL - CURSOR:**
-**Cuando usuario saluda ("Buenos días", "Hola", etc.) → EJECUTAR AUTOMÁTICAMENTE:**
-
-```typescript
-// ✅ FULL PROTOCOL - Cursor Implementation:
-// Cursor TIENE acceso completo a herramientas (terminal, git, npm, etc.)
-const morningProtocol = {
-  // 1. OBLIGATORIO - Estado del repositorio
-  gitStatus: await execCommand("git status --short"),
-  gitLog: await execCommand("git log --oneline -n 3"),
-  
-  // 2. CRÍTICO - Leer contexto de sesión anterior
-  sessionContext: await readSessionSummary() || "Nueva sesión limpia",
-  
-  // 3. OPCIONAL - Validación rápida  
-  quickValidation: await execCommand("npm run validate:quick"),
-  
-  // 4. CRÍTICO - Mostrar VHELP Command Center
-  vhelpSystem: await execCommand("npm run vhelp"),
-  
-  // 5. PREGUNTAR - Trabajo del día
-  dailyQuestion: "¿En qué quieres que trabajemos hoy?"
-};
-```
-
-**✅ CORRECTO:** Cursor debe seguir **AI_UNIVERSAL_STANDARDS.md** - FULL PROTOCOL
-
-### **🧭 VHELP-FIRST PROTOCOL - OBLIGATORIO PARA CURSOR:**
-```typescript
-// ✅ ANTES de sugerir CUALQUIER comando:
-const vhelpFirst = {
-  step1: "Recordar al usuario: 'Ejecuta npm run vhelp primero'",
-  step2: "Buscar comando oficial en VHELP",
-  step3: "Verificar nivel de seguridad (🟢🟡🔴)",
-  step4: "Para 🔴 PELIGROSOS: Advertir 'REQUIERE AUTORIZACIÓN'",
-  step5: "Sugerir comando oficial de VHELP"
-};
-
-// ❌ PROHIBIDO para Cursor:
-// - Inventar comandos no documentados en VHELP
-// - Sugerir puertos aleatorios (usar 3099 para testing)
-// - Ignorar niveles de seguridad de VHELP
-```
-
-### **Al iniciar cada sesión:**
-```typescript
-// PROTOCOLO DE INICIO AUTOMÁTICO - VibeThink
-const sessionInfo = {
-  fecha: "DD-MM-YYYY",
-  participante: "Nombre del participante", 
-  rol: "Rol en el proyecto",
-  contexto: "Propósito de la sesión"
-};
-
-// VALIDACIÓN OBLIGATORIA
-if (!sessionInfo.fecha || !sessionInfo.participante) {
-  throw new Error("Información de sesión incompleta");
-}
-```
-
-### **Preguntas Estándar de Inicio:**
-1. **¿Cuál es la fecha actual?** (formato DD-MM-YYYY)
-2. **¿Quién eres?** (nombre y rol en el proyecto)
-3. **¿Cuál es el propósito de esta sesión?** (contexto general)
-
-## 🏗️ **Monorepo Structure - VThink 1.0**
-
-### **File Organization:**
-```
-src/
-├── apps/                    # Independent applications
-│   ├── admin/              # Admin panel app
-│   ├── dashboard/          # Main dashboard app
-│   ├── ai-chat/            # AI chat application
-│   ├── helpdesk/           # Support system app
-│   └── login/              # Authentication app
-├── shared/                 # Shared components & utilities
-│   ├── components/         # Reusable components
-│   ├── hooks/              # Custom hooks
-│   ├── utils/              # Utility functions
-│   ├── types/              # Type definitions
-│   └── services/           # Shared services
-├── integrations/           # External integrations
-│   ├── supabase/           # Database integration
-│   ├── medusa/             # E-commerce integration
-│   ├── strapi/             # CMS integration
-│   └── component-registry.json
-├── common/                 # Common patterns & configurations
-├── specialized/            # Specialized modules
-└── modules/                # Business logic modules
-```
-
-### **Import Patterns:**
-```typescript
-// ✅ Correct: Use aliases for monorepo imports
-import { Component } from '@/shared/components';
-import { useAuth } from '@/shared/hooks';
-import { apiClient } from '@/shared/services';
-
-// ❌ Incorrect: Relative imports across apps
-import { Component } from '../../../shared/components';
-```
-
-## 🔒 **Security Requirements - Multi-tenant**
-
-### **ALWAYS Filter by company_id:**
-```typescript
-// ✅ Correct: Company-scoped query
-const data = await supabase
-  .from('users')
-  .select('*')
-  .eq('company_id', user.company_id);
-
-// ❌ SECURITY VIOLATION: Query without company_id
-const data = await supabase.from('users').select('*');
-```
-
-### **Role-based Access Control:**
-```typescript
-// ✅ Correct: Check permissions before access
-if (hasPermission('ADMIN')) {
-  // Admin functionality
-}
-
-// ✅ Correct: Use FeatureGate component
-<FeatureGate permission="ADMIN">
-  <AdminPanel />
-</FeatureGate>
-```
-
-### **RLS Policies Validation:**
-```typescript
-// ✅ Always validate RLS policies
-const { data, error } = await supabase
-  .from('companies')
-  .select('*')
-  .eq('company_id', user.company_id);
-
-if (error) {
-  console.error('RLS policy violation:', error);
-  throw new Error('Access denied');
-}
-```
-
-## 🎨 **Code Standards - TypeScript Strict**
-
-### **TypeScript Patterns:**
-```typescript
-// ✅ Strict typing - no 'any'
-interface UserProps {
-  user: User;
-  onAction: (action: UserAction) => void;
-  isLoading?: boolean;
-}
-
-// ✅ Enum types for fixed values
-enum UserRole {
-  EMPLOYEE = 'EMPLOYEE',
-  MANAGER = 'MANAGER',
-  ADMIN = 'ADMIN',
-  OWNER = 'OWNER',
-  SUPER_ADMIN = 'SUPER_ADMIN'
-}
-
-// ✅ Database types from Supabase
-import type { Database } from '@/integrations/supabase/types';
-type User = Database['public']['Tables']['users']['Row'];
-```
-
-### **React Patterns:**
-```typescript
-// ✅ Functional components with hooks
-const UserComponent: React.FC<UserProps> = ({ user, onAction, isLoading }) => {
-  const { hasPermission } = useAuth();
-  
-  if (!hasPermission('ADMIN')) {
-    return <Unauthorized />;
-  }
-  
-  return (
-    <div className="p-4">
-      {/* Component content */}
-    </div>
-  );
-};
-
-// ✅ Use React.memo for performance
-export default React.memo(UserComponent);
-```
-
-## 🧪 **Testing Requirements - VThink 1.0**
-
-### **Multi-tenant Testing:**
-```typescript
-// ✅ Test company isolation
-describe('Multi-tenant Security', () => {
-  it('should not access cross-company data', async () => {
-    const company1User = createTestUser({ company_id: 'company1' });
-    const company2Data = await fetchCompanyData(company1User, 'company2');
-    
-    expect(company2Data).toBeNull();
-  });
-});
-```
-
-### **Role-based Testing:**
-```typescript
-// ✅ Test role permissions
-describe('Role-based Access', () => {
-  it('should deny access to unauthorized roles', () => {
-    const employee = createTestUser({ role: 'EMPLOYEE' });
-    const canAccessAdmin = hasPermission(employee, 'ADMIN');
-    
-    expect(canAccessAdmin).toBe(false);
-  });
-});
-```
-
-## 🚀 **CI/CD Integration - VThink 1.0**
-
-### **Pre-commit Validations:**
-```bash
-# ✅ VThink 1.0 validations
-npm run validate:vtk
-npm run test:multi-tenant
-npm run lint:accents
-npm run lint:spelling
-npm run quality-check
-```
-
-### **Monorepo Commands:**
-```bash
-# ✅ Lerna commands for monorepo
-npx lerna run build
-npx lerna run test
-npx lerna run lint
-npx lerna publish
-```
-
-## 📚 **Documentation Standards - VThink 1.0**
-
-### **Component Documentation:**
-```typescript
-/**
- * @component UserManagement
- * @description Manages user operations with multi-tenant security
- * @requires ADMIN permission
- * @example
- * <UserManagement 
- *   companyId="company123"
- *   onUserUpdate={handleUpdate}
- * />
- */
-```
-
-### **VThink Documentation:**
-```markdown
-# Component: UserManagement
-
-## VThink 1.0 Compliance
-- ✅ Multi-tenant isolation
-- ✅ Role-based access control
-- ✅ CMMI-ML3 standards
-- ✅ Performance optimization
-
-## Security Considerations
-- Company_id filtering required
-- RLS policies enforced
-- Audit logging implemented
-```
-
-## 🎯 **Performance Guidelines**
-
-### **React Query Patterns:**
-```typescript
-// ✅ Optimized queries with company isolation
-const { data, isLoading, error } = useQuery({
-  queryKey: ['users', user?.company_id],
-  queryFn: () => fetchUsers(user?.company_id),
-  enabled: !!user?.company_id,
-  staleTime: 5 * 60 * 1000, // 5 minutes
-});
-```
-
-### **Bundle Optimization:**
-```typescript
-// ✅ Lazy load route components
-const AdminPanel = lazy(() => import('@/apps/admin/AdminPanel'));
-
-// ✅ Code splitting for large features
-const UserManagement = lazy(() => import('@/shared/components/UserManagement'));
-```
-
-## 🔧 **Development Workflow - VThink 1.0**
-
-### **Task Management:**
-```typescript
-// ✅ Use VThink task templates
-const task = {
-  level: 1, // 1=Quick fix, 2-4=Feature, 5=Architecture
-  complexity: 'low',
-  vtkCompliance: true,
-  securityReview: true,
-  testingRequired: true
-};
-```
-
-### **Git Workflow:**
-```bash
-# ✅ VThink 1.0 commit format
-git commit -m "feat(admin): add user management with multi-tenant security
-
-- Implements company_id filtering
-- Adds role-based access control
-- Includes comprehensive testing
-- VThink 1.0 compliant"
-```
-
-## 🛡️ **Anti-Patterns to Avoid**
-
-### **Security Violations:**
-```typescript
-// ❌ NEVER do this:
-const users = await supabase.from('users').select('*'); // No company_id filter
-const adminData = await fetchAdminData(); // No permission check
-```
-
-### **Monorepo Violations:**
-```typescript
-// ❌ NEVER do this:
-import { Component } from '../../../shared/components'; // Relative import
-const data = await fetchData(); // No error handling
-```
-
-### **🚨 CRITICAL FILE VIOLATIONS:**
-```bash
-# ❌ NUNCA crear estos archivos (ROMPEN EL SISTEMA):
-touch apps/dashboard/.npmrc      # CRÍTICO: Rompe dependencias
-touch apps/admin/.env.example    # Innecesario y problemático
-touch apps/*/package-lock.json   # Conflictos de dependencias
-
-# ✅ CORRECTO: Usar configuración centralizada
-# - .npmrc solo en root (si es necesario)
-# - .env.example solo en root
-# - package-lock.json solo en root
-```
-
-### **🔗 DEPENDENCY VERSION ALIGNMENT (CRÍTICO):**
-```bash
-# 🚨 REGLA DE ORO: SIEMPRE verificar bundui-reference primero
-grep "lucide-react" apps/bundui-reference/package.json  # Ver versión exacta
-npm install lucide-react@0.522.0                        # Usar versión bundui
-
-# ❌ NUNCA actualizar dependencies sin verificar bundui-reference
-# ❌ NUNCA usar versiones más nuevas que bundui-reference
-# ✅ SIEMPRE alinearse con bundui-reference package.json
-```
-
-### **VThink Violations:**
-```typescript
-// ❌ NEVER do this:
-// Missing session protocol
-// No documentation
-// No testing
-// No security review
-```
-
-## 🎯 **Role-Specific Development**
-
-### **SUPER_ADMIN Features:**
-```typescript
-// ✅ Cross-company administration
-if (hasPermission('SUPER_ADMIN')) {
-  const allCompanies = await fetchAllCompanies();
-  // Cross-company operations allowed
-}
-```
-
-### **Company Features:**
-```typescript
-// ✅ Company-scoped data only
-const companyData = await fetchCompanyData(user.company_id);
-// Always filter by company_id
-```
-
-## 📊 **Quality Metrics - VThink 1.0**
-
-### **Required Metrics:**
-- **Security**: 100% multi-tenant isolation
-- **Performance**: <2s load time for main features
-- **Testing**: >90% coverage for critical paths
-- **Documentation**: 100% VThink 1.0 compliance
-- **Accessibility**: WCAG 2.1 AA compliance
-
-### **Monitoring:**
-```typescript
-// ✅ Performance monitoring
-const metrics = {
-  loadTime: performance.now(),
-  securityChecks: true,
-  vtkCompliance: true,
-  userExperience: 'excellent'
-};
-```
-
-## 🔄 **Session Management - VThink 1.0**
-
-### **Context Preservation:**
-```typescript
-// ✅ Session context management
-const sessionContext = {
-  userId: user.id,
-  companyId: user.company_id,
-  role: user.role,
-  permissions: user.permissions,
-  lastActivity: new Date()
-};
-```
-
-### **Memory Bank Integration:**
-```typescript
-// ✅ Memory bank for context
-const memoryBank = {
-  essential: loadEssentialContext(),
-  common: loadCommonContext(),
-  specialized: loadSpecializedContext()
-};
-```
-
-## 🛠️ **Development Tools & File Management**
-
-### **File Organization Commands:**
-```bash
-# ✅ Quick file operations
-Ctrl+P: Quick file finder
-Ctrl+Shift+F: Global search
-Ctrl+Shift+E: Explorer focus
-Ctrl+B: Toggle sidebar
-Ctrl+J: Toggle terminal
-```
-
-### **Code Navigation:**
-```bash
-# ✅ Navigation shortcuts
-F12: Go to definition
-Alt+F12: Peek definition
-Shift+F12: Find all references
-Ctrl+T: Go to symbol
-Ctrl+Shift+O: Go to symbol in file
-```
-
-### **Multi-cursor & Selection:**
-```bash
-# ✅ Multi-cursor operations
-Alt+Click: Add cursor
-Ctrl+Alt+Up/Down: Add cursor above/below
-Ctrl+D: Select next occurrence
-Ctrl+Shift+L: Select all occurrences
-Alt+Shift+I: Insert cursor at end of each line
-```
-
-### **Code Folding & Structure:**
-```bash
-# ✅ Code organization
-Ctrl+Shift+[: Fold region
-Ctrl+Shift+]: Unfold region
-Ctrl+K Ctrl+0: Fold all
-Ctrl+K Ctrl+J: Unfold all
-```
-
-### **Git Integration:**
-```bash
-# ✅ Git operations
-Ctrl+Shift+G: Git panel
-Ctrl+Shift+P "Git: Commit": Quick commit
-Ctrl+Shift+P "Git: Push": Push changes
-Ctrl+Shift+P "Git: Pull": Pull changes
-```
-
-### **Terminal & Debug:**
-```bash
-# ✅ Development workflow
-Ctrl+`: Toggle terminal
-F5: Start debugging
-Ctrl+Shift+F5: Restart debugging
-F9: Toggle breakpoint
-Ctrl+Shift+F9: Clear all breakpoints
-```
-
-### **Extensions & Tools:**
-```json
-{
-  "recommendedExtensions": [
-    "ms-vscode.vscode-typescript-next",
-    "bradlc.vscode-tailwindcss",
-    "esbenp.prettier-vscode",
-    "ms-vscode.vscode-eslint",
-    "ms-vscode.vscode-json",
-    "ms-vscode.vscode-css-peek",
-    "formulahendry.auto-rename-tag",
-    "christian-kohler.path-intellisense"
-  ]
-}
-```
-
-### **Workspace Settings:**
-```json
-{
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.organizeImports": true
-  },
-  "typescript.preferences.importModuleSpecifier": "relative",
-  "typescript.suggest.autoImports": true,
-  "emmet.includeLanguages": {
-    "typescript": "html",
-    "typescriptreact": "html"
-  },
-  "testing.automaticallyOpenPeekView": "never",
-  "testing.followRunningTest": false,
-  "testing.gutterEnabled": true,
-  "testing.openTesting": "openExplorerOnError"
-}
-```
-
-### **Advanced Testing Configuration:**
-```json
-{
-  "jest.autoRun": {
-    "watch": false,
-    "onSave": "test-file"
-  },
-  "jest.showCoverageOnLoad": true,
-  "jest.coverageFormatter": "DefaultFormatter",
-  "jest.coverageColors": {
-    "covered": "#4caf50",
-    "uncovered": "#f44336",
-    "partially-covered": "#ff9800"
-  }
-}
-```
-
-### **Performance Monitoring Setup:**
-```typescript
-// ✅ Performance monitoring configuration
-const performanceConfig = {
-  metrics: {
-    loadTime: true,
-    memoryUsage: true,
-    apiResponseTime: true,
-    bundleSize: true
-  },
-  thresholds: {
-    maxLoadTime: 2000, // 2 seconds
-    maxMemoryUsage: 50 * 1024 * 1024, // 50MB
-    maxApiResponseTime: 1000 // 1 second
-  },
-  reporting: {
-    console: true,
-    analytics: true,
-    alerts: true
-  }
-};
-```
-
-### **Debugging Configuration:**
-```json
-{
-  "debug.console.fontSize": 12,
-  "debug.console.lineHeight": 18,
-  "debug.inlineValues": true,
-  "debug.showBreakpointsInOverviewRuler": true,
-  "debug.showInlineBreakpointCandidates": true,
-  "debug.toolBarLocation": "docked"
-}
-```
-
-## 📁 **File Management & Migration Patterns**
-
-### **Repository Structure Management:**
-```bash
-# ✅ Clean repository structure
-new-repo/           # Main development repository
-├── src/            # Source code
-├── docs/           # Documentation
-├── tests/          # Test files
-├── dev-tools/      # Development tools
-└── memory-bank/    # Context management
-
-repo_archive/       # Archived content
-├── backups/        # Backup files
-├── archives/       # Historical content
-├── legacy/         # Legacy code
-└── deprecated/     # Deprecated features
-```
-
-### **Migration Workflow:**
-```typescript
-// ✅ Migration validation
-const migrationChecklist = {
-  sourceValidation: true,
-  targetStructure: true,
-  dependencyCheck: true,
-  securityReview: true,
-  testingRequired: true,
-  documentationUpdate: true
-};
-```
-
-### **File Organization Commands:**
-```bash
-# ✅ Repository cleanup commands
-npm run clean:repo          # Remove temporary files
-npm run validate:structure  # Validate repository structure
-npm run migrate:content     # Migrate content to new structure
-npm run backup:before       # Create backup before changes
-```
-
----
-
-**Follow these rules to maintain VThink 1.0 compliance, security, and quality in the codebase.**
-
-# AI Build Policy — VibeThink Orchestrator
-
-- NPM-only (no pnpm/yarn/bun)
-- Builds de dashboard: ejecutar SIEMPRE vía script root
-  - `npm run build:dashboard` → internamente: `cd apps/dashboard && npx --no-install next build`
-- No ejecutar `next build` directamente en apps si no es vía script root
-- Dependencias solo en root; apps sin node_modules
+</project_rules>
+
+<user_rules>
+The following are user-defined rules that you MUST ALWAYS FOLLOW WITHOUT ANY EXCEPTION.
+
+## ⚠️ CRITICAL: Read AGENTS.md First
+
+**BEFORE doing ANYTHING in this project:**
+1. Read `AGENTS.md` in the project root
+2. Follow ALL rules defined there
+3. Check `scripts/` directory for operational commands
+
+`AGENTS.md` contains:
+- Quick Operations table (START/STOP/BUILD)
+- Tech stack details
+- Workflow guidelines
+- Project-specific rules
+
+**AGENTS.md is the SINGLE SOURCE OF TRUTH for this project.**
+
+## Universal Rules (Inherited from Dev-Kit)
+
+See `_vibethink-dev-kit/knowledge/ai-agents/AGENTS_UNIVERSAL.md` for:
+- Mandatory First Actions
+- Universal Prohibitions/Requirements
+- Session Continuity Protocol
+- Stability Rules
+
+### Code Quality
+- ✅ No hardcoded paths (use environment variables)
+- ✅ No secrets in code (use .env files)
+- ✅ All dependencies must be justified
+- ✅ No duplicate code between projects
+
+### Git Workflow
+- ✅ Verify no extra worktrees before major operations
+- ✅ Use conventional commits
+- ✅ Never commit to main directly (use branches)
+
+### Documentation
+- ✅ Update CHANGELOG.md for significant changes
+- ✅ Document breaking changes
+- ✅ Keep AGENTS.md updated
+
+</user_rules>
+
+<workflows>
+## Development Workflow
+
+1. **Start:** `.\scripts\start-dashboard.ps1` or `npm run dev:dashboard`
+2. **Code:** Follow stack guidelines
+3. **Verify:** Check browser for errors
+4. **Build:** `npm run build:dashboard`
+5. **Commit:** Follow pre-commit checklist in AGENTS.md
+
+## Pre-Commit
+Ask user: "¿Actualizamos la versión antes de hacer commit?"
+
+For complete workflows, see AGENTS.md.
+</workflows>
+
+<ephemeral_message>
+There will be an <EPHEMERAL_MESSAGE> appearing in the conversation at times. This is not coming from the user, but instead injected by the system as important information to pay attention to.
+
+Do not respond to nor acknowledge those messages, but do follow them strictly.
+</ephemeral_message>
+
+# ============================================================================
+# INHERITANCE CHAIN
+# ============================================================================
+# 
+# This project (.cursorrules) inherits from:
+# 1. _vibethink-dev-kit/.cursorrules.template (base template)
+# 2. _vibethink-dev-kit/knowledge/ai-agents/AGENTS_UNIVERSAL.md (universal rules)
+# 
+# Project-specific rules: AGENTS.md (in this project root)
+# 
+# ============================================================================

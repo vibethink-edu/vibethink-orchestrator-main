@@ -33,11 +33,20 @@
     "validate:security": "node dev-tools/validation/security-validator.cjs",
     "validate:arch": "node dev-tools/validation/architecture-validator.cjs",
     "validate:perf": "node dev-tools/validation/performance-validator.cjs",
+    "validate:scripts": "node dev-tools/validation/script-placement-validator.cjs",
     "fix:deps": "node fix-npm-duplications.cjs",
     "pre-commit": "npm run validate:universal",
     "ai:commit": "npm run validate && git add . && git commit -m",
     "ai:recovery": "git stash && npm run validate:guard && git stash pop",
     "vhelp": "node dev-tools/utilities/vhelp-enhanced.cjs",
+    "update:ui": "node scripts/update-shadcn.js",
+    "update:ui:all": "node scripts/update-shadcn.js --all",
+    "update:ui:list": "node scripts/update-shadcn.js --list",
+    "vtk:validate": "npm run validate",
+    "vtk:lint": "npm run lint",
+    "vtk:test": "npm run test",
+    "vtk:build": "npm run build",
+    "vtk:dev": "npm run dev",
     "vhelp:help": "node dev-tools/utilities/vhelp-enhanced.cjs -h",
     "install:all": "npm install && cd apps/dashboard && npm install && cd ../admin && npm install && cd ../login && npm install && cd ../helpdesk && npm install && cd ../website && npm install",
     "clean": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"if (Test-Path 'node_modules') { Remove-Item -Recurse -Force 'node_modules' }; Get-ChildItem 'apps' -Directory | ForEach-Object { $nm = Join-Path $_.FullName 'node_modules'; if (Test-Path $nm) { Remove-Item -Recurse -Force $nm }; $next = Join-Path $_.FullName '.next'; if (Test-Path $next) { Remove-Item -Recurse -Force $next } }; Write-Host 'Cleanup completed!'\"",
@@ -66,7 +75,9 @@
   },
   "workspaces": [
     "apps/*",
-    "src/*"
+    "apps/*",
+    "src/*",
+    "packages/*"
   ],
   "dependencies": {
     "@fullcalendar/daygrid": "6.1.18",
@@ -116,9 +127,9 @@
     "motion": "12.11.4",
     "next": "15.3.4",
     "next-themes": "0.4.6",
-    "react": "18.3.1",
+    "react": "19.0.0",
     "react-day-picker": "9.8.1",
-    "react-dom": "18.3.1",
+    "react-dom": "19.0.0",
     "react-hook-form": "7.62.0",
     "react-is": "19.1.1",
     "recharts": "2.15.4",
@@ -130,8 +141,8 @@
   },
   "devDependencies": {
     "@types/node": "20.0.0",
-    "@types/react": "18.3.12",
-    "@types/react-dom": "18.3.1",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
     "autoprefixer": "10.4.21",
     "concurrently": "8.2.2",
     "eslint": "8.57.0",
@@ -146,5 +157,9 @@
     "validation-required": true,
     "pre-commit-hook": true,
     "recovery-procedure": true
+  },
+  "overrides": {
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   }
 }

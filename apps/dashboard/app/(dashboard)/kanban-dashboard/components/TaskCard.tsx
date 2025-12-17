@@ -30,23 +30,19 @@ import {
   Archive
 } from 'lucide-react';
 import { Task, TaskCardProps } from '../types';
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
-import { Card, CardContent } from '@/shared/components/bundui-premium/components/ui/card';
-import {
-  DropdownMenu,
+import { Button } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { Card, CardContent } from '@vibethink/ui';
+import { DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/shared/components/bundui-premium/components/ui/dropdown-menu';
-import {
-  Tooltip,
+  DropdownMenuTrigger, } from '@vibethink/ui';
+import { Tooltip,
   TooltipContent,
   TooltipProvider,
-  TooltipTrigger,
-} from '@/shared/components/bundui-premium/components/ui/tooltip';
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/bundui-premium/components/ui/avatar';
+  TooltipTrigger, } from '@vibethink/ui';
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui';
 
 // Priority colors using HSL for theme compatibility
 const priorityColors = {

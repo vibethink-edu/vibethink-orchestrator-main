@@ -11,8 +11,8 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/shared/lib/utils';
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
+import { Button } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
 import { 
   BarChart3, 
   Brain, 

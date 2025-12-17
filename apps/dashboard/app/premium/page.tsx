@@ -4,11 +4,11 @@
  * Esta página muestra la versión premium del dashboard con funcionalidades avanzadas.
  */
 
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
-import { BunduiPremiumDashboard } from '@/shared/components/bundui-premium';
-import ShadcnDashboardComplete from '@/shared/components/bundui-premium/components/ShadcnDashboardComplete';
+import { DashboardLayout } from '@vibethink/ui';
+// import { BunduiPremiumDashboard } from '@vibethink/bundui-ui'; // TODO: Migrar o remover
+// import ShadcnDashboardComplete from '@vibethink/bundui-ui/components/ShadcnDashboardComplete'; // TODO: Migrar o remover
 import { ClientOnly } from '@/shared/components/ClientOnly';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/bundui-premium/components/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui';
 
 export default function PremiumDashboardPage() {
   return (
@@ -29,13 +29,15 @@ export default function PremiumDashboardPage() {
             </TabsList>
             
             <TabsContent value="shadcn-complete" className="space-y-4">
-              <div className="border rounded-lg">
-                <ShadcnDashboardComplete withLayout={false} />
+              <div className="border rounded-lg p-4">
+                <p className="text-muted-foreground">ShadcnDashboardComplete - TODO: Migrar componente</p>
               </div>
             </TabsContent>
             
             <TabsContent value="bundui-premium" className="space-y-4">
-              <BunduiPremiumDashboard />
+              <div className="border rounded-lg p-4">
+                <p className="text-muted-foreground">BunduiPremiumDashboard - TODO: Migrar componente</p>
+              </div>
             </TabsContent>
           </Tabs>
         </ClientOnly>

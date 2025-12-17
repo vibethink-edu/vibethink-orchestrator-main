@@ -1,12 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "@/shared/components/bundui-premium/components/ui/button"
+import { Button } from '@vibethink/ui'
 import Card from "@/shared/components/generic/Card"
 import Navigation from "@/shared/components/generic/Navigation"
 import Chart from "@/shared/components/generic/Chart"
 import { useGenericData } from "@/shared/hooks/useGenericData"
-import { formatCurrency, formatNumber, formatPercentage } from "@/shared/utils/genericFormatters"
+import { formatCurrency, formatNumber, formatPercentage } from "@vibethink/utils"
 import { Users, DollarSign, Activity, CreditCard, Download, Plus, MessageCircle, TrendingUp, Calendar, UserPlus, CreditCard as PaymentIcon, Home, BarChart3, Settings, User, FileText, Bell } from 'lucide-react'
 
 /**
@@ -176,240 +176,6 @@ export default function DashboardPage() {
   if (!mounted) {
     return (
       <div className="space-y-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
-              <p className="text-sm text-muted-foreground">10 Jul 2025 - 06 Aug 2025</p>
-            </div>
-            <Button>
-              <Download className="h-4 w-4 mr-2" />
-              Download
-            </Button>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {metrics?.map((metric, index) => {
-              const IconComponent = metricIcons[index];
-              const title = metricTitles[index];
-              
-              return (
-                <Card
-                  key={index}
-                  variant="metric"
-                  title={title}
-                  icon={<IconComponent className="h-4 w-4 text-muted-foreground" />}
-                >
-                  <div className="text-2xl font-bold">
-                    {index === 1 ? formatCurrency(metric.value) : formatNumber(metric.value, { prefix: '+' })}
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    {metric.change > 0 ? '+' : ''}{formatPercentage(metric.change)} {metric.period}
-                  </p>
-                </Card>
-              );
-            })}
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            <Chart
-              variant="line"
-              data={subscriptionsChartData}
-              title="Subscriptions Growth"
-              subtitle="Monthly subscription growth over time"
-              height={250}
-              formatValue={(value) => formatNumber(value)}
-            />
-            <Chart
-              variant="line"
-              data={revenueChartData}
-              title="Total Revenue"
-              subtitle="Monthly revenue trends"
-              height={250}
-              formatValue={(value) => formatCurrency(value)}
-            />
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            <Card
-              variant="team"
-              title="Team Members"
-              subtitle="Invite your team members to collaborate."
-              icon={<Users className="h-5 w-5" />}
-            >
-              {teamMembers?.map((member) => (
-                <div key={member.id} className="flex items-center gap-3 p-3 rounded-lg border">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="text-sm font-semibold text-primary">{member.avatar}</span>
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-medium">{member.name}</p>
-                    <p className="text-sm text-muted-foreground">{member.email}</p>
-                  </div>
-                  <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
-                    {member.role}
-                  </span>
-                </div>
-              ))}
-              <Button variant="outline" className="w-full">
-                <UserPlus className="h-4 w-4 mr-2" />
-                Invite Member
-              </Button>
-            </Card>
-            <Card
-              variant="chat"
-              title="Sofia Davis"
-              subtitle="m@example.com"
-              icon={
-                <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center">
-                  <MessageCircle className="h-3 w-3 text-primary" />
-                </div>
-              }
-            >
-              <div className="space-y-3">
-                <div className="flex gap-2">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="text-xs font-semibold text-primary">SD</span>
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm">Hi, how can I help you today?</p>
-                    <p className="text-xs text-muted-foreground">2 min ago</p>
-                  </div>
-                </div>
-                <div className="flex gap-2 justify-end">
-                  <div className="flex-1 max-w-[80%]">
-                    <p className="text-sm bg-primary text-primary-foreground p-2 rounded-lg">
-                      Hey, I'm having trouble with my account.
-                    </p>
-                    <p className="text-xs text-muted-foreground text-right">1 min ago</p>
-                  </div>
-                </div>
-                <div className="flex gap-2">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                    <span className="text-xs font-semibold text-primary">SD</span>
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm">What seems to be the problem?</p>
-                    <p className="text-xs text-muted-foreground">Just now</p>
-                  </div>
-                </div>
-                <div className="flex gap-2">
-                  <div className="flex-1 px-3 py-2 border rounded-md text-sm bg-muted">
-                    <span className="text-muted-foreground">Type your message...</span>
-                  </div>
-                  <Button size="sm">Send</Button>
-                </div>
-              </div>
-            </Card>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            <Card
-              variant="payment"
-              title="Latest Payments"
-              icon={<CreditCard className="h-5 w-5" />}
-            >
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b">
-                      <th className="text-left py-3 font-medium">Customer</th>
-                      <th className="text-left py-3 font-medium">Email</th>
-                      <th className="text-left py-3 font-medium">Amount</th>
-                      <th className="text-left py-3 font-medium">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y">
-                    {payments?.map((payment) => (
-                      <tr key={payment.id}>
-                        <td className="py-3">{payment.customer}</td>
-                        <td className="py-3 text-muted-foreground">{payment.email}</td>
-                        <td className="py-3 font-medium">{formatCurrency(payment.amount)}</td>
-                        <td className="py-3">
-                          <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs ${
-                            payment.status === 'success' 
-                              ? 'bg-green-100 text-green-800'
-                              : payment.status === 'processing'
-                              ? 'bg-yellow-100 text-yellow-800'
-                              : 'bg-red-100 text-red-800'
-                          }`}>
-                            {payment.status}
-                          </span>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                <div className="mt-4 text-sm text-muted-foreground">
-                  0 of 16 row(s) selected.
-                </div>
-              </div>
-            </Card>
-            <Card
-              variant="form"
-              title="Payment Method"
-              subtitle="Add a new payment method to your account."
-              icon={<PaymentIcon className="h-5 w-5" />}
-            >
-              <div className="grid gap-4 md:grid-cols-3">
-                <Button variant="outline" className="h-20 flex-col gap-2">
-                  <CreditCard className="h-6 w-6" />
-                  <span className="text-sm">Card</span>
-                </Button>
-                <Button variant="outline" className="h-20 flex-col gap-2">
-                  <span className="text-sm font-semibold">Paypal</span>
-                </Button>
-                <Button variant="outline" className="h-20 flex-col gap-2">
-                  <span className="text-sm font-semibold">Apple</span>
-                </Button>
-              </div>
-              <div className="space-y-4">
-                <div className="grid gap-4 md:grid-cols-2">
-                  <div>
-                    <label className="text-sm font-medium">Name on the card</label>
-                    <div className="w-full mt-1 px-3 py-2 border rounded-md bg-muted">
-                      <span className="text-muted-foreground">Enter card holder name</span>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium">City</label>
-                    <div className="w-full mt-1 px-3 py-2 border rounded-md bg-muted">
-                      <span className="text-muted-foreground">Enter city</span>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium">Card number</label>
-                  <div className="w-full mt-1 px-3 py-2 border rounded-md bg-muted">
-                    <span className="text-muted-foreground">1234 5678 9012 3456</span>
-                  </div>
-                </div>
-                <div className="grid gap-4 md:grid-cols-3">
-                  <div>
-                    <label className="text-sm font-medium">Expires</label>
-                    <div className="w-full mt-1 px-3 py-2 border rounded-md bg-muted">
-                      <span className="text-muted-foreground">Month</span>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium">Year</label>
-                    <div className="w-full mt-1 px-3 py-2 border rounded-md bg-muted">
-                      <span className="text-muted-foreground">Year</span>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium">CVC</label>
-                    <div className="w-full mt-1 px-3 py-2 border rounded-md bg-muted">
-                      <span className="text-muted-foreground">123</span>
-                    </div>
-                  </div>
-                </div>
-                <Button className="w-full">Continue</Button>
-              </div>
-            </Card>
-          </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="space-y-6">
-        {/* Header Section */}
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
@@ -420,13 +186,11 @@ export default function DashboardPage() {
             Download
           </Button>
         </div>
-
-        {/* Main Metrics Grid */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {metrics?.map((metric, index) => {
             const IconComponent = metricIcons[index];
             const title = metricTitles[index];
-            
+
             return (
               <Card
                 key={index}
@@ -444,8 +208,6 @@ export default function DashboardPage() {
             );
           })}
         </div>
-
-        {/* Charts Section */}
         <div className="grid gap-6 md:grid-cols-2">
           <Chart
             variant="line"
@@ -464,10 +226,7 @@ export default function DashboardPage() {
             formatValue={(value) => formatCurrency(value)}
           />
         </div>
-
-        {/* Two Column Layout */}
         <div className="grid gap-6 md:grid-cols-2">
-          {/* Team Members */}
           <Card
             variant="team"
             title="Team Members"
@@ -493,13 +252,15 @@ export default function DashboardPage() {
               Invite Member
             </Button>
           </Card>
-
-          {/* Chat Section */}
           <Card
             variant="chat"
             title="Sofia Davis"
             subtitle="m@example.com"
-            icon={<MessageCircle className="h-5 w-5" />}
+            icon={
+              <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center">
+                <MessageCircle className="h-3 w-3 text-primary" />
+              </div>
+            }
           >
             <div className="space-y-3">
               <div className="flex gap-2">
@@ -529,20 +290,15 @@ export default function DashboardPage() {
                 </div>
               </div>
               <div className="flex gap-2">
-                <input
-                  type="text"
-                  placeholder="Type your message..."
-                  className="flex-1 px-3 py-2 border rounded-md text-sm"
-                />
+                <div className="flex-1 px-3 py-2 border rounded-md text-sm bg-muted">
+                  <span className="text-muted-foreground">Type your message...</span>
+                </div>
                 <Button size="sm">Send</Button>
               </div>
             </div>
           </Card>
         </div>
-
-        {/* Bottom Section */}
         <div className="grid gap-6 md:grid-cols-2">
-          {/* Latest Payments */}
           <Card
             variant="payment"
             title="Latest Payments"
@@ -565,13 +321,12 @@ export default function DashboardPage() {
                       <td className="py-3 text-muted-foreground">{payment.email}</td>
                       <td className="py-3 font-medium">{formatCurrency(payment.amount)}</td>
                       <td className="py-3">
-                        <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs ${
-                          payment.status === 'success' 
+                        <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs ${payment.status === 'success'
                             ? 'bg-green-100 text-green-800'
                             : payment.status === 'processing'
-                            ? 'bg-yellow-100 text-yellow-800'
-                            : 'bg-red-100 text-red-800'
-                        }`}>
+                              ? 'bg-yellow-100 text-yellow-800'
+                              : 'bg-red-100 text-red-800'
+                          }`}>
                           {payment.status}
                         </span>
                       </td>
@@ -584,8 +339,6 @@ export default function DashboardPage() {
               </div>
             </div>
           </Card>
-
-          {/* Payment Method */}
           <Card
             variant="form"
             title="Payment Method"
@@ -605,56 +358,301 @@ export default function DashboardPage() {
               </Button>
             </div>
             <div className="space-y-4">
-              <div className="grid gap-4 md:grid-cols-3">
+              <div className="grid gap-4 md:grid-cols-2">
                 <div>
                   <label className="text-sm font-medium">Name on the card</label>
-                  <input type="text" className="w-full mt-1 px-3 py-2 border rounded-md" />
+                  <div className="w-full mt-1 px-3 py-2 border rounded-md bg-muted">
+                    <span className="text-muted-foreground">Enter card holder name</span>
+                  </div>
                 </div>
                 <div>
                   <label className="text-sm font-medium">City</label>
-                  <input type="text" className="w-full mt-1 px-3 py-2 border rounded-md" />
+                  <div className="w-full mt-1 px-3 py-2 border rounded-md bg-muted">
+                    <span className="text-muted-foreground">Enter city</span>
+                  </div>
                 </div>
               </div>
               <div>
                 <label className="text-sm font-medium">Card number</label>
-                <input 
-                  type="text" 
-                  placeholder="1234 5678 9012 3456"
-                  className="w-full mt-1 px-3 py-2 border rounded-md" 
-                />
+                <div className="w-full mt-1 px-3 py-2 border rounded-md bg-muted">
+                  <span className="text-muted-foreground">1234 5678 9012 3456</span>
+                </div>
               </div>
               <div className="grid gap-4 md:grid-cols-3">
                 <div>
                   <label className="text-sm font-medium">Expires</label>
-                  <select className="w-full mt-1 px-3 py-2 border rounded-md">
-                    <option>Month</option>
-                    <option>01</option>
-                    <option>02</option>
-                    <option>03</option>
-                  </select>
+                  <div className="w-full mt-1 px-3 py-2 border rounded-md bg-muted">
+                    <span className="text-muted-foreground">Month</span>
+                  </div>
                 </div>
                 <div>
                   <label className="text-sm font-medium">Year</label>
-                  <select className="w-full mt-1 px-3 py-2 border rounded-md">
-                    <option>Year</option>
-                    <option>2025</option>
-                    <option>2026</option>
-                    <option>2027</option>
-                  </select>
+                  <div className="w-full mt-1 px-3 py-2 border rounded-md bg-muted">
+                    <span className="text-muted-foreground">Year</span>
+                  </div>
                 </div>
                 <div>
                   <label className="text-sm font-medium">CVC</label>
-                  <input 
-                    type="text" 
-                    placeholder="123"
-                    className="w-full mt-1 px-3 py-2 border rounded-md" 
-                  />
+                  <div className="w-full mt-1 px-3 py-2 border rounded-md bg-muted">
+                    <span className="text-muted-foreground">123</span>
+                  </div>
                 </div>
               </div>
               <Button className="w-full">Continue</Button>
             </div>
           </Card>
         </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-6">
+      {/* Header Section */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
+          <p className="text-sm text-muted-foreground">10 Jul 2025 - 06 Aug 2025</p>
+        </div>
+        <Button>
+          <Download className="h-4 w-4 mr-2" />
+          Download
+        </Button>
+      </div>
+
+      {/* Main Metrics Grid */}
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {metrics?.map((metric, index) => {
+          const IconComponent = metricIcons[index];
+          const title = metricTitles[index];
+
+          return (
+            <Card
+              key={index}
+              variant="metric"
+              title={title}
+              icon={<IconComponent className="h-4 w-4 text-muted-foreground" />}
+            >
+              <div className="text-2xl font-bold">
+                {index === 1 ? formatCurrency(metric.value) : formatNumber(metric.value, { prefix: '+' })}
+              </div>
+              <p className="text-xs text-muted-foreground">
+                {metric.change > 0 ? '+' : ''}{formatPercentage(metric.change)} {metric.period}
+              </p>
+            </Card>
+          );
+        })}
+      </div>
+
+      {/* Charts Section */}
+      <div className="grid gap-6 md:grid-cols-2">
+        <Chart
+          variant="line"
+          data={subscriptionsChartData}
+          title="Subscriptions Growth"
+          subtitle="Monthly subscription growth over time"
+          height={250}
+          formatValue={(value) => formatNumber(value)}
+        />
+        <Chart
+          variant="line"
+          data={revenueChartData}
+          title="Total Revenue"
+          subtitle="Monthly revenue trends"
+          height={250}
+          formatValue={(value) => formatCurrency(value)}
+        />
+      </div>
+
+      {/* Two Column Layout */}
+      <div className="grid gap-6 md:grid-cols-2">
+        {/* Team Members */}
+        <Card
+          variant="team"
+          title="Team Members"
+          subtitle="Invite your team members to collaborate."
+          icon={<Users className="h-5 w-5" />}
+        >
+          {teamMembers?.map((member) => (
+            <div key={member.id} className="flex items-center gap-3 p-3 rounded-lg border">
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <span className="text-sm font-semibold text-primary">{member.avatar}</span>
+              </div>
+              <div className="flex-1">
+                <p className="font-medium">{member.name}</p>
+                <p className="text-sm text-muted-foreground">{member.email}</p>
+              </div>
+              <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+                {member.role}
+              </span>
+            </div>
+          ))}
+          <Button variant="outline" className="w-full">
+            <UserPlus className="h-4 w-4 mr-2" />
+            Invite Member
+          </Button>
+        </Card>
+
+        {/* Chat Section */}
+        <Card
+          variant="chat"
+          title="Sofia Davis"
+          subtitle="m@example.com"
+          icon={<MessageCircle className="h-5 w-5" />}
+        >
+          <div className="space-y-3">
+            <div className="flex gap-2">
+              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                <span className="text-xs font-semibold text-primary">SD</span>
+              </div>
+              <div className="flex-1">
+                <p className="text-sm">Hi, how can I help you today?</p>
+                <p className="text-xs text-muted-foreground">2 min ago</p>
+              </div>
+            </div>
+            <div className="flex gap-2 justify-end">
+              <div className="flex-1 max-w-[80%]">
+                <p className="text-sm bg-primary text-primary-foreground p-2 rounded-lg">
+                  Hey, I'm having trouble with my account.
+                </p>
+                <p className="text-xs text-muted-foreground text-right">1 min ago</p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                <span className="text-xs font-semibold text-primary">SD</span>
+              </div>
+              <div className="flex-1">
+                <p className="text-sm">What seems to be the problem?</p>
+                <p className="text-xs text-muted-foreground">Just now</p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <input
+                type="text"
+                placeholder="Type your message..."
+                className="flex-1 px-3 py-2 border rounded-md text-sm"
+              />
+              <Button size="sm">Send</Button>
+            </div>
+          </div>
+        </Card>
+      </div>
+
+      {/* Bottom Section */}
+      <div className="grid gap-6 md:grid-cols-2">
+        {/* Latest Payments */}
+        <Card
+          variant="payment"
+          title="Latest Payments"
+          icon={<CreditCard className="h-5 w-5" />}
+        >
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left py-3 font-medium">Customer</th>
+                  <th className="text-left py-3 font-medium">Email</th>
+                  <th className="text-left py-3 font-medium">Amount</th>
+                  <th className="text-left py-3 font-medium">Status</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y">
+                {payments?.map((payment) => (
+                  <tr key={payment.id}>
+                    <td className="py-3">{payment.customer}</td>
+                    <td className="py-3 text-muted-foreground">{payment.email}</td>
+                    <td className="py-3 font-medium">{formatCurrency(payment.amount)}</td>
+                    <td className="py-3">
+                      <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs ${payment.status === 'success'
+                          ? 'bg-green-100 text-green-800'
+                          : payment.status === 'processing'
+                            ? 'bg-yellow-100 text-yellow-800'
+                            : 'bg-red-100 text-red-800'
+                        }`}>
+                        {payment.status}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div className="mt-4 text-sm text-muted-foreground">
+              0 of 16 row(s) selected.
+            </div>
+          </div>
+        </Card>
+
+        {/* Payment Method */}
+        <Card
+          variant="form"
+          title="Payment Method"
+          subtitle="Add a new payment method to your account."
+          icon={<PaymentIcon className="h-5 w-5" />}
+        >
+          <div className="grid gap-4 md:grid-cols-3">
+            <Button variant="outline" className="h-20 flex-col gap-2">
+              <CreditCard className="h-6 w-6" />
+              <span className="text-sm">Card</span>
+            </Button>
+            <Button variant="outline" className="h-20 flex-col gap-2">
+              <span className="text-sm font-semibold">Paypal</span>
+            </Button>
+            <Button variant="outline" className="h-20 flex-col gap-2">
+              <span className="text-sm font-semibold">Apple</span>
+            </Button>
+          </div>
+          <div className="space-y-4">
+            <div className="grid gap-4 md:grid-cols-3">
+              <div>
+                <label className="text-sm font-medium">Name on the card</label>
+                <input type="text" className="w-full mt-1 px-3 py-2 border rounded-md" />
+              </div>
+              <div>
+                <label className="text-sm font-medium">City</label>
+                <input type="text" className="w-full mt-1 px-3 py-2 border rounded-md" />
+              </div>
+            </div>
+            <div>
+              <label className="text-sm font-medium">Card number</label>
+              <input
+                type="text"
+                placeholder="1234 5678 9012 3456"
+                className="w-full mt-1 px-3 py-2 border rounded-md"
+              />
+            </div>
+            <div className="grid gap-4 md:grid-cols-3">
+              <div>
+                <label className="text-sm font-medium">Expires</label>
+                <select className="w-full mt-1 px-3 py-2 border rounded-md">
+                  <option>Month</option>
+                  <option>01</option>
+                  <option>02</option>
+                  <option>03</option>
+                </select>
+              </div>
+              <div>
+                <label className="text-sm font-medium">Year</label>
+                <select className="w-full mt-1 px-3 py-2 border rounded-md">
+                  <option>Year</option>
+                  <option>2025</option>
+                  <option>2026</option>
+                  <option>2027</option>
+                </select>
+              </div>
+              <div>
+                <label className="text-sm font-medium">CVC</label>
+                <input
+                  type="text"
+                  placeholder="123"
+                  className="w-full mt-1 px-3 py-2 border rounded-md"
+                />
+              </div>
+            </div>
+            <Button className="w-full">Continue</Button>
+          </div>
+        </Card>
+      </div>
     </div>
   );
 } 

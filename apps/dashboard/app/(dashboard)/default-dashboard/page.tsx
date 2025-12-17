@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import CustomDateRangePicker from "@/shared/components/custom-date-range-picker";
-import { Button } from "@/shared/components/ui/button";
+import { Button } from "@vibethink/ui";
 
 import {
   ChatWidget,

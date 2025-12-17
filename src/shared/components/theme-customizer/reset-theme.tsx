@@ -1,7 +1,7 @@
 "use client";
 
 import { useThemeConfig } from "@/components/active-theme";
-import { Button } from "@/components/ui/button";
+import { Button } from "@vibethink/ui";
 import { DEFAULT_THEME } from "@/lib/themes";
 
 export function ResetThemeButton() {

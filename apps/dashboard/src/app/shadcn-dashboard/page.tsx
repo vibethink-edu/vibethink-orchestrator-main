@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import ShadcnStyleDashboard from '@/shared/components/bundui-premium/components/ShadcnStyleDashboard';
+// import ShadcnStyleDashboard from '@vibethink/bundui-ui/components/ShadcnStyleDashboard'; // TODO: Migrar o remover
 
 /**
  * Página del Dashboard estilo Shadcn UI Kit
@@ -51,7 +51,9 @@ export default function ShadcnDashboardPage() {
 
       {/* Contenido principal */}
       <main className="flex-1 space-y-4 p-8 pt-6">
-        <ShadcnStyleDashboard />
+        <div className="p-4">
+          <p className="text-muted-foreground">ShadcnStyleDashboard - TODO: Migrar componente</p>
+        </div>
       </main>
     </div>
   );

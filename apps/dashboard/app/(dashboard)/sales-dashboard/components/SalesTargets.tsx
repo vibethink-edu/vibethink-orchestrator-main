@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui
 import { Progress } from '@/shared/components/ui/progress'
 import { Badge } from '@/shared/components/ui/badge'
 import { Skeleton } from '@/shared/components/ui/skeleton'
-import { Button } from '@/shared/components/ui/button'
+import { Button } from '@vibethink/ui'
 import { 
   Target, 
   TrendingUp, 

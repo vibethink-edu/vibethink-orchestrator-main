@@ -8,7 +8,7 @@
 import React, { useState, useMemo } from 'react'
 import { Search, Plus, Filter, Archive, Pin } from 'lucide-react'
 import { Input } from '@/shared/components/ui/input'
-import { Button } from '@/shared/components/ui/button'
+import { Button } from '@vibethink/ui'
 import { Badge } from '@/shared/components/ui/badge'
 import { ScrollArea } from '@/shared/components/ui/scroll-area'
 import {

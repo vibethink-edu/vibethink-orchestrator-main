@@ -22,26 +22,22 @@ import {
 } from "@tanstack/react-table";
 import { ArrowUpDown, Columns, MoreHorizontal } from "lucide-react";
 
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
-import {
-  DropdownMenu,
+import { Button } from '@vibethink/ui';
+import { DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger
-} from "@/shared/components/bundui-premium/components/ui/dropdown-menu";
-import { Input } from "@/shared/components/bundui-premium/components/ui/input";
-import {
-  Table,
+  DropdownMenuTrigger } from '@vibethink/ui';
+import { Input } from '@vibethink/ui';
+import { Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
-} from "@/shared/components/bundui-premium/components/ui/table";
-import { Avatar, AvatarFallback, AvatarImage } from "@/shared/components/bundui-premium/components/ui/avatar";
-import { Badge } from "@/shared/components/bundui-premium/components/ui/badge";
-import { Checkbox } from "@/shared/components/bundui-premium/components/ui/checkbox";
+  TableRow } from '@vibethink/ui';
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { Checkbox } from '@vibethink/ui';
 
 export type User = {
   id: number;

@@ -15,10 +15,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/bundui-premium/components/ui/card';
-import { ScrollArea } from '@/shared/components/bundui-premium/components/ui/scroll-area';
-import { Separator } from '@/shared/components/bundui-premium/components/ui/separator';
+import { Button } from '@vibethink/ui';
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui';
+import { ScrollArea } from '@vibethink/ui';
+import { Separator } from '@vibethink/ui';
 import { 
   StickyNote,
   Plus,

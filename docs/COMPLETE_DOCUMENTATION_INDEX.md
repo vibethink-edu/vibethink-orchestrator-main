@@ -33,10 +33,10 @@
 - [**CURRENT_STATUS_REPORT.md**](./development/CURRENT_STATUS_REPORT.md) - Estado actual del proyecto
 
 ### **📚 METODOLOGÍA VTHINK 1.0**
-- [**methodologies/VThink-1.0/README.md**](./methodologies/VThink-1.0/README.md) - Metodología VThink 1.0
-- [**methodologies/VThink-1.0/VTK_METHODOLOGY.md**](./methodologies/VThink-1.0/VTK_METHODOLOGY.md) - Metodología técnica
-- [**methodologies/VThink-1.0/VITA_PROFILE.md**](./methodologies/VThink-1.0/VITA_PROFILE.md) - Perfil VITA
-- [**methodologies/VThink-1.0/VITA_PROTOCOLS.md**](./methodologies/VThink-1.0/VITA_PROTOCOLS.md) - Protocolos VITA
+- [**Methodology/VTHINK_v1_README.md**](./Methodology/VTHINK_v1_README.md) - Metodología VThink 1.0
+- [**Methodology/VTK_METHODOLOGY.md**](./Methodology/VTK_METHODOLOGY.md) - Metodología técnica
+- [**Methodology/VITA_PROFILE.md**](./Methodology/VITA_PROFILE.md) - Perfil VITA
+- [**Methodology/VITA_PROTOCOLS.md**](./Methodology/VITA_PROTOCOLS.md) - Protocolos VITA
 
 ## 🎯 **DOCUMENTACIÓN POR AUDIENCIA**
 

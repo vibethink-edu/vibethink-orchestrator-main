@@ -11,17 +11,15 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { PlusCircle } from "lucide-react";
 
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/components/bundui-premium/components/ui/card";
-import { Badge } from "@/shared/components/bundui-premium/components/ui/badge";
-import {
-  Table,
+import { Button } from '@vibethink/ui';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
-} from "@/shared/components/bundui-premium/components/ui/table";
+  TableRow, } from '@vibethink/ui';
 
 // Mock data to avoid external dependencies
 const mockProducts = [

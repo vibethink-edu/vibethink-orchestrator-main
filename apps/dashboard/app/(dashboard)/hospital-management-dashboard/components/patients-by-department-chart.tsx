@@ -9,7 +9,7 @@ import {
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent
-} from "@/shared/components/ui/chart";
+} from "@vibethink/ui";
 
 const chartData = [
   { department: "cardiology", visitors: 275, fill: "var(--color-cardiology)" },

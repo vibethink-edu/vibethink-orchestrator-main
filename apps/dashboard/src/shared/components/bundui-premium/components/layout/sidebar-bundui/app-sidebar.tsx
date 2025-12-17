@@ -5,33 +5,29 @@ import { useEffect } from "react";
 import { ChevronsUpDown, ShoppingBagIcon, UserCircle2Icon } from "lucide-react";
 import { PlusIcon } from "@radix-ui/react-icons";
 import { usePathname } from "next/navigation";
-import { useIsTablet } from "@/shared/components/bundui-premium/hooks/use-mobile";
+import { useIsTablet } from "@/hooks/use-mobile";
 import Link from "next/link";
 
-import {
-  Sidebar,
+import { Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar
-} from "@/shared/components/bundui-premium/components/ui/sidebar";
+  useSidebar } from '@vibethink/ui';
 import { NavMain } from "./nav-main";
 import { NavUser } from "./nav-user";
-import { ScrollArea } from "@/shared/components/bundui-premium/components/ui/scroll-area";
-import Logo from "@/shared/components/bundui-premium/components/layout/logo";
-import {
-  DropdownMenu,
+import { ScrollArea } from '@vibethink/ui';
+import { Logo } from "@vibethink/ui";
+import { DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger
-} from "@/shared/components/bundui-premium/components/ui/dropdown-menu";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/components/bundui-premium/components/ui/card";
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
+  DropdownMenuTrigger } from '@vibethink/ui';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui';
+import { Button } from '@vibethink/ui';
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();

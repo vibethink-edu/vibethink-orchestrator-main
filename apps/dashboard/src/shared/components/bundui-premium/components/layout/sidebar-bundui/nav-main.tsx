@@ -1,7 +1,6 @@
 "use client";
 
-import {
-  SidebarGroup,
+import { SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
@@ -11,8 +10,7 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-  useSidebar
-} from "@/shared/components/bundui-premium/components/ui/sidebar";
+  useSidebar } from '@vibethink/ui';
 import {
   ActivityIcon,
   ArchiveRestoreIcon,
@@ -52,15 +50,13 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { IconWrapper } from "./icon-wrapper";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/shared/components/bundui-premium/components/ui/collapsible";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@vibethink/ui';
 import { usePathname } from "next/navigation";
-import {
-  DropdownMenu,
+import { DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuTrigger
-} from "@/shared/components/bundui-premium/components/ui/dropdown-menu";
+  DropdownMenuTrigger } from '@vibethink/ui';
 
 type NavGroup = {
   title: string;

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/components/bundui-premium/components/ui/card";
+import { Button } from '@vibethink/ui';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui';
 
 export default function TestSimplePage() {
   const [mounted, setMounted] = useState(false);

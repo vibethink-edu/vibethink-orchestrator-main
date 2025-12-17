@@ -5,7 +5,7 @@ import { format } from "date-fns";
 import { Clock, PlusCircle } from "lucide-react";
 import Link from "next/link";
 
-import { Button } from "@/shared/components/ui/button";
+import { Button } from "@vibethink/ui";
 import { Input } from "@/shared/components/ui/input";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/shared/components/ui/card";
 

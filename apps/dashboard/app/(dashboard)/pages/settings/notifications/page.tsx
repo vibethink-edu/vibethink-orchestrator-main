@@ -13,21 +13,19 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
-import { Checkbox } from "@/shared/components/bundui-premium/components/ui/checkbox";
-import {
-  Form,
+import { Button } from '@vibethink/ui';
+import { Checkbox } from '@vibethink/ui';
+import { Form,
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
-} from "@/shared/components/bundui-premium/components/ui/form";
-import { RadioGroup, RadioGroupItem } from "@/shared/components/bundui-premium/components/ui/radio-group";
-import { Switch } from "@/shared/components/bundui-premium/components/ui/switch";
+  FormMessage } from '@vibethink/ui';
+import { RadioGroup, RadioGroupItem } from '@vibethink/ui';
+import { Switch } from '@vibethink/ui';
 import { toast } from "sonner";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/bundui-premium/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui';
 
 const notificationsFormSchema = z.object({
   type: z.enum(["all", "mentions", "none"], {

@@ -1,17 +1,14 @@
 'use client'
 
 import React from 'react';
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
-import ProjectCard from '@/shared/components/bundui-premium/components/layout/ProjectCard';
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Input } from '@/shared/components/bundui-premium/components/ui/input';
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
-import { 
-  DropdownMenu,
+import { DashboardLayout, ProjectCard } from '@vibethink/ui';
+import { Button } from '@vibethink/ui';
+import { Input } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger 
-} from '@/shared/components/bundui-premium/components/ui/dropdown-menu';
+  DropdownMenuTrigger } from '@vibethink/ui';
 import { 
   Plus, 
   Search, 

@@ -8,7 +8,7 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
+import { Button } from '@vibethink/ui';
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 

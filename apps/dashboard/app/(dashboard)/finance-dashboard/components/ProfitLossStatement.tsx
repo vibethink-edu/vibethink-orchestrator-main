@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
 import { Skeleton } from '@/shared/components/ui/skeleton'
 import { Badge } from '@/shared/components/ui/badge'
-import { Button } from '@/shared/components/ui/button'
+import { Button } from '@vibethink/ui'
 import { Separator } from '@/shared/components/ui/separator'
 import { Revenue, Expense } from '../types'
 import { useState } from 'react'

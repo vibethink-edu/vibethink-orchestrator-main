@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import { SidebarProvider } from '@/shared/components/bundui-premium/components/ui/sidebar';
+import { SidebarProvider } from '@vibethink/ui';
 import DashboardSidebar from '@/components/sidebar/DashboardSidebar';
 import DashboardHeader from '@/components/header/DashboardHeader';
 

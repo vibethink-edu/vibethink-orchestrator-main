@@ -29,18 +29,4 @@ export const APP_CONFIG = {
   SUPPORT_EMAIL: 'support@VibeThink.co'
 } as const;
 
-export const ROLES = {
-  EMPLOYEE: 'EMPLOYEE',
-  MANAGER: 'MANAGER',
-  ADMIN: 'ADMIN',
-  OWNER: 'OWNER',
-  SUPER_ADMIN: 'SUPER_ADMIN'
-} as const;
-
-export const PERMISSIONS = {
-  VIEW_DASHBOARD: 'VIEW_DASHBOARD',
-  MANAGE_USERS: 'MANAGE_USERS',
-  MANAGE_COMPANY: 'MANAGE_COMPANY',
-  ACCESS_ADMIN: 'ACCESS_ADMIN',
-  ACCESS_SUPER_ADMIN: 'ACCESS_SUPER_ADMIN'
-} as const; 
+export { ROLES, PERMISSIONS } from '@vibethink/utils'; 

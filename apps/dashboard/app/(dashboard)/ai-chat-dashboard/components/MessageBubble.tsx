@@ -15,11 +15,11 @@
 // =============================================================================
 
 import React, { useState } from 'react'
-import { Button } from '@/shared/components/bundui-premium/components/ui/button'
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/bundui-premium/components/ui/avatar'
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/shared/components/bundui-premium/components/ui/dropdown-menu'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/shared/components/bundui-premium/components/ui/tooltip'
+import { Button } from '@vibethink/ui'
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui'
+import { Badge } from '@vibethink/ui'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@vibethink/ui'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@vibethink/ui'
 import { 
   Copy, 
   Edit, 

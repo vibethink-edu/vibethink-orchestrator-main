@@ -1,8 +1,8 @@
 "use client"
 
-import { SidebarTrigger } from "@/shared/components/bundui-premium/components/ui/sidebar"
-import { Button } from "@/shared/components/bundui-premium/components/ui/button"
-import { Avatar, AvatarFallback, AvatarImage } from "@/shared/components/bundui-premium/components/ui/avatar"
+import { SidebarTrigger } from '@vibethink/ui'
+import { Button } from '@vibethink/ui'
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui'
 import { Bell, Search } from "lucide-react"
 
 export default function Header() {

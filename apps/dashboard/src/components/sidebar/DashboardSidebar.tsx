@@ -8,8 +8,7 @@
  */
 
 import React from 'react';
-import {
-  Sidebar,
+import { Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
@@ -18,13 +17,12 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarTrigger,
-  useSidebar
-} from '@/shared/components/bundui-premium/components/ui/sidebar';
+  useSidebar } from '@vibethink/ui';
 import DashboardNavigation from '@/components/navigation/DashboardNavigation';
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Card, CardContent } from '@/shared/components/bundui-premium/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/bundui-premium/components/ui/avatar';
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
+import { Button } from '@vibethink/ui';
+import { Card, CardContent } from '@vibethink/ui';
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
 import { 
   Brain, 
   Zap, 

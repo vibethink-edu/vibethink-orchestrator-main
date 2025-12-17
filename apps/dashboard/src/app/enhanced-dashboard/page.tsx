@@ -13,7 +13,7 @@
  */
 
 import React from 'react';
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
+import { DashboardLayout } from '@vibethink/ui';
 import EnhancedDashboardContent from '@/components/enhanced-dashboard/EnhancedDashboardContent';
 
 export default function EnhancedDashboardPage() {

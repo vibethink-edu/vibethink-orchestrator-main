@@ -9,19 +9,17 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
+import { Button } from '@vibethink/ui';
 import { PlusCircledIcon } from "@radix-ui/react-icons";
-import { Tabs, TabsList, TabsTrigger } from "@/shared/components/bundui-premium/components/ui/tabs";
-import {
-  Table,
+import { Tabs, TabsList, TabsTrigger } from '@vibethink/ui';
+import { Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
-} from "@/shared/components/bundui-premium/components/ui/table";
-import { Badge } from "@/shared/components/bundui-premium/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/bundui-premium/components/ui/card";
+  TableRow, } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui';
 
 // Mock data to avoid external dependencies
 const mockOrders = [

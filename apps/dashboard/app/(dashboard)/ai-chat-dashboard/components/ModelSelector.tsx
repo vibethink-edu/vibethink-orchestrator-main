@@ -15,12 +15,12 @@
 // =============================================================================
 
 import React, { useState } from 'react'
-import { Button } from '@/shared/components/bundui-premium/components/ui/button'
-import { Label } from '@/shared/components/bundui-premium/components/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/components/bundui-premium/components/ui/select'
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/bundui-premium/components/ui/card'
-import { Separator } from '@/shared/components/bundui-premium/components/ui/separator'
+import { Button } from '@vibethink/ui'
+import { Label } from '@vibethink/ui'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@vibethink/ui'
+import { Badge } from '@vibethink/ui'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui'
+import { Separator } from '@vibethink/ui'
 import { 
   Bot,
   Zap,

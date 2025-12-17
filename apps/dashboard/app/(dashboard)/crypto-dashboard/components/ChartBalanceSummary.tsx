@@ -9,13 +9,13 @@
 import React from 'react'
 import { CartesianGrid, Line, LineChart, XAxis, ResponsiveContainer } from 'recharts'
 import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
-import { Button } from '@/shared/components/ui/button'
+import { Button } from '@vibethink/ui'
 import { 
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent
-} from '@/shared/components/ui/chart'
+} from '@vibethink/ui'
 import { Download, TrendingUp, TrendingDown } from 'lucide-react'
 
 interface ChartBalanceSummaryProps {

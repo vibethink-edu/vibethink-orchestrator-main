@@ -1,7 +1,7 @@
 import React from "react";
 import { cookies } from "next/headers";
 
-import { SidebarInset, SidebarProvider } from "@/shared/components/bundui-premium/components/ui/sidebar";
+import { SidebarInset, SidebarProvider } from "@vibethink/ui";
 import { AppSidebar } from "../../src/shared/components/bundui-premium/components/layout/sidebar-bundui/app-sidebar";
 import { SiteHeader } from "../../src/shared/components/bundui-premium/components/layout/header-bundui/index";
 

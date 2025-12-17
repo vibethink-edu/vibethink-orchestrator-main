@@ -10,7 +10,8 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "../../src/**/*.{js,ts,jsx,tsx,mdx}",
-    "../../src/shared/components/bundui-premium/**/*.{js,ts,jsx,tsx,mdx}", // Include bundui-premium components
+    "../../src/shared/components/bundui-premium/**/*.{js,ts,jsx,tsx,mdx}",
+    "../../packages/ui/src/**/*.{js,ts,jsx,tsx,mdx}", // Include new UI package
   ],
 }
 

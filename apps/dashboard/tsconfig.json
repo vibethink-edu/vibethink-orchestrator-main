@@ -19,17 +19,35 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["../../src/*"],
-      "@/shared/*": ["../../src/shared/*"],
-      "@/lib/*": ["./lib/*"],
-      "@/components/*": ["./src/components/*", "./src/shared/components/bundui-premium/components/*"],
-      "@/hooks/*": ["./hooks/*"]
+      "@/*": [
+        "../../src/*"
+      ],
+      "@/shared/*": [
+        "../../src/shared/*"
+      ],
+      "@/lib/*": [
+        "./lib/*"
+      ],
+      "@/components/*": [
+        "./src/components/*",
+        "./src/shared/components/bundui-premium/components/*"
+      ],
+      "@/hooks/*": [
+        "./hooks/*"
+      ],
+      "@vibethink/ui": [
+        "../../packages/ui/src"
+      ],
+      "@vibethink/ui/*": [
+        "../../packages/ui/src/*"
+      ]
     },
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",

@@ -4,7 +4,10 @@
 			"path": "."
 		},
 		{
-			"path": "../ai-pair-orchestrator-pro-main-last/repo_archive"
+			"path": "../_vibethink-doc"
+		},
+		{
+			"path": "../_vibethink-dev-kit"
 		}
 	],
 	"settings": {

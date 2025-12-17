@@ -15,17 +15,17 @@
 // =============================================================================
 
 import React, { useState } from 'react'
-import { Button } from '@/shared/components/bundui-premium/components/ui/button'
-import { Label } from '@/shared/components/bundui-premium/components/ui/label'
-import { Slider } from '@/shared/components/bundui-premium/components/ui/slider'
-import { Input } from '@/shared/components/bundui-premium/components/ui/input'
-import { Textarea } from '@/shared/components/bundui-premium/components/ui/textarea'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/components/bundui-premium/components/ui/select'
-import { Switch } from '@/shared/components/bundui-premium/components/ui/switch'
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge'
-import { Separator } from '@/shared/components/bundui-premium/components/ui/separator'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/bundui-premium/components/ui/card'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/bundui-premium/components/ui/tabs'
+import { Button } from '@vibethink/ui'
+import { Label } from '@vibethink/ui'
+import { Slider } from '@vibethink/ui'
+import { Input } from '@vibethink/ui'
+import { Textarea } from '@vibethink/ui'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@vibethink/ui'
+import { Switch } from '@vibethink/ui'
+import { Badge } from '@vibethink/ui'
+import { Separator } from '@vibethink/ui'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui'
 import { 
   Settings,
   Bot,

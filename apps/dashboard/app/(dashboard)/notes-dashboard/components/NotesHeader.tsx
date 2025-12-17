@@ -15,23 +15,19 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { Input } from '@/shared/components/bundui-premium/components/ui/input';
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/bundui-premium/components/ui/card';
-import {
-  DropdownMenu,
+import { Button } from '@vibethink/ui';
+import { Input } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui';
+import { DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/shared/components/bundui-premium/components/ui/dropdown-menu';
-import {
-  Collapsible,
+  DropdownMenuTrigger, } from '@vibethink/ui';
+import { Collapsible,
   CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/shared/components/bundui-premium/components/ui/collapsible';
+  CollapsibleTrigger, } from '@vibethink/ui';
 import { 
   Search, 
   Plus, 

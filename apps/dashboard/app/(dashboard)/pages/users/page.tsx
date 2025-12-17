@@ -10,7 +10,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { PlusCircledIcon } from "@radix-ui/react-icons";
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
+import { Button } from '@vibethink/ui';
 import UsersDataTable from "./data-table";
 
 // Import users data - In production this would come from API/Database

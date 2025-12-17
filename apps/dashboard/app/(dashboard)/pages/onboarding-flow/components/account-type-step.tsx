@@ -7,11 +7,11 @@
 
 "use client";
 
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
+import { Button } from '@vibethink/ui';
 import { useOnboardingStore } from "../store";
 import { User, Building2, Users, Briefcase } from "lucide-react";
-import { Label } from "@/shared/components/bundui-premium/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/shared/components/bundui-premium/components/ui/radio-group";
+import { Label } from '@vibethink/ui';
+import { RadioGroup, RadioGroupItem } from '@vibethink/ui';
 import { toast } from "sonner";
 
 const accountTypes = [

@@ -8,7 +8,7 @@ import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent
-} from '@/shared/components/ui/chart'
+} from '@vibethink/ui'
 import { Badge } from '@/shared/components/ui/badge'
 import { Progress } from '@/shared/components/ui/progress'
 import { Skeleton } from '@/shared/components/ui/skeleton'

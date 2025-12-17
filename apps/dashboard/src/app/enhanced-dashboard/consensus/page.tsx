@@ -1,10 +1,10 @@
 "use client";
 
 import React from 'react';
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/bundui-premium/components/ui/card';
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
-import { Progress } from '@/shared/components/bundui-premium/components/ui/progress';
+import { DashboardLayout } from '@vibethink/ui';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { Progress } from '@vibethink/ui';
 import { Brain, Users, Target, CheckCircle } from 'lucide-react';
 
 const ConsensusPage = () => {

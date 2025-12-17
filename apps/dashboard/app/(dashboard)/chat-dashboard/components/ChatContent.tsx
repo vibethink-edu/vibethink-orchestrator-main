@@ -18,7 +18,7 @@ import {
   Info
 } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/ui/avatar'
-import { Button } from '@/shared/components/ui/button'
+import { Button } from '@vibethink/ui'
 import { Input } from '@/shared/components/ui/input'
 import { ScrollArea } from '@/shared/components/ui/scroll-area'
 import {

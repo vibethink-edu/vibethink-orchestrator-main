@@ -25,23 +25,19 @@ import {
   Printer,
 } from 'lucide-react';
 
-import { Button } from '@/shared/components/bundui-premium/components/ui/button';
-import { 
-  Select,
+import { Button } from '@vibethink/ui';
+import { Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-} from '@/shared/components/bundui-premium/components/ui/select';
-import { Input } from '@/shared/components/bundui-premium/components/ui/input';
-import {
-  DropdownMenu,
+  SelectValue, } from '@vibethink/ui';
+import { Input } from '@vibethink/ui';
+import { DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/shared/components/bundui-premium/components/ui/dropdown-menu';
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge';
+  DropdownMenuTrigger, } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
 
 import { useCalendarActions, useCalendarViewState } from '../hooks/useCalendarStore';
 import { CalendarView } from '../types';

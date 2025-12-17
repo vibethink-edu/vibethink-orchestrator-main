@@ -5,7 +5,7 @@
 
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
-import { Button } from '@/shared/components/ui/button'
+import { Button } from '@vibethink/ui'
 import { 
   MoreHorizontal, 
   TrendingUp, 

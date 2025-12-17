@@ -1,14 +1,15 @@
 import React from "react";
+import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { cn } from "@/shared/lib/utils";
 import { ThemeProvider } from "next-themes";
-import { fontVariables } from "@/shared/components/bundui-premium/lib/fonts";
-
 import "./globals.css";
-
-import { ActiveThemeProvider } from "@/shared/components/bundui-premium/components/active-theme";
 import { DEFAULT_THEME } from "@/shared/lib/themes";
-import { Toaster } from "@/shared/components/bundui-premium/components/ui/sonner";
+
+export const metadata: Metadata = {
+  title: "Pana - VibeThink Dashboard",
+  description: "El amigo que orquesta tu empresa",
+};
 
 export default async function RootLayout({
   children
@@ -17,11 +18,11 @@ export default async function RootLayout({
 }>) {
   const cookieStore = await cookies();
   const themeSettings = {
-    preset: (cookieStore.get("theme_preset")?.value ?? DEFAULT_THEME.preset) as any,
-    scale: (cookieStore.get("theme_scale")?.value ?? DEFAULT_THEME.scale) as any,
-    radius: (cookieStore.get("theme_radius")?.value ?? DEFAULT_THEME.radius) as any,
+    preset: (cookieStore.get("theme_preset")?.value ?? DEFAULT_THEME.preset) as string,
+    scale: (cookieStore.get("theme_scale")?.value ?? DEFAULT_THEME.scale) as string,
+    radius: (cookieStore.get("theme_radius")?.value ?? DEFAULT_THEME.radius) as string,
     contentLayout: (cookieStore.get("theme_content_layout")?.value ??
-      DEFAULT_THEME.contentLayout) as any
+      DEFAULT_THEME.contentLayout) as string
   };
 
   const bodyAttributes = Object.fromEntries(
@@ -34,17 +35,14 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={cn("bg-background group/layout font-sans", fontVariables)}
+        className={cn("bg-background group/layout font-sans")}
         {...bodyAttributes}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange>
-          <ActiveThemeProvider initialTheme={themeSettings}>
-            {children}
-            <Toaster position="top-center" richColors />
-          </ActiveThemeProvider>
+          {children}
         </ThemeProvider>
       </body>
     </html>

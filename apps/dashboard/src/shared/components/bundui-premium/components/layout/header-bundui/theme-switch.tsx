@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { MoonIcon, SunIcon } from "lucide-react";
 
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
+import { Button } from '@vibethink/ui';
 
 export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false);

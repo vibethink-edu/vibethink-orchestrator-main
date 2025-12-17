@@ -8,17 +8,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/bundui-premium/components/ui/card";
-import { Switch } from "@/shared/components/bundui-premium/components/ui/switch";
-import {
-  Accordion,
+import { Button } from '@vibethink/ui';
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui';
+import { Switch } from '@vibethink/ui';
+import { Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger
-} from "@/shared/components/bundui-premium/components/ui/accordion";
+  AccordionTrigger } from '@vibethink/ui';
 import { Check } from "lucide-react";
-import { Badge } from "@/shared/components/bundui-premium/components/ui/badge";
+import { Badge } from '@vibethink/ui';
 
 const features = [
   "Unlimited access to all courses",

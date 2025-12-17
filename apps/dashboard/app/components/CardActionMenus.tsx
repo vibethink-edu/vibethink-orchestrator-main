@@ -1,13 +1,11 @@
 import { FolderUp } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 
-import {
-  DropdownMenu,
+import { DropdownMenu,
   DropdownMenuItem,
   DropdownMenuContent,
-  DropdownMenuTrigger
-} from "@/shared/components/bundui-premium/components/ui/dropdown-menu";
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
+  DropdownMenuTrigger } from '@vibethink/ui';
+import { Button } from '@vibethink/ui';
 
 export function ExportButton({ className }: { className?: string }) {
   return (

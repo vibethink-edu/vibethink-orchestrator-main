@@ -28,7 +28,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/shared/components/ui/dropdown-menu'
-import { Button } from '@/shared/components/ui/button'
+import { Button } from '@vibethink/ui'
 import type { FolderListCardsProps } from '../types'
 
 export function FolderListCards({ 

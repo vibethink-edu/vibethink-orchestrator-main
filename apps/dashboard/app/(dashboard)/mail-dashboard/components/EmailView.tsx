@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@/shared/components/ui/button'
+import { Button } from '@vibethink/ui'
 import { Badge } from '@/shared/components/ui/badge'
 import { ScrollArea } from '@/shared/components/ui/scroll-area'
 import { Avatar, AvatarFallback } from '@/shared/components/ui/avatar'

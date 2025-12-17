@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../_vibethink-dev-kit"
+		}
+	],
+	"settings": {
+		"powershell.cwd": "vibethink-orchestrator-main"
+	}
+}

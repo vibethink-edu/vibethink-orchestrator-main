@@ -15,10 +15,10 @@
 // =============================================================================
 
 import React, { useEffect, useRef, useState } from 'react'
-import { ScrollArea } from '@/shared/components/bundui-premium/components/ui/scroll-area'
-import { Button } from '@/shared/components/bundui-premium/components/ui/button'
-import { Separator } from '@/shared/components/bundui-premium/components/ui/separator'
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge'
+import { ScrollArea } from '@vibethink/ui'
+import { Button } from '@vibethink/ui'
+import { Separator } from '@vibethink/ui'
+import { Badge } from '@vibethink/ui'
 import { 
   ArrowDown, 
   MessageSquare, 

@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { PlusCircle, Upload, X } from "lucide-react";
+import { PlusCircle, Upload, UploadIcon, X, XIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -62,9 +62,10 @@ export function FileUploadDialog() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <Button onClick={() => setOpen(true)}>
-        <PlusCircle /> Upload Files
+        <UploadIcon />
+        <span className="hidden sm:inline">Upload</span>
       </Button>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-xl">
         <DialogHeader>
           <DialogTitle>Upload Files</DialogTitle>
           <DialogDescription>Drag and drop files here or click to select files</DialogDescription>
@@ -78,11 +79,9 @@ export function FileUploadDialog() {
           onDragOver={handleDrag}
           onDrop={handleDrop}>
           <div className="text-center">
-            <Upload className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" />
-            <div className="mt-4 flex text-sm leading-none text-gray-600">
-              <Label
-                htmlFor="file-upload"
-                className="relative cursor-pointer rounded-md bg-white font-semibold text-blue-600 focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 focus-within:outline-hidden hover:text-blue-500">
+            <Upload className="mx-auto size-10 opacity-25" aria-hidden="true" />
+            <div className="mt-4 flex text-sm leading-none">
+              <Label htmlFor="file-upload" className="relative cursor-pointer">
                 <span>Upload a file</span>
                 <Input
                   id="file-upload"
@@ -95,28 +94,28 @@ export function FileUploadDialog() {
               </Label>
               <p className="pl-1">or drag and drop</p>
             </div>
-            <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+            <p className="text-muted-foreground text-xs leading-5">PNG, JPG, GIF up to 10MB</p>
           </div>
         </div>
         {files.length > 0 && (
-          <div className="mt-4">
-            <h4 className="text-sm font-medium text-gray-900">Selected Files:</h4>
-            <ul className="mt-2 divide-y divide-gray-100 rounded-md border border-gray-200">
+          <div>
+            <h4 className="text-sm">Selected Files</h4>
+            <ul className="divide mt-2 divide-y rounded-md border">
               {files.map((file, index) => (
                 <li
                   key={index}
                   className="flex items-center justify-between py-2 pr-2 pl-4 text-sm leading-6">
                   <div className="flex w-0 flex-1 items-center">
-                    <div className="ml-4 flex min-w-0 flex-1 gap-2">
+                    <div className="flex min-w-0 flex-1 gap-2">
                       <span className="truncate font-medium">{file.name}</span>
-                      <span className="shrink-0 text-gray-400">
+                      <span className="text-muted-foreground shrink-0">
                         {(file.size / 1024).toFixed(2)} kb
                       </span>
                     </div>
                   </div>
-                  <div className="ml-4 shrink-0">
+                  <div className="shrink-0">
                     <Button variant="ghost" size="icon" onClick={() => removeFile(index)}>
-                      <X className="h-4 w-4" />
+                      <XIcon />
                       <span className="sr-only">Remove file</span>
                     </Button>
                   </div>
@@ -130,7 +129,7 @@ export function FileUploadDialog() {
             Cancel
           </Button>
           <Button onClick={handleUpload} disabled={files.length === 0}>
-            Upload
+            Start Upload
           </Button>
         </DialogFooter>
       </DialogContent>

@@ -10,11 +10,11 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Settings, MapPin, Calendar, Mail, Phone, Building } from "lucide-react";
-import { Button } from "@/shared/components/bundui-premium/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/bundui-premium/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/shared/components/bundui-premium/components/ui/avatar";
-import { Badge } from "@/shared/components/bundui-premium/components/ui/badge";
-import { Separator } from "@/shared/components/bundui-premium/components/ui/separator";
+import { Button } from '@vibethink/ui';
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui';
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui';
+import { Badge } from '@vibethink/ui';
+import { Separator } from '@vibethink/ui';
 
 export default function ProfilePage() {
   const [mounted, setMounted] = useState(false);

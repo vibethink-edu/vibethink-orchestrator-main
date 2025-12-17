@@ -1,5 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/bundui-premium/components/ui/card'
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/shared/components/bundui-premium/components/ui/chart'
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui'
+// Chart components from recharts - mantener import directo
+// import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@vibethink/ui'
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts'
 import { TrendingUp, Users, Target } from 'lucide-react'
 
@@ -55,21 +56,21 @@ export function CrmCharts() {
           <Users className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <ChartContainer config={chartConfig} className="h-[200px]">
-            <LineChart data={customerGrowthData}>
+          <div className="h-[200px]">
+            <LineChart data={customerGrowthData} width={500} height={200}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="month" />
               <YAxis />
-              <ChartTooltip content={<ChartTooltipContent />} />
+              {/* ChartTooltip - TODO: Implementar con recharts */}
               <Line 
                 type="monotone" 
                 dataKey="customers" 
-                stroke="var(--color-customers)" 
+                stroke="hsl(var(--chart-1))" 
                 strokeWidth={2}
-                dot={{ fill: "var(--color-customers)" }}
+                dot={{ fill: "hsl(var(--chart-1))" }}
               />
             </LineChart>
-          </ChartContainer>
+          </div>
           <div className="flex items-center pt-2">
             <TrendingUp className="h-4 w-4 text-green-500 mr-2" />
             <span className="text-sm text-muted-foreground">
@@ -85,18 +86,18 @@ export function CrmCharts() {
           <Target className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <ChartContainer config={chartConfig} className="h-[200px]">
-            <BarChart data={salesFunnelData}>
+          <div className="h-[200px]">
+            <BarChart data={salesFunnelData} width={500} height={200}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="stage" />
               <YAxis />
-              <ChartTooltip content={<ChartTooltipContent />} />
+              {/* ChartTooltip - TODO: Implementar con recharts */}
               <Bar 
                 dataKey="value" 
                 fill="var(--color-value)"
               />
             </BarChart>
-          </ChartContainer>
+          </div>
           <div className="grid grid-cols-2 gap-4 pt-4">
             <div className="text-center">
               <div className="text-2xl font-bold text-green-600">12.7%</div>
@@ -116,18 +117,18 @@ export function CrmCharts() {
           <TrendingUp className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <ChartContainer config={chartConfig} className="h-[200px]">
-            <BarChart data={revenueData}>
+          <div className="h-[200px]">
+            <BarChart data={revenueData} width={500} height={200}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="month" />
               <YAxis />
-              <ChartTooltip content={<ChartTooltipContent />} />
+              {/* ChartTooltip - TODO: Implementar con recharts */}
               <Bar 
                 dataKey="revenue" 
                 fill="var(--color-revenue)"
               />
             </BarChart>
-          </ChartContainer>
+          </div>
           <div className="flex items-center justify-between pt-2">
             <div className="text-center">
               <div className="text-lg font-bold">$84,290</div>

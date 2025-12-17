@@ -5,8 +5,8 @@
  * para validar componentes premium.
  */
 
-import DashboardLayout from '@/shared/components/bundui-premium/components/layout/DashboardLayout';
-import { PremiumTestPageEnhanced } from '@/shared/components/bundui-premium';
+import { DashboardLayout } from '@vibethink/ui';
+// import { PremiumTestPageEnhanced } from '@vibethink/bundui-ui'; // TODO: Migrar o remover
 import { ClientOnly } from '@/shared/components/ClientOnly';
 
 export default function TestPage() {
@@ -14,7 +14,9 @@ export default function TestPage() {
     <DashboardLayout>
       <div className="space-y-6">
         <ClientOnly>
-          <PremiumTestPageEnhanced />
+          <div className="p-4">
+        <p className="text-muted-foreground">PremiumTestPageEnhanced - TODO: Migrar componente</p>
+      </div>
         </ClientOnly>
       </div>
     </DashboardLayout>

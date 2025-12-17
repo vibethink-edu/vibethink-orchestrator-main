@@ -8,7 +8,7 @@ import Search from "@/components/layout/header/search";
 import UserMenu from "@/components/layout/header/user-menu";
 import ThemeSwitch from "@/components/layout/header/theme-switch";
 import Notifications from "@/components/layout/header/notifications";
-import { Button } from "@/components/ui/button";
+import { Button } from "@vibethink/ui";
 import { ThemeCustomizerPanel } from "@/components/theme-customizer";
 
 export default function Header() {

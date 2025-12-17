@@ -1,7 +1,7 @@
 import { ChevronRight } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/shared/components/ui/avatar";
-import { Button } from "@/shared/components/ui/button";
+import { Button } from "@vibethink/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
 
 const patients = [

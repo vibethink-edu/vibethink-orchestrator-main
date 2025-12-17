@@ -14,19 +14,17 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { cn } from "@/shared/lib/utils";
-import { Button, buttonVariants } from "@/shared/components/bundui-premium/components/ui/button";
-import {
-  Form,
+import { Button, buttonVariants } from '@vibethink/ui';
+import { Form,
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
-} from "@/shared/components/bundui-premium/components/ui/form";
-import { RadioGroup, RadioGroupItem } from "@/shared/components/bundui-premium/components/ui/radio-group";
+  FormMessage } from '@vibethink/ui';
+import { RadioGroup, RadioGroupItem } from '@vibethink/ui';
 import { toast } from "sonner";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/bundui-premium/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui';
 
 const appearanceFormSchema = z.object({
   theme: z.enum(["light", "dark"], {

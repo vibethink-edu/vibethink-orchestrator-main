@@ -14,10 +14,10 @@
 // =============================================================================
 
 import React, { useState, useEffect } from 'react'
-import { useSidebar } from '@/shared/components/bundui-premium/components/ui/sidebar'
-import { Button } from '@/shared/components/bundui-premium/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/bundui-premium/components/ui/card'
-import { Badge } from '@/shared/components/bundui-premium/components/ui/badge'
+import { useSidebar } from '@vibethink/ui'
+import { Button } from '@vibethink/ui'
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui'
+import { Badge } from '@vibethink/ui'
 
 export function SidebarDebugPanel() {
   const { state, open, isMobile, toggleSidebar } = useSidebar()
