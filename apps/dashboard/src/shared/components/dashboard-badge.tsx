@@ -1,60 +1,41 @@
-/**
- * 🏷️ DASHBOARD BADGE COMPONENT
- * 
- * Badge visual discreto para identificar dashboards mock/reference.
- * 
- * @see docs/references/DASHBOARDS_MOCK_REFERENCE.md
- */
-
 "use client";
 
-import { Badge } from "@vibethink/ui";
-import { usePathname } from "next/navigation";
-import { shouldShowBadge, getDashboardMetadata } from "../../config/dashboards-metadata";
+import { Badge } from '@vibethink/ui';
+import { usePathname } from 'next/navigation';
 
-interface DashboardBadgeProps {
-  /** Forzar mostrar badge (override metadata) */
-  forceShow?: boolean;
-  /** Clase CSS adicional */
-  className?: string;
-}
-
-/**
- * Badge discreto que se muestra en dashboards mock/reference
- * 
- * Se muestra automáticamente basado en metadata de `dashboards-metadata.ts`
- */
-export function DashboardBadge({ forceShow = false, className = "" }: DashboardBadgeProps) {
+export function DashboardBadge({ forceShow }: { forceShow?: boolean }) {
   const pathname = usePathname();
-  const metadata = getDashboardMetadata(pathname);
   
-  // Mostrar si está forzado, o si metadata indica que debe mostrarse
-  const shouldShow = forceShow || shouldShowBadge(pathname);
+  // Determine badge text based on path
+  const getBadgeText = () => {
+    if (forceShow) {
+      if (pathname?.includes('/dashboard-bundui')) {
+        return 'Demo / Reference - Bundui Premium';
+      }
+      if (pathname?.includes('/dashboard-vibethink')) {
+        return 'Demo / Reference - VibeThink';
+      }
+      return 'Demo / Reference';
+    }
+    
+    if (pathname?.includes('/dashboard-bundui')) {
+      return 'Bundui Premium';
+    }
+    if (pathname?.includes('/dashboard-vibethink')) {
+      return 'VibeThink Sandbox';
+    }
+    
+    return null;
+  };
+
+  const badgeText = getBadgeText();
   
-  if (!shouldShow) {
+  if (!badgeText) {
     return null;
   }
 
-  // Determinar texto del badge basado en tipo y categoría
-  let badgeText = "Demo / Reference";
-  let badgeVariant: "default" | "secondary" | "destructive" | "outline" = "outline";
-
-  if (metadata) {
-    if (metadata.type === "hybrid") {
-      badgeText = "Demo Mode";
-    } else if (metadata.category === "demo") {
-      badgeText = "Demo";
-    } else if (metadata.migrationPlanned) {
-      badgeText = "Reference (Migration Planned)";
-    }
-  }
-
   return (
-    <Badge 
-      variant={badgeVariant} 
-      className={`text-xs font-normal ${className}`}
-      title="Este dashboard usa datos simulados para referencia de diseño"
-    >
+    <Badge variant="secondary" className="text-xs">
       {badgeText}
     </Badge>
   );

@@ -1,50 +1,20 @@
 "use client";
 
-import { generateMeta } from "@/lib/utils";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-// import CustomDateRangePicker from "@vibethink/bundui-ui/components/custom-date-range-picker"; // TODO: Usar DatePickerWithRange
-import { Button } from "@vibethink/ui";
+export default function DefaultDashboard() {
+  const router = useRouter();
+  
+  useEffect(() => {
+    // Redirect to the main dashboard page
+    router.replace("/dashboard");
+  }, [router]);
 
-import {
-  ChatWidget,
-  ExerciseMinutes,
-  LatestPayments,
-  PaymentMethodCard,
-  SubscriptionsCard,
-  TeamMembersCard,
-  TotalRevenueCard
-} from "./components";
-import { Download } from "lucide-react";
-
-// Client component - metadata handled by layout
-
-export default function Page() {
   return (
-    <div className="space-y-4">
-      <div className="flex flex-row items-center justify-between">
-        <h1 className="text-xl font-bold tracking-tight lg:text-2xl">Dashboard</h1>
-        <div className="flex items-center space-x-2">
-          {/* <CustomDateRangePicker /> TODO: Implementar con DatePickerWithRange */}
-          <Button variant="outline">Date Range</Button>
-          <Button>
-            <Download />
-            <span className="hidden lg:inline">Download</span>
-          </Button>
-        </div>
-      </div>
-      <div className="gap-4 space-y-4 lg:grid lg:grid-cols-3 lg:space-y-0">
-        <TeamMembersCard />
-        <SubscriptionsCard />
-        <TotalRevenueCard />
-        <ChatWidget />
-        <div className="lg:col-span-2">
-          <ExerciseMinutes />
-        </div>
-        <div className="lg:col-span-2">
-          <LatestPayments />
-        </div>
-        <PaymentMethodCard />
-      </div>
+    <div className="flex items-center justify-center min-h-screen">
+      <p className="text-muted-foreground">Redirecting...</p>
     </div>
   );
 }
+

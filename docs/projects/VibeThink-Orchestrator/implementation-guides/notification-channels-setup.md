@@ -23,7 +23,7 @@
 ### **Paso 3: Configurar Variables de Entorno**
 ```bash
 # .env
-SLACK_WEBHOOK_URL=your-slack-webhook-url-here
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
 SLACK_CHANNEL=#dev-alerts
 SLACK_USERNAME=VThink-Alerts
 SLACK_ICON_EMOJI=:warning:
