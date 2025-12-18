@@ -25,6 +25,7 @@
 - ✅ `app/dashboard-bundui/page.tsx` - Índice con 19 dashboards Bundui Premium
 - ✅ `app/dashboard-bundui/layout.tsx` - Layout con padding correcto
 - ✅ Todos los dashboards migrados correctamente
+- 📚 **Documentación**: Ver `docs/BUNDUI_MONOREPO_MIRROR.md` para detalles completos sobre Bundui, Shadcn UI y el espejo monorepo
 
 ### 4. Componentes Compartidos
 - ✅ `src/shared/components/dashboard-badge.tsx` - Badge para identificar dashboards de referencia
