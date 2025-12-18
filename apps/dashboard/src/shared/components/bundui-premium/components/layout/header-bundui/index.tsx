@@ -7,7 +7,7 @@ import Notifications from "./notifications";
 import Search from "./search";
 import ThemeSwitch from "./theme-switch";
 import UserMenu from "./user-menu";
-import { ThemeCustomizerPanel } from "@vibethink/ui";
+import { ThemeCustomizerPanel } from "../../panel";
 import { Button } from '@vibethink/ui';
 import { useSidebar } from '@vibethink/ui';
 

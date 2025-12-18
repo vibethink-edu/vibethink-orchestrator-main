@@ -31,9 +31,11 @@ const nextConfig = {
     ],
   },
   webpack: (config) => {
+    const path = require('path');
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': require('path').resolve(__dirname, '../../src'),
+      '@': path.resolve(__dirname, '../../src'),
+      '@/shared': path.resolve(__dirname, '../../src/shared'),
     };
 
     // Suprimir warnings de React 19 compatibility para componentes Radix UI

@@ -15,6 +15,19 @@
   - Arquitectura de espejo monorepo perfecto
   - Estructura y propósito de `/dashboard-bundui`
 
+#### Architecture
+- **[architecture/SIDEBAR_SPECIAL_ADJUSTMENT.md](./architecture/SIDEBAR_SPECIAL_ADJUSTMENT.md)** ⭐⚠️
+  - Ajuste especial documentado del componente Sidebar
+  - Shadcn First compliance explicado
+  - Mejoras de Bundui Premium sobre base Shadcn
+  - Plan de migración futura
+
+- **[architecture/CSS_ORGANIZATION.md](./architecture/CSS_ORGANIZATION.md)** ⭐
+  - Estructura CSS centralizada del monorepo
+  - Sistema de temas y variables CSS
+  - Jerarquía de imports y configuración Tailwind
+  - Principios de organización de estilos
+
 - **[REORGANIZACION_DASHBOARDS_STATUS.md](./REORGANIZACION_DASHBOARDS_STATUS.md)** ⭐
   - Estado actual de reorganización de dashboards
   - Estructura de 3 niveles: `/dashboard`, `/dashboard-vibethink`, `/dashboard-bundui`
@@ -69,6 +82,13 @@ docs/
 ├── BUNDUI_MONOREPO_MIRROR.md      # ⭐ Bundui y Shadcn UI
 ├── REORGANIZACION_DASHBOARDS_STATUS.md  # ⭐ Estado dashboards
 ├── changelog.md                    # ⭐ Historial de cambios
+│
+├── architecture/                   # Decisiones arquitectónicas
+│   ├── SIDEBAR_SPECIAL_ADJUSTMENT.md  # ⭐⚠️ Ajuste sidebar documentado
+│   ├── CSS_ORGANIZATION.md        # ⭐ Estructura CSS centralizada
+│   ├── CLEANUP_REPORT_2025-01-17.md   # ⭐ Limpieza pre-migraciones
+│   ├── CLEANUP_VERIFICATION_2025-01-17.md  # ⭐ Verificación post-limpieza
+│   └── ...
 │
 ├── ui-ux/                          # Documentación UI/UX
 │   ├── SHADCN_UI_GUIDE.md

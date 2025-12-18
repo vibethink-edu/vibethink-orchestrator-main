@@ -2,19 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import { CommandIcon, SearchIcon } from "lucide-react";
-import { Input } from '@vibethink/ui';
+import { Input, Button, Dialog, DialogContent, DialogHeader, DialogTitle } from '@vibethink/ui';
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useRouter } from "next/navigation";
-
-import { CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator } from '@vibethink/ui';
-import { Button } from '@vibethink/ui';
-import { DialogHeader, DialogTitle } from '@vibethink/ui';
 import { navItems } from "../sidebar-bundui/nav-main";
 
 export default function Search() {
@@ -52,35 +42,33 @@ export default function Search() {
           <SearchIcon />
         </Button>
       </div>
-      <CommandDialog open={open} onOpenChange={setOpen}>
-        <VisuallyHidden>
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="max-w-2xl">
           <DialogHeader>
-            <DialogTitle></DialogTitle>
+            <DialogTitle>Search</DialogTitle>
           </DialogHeader>
-        </VisuallyHidden>
-        <CommandInput placeholder="Type a command or search..." />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          {navItems.map((route) => (
-            <React.Fragment key={route.title}>
-              <CommandGroup heading={route.title}>
+          <Input placeholder="Type a command or search..." className="mb-4" />
+          <div className="max-h-[400px] overflow-y-auto space-y-2">
+            {navItems.map((route) => (
+              <div key={route.title} className="space-y-1">
+                <h3 className="text-sm font-semibold px-2">{route.title}</h3>
                 {route.items.map((item, key) => (
-                  <CommandItem
+                  <button
                     key={key}
-                    onSelect={() => {
+                    onClick={() => {
                       setOpen(false);
                       router.push(item.href);
-                    }}>
-                    {item.icon && <item.icon />}
+                    }}
+                    className="w-full text-left px-4 py-2 rounded-md hover:bg-accent flex items-center gap-2">
+                    {item.icon && <item.icon className="h-4 w-4" />}
                     <span>{item.title}</span>
-                  </CommandItem>
+                  </button>
                 ))}
-              </CommandGroup>
-              <CommandSeparator />
-            </React.Fragment>
-          ))}
-        </CommandList>
-      </CommandDialog>
+              </div>
+            ))}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

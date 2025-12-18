@@ -14,13 +14,14 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // TODO: Implementar autenticación real
     // Por ahora, redirigir después de un delay simulado
     setTimeout(() => {
       setIsLoading(false);
       // Redirigir al dashboard principal después del login
-      router.push("/dashboard/default");
+      // Usamos el CRM de VibeThink como landing inicial
+      router.push("/dashboard-vibethink/crm");
     }, 1000);
   };
 

@@ -5,6 +5,54 @@ Todos los cambios notables de este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - 2025-01-18
+
+### Added
+- ✅ **Migración de Dashboards Bundui Premium**
+  - Dashboard `default` (8 componentes) - `/dashboard-bundui/default`
+  - Dashboard `website-analytics` (9 componentes) - `/dashboard-bundui/website-analytics`
+  - Dashboard `project-management` (10 componentes) - `/dashboard-bundui/project-management`
+  - Dashboard `sales` (7 componentes) - `/dashboard-bundui/sales` (migrado y corregido)
+  
+- ✅ **Componentes Compartidos Nuevos**
+  - `DateTimePicker` → `src/shared/components/date-time-picker.tsx`
+  - Función `getInitials()` → `packages/utils/src/cn.ts`
+  - `CardActionMenus` → `src/shared/components/CardActionMenus.tsx`
+
+- ✅ **Documentación de Migración**
+  - Matriz de migración: `docs/architecture/DASHBOARD_MIGRATION_MATRIX.md`
+  - Estado de migración: `docs/architecture/MIGRATION_STATUS_2025-01-18.md`
+
+### Changed
+- 🔄 **Corrección de Layouts y Imports**
+  - Layout `dashboard-bundui`: Imports corregidos a `@/shared/components/...`
+  - Layout `dashboard-vibethink`: Imports corregidos
+  - Componentes de `sales`: Imports adaptados a `@vibethink/ui`
+  - Componentes de `sales`: Rutas de helpers corregidas (`@/shared/components/CardActionMenus`)
+
+- 🔄 **Configuración TypeScript**
+  - `tsconfig.json`: Alias `@/shared/*` corregido de `../../src/shared/*` a `./src/shared/*`
+  - `tsconfig.json`: Alias `@/*` corregido de `../../src/*` a `./src/*`
+
+### Fixed
+- 🐛 **Errores de Módulos Resueltos**
+  - Error 500 en dashboard `sales`: Componentes incorrectos reemplazados por versión Bundui Premium
+  - Error "Module not found" en layouts: Imports corregidos
+  - Error de alias TypeScript: Rutas corregidas en `tsconfig.json`
+
+### Removed
+- 🗑️ **Limpieza de Backups Obsoletos**
+  - Eliminados backups `bundui-ui.backup*` (más de 200 archivos)
+  - Eliminado `tsconfig.tsbuildinfo`
+  - Eliminados componentes obsoletos de `sales` (reemplazados por versión correcta)
+
+### Technical
+- ⚡ Progreso de migración: 4/15 dashboards core (26.7%)
+- ⚡ Velocidad: 3 dashboards/día
+- ⚡ Proyección: 9-10 días para completar todos los dashboards
+
+---
+
 ## [Unreleased] - 2024-12-17
 
 ### Added

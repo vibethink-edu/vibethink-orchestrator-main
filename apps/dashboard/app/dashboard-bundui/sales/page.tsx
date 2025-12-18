@@ -1,61 +1,69 @@
-'use client'
-
-;
-
-import { SalesHeader } from './components/SalesHeader'
-import { SalesMetrics } from './components/SalesMetrics'
-import { SalesPipelineChart } from './components/SalesPipelineChart'
-import { RevenueChart } from './components/RevenueChart'
-import { SalesTable } from './components/SalesTable'
-import { TopPerformers } from './components/TopPerformers'
-import { SalesTargets } from './components/SalesTargets'
-import { RecentDeals } from './components/RecentDeals'
+import CustomDateRangePicker from "@/shared/components/custom-date-range-picker";
+import {
+  BalanceCard,
+  TaxCard,
+  IncomeCard,
+  ExpenseCard,
+  BestSellingProducts,
+  TableOrderStatus,
+  RevenueChart
+} from "./components";
+import { Button } from "@vibethink/ui";
+import { Download } from "lucide-react";
 
 /**
  * Sales Dashboard Page
+ * VibeThink Orchestrator - Bundui Premium Mirror
  * 
- * Complete sales dashboard with metrics, pipeline visualization, 
- * performance tracking, and sales management tools.
+ * Complete sales dashboard with revenue tracking, financial metrics,
+ * best-selling products, and order status management.
  * 
  * Features:
- * - Real-time sales metrics and KPIs
- * - Interactive sales pipeline chart
- * - Revenue trends and forecasting
- * - Sales rep performance tracking
- * - Target vs achievement monitoring
- * - Recent deals and activity feed
+ * - Revenue chart with trends
+ * - Financial cards (Balance, Income, Expense, Tax)
+ * - Best selling products list
+ * - Order status table
+ * - Date range filtering
+ * - Export functionality
  * 
- * Security: Multi-tenant with company_id filtering
- * Layout: Responsive grid with sidebar integration
- * Charts: Recharts with HSL color variables
+ * This is a 1:1 mirror of Bundui Premium sales dashboard.
  */
-export default function SalesDashboardPage() {
+export default function SalesPage() {
   return (
-    <div className="space-y-6">
-        {/* Header with filters and quick actions */}
-        <SalesHeader />
-        
-        <div className="grid gap-6">
-          {/* Key metrics overview */}
-          <SalesMetrics />
-          
-          {/* Main content area with responsive layout */}
-          <div className="grid lg:grid-cols-3 gap-6">
-            {/* Primary content: Charts and data tables */}
-            <div className="lg:col-span-2 space-y-6">
-              <SalesPipelineChart />
-              <RevenueChart />
-              <SalesTable />
-            </div>
-            
-            {/* Sidebar content: Widgets and quick info */}
-            <div className="space-y-6">
-              <SalesTargets />
-              <TopPerformers />
-              <RecentDeals />
-            </div>
+    <div className="space-y-4">
+      <div className="flex flex-row items-center justify-between">
+        <h1 className="text-xl font-bold tracking-tight lg:text-2xl">Sales Dashboard</h1>
+        <div className="flex items-center space-x-2">
+          <div className="grow">
+            <CustomDateRangePicker />
+          </div>
+          <Button>
+            <Download />
+            <span className="hidden lg:inline">Download</span>
+          </Button>
+        </div>
+      </div>
+      <div className="gap-4 space-y-4 md:grid md:grid-cols-2 lg:space-y-0 xl:grid-cols-8">
+        <div className="md:col-span-4">
+          <RevenueChart />
+        </div>
+        <div className="md:col-span-4">
+          <div className="col-span-2 grid grid-cols-1 gap-4 md:grid-cols-2">
+            <BalanceCard />
+            <IncomeCard />
+            <ExpenseCard />
+            <TaxCard />
           </div>
         </div>
       </div>
-  )
+      <div className="gap-4 space-y-4 lg:space-y-0 xl:grid xl:grid-cols-3">
+        <div className="xl:col-span-1">
+          <BestSellingProducts />
+        </div>
+        <div className="xl:col-span-2">
+          <TableOrderStatus />
+        </div>
+      </div>
+    </div>
+  );
 }

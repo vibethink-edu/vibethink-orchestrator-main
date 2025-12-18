@@ -20,10 +20,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "../../src/*"
+        "./src/*"
       ],
       "@/shared/*": [
-        "../../src/shared/*"
+        "./src/shared/*"
       ],
       "@/lib/*": [
         "./lib/*"

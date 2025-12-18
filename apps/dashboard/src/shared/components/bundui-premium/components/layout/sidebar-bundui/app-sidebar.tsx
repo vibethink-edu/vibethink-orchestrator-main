@@ -56,7 +56,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent
-                className="mt-4 w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
+                className="mt-4 w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg z-[60]"
                 side={isMobile ? "bottom" : "right"}
                 align="end"
                 sideOffset={4}>

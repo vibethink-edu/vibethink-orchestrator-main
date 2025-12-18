@@ -26,6 +26,13 @@ import {
 
 const dashboards = [
   {
+    name: 'Default',
+    href: '/dashboard-bundui/default',
+    icon: BarChart3,
+    description: 'Main landing dashboard with overview of key metrics, team members, and revenue tracking',
+    category: 'Dashboards'
+  },
+  {
     name: 'Academy',
     href: '/dashboard-bundui/academy',
     icon: GraduationCap,
@@ -37,6 +44,20 @@ const dashboards = [
     href: '/dashboard-bundui/analytics',
     icon: BarChart3,
     description: 'Comprehensive analytics dashboard with sales, earnings, and campaign metrics',
+    category: 'Dashboards'
+  },
+  {
+    name: 'Website Analytics',
+    href: '/dashboard-bundui/website-analytics',
+    icon: BarChart3,
+    description: 'Website analytics dashboard with traffic data, user interactions, and performance metrics',
+    category: 'Dashboards'
+  },
+  {
+    name: 'Website Analytics',
+    href: '/dashboard-bundui/website-analytics',
+    icon: BarChart3,
+    description: 'Website traffic analytics with conversion rates, visitor metrics, and campaign performance',
     category: 'Dashboards'
   },
   {
@@ -100,6 +121,13 @@ const dashboards = [
     href: '/dashboard-bundui/projects',
     icon: Briefcase,
     description: 'Project management with tasks, timelines, and team collaboration',
+    category: 'Dashboards'
+  },
+  {
+    name: 'Project Management',
+    href: '/dashboard-bundui/project-management',
+    icon: Briefcase,
+    description: 'Comprehensive project management with tasks, timelines, and team collaboration',
     category: 'Dashboards'
   },
   {
@@ -216,4 +244,7 @@ export default function DashboardBunduiIndex() {
     </div>
   );
 }
+
+
+
 

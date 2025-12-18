@@ -334,7 +334,7 @@ export function NavMain() {
                           <DropdownMenuContent
                             side={isMobile ? "bottom" : "right"}
                             align={isMobile ? "end" : "start"}
-                            className="min-w-48 rounded-lg">
+                            className="min-w-48 rounded-lg z-[60]">
                             <DropdownMenuLabel>{item.title}</DropdownMenuLabel>
                             {item.items?.map((item) => (
                               <DropdownMenuItem
