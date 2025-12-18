@@ -88,6 +88,12 @@ const chartConfig = {
 
 export function RevenueChart() {
   const [activeChart, setActiveChart] = React.useState<keyof typeof chartConfig>("desktop");
+  const [mounted, setMounted] = React.useState(false);
+
+  // Prevenir error de Hydration: formatear números solo en el cliente
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const total = React.useMemo(
     () => ({
@@ -96,6 +102,18 @@ export function RevenueChart() {
     }),
     []
   );
+
+  // Formatear números de forma consistente
+  // Durante SSR, mostrar número sin formato para evitar diferencias
+  // En el cliente, formatear con locale fijo
+  const formatNumber = (num: number) => {
+    if (!mounted) {
+      // Durante SSR, retornar número sin formato (evita diferencias de locale)
+      return num.toString();
+    }
+    // En el cliente, formatear con locale fijo
+    return num.toLocaleString("en-US");
+  };
 
   return (
     <Card className="relative h-full overflow-hidden">
@@ -114,7 +132,7 @@ export function RevenueChart() {
                   onClick={() => setActiveChart(chart)}>
                   <span className="text-muted-foreground text-xs">{chartConfig[chart].label}</span>
                   <span className="font-display text-lg leading-none sm:text-2xl">
-                    {total[key as keyof typeof total].toLocaleString()}
+                    {formatNumber(total[key as keyof typeof total])}
                   </span>
                 </button>
               );
@@ -141,10 +159,10 @@ export function RevenueChart() {
               minTickGap={32}
               tickFormatter={(value) => {
                 const date = new Date(value);
-                return date.toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric"
-                });
+                // Usar formato manual consistente para evitar diferencias de locale
+                const month = date.toLocaleDateString("en-US", { month: "short" });
+                const day = date.getDate();
+                return `${month} ${day}`;
               }}
             />
             <ChartTooltip
@@ -153,11 +171,12 @@ export function RevenueChart() {
                   className="w-[150px]"
                   nameKey="views"
                   labelFormatter={(value) => {
-                    return new Date(value).toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric"
-                    });
+                    const date = new Date(value);
+                    // Usar formato manual consistente para evitar diferencias de locale
+                    const month = date.toLocaleDateString("en-US", { month: "short" });
+                    const day = date.getDate();
+                    const year = date.getFullYear();
+                    return `${month} ${day}, ${year}`;
                   }}
                 />
               }

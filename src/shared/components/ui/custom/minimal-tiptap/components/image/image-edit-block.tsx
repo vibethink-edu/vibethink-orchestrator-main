@@ -1,8 +1,6 @@
 import * as React from 'react'
 import type { Editor } from '@tiptap/react'
-import { Button } from '@vibethink/ui'
-import { Label } from '@/components/ui/label'
-import { Input } from '@/components/ui/input'
+import { Button, Label, Input } from '@vibethink/ui'
 
 interface ImageEditBlockProps {
   editor: Editor

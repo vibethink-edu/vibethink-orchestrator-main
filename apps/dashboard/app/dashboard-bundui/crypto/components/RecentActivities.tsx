@@ -19,7 +19,7 @@ import {
   DollarSign
 } from 'lucide-react'
 import { CryptoTransaction } from '../types'
-import { cn } from '@/shared/lib/utils'
+import { cn } from '@/lib/utils'
 
 interface RecentActivitiesProps {
   transactions?: CryptoTransaction[]

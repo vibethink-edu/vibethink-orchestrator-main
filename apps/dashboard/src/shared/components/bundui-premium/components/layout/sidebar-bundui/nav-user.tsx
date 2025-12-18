@@ -18,7 +18,7 @@ import { DotsVerticalIcon } from "@radix-ui/react-icons";
 const userData = {
   name: "Toby Belhome",
   email: "hello@tobybelhome.com",
-  avatar: "https://bundui-images.netlify.app/avatars/01.png"
+  avatar: "/images/avatars/01.png"
 };
 
 export function NavUser() {

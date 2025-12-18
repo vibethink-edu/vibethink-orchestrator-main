@@ -6,16 +6,16 @@ import { page_routes } from "@/lib/routes-config";
 import { ChevronRight, ChevronsUpDown } from "lucide-react";
 import { usePathname } from "next/navigation";
 
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import {
+  DropdownMenuTrigger,
+  ScrollArea,
   Sidebar as SidebarContainer,
   SidebarContent,
   SidebarFooter,
@@ -30,12 +30,16 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-  useSidebar
-} from "@/components/ui/sidebar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+  useSidebar,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Button
+} from "@vibethink/ui";
 import Icon from "@/components/icon";
 import Logo from "@/components/layout/logo";
-import { Button } from "@vibethink/ui";
 import { useIsTablet } from "@/hooks/use-mobile";
 
 export default function Sidebar() {

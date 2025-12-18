@@ -34,6 +34,8 @@
     "validate:arch": "node dev-tools/validation/architecture-validator.cjs",
     "validate:perf": "node dev-tools/validation/performance-validator.cjs",
     "validate:scripts": "node dev-tools/validation/script-placement-validator.cjs",
+    "validate:dashboard": "node packages/cli/src/validation/dashboard-migration-guard.cjs",
+    "validate:dashboard:global": "node packages/cli/src/validation/dashboard-migration-guard.cjs --global",
     "fix:deps": "node fix-npm-duplications.cjs",
     "pre-commit": "npm run validate:universal",
     "ai:commit": "npm run validate && git add . && git commit -m",

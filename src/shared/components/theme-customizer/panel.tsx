@@ -1,12 +1,12 @@
 "use client";
 
 import { Settings } from "lucide-react";
-import { Button } from "@vibethink/ui";
 import {
+  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
+} from "@vibethink/ui";
 import {
   PresetSelector,
   SidebarModeSelector,

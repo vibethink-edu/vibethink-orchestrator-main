@@ -2,22 +2,22 @@
 
 import React from "react";
 import { CommandIcon, SearchIcon, icons } from "lucide-react";
-import { Input } from "@/components/ui/input";
 import { page_routes } from "@/lib/routes-config";
 import { useEffect, useState } from "react";
-
+import { useRouter } from "next/navigation";
 import {
+  Input,
   CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator
-} from "@/components/ui/command";
-import { useRouter } from "next/navigation";
-import { Button } from "@vibethink/ui";
-import { DialogHeader, DialogTitle } from "@/components/ui/dialog";
+  CommandSeparator,
+  Button,
+  DialogHeader,
+  DialogTitle
+} from "@vibethink/ui";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 type CommandItemProps = {

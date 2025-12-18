@@ -1,7 +1,6 @@
 "use client";
 
-import { Label } from "@/components/ui/label";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { Label, ToggleGroup, ToggleGroupItem } from "@vibethink/ui";
 import { useTheme } from "next-themes";
 
 export function ColorModeSelector() {

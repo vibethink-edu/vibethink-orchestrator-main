@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Separator } from '@/components/ui/separator'
+import { Separator } from '@vibethink/ui'
 import { ToolbarButton } from '../toolbar-button'
 import { CopyIcon, ExternalLinkIcon, LinkBreak2Icon } from '@radix-ui/react-icons'
 

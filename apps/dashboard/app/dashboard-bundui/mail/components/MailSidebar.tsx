@@ -13,7 +13,7 @@ import {
   Settings
 } from 'lucide-react'
 import { EmailFolder, EmailLabel } from '../types'
-import { cn } from '@/shared/lib/utils'
+import { cn } from '@/lib/utils'
 
 /**
  * Mail Sidebar Component

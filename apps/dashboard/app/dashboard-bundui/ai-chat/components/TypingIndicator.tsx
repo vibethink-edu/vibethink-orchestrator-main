@@ -18,7 +18,7 @@ import React from 'react'
 import { Avatar, AvatarFallback } from '@vibethink/ui'
 import { Badge } from '@vibethink/ui'
 import { Bot, Sparkles, Zap } from 'lucide-react'
-import { cn } from '@/shared/lib/utils'
+import { cn } from '@/lib/utils'
 
 /**
  * Props para el indicador de escritura

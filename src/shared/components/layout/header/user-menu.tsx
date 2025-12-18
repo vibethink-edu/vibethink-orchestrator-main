@@ -1,7 +1,9 @@
 import { BadgeCheck, Bell, CreditCard, LogOut, Sparkles } from "lucide-react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
@@ -9,7 +11,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
+} from "@vibethink/ui";
 
 export default function UserMenu() {
   return (
@@ -17,7 +19,7 @@ export default function UserMenu() {
       <DropdownMenuTrigger asChild>
         <Avatar>
           <AvatarImage
-            src={`https://bundui-images.netlify.app/avatars/01.png`}
+            src={`/images/avatars/01.png`}
             alt="shadcn ui kit"
           />
           <AvatarFallback className="rounded-lg">TB</AvatarFallback>
@@ -28,7 +30,7 @@ export default function UserMenu() {
           <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
             <Avatar>
               <AvatarImage
-                src={`https://bundui-images.netlify.app/avatars/01.png`}
+                src={`/images/avatars/01.png`}
                 alt="shadcn ui kit"
               />
               <AvatarFallback className="rounded-lg">CN</AvatarFallback>

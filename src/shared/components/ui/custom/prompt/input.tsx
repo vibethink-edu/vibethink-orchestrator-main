@@ -1,7 +1,6 @@
 "use client";
 
-import { Textarea } from "@/components/ui/textarea";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Textarea, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui";
 import { cn } from "@/lib/utils";
 import React, { createContext, useContext, useEffect, useRef, useState } from "react";
 

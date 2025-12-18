@@ -1,8 +1,7 @@
 "use client";
 
-import { Label } from "@/components/ui/label";
 import { useThemeConfig } from "@/components/active-theme";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { Label, ToggleGroup, ToggleGroupItem } from "@vibethink/ui";
 
 export function ContentLayoutSelector() {
   const { theme, setTheme } = useThemeConfig();

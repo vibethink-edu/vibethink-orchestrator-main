@@ -28,7 +28,7 @@ import { useAiProvider } from './hooks/useAiProvider'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@vibethink/ui'
 import { Button } from '@vibethink/ui'
 import { MessageSquarePlus, Settings, Sparkles, Sliders } from 'lucide-react'
-import { cn } from '@/shared/lib/utils'
+import { cn } from '@/lib/utils'
 
 /**
  * AI Chat App - Interfaz conversacional completa

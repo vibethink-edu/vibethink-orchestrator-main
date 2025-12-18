@@ -27,7 +27,7 @@ import {
   PanelLeft,
   PanelRight
 } from 'lucide-react';
-import { cn } from '@/shared/lib/utils';
+import { cn } from '@/lib/utils';
 import { Note, NoteFolder, NoteLabel } from '../types';
 import { NoteListItem } from './NoteListItem';
 import { NoteContent as NoteEditor } from './NoteContent';

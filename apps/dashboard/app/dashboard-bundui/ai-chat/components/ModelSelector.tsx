@@ -31,7 +31,7 @@ import {
   AlertCircle,
   Info
 } from 'lucide-react'
-import { cn } from '@/shared/lib/utils'
+import { cn } from '@/lib/utils'
 import { ModelSelectorProps, AIProvider, AIModel, AIProviderType } from '../types'
 
 /**

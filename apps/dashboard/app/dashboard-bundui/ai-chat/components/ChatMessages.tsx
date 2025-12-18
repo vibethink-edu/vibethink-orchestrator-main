@@ -26,7 +26,7 @@ import {
   RefreshCw,
   AlertTriangle
 } from 'lucide-react'
-import { cn } from '@/shared/lib/utils'
+import { cn } from '@/lib/utils'
 import { ChatMessagesProps, ChatMessage } from '../types'
 import { MessageBubble } from './MessageBubble'
 import { TypingIndicator } from './TypingIndicator'

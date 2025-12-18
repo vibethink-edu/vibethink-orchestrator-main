@@ -1,5 +1,5 @@
 import { Mail, Eye, MousePointer, UserPlus, CircleAlert, UserMinus } from "lucide-react";
-import { cn } from "@/shared/lib/utils";
+import { cn } from '@/lib/utils';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, Badge } from "@vibethink/ui";
 
 const data = {

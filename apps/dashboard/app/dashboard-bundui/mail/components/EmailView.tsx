@@ -25,7 +25,7 @@ import {
   ArrowLeft
 } from 'lucide-react'
 import { Email } from '../types'
-import { cn } from '@/shared/lib/utils'
+import { cn } from '@/lib/utils'
 // Simple date formatting without external dependencies
 
 /**
