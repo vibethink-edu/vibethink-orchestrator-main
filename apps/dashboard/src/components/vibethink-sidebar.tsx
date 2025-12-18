@@ -43,6 +43,8 @@ import {
   ShoppingBag,
   Bitcoin,
   Hospital,
+  BrainCircuit,
+  Gauge,
   type LucideIcon,
 } from "lucide-react";
 
@@ -55,9 +57,59 @@ type NavItem = {
 
 const vibethinkNavItems: NavItem[] = [
   {
+    title: "AI Chat",
+    href: "/dashboard-vibethink/ai-chat",
+    icon: BrainCircuit,
+  },
+  {
+    title: "Calendar",
+    href: "/dashboard-vibethink/calendar",
+    icon: Calendar,
+  },
+  {
     title: "CRM",
     href: "/dashboard-vibethink/crm",
     icon: Users,
+  },
+  {
+    title: "Crypto",
+    href: "/dashboard-vibethink/crypto",
+    icon: Bitcoin,
+  },
+  {
+    title: "E-commerce",
+    href: "/dashboard-vibethink/ecommerce",
+    icon: ShoppingCart,
+  },
+  {
+    title: "File Manager",
+    href: "/dashboard-vibethink/file-manager",
+    icon: FolderOpen,
+  },
+  {
+    title: "Finance",
+    href: "/dashboard-vibethink/finance",
+    icon: DollarSign,
+  },
+  {
+    title: "Mail",
+    href: "/dashboard-vibethink/mail",
+    icon: Mail,
+  },
+  {
+    title: "Notes",
+    href: "/dashboard-vibethink/notes",
+    icon: StickyNote,
+  },
+  {
+    title: "POS System",
+    href: "/dashboard-vibethink/pos-system",
+    icon: ShoppingBag,
+  },
+  {
+    title: "Project Management",
+    href: "/dashboard-vibethink/project-management",
+    icon: Briefcase,
   },
   {
     title: "Sales",
@@ -65,77 +117,47 @@ const vibethinkNavItems: NavItem[] = [
     icon: TrendingUp,
   },
   {
-    title: "E-commerce",
-    href: "/dashboard-vibethink/ecommerce",
-    icon: ShoppingCart,
+    title: "Tasks",
+    href: "/dashboard-vibethink/tasks",
+    icon: CheckSquare,
+  },
+  {
+    title: "Website Analytics",
+    href: "/dashboard-vibethink/website-analytics",
+    icon: Gauge,
   },
 ];
 
 const bunduiReferenceNavItems: NavItem[] = [
-  {
-    title: "Analytics",
-    href: "/dashboard-bundui/analytics",
-    icon: BarChart3,
-  },
-  {
-    title: "Finance",
-    href: "/dashboard-bundui/finance",
-    icon: DollarSign,
-  },
-  {
-    title: "Projects",
-    href: "/dashboard-bundui/projects",
-    icon: Briefcase,
-  },
-  {
-    title: "Tasks",
-    href: "/dashboard-bundui/tasks",
-    icon: CheckSquare,
-  },
-  {
-    title: "Calendar",
-    href: "/dashboard-bundui/calendar",
-    icon: Calendar,
-  },
-  {
-    title: "Mail",
-    href: "/dashboard-bundui/mail",
-    icon: Mail,
-  },
-  {
-    title: "Notes",
-    href: "/dashboard-bundui/notes",
-    icon: StickyNote,
-  },
-  {
-    title: "File Manager",
-    href: "/dashboard-bundui/file-manager",
-    icon: FolderOpen,
-  },
   {
     title: "Academy",
     href: "/dashboard-bundui/academy",
     icon: GraduationCap,
   },
   {
-    title: "AI Chat",
-    href: "/dashboard-bundui/ai-chat",
+    title: "AI Image Generator",
+    href: "/dashboard-bundui/ai-image-generator",
     icon: Activity,
   },
   {
-    title: "POS System",
-    href: "/dashboard-bundui/pos-system",
-    icon: ShoppingBag,
+    title: "Analytics",
+    href: "/dashboard-bundui/analytics",
+    icon: BarChart3,
   },
   {
-    title: "Payment",
-    href: "/dashboard-bundui/payment",
+    title: "API Keys",
+    href: "/dashboard-bundui/api-keys",
     icon: CreditCard,
   },
   {
-    title: "Crypto",
-    href: "/dashboard-bundui/crypto",
-    icon: Bitcoin,
+    title: "Apps Chat",
+    href: "/dashboard-bundui/apps/chat",
+    icon: Mail,
+  },
+  {
+    title: "Default",
+    href: "/dashboard-bundui/default",
+    icon: BarChart3,
   },
   {
     title: "Hospital Management",
@@ -146,6 +168,21 @@ const bunduiReferenceNavItems: NavItem[] = [
     title: "Hotel",
     href: "/dashboard-bundui/hotel",
     icon: Building2,
+  },
+  {
+    title: "Payment",
+    href: "/dashboard-bundui/payment",
+    icon: CreditCard,
+  },
+  {
+    title: "Project List",
+    href: "/dashboard-bundui/project-list",
+    icon: Briefcase,
+  },
+  {
+    title: "Projects",
+    href: "/dashboard-bundui/projects",
+    icon: Briefcase,
   },
 ];
 
