@@ -2,16 +2,16 @@
 
 import { useState } from 'react'
 import { CalendarDays, Download, Filter, RefreshCw } from 'lucide-react'
-import { Button } from '@vibethink/ui'
 import { 
+  Button,
   DropdownMenu, 
   DropdownMenuContent, 
   DropdownMenuItem, 
   DropdownMenuTrigger,
-  DropdownMenuSeparator 
-} from '@/shared/components/ui/dropdown-menu'
+  DropdownMenuSeparator,
+  Badge
+} from '@vibethink/ui'
 import { DatePickerWithRange } from '@/shared/components/ui/date-range-picker'
-import { Badge } from '@/shared/components/ui/badge'
 import { useAnalyticsFilters } from '../hooks'
 import { AnalyticsCardProps } from '../types'
 

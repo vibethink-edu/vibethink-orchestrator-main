@@ -1,15 +1,7 @@
 "use client";
 
 import { Pie, PieChart } from "recharts";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
-import {
-  ChartConfig,
-  ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
-  ChartTooltip,
-  ChartTooltipContent
-} from "@vibethink/ui";
+import { Card, CardContent, CardHeader, CardTitle, ChartConfig, ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from "@vibethink/ui";
 
 const chartData = [
   { department: "cardiology", visitors: 275, fill: "var(--color-cardiology)" },
@@ -40,7 +32,7 @@ const chartConfig = {
   }
 } satisfies ChartConfig;
 
-export function PatientsByDepartmentChart() {
+export default function PatientsByDepartmentChart() {
   return (
     <Card className="col-span-3">
       <CardHeader>

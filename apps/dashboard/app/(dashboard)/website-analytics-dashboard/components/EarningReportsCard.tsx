@@ -2,7 +2,7 @@
 
 import { Area, AreaChart, Line, LineChart, XAxis, YAxis, ResponsiveContainer } from 'recharts'
 import { TrendingUp, DollarSign, PieChart, BarChart3 } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui'
 import { 
   ChartConfig, 
   ChartContainer,
@@ -11,9 +11,7 @@ import {
   ChartTooltip,
   ChartTooltipContent
 } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/ui/tabs'
-import { Skeleton } from '@/shared/components/ui/skeleton'
+import { Badge, Tabs, TabsContent, TabsList, TabsTrigger, Skeleton } from '@vibethink/ui'
 import { useAnalyticsData } from '../hooks'
 import { AnalyticsCardProps } from '../types'
 

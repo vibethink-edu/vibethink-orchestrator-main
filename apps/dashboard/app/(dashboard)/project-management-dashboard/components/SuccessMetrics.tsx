@@ -14,11 +14,11 @@ import {
   CardContent, 
   CardDescription, 
   CardHeader, 
-  CardTitle 
-} from '@/shared/components/ui/card'
-import { Button } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
-import { Progress } from '@/shared/components/ui/progress'
+  CardTitle,
+  Button,
+  Badge,
+  Progress
+} from '@vibethink/ui'
 import { 
   TrendingUp, 
   TrendingDown,

@@ -9,7 +9,7 @@
 'use client'
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle, Progress } from '@vibethink/ui'
 import { 
   HardDrive, 
   TrendingUp, 
@@ -22,7 +22,6 @@ import {
   Archive,
   MoreHorizontal
 } from 'lucide-react'
-import { Progress } from '@/shared/components/ui/progress'
 import type { StorageStatusCardProps } from '../types'
 
 export function StorageStatusCard({ metrics, loading }: StorageStatusCardProps) {

@@ -1,13 +1,13 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
 import { Bar, BarChart, LabelList } from "recharts";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent
-} from "@/components/ui/chart";
+} from "@vibethink/ui";
 
 const chartData = [
   {

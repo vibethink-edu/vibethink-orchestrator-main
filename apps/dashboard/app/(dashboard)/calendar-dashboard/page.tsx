@@ -12,14 +12,8 @@
  */
 
 import React from 'react';
-import { Metadata } from 'next';
 import CalendarApp from './components/CalendarApp';
 import EventSheet from './components/EventSheet';
-
-export const metadata: Metadata = {
-  title: 'Calendar - VibeThink Dashboard',
-  description: 'Comprehensive calendar application with event management, scheduling, and multi-tenant support for business teams.',
-};
 
 /**
  * Calendar Page Component

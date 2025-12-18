@@ -1,10 +1,17 @@
 'use client'
 
 import { useState } from 'react'
-import { Checkbox } from '@/shared/components/ui/checkbox'
-import { Button } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
-import { ScrollArea } from '@/shared/components/ui/scroll-area'
+import { 
+  Checkbox,
+  Button,
+  Badge,
+  ScrollArea,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from '@vibethink/ui'
 import { 
   Star, 
   Paperclip, 
@@ -14,13 +21,6 @@ import {
   Trash2,
   MoreVertical
 } from 'lucide-react'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/shared/components/ui/dropdown-menu'
 import { Email } from '../types'
 import { cn } from '@/shared/lib/utils'
 // Simple date formatting without external dependencies

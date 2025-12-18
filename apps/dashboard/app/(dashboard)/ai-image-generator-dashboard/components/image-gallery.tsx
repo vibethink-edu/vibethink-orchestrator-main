@@ -1,6 +1,6 @@
 import React from "react";
 import { Image as ImageIcon } from "lucide-react";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@vibethink/ui";
 import ImageItem from "./image-item";
 
 export interface GeneratedImage {

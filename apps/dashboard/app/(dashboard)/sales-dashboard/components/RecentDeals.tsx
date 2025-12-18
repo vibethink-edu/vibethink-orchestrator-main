@@ -1,8 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/ui/avatar'
-import { Badge } from '@/shared/components/ui/badge'
-import { Button } from '@vibethink/ui'
-import { Skeleton } from '@/shared/components/ui/skeleton'
+import { Card, CardContent, CardHeader, CardTitle, Avatar, AvatarFallback, AvatarImage, Badge, Button, Skeleton } from '@vibethink/ui'
 import { 
   Clock, 
   DollarSign, 

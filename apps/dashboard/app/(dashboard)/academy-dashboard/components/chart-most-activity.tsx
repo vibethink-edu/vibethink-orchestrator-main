@@ -2,13 +2,7 @@
 
 import * as React from "react";
 import { Pie, PieChart } from "recharts";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent
-} from "@/components/ui/chart";
+import { Card, CardContent, CardHeader, CardTitle, ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@vibethink/ui";
 
 const chartData = [
   { source: "mentoring", leads: 65.2, fill: "var(--color-mentoring)" },

@@ -2,9 +2,8 @@
 
 import { Line, LineChart, Tooltip } from "recharts";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, ChartConfig, ChartContainer } from "@vibethink/ui";
 import { ExportButton } from "@/shared/components/CardActionMenus";
-import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 
 const chartData = [
   {

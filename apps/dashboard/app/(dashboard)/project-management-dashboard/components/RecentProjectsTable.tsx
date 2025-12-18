@@ -16,33 +16,29 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/shared/components/ui/table'
-import { 
   Card, 
   CardContent, 
   CardDescription, 
   CardHeader, 
-  CardTitle 
-} from '@/shared/components/ui/card'
-import { Button } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
-import { Progress } from '@/shared/components/ui/progress'
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/ui/avatar'
-import {
+  CardTitle,
+  Button,
+  Badge,
+  Progress,
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/shared/components/ui/dropdown-menu'
-import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/shared/components/ui/select'
-import { Input } from '@/shared/components/ui/input'
+  Input
+} from '@vibethink/ui'
 import { 
   MoreHorizontal,
   Edit,

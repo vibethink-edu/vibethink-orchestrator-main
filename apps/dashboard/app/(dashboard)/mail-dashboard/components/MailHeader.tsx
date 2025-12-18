@@ -1,8 +1,15 @@
 'use client'
 
-import { Button } from '@vibethink/ui'
-import { Input } from '@/shared/components/ui/input'
-import { Badge } from '@/shared/components/ui/badge'
+import { 
+  Button,
+  Input,
+  Badge,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from '@vibethink/ui'
 import { 
   Search, 
   Plus, 
@@ -14,13 +21,6 @@ import {
   Star,
   MoreHorizontal
 } from 'lucide-react'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/shared/components/ui/dropdown-menu'
 import { EmailMetrics } from '../types'
 
 /**

@@ -1,6 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
-import { Skeleton } from '@/shared/components/ui/skeleton'
-import { Badge } from '@/shared/components/ui/badge'
+import { Card, CardContent, CardHeader, CardTitle, Skeleton, Badge } from '@vibethink/ui'
 import { 
   AreaChart,
   Area,
@@ -15,8 +13,7 @@ import {
   ResponsiveContainer,
   ReferenceLine
 } from 'recharts'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/ui/tabs'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/components/ui/select'
+import { Tabs, TabsContent, TabsList, TabsTrigger, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@vibethink/ui'
 import { useState } from 'react'
 import { CashFlowChartProps, CashFlowData } from '../types'
 import { TrendingUp, TrendingDown, Activity, BarChart3, LineChart as LineChartIcon, Wallet } from 'lucide-react'

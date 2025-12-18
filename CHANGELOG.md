@@ -5,7 +5,48 @@ Todos los cambios notables de este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - 2025-07-05
+## [Unreleased] - 2024-12-17
+
+### Added
+- ✅ **Arquitectura de Referencias Externas (Vendors)**
+  - Documentación completa en `docs/references/REFERENCE_ARCHITECTURE.md`
+  - Guía de estructura en `docs/references/VENDOR_STRUCTURE.md`
+  - Scripts de inicio/parada para referencias externas
+  
+### Changed
+- 🔄 **Migración de referencias externas a directorios vendor**
+  - `bundui/shadcn-ui-kit-dashboard` movido a `C:\IA Marcelo Labs\bundui\`
+  - `shadcn-ui/ui` movido a `C:\IA Marcelo Labs\shadcn-ui\`
+  - Directorio `external/` deprecado
+  
+### Documentation
+- 📚 Actualizado `AGENTS.md` con referencias externas y flujo de componentes
+- 📚 Nueva sección de documentación de referencias
+- 📚 Deprecación documentada de `external/README.md`
+
+### Technical
+- ⚡ Scripts actualizados para apuntar a nuevas ubicaciones
+- ⚡ Separación clara: vendors fuera del monorepo principal
+- ⚡ Puertos asignados: Dashboard=3005, Bundui=3006, Shadcn=3007, ReactFlow=3008
+- ⚡ Script de verificación de versiones: `check-vendor-versions.ps1`
+- ⚡ Documentación de compatibilidad: `VENDOR_VERSIONS.md`
+
+### Refactoring
+- 🔄 **@vibethink/ui v0.2.0** - 100% Shadcn UI Compatible
+  - Migrados 22 componentes faltantes desde bundui-ui
+  - 55 componentes base (100% cobertura Shadcn)
+  - 4 componentes custom VThink
+  - 6+ extensiones premium (TipTap, Chat/AI, Kanban, Timeline)
+  
+### Deprecated
+- ❌ **@vibethink/bundui-ui** - ELIMINADO
+  - Componentes migrados a `@vibethink/ui`
+  - Extensiones en `@vibethink/ui/components/extensions/`
+  - Bundui vendor solo como referencia visual (puerto 3006)
+
+---
+
+## [2.8.0] - 2025-07-05
 
 ### Added
 - ✅ **Stack Tecnológico 100% COMPLETO**

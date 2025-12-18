@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui'
 import { 
   LineChart, 
   Line, 
@@ -13,10 +13,7 @@ import {
   Bar
 } from 'recharts'
 import { useFinanceData } from '../hooks/useFinanceData'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/ui/tabs'
-import { Skeleton } from '@/shared/components/ui/skeleton'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/components/ui/select'
-import { Badge } from '@/shared/components/ui/badge'
+import { Tabs, TabsContent, TabsList, TabsTrigger, Skeleton, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Badge } from '@vibethink/ui'
 import { useState } from 'react'
 import { RevenueChartProps } from '../types'
 import { TrendingUp, TrendingDown, Target, DollarSign } from 'lucide-react'

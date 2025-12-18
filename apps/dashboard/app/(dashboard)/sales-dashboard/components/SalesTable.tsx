@@ -1,22 +1,25 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
 import { 
+  Card, 
+  CardContent, 
+  CardHeader, 
+  CardTitle,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
-} from '@/shared/components/ui/table'
-import { Badge } from '@/shared/components/ui/badge'
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/ui/avatar'
-import { Button } from '@vibethink/ui'
-import { 
+  Badge,
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/shared/components/ui/dropdown-menu'
-import { Skeleton } from '@/shared/components/ui/skeleton'
+  Skeleton
+} from '@vibethink/ui'
 import { 
   MoreHorizontal, 
   Edit, 

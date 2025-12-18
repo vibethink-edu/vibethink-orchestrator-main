@@ -10,8 +10,7 @@
 
 import React, { useState } from 'react'
 ;
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/ui/tabs'
-import { Card, CardContent } from '@/shared/components/ui/card'
+import { Tabs, TabsContent, TabsList, TabsTrigger, Card, CardContent } from '@vibethink/ui'
 import { 
   Bitcoin,
   TrendingUp,

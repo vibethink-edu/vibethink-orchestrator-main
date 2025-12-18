@@ -4,8 +4,7 @@
  */
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
-import { Button } from '@vibethink/ui'
+import { Card, CardContent, CardHeader, CardTitle, Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@vibethink/ui'
 import { 
   MoreHorizontal, 
   TrendingUp, 
@@ -14,12 +13,6 @@ import {
   Trash2,
   ExternalLink
 } from 'lucide-react'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/shared/components/ui/dropdown-menu'
 import { CryptoTableProps } from '../types'
 
 export const CryptoTable: React.FC<CryptoTableProps> = ({ 

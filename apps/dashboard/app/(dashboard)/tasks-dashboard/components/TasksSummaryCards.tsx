@@ -8,8 +8,7 @@
 'use client'
 
 import React from 'react'
-import { Card, CardContent } from '@/shared/components/ui/card'
-import { Badge } from '@/shared/components/ui/badge'
+import { Card, CardContent, Badge } from '@vibethink/ui'
 import { 
   ListTodo,
   Clock,

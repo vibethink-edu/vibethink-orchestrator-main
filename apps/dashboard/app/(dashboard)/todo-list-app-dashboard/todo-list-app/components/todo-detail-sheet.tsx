@@ -16,13 +16,7 @@ import { useTodoStore } from "../store";
 import { statusClasses, priorityClasses } from "../enum";
 import { toast } from "sonner";
 
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, Badge, Button, Textarea, Input, Separator, Checkbox } from "@vibethink/ui";
 
 interface TodoDetailSheetProps {
   isOpen: boolean;

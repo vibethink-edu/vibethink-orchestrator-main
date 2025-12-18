@@ -1,9 +1,17 @@
 'use client'
 
-import { Button } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
-import { ScrollArea } from '@/shared/components/ui/scroll-area'
-import { Avatar, AvatarFallback } from '@/shared/components/ui/avatar'
+import { 
+  Button,
+  Badge,
+  ScrollArea,
+  Avatar,
+  AvatarFallback,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from '@vibethink/ui'
 import { 
   Reply, 
   ReplyAll, 
@@ -16,13 +24,6 @@ import {
   Paperclip,
   ArrowLeft
 } from 'lucide-react'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/shared/components/ui/dropdown-menu'
 import { Email } from '../types'
 import { cn } from '@/shared/lib/utils'
 // Simple date formatting without external dependencies

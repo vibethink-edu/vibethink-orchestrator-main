@@ -16,13 +16,18 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/shared/components/ui/dialog'
-import { Button } from '@vibethink/ui'
-import { Input } from '@/shared/components/ui/input'
-import { Label } from '@/shared/components/ui/label'
-import { Checkbox } from '@/shared/components/ui/checkbox'
-import { Badge } from '@/shared/components/ui/badge'
-import { Progress } from '@/shared/components/ui/progress'
+  Button,
+  Input,
+  Label,
+  Checkbox,
+  Badge,
+  Progress,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@vibethink/ui'
 import { 
   Upload, 
   X, 
@@ -38,13 +43,6 @@ import {
   FolderOpen,
   Tag
 } from 'lucide-react'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/shared/components/ui/select'
 import type { FileUploadDialogProps } from '../types'
 
 type UploadFile = {

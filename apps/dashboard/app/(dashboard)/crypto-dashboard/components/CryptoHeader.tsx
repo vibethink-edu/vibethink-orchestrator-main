@@ -4,22 +4,21 @@
  */
 
 import React, { useState } from 'react'
-import { Button } from '@vibethink/ui'
-import { Input } from '@/shared/components/ui/input'
-import { Card, CardContent } from '@/shared/components/ui/card'
-import {
+import { 
+  Button,
+  Input,
+  Card,
+  CardContent,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/shared/components/ui/select'
-import {
   DropdownMenu,  
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/shared/components/ui/dropdown-menu'
+  DropdownMenuTrigger
+} from '@vibethink/ui'
 import { 
   Download, 
   Plus, 

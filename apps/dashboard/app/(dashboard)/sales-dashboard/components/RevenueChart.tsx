@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle, Tabs, TabsContent, TabsList, TabsTrigger, Skeleton, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@vibethink/ui'
 import { 
   LineChart, 
   Line, 
@@ -13,9 +13,6 @@ import {
   Bar
 } from 'recharts'
 import { useSalesData } from '../hooks/useSalesData'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/ui/tabs'
-import { Skeleton } from '@/shared/components/ui/skeleton'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/components/ui/select'
 import { useState } from 'react'
 
 interface RevenueChartProps {

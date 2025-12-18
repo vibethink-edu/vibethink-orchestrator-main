@@ -17,21 +17,21 @@ import {
   Search,
   Info
 } from 'lucide-react'
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/ui/avatar'
-import { Button } from '@vibethink/ui'
-import { Input } from '@/shared/components/ui/input'
-import { ScrollArea } from '@/shared/components/ui/scroll-area'
-import {
+import { 
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Button,
+  Input,
+  ScrollArea,
   Card,
   CardContent,
-  CardHeader
-} from '@/shared/components/ui/card'
-import {
+  CardHeader,
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger
-} from '@/shared/components/ui/tooltip'
+} from '@vibethink/ui'
 import { ChatItemProps, ChatMessageProps } from '../types'
 import { MessageBubble } from './MessageBubble'
 import { cn } from '@/shared/utils'

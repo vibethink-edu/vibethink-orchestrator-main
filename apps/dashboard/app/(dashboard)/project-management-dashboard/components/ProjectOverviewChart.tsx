@@ -15,17 +15,15 @@ import {
   CardContent, 
   CardDescription, 
   CardHeader, 
-  CardTitle 
-} from '@/shared/components/ui/card'
-import {
+  CardTitle,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/shared/components/ui/select'
-import { Button } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
+  Button,
+  Badge
+} from '@vibethink/ui'
 import { 
   TrendingUp, 
   BarChart3, 

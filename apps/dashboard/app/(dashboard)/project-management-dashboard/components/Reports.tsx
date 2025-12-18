@@ -14,26 +14,22 @@ import {
   CardContent, 
   CardDescription, 
   CardHeader, 
-  CardTitle 
-} from '@/shared/components/ui/card'
-import { Button } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
-import {
+  CardTitle,
+  Button,
+  Badge,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/shared/components/ui/select'
-import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
-} from '@/shared/components/ui/table'
-import { Input } from '@/shared/components/ui/input'
+  Input
+} from '@vibethink/ui'
 import { 
   FileText,
   Download,

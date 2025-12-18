@@ -5,6 +5,12 @@
 		},
 		{
 			"path": "../_vibethink-dev-kit"
+		},
+		{
+			"path": "../bundui/shadcn-ui-kit-dashboard"
+		},
+		{
+			"path": "../shadcn-ui"
 		}
 	],
 	"settings": {

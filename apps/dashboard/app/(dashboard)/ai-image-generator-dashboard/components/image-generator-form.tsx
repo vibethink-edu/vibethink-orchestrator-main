@@ -1,20 +1,21 @@
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import {
+import { 
+  Button,
+  Input,
+  Textarea,
+  Label,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
-} from "@/components/ui/select";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+  SelectValue,
+  Card,
+  CardContent,
+  Separator,
+  ScrollArea
+} from "@vibethink/ui";
 import { Wand2, Palette, Image, Sparkles } from "lucide-react";
 import { toast } from "sonner";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface ImageGeneratorFormProps {
   onGenerate: (params: GenerationParams) => void;

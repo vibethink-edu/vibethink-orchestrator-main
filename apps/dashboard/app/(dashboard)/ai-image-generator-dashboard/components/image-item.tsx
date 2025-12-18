@@ -2,8 +2,7 @@ import React from "react";
 import { Download, Eye, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Button, Badge } from "@vibethink/ui";
 
 import { GeneratedImage } from "./image-gallery";
 

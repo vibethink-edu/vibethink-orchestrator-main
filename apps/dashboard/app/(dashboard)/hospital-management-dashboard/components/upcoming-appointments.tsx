@@ -1,22 +1,7 @@
 import { ChevronRight, MoreVerticalIcon } from "lucide-react";
 
-import { Button } from "@vibethink/ui";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow
-} from "@/shared/components/ui/table";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger
-} from "@/shared/components/ui/dropdown-menu";
-// import { ExportButton } from "@/components/CardActionMenus"; // TODO: Implement ExportButton
+import { Button, Card, CardAction, CardContent, CardHeader, CardTitle, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@vibethink/ui";
+import { ExportButton } from "@/shared/components/CardActionMenus";
 
 const appointments = [
   {
@@ -77,17 +62,19 @@ const appointments = [
   }
 ];
 
-export function UpcomingAppointments() {
+export default function UpcomingAppointments() {
   return (
     <Card className="col-span-4">
       <CardHeader>
         <CardTitle>Upcoming Appointments</CardTitle>
-        <div className="flex items-center space-x-2">
-          {/* <ExportButton /> */}
-          <Button variant="outline" size="icon">
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-        </div>
+        <CardAction className="-mt-2.5">
+          <div className="flex gap-2">
+            <ExportButton />
+            <Button variant="outline">
+              <ChevronRight />
+            </Button>
+          </div>
+        </CardAction>
       </CardHeader>
       <CardContent>
         <div className="rounded-md border">

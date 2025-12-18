@@ -4,28 +4,32 @@ import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 
 import { FilterTab, Todo, TodoStatus } from "../types";
 
-import { Button } from "@/components/ui/button";
-import { Plus, X, Search, SlidersHorizontal, GridIcon, ListIcon } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import {
+import { 
+  Button,
+  Input,
+  Badge,
+  ToggleGroup,
+  ToggleGroupItem,
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
-import { Toggle } from "@/components/ui/toggle";
+  DropdownMenuTrigger,
+  Toggle,
+  Checkbox,
+  Label,
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from "@vibethink/ui";
+import { Plus, X, Search, SlidersHorizontal, GridIcon, ListIcon } from "lucide-react";
 import TodoItem from "./todo-item";
 import { useTodoStore } from "../store";
 import StatusTabs from "./status-tabs";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
 import {
   priorityDotColors,
   EnumTodoPriority
 } from "../enum";
 import { toast } from "sonner";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import {
   DndContext,
   closestCenter,

@@ -174,3 +174,8 @@ Estos componentes son específicos de bundui y no son parte de shadcn/ui estánd
 **Última actualización:** 2025-01-16  
 **Estado:** ✅ Migración completa
 
+
+
+
+
+

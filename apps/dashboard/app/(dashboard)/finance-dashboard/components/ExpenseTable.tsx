@@ -1,23 +1,24 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
-import { Button } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
-import { Skeleton } from '@/shared/components/ui/skeleton'
 import { 
+  Card, 
+  CardContent, 
+  CardHeader, 
+  CardTitle,
+  Button,
+  Badge,
+  Skeleton,
   Table, 
   TableBody, 
   TableCell, 
   TableHead, 
   TableHeader, 
-  TableRow 
-} from '@/shared/components/ui/table'
-import { 
+  TableRow,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/shared/components/ui/dropdown-menu'
+  DropdownMenuTrigger
+} from '@vibethink/ui'
 import { ExpenseTableProps, Expense } from '../types'
 import { format } from 'date-fns'
 import { 

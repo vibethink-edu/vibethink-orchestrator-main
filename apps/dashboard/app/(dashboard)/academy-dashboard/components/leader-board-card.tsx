@@ -1,8 +1,6 @@
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ChevronRight } from "lucide-react";
+
+import { Card, CardAction, CardContent, CardHeader, CardTitle, Badge, Button, Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
 
 export function LeaderboardCard() {
   const topStudents = [
@@ -10,25 +8,25 @@ export function LeaderboardCard() {
       id: 1,
       name: "Liam Smith",
       points: 5000,
-      avatar: `https://bundui-images.netlify.app/avatars/01.png`
+      avatar: `/images/avatars/01.png`
     },
     {
       id: 2,
       name: "Emma Brown",
       points: 4800,
-      avatar: `https://bundui-images.netlify.app/avatars/02.png`
+      avatar: `/images/avatars/02.png`
     },
     {
       id: 3,
       name: "Noah Johnson",
       points: 4600,
-      avatar: `https://bundui-images.netlify.app/avatars/03.png`
+      avatar: `/images/avatars/03.png`
     },
     {
       id: 4,
       name: "Olivia Davis",
       points: 4400,
-      avatar: `https://bundui-images.netlify.app/avatars/04.png`
+      avatar: `/images/avatars/04.png`
     }
   ];
 
@@ -36,9 +34,9 @@ export function LeaderboardCard() {
     <Card className="h-full">
       <CardHeader className="flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle>Leaderboard</CardTitle>
-        <CardAction>
-          <Button variant="outline">
-            View All <ChevronRight />
+        <CardAction className="-mt-2.5">
+          <Button variant="outline" size="icon">
+            <ChevronRight />
           </Button>
         </CardAction>
       </CardHeader>

@@ -8,9 +8,7 @@
 'use client'
 
 import React from 'react'
-import { Card, CardContent } from '@/shared/components/ui/card'
-import { Button } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
+import { Card, CardContent, Button, Badge } from '@vibethink/ui'
 import { 
   Plus,
   Download,

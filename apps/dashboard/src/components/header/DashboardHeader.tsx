@@ -18,13 +18,12 @@ import { DropdownMenu,
   DropdownMenuSeparator,
   DropdownMenuTrigger, } from '@vibethink/ui';
 import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui';
+import { ThemeCustomizerPanel } from '@vibethink/ui';
 import { 
   Bell, 
   Search, 
   Brain, 
   Users, 
-  Settings,
-  MoreHorizontal,
   Zap,
   Activity
 } from 'lucide-react';
@@ -99,10 +98,8 @@ const DashboardHeader: React.FC = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {/* Settings */}
-          <Button variant="outline" size="icon">
-            <Settings className="h-4 w-4" />
-          </Button>
+          {/* Theme Settings */}
+          <ThemeCustomizerPanel />
 
           {/* User Menu */}
           <DropdownMenu>
@@ -129,7 +126,7 @@ const DashboardHeader: React.FC = () => {
                 <span>AI Activity</span>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Settings className="mr-2 h-4 w-4" />
+                <Activity className="mr-2 h-4 w-4" />
                 <span>Settings</span>
               </DropdownMenuItem>
               <DropdownMenuSeparator />

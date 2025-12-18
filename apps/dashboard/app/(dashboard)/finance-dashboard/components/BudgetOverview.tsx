@@ -1,8 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
-import { Button } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
-import { Progress } from '@/shared/components/ui/progress'
-import { Skeleton } from '@/shared/components/ui/skeleton'
+import { Card, CardContent, CardHeader, CardTitle, Button, Badge, Progress, Skeleton } from '@vibethink/ui'
 import { BudgetOverviewProps, Budget } from '../types'
 import { Target, TrendingUp, TrendingDown, AlertTriangle, CheckCircle, Plus, Edit } from 'lucide-react'
 

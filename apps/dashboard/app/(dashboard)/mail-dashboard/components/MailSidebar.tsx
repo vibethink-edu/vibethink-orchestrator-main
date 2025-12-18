@@ -1,8 +1,6 @@
 'use client'
 
-import { Button } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
-import { ScrollArea } from '@/shared/components/ui/scroll-area'
+import { Button, Badge, ScrollArea } from '@vibethink/ui'
 import { 
   Inbox, 
   Send, 

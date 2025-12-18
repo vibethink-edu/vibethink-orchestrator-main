@@ -4,18 +4,26 @@ import React from "react";
 
 import { Check, ChevronsDownIcon } from "lucide-react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import {
+import { 
+  Avatar, 
+  AvatarFallback, 
+  AvatarImage, 
+  Button, 
+  Card, 
+  CardContent, 
+  CardDescription, 
+  CardHeader, 
+  CardTitle,
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-  CommandList
-} from "@/components/ui/command";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+  CommandList,
+  Popover,
+  PopoverContent,
+  PopoverTrigger
+} from "@vibethink/ui";
 
 const roles = [
   {

@@ -16,13 +16,13 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
-} from "@/shared/components/ui/table";
-import { Button } from "@vibethink/ui";
-import { Input } from "@/shared/components/ui/input";
+  TableRow,
+  Button,
+  Input
+} from "@vibethink/ui";
 import { reportsData, columns } from "./reports-data";
 
-export function HospitalReports() {
+export default function HospitalReports() {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [filtering, setFiltering] = useState("");
 

@@ -1,5 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
-import { Skeleton } from '@/shared/components/ui/skeleton'
+import { Card, CardContent, CardHeader, CardTitle, Skeleton } from '@vibethink/ui'
 import { 
   DollarSign, 
   Target, 

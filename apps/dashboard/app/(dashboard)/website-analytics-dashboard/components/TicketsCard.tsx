@@ -1,9 +1,6 @@
 'use client'
 import { Headphones, ClockIcon, CheckCircle, AlertTriangle, Star } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card'
-import { Badge } from '@/shared/components/ui/badge'
-import { Progress } from '@/shared/components/ui/progress'
-import { Skeleton } from '@/shared/components/ui/skeleton'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Progress, Skeleton } from '@vibethink/ui'
 import { useAnalyticsData } from '../hooks'
 import { AnalyticsCardProps } from '../types'
 

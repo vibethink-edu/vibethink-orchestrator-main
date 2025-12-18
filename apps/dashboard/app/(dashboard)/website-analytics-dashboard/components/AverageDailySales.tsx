@@ -9,7 +9,7 @@ import {
   ChartConfig,
   ChartContainer
 } from "@vibethink/ui";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
 import { AnalyticsCardProps } from '../types'
 
 const chartData = [

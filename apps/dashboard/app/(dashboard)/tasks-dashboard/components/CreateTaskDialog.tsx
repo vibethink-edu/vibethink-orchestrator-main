@@ -14,27 +14,25 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from '@/shared/components/ui/dialog'
-import { Button } from '@vibethink/ui'
-import { Input } from '@/shared/components/ui/input'
-import { Label } from '@/shared/components/ui/label'
-import { Textarea } from '@/shared/components/ui/textarea'
-import {
+  Button,
+  Input,
+  Label,
+  Textarea,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/shared/components/ui/select'
-import { Badge } from '@/shared/components/ui/badge'
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/ui/avatar'
-import { Calendar } from '@/shared/components/ui/calendar'
-import {
+  Badge,
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Calendar,
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/shared/components/ui/popover'
-import { Separator } from '@/shared/components/ui/separator'
+  Separator
+} from '@vibethink/ui'
 import { 
   CalendarIcon,
   Plus,

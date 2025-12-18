@@ -8,24 +8,23 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Card, CardContent } from '@/shared/components/ui/card'
-import { Button } from '@vibethink/ui'
-import { Input } from '@/shared/components/ui/input'
-import { Label } from '@/shared/components/ui/label'
-import { Checkbox } from '@/shared/components/ui/checkbox'
-import { Badge } from '@/shared/components/ui/badge'
-import {
+import { 
+  Card, 
+  CardContent, 
+  Button, 
+  Input, 
+  Label, 
+  Checkbox, 
+  Badge,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/shared/components/ui/select'
-import {
   Collapsible,
   CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/shared/components/ui/collapsible'
+  CollapsibleTrigger
+} from '@vibethink/ui'
 import { 
   Filter,
   Search,

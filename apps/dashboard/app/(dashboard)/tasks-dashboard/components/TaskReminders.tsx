@@ -8,10 +8,7 @@
 'use client'
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
-import { Badge } from '@/shared/components/ui/badge'
-import { Button } from '@vibethink/ui'
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/ui/avatar'
+import { Card, CardContent, CardHeader, CardTitle, Badge, Button, Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui'
 import { Bell, Clock, AlertTriangle, Calendar, Plus } from 'lucide-react'
 
 // Mock reminders data

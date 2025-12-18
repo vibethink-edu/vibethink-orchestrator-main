@@ -1,9 +1,7 @@
 import { ChevronRight, GitBranch } from "lucide-react";
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
+import { Button, Card, CardAction, CardContent, CardHeader, CardTitle, Progress } from "@vibethink/ui";
 
 export function LearningPathCard() {
   const pathProgress = 40;

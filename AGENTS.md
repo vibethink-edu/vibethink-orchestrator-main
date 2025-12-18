@@ -20,6 +20,16 @@
 | **Stop Dashboard** | `.\scripts\stop-dashboard.ps1` | - |
 | **Build Dashboard** | `npm run build:dashboard` | - |
 | **Dev Dashboard** | `npm run dev:dashboard` | 3000 |
+| **Start Bundui Ref** | `.\scripts\start-bundui-reference.ps1` | 3050 |
+| **Stop Bundui Ref** | `.\scripts\stop-bundui-reference.ps1` | - |
+| **Start Shadcn Ref** | `.\scripts\start-shadcn-reference.ps1` | 3051 |
+| **Stop Shadcn Ref** | `.\scripts\stop-shadcn-reference.ps1` | - |
+| **Start ReactFlow Ref** | `.\scripts\start-reactflow-reference.ps1` | 3052 |
+| **Stop ReactFlow Ref** | `.\scripts\stop-reactflow-reference.ps1` | - |
+
+> **📌 Estándar Global:** Ver `_vibethink-dev-kit/knowledge/PORT_ASSIGNMENT_GLOBAL.md`  
+> **Puertos alineados:** 3050 (Bundui), 3051 (Shadcn), 3052 (ReactFlow) ✅
+| **Check Vendor Versions** | `.\scripts\check-vendor-versions.ps1` | - |
 
 > ⚠️ **Nuclear Option (emergencias):** `taskkill /F /IM node.exe` mata TODOS los procesos Node del sistema.
 
@@ -46,7 +56,7 @@
 ```bash
 # ❌ NEVER install Express 5 (use 4.21.2)
 # ❌ NEVER install `vite` (this is a Next.js project)
-# ❌ NEVER use @vibethink/bundui-ui in production (use @vibethink/ui)
+# ❌ NEVER use bundui-ui (DEPRECATED - use @vibethink/ui)
 # ❌ NEVER run npm commands in apps/ - use root scripts
 # ❌ NEVER guess port numbers - check scripts
 ```
@@ -176,7 +186,26 @@ import { Card, Button, Badge } from '@vibethink/ui'
 | UI/UX | `docs/ui-ux/SHADCN_UI_GUIDE.md` |
 | Deployment | `docs/deployment/DEPLOYMENT.md` |
 | Architecture | `docs/core/ARCHITECTURE_V3.md` |
+| References | `docs/references/REFERENCE_ARCHITECTURE.md` |
 | Troubleshooting | `TROUBLESHOOTING.md` |
+
+### 🔗 External References (Vendors)
+
+```
+C:\IA Marcelo Labs\
+├── bundui\shadcn-ui-kit-dashboard\    # Dashboard reference (port 3050 - estándar global)
+├── shadcn-ui\ui\                      # Shadcn official (port 3051 - estándar global)
+└── xyflow\xyflow\                     # React Flow examples (port 3052 - estándar global)
+```
+
+> **📌 Asignación Global:** Ver `_vibethink-dev-kit/knowledge/PORT_ASSIGNMENT_GLOBAL.md`  
+> **Nota:** Scripts actuales usan puertos antiguos (3006-3008). Migración pendiente a 3050-3052.
+
+**Flujo de componentes:**
+```
+Shadcn UI (fuente) → @vibethink/ui (centralizado) → apps/dashboard
+Bundui (referencia visual de UX patterns - NO copiar código)
+```
 
 ### Configuration & Security
 
@@ -209,7 +238,7 @@ This project follows the **VThink Methodology** defined in:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│ VIBRETHINK ORCHESTRATOR - QUICK REFERENCE               │
+│ VIBETHINK ORCHESTRATOR - QUICK REFERENCE                │
 ├─────────────────────────────────────────────────────────┤
 │ START:  .\scripts\start-dashboard.ps1 (port 3005)      │
 │ STOP:   .\scripts\stop-dashboard.ps1                   │
@@ -220,6 +249,21 @@ This project follows the **VThink Methodology** defined in:
 │ STACK:  Next.js 15 + React 19 + TypeScript 5.9         │
 │ PORT:   3005                                           │
 ├─────────────────────────────────────────────────────────┤
+│ 🎨 BUNDUI REFERENCE (dashboard kit)                    │
+│ START:  .\scripts\start-bundui-reference.ps1           │
+│ STOP:   .\scripts\stop-bundui-reference.ps1            │
+│ PORT:   3006                                           │
+├─────────────────────────────────────────────────────────┤
+│ 📦 SHADCN UI REFERENCE (official components)           │
+│ START:  .\scripts\start-shadcn-reference.ps1           │
+│ STOP:   .\scripts\stop-shadcn-reference.ps1            │
+│ PORT:   3007                                           │
+├─────────────────────────────────────────────────────────┤
+│ 🔄 REACT FLOW REFERENCE (node-based UIs)               │
+│ START:  .\scripts\start-reactflow-reference.ps1        │
+│ STOP:   .\scripts\stop-reactflow-reference.ps1         │
+│ PORT:   3008                                           │
+├─────────────────────────────────────────────────────────┤
 │ DOCS:   docs/ui-ux/, docs/deployment/, docs/core/      │
 │ DEVKIT: _vibethink-dev-kit/knowledge/                  │
 └─────────────────────────────────────────────────────────┘
@@ -227,5 +271,5 @@ This project follows the **VThink Methodology** defined in:
 
 ---
 
-**Last Updated:** 2025-12-16
+**Last Updated:** 2024-12-17 (Vendors + Versioning)
 **Inherits From:** `_vibethink-dev-kit` v1.0

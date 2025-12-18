@@ -1,6 +1,5 @@
-import { Card, CardAction, CardDescription, CardHeader } from "@/components/ui/card";
+import { Card, CardAction, CardDescription, CardHeader, Badge } from "@vibethink/ui";
 import CountAnimation from "@/shared/components/ui/custom/count-animation";
-import { Badge } from "@/components/ui/badge";
 
 export default function SuccessfulConversionsCard() {
   return (

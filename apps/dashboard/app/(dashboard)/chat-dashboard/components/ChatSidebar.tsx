@@ -7,25 +7,23 @@
 
 import React, { useState, useMemo } from 'react'
 import { Search, Plus, Filter, Archive, Pin } from 'lucide-react'
-import { Input } from '@/shared/components/ui/input'
-import { Button } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
-import { ScrollArea } from '@/shared/components/ui/scroll-area'
-import {
+import { 
+  Input,
+  Button,
+  Badge,
+  ScrollArea,
   Card,
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle
-} from '@/shared/components/ui/card'
-import {
+  CardTitle,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger
-} from '@/shared/components/ui/dropdown-menu'
+} from '@vibethink/ui'
 import { ChatListItem } from './ChatListItem'
 import { ChatItemProps } from '../types'
 import { useChatStore } from '../hooks/useChatStore'

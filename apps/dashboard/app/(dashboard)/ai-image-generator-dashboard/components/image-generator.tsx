@@ -4,15 +4,7 @@ import React from "react";
 import { Wand2, DownloadCloud } from "lucide-react";
 import { toast } from "sonner";
 
-import { Button } from "@/components/ui/button";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerDescription,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger
-} from "@/components/ui/drawer";
+import { Button, Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "@vibethink/ui";
 
 import { ImageGeneratorForm, GenerationParams } from "./image-generator-form";
 import { ImageGallery, GeneratedImage } from "./image-gallery";

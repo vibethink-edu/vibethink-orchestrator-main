@@ -1,6 +1,4 @@
-import { Button } from '@vibethink/ui'
-import { Input } from '@/shared/components/ui/input'
-import { Badge } from '@/shared/components/ui/badge'
+import { Button, Input, Badge } from '@vibethink/ui'
 import { Search, Plus, Filter, Download, X } from 'lucide-react'
 import { useCrmFilters } from '../hooks/useCrmFilters'
 

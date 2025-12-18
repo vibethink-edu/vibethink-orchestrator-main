@@ -2,13 +2,12 @@
 
 // Charts temporarily replaced with CSS visualizations
 import { ChevronUpIcon, DollarSign, HandCoins, TrendingUp, TrendingDown } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui'
 import { 
   ChartConfig, 
   ChartContainer
 } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
-import { Skeleton } from '@/shared/components/ui/skeleton'
+import { Badge, Skeleton } from '@vibethink/ui'
 import { useAnalyticsData } from '../hooks'
 import { AnalyticsCardProps } from '../types'
 

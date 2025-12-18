@@ -817,6 +817,10 @@ body {
     --radius: .3rem;
 }
 
+[data-theme-radius="default"] {
+    --radius: .5rem;
+}
+
 [data-theme-radius="md"] {
     --radius: .5rem;
 }
@@ -827,10 +831,6 @@ body {
 
 [data-theme-radius="xl"] {
     --radius: 1.5rem;
-}
-
-[data-theme-radius="none"] {
-    --radius: 0rem;
 }
 /* Radius */
 

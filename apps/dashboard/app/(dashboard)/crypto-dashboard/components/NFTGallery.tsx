@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui'
 
 interface NFTGalleryProps {
   collections: any[]

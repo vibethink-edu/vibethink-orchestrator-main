@@ -1,0 +1,166 @@
+/**
+ * VThink Theme Presets CSS
+ * 
+ * Variables CSS para los presets de tema
+ * Usa OKLCH para colores modernos
+ * 
+ * @version 1.0.0
+ * @updated 2024-12-17
+ */
+
+/* ============================================================================
+   VIBETHINK PRESETS
+   ============================================================================ */
+
+[data-theme-preset="vibethink"] {
+  /* Base colors - Blue VThink */
+  --primary: oklch(0.55 0.20 260);
+  --primary-foreground: oklch(1 0 0);
+  --ring: oklch(0.55 0.20 260);
+  
+  --sidebar-primary: oklch(0.55 0.20 260);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.55 0.20 260);
+  
+  --chart-1: oklch(0.55 0.20 260);
+  --chart-2: oklch(0.65 0.15 280);
+  --chart-3: oklch(0.45 0.22 240);
+  --chart-4: oklch(0.70 0.10 300);
+  --chart-5: oklch(0.50 0.18 220);
+}
+
+[data-theme-preset="vibethink-dark"] {
+  /* Base colors - Dark Blue VThink */
+  --primary: oklch(0.45 0.18 260);
+  --primary-foreground: oklch(0.95 0.01 260);
+  --ring: oklch(0.45 0.18 260);
+  
+  --background: oklch(0.15 0.02 260);
+  --foreground: oklch(0.95 0.01 260);
+  --card: oklch(0.18 0.02 260);
+  --card-foreground: oklch(0.95 0.01 260);
+  
+  --sidebar: oklch(0.15 0.02 260);
+  --sidebar-foreground: oklch(0.85 0.01 260);
+  --sidebar-primary: oklch(0.45 0.18 260);
+  --sidebar-primary-foreground: oklch(0.95 0.01 260);
+  
+  --chart-1: oklch(0.55 0.20 260);
+  --chart-2: oklch(0.65 0.15 280);
+  --chart-3: oklch(0.45 0.22 240);
+  --chart-4: oklch(0.70 0.10 300);
+  --chart-5: oklch(0.50 0.18 220);
+}
+
+/* ============================================================================
+   SHADCN PRESETS (Adicionales)
+   ============================================================================ */
+
+[data-theme-preset="zinc"] {
+  --primary: oklch(0.27 0.005 286);
+  --primary-foreground: oklch(0.98 0 0);
+  --ring: oklch(0.27 0.005 286);
+}
+
+[data-theme-preset="slate"] {
+  --primary: oklch(0.28 0.02 265);
+  --primary-foreground: oklch(0.98 0 0);
+  --ring: oklch(0.28 0.02 265);
+}
+
+[data-theme-preset="blue"] {
+  --primary: oklch(0.55 0.25 255);
+  --primary-foreground: oklch(1 0 0);
+  --ring: oklch(0.55 0.25 255);
+  
+  --chart-1: oklch(0.55 0.25 255);
+  --chart-2: oklch(0.65 0.20 240);
+  --chart-3: oklch(0.45 0.28 270);
+  --chart-4: oklch(0.70 0.15 230);
+  --chart-5: oklch(0.50 0.22 250);
+}
+
+[data-theme-preset="violet"] {
+  --primary: oklch(0.55 0.25 293);
+  --primary-foreground: oklch(1 0 0);
+  --ring: oklch(0.55 0.25 293);
+  
+  --chart-1: oklch(0.55 0.25 293);
+  --chart-2: oklch(0.65 0.20 310);
+  --chart-3: oklch(0.45 0.28 275);
+  --chart-4: oklch(0.70 0.15 320);
+  --chart-5: oklch(0.50 0.22 285);
+}
+
+/* ============================================================================
+   SCALE PRESETS
+   ============================================================================ */
+
+[data-theme-scale="90"] {
+  font-size: 90%;
+}
+
+[data-theme-scale="95"] {
+  font-size: 95%;
+}
+
+[data-theme-scale="100"] {
+  font-size: 100%;
+}
+
+[data-theme-scale="105"] {
+  font-size: 105%;
+}
+
+[data-theme-scale="110"] {
+  font-size: 110%;
+}
+
+/* ============================================================================
+   RADIUS PRESETS
+   ============================================================================ */
+
+[data-theme-radius="0"] {
+  --radius: 0;
+}
+
+[data-theme-radius="0.25rem"] {
+  --radius: 0.25rem;
+}
+
+[data-theme-radius="0.5rem"] {
+  --radius: 0.5rem;
+}
+
+[data-theme-radius="0.75rem"] {
+  --radius: 0.75rem;
+}
+
+[data-theme-radius="1rem"] {
+  --radius: 1rem;
+}
+
+[data-theme-radius="9999px"] {
+  --radius: 9999px;
+}
+
+/* ============================================================================
+   CONTENT LAYOUT PRESETS
+   ============================================================================ */
+
+[data-theme-content-layout="boxed"] {
+  --content-max-width: 1280px;
+}
+
+[data-theme-content-layout="boxed"] main {
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+[data-theme-content-layout="full"] {
+  --content-max-width: 100%;
+}
+
+
+

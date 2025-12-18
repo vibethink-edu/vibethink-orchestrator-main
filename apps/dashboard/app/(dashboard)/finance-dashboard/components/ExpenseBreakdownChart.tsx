@@ -1,6 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
-import { Skeleton } from '@/shared/components/ui/skeleton'
-import { Badge } from '@/shared/components/ui/badge'
+import { Card, CardContent, CardHeader, CardTitle, Skeleton, Badge } from '@vibethink/ui'
 import { 
   PieChart, 
   Pie, 
@@ -13,7 +11,7 @@ import {
   YAxis,
   CartesianGrid
 } from 'recharts'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/ui/tabs'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui'
 import { useState } from 'react'
 import { ExpenseBreakdownChartProps, CategoryData } from '../types'
 import { PieChart as PieChartIcon, BarChart3, TrendingUp, TrendingDown, CreditCard } from 'lucide-react'

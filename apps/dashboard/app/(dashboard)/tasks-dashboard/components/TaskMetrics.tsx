@@ -8,9 +8,7 @@
 'use client'
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
-import { Badge } from '@/shared/components/ui/badge'
-import { Progress } from '@/shared/components/ui/progress'
+import { Card, CardContent, CardHeader, CardTitle, Badge, Progress } from '@vibethink/ui'
 import { Target, Clock, TrendingUp, Users } from 'lucide-react'
 import { useTaskSummary } from '../hooks'
 

@@ -8,9 +8,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
-import { Button } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
+import { Card, CardContent, CardHeader, CardTitle, Button, Badge } from '@vibethink/ui'
 import { 
   ChevronRight, 
   Wallet, 

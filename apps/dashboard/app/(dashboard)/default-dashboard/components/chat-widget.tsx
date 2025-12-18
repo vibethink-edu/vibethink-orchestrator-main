@@ -4,27 +4,33 @@ import * as React from "react";
 import { Check, Plus, Send } from "lucide-react";
 
 import { cn } from "@/shared/lib/utils";
-import { Avatar, AvatarFallback, AvatarImage } from "@/shared/components/ui/avatar";
-import { Button } from "@vibethink/ui";
-import { Card, CardContent, CardFooter, CardHeader } from "@/shared/components/ui/card";
-import {
+import { 
+  Avatar, 
+  AvatarFallback, 
+  AvatarImage, 
+  Button, 
+  Card, 
+  CardContent, 
+  CardFooter, 
+  CardHeader,
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-  CommandList
-} from "@/shared/components/ui/command";
-import {
+  CommandList,
   Dialog,
   DialogContent,
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogTitle
-} from "@/shared/components/ui/dialog";
-import { Input } from "@/shared/components/ui/input";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/shared/components/ui/tooltip";
+  DialogTitle,
+  Input,
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from "@vibethink/ui";
 
 const users = [
   {

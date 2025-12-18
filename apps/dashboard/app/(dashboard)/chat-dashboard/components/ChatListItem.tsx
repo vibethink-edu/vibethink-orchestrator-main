@@ -8,16 +8,18 @@
 import React from 'react'
 import { cn } from '@/shared/utils'
 import { MoreVertical, Pin, Archive, Volume2 } from 'lucide-react'
-import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/ui/avatar'
-import { Badge } from '@/shared/components/ui/badge'
-import { Button } from '@vibethink/ui'
-import {
+import { 
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Badge,
+  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger
-} from '@/shared/components/ui/dropdown-menu'
+} from '@vibethink/ui'
 import { ChatItemProps } from '../types'
 import { MessageStatusIcon } from './MessageStatusIcon'
 

@@ -2,16 +2,20 @@
 
 import { Pie, PieChart, ResponsiveContainer, Cell } from 'recharts'
 import { Globe, TrendingUp, TrendingDown, MapPin } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card'
 import { 
+  Card, 
+  CardContent, 
+  CardDescription, 
+  CardHeader, 
+  CardTitle,
   ChartConfig, 
   ChartContainer,
   ChartTooltip,
-  ChartTooltipContent
+  ChartTooltipContent,
+  Badge,
+  Progress,
+  Skeleton
 } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
-import { Progress } from '@/shared/components/ui/progress'
-import { Skeleton } from '@/shared/components/ui/skeleton'
 import { useAnalyticsData } from '../hooks'
 import { AnalyticsCardProps } from '../types'
 

@@ -10,27 +10,32 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/ui/tabs'
 import { 
+  Card, 
+  CardContent, 
+  CardDescription, 
+  CardHeader, 
+  CardTitle,
+  Tabs, 
+  TabsContent, 
+  TabsList, 
+  TabsTrigger,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
-} from '@/shared/components/ui/select'
-import {
+  SelectValue,
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-  FormDescription
-} from '@/shared/components/ui/form'
-import { Input } from '@/shared/components/ui/input'
-import { Button } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
+  FormDescription,
+  Input,
+  Button,
+  Badge
+} from '@vibethink/ui'
 import { 
   ArrowUpDown,
   TrendingUp,

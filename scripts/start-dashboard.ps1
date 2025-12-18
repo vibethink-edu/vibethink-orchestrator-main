@@ -15,4 +15,5 @@ if ($process) {
 
 # Start dev server
 Write-Host "Starting Next.js dev server on port $port..." -ForegroundColor Green
+cd apps/dashboard
 npm run dev -- -p $port

@@ -1,10 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Card } from "@/shared/components/ui/card";
-import { Button } from "@vibethink/ui";
-import { Input } from "@/shared/components/ui/input";
-import { Badge } from "@/shared/components/ui/badge";
+import { Card, Button, Input, Badge } from "@vibethink/ui";
 import { 
   CreditCard, 
   Banknote, 

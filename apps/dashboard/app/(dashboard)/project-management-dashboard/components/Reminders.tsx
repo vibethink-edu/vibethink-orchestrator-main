@@ -14,24 +14,20 @@ import {
   CardContent, 
   CardDescription, 
   CardHeader, 
-  CardTitle 
-} from '@/shared/components/ui/card'
-import { Button } from '@vibethink/ui'
-import { Badge } from '@/shared/components/ui/badge'
-import { Checkbox } from '@/shared/components/ui/checkbox'
-import {
+  CardTitle,
+  Button,
+  Badge,
+  Checkbox,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/shared/components/ui/dropdown-menu'
-import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-} from '@/shared/components/ui/select'
+  SelectValue
+} from '@vibethink/ui'
 import { 
   Bell,
   Plus,

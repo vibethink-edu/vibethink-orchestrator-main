@@ -197,3 +197,8 @@ node scripts/update-shadcn.js select form table checkbox textarea label switch r
 **Última actualización:** 2025-01-16  
 **Estado:** Parcialmente limpio - Dashboard principal listo, resto pendiente
 
+
+
+
+
+

@@ -14,8 +14,9 @@ import {
   CardContent, 
   CardDescription, 
   CardHeader, 
-  CardTitle 
-} from '@/shared/components/ui/card'
+  CardTitle,
+  Skeleton
+} from '@vibethink/ui'
 import { 
   Briefcase, 
   Users, 
@@ -27,7 +28,6 @@ import {
   Target
 } from 'lucide-react'
 import { useProjectSummary } from '../hooks/useProjectData'
-import { Skeleton } from '@/shared/components/ui/skeleton'
 
 interface MetricCardProps {
   title: string

@@ -2,15 +2,8 @@
 
 import { Area, AreaChart, CartesianGrid } from "recharts";
 
-import { Card, CardAction, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent
-} from "@/components/ui/chart";
-import { Badge } from "@/components/ui/badge";
-import CalendarDateRangePicker from "@/components/custom-date-range-picker";
+import { Card, CardAction, CardDescription, CardHeader, CardTitle, ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent, Badge } from "@vibethink/ui";
+import CustomDateRangePicker from "@/shared/components/custom-date-range-picker";
 
 const chartData = [
   { month: "January", desktop: 4 },
@@ -38,10 +31,10 @@ export function CourseProgressByMonth() {
           <Badge>+2.5%</Badge>
         </CardDescription>
         <CardAction>
-          <CalendarDateRangePicker />
+          <CustomDateRangePicker />
         </CardAction>
       </CardHeader>
-      <ChartContainer className="w-full lg:h-[375px]" config={chartConfig}>
+      <ChartContainer className="w-full lg:h-[430px]" config={chartConfig}>
         <AreaChart
           accessibilityLayer
           data={chartData}

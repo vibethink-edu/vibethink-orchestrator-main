@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import ImageGenerator from "./components/image-generator";
-import { TooltipProvider } from "@/shared/components/ui/tooltip";
+import { TooltipProvider } from "@vibethink/ui";
 
 /**
  * AI Image Generator Dashboard Page

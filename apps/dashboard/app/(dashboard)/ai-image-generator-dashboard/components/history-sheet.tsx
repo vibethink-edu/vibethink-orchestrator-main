@@ -8,12 +8,14 @@ import {
   SheetDescription,
   SheetHeader,
   SheetTitle,
-  SheetTrigger
-} from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
+  SheetTrigger,
+  Button,
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger
+} from "@vibethink/ui";
 import { History } from "lucide-react";
 import { toast } from "sonner";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 export default function HistorySheet() {
   const [historyOpen, setHistoryOpen] = React.useState(false);

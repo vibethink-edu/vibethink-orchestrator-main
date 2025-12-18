@@ -1,13 +1,14 @@
 import { Button } from '@vibethink/ui'
-import { Input } from '@/shared/components/ui/input'
 import { 
+  Input,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-} from '@/shared/components/ui/select'
-import { Badge } from '@/shared/components/ui/badge'
+  SelectValue
+} from '@vibethink/ui'
+import { Badge } from '@vibethink/ui'
+import { DashboardBadge } from '../../../../src/shared/components/dashboard-badge'
 import { 
   CalendarDays,
   Download,
@@ -50,7 +51,10 @@ export function SalesHeader({ className }: SalesHeaderProps) {
       {/* Title and main actions */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Sales Dashboard</h1>
+          <div className="flex items-center gap-2 mb-1">
+            <h1 className="text-3xl font-bold tracking-tight">Sales Dashboard</h1>
+            <DashboardBadge />
+          </div>
           <p className="text-muted-foreground">
             Track performance, manage pipeline, and analyze sales metrics
           </p>

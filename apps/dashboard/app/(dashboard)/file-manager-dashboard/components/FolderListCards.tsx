@@ -9,7 +9,16 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Card, CardContent } from '@/shared/components/ui/card'
+import { 
+  Card, 
+  CardContent,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+  Button
+} from '@vibethink/ui'
 import { 
   Folder, 
   MoreVertical, 
@@ -21,14 +30,6 @@ import {
   Calendar,
   FileText
 } from 'lucide-react'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/shared/components/ui/dropdown-menu'
-import { Button } from '@vibethink/ui'
 import type { FolderListCardsProps } from '../types'
 
 export function FolderListCards({ 

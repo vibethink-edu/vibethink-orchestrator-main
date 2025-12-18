@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { cn } from "@/shared/lib/utils";
 import { ThemeProvider } from "next-themes";
+import { ActiveThemeProvider, DEFAULT_THEME } from "@vibethink/ui";
 import "./globals.css";
-import { DEFAULT_THEME } from "@/shared/lib/themes";
 
 export const metadata: Metadata = {
   title: "Pana - VibeThink Dashboard",
@@ -18,11 +18,14 @@ export default async function RootLayout({
 }>) {
   const cookieStore = await cookies();
   const themeSettings = {
-    preset: (cookieStore.get("theme_preset")?.value ?? DEFAULT_THEME.preset) as string,
-    scale: (cookieStore.get("theme_scale")?.value ?? DEFAULT_THEME.scale) as string,
-    radius: (cookieStore.get("theme_radius")?.value ?? DEFAULT_THEME.radius) as string,
-    contentLayout: (cookieStore.get("theme_content_layout")?.value ??
-      DEFAULT_THEME.contentLayout) as string
+    preset: (cookieStore.get("vthink_theme_preset")?.value ?? DEFAULT_THEME.preset) as string,
+    baseColor: (cookieStore.get("vthink_theme_base_color")?.value ?? DEFAULT_THEME.baseColor) as string,
+    font: (cookieStore.get("vthink_theme_font")?.value ?? DEFAULT_THEME.font) as string,
+    scale: (cookieStore.get("vthink_theme_scale")?.value ?? DEFAULT_THEME.scale) as string,
+    radius: (cookieStore.get("vthink_theme_radius")?.value ?? DEFAULT_THEME.radius) as string,
+    contentLayout: (cookieStore.get("vthink_theme_content_layout")?.value ??
+      DEFAULT_THEME.contentLayout) as string,
+    sidebarMode: (cookieStore.get("vthink_theme_sidebar_mode")?.value ?? DEFAULT_THEME.sidebarMode) as string
   };
 
   const bodyAttributes = Object.fromEntries(
@@ -42,7 +45,9 @@ export default async function RootLayout({
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange>
-          {children}
+          <ActiveThemeProvider>
+            {children}
+          </ActiveThemeProvider>
         </ThemeProvider>
       </body>
     </html>

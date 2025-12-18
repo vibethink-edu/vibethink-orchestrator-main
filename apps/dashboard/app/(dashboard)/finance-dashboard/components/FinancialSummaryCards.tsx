@@ -1,6 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
-import { Badge } from '@/shared/components/ui/badge'
-import { Skeleton } from '@/shared/components/ui/skeleton'
+import { Card, CardContent, CardHeader, CardTitle, Badge, Skeleton } from '@vibethink/ui'
 import { FinancialSummaryCardsProps } from '../types'
 import { TrendingUp, TrendingDown, DollarSign, CreditCard, PiggyBank, Target, AlertTriangle, Activity } from 'lucide-react'
 

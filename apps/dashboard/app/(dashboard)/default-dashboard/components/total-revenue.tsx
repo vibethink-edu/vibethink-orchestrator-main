@@ -2,13 +2,13 @@
 
 import { Dot, Line, LineChart } from "recharts";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent
-} from "@/components/ui/chart";
+} from "@vibethink/ui";
 
 const chartData = [
   { browser: "chrome", visitors: 100, fill: "var(--color-visitors)" },

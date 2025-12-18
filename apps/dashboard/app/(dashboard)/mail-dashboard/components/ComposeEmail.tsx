@@ -1,24 +1,22 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import { Button } from '@vibethink/ui'
-import { Input } from '@/shared/components/ui/input'
-import { Label } from '@/shared/components/ui/label'
-import { Textarea } from '@/shared/components/ui/textarea'
-import { Badge } from '@/shared/components/ui/badge'
 import { 
-  Dialog, 
-  DialogContent, 
-  DialogHeader, 
-  DialogTitle 
-} from '@/shared/components/ui/dialog'
-import {
+  Button,
+  Input,
+  Label,
+  Textarea,
+  Badge,
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-} from '@/shared/components/ui/select'
+  SelectValue
+} from '@vibethink/ui'
 import { 
   Send, 
   Paperclip, 

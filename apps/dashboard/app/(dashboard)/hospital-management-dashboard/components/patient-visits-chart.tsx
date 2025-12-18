@@ -1,20 +1,7 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
-import {
-  ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent
-} from "@vibethink/ui";
+import { Card, CardAction, CardContent, CardHeader, CardTitle, ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@vibethink/ui";
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from "@/shared/components/ui/select";
 
 const chartData = [
   { month: "January", famale: 186, male: 140, child: 150 },
@@ -39,12 +26,12 @@ const chartConfig = {
   }
 } satisfies ChartConfig;
 
-export function PatientVisitsChart() {
+export default function PatientVisitsChart() {
   return (
     <Card className="col-span-4">
       <CardHeader>
         <CardTitle>Patient Visits by Gender</CardTitle>
-        <div className="flex items-center">
+        <CardAction className="-mt-2.5">
           <Select defaultValue="2025">
             <SelectTrigger>
               <SelectValue />
@@ -56,7 +43,7 @@ export function PatientVisitsChart() {
               <SelectItem value="2022">2022</SelectItem>
             </SelectContent>
           </Select>
-        </div>
+        </CardAction>
       </CardHeader>
       <CardContent>
         <ChartContainer className="w-full lg:h-[400px]" config={chartConfig}>

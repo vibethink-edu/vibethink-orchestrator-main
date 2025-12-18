@@ -7,10 +7,7 @@ import { Todo, TodoStatus } from "../types";
 import { CSS } from "@dnd-kit/utilities";
 import { useSortable } from "@dnd-kit/sortable";
 
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Card, CardContent, CardFooter, Badge, Checkbox, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui";
 
 interface TodoItemProps {
   todo: Todo;

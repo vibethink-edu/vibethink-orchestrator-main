@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle, Tabs, TabsContent, TabsList, TabsTrigger, Skeleton } from '@vibethink/ui'
 import { 
   BarChart, 
   Bar, 
@@ -13,8 +13,6 @@ import {
   Legend
 } from 'recharts'
 import { useSalesData } from '../hooks/useSalesData'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/ui/tabs'
-import { Skeleton } from '@/shared/components/ui/skeleton'
 import { SALES_COLORS } from '../types'
 
 interface SalesPipelineChartProps {

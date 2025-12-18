@@ -1,8 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card'
-import { Progress } from '@/shared/components/ui/progress'
-import { Badge } from '@/shared/components/ui/badge'
-import { Skeleton } from '@/shared/components/ui/skeleton'
-import { Button } from '@vibethink/ui'
+import { Card, CardContent, CardHeader, CardTitle, Progress, Badge, Skeleton, Button } from '@vibethink/ui'
 import { 
   Target, 
   TrendingUp, 

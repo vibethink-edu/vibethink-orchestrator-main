@@ -9,22 +9,20 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Button } from '@vibethink/ui'
-import { Input } from '@/shared/components/ui/input'
-import {
+import { 
+  Button,
+  Input,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/shared/components/ui/select'
-import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/shared/components/ui/dropdown-menu'
-import { Badge } from '@/shared/components/ui/badge'
+  Badge
+} from '@vibethink/ui'
 import { 
   Search, 
   Plus, 

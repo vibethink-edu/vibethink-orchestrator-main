@@ -11,7 +11,7 @@
 
 import React, { useState } from 'react'
 ;
-import { Card, CardContent } from '@/shared/components/ui/card'
+import { Card, CardContent } from '@vibethink/ui'
 import { 
   Upload,
   Search,

@@ -21,25 +21,26 @@ import {
   ChevronDown
 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
-import {
+import { 
+  Button,
+  Checkbox,
+  Input,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
-import {
+  DropdownMenuTrigger,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
-} from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+  TableRow,
+  Badge,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle
+} from "@vibethink/ui";
 
 interface Payment {
   id: string;
