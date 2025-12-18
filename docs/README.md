@@ -1,40 +1,46 @@
-# 📚 Documentación Centralizada - Estado Final
+# 📚 Documentación - VibeThink Orchestrator
 
-## 🚨 AVISO DE LIMPIEZA Y MIGRACIÓN
+## 🎯 Índice Maestro
 
-Toda la documentación viva, actualizada y de referencia oficial ha sido migrada a los sitios Docusaurus especializados:
-- **docusaurus-docs/** (usuarios)
-- **docusaurus-dev/** (desarrolladores)
-- **docusaurus-api/** (API)
-- **docusaurus-vthink/** (metodología)
-- **docusaurus-archives/** (histórico/legacy)
+**👉 [DOCUMENTATION_INDEX.md](./DOCUMENTATION_INDEX.md)** - **Empieza aquí**
 
-Esta carpeta `/docs` solo contiene:
-- Logs de migración y reorganización
-- Backups históricos
-- Referencias de consolidación
-- Documentación legacy no migrada (en proceso de archivo o eliminación)
-
-**Cualquier archivo duplicado, obsoleto o vacío ha sido eliminado o archivado en `/docs/reorg-2025/` o en Docusaurus Archives.**
+Este es el índice maestro de toda la documentación actual y relevante del proyecto.
 
 ---
 
-## 📝 ¿Dónde consultar la documentación oficial?
+## 📖 Documentación Esencial
 
-- **Documentación de usuario:** docusaurus-docs/
-- **Documentación de desarrollo:** docusaurus-dev/
-- **Documentación de API:** docusaurus-api/
-- **Metodología VThink:** docusaurus-vthink/
-- **Histórico y legacy:** docusaurus-archives/
+### ⭐ Documentos Principales
+
+- **[DOCUMENTATION_INDEX.md](./DOCUMENTATION_INDEX.md)** - Índice maestro de documentación
+- **[BUNDUI_MONOREPO_MIRROR.md](./BUNDUI_MONOREPO_MIRROR.md)** - Bundui y Shadcn UI (espejo monorepo)
+- **[REORGANIZACION_DASHBOARDS_STATUS.md](./REORGANIZACION_DASHBOARDS_STATUS.md)** - Estado de dashboards
+- **[changelog.md](./changelog.md)** - Historial de cambios
+
+### 📁 Estructura
+
+```
+docs/
+├── DOCUMENTATION_INDEX.md          # ⭐ Índice maestro
+├── BUNDUI_MONOREPO_MIRROR.md      # Bundui y arquitectura
+├── REORGANIZACION_DASHBOARDS_STATUS.md  # Estado dashboards
+├── changelog.md                    # Historial
+│
+├── ui-ux/                          # Documentación UI/UX
+├── operations/                     # Guías operacionales
+├── references/                     # Referencias técnicas
+└── projects/                       # Proyectos específicos
+```
 
 ---
 
-## 🛡️ Estado de esta carpeta
+## 🚨 Importante
 
-- No agregar nueva documentación aquí.
-- Usar solo como referencia histórica o para auditoría.
-- Para contribuir, actualizar o consultar documentación oficial, usar los sitios Docusaurus.
+- **Usar DOCUMENTATION_INDEX.md** como punto de entrada
+- **No crear documentación duplicada**
+- **Eliminar documentos obsoletos** regularmente
+- **Mantener estructura clara** y organizada
 
 ---
 
-**Última limpieza y validación:** 2025-07-19 
+**Última actualización**: 2025-01-17 
