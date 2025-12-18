@@ -147,6 +147,40 @@ npm audit --audit-level=high
 echo "✅ Daily check complete!"
 ```
 
+### **🖥 Dashboard Dev Server (scripts recomendados)**
+
+> **Regla:** Siempre que sea posible, usa los scripts de `scripts/` en vez de comandos manuales directos.
+
+- **Iniciar dashboard (dev, puerto 3005)**  
+  ```powershell
+  cd "C:\IA Marcelo Labs\vibethink-orchestrator-main"
+  .\scripts\start-dashboard.ps1
+  ```
+  - El script:
+    - Verifica que el puerto **3005** esté libre (`Get-NetTCPConnection`)
+    - Lanza `apps/dashboard` con `npm run dev -- -p 3005`
+    - Falla de forma segura si el puerto ya está en uso
+
+- **Detener dashboard**  
+  ```powershell
+  cd "C:\IA Marcelo Labs\vibethink-orchestrator-main"
+  .\scripts\stop-dashboard.ps1
+  ```
+  - Comportamiento:
+    - Localiza el proceso que escucha en el puerto **3005** y lo detiene
+    - Limpia procesos `node` huérfanos asociados al path del proyecto
+    - Si no hay nada en 3005, muestra un mensaje informativo y termina sin error
+  - Se puede ejecutar varias veces (idempotente) sin romper nada
+
+- **Comprobaciones útiles**
+  ```powershell
+  # Ver quién está usando el puerto 3005
+  netstat -ano | findstr :3005
+
+  # Ver procesos node relacionados
+  Get-Process node -ErrorAction SilentlyContinue
+  ```
+
 ### **📊 WEEKLY DEEP SCAN (30 minutes):**
 ```bash
 #!/bin/bash
