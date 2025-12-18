@@ -254,20 +254,20 @@ export const navItems: NavGroup[] = [
   {
     title: "Migrados",
     items: [
-      { title: "AI Chat", href: "/ai-chat-dashboard", icon: BrainCircuitIcon, isNew: true },
-      { title: "Calendar", href: "/calendar-dashboard", icon: CalendarIcon, isNew: true },
-      { title: "CRM", href: "/crm-dashboard", icon: ChartBarDecreasingIcon, isNew: true },
-      { title: "Crypto", href: "/crypto-dashboard", icon: WalletMinimalIcon, isNew: true },
-      { title: "E-commerce", href: "/ecommerce-dashboard", icon: ShoppingBagIcon, isNew: true },
-      { title: "File Manager", href: "/file-manager-dashboard", icon: FolderIcon, isNew: true },
-      { title: "Finance", href: "/finance-dashboard", icon: BadgeDollarSignIcon, isNew: true },
-      { title: "Mail", href: "/mail-dashboard", icon: MailIcon, isNew: true },
-      { title: "Notes", href: "/notes-dashboard", icon: StickyNoteIcon, isNew: true },
-      { title: "POS System", href: "/pos-system-dashboard", icon: CookieIcon, isNew: true },
-      { title: "Projects", href: "/project-management-dashboard", icon: FolderDotIcon, isNew: true },
-      { title: "Sales", href: "/sales-dashboard", icon: BadgeDollarSignIcon, isNew: true },
-      { title: "Tasks", href: "/tasks-dashboard", icon: ClipboardCheckIcon, isNew: true },
-      { title: "Analytics", href: "/website-analytics-dashboard", icon: GaugeIcon, isNew: true }
+      { title: "AI Chat", href: "/dashboard-vibethink/ai-chat", icon: BrainCircuitIcon, isNew: true },
+      { title: "Calendar", href: "/dashboard-vibethink/calendar", icon: CalendarIcon, isNew: true },
+      { title: "CRM", href: "/dashboard-vibethink/crm", icon: ChartBarDecreasingIcon, isNew: true },
+      { title: "Crypto", href: "/dashboard-vibethink/crypto", icon: WalletMinimalIcon, isNew: true },
+      { title: "E-commerce", href: "/dashboard-vibethink/ecommerce", icon: ShoppingBagIcon, isNew: true },
+      { title: "File Manager", href: "/dashboard-vibethink/file-manager", icon: FolderIcon, isNew: true },
+      { title: "Finance", href: "/dashboard-vibethink/finance", icon: BadgeDollarSignIcon, isNew: true },
+      { title: "Mail", href: "/dashboard-vibethink/mail", icon: MailIcon, isNew: true },
+      { title: "Notes", href: "/dashboard-vibethink/notes", icon: StickyNoteIcon, isNew: true },
+      { title: "POS System", href: "/dashboard-vibethink/pos-system", icon: CookieIcon, isNew: true },
+      { title: "Projects", href: "/dashboard-vibethink/project-management", icon: FolderDotIcon, isNew: true },
+      { title: "Sales", href: "/dashboard-vibethink/sales", icon: BadgeDollarSignIcon, isNew: true },
+      { title: "Tasks", href: "/dashboard-vibethink/tasks", icon: ClipboardCheckIcon, isNew: true },
+      { title: "Analytics", href: "/dashboard-vibethink/website-analytics", icon: GaugeIcon, isNew: true }
     ]
   },
   {
