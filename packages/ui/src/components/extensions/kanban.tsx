@@ -1029,7 +1029,8 @@ export {
   KanbanBoard as Board,
   KanbanColumn as Column,
   KanbanColumnHandle as ColumnHandle,
-  KanbanItem as Item,
+  // Note: KanbanItem as Item removed to avoid conflict with Item from item.tsx
+  // Use KanbanItem directly instead
   KanbanItemHandle as ItemHandle,
   KanbanOverlay as Overlay
 };

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 async function getOrders() {
   const data = await fs.readFile(
-    path.join(process.cwd(), "apps/dashboard/app/dashboard-bundui/pages/orders/data.json")
+    path.join(process.cwd(), "app/dashboard-bundui/pages/orders/data.json")
   );
 
   return JSON.parse(data.toString());
