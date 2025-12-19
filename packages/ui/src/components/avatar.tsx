@@ -1,6 +1,7 @@
 "use client"
 import * as React from "react"
 import * as AvatarPrimitive from "@radix-ui/react-avatar"
+import { cva, VariantProps } from "class-variance-authority"
 
 import { cn } from "../lib/utils"
 
@@ -46,5 +47,42 @@ const AvatarFallback = React.forwardRef<
 ))
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName
 
-export { Avatar, AvatarImage, AvatarFallback }
+const indicatorVariants = cva("size-2 absolute rounded-full", {
+  variants: {
+    variant: {
+      success: "bg-green-400",
+      danger: "bg-red-400",
+      warning: "bg-orange-400"
+    },
+    position: {
+      "top-end": "end-0.5 top-0.5",
+      "bottom-end": "end-0.5 bottom-0.5",
+      "bottom-start": "start-0.5 bottom-0.5",
+      "top-start": "start-0.5 top-0.5"
+    }
+  }
+});
+
+export interface AvatarIndicatorProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof indicatorVariants> {
+  variant?: "success" | "danger" | "warning" | null;
+  position?: "top-end" | "bottom-end" | "bottom-start" | "top-start" | null;
+}
+
+function AvatarIndicator({
+  variant,
+  position = "bottom-end",
+  className,
+  ...props
+}: AvatarIndicatorProps) {
+  return (
+    <div
+      data-slot="avatar-indicator"
+      className={cn(indicatorVariants({ variant, position, className }))}
+      {...props}></div>
+  );
+}
+
+export { Avatar, AvatarImage, AvatarFallback, AvatarIndicator }
 
