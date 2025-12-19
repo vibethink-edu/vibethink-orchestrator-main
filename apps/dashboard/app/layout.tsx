@@ -4,6 +4,7 @@ import { cn } from "@/shared/lib/utils";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { DEFAULT_THEME } from "@/shared/lib/themes";
+import { AuthProvider } from "@/providers/AuthProvider";
 // import { Toaster } from '@vibethink/ui'; // Commented - using Shadcn
 
 export default async function RootLayout({
@@ -37,8 +38,10 @@ export default async function RootLayout({
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange>
-          {children}
-          {/* <Toaster position="top-center" richColors /> */}
+          <AuthProvider>
+            {children}
+            {/* <Toaster position="top-center" richColors /> */}
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>
