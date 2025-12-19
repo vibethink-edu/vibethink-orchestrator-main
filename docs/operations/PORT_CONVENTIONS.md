@@ -211,3 +211,4 @@ Si `PortManager.psm1` no se encuentra:
 **Última actualización**: 2025-12-18  
 **Responsable**: Mantener consistencia con `PORT_ASSIGNMENT_GLOBAL.md` del dev-kit
 
+

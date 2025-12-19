@@ -62,3 +62,6 @@ export * from './components/toggle';
 export * from './components/toggle-group';
 export * from './components/tooltip';
 
+// Extensions
+export * from './components/extensions/kanban';
+

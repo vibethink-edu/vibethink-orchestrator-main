@@ -56,3 +56,4 @@ export const useOnboardingStore = create<OnboardingStore>((set, get) => ({
   reset: () => set({ currentStep: 0, data: initialData })
 }));
 
+

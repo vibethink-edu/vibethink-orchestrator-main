@@ -177,3 +177,4 @@ if (sidebarMatch && directoriesMatch) {
   process.exit(1);
 }
 
+

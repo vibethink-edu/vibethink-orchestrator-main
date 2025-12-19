@@ -151,3 +151,4 @@ http://localhost:3005/dashboard-bundui/ai-chat
 
 **Última actualización:** 2025-12-18
 
+

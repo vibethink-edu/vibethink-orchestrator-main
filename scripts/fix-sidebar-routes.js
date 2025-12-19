@@ -80,3 +80,4 @@ console.log('\n✅ Sidebar actualizado correctamente');
 console.log('\n📝 Rutas comentadas que NO existen en el sistema de archivos');
 console.log('   Para restaurarlas, crea las carpetas correspondientes en dashboard-bundui/');
 
+

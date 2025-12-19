@@ -76,3 +76,4 @@ console.log('✅ Sidebar bundui corregido\n');
 console.log('📋 Dashboards válidos en bundui:');
 existingDashboards.forEach(d => console.log(`   - /dashboard-bundui/${d}`));
 
+

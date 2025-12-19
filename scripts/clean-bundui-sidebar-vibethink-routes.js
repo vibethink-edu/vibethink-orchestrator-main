@@ -33,3 +33,4 @@ if (removedCount > 0) {
   console.log('✅ No se encontraron rutas de vibethink en bundui sidebar (ya está limpio)');
 }
 
+

@@ -414,3 +414,4 @@ Después de agregar:
 **Estado**: ✅ Configurado y listo para usar  
 **Recomendación**: Adoptar CLI como método estándar para agregar componentes Shadcn
 
+

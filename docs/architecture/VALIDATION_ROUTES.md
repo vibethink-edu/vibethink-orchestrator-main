@@ -140,3 +140,4 @@ npm run validate:routes
 
 **IMPORTANTE**: Este script es parte del sistema de validación del proyecto y ayuda a prevenir errores comunes que pueden romper la navegación entre dashboards.
 
+

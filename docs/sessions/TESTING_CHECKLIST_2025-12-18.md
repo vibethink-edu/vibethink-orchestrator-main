@@ -257,3 +257,4 @@ Para considerar el testing exitoso:
 **Tester**: [Nombre del usuario]  
 **Duración estimada**: 30-45 minutos
 
+

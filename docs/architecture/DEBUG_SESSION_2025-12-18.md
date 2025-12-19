@@ -152,3 +152,4 @@ cd apps/dashboard && npm run type-check
 **Última actualización:** 2025-12-18  
 **Estado:** ⏸️ Trabajo guardado, pendiente ejecución
 
+

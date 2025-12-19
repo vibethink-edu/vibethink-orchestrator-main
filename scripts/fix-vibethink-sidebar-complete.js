@@ -116,3 +116,4 @@ console.log('\n✅ vibethink-sidebar.tsx corregido');
 console.log('📋 Dashboards en vibethink:');
 vibethinkDashboards.forEach(d => console.log(`   - /dashboard-vibethink/${d}`));
 
+

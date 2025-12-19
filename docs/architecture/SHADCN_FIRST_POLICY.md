@@ -278,3 +278,4 @@ Si todas las respuestas son "no", entonces considera alternativas.
 **Aprobado por**: Usuario  
 **Criticidad**: ⚠️ MÁXIMA
 
+
