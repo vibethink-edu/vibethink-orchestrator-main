@@ -1,35 +1,61 @@
 # ============================================================================
 # STOP REACT FLOW REFERENCE
 # ============================================================================
-# Detiene el servidor de React Flow Reference en puerto 3008
+# Stops the React Flow reference server using global port assignment
+# Port Assignment: 3052 (See _vibethink-dev-kit/knowledge/PORT_ASSIGNMENT_GLOBAL.md)
 # ============================================================================
 
-$ErrorActionPreference = "SilentlyContinue"
+# Import Port Manager Module (Global Standard)
+$DevKitPath = "C:\IA Marcelo Labs\_vibethink-dev-kit"
+$PortManagerPath = Join-Path $DevKitPath "packages\tools\powershell-modules\PortManager\PortManager.psm1"
 
-$PORT = 3008
-
-Write-Host "============================================" -ForegroundColor Yellow
-Write-Host "  REACT FLOW REFERENCE - Stopping..." -ForegroundColor Yellow
-Write-Host "============================================" -ForegroundColor Yellow
-
-# Buscar proceso en el puerto
-$connection = Get-NetTCPConnection -LocalPort $PORT -ErrorAction SilentlyContinue
-
-if ($connection) {
-    $processId = $connection.OwningProcess | Select-Object -First 1
-    $process = Get-Process -Id $processId -ErrorAction SilentlyContinue
-    
-    if ($process) {
-        Write-Host "Deteniendo proceso: $($process.Name) (PID: $processId)" -ForegroundColor Yellow
-        Stop-Process -Id $processId -Force
-        Write-Host "Proceso detenido exitosamente." -ForegroundColor Green
+if (Test-Path $PortManagerPath) {
+    Import-Module $PortManagerPath -Force -ErrorAction SilentlyContinue
+    $PORT = Get-ReferencePort -ReferenceName "reactflow"
+    if (-not $PORT) {
+        $PORT = 3052  # Fallback to global standard
     }
 } else {
-    Write-Host "No hay proceso ejecutándose en el puerto $PORT" -ForegroundColor Gray
+    $PORT = 3052  # Fallback to global standard
 }
 
-Write-Host ""
-Write-Host "React Flow Reference detenido." -ForegroundColor Green
+Write-Host "🛑 Stopping React Flow Reference..." -ForegroundColor Cyan
+
+$processStopped = $false
+
+# Find process using port
+# Get-NetTCPConnection can return multiple connections or array
+$connections = Get-NetTCPConnection -LocalPort $PORT -State Listen -ErrorAction SilentlyContinue
+
+if ($connections) {
+    # Handle both single connection and array
+    $uniqueProcessIds = $connections | 
+        Select-Object -ExpandProperty OwningProcess -Unique | 
+        Where-Object { $_ -gt 0 }  # Filter out system processes (Idle = 0)
+    
+    foreach ($processId in $uniqueProcessIds) {
+        # Validate process exists and is not a system process
+        try {
+            $proc = Get-Process -Id $processId -ErrorAction Stop
+            Write-Host "Found process $processId ($($proc.ProcessName)) on port $PORT" -ForegroundColor Yellow
+            
+            # Kill the process
+            Stop-Process -Id $processId -Force -ErrorAction Stop
+            Write-Host "✅ Stopped process $processId" -ForegroundColor Green
+            $processStopped = $true
+        } catch {
+            Write-Host "⚠️  Could not stop process $processId : $($_.Exception.Message)" -ForegroundColor Yellow
+        }
+    }
+    
+    if (-not $processStopped) {
+        Write-Host "ℹ️  No valid processes found on port $PORT" -ForegroundColor Gray
+    }
+} else {
+    Write-Host "ℹ️  No process found on port $PORT" -ForegroundColor Gray
+}
+
+Write-Host "✅ React Flow Reference stopped" -ForegroundColor Green
 
 
 

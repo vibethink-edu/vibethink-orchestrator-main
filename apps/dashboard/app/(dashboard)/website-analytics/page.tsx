@@ -1,1 +1,1 @@
-export { default } from "../../dashboard-bundui/analytics/page";
+export { default } from "../../dashboard-vibethink/website-analytics/page";

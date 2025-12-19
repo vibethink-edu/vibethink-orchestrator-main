@@ -1,5 +1,5 @@
 import { ArrowDownLeft, ArrowUpRight } from "lucide-react";
-import { getInitials } from "@vibethink/utils";
+import { generateAvatarFallback } from "@/lib/utils";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
 import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
@@ -30,7 +30,7 @@ export function SuccessMetrics() {
                 <TooltipTrigger>
                   <Avatar className="border-card size-12 border-4 hover:z-10">
                     <AvatarImage src={user.avatar} alt="shadcn ui kit" />
-                    <AvatarFallback>{getInitials(user.name)}</AvatarFallback>
+                    <AvatarFallback>{generateAvatarFallback(user.name)}</AvatarFallback>
                   </Avatar>
                 </TooltipTrigger>
                 <TooltipContent>{user.name}</TooltipContent>

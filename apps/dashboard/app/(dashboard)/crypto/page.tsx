@@ -1,1 +1,1 @@
-export { default } from "../../dashboard-bundui/crypto/page";
+export { default } from "../../dashboard-vibethink/crypto/page";

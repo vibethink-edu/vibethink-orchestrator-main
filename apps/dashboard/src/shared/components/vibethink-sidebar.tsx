@@ -69,85 +69,64 @@ const vibethinkNavItems: NavItem[] = [
     href: "/dashboard-vibethink/ecommerce",
     icon: ShoppingCart,
   },
-];
-
-const bunduiReferenceNavItems: NavItem[] = [
   {
-    title: "Analytics",
-    href: "/dashboard-bundui/analytics",
+    title: "Website Analytics",
+    href: "/dashboard-vibethink/website-analytics",
     icon: BarChart3,
   },
   {
-    title: "Finance",
-    href: "/dashboard-bundui/finance",
-    icon: DollarSign,
-  },
-  {
-    title: "Projects",
-    href: "/dashboard-bundui/projects",
+    title: "Project Management",
+    href: "/dashboard-vibethink/project-management",
     icon: Briefcase,
   },
   {
     title: "Tasks",
-    href: "/dashboard-bundui/tasks",
+    href: "/dashboard-vibethink/tasks",
     icon: CheckSquare,
   },
   {
     title: "Calendar",
-    href: "/dashboard-bundui/calendar",
+    href: "/dashboard-vibethink/calendar",
     icon: Calendar,
   },
   {
     title: "Mail",
-    href: "/dashboard-bundui/mail",
+    href: "/dashboard-vibethink/mail",
     icon: Mail,
   },
   {
     title: "Notes",
-    href: "/dashboard-bundui/notes",
+    href: "/dashboard-vibethink/notes",
     icon: StickyNote,
   },
   {
-    title: "File Manager",
-    href: "/dashboard-bundui/file-manager",
-    icon: FolderOpen,
-  },
-  {
-    title: "Academy",
-    href: "/dashboard-bundui/academy",
-    icon: GraduationCap,
-  },
-  {
     title: "AI Chat",
-    href: "/dashboard-bundui/ai-chat",
+    href: "/dashboard-vibethink/ai-chat",
     icon: Activity,
   },
   {
-    title: "POS System",
-    href: "/dashboard-bundui/pos-system",
-    icon: ShoppingBag,
-  },
-  {
-    title: "Payment",
-    href: "/dashboard-bundui/payment",
-    icon: CreditCard,
-  },
-  {
     title: "Crypto",
-    href: "/dashboard-bundui/crypto",
+    href: "/dashboard-vibethink/crypto",
     icon: Bitcoin,
   },
   {
-    title: "Hospital Management",
-    href: "/dashboard-bundui/hospital-management",
-    icon: Hospital,
+    title: "File Manager",
+    href: "/dashboard-vibethink/file-manager",
+    icon: FolderOpen,
   },
   {
-    title: "Hotel",
-    href: "/dashboard-bundui/hotel",
-    icon: Building2,
+    title: "Finance",
+    href: "/dashboard-vibethink/finance",
+    icon: DollarSign,
+  },
+  {
+    title: "POS System",
+    href: "/dashboard-vibethink/pos-system",
+    icon: ShoppingBag,
   },
 ];
+
+// bunduiReferenceNavItems eliminado - no se usa en vibethink-sidebar
 
 export function VibeThinkSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();
@@ -164,7 +143,7 @@ export function VibeThinkSidebar({ ...props }: React.ComponentProps<typeof Sideb
 
   // Determinar qué navegación mostrar según la ruta
   const isVibeThinkRoute = pathname?.startsWith('/dashboard-vibethink');
-  const navItems = isVibeThinkRoute ? vibethinkNavItems : bunduiReferenceNavItems;
+  const navItems = vibethinkNavItems; // Solo vibethink en este sidebar
   const sectionTitle = isVibeThinkRoute ? "VibeThink Sandbox" : "Bundui Reference";
 
   return (

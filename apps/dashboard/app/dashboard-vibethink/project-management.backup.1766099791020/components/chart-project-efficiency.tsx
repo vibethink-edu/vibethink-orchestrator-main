@@ -15,7 +15,6 @@ import {
 import {
   ChartConfig,
   ChartContainer,
-  ChartStyle,
   ChartTooltip,
   ChartTooltipContent
 } from "@vibethink/ui";
@@ -79,7 +78,6 @@ export function ChartProjectEfficiency() {
 
   return (
     <Card data-chart={id}>
-      <ChartStyle id={id} config={chartConfig} />
       <CardHeader>
         <CardDescription>January - June 2026</CardDescription>
         <CardTitle className="font-display text-xl">Project Efficiency</CardTitle>

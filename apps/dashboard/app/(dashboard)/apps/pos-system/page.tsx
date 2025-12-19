@@ -1,1 +1,1 @@
-export { default } from "../../../dashboard-bundui/pos-system/page";
+export { default } from "../../../dashboard-vibethink/pos-system/page";

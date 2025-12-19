@@ -1,528 +1,456 @@
-"use client";
+/**
+ * Reports Component
+ * VibeThink Orchestrator
+ * 
+ * Project reports and insights with filtering and export options
+ * Following VThink 1.0 methodology with multi-tenant security
+ */
 
-import { useState } from "react";
-import {
-  type ColumnDef,
-  type ColumnFiltersState,
-  type SortingState,
-  type VisibilityState,
-  flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useReactTable
-} from "@tanstack/react-table";
-import { ArrowUpDown, ChevronDown, Search } from "lucide-react";
+'use client'
 
-import { Button } from "@vibethink/ui";
-import { Input } from "@vibethink/ui";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger
-} from "@vibethink/ui";
-import {
+import React, { useState, useMemo } from 'react'
+import { 
+  Card, 
+  CardContent, 
+  CardDescription, 
+  CardHeader, 
+  CardTitle,
+  Button,
+  Badge,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
-} from "@vibethink/ui";
-import { Badge } from "@vibethink/ui";
-import { Progress } from "@vibethink/ui";
-import * as React from "react";
+  TableRow,
+  Input
+} from '@vibethink/ui'
+import { 
+  FileText,
+  Download,
+  Calendar,
+  Filter,
+  Search,
+  BarChart3,
+  PieChart,
+  TrendingUp,
+  Clock,
+  Users,
+  DollarSign,
+  Target,
+  RefreshCw
+} from 'lucide-react'
+import { useProjectData } from '../hooks/useProjectData'
+import { ProjectReport } from '../types'
 
-// Define the data type for our table
-type Project = {
-  id: string;
-  name: string;
-  client: string;
-  status: "active" | "completed" | "on-hold" | "cancelled";
-  startDate: string;
-  endDate: string;
-  budget: number;
-  spent: number;
-  progress: number;
-  manager: string;
-};
-
-// Sample data for the table
-const data: Project[] = [
-  {
-    id: "PRJ-001",
-    name: "Website Redesign",
-    client: "Acme Inc.",
-    status: "active",
-    startDate: "2025-01-15",
-    endDate: "2025-04-30",
-    budget: 12500,
-    spent: 5200,
-    progress: 42,
-    manager: "John Smith"
-  },
-  {
-    id: "PRJ-002",
-    name: "Mobile App Development",
-    client: "TechCorp",
-    status: "active",
-    startDate: "2025-02-01",
-    endDate: "2025-06-15",
-    budget: 35000,
-    spent: 12800,
-    progress: 36,
-    manager: "Sarah Johnson"
-  },
-  {
-    id: "PRJ-003",
-    name: "Brand Identity",
-    client: "GreenLife",
-    status: "completed",
-    startDate: "2024-11-10",
-    endDate: "2025-01-20",
-    budget: 8500,
-    spent: 8500,
-    progress: 100,
-    manager: "Michael Brown"
-  },
-  {
-    id: "PRJ-004",
-    name: "E-commerce Platform",
-    client: "Fashion Hub",
-    status: "active",
-    startDate: "2025-01-05",
-    endDate: "2025-05-10",
-    budget: 42000,
-    spent: 18600,
-    progress: 44,
-    manager: "Emily Davis"
-  },
-  {
-    id: "PRJ-005",
-    name: "SEO Optimization",
-    client: "Local Bistro",
-    status: "on-hold",
-    startDate: "2025-02-15",
-    endDate: "2025-04-15",
-    budget: 4500,
-    spent: 1200,
-    progress: 27,
-    manager: "David Wilson"
-  },
-  {
-    id: "PRJ-006",
-    name: "Content Marketing",
-    client: "EduTech",
-    status: "active",
-    startDate: "2025-01-20",
-    endDate: "2025-07-20",
-    budget: 18000,
-    spent: 4500,
-    progress: 25,
-    manager: "Lisa Anderson"
-  },
-  {
-    id: "PRJ-007",
-    name: "CRM Implementation",
-    client: "Global Services",
-    status: "active",
-    startDate: "2025-02-10",
-    endDate: "2025-05-30",
-    budget: 28000,
-    spent: 9800,
-    progress: 35,
-    manager: "Robert Taylor"
-  },
-  {
-    id: "PRJ-008",
-    name: "Social Media Campaign",
-    client: "FitLife Gym",
-    status: "completed",
-    startDate: "2024-12-01",
-    endDate: "2025-02-28",
-    budget: 7500,
-    spent: 7500,
-    progress: 100,
-    manager: "Jennifer Martinez"
-  },
-  {
-    id: "PRJ-009",
-    name: "Product Launch",
-    client: "Innovate Tech",
-    status: "active",
-    startDate: "2025-03-01",
-    endDate: "2025-04-15",
-    budget: 15000,
-    spent: 3200,
-    progress: 21,
-    manager: "Thomas Clark"
-  },
-  {
-    id: "PRJ-010",
-    name: "Office Redesign",
-    client: "Creative Studios",
-    status: "on-hold",
-    startDate: "2025-01-10",
-    endDate: "2025-03-30",
-    budget: 22000,
-    spent: 8900,
-    progress: 40,
-    manager: "Amanda Lewis"
-  },
-  {
-    id: "PRJ-011",
-    name: "Data Migration",
-    client: "Finance Pro",
-    status: "active",
-    startDate: "2025-02-20",
-    endDate: "2025-04-10",
-    budget: 9500,
-    spent: 4200,
-    progress: 44,
-    manager: "Kevin White"
-  },
-  {
-    id: "PRJ-012",
-    name: "Security Audit",
-    client: "SecureBank",
-    status: "completed",
-    startDate: "2025-01-05",
-    endDate: "2025-02-15",
-    budget: 12000,
-    spent: 12000,
-    progress: 100,
-    manager: "Patricia Moore"
-  },
-  {
-    id: "PRJ-013",
-    name: "Video Production",
-    client: "Media House",
-    status: "active",
-    startDate: "2025-02-15",
-    endDate: "2025-05-01",
-    budget: 18500,
-    spent: 7200,
-    progress: 39,
-    manager: "James Wilson"
-  },
-  {
-    id: "PRJ-014",
-    name: "HR System Upgrade",
-    client: "Corporate Inc.",
-    status: "cancelled",
-    startDate: "2025-01-10",
-    endDate: "2025-04-10",
-    budget: 14000,
-    spent: 3500,
-    progress: 25,
-    manager: "Michelle Johnson"
-  },
-  {
-    id: "PRJ-015",
-    name: "Market Research",
-    client: "New Ventures",
-    status: "active",
-    startDate: "2025-03-01",
-    endDate: "2025-05-15",
-    budget: 8500,
-    spent: 2100,
-    progress: 25,
-    manager: "Daniel Brown"
-  },
-  {
-    id: "PRJ-016",
-    name: "Cloud Migration",
-    client: "Tech Solutions",
-    status: "active",
-    startDate: "2025-02-10",
-    endDate: "2025-06-30",
-    budget: 32000,
-    spent: 12800,
-    progress: 40,
-    manager: "Christopher Lee"
-  },
-  {
-    id: "PRJ-017",
-    name: "Training Program",
-    client: "Education First",
-    status: "on-hold",
-    startDate: "2025-01-15",
-    endDate: "2025-03-15",
-    budget: 6500,
-    spent: 2600,
-    progress: 40,
-    manager: "Jessica Taylor"
-  },
-  {
-    id: "PRJ-018",
-    name: "Annual Report Design",
-    client: "Investment Group",
-    status: "completed",
-    startDate: "2024-12-15",
-    endDate: "2025-02-28",
-    budget: 9000,
-    spent: 9000,
-    progress: 100,
-    manager: "Andrew Martin"
-  },
-  {
-    id: "PRJ-019",
-    name: "Customer Support Portal",
-    client: "Service Pro",
-    status: "active",
-    startDate: "2025-02-01",
-    endDate: "2025-05-15",
-    budget: 16500,
-    spent: 6800,
-    progress: 41,
-    manager: "Stephanie Garcia"
-  },
-  {
-    id: "PRJ-020",
-    name: "Inventory System",
-    client: "Retail Chain",
-    status: "active",
-    startDate: "2025-01-20",
-    endDate: "2025-04-30",
-    budget: 21000,
-    spent: 9450,
-    progress: 45,
-    manager: "Brian Wilson"
-  }
-];
-
-// Define the columns for our table
-const columns: ColumnDef<Project>[] = [
-  {
-    accessorKey: "id",
-    header: "ID",
-    cell: ({ row }) => <div>{row.getValue("id")}</div>
-  },
-  {
-    accessorKey: "name",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          className="p-0!"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
-          Project Name
-          <ArrowUpDown className="size-3" />
-        </Button>
-      );
-    },
-    cell: ({ row }) => <div>{row.getValue("name")}</div>
-  },
-  {
-    accessorKey: "client",
-    header: "Client",
-    cell: ({ row }) => <div>{row.getValue("client")}</div>
-  },
-  {
-    accessorKey: "status",
-    header: "Status",
-    cell: ({ row }) => {
-      const status = row.getValue("status") as
-        | "pending"
-        | "active"
-        | "completed"
-        | "cancelled"
-        | "on-hold";
-
-      const statusClassMap: Record<typeof status, string> = {
-        pending: "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200",
-        active: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200",
-        completed: "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200",
-        cancelled: "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200",
-        "on-hold": "bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200"
-      };
-
-      return <Badge className={`capitalize ${statusClassMap[status]}`}>{status}</Badge>;
-    },
-    filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id));
-    }
-  },
-  {
-    accessorKey: "startDate",
-    header: "Start Date",
-    cell: ({ row }) => {
-      const date = new Date(row.getValue("startDate"));
-      return <div>{date.toLocaleDateString()}</div>;
-    }
-  },
-  {
-    accessorKey: "endDate",
-    header: "End Date",
-    cell: ({ row }) => {
-      const date = new Date(row.getValue("endDate"));
-      return <div>{date.toLocaleDateString()}</div>;
-    }
-  },
-  {
-    accessorKey: "budget",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          className="p-0!"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
-          Budget
-          <ArrowUpDown className="size-3" />
-        </Button>
-      );
-    },
-    cell: ({ row }) => {
-      const amount = Number.parseFloat(row.getValue("budget"));
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD"
-      }).format(amount);
-
-      return <div>{formatted}</div>;
-    }
-  },
-  {
-    accessorKey: "progress",
-    header: "Progress",
-    cell: ({ row }) => {
-      const progress = Number.parseInt(row.getValue("progress"));
-
-      return (
-        <div className="w-full">
-          <div className="flex items-center">
-            <Progress value={progress} />
-            <span className="ml-2 text-xs">{progress}%</span>
-          </div>
-        </div>
-      );
-    }
-  }
-];
-
-export function Reports() {
-  const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
-  const [rowSelection, setRowSelection] = useState({});
-  const [globalFilter, setGlobalFilter] = useState("");
-
-  const table = useReactTable({
-    data,
-    columns,
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
-    onGlobalFilterChange: setGlobalFilter,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    onColumnVisibilityChange: setColumnVisibility,
-    onRowSelectionChange: setRowSelection,
-    state: {
-      sorting,
-      columnFilters,
-      columnVisibility,
-      rowSelection,
-      globalFilter
-    },
-    initialState: {
-      pagination: {
-        pageSize: 15
-      }
-    }
-  });
-
-  return (
-    <div className="space-y-4">
-      <div className="z-0 mt-0 flex items-center justify-start gap-3 lg:-mt-14 lg:justify-end">
-        <div className="relative">
-          <Search className="text-muted-foreground absolute top-2.5 left-2.5 h-4 w-4" />
-          <Input
-            placeholder="Search projects..."
-            value={globalFilter ?? ""}
-            onChange={(e) => setGlobalFilter(e.target.value)}
-            className="w-[250px] pl-8 md:w-[300px]"
-          />
-        </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline">
-              Columns <ChevronDown className="ml-2 h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {table
-              .getAllColumns()
-              .filter((column) => column.getCanHide())
-              .map((column) => {
-                return (
-                  <DropdownMenuCheckboxItem
-                    key={column.id}
-                    className="capitalize"
-                    checked={column.getIsVisible()}
-                    onCheckedChange={(value) => column.toggleVisibility(!!value)}>
-                    {column.id}
-                  </DropdownMenuCheckboxItem>
-                );
-              })}
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
-
-      <div className="rounded-md border">
-        <Table>
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id}>
-                    {flexRender(header.column.columnDef.header, header.getContext())}
-                  </TableHead>
-                ))}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table.getRowModel().rows.map((row) => (
-              <TableRow key={row.id}>
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
-
-      {/* Pagination controls */}
-      <div className="flex items-center justify-between space-x-2">
-        <div className="text-muted-foreground text-sm">
-          Showing {table.getFilteredRowModel().rows.length} of {data.length} projects
-        </div>
-        <div className="flex items-center space-x-2">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}>
-            Previous
-          </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}>
-            Next
-          </Button>
-        </div>
-      </div>
-    </div>
-  );
+interface ReportsProps {
+  className?: string
 }
 
+type ReportType = 'status' | 'performance' | 'budget' | 'timeline' | 'team'
+type ReportFormat = 'pdf' | 'excel' | 'csv'
 
+const mockReports: ProjectReport[] = [
+  {
+    id: '1',
+    name: 'Monthly Project Status Report',
+    description: 'Comprehensive overview of all active projects and their current status',
+    type: 'status',
+    date_range: {
+      start: '2024-01-01',
+      end: '2024-01-31'
+    },
+    generated_at: new Date().toISOString(),
+    file_url: '/reports/monthly-status-jan-2024.pdf'
+  },
+  {
+    id: '2',
+    name: 'Team Performance Analysis',
+    description: 'Detailed analysis of team productivity and efficiency metrics',
+    type: 'performance',
+    date_range: {
+      start: '2024-01-01',
+      end: '2024-01-31'
+    },
+    generated_at: new Date(Date.now() - 86400000).toISOString(),
+    file_url: '/reports/team-performance-jan-2024.pdf'
+  },
+  {
+    id: '3',
+    name: 'Budget Utilization Report',
+    description: 'Financial overview showing budget allocation and spending patterns',
+    type: 'budget',
+    date_range: {
+      start: '2024-01-01',
+      end: '2024-01-31'
+    },
+    generated_at: new Date(Date.now() - 172800000).toISOString(),
+    file_url: '/reports/budget-utilization-jan-2024.pdf'
+  },
+  {
+    id: '4',
+    name: 'Project Timeline Analysis',
+    description: 'Timeline performance and milestone completion analysis',
+    type: 'timeline',
+    date_range: {
+      start: '2024-01-01',
+      end: '2024-01-31'
+    },
+    generated_at: new Date(Date.now() - 259200000).toISOString(),
+    file_url: '/reports/timeline-analysis-jan-2024.pdf'
+  },
+  {
+    id: '5',
+    name: 'Team Workload Distribution',
+    description: 'Analysis of team member workload and capacity utilization',
+    type: 'team',
+    date_range: {
+      start: '2024-01-01',
+      end: '2024-01-31'
+    },
+    generated_at: new Date(Date.now() - 345600000).toISOString(),
+    file_url: '/reports/team-workload-jan-2024.pdf'
+  }
+]
+
+const getReportTypeIcon = (type: ReportType) => {
+  switch (type) {
+    case 'status': return <BarChart3 className="h-4 w-4" />
+    case 'performance': return <TrendingUp className="h-4 w-4" />
+    case 'budget': return <DollarSign className="h-4 w-4" />
+    case 'timeline': return <Clock className="h-4 w-4" />
+    case 'team': return <Users className="h-4 w-4" />
+    default: return <FileText className="h-4 w-4" />
+  }
+}
+
+const getReportTypeBadge = (type: ReportType) => {
+  const variants = {
+    status: 'default',
+    performance: 'secondary',
+    budget: 'outline',
+    timeline: 'destructive',
+    team: 'default'
+  } as const
+
+  const labels = {
+    status: 'Status',
+    performance: 'Performance',
+    budget: 'Budget',
+    timeline: 'Timeline',
+    team: 'Team'
+  }
+
+  return (
+    <Badge variant={variants[type] as any}>
+      {labels[type]}
+    </Badge>
+  )
+}
+
+const ReportGenerationCard = () => {
+  const [reportType, setReportType] = useState<ReportType>('status')
+  const [dateRange, setDateRange] = useState('30d')
+  const [format, setFormat] = useState<ReportFormat>('pdf')
+  const [isGenerating, setIsGenerating] = useState(false)
+
+  const handleGenerateReport = async () => {
+    setIsGenerating(true)
+    // Simulate report generation
+    await new Promise(resolve => setTimeout(resolve, 2000))
+    setIsGenerating(false)
+    // Here you would typically trigger the actual report generation
+  }
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="flex items-center space-x-2">
+          <Target className="h-5 w-5" />
+          <span>Generate New Report</span>
+        </CardTitle>
+        <CardDescription>
+          Create custom reports for project analysis and insights
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="space-y-2">
+              <label className="text-sm font-medium">Report Type</label>
+              <Select value={reportType} onValueChange={(value: ReportType) => setReportType(value)}>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="status">Project Status</SelectItem>
+                  <SelectItem value="performance">Team Performance</SelectItem>
+                  <SelectItem value="budget">Budget Analysis</SelectItem>
+                  <SelectItem value="timeline">Timeline Review</SelectItem>
+                  <SelectItem value="team">Team Workload</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            
+            <div className="space-y-2">
+              <label className="text-sm font-medium">Date Range</label>
+              <Select value={dateRange} onValueChange={setDateRange}>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="7d">Last 7 days</SelectItem>
+                  <SelectItem value="30d">Last 30 days</SelectItem>
+                  <SelectItem value="90d">Last 90 days</SelectItem>
+                  <SelectItem value="year">This Year</SelectItem>
+                  <SelectItem value="custom">Custom Range</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            
+            <div className="space-y-2">
+              <label className="text-sm font-medium">Format</label>
+              <Select value={format} onValueChange={(value: ReportFormat) => setFormat(value)}>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="pdf">PDF</SelectItem>
+                  <SelectItem value="excel">Excel</SelectItem>
+                  <SelectItem value="csv">CSV</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          
+          <Button 
+            onClick={handleGenerateReport} 
+            disabled={isGenerating}
+            className="w-full"
+          >
+            {isGenerating ? (
+              <>
+                <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
+                Generating Report...
+              </>
+            ) : (
+              <>
+                <FileText className="h-4 w-4 mr-2" />
+                Generate Report
+              </>
+            )}
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
+export const Reports: React.FC<ReportsProps> = ({ className }) => {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [typeFilter, setTypeFilter] = useState<string>('all')
+  const { projects, isLoading } = useProjectData()
+
+  const filteredReports = useMemo(() => {
+    return mockReports.filter(report => {
+      const matchesSearch = report.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           report.description.toLowerCase().includes(searchTerm.toLowerCase())
+      const matchesType = typeFilter === 'all' || report.type === typeFilter
+      
+      return matchesSearch && matchesType
+    })
+  }, [searchTerm, typeFilter])
+
+  const handleDownloadReport = (report: ProjectReport) => {
+    // Simulate download
+    console.log('Downloading report:', report.name)
+    // In a real app, you would trigger the actual download
+  }
+
+  return (
+    <div className={`space-y-6 ${className}`}>
+      {/* Report Generation */}
+      <ReportGenerationCard />
+      
+      {/* Existing Reports */}
+      <Card>
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <div>
+              <CardTitle>Generated Reports</CardTitle>
+              <CardDescription>
+                View and download previously generated project reports
+              </CardDescription>
+            </div>
+          </div>
+          
+          {/* Filters */}
+          <div className="flex items-center space-x-4 mt-4">
+            <div className="relative flex-1 max-w-sm">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input
+                placeholder="Search reports..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-9"
+              />
+            </div>
+            
+            <Select value={typeFilter} onValueChange={setTypeFilter}>
+              <SelectTrigger className="w-40">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Types</SelectItem>
+                <SelectItem value="status">Status</SelectItem>
+                <SelectItem value="performance">Performance</SelectItem>
+                <SelectItem value="budget">Budget</SelectItem>
+                <SelectItem value="timeline">Timeline</SelectItem>
+                <SelectItem value="team">Team</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </CardHeader>
+        
+        <CardContent>
+          {isLoading ? (
+            <div className="space-y-4">
+              {[...Array(5)].map((_, i) => (
+                <div key={i} className="flex items-center space-x-4 p-4 border rounded-lg">
+                  <div className="h-10 w-10 bg-muted rounded animate-pulse" />
+                  <div className="flex-1 space-y-2">
+                    <div className="h-4 bg-muted rounded animate-pulse" />
+                    <div className="h-3 bg-muted rounded w-3/4 animate-pulse" />
+                  </div>
+                  <div className="h-8 w-20 bg-muted rounded animate-pulse" />
+                </div>
+              ))}
+            </div>
+          ) : filteredReports.length === 0 ? (
+            <div className="text-center py-8">
+              <FileText className="h-12 w-12 mx-auto mb-4 text-muted-foreground opacity-50" />
+              <h3 className="text-lg font-medium mb-2">No reports found</h3>
+              <p className="text-muted-foreground">
+                {searchTerm || typeFilter !== 'all' 
+                  ? 'Try adjusting your search or filters'
+                  : 'Generate your first report to get started'
+                }
+              </p>
+            </div>
+          ) : (
+            <div className="rounded-md border">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Report</TableHead>
+                    <TableHead>Type</TableHead>
+                    <TableHead>Date Range</TableHead>
+                    <TableHead>Generated</TableHead>
+                    <TableHead className="text-right">Actions</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filteredReports.map((report) => (
+                    <TableRow key={report.id} className="hover:bg-muted/50">
+                      <TableCell>
+                        <div className="space-y-1">
+                          <div className="flex items-center space-x-2">
+                            {getReportTypeIcon(report.type)}
+                            <span className="font-medium">{report.name}</span>
+                          </div>
+                          <p className="text-sm text-muted-foreground line-clamp-2">
+                            {report.description}
+                          </p>
+                        </div>
+                      </TableCell>
+                      
+                      <TableCell>
+                        {getReportTypeBadge(report.type)}
+                      </TableCell>
+                      
+                      <TableCell>
+                        <div className="text-sm">
+                          <div>{new Date(report.date_range.start).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}</div>
+                          <div className="text-muted-foreground">
+                            to {new Date(report.date_range.end).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}
+                          </div>
+                        </div>
+                      </TableCell>
+                      
+                      <TableCell>
+                        <div className="text-sm">
+                          {new Date(report.generated_at).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}
+                          <div className="text-muted-foreground">
+                            {new Date(report.generated_at).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false })}
+                          </div>
+                        </div>
+                      </TableCell>
+                      
+                      <TableCell className="text-right">
+                        <div className="flex items-center justify-end space-x-2">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => handleDownloadReport(report)}
+                          >
+                            <Download className="h-4 w-4 mr-1" />
+                            Download
+                          </Button>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Quick Insights */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center space-x-2">
+            <PieChart className="h-5 w-5" />
+            <span>Quick Insights</span>
+          </CardTitle>
+          <CardDescription>
+            Key metrics and trends from recent reports
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-4 border rounded-lg text-center">
+              <div className="text-2xl font-bold text-green-600">94%</div>
+              <div className="text-sm text-muted-foreground">Project Success Rate</div>
+              <div className="text-xs text-muted-foreground mt-1">
+                ↑ 3.2% from last period
+              </div>
+            </div>
+            
+            <div className="p-4 border rounded-lg text-center">
+              <div className="text-2xl font-bold text-blue-600">87%</div>
+              <div className="text-sm text-muted-foreground">On-Time Delivery</div>
+              <div className="text-xs text-muted-foreground mt-1">
+                ↑ 5.1% from last period
+              </div>
+            </div>
+            
+            <div className="p-4 border rounded-lg text-center">
+              <div className="text-2xl font-bold text-purple-600">$2.4M</div>
+              <div className="text-sm text-muted-foreground">Total Budget Managed</div>
+              <div className="text-xs text-muted-foreground mt-1">
+                92% utilization rate
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}

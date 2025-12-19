@@ -1,8 +1,15 @@
-export * from "./achievement-by-year";
-export * from "./chart-project-overview";
-export * from "./chart-project-efficiency";
-export * from "./table-recent-projects";
-export * from "./reminders";
-export * from "./success-metrics";
-export * from "./summary-cards";
-export * from "./reports";
+/**
+ * Project Management Components - Barrel Exports
+ * VibeThink Orchestrator
+ */
+
+export { SummaryCards } from './SummaryCards'
+export { ProjectManagementHeader } from './ProjectManagementHeader'
+export { ProjectOverviewChart } from './ProjectOverviewChart'
+export { ProjectEfficiencyChart } from './ProjectEfficiencyChart'
+export { AchievementByYear } from './AchievementByYear'
+export { RecentProjectsTable } from './RecentProjectsTable'
+export { SuccessMetrics } from './SuccessMetrics'
+export { Reports } from './Reports'
+export { Reminders } from './Reminders'
+export { AddReminderDialog } from './AddReminderDialog'

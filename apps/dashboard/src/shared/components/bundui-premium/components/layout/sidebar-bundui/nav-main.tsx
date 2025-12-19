@@ -80,7 +80,7 @@ export const navItems: NavGroup[] = [
     items: [
       {
         title: "Default",
-        href: "/dashboard/default",
+        href: "/dashboard-bundui/default",
         icon: ChartPieIcon,
         isNew: true
       },
@@ -89,54 +89,49 @@ export const navItems: NavGroup[] = [
         href: "#",
         icon: ShoppingBagIcon,
         items: [
-          { title: "Dashboard", href: "/dashboard/ecommerce" },
-          { title: "Product List", href: "/dashboard/pages/products" },
-          { title: "Product Detail", href: "/dashboard/pages/products/1" },
-          { title: "Add Product", href: "/dashboard/pages/products/create" },
-          { title: "Order List", href: "/dashboard/pages/orders" },
-          { title: "Order Detail", href: "/dashboard/pages/orders/detail" }
+          { title: "Dashboard", href: "/dashboard-bundui/ecommerce" },
+          { title: "Product List", href: "/dashboard-bundui/pages/products" },
+          { title: "Product Detail", href: "/dashboard-bundui/pages/products/1" },
+          { title: "Add Product", href: "/dashboard-bundui/pages/products/create" },
+          { title: "Order List", href: "/dashboard-bundui/pages/orders" },
+          { title: "Order Detail", href: "/dashboard-bundui/pages/orders/detail" }
         ]
       },
-      { title: "Sales", href: "/dashboard/sales", icon: BadgeDollarSignIcon, isNew: true },
-      { title: "CRM", href: "/dashboard/crm", icon: ChartBarDecreasingIcon, isNew: true },
+      { title: "Sales", href: "/dashboard-bundui/sales", icon: BadgeDollarSignIcon, isNew: true },
+      { title: "CRM", href: "/dashboard-bundui/crm", icon: ChartBarDecreasingIcon, isNew: true },
       {
         title: "Website Analytics",
-        href: "/dashboard/website-analytics",
+        href: "/dashboard-bundui/analytics",
         icon: GaugeIcon,
         isNew: true
       },
       {
         title: "Project Management",
-        href: "/dashboard/project-management",
+        href: "/dashboard-bundui/projects",
         icon: FolderDotIcon,
         isNew: true
       },
-      {
-        title: "File Manager",
-        href: "/dashboard/file-manager",
-        icon: FolderIcon,
-        isNew: true
-      },
-      { title: "Crypto", href: "/dashboard/crypto", icon: WalletMinimalIcon, isNew: true },
-      { title: "Academy/School", href: "/dashboard/academy", icon: GraduationCapIcon, isNew: true },
-      { title: "Hospital Management", href: "/dashboard/hospital-management", icon: ActivityIcon, isNew: true },
-      { title: "Hotel Dashboard", href: "/dashboard/hotel", icon: Building2Icon, isComing: true },
-      { title: "Finance", href: "/dashboard/finance", icon: WalletMinimalIcon, isNew: true }
+      // { title: "File Manager", href: "/dashboard-bundui/file-manager", icon: FolderIcon, isNew: true }, // NO EXISTE
+      // { title: "Crypto", href: "/dashboard-bundui/crypto", icon: WalletMinimalIcon, isNew: true }, // NO EXISTE
+      { title: "Academy/School", href: "/dashboard-bundui/academy", icon: GraduationCapIcon, isNew: true },
+      { title: "Hospital Management", href: "/dashboard-bundui/hospital-management", icon: ActivityIcon, isNew: true },
+      { title: "Hotel Dashboard", href: "/dashboard-bundui/hotel", icon: Building2Icon, isComing: true }
+      // { title: "Finance", href: "/dashboard-bundui/finance", icon: WalletMinimalIcon, isNew: true } // NO EXISTE
     ]
   },
   {
     title: "AI",
     items: [
-      { title: "AI Chat", href: "/dashboard/apps/ai-chat", icon: BrainCircuitIcon, isNew: true },
+      { title: "AI Chat", href: "/dashboard-bundui/apps/ai-chat", icon: BrainCircuitIcon, isNew: true },
       {
         title: "AI Chat V2",
-        href: "/dashboard/apps/ai-chat",
+        href: "/dashboard-bundui/apps/ai-chat",
         icon: BrainCircuitIcon,
         isComing: true
       },
       {
         title: "Image Generator",
-        href: "/dashboard/apps/ai-image-generator",
+        href: "/dashboard-bundui/apps/ai-image-generator",
         icon: ImagesIcon,
         isNew: true
       }
@@ -151,30 +146,30 @@ export const navItems: NavGroup[] = [
         icon: SquareKanbanIcon,
         isNew: true
       },
-      { title: "Notes", href: "/dashboard/apps/notes", icon: StickyNoteIcon, isDataBadge: "8", isNew: true },
-      { title: "Chats", href: "/dashboard/apps/chat", icon: MessageSquareIcon, isDataBadge: "5", isNew: true },
-      { title: "Mail", href: "/dashboard/apps/mail", icon: MailIcon, isNew: true },
+      { title: "Notes", href: "/dashboard-bundui/apps/notes", icon: StickyNoteIcon, isDataBadge: "8", isNew: true },
+      { title: "Chats", href: "/dashboard-bundui/apps/chat", icon: MessageSquareIcon, isDataBadge: "5", isNew: true },
+      { title: "Mail", href: "/dashboard-bundui/apps/mail", icon: MailIcon, isNew: true },
       {
         title: "Todo List App",
-        href: "/dashboard/apps/todo-list-app",
+        href: "/dashboard-bundui/apps/todo-list-app",
         icon: SquareCheckIcon,
         isNew: true
       },
       {
         title: "Tasks",
-        href: "/dashboard/apps/tasks",
+        href: "/dashboard-bundui/apps/tasks",
         icon: ClipboardCheckIcon,
         isNew: true
       },
-      { title: "Calendar", href: "/dashboard/apps/calendar", icon: CalendarIcon, isNew: true },
+      { title: "Calendar", href: "/dashboard-bundui/apps/calendar", icon: CalendarIcon, isNew: true },
       {
         title: "File Manager",
-        href: "/dashboard/apps/file-manager",
+        href: "/dashboard-bundui/apps/file-manager",
         icon: ArchiveRestoreIcon,
         isComing: true
       },
-      { title: "Api Keys", href: "/dashboard/apps/api-keys", icon: KeyIcon, isNew: true },
-      { title: "POS App", href: "/dashboard/apps/pos-system", icon: CookieIcon, isNew: true }
+      { title: "Api Keys", href: "/dashboard-bundui/apps/api-keys", icon: KeyIcon, isNew: true },
+      { title: "POS App", href: "/dashboard-bundui/apps/pos-system", icon: CookieIcon, isNew: true }
     ]
   },
   {
@@ -182,39 +177,39 @@ export const navItems: NavGroup[] = [
     items: [
       {
         title: "Users List",
-        href: "/dashboard/pages/users",
+        href: "/dashboard-bundui/pages/users",
         icon: UsersIcon
       },
       {
         title: "Profile",
-        href: "/dashboard/pages/profile",
+        href: "/dashboard-bundui/pages/profile",
         icon: UserIcon
       },
       {
         title: "Onboarding Flow",
-        href: "/dashboard/pages/onboarding-flow",
+        href: "/dashboard-bundui/pages/onboarding-flow",
         icon: RedoDotIcon
       },
       {
         title: "Empty States",
-        href: "/dashboard/pages/empty-states/01",
+        href: "/dashboard-bundui/pages/empty-states/01",
         icon: BrushCleaningIcon,
         items: [
-          { title: "Empty States 01", href: "/dashboard/pages/empty-states/01" },
-          { title: "Empty States 02", href: "/dashboard/pages/empty-states/02" },
-          { title: "Empty States 03", href: "/dashboard/pages/empty-states/03" }
+          { title: "Empty States 01", href: "/dashboard-bundui/pages/empty-states/01" },
+          { title: "Empty States 02", href: "/dashboard-bundui/pages/empty-states/02" },
+          { title: "Empty States 03", href: "/dashboard-bundui/pages/empty-states/03" }
         ]
       },
       {
         title: "Settings",
-        href: "/dashboard/pages/settings",
+        href: "/dashboard-bundui/pages/settings",
         icon: SettingsIcon,
         items: [
-          { title: "Profile", href: "/dashboard/pages/settings" },
-          { title: "Account", href: "/dashboard/pages/settings/account" },
-          { title: "Appearance", href: "/dashboard/pages/settings/appearance" },
-          { title: "Notifications", href: "/dashboard/pages/settings/notifications" },
-          { title: "Display", href: "/dashboard/pages/settings/display" }
+          { title: "Profile", href: "/dashboard-bundui/pages/settings" },
+          { title: "Account", href: "/dashboard-bundui/pages/settings/account" },
+          { title: "Appearance", href: "/dashboard-bundui/pages/settings/appearance" },
+          { title: "Notifications", href: "/dashboard-bundui/pages/settings/notifications" },
+          { title: "Display", href: "/dashboard-bundui/pages/settings/display" }
         ]
       },
       {
@@ -222,9 +217,9 @@ export const navItems: NavGroup[] = [
         href: "#",
         icon: BadgeDollarSignIcon,
         items: [
-          { title: "Column Pricing", href: "/dashboard/pages/pricing/column" },
-          { title: "Table Pricing", href: "/dashboard/pages/pricing/table" },
-          { title: "Single Pricing", href: "/dashboard/pages/pricing/single" }
+          { title: "Column Pricing", href: "/dashboard-bundui/pages/pricing/column" },
+          { title: "Table Pricing", href: "/dashboard-bundui/pages/pricing/table" },
+          { title: "Single Pricing", href: "/dashboard-bundui/pages/pricing/single" }
         ]
       },
       {
@@ -232,11 +227,11 @@ export const navItems: NavGroup[] = [
         href: "/",
         icon: FingerprintIcon,
         items: [
-          { title: "Login v1", href: "/dashboard/login/v1" },
-          { title: "Login v2", href: "/dashboard/login/v2" },
-          { title: "Register v1", href: "/dashboard/register/v1" },
-          { title: "Register v2", href: "/dashboard/register/v2" },
-          { title: "Forgot Password", href: "/dashboard/forgot-password" }
+          { title: "Login v1", href: "/dashboard-bundui/login/v1" },
+          { title: "Login v2", href: "/dashboard-bundui/login/v2" },
+          { title: "Register v1", href: "/dashboard-bundui/register/v1" },
+          { title: "Register v2", href: "/dashboard-bundui/register/v2" },
+          { title: "Forgot Password", href: "/dashboard-bundui/forgot-password" }
         ]
       },
       {
@@ -244,9 +239,9 @@ export const navItems: NavGroup[] = [
         href: "/",
         icon: FingerprintIcon,
         items: [
-          { title: "404", href: "/dashboard/pages/error/404" },
-          { title: "500", href: "/dashboard/pages/error/500" },
-          { title: "403", href: "/dashboard/pages/error/403" }
+          { title: "404", href: "/dashboard-bundui/pages/error/404" },
+          { title: "500", href: "/dashboard-bundui/pages/error/500" },
+          { title: "403", href: "/dashboard-bundui/pages/error/403" }
         ]
       }
     ]

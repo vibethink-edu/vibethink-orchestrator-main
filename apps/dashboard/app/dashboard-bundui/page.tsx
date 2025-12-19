@@ -47,20 +47,6 @@ const dashboards = [
     category: 'Dashboards'
   },
   {
-    name: 'Website Analytics',
-    href: '/dashboard-bundui/website-analytics',
-    icon: BarChart3,
-    description: 'Website analytics dashboard with traffic data, user interactions, and performance metrics',
-    category: 'Dashboards'
-  },
-  {
-    name: 'Website Analytics',
-    href: '/dashboard-bundui/website-analytics',
-    icon: BarChart3,
-    description: 'Website traffic analytics with conversion rates, visitor metrics, and campaign performance',
-    category: 'Dashboards'
-  },
-  {
     name: 'CRM',
     href: '/dashboard-bundui/crm',
     icon: Users,
@@ -68,31 +54,10 @@ const dashboards = [
     category: 'Dashboards'
   },
   {
-    name: 'Crypto',
-    href: '/dashboard-bundui/crypto',
-    icon: Bitcoin,
-    description: 'Cryptocurrency portfolio tracker with trading, DeFi, and NFT management',
-    category: 'Dashboards'
-  },
-  {
     name: 'E-commerce',
     href: '/dashboard-bundui/ecommerce',
     icon: ShoppingCart,
     description: 'E-commerce dashboard with products, orders, and sales analytics',
-    category: 'Dashboards'
-  },
-  {
-    name: 'File Manager',
-    href: '/dashboard-bundui/file-manager',
-    icon: FolderOpen,
-    description: 'File storage and management system with upload, organization, and sharing',
-    category: 'Dashboards'
-  },
-  {
-    name: 'Finance',
-    href: '/dashboard-bundui/finance',
-    icon: DollarSign,
-    description: 'Financial dashboard with budgets, expenses, and financial planning',
     category: 'Dashboards'
   },
   {
@@ -124,13 +89,6 @@ const dashboards = [
     category: 'Dashboards'
   },
   {
-    name: 'Project Management',
-    href: '/dashboard-bundui/project-management',
-    icon: Briefcase,
-    description: 'Comprehensive project management with tasks, timelines, and team collaboration',
-    category: 'Dashboards'
-  },
-  {
     name: 'Project List',
     href: '/dashboard-bundui/project-list',
     icon: FolderKanban,
@@ -149,53 +107,17 @@ const dashboards = [
 const apps = [
   {
     name: 'AI Chat',
-    href: '/dashboard-bundui/ai-chat',
+    href: '/dashboard-bundui/apps/chat',
     icon: MessageSquare,
     description: 'AI-powered chat interface with multiple model support and conversation history',
     category: 'AI Apps'
-  },
-  {
-    name: 'Calendar',
-    href: '/dashboard-bundui/calendar',
-    icon: Calendar,
-    description: 'Calendar application with events, scheduling, and reminders',
-    category: 'Apps'
-  },
-  {
-    name: 'Mail',
-    href: '/dashboard-bundui/mail',
-    icon: Mail,
-    description: 'Email client with inbox, compose, and email management',
-    category: 'Apps'
-  },
-  {
-    name: 'Notes',
-    href: '/dashboard-bundui/notes',
-    icon: StickyNote,
-    description: 'Note-taking application with rich text editing and organization',
-    category: 'Apps'
-  },
-  {
-    name: 'POS System',
-    href: '/dashboard-bundui/pos-system',
-    icon: ShoppingBag,
-    description: 'Point of sale system for retail and restaurant management',
-    category: 'Apps'
-  },
-  {
-    name: 'Tasks',
-    href: '/dashboard-bundui/tasks',
-    icon: CheckSquare,
-    description: 'Task management with to-do lists, priorities, and deadlines',
-    category: 'Apps'
   }
 ];
 
 const categories = [
   { name: 'Dashboards', items: dashboards },
-  { name: 'Apps', items: apps.filter(app => app.category === 'Apps') },
   { name: 'AI Apps', items: apps.filter(app => app.category === 'AI Apps') }
-];
+].filter(category => category.items.length > 0);
 
 export default function DashboardBunduiIndex() {
   return (

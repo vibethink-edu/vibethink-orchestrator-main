@@ -1,8 +1,30 @@
-export * from "./average-daily-sales";
-export * from "./earning-reports-card";
-export * from "./monthly-campaign-state";
-export * from "./sales-by-countries-card";
-export * from "./sales-overflow-card";
-export * from "./tickets-card";
-export * from "./total-earning-card";
-export * from "./website-analytics-card";
+/**
+ * Website Analytics Components - Barrel Exports
+ * 
+ * Centralized exports for all analytics dashboard components
+ * Simplifies imports across the application
+ */
+
+// Header and Layout Components
+export { AnalyticsHeader, AnalyticsHeaderCompact } from './AnalyticsHeader'
+
+// Core Analytics Components
+export { WebsiteAnalyticsCard } from './WebsiteAnalyticsCard'
+export { TotalEarningCard } from './TotalEarningCard'
+export { EarningReportsCard } from './EarningReportsCard'
+
+// Performance and Sales Components
+export { SalesOverflowCard } from './SalesOverflowCard'
+export { SalesByCountriesCard } from './SalesByCountriesCard'
+export { AverageDailySalesCard } from './AverageDailySales'
+
+// Campaign and Support Components
+export { MonthlyCampaignState } from './MonthlyCampaignState'
+export { TicketsCard } from './TicketsCard'
+
+// Re-export types for convenience
+export type { 
+  AnalyticsCardProps,
+  ChartComponentProps,
+  MetricsCardProps 
+} from '../types'

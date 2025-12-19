@@ -1,5 +1,47 @@
 # Project Mission
-This project is a **Voice Agent Application** featuring "Andrés Cántor", designed to provide an interactive, real-time conversational experience focused on the World Cup 2026. It leverages Google's Gemini models for intelligence and ElevenLabs for high-quality voice synthesis, integrated into a React frontend.
+This project is a **VibeThink Orchestrator 1.0** - an Enterprise SaaS Platform with AI Integration featuring multiple dashboard systems for different purposes.
+
+## 🚨 CRITICAL: Arquitectura de Dashboards (NUNCA VIOLAR)
+
+### Regla Fundamental: Independencia Total de Dashboards
+
+**NO habrá sidebars compartidos NUNCA. Cada sistema de dashboards es completamente independiente.**
+
+#### `/dashboard-bundui` - Espejo Monorepo de Bundui Premium
+- **Propósito**: Versión monorepo de Bundui Premium (espejo fiel)
+- **Sidebar**: Propio e independiente (`AppSidebar` de Bundui)
+- **Rutas**: SIEMPRE `/dashboard-bundui/*`
+- **Modificación**: NO (o mínimo necesario - mucho trabajo mantenerlo)
+- **Stack**: Shadcn UI first, SIEMPRE
+
+#### `/dashboard-vibethink` - Mejoras y Extensiones
+- **Propósito**: Mejoras o extensiones de dashboards
+- **Sidebar**: Propio e independiente (`VibeThinkSidebar`)
+- **Rutas**: SIEMPRE `/dashboard-vibethink/*`
+- **Modificación**: SÍ (total libertad)
+- **Stack**: Shadcn UI first, SIEMPRE
+
+### ⚠️ Principios Arquitectónicos
+
+1. **Independencia Total**: Cada sistema tiene su propio sidebar, layout, y navegación
+2. **Sin Compartir**: NUNCA compartir sidebars entre sistemas
+3. **Shadcn First**: SIEMPRE usar Shadcn UI como base
+4. **Rutas Específicas**: Cada sistema usa su propio prefijo de ruta
+5. **Objetivos Claros**: 
+   - `bundui` = espejo para referencia
+   - `vibethink` = mejoras y extensiones
+
+### 📋 Checklist para Nuevos Dashboards
+
+Antes de crear un dashboard, pregunta:
+- [ ] ¿Va en `/dashboard-bundui` o `/dashboard-vibethink`?
+- [ ] ¿Usa el sidebar correcto para ese sistema?
+- [ ] ¿Todas las rutas usan el prefijo correcto?
+- [ ] ¿Está basado en Shadcn UI?
+
+**NUNCA intentes compartir componentes de navegación entre sistemas.**
+
+---
 
 # Tech Stack
 The following technologies are the **official standards** for this project. Do not introduce new frameworks or libraries without explicit user approval.
@@ -16,6 +58,60 @@ The following technologies are the **official standards** for this project. Do n
 - **State Management**: React Hooks (`useState`, `useRef`, `useContext` if needed) - *Keep it simple.*
 - **Audio**: Native Web Audio API (`AudioContext`, `AudioWorklet` for input, `AudioBufferSourceNode` for output).
 
+## 🚨 CRITICAL: Validación con Dev-Kit
+
+**REGLA FUNDAMENTAL: Siempre validar generalidades en `_vibethink-dev-kit` primero.**
+
+### Antes de CUALQUIER cambio importante:
+
+1. **Consultar `_vibethink-dev-kit/knowledge/`**:
+   - `PORT_ASSIGNMENT_GLOBAL.md` - Puertos globales
+   - `ai-agents/AGENTS_UNIVERSAL.md` - Reglas universales
+   - `engineering-standards/` - Estándares técnicos
+   - Otros documentos relevantes
+
+2. **Usar herramientas del Dev-Kit**:
+   - `packages/tools/powershell-modules/PortManager/` - Gestión de puertos
+   - Otros módulos compartidos
+
+3. **Respetar jerarquía**:
+   ```
+   Dev-Kit (Universal) → AGENTS.md (Proyecto) → Implementación
+   ```
+
+**Ubicación**: `C:\IA Marcelo Labs\_vibethink-dev-kit`
+
+---
+
+## 🚨 CRITICAL: Shadcn UI Monorepo Compliance
+
+**REGLA FUNDAMENTAL: Todo lo relacionado con Shadcn UI debe seguir el estándar de monorepo.**
+
+### Configuración Obligatoria:
+
+1. **components.json en CADA workspace**:
+   - ✅ `apps/dashboard/components.json` - Configuración de la app
+   - ✅ `packages/ui/components.json` - Configuración del package
+
+2. **Usar Shadcn CLI para agregar componentes**:
+   ```bash
+   cd apps/dashboard
+   npx shadcn@latest add [component]
+   ```
+   
+   El CLI automáticamente:
+   - Instala el componente en `packages/ui`
+   - Actualiza imports correctamente
+   - Instala dependencias necesarias
+
+3. **Referencias NO son monorepo**:
+   - ❌ `C:\IA Marcelo Labs\bundui\shadcn-ui-kit-dashboard` - SOLO LECTURA
+   - ❌ `C:\IA Marcelo Labs\shadcn-ui\ui\apps\v4` - SOLO LECTURA
+
+**Documentación**: `docs/architecture/SHADCN_MONOREPO_COMPLIANCE.md`
+
+---
+
 ## 🚨 CRITICAL: Stack Compatibility
 
 **BEFORE suggesting ANY dependency changes, READ:**
@@ -29,6 +125,54 @@ The following technologies are the **official standards** for this project. Do n
 - ⚠️ ALWAYS verify compatibility before suggesting updates
 
 **If unsure:** Ask user before installing/updating dependencies.
+
+## 🚨 CRITICAL: Referencias NO se Modifican
+
+**⚠️ REGLA CRÍTICA: TODO LO QUE SEA REFERENCIA NUNCA DEBE SER MODIFICADO**
+
+**Principio Fundamental:**
+- Cualquier directorio/archivo marcado como "referencia" o "reference" es **SOLO LECTURA**
+- **NO importa si está dentro o fuera del monorepo** - Si es REFERENCE, NO se modifica
+- Las referencias existen para consulta, comparación y debugging
+- **NUNCA** modifiques referencias directamente
+
+**🎯 Regla Universal:**
+- ✅ Cualquier directorio/archivo con `-reference` en su nombre → ❌ **NO MODIFICAR**
+- ✅ Cualquier directorio/archivo mencionado como "reference" en docs/scripts → ❌ **NO MODIFICAR**
+- ✅ Cualquier directorio fuera del monorepo marcado como referencia → ❌ **NO MODIFICAR**
+- ✅ **El hecho de estar dentro del monorepo NO significa que puede modificarse si es REFERENCE**
+
+### **Ejemplos de Referencias (NO MODIFICAR):**
+
+**Referencias Externas (fuera del monorepo):**
+- `C:\IA Marcelo Labs\bundui\shadcn-ui-kit-dashboard/` - Bundui Original
+- `C:\IA Marcelo Labs\shadcn-ui\ui\apps\v4/` - Shadcn UI Reference
+- `C:\IA Marcelo Labs\xyflow\xyflow\examples\react/` - ReactFlow Reference
+
+**Referencias Dentro del Monorepo (TAMBIÉN NO MODIFICAR):**
+- `apps/bundui-reference/` - Bundui Reference (monorepo)
+- Cualquier directorio con `-reference` en su nombre
+- Cualquier directorio documentado como "reference"
+
+**✅ Dónde SÍ hacer cambios (en el monorepo):**
+- `apps/dashboard/app/dashboard-vibethink/` - Personalizaciones (SÍ modificar - total libertad)
+- `apps/dashboard/src/shared/components/bundui-premium/` - Componentes adaptados (SÍ modificar)
+- `apps/dashboard/app/dashboard-bundui/` - Espejo modificable (SÍ modificar, aunque es espejo)
+
+**⚠️ Espejo vs Reference:**
+- `apps/dashboard/app/dashboard-bundui/` - Es espejo (SÍ puede modificarse, aunque requiere cuidado)
+- `apps/bundui-reference/` - Es referencia (❌ NO modificar nunca)
+
+**Checklist antes de modificar:**
+- ¿Tiene `-reference` en nombre/path? → ❌ **NO MODIFICAR** (ej: `apps/bundui-reference/`)
+- ¿Está mencionado como "reference" en docs/scripts? → ❌ **NO MODIFICAR**
+- ¿Está fuera del monorepo marcado como referencia? → ❌ **NO MODIFICAR**
+- ¿Está dentro del monorepo pero es referencia? → ❌ **NO MODIFICAR**
+- ¿Está dentro de `vibethink-orchestrator-main/` pero NO es referencia? → ✅ **Puede modificarse**
+
+**Documentación completa:** 
+- `docs/architecture/REFERENCE_RULES.md` - Reglas generales para TODAS las referencias
+- `docs/architecture/BUNDUI_REFERENCE_RULE.md` - Específico de Bundui
 
 # Architectural Guidelines
 

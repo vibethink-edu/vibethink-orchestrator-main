@@ -1,1 +1,1 @@
-export { default } from "../../dashboard-bundui/projects/page";
+export { default } from "../../dashboard-vibethink/project-management/page";

@@ -1,1 +1,1 @@
-export { default } from "../../dashboard-bundui/finance/page";
+export { default } from "../../dashboard-vibethink/finance/page";

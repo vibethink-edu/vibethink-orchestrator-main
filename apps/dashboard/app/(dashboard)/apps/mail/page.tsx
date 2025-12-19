@@ -1,1 +1,1 @@
-export { default } from "../../../dashboard-bundui/mail/page";
+export { default } from "../../../dashboard-vibethink/mail/page";

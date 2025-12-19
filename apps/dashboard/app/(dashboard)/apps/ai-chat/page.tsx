@@ -1,1 +1,1 @@
-export { default } from "../../../dashboard-bundui/ai-chat/page";
+export { default } from "../../../dashboard-vibethink/ai-chat/page";

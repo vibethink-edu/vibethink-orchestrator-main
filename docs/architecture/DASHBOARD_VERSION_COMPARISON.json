@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2025-12-18T23:15:27.332Z",
+  "totalDuplicates": 5,
+  "recommendations": [
+    {
+      "name": "website-analytics",
+      "recommendation": "BUNDUI",
+      "bunduiScore": 47,
+      "vibethinkScore": 43,
+      "bunduiPath": "analytics",
+      "vibethinkPath": "website-analytics"
+    },
+    {
+      "name": "crm",
+      "recommendation": "VIBETHINK",
+      "bunduiScore": 32,
+      "vibethinkScore": 32,
+      "bunduiPath": "crm",
+      "vibethinkPath": "crm"
+    },
+    {
+      "name": "ecommerce",
+      "recommendation": "BUNDUI",
+      "bunduiScore": 49,
+      "vibethinkScore": 15,
+      "bunduiPath": "ecommerce",
+      "vibethinkPath": "ecommerce"
+    },
+    {
+      "name": "project-management",
+      "recommendation": "BUNDUI",
+      "bunduiScore": 47,
+      "vibethinkScore": 45,
+      "bunduiPath": "projects",
+      "vibethinkPath": "project-management"
+    },
+    {
+      "name": "sales",
+      "recommendation": "VIBETHINK",
+      "bunduiScore": 41,
+      "vibethinkScore": 41,
+      "bunduiPath": "sales",
+      "vibethinkPath": "sales"
+    }
+  ]
+}

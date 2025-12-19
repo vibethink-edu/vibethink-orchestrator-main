@@ -47,116 +47,81 @@ const orchestratorDashboards = [
     category: 'Business'
   },
   {
-    name: 'Analytics',
-    href: '/dashboard-bundui/analytics',
-    icon: BarChart3,
-    description: 'Comprehensive analytics dashboard with sales, earnings, and campaign metrics',
-    category: 'Analytics'
-  },
-  {
     name: 'Finance',
-    href: '/dashboard-bundui/finance',
+    href: '/dashboard-vibethink/finance',
     icon: DollarSign,
     description: 'Financial dashboard with budgets, expenses, and financial planning',
     category: 'Business'
   },
   {
-    name: 'Projects',
-    href: '/dashboard-bundui/projects',
+    name: 'Project Management',
+    href: '/dashboard-vibethink/project-management',
     icon: Briefcase,
     description: 'Project management with tasks, timelines, and team collaboration',
     category: 'Productivity'
   },
   {
     name: 'Tasks',
-    href: '/dashboard-bundui/tasks',
+    href: '/dashboard-vibethink/tasks',
     icon: CheckSquare,
     description: 'Task management with to-do lists, priorities, and deadlines',
     category: 'Productivity'
   },
   {
     name: 'Calendar',
-    href: '/dashboard-bundui/calendar',
+    href: '/dashboard-vibethink/calendar',
     icon: Calendar,
     description: 'Calendar application with events, scheduling, and reminders',
     category: 'Productivity'
   },
   {
     name: 'Mail',
-    href: '/dashboard-bundui/mail',
+    href: '/dashboard-vibethink/mail',
     icon: Mail,
     description: 'Email client with inbox, compose, and email management',
     category: 'Productivity'
   },
   {
     name: 'Notes',
-    href: '/dashboard-bundui/notes',
+    href: '/dashboard-vibethink/notes',
     icon: StickyNote,
     description: 'Note-taking application with rich text editing and organization',
     category: 'Productivity'
   },
   {
     name: 'File Manager',
-    href: '/dashboard-bundui/file-manager',
+    href: '/dashboard-vibethink/file-manager',
     icon: FolderOpen,
     description: 'File storage and management system with upload, organization, and sharing',
     category: 'Productivity'
   },
   {
-    name: 'Academy',
-    href: '/dashboard-bundui/academy',
-    icon: GraduationCap,
-    description: 'Learning management system with courses, progress tracking, and student analytics',
-    category: 'Education'
+    name: 'Website Analytics',
+    href: '/dashboard-vibethink/website-analytics',
+    icon: BarChart3,
+    description: 'Website analytics dashboard with traffic data, user interactions, and performance metrics',
+    category: 'Analytics'
   },
   {
     name: 'AI Chat',
-    href: '/dashboard-bundui/ai-chat',
+    href: '/dashboard-vibethink/ai-chat',
     icon: Activity,
     description: 'AI-powered chat interface with multiple model support and conversation history',
     category: 'AI'
   },
   {
     name: 'POS System',
-    href: '/dashboard-bundui/pos-system',
+    href: '/dashboard-vibethink/pos-system',
     icon: ShoppingBag,
     description: 'Point of sale system for retail and restaurant management',
     category: 'Business'
   },
   {
-    name: 'Payment',
-    href: '/dashboard-bundui/payment',
-    icon: CreditCard,
-    description: 'Payment processing dashboard with transactions and payment methods',
-    category: 'Business'
-  },
-  {
     name: 'Crypto',
-    href: '/dashboard-bundui/crypto',
+    href: '/dashboard-vibethink/crypto',
     icon: Bitcoin,
     description: 'Cryptocurrency portfolio tracker with trading, DeFi, and NFT management',
     category: 'Finance'
-  },
-  {
-    name: 'Hospital Management',
-    href: '/dashboard-bundui/hospital-management',
-    icon: Hospital,
-    description: 'Hospital management system with patients, appointments, and medical records',
-    category: 'Healthcare'
-  },
-  {
-    name: 'Hotel',
-    href: '/dashboard-bundui/hotel',
-    icon: Building2,
-    description: 'Hotel management dashboard with bookings, rooms, and guest management',
-    category: 'Hospitality'
-  },
-  {
-    name: 'Project List',
-    href: '/dashboard-bundui/project-list',
-    icon: FileText,
-    description: 'Project list view with kanban boards and project organization',
-    category: 'Productivity'
   }
 ];
 
@@ -165,10 +130,7 @@ const categories = [
   { name: 'Productivity', dashboards: orchestratorDashboards.filter(d => d.category === 'Productivity') },
   { name: 'Analytics', dashboards: orchestratorDashboards.filter(d => d.category === 'Analytics') },
   { name: 'AI', dashboards: orchestratorDashboards.filter(d => d.category === 'AI') },
-  { name: 'Finance', dashboards: orchestratorDashboards.filter(d => d.category === 'Finance') },
-  { name: 'Education', dashboards: orchestratorDashboards.filter(d => d.category === 'Education') },
-  { name: 'Healthcare', dashboards: orchestratorDashboards.filter(d => d.category === 'Healthcare') },
-  { name: 'Hospitality', dashboards: orchestratorDashboards.filter(d => d.category === 'Hospitality') }
+  { name: 'Finance', dashboards: orchestratorDashboards.filter(d => d.category === 'Finance') }
 ].filter(cat => cat.dashboards.length > 0);
 
 export default function DashboardVibeThinkIndex() {

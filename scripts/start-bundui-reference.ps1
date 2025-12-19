@@ -56,11 +56,31 @@ if (-not (Test-Path $BUNDUI_DIR)) {
 }
 
 # Check if port is actively listening (ignore TIME_WAIT connections)
+# Get-NetTCPConnection can return multiple connections or array
 $portListening = Get-NetTCPConnection -LocalPort $PORT -State Listen -ErrorAction SilentlyContinue
 if ($portListening) {
-    Write-Host "⚠️  Port $PORT is already in use" -ForegroundColor Yellow
-    Write-Host "Run .\scripts\stop-bundui-reference.ps1 first to stop existing server" -ForegroundColor Yellow
-    exit 1
+    # Handle both single connection and array
+    $uniqueProcessIds = $portListening | 
+        Select-Object -ExpandProperty OwningProcess -Unique | 
+        Where-Object { $_ -gt 0 }  # Filter out system processes (Idle = 0)
+    
+    if ($uniqueProcessIds) {
+        # Get process info for better error message
+        $processInfo = @()
+        foreach ($processId in $uniqueProcessIds) {
+            try {
+                $proc = Get-Process -Id $processId -ErrorAction Stop
+                $processInfo += "$($proc.ProcessName) (PID: $processId)"
+            } catch {
+                $processInfo += "Unknown (PID: $processId)"
+            }
+        }
+        
+        Write-Host "⚠️  Port $PORT is already in use by:" -ForegroundColor Yellow
+        $processInfo | ForEach-Object { Write-Host "   - $_" -ForegroundColor Yellow }
+        Write-Host "Run .\scripts\stop-bundui-reference.ps1 first to stop existing server" -ForegroundColor Yellow
+        exit 1
+    }
 }
 
 # Check if node_modules exists

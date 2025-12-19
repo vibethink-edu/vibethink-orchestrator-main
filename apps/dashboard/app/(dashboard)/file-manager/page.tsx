@@ -1,1 +1,1 @@
-export { default } from "../../dashboard-bundui/file-manager/page";
+export { default } from "../../dashboard-vibethink/file-manager/page";
