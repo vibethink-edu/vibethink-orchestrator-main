@@ -45,6 +45,10 @@ import {
   Hospital,
   BrainCircuit,
   Gauge,
+  Sparkles,
+  Columns,
+  LayoutDashboard,
+  GitBranch,
   type LucideIcon,
 } from "lucide-react";
 
@@ -57,9 +61,33 @@ type NavItem = {
 
 const vibethinkNavItems: NavItem[] = [
   {
+    title: "Default",
+    href: "/dashboard-vibethink/default",
+    icon: LayoutDashboard,
+    badge: "New",
+  },
+  {
+    title: "Academy",
+    href: "/dashboard-vibethink/academy",
+    icon: GraduationCap,
+    badge: "New",
+  },
+  {
     title: "AI Chat",
     href: "/dashboard-vibethink/ai-chat",
     icon: BrainCircuit,
+  },
+  {
+    title: "AI Image Generator",
+    href: "/dashboard-vibethink/ai-image-generator",
+    icon: Sparkles,
+    badge: "New",
+  },
+  {
+    title: "Analytics",
+    href: "/dashboard-vibethink/analytics",
+    icon: BarChart3,
+    badge: "New",
   },
   {
     title: "Calendar",
@@ -92,6 +120,12 @@ const vibethinkNavItems: NavItem[] = [
     icon: DollarSign,
   },
   {
+    title: "Kanban",
+    href: "/dashboard-vibethink/kanban",
+    icon: Columns,
+    badge: "New",
+  },
+  {
     title: "Mail",
     href: "/dashboard-vibethink/mail",
     icon: Mail,
@@ -100,6 +134,12 @@ const vibethinkNavItems: NavItem[] = [
     title: "Notes",
     href: "/dashboard-vibethink/notes",
     icon: StickyNote,
+  },
+  {
+    title: "Payment",
+    href: "/dashboard-vibethink/payment",
+    icon: CreditCard,
+    badge: "New",
   },
   {
     title: "POS System",
@@ -125,6 +165,12 @@ const vibethinkNavItems: NavItem[] = [
     title: "Website Analytics",
     href: "/dashboard-vibethink/website-analytics",
     icon: Gauge,
+  },
+  {
+    title: "Workflow",
+    href: "/dashboard-vibethink/workflow",
+    icon: GitBranch,
+    badge: "New",
   },
 ];
 
