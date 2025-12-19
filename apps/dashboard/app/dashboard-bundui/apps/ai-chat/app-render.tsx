@@ -13,7 +13,7 @@ import { Suggestion } from "@vibethink/ui";
 import { ChatContainer } from "@vibethink/ui";
 import { Message, MessageContent } from "@vibethink/ui";
 import { Markdown } from "@vibethink/ui";
-import { cn } from "@/shared/lib/utils";
+import { cn } from "@/lib/utils";
 import { PromptLoader } from "@vibethink/ui";
 import { PromptScrollButton } from "@vibethink/ui";
 

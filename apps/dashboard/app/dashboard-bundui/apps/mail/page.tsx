@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { generateMeta } from "@/shared/lib/utils";
+import { generateMeta } from "@/lib/utils";
 
 import { Mail } from "./components/mail";
 import { accounts, mails } from "./data";

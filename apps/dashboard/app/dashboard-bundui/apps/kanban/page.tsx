@@ -1,4 +1,4 @@
-import { generateMeta } from "@/shared/lib/utils";
+import { generateMeta } from "@/lib/utils";
 
 import KanbanBoard from "./components/kanban-board";
 

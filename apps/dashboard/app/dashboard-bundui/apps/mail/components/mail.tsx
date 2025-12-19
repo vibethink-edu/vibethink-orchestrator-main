@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Search } from "lucide-react";
 import { useIsMobile } from "@/shared/hooks/use-mobile";
-import { cn } from "@/shared/lib/utils";
+import { cn } from "@/lib/utils";
 
 import { Input } from "@vibethink/ui";
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@vibethink/ui";

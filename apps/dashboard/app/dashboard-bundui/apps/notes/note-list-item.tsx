@@ -1,4 +1,4 @@
-import { cn } from "@/shared/lib/utils";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 import { Card, CardContent } from "@vibethink/ui";

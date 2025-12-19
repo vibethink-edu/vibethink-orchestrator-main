@@ -16,7 +16,7 @@ import {
 import { Nav } from "./nav";
 import { Separator } from "@vibethink/ui";
 import * as React from "react";
-import { cn } from "@/shared/lib/utils";
+import { cn } from "@/lib/utils";
 import { AccountSwitcher } from "./account-switcher";
 import { accounts } from "../data";
 

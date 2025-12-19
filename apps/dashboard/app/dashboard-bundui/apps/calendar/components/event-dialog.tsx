@@ -6,7 +6,7 @@ import { format, isBefore } from "date-fns";
 
 import type { CalendarEvent, EventColor } from "./";
 import { DefaultEndHour, DefaultStartHour, EndHour, StartHour } from "../constants";
-import { cn } from "@/shared/lib/utils";
+import { cn } from "@/lib/utils";
 import { Button } from "@vibethink/ui";
 import { Calendar } from "@vibethink/ui";
 import { Checkbox } from "@vibethink/ui";

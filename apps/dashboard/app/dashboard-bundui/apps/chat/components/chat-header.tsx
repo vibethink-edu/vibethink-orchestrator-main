@@ -13,7 +13,7 @@ import {
   AvatarImage,
   AvatarIndicator
 } from "@vibethink/ui";
-import { generateAvatarFallback } from "@/shared/lib/utils";
+import { generateAvatarFallback } from "@/lib/utils";
 import useChatStore from "../useChatStore";
 
 import {

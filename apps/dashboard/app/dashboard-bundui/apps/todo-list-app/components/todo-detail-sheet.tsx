@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { cn } from "@/shared/lib/utils";
+import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import {
   Check,

@@ -2,7 +2,7 @@ import { ComponentProps } from "react";
 import { formatDistanceToNow } from "date-fns";
 import { Mail } from "../data";
 import { useMailStore } from "../use-mail";
-import { cn } from "@/shared/lib/utils";
+import { cn } from "@/lib/utils";
 
 import { Badge } from "@vibethink/ui";
 import { ScrollArea } from "@vibethink/ui";

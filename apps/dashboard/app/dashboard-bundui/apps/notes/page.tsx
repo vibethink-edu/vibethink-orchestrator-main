@@ -1,4 +1,4 @@
-import { generateMeta } from "@/shared/lib/utils";
+import { generateMeta } from "@/lib/utils";
 import NotesApp from "./note-app";
 
 export async function generateMetadata() {

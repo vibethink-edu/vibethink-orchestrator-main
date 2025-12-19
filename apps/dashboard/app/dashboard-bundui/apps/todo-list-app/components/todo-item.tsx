@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@/shared/lib/utils";
+import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { Calendar, FileIcon, Star, BellIcon } from "lucide-react";
 import { priorityClasses, statusClasses } from "./enum";

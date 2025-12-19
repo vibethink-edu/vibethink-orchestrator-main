@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { cn } from "@/shared/lib/utils";
+import { cn } from "@/lib/utils";
 import { ImageIcon, Tag, PenSquare, Check, Trash2Icon, ArchiveIcon } from "lucide-react";
 import { MinimalTiptapEditor } from "@vibethink/ui";
 import { Content } from "@tiptap/react";
