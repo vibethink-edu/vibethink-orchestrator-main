@@ -122,10 +122,10 @@ export const navItems: NavGroup[] = [
   {
     title: "AI",
     items: [
-      { title: "AI Chat", href: "/dashboard-bundui/apps/ai-chat", icon: BrainCircuitIcon, isNew: true },
+      { title: "AI Chat", href: "/dashboard-bundui/ai-chat", icon: BrainCircuitIcon, isNew: true },
       {
         title: "AI Chat V2",
-        href: "/dashboard-bundui/apps/ai-chat",
+        href: "/dashboard-bundui/ai-chat",
         icon: BrainCircuitIcon,
         isComing: true
       },
@@ -142,34 +142,34 @@ export const navItems: NavGroup[] = [
     items: [
       {
         title: "Kanban",
-        href: "/dashboard-bundui/apps/kanban",
+        href: "/dashboard-bundui/kanban",
         icon: SquareKanbanIcon,
         isNew: true
       },
-      { title: "Notes", href: "/dashboard-bundui/apps/notes", icon: StickyNoteIcon, isDataBadge: "8", isNew: true },
-      { title: "Chats", href: "/dashboard-bundui/apps/chat", icon: MessageSquareIcon, isDataBadge: "5", isNew: true },
-      { title: "Mail", href: "/dashboard-bundui/apps/mail", icon: MailIcon, isNew: true },
+      { title: "Notes", href: "/dashboard-bundui/notes", icon: StickyNoteIcon, isDataBadge: "8", isNew: true },
+      { title: "Chats", href: "/dashboard-bundui/chat", icon: MessageSquareIcon, isDataBadge: "5", isNew: true },
+      { title: "Mail", href: "/dashboard-bundui/mail", icon: MailIcon, isNew: true },
       {
         title: "Todo List App",
-        href: "/dashboard-bundui/apps/todo-list-app",
+        href: "/dashboard-bundui/todo-list-app",
         icon: SquareCheckIcon,
         isNew: true
       },
       {
         title: "Tasks",
-        href: "/dashboard-bundui/apps/tasks",
+        href: "/dashboard-bundui/tasks",
         icon: ClipboardCheckIcon,
         isNew: true
       },
-      { title: "Calendar", href: "/dashboard-bundui/apps/calendar", icon: CalendarIcon, isNew: true },
+      { title: "Calendar", href: "/dashboard-bundui/calendar", icon: CalendarIcon, isNew: true },
       {
         title: "File Manager",
-        href: "/dashboard-bundui/apps/file-manager",
+        href: "/dashboard-bundui/file-manager",
         icon: ArchiveRestoreIcon,
         isComing: true
       },
       { title: "Api Keys", href: "/dashboard-bundui/api-keys", icon: KeyIcon, isNew: true },
-      { title: "POS App", href: "/dashboard-bundui/apps/pos-system", icon: CookieIcon, isNew: true }
+      { title: "POS App", href: "/dashboard-bundui/pos-system", icon: CookieIcon, isNew: true }
     ]
   },
   {
