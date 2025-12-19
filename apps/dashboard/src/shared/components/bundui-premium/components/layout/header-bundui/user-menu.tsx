@@ -18,7 +18,7 @@ export default function UserMenu() {
       <DropdownMenuTrigger asChild>
         <Avatar>
           <AvatarImage
-            src={`/images/avatars/01.png`}
+            src={`/assets/images/avatars/01.png`}
             alt="shadcn ui kit"
           />
           <AvatarFallback className="rounded-lg">TB</AvatarFallback>
@@ -29,7 +29,7 @@ export default function UserMenu() {
           <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
             <Avatar>
               <AvatarImage
-                src={`/images/avatars/01.png`}
+                src={`/assets/images/avatars/01.png`}
                 alt="shadcn ui kit"
               />
               <AvatarFallback className="rounded-lg">TB</AvatarFallback>

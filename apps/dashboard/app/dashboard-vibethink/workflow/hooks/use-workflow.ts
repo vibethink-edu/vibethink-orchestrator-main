@@ -6,7 +6,7 @@
  */
 
 import { useState, useCallback } from 'react';
-import { WorkflowNode, WorkflowEdge, WorkflowState, WorkflowAction } from '../types';
+import { WorkflowNode, WorkflowEdge, WorkflowState, WorkflowAction, NodeType } from '../types';
 import { generateMockWorkflow } from '../lib/mock-data';
 
 const initialState: WorkflowState = {
@@ -36,24 +36,50 @@ export function useWorkflow(initialData?: Partial<WorkflowState>) {
     };
   });
 
-  // Agregar nodo
-  const addNode = useCallback((type: string, position?: { x: number; y: number }) => {
-    const newNode: WorkflowNode = {
-      id: `node-${Date.now()}`,
-      type: type as any,
-      position: position || { x: Math.random() * 400, y: Math.random() * 400 },
-      data: {
-        label: `Nodo ${type}`,
-        type: type as any,
-        status: 'idle',
-      },
-    };
+  // Validar tipo de nodo
+  const isValidNodeType = (type: string): type is NodeType => {
+    return ['start', 'process', 'decision', 'action', 'end'].includes(type);
+  };
 
-    setState((prev) => ({
-      ...prev,
-      nodes: [...prev.nodes, newNode],
-      updatedAt: new Date(),
-    }));
+  // Agregar nodo con validación
+  const addNode = useCallback((type: string, position?: { x: number; y: number }) => {
+    try {
+      // Validar tipo de nodo
+      if (!isValidNodeType(type)) {
+        throw new Error(`Invalid node type: ${type}`);
+      }
+
+      // Validar posición
+      const validPosition = position || { 
+        x: Math.random() * 400, 
+        y: Math.random() * 400 
+      };
+      
+      if (typeof validPosition.x !== 'number' || typeof validPosition.y !== 'number') {
+        throw new Error('Invalid position: x and y must be numbers');
+      }
+
+      const newNode: WorkflowNode = {
+        id: `node-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        type,
+        position: validPosition,
+        data: {
+          label: `Nodo ${type}`,
+          type,
+          status: 'idle',
+        },
+      };
+
+      setState((prev) => ({
+        ...prev,
+        nodes: [...prev.nodes, newNode],
+        updatedAt: new Date(),
+      }));
+    } catch (error) {
+      // TODO: Implementar sistema de notificaciones (toast)
+      console.error('Error adding node:', error);
+      throw error;
+    }
   }, []);
 
   // Actualizar nodo
@@ -127,24 +153,70 @@ export function useWorkflow(initialData?: Partial<WorkflowState>) {
     });
   }, []);
 
-  // Guardar workflow
-  const saveWorkflow = useCallback(() => {
-    // TODO: Implementar guardado real
-    console.log('Saving workflow:', state);
+  // Actualizar todos los nodos (para sincronización con React Flow)
+  const updateNodes = useCallback((nodes: WorkflowNode[]) => {
     setState((prev) => ({
       ...prev,
-      config: {
-        ...prev.config,
-        updatedAt: new Date(),
-      },
+      nodes,
+      updatedAt: new Date(),
     }));
-  }, [state]);
+  }, []);
+
+  // Actualizar todos los edges (para sincronización con React Flow)
+  const updateEdges = useCallback((edges: WorkflowEdge[]) => {
+    setState((prev) => ({
+      ...prev,
+      edges,
+      updatedAt: new Date(),
+    }));
+  }, []);
+
+  // Agregar edge
+  const addEdge = useCallback((edge: WorkflowEdge) => {
+    setState((prev) => ({
+      ...prev,
+      edges: [...prev.edges, edge],
+      updatedAt: new Date(),
+    }));
+  }, []);
+
+  // Eliminar edge
+  const deleteEdge = useCallback((edgeId: string) => {
+    setState((prev) => ({
+      ...prev,
+      edges: prev.edges.filter((edge) => edge.id !== edgeId),
+      updatedAt: new Date(),
+    }));
+  }, []);
+
+  // Guardar workflow
+  const saveWorkflow = useCallback(() => {
+    try {
+      // TODO: Implementar guardado real (API call)
+      setState((prev) => ({
+        ...prev,
+        config: {
+          ...prev.config,
+          updatedAt: new Date(),
+        },
+      }));
+      // En producción, aquí se haría la llamada a la API
+    } catch (error) {
+      // TODO: Implementar sistema de notificaciones (toast)
+      console.error('Error saving workflow:', error);
+      throw error;
+    }
+  }, []);
 
   return {
     state,
     addNode,
     updateNode,
     deleteNode,
+    updateNodes,
+    addEdge,
+    updateEdges,
+    deleteEdge,
     runWorkflow,
     stopWorkflow,
     resetWorkflow,

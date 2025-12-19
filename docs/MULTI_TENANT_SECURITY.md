@@ -375,3 +375,4 @@ CREATE INDEX idx_customers_company_id ON customers (company_id, created_at);
 **Versión:** Fase 4 - Architecture Upgrade  
 **Autor:** VibeThink Orchestrator Team
 
+

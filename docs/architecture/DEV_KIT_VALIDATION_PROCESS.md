@@ -315,3 +315,4 @@ Test-Path $PortManagerPath
 **Criticidad**: ⚠️ MÁXIMA - No ignorar este proceso
 
 
+

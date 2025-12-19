@@ -83,3 +83,4 @@ if (fs.existsSync(sidebarFile)) {
 console.log(`\n✨ Proceso completado. ${fixedCount} archivo(s) corregido(s).`);
 
 
+

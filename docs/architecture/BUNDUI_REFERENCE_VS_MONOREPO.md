@@ -250,3 +250,4 @@ npm run validate:routes
 **Recomendación**: Mantener arquitectura actual (Bundui Monorepo como subconjunto funcional, VibeThink para innovación)
 
 
+

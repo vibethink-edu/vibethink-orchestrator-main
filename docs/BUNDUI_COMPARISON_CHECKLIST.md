@@ -276,3 +276,4 @@ Para cada ruta, verificar:
 - [ ] Documentar diferencias en `BUNDUI_REFERENCE_VS_MONOREPO.md`
 - [ ] Actualizar `AGENTS.md` con hallazgos
 
+

@@ -1,0 +1,27 @@
+{
+  "dashboard": "Panel",
+  "crm": "CRM",
+  "sales": "Ventas",
+  "ecommerce": "Comercio Electrónico",
+  "analytics": "Analíticas",
+  "calendar": "Calendario",
+  "crypto": "Cripto",
+  "finance": "Finanzas",
+  "kanban": "Kanban",
+  "mail": "Correo",
+  "notes": "Notas",
+  "payment": "Pagos",
+  "posSystem": "Sistema POS",
+  "projectManagement": "Gestión de Proyectos",
+  "tasks": "Tareas",
+  "websiteAnalytics": "Analíticas del Sitio",
+  "workflow": "Flujo de Trabajo",
+  "fileManager": "Gestor de Archivos",
+  "aiChat": "Chat IA",
+  "aiImageGenerator": "Generador de Imágenes IA",
+  "academy": "Academia",
+  "settings": "Configuración",
+  "profile": "Perfil",
+  "logout": "Cerrar Sesión"
+}
+

@@ -12,15 +12,15 @@
     "team": [
       {
         "id": 1,
-        "avatar": "/images/avatars/01.png"
+        "avatar": "/assets/images/avatars/01.png"
       },
       {
         "id": 2,
-        "avatar": "/images/avatars/02.png"
+        "avatar": "/assets/images/avatars/02.png"
       },
       {
         "id": 3,
-        "avatar": "/images/avatars/03.png"
+        "avatar": "/assets/images/avatars/03.png"
       }
     ]
   },
@@ -37,11 +37,11 @@
     "team": [
       {
         "id": 1,
-        "avatar": "/images/avatars/03.png"
+        "avatar": "/assets/images/avatars/03.png"
       },
       {
         "id": 2,
-        "avatar": "/images/images/avatars/04.png"
+        "avatar": "/assets/images/assets/images/avatars/04.png"
       }
     ]
   },
@@ -58,19 +58,19 @@
     "team": [
       {
         "id": 1,
-        "avatar": "/images/avatars/05.png"
+        "avatar": "/assets/images/avatars/05.png"
       },
       {
         "id": 2,
-        "avatar": "/images/avatars/06.png"
+        "avatar": "/assets/images/avatars/06.png"
       },
       {
         "id": 3,
-        "avatar": "/images/avatars/07.png"
+        "avatar": "/assets/images/avatars/07.png"
       },
       {
         "id": 3,
-        "avatar": "/images/avatars/08.png"
+        "avatar": "/assets/images/avatars/08.png"
       }
     ]
   },
@@ -87,15 +87,15 @@
     "team": [
       {
         "id": 1,
-        "avatar": "/images/avatars/01.png"
+        "avatar": "/assets/images/avatars/01.png"
       },
       {
         "id": 2,
-        "avatar": "/images/avatars/02.png"
+        "avatar": "/assets/images/avatars/02.png"
       },
       {
         "id": 3,
-        "avatar": "/images/avatars/03.png"
+        "avatar": "/assets/images/avatars/03.png"
       }
     ]
   },
@@ -113,7 +113,7 @@
     "team": [
       {
         "id": 1,
-        "avatar": "/images/avatars/10.png"
+        "avatar": "/assets/images/avatars/10.png"
       }
     ]
   },
@@ -130,15 +130,15 @@
     "team": [
       {
         "id": 1,
-        "avatar": "/images/avatars/01.png"
+        "avatar": "/assets/images/avatars/01.png"
       },
       {
         "id": 2,
-        "avatar": "/images/avatars/02.png"
+        "avatar": "/assets/images/avatars/02.png"
       },
       {
         "id": 3,
-        "avatar": "/images/avatars/03.png"
+        "avatar": "/assets/images/avatars/03.png"
       }
     ]
   },
@@ -155,11 +155,11 @@
     "team": [
       {
         "id": 1,
-        "avatar": "/images/avatars/03.png"
+        "avatar": "/assets/images/avatars/03.png"
       },
       {
         "id": 2,
-        "avatar": "/images/avatars/06.png"
+        "avatar": "/assets/images/avatars/06.png"
       }
     ]
   },
@@ -176,15 +176,15 @@
     "team": [
       {
         "id": 1,
-        "avatar": "/images/avatars/01.png"
+        "avatar": "/assets/images/avatars/01.png"
       },
       {
         "id": 2,
-        "avatar": "/images/avatars/02.png"
+        "avatar": "/assets/images/avatars/02.png"
       },
       {
         "id": 3,
-        "avatar": "/images/avatars/03.png"
+        "avatar": "/assets/images/avatars/03.png"
       }
     ]
   }

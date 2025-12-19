@@ -1,0 +1,18 @@
+{
+  "required": "Este campo es obligatorio",
+  "email": "Por favor, ingresa una dirección de correo válida",
+  "minLength": "Debe tener al menos {min} caracteres",
+  "maxLength": "No debe tener más de {max} caracteres",
+  "min": "Debe ser al menos {min}",
+  "max": "No debe ser más de {max}",
+  "pattern": "Formato inválido",
+  "match": "Los valores no coinciden",
+  "number": "Debe ser un número",
+  "integer": "Debe ser un número entero",
+  "positive": "Debe ser un número positivo",
+  "url": "Por favor, ingresa una URL válida",
+  "phone": "Por favor, ingresa un número de teléfono válido",
+  "date": "Por favor, ingresa una fecha válida",
+  "time": "Por favor, ingresa una hora válida"
+}
+

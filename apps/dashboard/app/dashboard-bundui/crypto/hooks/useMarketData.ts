@@ -41,7 +41,7 @@ export const useMarketData = (): UseMarketDataReturn => {
       total_supply: 21000000,
       max_supply: 21000000,
       last_updated: '2024-01-30T14:20:00Z',
-      image: 'https://assets.coingecko.com/coins/images/1/large/bitcoin.png',
+      image: 'https://assets.coingecko.com/coins/assets/images/1/large/bitcoin.png',
       sparkline_7d: [41200, 41800, 42500, 43100, 42900, 43200, 43500]
     },
     {
@@ -60,7 +60,7 @@ export const useMarketData = (): UseMarketDataReturn => {
       total_supply: 120000000,
       max_supply: null,
       last_updated: '2024-01-30T14:20:00Z',
-      image: 'https://assets.coingecko.com/coins/images/279/large/ethereum.png',
+      image: 'https://assets.coingecko.com/coins/assets/images/279/large/ethereum.png',
       sparkline_7d: [2580, 2620, 2590, 2640, 2660, 2630, 2650]
     },
     {
@@ -79,7 +79,7 @@ export const useMarketData = (): UseMarketDataReturn => {
       total_supply: 45000000000,
       max_supply: 45000000000,
       last_updated: '2024-01-30T14:20:00Z',
-      image: 'https://assets.coingecko.com/coins/images/975/large/cardano.png',
+      image: 'https://assets.coingecko.com/coins/assets/images/975/large/cardano.png',
       sparkline_7d: [0.52, 0.51, 0.49, 0.50, 0.48, 0.47, 0.48]
     },
     {
@@ -98,7 +98,7 @@ export const useMarketData = (): UseMarketDataReturn => {
       total_supply: 580000000,
       max_supply: null,
       last_updated: '2024-01-30T14:20:00Z',
-      image: 'https://assets.coingecko.com/coins/images/4128/large/solana.png',
+      image: 'https://assets.coingecko.com/coins/assets/images/4128/large/solana.png',
       sparkline_7d: [102, 108, 112, 115, 119, 116, 118]
     },
     {
@@ -117,7 +117,7 @@ export const useMarketData = (): UseMarketDataReturn => {
       total_supply: 1000000000,
       max_supply: 1000000000,
       last_updated: '2024-01-30T14:20:00Z',
-      image: 'https://assets.coingecko.com/coins/images/877/large/chainlink-new-logo.png',
+      image: 'https://assets.coingecko.com/coins/assets/images/877/large/chainlink-new-logo.png',
       sparkline_7d: [15.8, 16.2, 16.9, 17.1, 17.4, 17.6, 17.85]
     },
     {
@@ -136,7 +136,7 @@ export const useMarketData = (): UseMarketDataReturn => {
       total_supply: 10000000000,
       max_supply: 10000000000,
       last_updated: '2024-01-30T14:20:00Z',
-      image: 'https://assets.coingecko.com/coins/images/4713/large/matic-token-icon.png',
+      image: 'https://assets.coingecko.com/coins/assets/images/4713/large/matic-token-icon.png',
       sparkline_7d: [0.82, 0.84, 0.87, 0.89, 0.91, 0.88, 0.85]
     }
   ]
@@ -162,7 +162,7 @@ export const useMarketData = (): UseMarketDataReturn => {
       url: 'https://example.com/news/1',
       source: 'CoinDesk',
       published_at: '2024-01-30T12:00:00Z',
-      image_url: 'https://example.com/images/bitcoin-etf.jpg',
+      image_url: 'https://example.com/assets/images/bitcoin-etf.jpg',
       sentiment: 'positive',
       relevance_score: 95,
       related_cryptos: ['BTC']
@@ -174,7 +174,7 @@ export const useMarketData = (): UseMarketDataReturn => {
       url: 'https://example.com/news/2',
       source: 'Decrypt',
       published_at: '2024-01-30T10:30:00Z',
-      image_url: 'https://example.com/images/ethereum-upgrade.jpg',
+      image_url: 'https://example.com/assets/images/ethereum-upgrade.jpg',
       sentiment: 'positive',
       relevance_score: 88,
       related_cryptos: ['ETH']

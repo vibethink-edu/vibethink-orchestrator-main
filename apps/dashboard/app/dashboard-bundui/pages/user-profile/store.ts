@@ -64,7 +64,7 @@ export const useProfileStore = create<ProfileState>(() => ({
   user: {
     name: "Toby Belhome",
     verified: true,
-    avatar: "/images/avatars/01.png",
+    avatar: "/assets/images/avatars/01.png",
     role: "Developer",
     location: "San Francisco, US",
     joinedDate: "March 2025",
@@ -81,5 +81,6 @@ export const useProfileStore = create<ProfileState>(() => ({
   teams: [],
   projects: []
 }));
+
 
 

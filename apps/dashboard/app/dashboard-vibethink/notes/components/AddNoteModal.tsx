@@ -40,7 +40,7 @@ const noteTypes = [
 export function AddNoteModal({ open, onOpenChange, onCreateNote, folders, labels }: AddNoteModalProps) {
   const [title, setTitle] = useState('');
   const [type, setType] = useState<NoteType>('text');
-  const [folderId, setFolderId] = useState<string>('');
+  const [folderId, setFolderId] = useState<string>('none');
   const [isCreating, setIsCreating] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -53,7 +53,7 @@ export function AddNoteModal({ open, onOpenChange, onCreateNote, folders, labels
         title: title.trim(),
         content: '',
         type,
-        folder_id: folderId || null,
+        folder_id: folderId === 'none' ? null : folderId,
         labels: [],
         tags: [],
         priority: 'medium'
@@ -64,7 +64,7 @@ export function AddNoteModal({ open, onOpenChange, onCreateNote, folders, labels
       // Reset form
       setTitle('');
       setType('text');
-      setFolderId('');
+      setFolderId('none');
       onOpenChange(false);
     } catch (error) {
       console.error('Error creating note:', error);
@@ -122,7 +122,7 @@ export function AddNoteModal({ open, onOpenChange, onCreateNote, folders, labels
                   <SelectValue placeholder="Select folder..." />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">No folder</SelectItem>
+                  <SelectItem value="none">No folder</SelectItem>
                   {folders.map((folder) => (
                     <SelectItem key={folder.id} value={folder.id}>
                       {folder.name}

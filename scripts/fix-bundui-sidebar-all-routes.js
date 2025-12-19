@@ -77,3 +77,4 @@ console.log('📋 Dashboards válidos en bundui:');
 existingDashboards.forEach(d => console.log(`   - /dashboard-bundui/${d}`));
 
 
+

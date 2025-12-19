@@ -4,6 +4,9 @@ import { DribbbleIcon, FacebookIcon, LinkedinIcon, Twitter } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/layout/logo";
 
+// Import version from dashboard (shared version)
+const APP_VERSION = 'V0.1.0 (Workflow Dashboard Initial Release)';
+
 export const FooterSection = () => {
   return (
     <footer id="footer" className="container space-y-4 pb-4 lg:pb-8">

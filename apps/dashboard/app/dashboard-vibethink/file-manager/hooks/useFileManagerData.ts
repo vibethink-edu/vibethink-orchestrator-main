@@ -510,7 +510,7 @@ const mockFiles: FileItem[] = [
     company_id: 'comp1',
     user_id: 'user_1',
     parent_id: 'folder2',
-    path: '/images/team-photo.jpg',
+    path: '/assets/images/team-photo.jpg',
     mime_type: 'image/jpeg',
     is_shared: false,
     is_favorite: true,
@@ -575,7 +575,7 @@ const mockFolders: FolderItem[] = [
     company_id: 'comp1',
     user_id: 'user_1',
     parent_id: null,
-    path: '/images',
+    path: '/assets/images',
     is_shared: true,
     permissions: []
   },

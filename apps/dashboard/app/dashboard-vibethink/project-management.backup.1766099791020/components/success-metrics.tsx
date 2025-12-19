@@ -6,12 +6,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui";
 
 const users = [
-  { name: "Emma Smith", avatar: `/images/avatars/08.png` },
-  { name: "Olivia Johnson", avatar: `/images/avatars/09.png` },
-  { name: "Ava Brown", avatar: `/images/avatars/03.png` },
-  { name: "Sophia Taylor", avatar: `/images/avatars/04.png` },
-  { name: "Isabella Anderson", avatar: `/images/avatars/05.png` },
-  { name: "Mia Thomas", avatar: `/images/avatars/06.png` }
+  { name: "Emma Smith", avatar: `/assets/images/avatars/08.png` },
+  { name: "Olivia Johnson", avatar: `/assets/images/avatars/09.png` },
+  { name: "Ava Brown", avatar: `/assets/images/avatars/03.png` },
+  { name: "Sophia Taylor", avatar: `/assets/images/avatars/04.png` },
+  { name: "Isabella Anderson", avatar: `/assets/images/avatars/05.png` },
+  { name: "Mia Thomas", avatar: `/assets/images/avatars/06.png` }
 ];
 
 export function SuccessMetrics() {

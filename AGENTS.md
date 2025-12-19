@@ -13,6 +13,7 @@ This project is a **VibeThink Orchestrator 1.0** - an Enterprise SaaS Platform w
 - **Rutas**: SIEMPRE `/dashboard-bundui/*`
 - **Modificación**: NO (o mínimo necesario - mucho trabajo mantenerlo)
 - **Stack**: Shadcn UI first, SIEMPRE
+- **i18n**: ❌ NO implementar (mantener inglés hardcoded como referencia)
 
 #### `/dashboard-vibethink` - Mejoras y Extensiones
 - **Propósito**: Mejoras o extensiones de dashboards
@@ -20,6 +21,7 @@ This project is a **VibeThink Orchestrator 1.0** - an Enterprise SaaS Platform w
 - **Rutas**: SIEMPRE `/dashboard-vibethink/*`
 - **Modificación**: SÍ (total libertad)
 - **Stack**: Shadcn UI first, SIEMPRE
+- **i18n**: ✅ OBLIGATORIO (multidioma desde el inicio)
 
 ### ⚠️ Principios Arquitectónicos
 
@@ -38,8 +40,19 @@ Antes de crear un dashboard, pregunta:
 - [ ] ¿Usa el sidebar correcto para ese sistema?
 - [ ] ¿Todas las rutas usan el prefijo correcto?
 - [ ] ¿Está basado en Shadcn UI?
+- [ ] Si es `/dashboard-vibethink`: ¿Usa i18n desde el inicio? (OBLIGATORIO)
+- [ ] Si es `/dashboard-bundui`: ¿Mantiene inglés hardcoded? (NO implementar i18n)
 
 **NUNCA intentes compartir componentes de navegación entre sistemas.**
+
+### 🌍 Regla i18n: Bundui vs VibeThink
+
+**Principio Fundamental:** Bundui es referencia en inglés. VibeThink implementa multidioma desde el inicio.
+
+- **`/dashboard-bundui`**: ❌ NO implementar i18n. Mantener inglés hardcoded como referencia.
+- **`/dashboard-vibethink`**: ✅ OBLIGATORIO usar i18n. Todas las nuevas plantillas y mejoras deben usar `useTranslation()` desde el primer commit.
+
+**Documentación completa:** Ver `docs/architecture/I18N_STRATEGY.md` y `docs/architecture/I18N_TEMPLATE_GUIDE.md`
 
 ---
 
@@ -112,6 +125,45 @@ The following technologies are the **official standards** for this project. Do n
 
 ---
 
+## 🚨 CRITICAL: Assets Repository Policy
+
+**REPOSITORIO ÚNICO DE ASSETS - NUNCA DUPLICAR**
+
+**Principios Fundamentales:**
+- ✅ **Un solo repositorio** para todos los assets (media/imágenes)
+- ✅ **Ubicación centralizada**: `apps/dashboard/public/assets/`
+- ✅ **Sin duplicados**: Cada asset existe solo una vez
+- ✅ **Rutas absolutas**: Siempre usar `/assets/images/...` (nunca rutas relativas)
+- ✅ **Compartido**: dashboard-bundui y dashboard-vibethink comparten assets
+- ✅ **Preparado para CDN**: Estructura compatible con CDN futuro
+
+**Estructura:**
+```
+apps/dashboard/public/assets/
+├── images/          # Imágenes (PNG, JPG, SVG, WebP)
+│   ├── avatars/    # Avatares de usuarios
+│   ├── products/   # Imágenes de productos
+│   └── ...
+├── media/          # Videos y animaciones (futuro)
+└── fonts/          # Fuentes personalizadas (futuro)
+```
+
+**Reglas Críticas:**
+- ❌ **NUNCA** duplicar assets en múltiples ubicaciones
+- ❌ **NUNCA** almacenar assets dentro de componentes
+- ❌ **NUNCA** usar rutas relativas (`../images/`)
+- ✅ **SIEMPRE** usar rutas absolutas desde `/assets/`
+- ✅ **SIEMPRE** organizar por categorías
+
+**Scripts de Validación:**
+- `scripts/validate-assets-duplicates.js` - Detectar duplicados
+- `scripts/audit-assets.js` - Auditoría completa
+- `scripts/clean-assets-duplicates.js` - Limpiar duplicados
+
+**Documentación completa:** `docs/architecture/ASSETS_REPOSITORY_POLICY.md`
+
+---
+
 ## 🚨 CRITICAL: Stack Compatibility
 
 **BEFORE suggesting ANY dependency changes, READ:**
@@ -126,11 +178,27 @@ The following technologies are the **official standards** for this project. Do n
 
 **If unsure:** Ask user before installing/updating dependencies.
 
-## 🚨 CRITICAL: Referencias NO se Modifican
+## 🚨 CRITICAL: Referencias Actualizables vs Monorepo Estable
 
-**⚠️ REGLA CRÍTICA: TODO LO QUE SEA REFERENCIA NUNCA DEBE SER MODIFICADO**
+**⚠️ FILOSOFÍA FUNDAMENTAL: Las referencias externas pueden actualizarse (por sus autores), pero nuestro monorepo permanece estable e independiente.**
 
-**Principio Fundamental:**
+### **Arquitectura de Referencias:**
+
+```
+Referencias Externas (Actualizables)          Nuestro Monorepo (Estable)
+─────────────────────────────────           ──────────────────────────────
+Bundui Original (puede cambiar)       ───►  apps/dashboard-bundui/ (nuestro espejo)
+Shadcn UI Reference (puede cambiar)   ───►  packages/ui/ (nuestros componentes)  
+XYFlow Reference (puede cambiar)      ───►  apps/dashboard/... (nuestros flows)
+```
+
+**Principio Clave:**
+- ✅ **Referencias PUEDEN ser actualizadas** por sus autores originales
+- ✅ **Monorepo es INDEPENDIENTE** (no se rompe si referencias cambian)
+- ✅ **Sincronización es OPCIONAL y MANUAL** (nosotros decidimos qué traer)
+- ❌ **Referencias son SOLO LECTURA** para nosotros (no las modificamos)
+
+**Regla Crítica:**
 - Cualquier directorio/archivo marcado como "referencia" o "reference" es **SOLO LECTURA**
 - **NO importa si está dentro o fuera del monorepo** - Si es REFERENCE, NO se modifica
 - Las referencias existen para consulta, comparación y debugging

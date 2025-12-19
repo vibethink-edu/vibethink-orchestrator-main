@@ -5,6 +5,8 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { DEFAULT_THEME } from "@/shared/lib/themes";
 import { AuthProvider } from "@/providers/AuthProvider";
+import { I18nProvider } from "@/lib/i18n";
+import { isValidLocale } from "@/lib/i18n/config";
 // import { Toaster } from '@vibethink/ui'; // Commented - using Shadcn
 
 export default async function RootLayout({
@@ -21,6 +23,10 @@ export default async function RootLayout({
       DEFAULT_THEME.contentLayout) as any
   };
 
+  // Get locale from cookie or header
+  const localeCookie = cookieStore.get("NEXT_LOCALE")?.value;
+  const initialLocale = localeCookie && isValidLocale(localeCookie) ? localeCookie : 'en';
+
   const bodyAttributes = Object.fromEntries(
     Object.entries(themeSettings)
       .filter(([_, value]) => value)
@@ -28,7 +34,7 @@ export default async function RootLayout({
   );
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={initialLocale} suppressHydrationWarning>
       <body
         suppressHydrationWarning
         className={cn("bg-background group/layout font-sans")}
@@ -38,10 +44,12 @@ export default async function RootLayout({
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange>
-          <AuthProvider>
-            {children}
-            {/* <Toaster position="top-center" richColors /> */}
-          </AuthProvider>
+          <I18nProvider initialLocale={initialLocale}>
+            <AuthProvider>
+              {children}
+              {/* <Toaster position="top-center" richColors /> */}
+            </AuthProvider>
+          </I18nProvider>
         </ThemeProvider>
       </body>
     </html>

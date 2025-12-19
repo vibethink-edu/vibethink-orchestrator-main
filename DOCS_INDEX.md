@@ -41,6 +41,10 @@ Este archivo es un índice rápido. Para la documentación completa y detallada,
 - [Arquitectura de Dashboards](./docs/architecture/DASHBOARD_ARCHITECTURE.md)
 - [Reglas de Referencias](./docs/architecture/REFERENCE_RULES.md)
 - [Shadcn UI Compliance](./docs/architecture/SHADCN_MONOREPO_COMPLIANCE.md)
+- [Estrategia i18n](./docs/architecture/I18N_STRATEGY.md) ⭐ - Bundui vs VibeThink
+- [Arquitectura i18n](./docs/architecture/I18N_ARCHITECTURE.md) - Sistema multidioma completo
+- [Guía de Plantillas i18n](./docs/architecture/I18N_TEMPLATE_GUIDE.md) - Templates para nuevas plantillas
+- [Guía de Uso i18n](./docs/architecture/I18N_USAGE_GUIDE.md) - Referencia rápida
 
 ### 🎨 UI/UX
 - [Guía de Shadcn UI](./docs/ui-ux/SHADCN_UI_GUIDE.md)

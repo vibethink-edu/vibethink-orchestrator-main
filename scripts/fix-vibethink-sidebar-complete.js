@@ -117,3 +117,4 @@ console.log('📋 Dashboards en vibethink:');
 vibethinkDashboards.forEach(d => console.log(`   - /dashboard-vibethink/${d}`));
 
 
+

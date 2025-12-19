@@ -1,13 +1,39 @@
 # 🚨 REGLAS CRÍTICAS: Referencias NO se Modifican
 
-## ⚠️ **PRINCIPIO FUNDAMENTAL**
+## 🎯 **FILOSOFÍA DE ARQUITECTURA**
 
-**TODO LO QUE SEA REFERENCIA NUNCA DEBE SER MODIFICADO**
+### **Referencias Actualizables vs Monorepo Estable**
+
+**PRINCIPIO CLAVE: Las referencias externas pueden actualizarse (por sus autores), pero nuestro monorepo permanece estable e independiente.**
+
+```
+Referencias Externas (Actualizables)          Nuestro Monorepo (Estable)
+─────────────────────────────────           ──────────────────────────────
+Bundui Original (puede cambiar)       ───►  apps/dashboard-bundui/ (nuestro espejo)
+Shadcn UI Reference (puede cambiar)   ───►  packages/ui/ (nuestros componentes)
+XYFlow Reference (puede cambiar)      ───►  apps/dashboard/... (nuestros flows)
+```
+
+**Características:**
+
+| Aspecto | Referencias Externas | Nuestro Monorepo |
+|---------|---------------------|------------------|
+| **Modificable** | ❌ NO (solo por autores originales) | ✅ SÍ (controlamos 100%) |
+| **Se actualiza** | ✅ SÍ (autores pueden actualizar) | ❌ NO (solo nosotros) |
+| **Nos afecta** | ❌ NO (independientes) | ✅ SÍ (es producción) |
+| **Sincronización** | Manual y opcional | N/A |
+| **Propósito** | Referencia e inspiración | Producción estable |
 
 **⚠️ REGLA UNIVERSAL:**
 - **NO importa si está dentro o fuera del monorepo**
 - **NO importa el tipo de referencia (Bundui, Shadcn, ReactFlow, etc.)**
 - **Si tiene `-reference` en nombre/path o está documentado como "reference" → ❌ NO MODIFICAR**
+
+---
+
+## ⚠️ **PRINCIPIO FUNDAMENTAL**
+
+**TODO LO QUE SEA REFERENCIA NUNCA DEBE SER MODIFICADO**
 
 ## 📋 **Definición de "Referencia"**
 
@@ -87,6 +113,74 @@ Un elemento es considerado "referencia" si:
    ```
 
 3. **NUNCA modifiques la referencia original**
+
+---
+
+## 🔄 **Sincronización de Referencias (Opcional)**
+
+### ¿Qué pasa cuando una referencia se actualiza?
+
+**Escenario:**
+- Bundui Original recibe actualización → Nueva versión v2.0
+- Shadcn UI Reference actualiza componentes → Nuevos componentes disponibles
+- XYFlow Reference mejora API → Nuevas features
+
+**Respuesta:**
+✅ **Nuestro monorepo NO se rompe** (es independiente)
+✅ **Podemos OPTAR por sincronizar** mejoras (manual)
+❌ **NO hay sincronización automática** (por diseño)
+
+### Workflow de Sincronización Manual:
+
+1. **Detectar actualización en referencia:**
+   ```bash
+   # Comparar versiones
+   node scripts/compare-bundui-reference-vs-monorepo.js
+   ```
+
+2. **Revisar cambios:**
+   ```bash
+   # Ver qué cambió en la referencia
+   cd "C:\IA Marcelo Labs\bundui\shadcn-ui-kit-dashboard"
+   git log --oneline -10
+   ```
+
+3. **Evaluar si queremos esos cambios:**
+   - ¿Es una mejora útil?
+   - ¿Es compatible con nuestro monorepo?
+   - ¿Vale la pena el esfuerzo?
+
+4. **Si decidimos sincronizar:**
+   ```bash
+   # Crear rama para sincronización
+   git checkout -b sync-bundui-v2.0
+   
+   # Copiar cambios manualmente al monorepo
+   # (NO copiar automáticamente - revisar cada cambio)
+   
+   # Probar que funciona
+   npm run dev:dashboard
+   
+   # Commit si funciona
+   git add .
+   git commit -m "sync: Bundui v2.0 - [descripción de cambios]"
+   ```
+
+5. **Documentar sincronización:**
+   ```markdown
+   # CHANGELOG.md
+   ## [X.Y.Z] - YYYY-MM-DD
+   ### Changed
+   - Sincronizado con Bundui Reference v2.0
+   - Mejoras: [lista de mejoras]
+   - Cambios manuales: [ajustes necesarios]
+   ```
+
+### 🚨 **IMPORTANTE:**
+- **Sincronización es OPCIONAL** (no obligatoria)
+- **Sincronización es MANUAL** (no automática)
+- **Evaluamos cada cambio** (no todo se sincroniza)
+- **Nuestro monorepo mantiene control** (podemos rechazar cambios)
 
 ---
 

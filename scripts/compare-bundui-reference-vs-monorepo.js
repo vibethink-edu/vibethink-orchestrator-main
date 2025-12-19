@@ -178,3 +178,4 @@ if (sidebarMatch && directoriesMatch) {
 }
 
 
+

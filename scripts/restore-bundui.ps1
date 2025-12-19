@@ -150,3 +150,4 @@ Write-Host "🚀 Reinicia el servidor:" -ForegroundColor Yellow
 Write-Host "   .\scripts\start-dashboard.ps1" -ForegroundColor White
 Write-Host ""
 
+

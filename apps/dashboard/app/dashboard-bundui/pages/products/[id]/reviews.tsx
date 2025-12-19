@@ -6,7 +6,7 @@ const reviews = [
   {
     id: 4,
     name: "Mark P.",
-    image: `/images/avatars/01.png`,
+    image: `/assets/images/avatars/01.png`,
     title: "Decent but could be better",
     body: "The product is okay, but I expected more for the price. A few minor flaws, but overall, it's acceptable.",
     date: "5 days ago"
@@ -14,7 +14,7 @@ const reviews = [
   {
     id: 5,
     name: "Jessica K.",
-    image: `/images/avatars/02.png`,
+    image: `/assets/images/avatars/02.png`,
     title: "Beautiful design",
     body: "I love the sleek design and the ease of use. Haven't come across such a stylish product in a long time. Highly satisfied!",
     date: "2 weeks ago"
@@ -22,7 +22,7 @@ const reviews = [
   {
     id: 6,
     name: "Michael B.",
-    image: `/images/avatars/03.png`,
+    image: `/assets/images/avatars/03.png`,
     title: "Satisfied with my purchase",
     body: "I'm really happy with this purchase. The quality is great, and it works just as described. No complaints so far!",
     date: "4 days ago"
@@ -30,7 +30,7 @@ const reviews = [
   {
     id: 7,
     name: "Anna M.",
-    image: `/images/avatars/04.png`,
+    image: `/assets/images/avatars/04.png`,
     title: "Could be improved",
     body: "The product works, but there's room for improvement. It does its job, but the build quality feels a bit cheap.",
     date: "6 days ago"
@@ -38,7 +38,7 @@ const reviews = [
   {
     id: 8,
     name: "Chris T.",
-    image: `/images/avatars/05.png`,
+    image: `/assets/images/avatars/05.png`,
     title: "Great for everyday use",
     body: "Perfect for daily use. It's simple, efficient, and does exactly what it promises. Definitely worth the money.",
     date: "1 day ago"
@@ -46,7 +46,7 @@ const reviews = [
   {
     id: 9,
     name: "Lisa G.",
-    image: `/images/avatars/06.png`,
+    image: `/assets/images/avatars/06.png`,
     title: "Not worth the price",
     body: "The product does the job, but I feel it's overpriced for what it offers. There are better options available at a similar price.",
     date: "3 weeks ago"
@@ -54,7 +54,7 @@ const reviews = [
   {
     id: 10,
     name: "David L.",
-    image: `/images/avatars/10.png`,
+    image: `/assets/images/avatars/10.png`,
     title: "Highly functional and stylish",
     body: "This product is both functional and stylish. It fits perfectly with my needs, and I'm really impressed with the overall quality.",
     date: "1 month ago"

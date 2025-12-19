@@ -155,3 +155,4 @@ cd apps/dashboard && npm run lint
 **Estado:** ✅ TODO FUNCIONANDO Y CONTROLADO
 
 
+

@@ -5,6 +5,7 @@ import { SidebarProvider, SidebarInset } from '@vibethink/ui';
 import { AppSidebar } from "@/shared/components/bundui-premium/components/layout/sidebar-bundui/app-sidebar";
 import { DashboardBadge } from "@/shared/components/dashboard-badge";
 import { SiteHeader } from "@/shared/components/bundui-premium/components/layout/header-bundui";
+import { Footer } from "@/components/layout/footer";
 
 /**
  * Layout para todas las rutas bajo `/dashboard-bundui/*`.
@@ -45,6 +46,7 @@ export default function DashboardBunduiLayout({
             {children}
           </div>
         </div>
+        <Footer />
       </SidebarInset>
     </SidebarProvider>
   );

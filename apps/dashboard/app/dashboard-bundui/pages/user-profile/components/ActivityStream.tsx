@@ -32,15 +32,15 @@ const activities = [
     images: [
       {
         id: "1",
-        src: "/images/products/01.jpeg"
+        src: "/assets/images/products/01.jpeg"
       },
       {
         id: "2",
-        src: "/images/products/02.jpeg"
+        src: "/assets/images/products/02.jpeg"
       },
       {
         id: "3",
-        src: "/images/products/03.jpeg"
+        src: "/assets/images/products/03.jpeg"
       }
     ]
   }
@@ -113,5 +113,6 @@ export function ActivityStream() {
     </Card>
   );
 }
+
 
 

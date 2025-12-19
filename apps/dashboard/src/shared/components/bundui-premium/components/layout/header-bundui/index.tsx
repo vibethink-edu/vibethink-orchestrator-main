@@ -10,6 +10,7 @@ import UserMenu from "./user-menu";
 import { ThemeCustomizerPanel } from "../../panel";
 import { Button } from '@vibethink/ui';
 import { useSidebar } from '@vibethink/ui';
+import { LocaleSelector } from '@/components/i18n/LocaleSelector';
 
 export function SiteHeader() {
   const { toggleSidebar } = useSidebar();
@@ -24,6 +25,7 @@ export function SiteHeader() {
         <Search />
 
         <div className="ml-auto flex items-center gap-2">
+          <LocaleSelector />
           <Notifications />
           <ThemeSwitch />
           <ThemeCustomizerPanel />

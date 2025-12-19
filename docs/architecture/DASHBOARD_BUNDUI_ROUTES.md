@@ -143,3 +143,4 @@ Al probar `http://localhost:3005/dashboard-bundui`, verificar:
 **Última actualización:** 2025-12-18
 
 
+

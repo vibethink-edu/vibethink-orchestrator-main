@@ -17,12 +17,12 @@ export default function ProductImageGallery() {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
 
   const images = [
-    `/images/products/01.jpeg`,
-    `/images/products/02.jpeg`,
-    `/images/products/03.jpeg`,
-    `/images/products/04.jpeg`,
-    `/images/products/05.jpeg`,
-    `/images/products/06.jpeg`
+    `/assets/images/products/01.jpeg`,
+    `/assets/images/products/02.jpeg`,
+    `/assets/images/products/03.jpeg`,
+    `/assets/images/products/04.jpeg`,
+    `/assets/images/products/05.jpeg`,
+    `/assets/images/products/06.jpeg`
   ];
 
   return (
@@ -80,5 +80,6 @@ export default function ProductImageGallery() {
     </div>
   );
 }
+
 
 

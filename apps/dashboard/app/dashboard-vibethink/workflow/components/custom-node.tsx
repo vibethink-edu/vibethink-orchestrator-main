@@ -5,9 +5,11 @@
  * 
  * Nodo personalizado para React Flow siguiendo el diseño de Shadcn UI.
  * Soporta diferentes tipos de nodos con estilos consistentes.
+ * 
+ * Memoizado para optimizar rendimiento y evitar renders innecesarios.
  */
 
-import React from 'react';
+import React, { memo } from 'react';
 import { Handle, Position, NodeProps } from '@xyflow/react';
 import { WorkflowNodeData } from '../types';
 import { cn } from '@vibethink/utils';
@@ -46,7 +48,7 @@ const statusColors = {
   paused: 'border-yellow-500',
 };
 
-export function CustomNode({ data, selected }: NodeProps<WorkflowNodeData>) {
+function CustomNodeComponent({ data, selected }: NodeProps<WorkflowNodeData>) {
   const Icon = nodeIcons[data.type] || Settings;
   const colorClass = nodeColors[data.type] || 'bg-gray-500';
   const statusClass = statusColors[data.status] || 'border-gray-300';
@@ -106,4 +108,7 @@ export function CustomNode({ data, selected }: NodeProps<WorkflowNodeData>) {
     </div>
   );
 }
+
+// Memoizar componente para optimizar renders
+export const CustomNode = memo(CustomNodeComponent);
 

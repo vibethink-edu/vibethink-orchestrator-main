@@ -101,7 +101,7 @@ const bestSellingProducts = [
   {
     id: 1,
     name: "Sports Shoes",
-    image: "/images/products/01.jpeg",
+    image: "/assets/images/products/01.jpeg",
     price: 316.00,
     sold: 316,
     stock: 10,
@@ -111,7 +111,7 @@ const bestSellingProducts = [
   {
     id: 2,
     name: "Black T-Shirt", 
-    image: "/images/products/02.jpeg",
+    image: "/assets/images/products/02.jpeg",
     price: 274.00,
     sold: 274,
     stock: 20,
@@ -121,7 +121,7 @@ const bestSellingProducts = [
   {
     id: 3,
     name: "Jeans",
-    image: "/images/products/03.jpeg", 
+    image: "/assets/images/products/03.jpeg", 
     price: 195.00,
     sold: 195,
     stock: 15,
@@ -131,7 +131,7 @@ const bestSellingProducts = [
   {
     id: 4,
     name: "Red Sneakers",
-    image: "/images/products/04.jpeg",
+    image: "/assets/images/products/04.jpeg",
     price: 402.00,
     sold: 402, 
     stock: 40,
@@ -141,7 +141,7 @@ const bestSellingProducts = [
   {
     id: 5,
     name: "Red Scarf",
-    image: "/images/products/05.jpeg",
+    image: "/assets/images/products/05.jpeg",
     price: 280.00,
     sold: 280,
     stock: 37,
@@ -151,7 +151,7 @@ const bestSellingProducts = [
   {
     id: 6,
     name: "Kitchen Accessory",
-    image: "/images/products/06.jpeg",
+    image: "/assets/images/products/06.jpeg",
     price: 150.00,
     sold: 150,
     stock: 18,
@@ -161,7 +161,7 @@ const bestSellingProducts = [
   {
     id: 7,
     name: "Bicycle", 
-    image: "/images/products/07.jpeg",
+    image: "/assets/images/products/07.jpeg",
     price: 316.00,
     sold: 316,
     stock: 25,
@@ -171,7 +171,7 @@ const bestSellingProducts = [
   {
     id: 8,
     name: "Gaming Headset",
-    image: "/images/products/07.jpeg", // TODO: Agregar imagen 08.jpeg cuando esté disponible
+    image: "/assets/images/products/07.jpeg", // TODO: Agregar imagen 08.jpeg cuando esté disponible
     price: 290.00,
     sold: 290,
     stock: 12,

@@ -19,12 +19,12 @@ const connections = [
     connections: 25,
     status: "connected",
     online: true,
-    avatar: "/images/avatars/02.png"
+    avatar: "/assets/images/avatars/02.png"
   },
   {
     id: "2",
     name: "Isabella Finley",
-    avatar: "/images/avatars/03.png",
+    avatar: "/assets/images/avatars/03.png",
     connections: 79,
     status: "pending",
     online: true
@@ -32,14 +32,14 @@ const connections = [
   {
     id: "3",
     name: "David Harrison",
-    avatar: "/images/avatars/04.png",
+    avatar: "/assets/images/avatars/04.png",
     connections: 0,
     status: "connected"
   },
   {
     id: "4",
     name: "Costa Quinn",
-    avatar: "/images/avatars/05.png",
+    avatar: "/assets/images/avatars/05.png",
     connections: 9,
     status: "pending",
     online: false
@@ -136,5 +136,6 @@ export function ConnectionsTeams() {
     </div>
   );
 }
+
 
 

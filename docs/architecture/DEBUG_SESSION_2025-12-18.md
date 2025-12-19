@@ -153,3 +153,4 @@ cd apps/dashboard && npm run type-check
 **Estado:** ⏸️ Trabajo guardado, pendiente ejecución
 
 
+

@@ -12,14 +12,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibe
 import { Input } from '@vibethink/ui';
 import { Label } from '@vibethink/ui';
 import { Textarea } from '@vibethink/ui';
-import { WorkflowNode, WorkflowNodeData } from '../types';
+import { WorkflowNode } from '../types';
 
 interface WorkflowSidebarProps {
   nodeId: string;
   nodes: WorkflowNode[];
+  onUpdateNode?: (nodeId: string, data: Partial<WorkflowNode['data']>) => void;
 }
 
-export function WorkflowSidebar({ nodeId, nodes }: WorkflowSidebarProps) {
+export function WorkflowSidebar({ nodeId, nodes, onUpdateNode }: WorkflowSidebarProps) {
   const node = nodes.find((n) => n.id === nodeId);
 
   if (!node) {
@@ -50,8 +51,9 @@ export function WorkflowSidebar({ nodeId, nodes }: WorkflowSidebarProps) {
             id="label"
             value={data.label}
             onChange={(e) => {
-              // TODO: Implementar actualización del nodo
-              console.log('Update label:', e.target.value);
+              if (onUpdateNode) {
+                onUpdateNode(nodeId, { label: e.target.value });
+              }
             }}
             placeholder="Nombre del nodo"
           />
@@ -64,8 +66,9 @@ export function WorkflowSidebar({ nodeId, nodes }: WorkflowSidebarProps) {
             id="description"
             value={data.description || ''}
             onChange={(e) => {
-              // TODO: Implementar actualización del nodo
-              console.log('Update description:', e.target.value);
+              if (onUpdateNode) {
+                onUpdateNode(nodeId, { description: e.target.value });
+              }
             }}
             placeholder="Descripción del nodo"
             rows={3}

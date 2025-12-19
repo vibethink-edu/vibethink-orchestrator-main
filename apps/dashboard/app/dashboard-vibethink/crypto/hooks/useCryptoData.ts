@@ -350,7 +350,7 @@ const mockMarketPrices: CryptoCurrency[] = [
     total_supply: 21000000,
     max_supply: 21000000,
     last_updated: '2024-01-30T14:20:00Z',
-    image: 'https://assets.coingecko.com/coins/images/1/large/bitcoin.png'
+    image: 'https://assets.coingecko.com/coins/assets/images/1/large/bitcoin.png'
   },
   {
     id: 'ethereum',
@@ -368,7 +368,7 @@ const mockMarketPrices: CryptoCurrency[] = [
     total_supply: 120000000,
     max_supply: null,
     last_updated: '2024-01-30T14:20:00Z',
-    image: 'https://assets.coingecko.com/coins/images/279/large/ethereum.png'
+    image: 'https://assets.coingecko.com/coins/assets/images/279/large/ethereum.png'
   }
 ]
 

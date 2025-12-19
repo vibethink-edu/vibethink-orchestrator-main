@@ -1,0 +1,27 @@
+{
+  "dashboard": "Dashboard",
+  "crm": "CRM",
+  "sales": "Sales",
+  "ecommerce": "E-commerce",
+  "analytics": "Analytics",
+  "calendar": "Calendar",
+  "crypto": "Crypto",
+  "finance": "Finance",
+  "kanban": "Kanban",
+  "mail": "Mail",
+  "notes": "Notes",
+  "payment": "Payment",
+  "posSystem": "POS System",
+  "projectManagement": "Project Management",
+  "tasks": "Tasks",
+  "websiteAnalytics": "Website Analytics",
+  "workflow": "Workflow",
+  "fileManager": "File Manager",
+  "aiChat": "AI Chat",
+  "aiImageGenerator": "AI Image Generator",
+  "academy": "Academy",
+  "settings": "Settings",
+  "profile": "Profile",
+  "logout": "Logout"
+}
+

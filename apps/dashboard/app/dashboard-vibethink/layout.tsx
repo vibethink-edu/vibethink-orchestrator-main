@@ -5,6 +5,7 @@ import { SidebarProvider, SidebarInset } from '@vibethink/ui';
 import { VibeThinkSidebar } from "@/components/vibethink-sidebar";
 import { DashboardBadge } from "@/components/dashboard-badge";
 import { SiteHeader } from "@/components/layout/header-bundui";
+import { Footer } from "@/components/layout/footer";
 
 /**
  * Layout para todas las rutas bajo `/dashboard-vibethink/*`.
@@ -45,6 +46,7 @@ export default function DashboardVibeThinkLayout({
             {children}
           </div>
         </div>
+        <Footer />
       </SidebarInset>
     </SidebarProvider>
   );

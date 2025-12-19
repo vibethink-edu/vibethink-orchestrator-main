@@ -15,7 +15,7 @@ type AppointmentData = {
 
 const data: AppointmentData[] = [
   {
-    avatar: "/images/avatars/08.png",
+    avatar: "/assets/images/avatars/08.png",
     hour: "10:00-11:00 AM",
     title: "General Health Check up",
     description: "Dr. Dianne Philips",
@@ -23,7 +23,7 @@ const data: AppointmentData[] = [
     statusColor: "success"
   },
   {
-    avatar: "/images/avatars/04.png",
+    avatar: "/assets/images/avatars/04.png",
     hour: "05:00-06:00 PM",
     title: "Temporary Headache",
     description: "Dr. Jenny Smith",

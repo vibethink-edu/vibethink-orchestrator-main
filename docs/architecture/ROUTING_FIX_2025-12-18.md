@@ -211,3 +211,4 @@ node scripts/fix-vibethink-sidebar-complete.js
 **Validación**: ✅ Todas las rutas correctas
 
 
+

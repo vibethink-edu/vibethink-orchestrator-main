@@ -8,7 +8,7 @@
  */
 
 import { WorkflowCanvas, WorkflowToolbar } from './';
-import { useWorkflow } from '../hooks/use-workflow';
+import { useWorkflow } from '../hooks';
 import { useState } from 'react';
 
 export function WorkflowPageContent() {
@@ -17,6 +17,8 @@ export function WorkflowPageContent() {
     addNode,
     updateNode,
     deleteNode,
+    updateNodes,
+    updateEdges,
     runWorkflow,
     stopWorkflow,
     resetWorkflow,
@@ -37,25 +39,30 @@ export function WorkflowPageContent() {
   };
 
   const handleExport = () => {
-    const data = {
-      config: state.config,
-      nodes: state.nodes,
-      edges: state.edges,
-    };
-    const blob = new Blob([JSON.stringify(data, null, 2)], {
-      type: 'application/json',
-    });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${state.config.name}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
+    try {
+      const data = {
+        config: state.config,
+        nodes: state.nodes,
+        edges: state.edges,
+      };
+      const blob = new Blob([JSON.stringify(data, null, 2)], {
+        type: 'application/json',
+      });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${state.config.name}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      // TODO: Implementar sistema de notificaciones (toast)
+      console.error('Error exporting workflow:', error);
+    }
   };
 
   const handleImport = () => {
-    // TODO: Implementar importación
-    console.log('Import workflow');
+    // TODO: Implementar importación desde archivo JSON
+    // Esto abriría un input file y cargaría el workflow
   };
 
   return (
@@ -74,15 +81,10 @@ export function WorkflowPageContent() {
           initialNodes={state.nodes}
           initialEdges={state.edges}
           onNodeClick={handleNodeClick}
+          onUpdateNode={updateNode}
           selectedNodeId={selectedNodeId}
-          onNodesChange={(nodes) => {
-            // Actualizar estado cuando cambian los nodos
-            console.log('Nodes changed:', nodes);
-          }}
-          onEdgesChange={(edges) => {
-            // Actualizar estado cuando cambian los edges
-            console.log('Edges changed:', edges);
-          }}
+          onNodesChange={updateNodes}
+          onEdgesChange={updateEdges}
         />
         
         {/* Toolbar flotante */}

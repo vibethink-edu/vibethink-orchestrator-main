@@ -37,6 +37,7 @@ interface WorkflowCanvasProps {
   onNodesChange?: (nodes: WorkflowNode[]) => void;
   onEdgesChange?: (edges: WorkflowEdge[]) => void;
   onNodeClick?: (nodeId: string) => void;
+  onUpdateNode?: (nodeId: string, data: Partial<WorkflowNode['data']>) => void;
   selectedNodeId?: string;
 }
 
@@ -56,6 +57,7 @@ export function WorkflowCanvas({
   onNodesChange,
   onEdgesChange,
   onNodeClick,
+  onUpdateNode,
   selectedNodeId,
 }: WorkflowCanvasProps) {
   const [nodes, setNodes, onNodesChangeInternal] = useNodesState(initialNodes);
@@ -142,7 +144,11 @@ export function WorkflowCanvas({
         {/* Sidebar lateral (si hay nodo seleccionado) */}
         {selectedNodeId && (
           <Panel position="top-left" className="w-80">
-            <WorkflowSidebar nodeId={selectedNodeId} nodes={nodes} />
+            <WorkflowSidebar 
+              nodeId={selectedNodeId} 
+              nodes={nodes}
+              onUpdateNode={onUpdateNode}
+            />
           </Panel>
         )}
       </ReactFlow>
