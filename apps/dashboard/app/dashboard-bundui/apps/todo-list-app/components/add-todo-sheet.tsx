@@ -1,11 +1,11 @@
 import React from "react";
 import { format } from "date-fns";
 import { CalendarIcon, Plus, X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useTodoStore } from "@/app/dashboard/(auth)/apps/todo-list-app/store";
-import { todoFormSchema, TodoFormValues } from "@/app/dashboard/(auth)/apps/todo-list-app/schemas";
+import { useTodoStore } from "./store";
+import { todoFormSchema, TodoFormValues } from "./schemas";
 import {
   priorityDotColors,
   statusDotColors,
@@ -15,20 +15,20 @@ import {
 } from "@/app/dashboard/(auth)/apps/todo-list-app/enum";
 import { toast } from "sonner";
 
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
+import { Input } from "@vibethink/ui";
+import { Textarea } from "@vibethink/ui";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@/components/ui/select";
-import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Badge } from "@/components/ui/badge";
+} from "@vibethink/ui";
+import { Calendar } from "@vibethink/ui";
+import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui";
+import { Badge } from "@vibethink/ui";
 import {
   Form,
   FormControl,
@@ -36,7 +36,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from "@/components/ui/form";
+} from "@vibethink/ui";
 
 interface AddTodoSheetProps {
   isOpen: boolean;

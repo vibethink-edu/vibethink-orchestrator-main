@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { format } from "date-fns";
 import {
   Check,
@@ -12,17 +12,17 @@ import {
   PlusCircleIcon,
   ClockIcon
 } from "lucide-react";
-import { useTodoStore } from "@/app/dashboard/(auth)/apps/todo-list-app/store";
-import { statusClasses, priorityClasses } from "@/app/dashboard/(auth)/apps/todo-list-app/enum";
+import { useTodoStore } from "./store";
+import { statusClasses, priorityClasses } from "./enum";
 import { toast } from "sonner";
 
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@vibethink/ui";
+import { Badge } from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
+import { Textarea } from "@vibethink/ui";
+import { Input } from "@vibethink/ui";
+import { Separator } from "@vibethink/ui";
+import { Checkbox } from "@vibethink/ui";
 
 interface TodoDetailSheetProps {
   isOpen: boolean;

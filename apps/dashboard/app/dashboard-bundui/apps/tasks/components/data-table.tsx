@@ -23,7 +23,7 @@ import {
   TableHead,
   TableHeader,
   TableRow
-} from "@/components/ui/table";
+} from "@vibethink/ui";
 
 import { DataTablePagination } from "./data-table-pagination";
 import { DataTableToolbar } from "./data-table-toolbar";

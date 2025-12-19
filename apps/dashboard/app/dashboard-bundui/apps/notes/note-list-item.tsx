@@ -1,11 +1,11 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import Image from "next/image";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Note } from "@/app/dashboard/(auth)/apps/notes/types";
-import { noteLabels } from "@/app/dashboard/(auth)/apps/notes/data";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Card, CardContent } from "@vibethink/ui";
+import { Badge } from "@vibethink/ui";
+import { Note } from "./types";
+import { noteLabels } from "./data";
+import { Checkbox } from "@vibethink/ui";
 
 export default function NoteListItem({ note }: { note: Note }) {
   return (

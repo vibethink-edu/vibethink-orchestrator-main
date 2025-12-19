@@ -10,22 +10,22 @@ import {
   ReplyAll,
   Trash2
 } from "lucide-react";
-import { useMailStore } from "@/app/dashboard/(auth)/apps/mail/use-mail";
+import { useMailStore } from "./use-mail";
 
-import { DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Label } from "@/components/ui/label";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Separator } from "@/components/ui/separator";
-import { Switch } from "@/components/ui/switch";
-import { Textarea } from "@/components/ui/textarea";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { DropdownMenuContent, DropdownMenuItem } from "@vibethink/ui";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
+import { Calendar } from "@vibethink/ui";
+import { DropdownMenu, DropdownMenuTrigger } from "@vibethink/ui";
+import { Label } from "@vibethink/ui";
+import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui";
+import { Separator } from "@vibethink/ui";
+import { Switch } from "@vibethink/ui";
+import { Textarea } from "@vibethink/ui";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@vibethink/ui";
 import { Mail } from "../data";
-import { Drawer, DrawerContent } from "@/components/ui/drawer";
-import { DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Drawer, DrawerContent } from "@vibethink/ui";
+import { DialogHeader, DialogTitle } from "@vibethink/ui";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 interface MailDisplayProps {

@@ -11,16 +11,16 @@ import {
   SlidersHorizontalIcon,
   SearchIcon
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import * as Kanban from "@/components/ui/kanban";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Input } from "@/components/ui/input";
+import { Badge } from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
+import * as Kanban from "@vibethink/ui";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@vibethink/ui";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@vibethink/ui";
+import { Input } from "@vibethink/ui";
 import {
   Command,
   CommandEmpty,
@@ -29,8 +29,8 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator
-} from "@/components/ui/command";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+} from "@vibethink/ui";
+import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui";
 
 import {
   Dialog,
@@ -38,8 +38,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger
-} from "@/components/ui/dialog";
-import { Separator } from "@/components/ui/separator";
+} from "@vibethink/ui";
+import { Separator } from "@vibethink/ui";
 
 import AddAssigne from "./add-assigne";
 

@@ -9,11 +9,11 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { noteLabels } from "@/app/dashboard/(auth)/apps/notes/data";
+} from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
+import { Input } from "@vibethink/ui";
+import { Label } from "@vibethink/ui";
+import { noteLabels } from "./data";
 import { PlusIcon } from "@radix-ui/react-icons";
 
 interface Props {

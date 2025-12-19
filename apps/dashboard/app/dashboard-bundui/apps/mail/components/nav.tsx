@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { LucideIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { ReactNode } from "react";
 
-import { buttonVariants } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { buttonVariants } from "@vibethink/ui";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@vibethink/ui";
 
 interface NavProps {
   isCollapsed: boolean;

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import { Order, Table } from "@/app/dashboard/(auth)/apps/pos-system/store";
+import { Order, Table } from "./store";
 
 import {
   Dialog,
@@ -9,9 +9,9 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle
-} from "@/components/ui/dialog";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+} from "@vibethink/ui";
+import { Badge } from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
 
 type TableDetailDialog = {
   open: boolean;

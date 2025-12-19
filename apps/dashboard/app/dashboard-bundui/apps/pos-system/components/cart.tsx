@@ -3,11 +3,11 @@
 import React from "react";
 import { Utensils } from "lucide-react";
 
-import { useStore } from "@/app/dashboard/(auth)/apps/pos-system/store";
+import { useStore } from "./store";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import CartListItem from "@/app/dashboard/(auth)/apps/pos-system/components/cart-list-item";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
+import CartListItem from "./components/cart-list-item";
+import { Button } from "@vibethink/ui";
 
 type POStSystemCart = {
   setShowAssignOrderDialogAction: React.Dispatch<React.SetStateAction<boolean>>;

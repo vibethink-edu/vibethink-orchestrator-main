@@ -31,15 +31,15 @@ import {
   WeekCellsHeight,
   WeekView
 } from "./";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/shared/lib/utils";
+import { Button } from "@vibethink/ui";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuShortcut,
   DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
+} from "@vibethink/ui";
 
 export interface EventCalendarProps {
   events?: CalendarEvent[];

@@ -2,10 +2,10 @@ import React from "react";
 import { Archive, Edit3, PenSquare } from "lucide-react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@vibethink/ui";
+import { Separator } from "@vibethink/ui";
+import { Sheet, SheetContent, SheetTrigger } from "@vibethink/ui";
+import { DialogHeader, DialogTitle } from "@vibethink/ui";
 
 import { noteLabels } from "./data";
 import { AddNoteModal } from "./add-note-modal";

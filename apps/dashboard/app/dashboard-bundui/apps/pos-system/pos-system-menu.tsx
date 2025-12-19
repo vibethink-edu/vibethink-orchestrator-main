@@ -11,17 +11,17 @@ import {
   TableCategory
 } from "@/app/dashboard/(auth)/apps/pos-system/store";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { RadioGroup } from "@/components/ui/radio-group";
-import ProductListItem from "@/app/dashboard/(auth)/apps/pos-system/components/product-list-item";
-import AddProductDialog from "@/app/dashboard/(auth)/apps/pos-system/components/add-product-dialog";
-import ProductCategoryListItem from "@/app/dashboard/(auth)/apps/pos-system/components/product-category-list-item";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import POStSystemCart from "@/app/dashboard/(auth)/apps/pos-system/components/cart";
-import AssignOrderToTable from "@/app/dashboard/(auth)/apps/pos-system/components/assign-order-to-table";
-import POStSystemCartSheet from "@/app/dashboard/(auth)/apps/pos-system/components/cart-sheet";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Button } from "@vibethink/ui";
+import { Input } from "@vibethink/ui";
+import { RadioGroup } from "@vibethink/ui";
+import ProductListItem from "./components/product-list-item";
+import AddProductDialog from "./components/add-product-dialog";
+import ProductCategoryListItem from "./components/product-category-list-item";
+import { ScrollArea, ScrollBar } from "@vibethink/ui";
+import POStSystemCart from "./components/cart";
+import AssignOrderToTable from "./components/assign-order-to-table";
+import POStSystemCartSheet from "./components/cart-sheet";
+import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui";
 
 type PosSystemMenu = {
   productCategories: ProductCategory[];

@@ -14,9 +14,9 @@ import {
 } from "lucide-react";
 
 import { Nav } from "./nav";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@vibethink/ui";
 import * as React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { AccountSwitcher } from "./account-switcher";
 import { accounts } from "../data";
 

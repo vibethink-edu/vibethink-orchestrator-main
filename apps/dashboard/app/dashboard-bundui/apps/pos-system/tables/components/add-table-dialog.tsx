@@ -8,18 +8,18 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger
-} from "@/components/ui/dialog";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+} from "@vibethink/ui";
+import { Label } from "@vibethink/ui";
+import { Input } from "@vibethink/ui";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
-import { TableCategory } from "@/app/dashboard/(auth)/apps/pos-system/store";
+} from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
+import { TableCategory } from "./store";
 
 type AddTableDialog = {
   tableCategories: TableCategory[];

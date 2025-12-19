@@ -1,5 +1,5 @@
-import { ProductCategory } from "@/app/dashboard/(auth)/apps/pos-system/store";
-import { RadioGroupItem } from "@/components/ui/radio-group";
+import { ProductCategory } from "./store";
+import { RadioGroupItem } from "@vibethink/ui";
 
 type ProductCategoryListItem = {
   category: ProductCategory;

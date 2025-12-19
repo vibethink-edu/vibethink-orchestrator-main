@@ -4,11 +4,11 @@ import React from "react";
 import Image from "next/image";
 import { ShoppingCartIcon } from "lucide-react";
 
-import { Product, useStore } from "@/app/dashboard/(auth)/apps/pos-system/store";
-import { useToast } from "@/hooks/use-toast";
+import { Product, useStore } from "./store";
+import { useToast } from "@/shared/hooks/use-toast";
 
-import { Button } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Button } from "@vibethink/ui";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui";
 
 export default function ProductListItem({ product }: { product: Product }) {
   const { addToCart } = useStore();

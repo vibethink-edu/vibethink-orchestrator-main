@@ -1,8 +1,8 @@
 import React from "react";
 import { AlertCircleIcon, ImageIcon, Plus, UploadIcon, XIcon } from "lucide-react";
 
-import { ProductCategory } from "@/app/dashboard/(auth)/apps/pos-system/store";
-import { useFileUpload } from "@/hooks/use-file-upload";
+import { ProductCategory } from "./store";
+import { useFileUpload } from "@/shared/hooks/use-file-upload";
 
 import {
   Dialog,
@@ -11,17 +11,17 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger
-} from "@/components/ui/dialog";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+} from "@vibethink/ui";
+import { Label } from "@vibethink/ui";
+import { Input } from "@vibethink/ui";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
+} from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
 
 type AddProductDialog = {
   categories: ProductCategory[];

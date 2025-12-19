@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { FileSearchIcon, LayoutGridIcon, ListIcon, MenuIcon, Search } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { AddNoteModal } from "@/app/dashboard/(auth)/apps/notes/add-note-modal";
-import { Note } from "@/app/dashboard/(auth)/apps/notes/types";
-import NoteListItem from "@/app/dashboard/(auth)/apps/notes/note-list-item";
-import { notes } from "@/app/dashboard/(auth)/apps/notes/data";
-import { NoteMobileSidebar } from "@/app/dashboard/(auth)/apps/notes/note-sidebar";
+import { Button } from "@vibethink/ui";
+import { Input } from "@vibethink/ui";
+import { AddNoteModal } from "./add-note-modal";
+import { Note } from "./types";
+import NoteListItem from "./note-list-item";
+import { notes } from "./data";
+import { NoteMobileSidebar } from "./note-sidebar";
 
 export default function NoteContent() {
   const [searchQuery, setSearchQuery] = useState("");

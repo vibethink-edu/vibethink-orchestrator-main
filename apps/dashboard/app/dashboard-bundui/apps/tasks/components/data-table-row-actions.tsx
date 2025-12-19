@@ -3,7 +3,7 @@
 import { Row } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@vibethink/ui";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,7 +16,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
+} from "@vibethink/ui";
 
 import { labels } from "../data/data";
 import { taskSchema } from "../data/schema";

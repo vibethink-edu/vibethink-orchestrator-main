@@ -2,21 +2,21 @@
 
 import * as React from "react";
 import { Search } from "lucide-react";
-import { useIsMobile } from "@/hooks/use-mobile";
-import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/shared/hooks/use-mobile";
+import { cn } from "@/shared/lib/utils";
 
-import { Input } from "@/components/ui/input";
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
-import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { Input } from "@vibethink/ui";
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@vibethink/ui";
+import { Separator } from "@vibethink/ui";
+import { Tabs, TabsList, TabsTrigger } from "@vibethink/ui";
+import { TooltipProvider } from "@vibethink/ui";
 import { MailDisplay } from "./mail-display";
 import { MailList } from "./mail-list";
 import { type Mail } from "../data";
 import { useMailStore } from "../use-mail";
-import { NavDesktop } from "@/app/dashboard/(auth)/apps/mail/components/nav-desktop";
-import { NavMobile } from "@/app/dashboard/(auth)/apps/mail/components/nav-mobile";
-import { MailDisplayMobile } from "@/app/dashboard/(auth)/apps/mail/components/mail-display-mobile";
+import { NavDesktop } from "./components/nav-desktop";
+import { NavMobile } from "./components/nav-mobile";
+import { MailDisplayMobile } from "./components/mail-display-mobile";
 
 interface MailProps {
   accounts: {

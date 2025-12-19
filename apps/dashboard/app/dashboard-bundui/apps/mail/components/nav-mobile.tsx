@@ -15,13 +15,13 @@ import {
 } from "lucide-react";
 
 import { Nav } from "./nav";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@vibethink/ui";
 import { AccountSwitcher } from "./account-switcher";
 import { accounts } from "../data";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
-import { DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { DialogHeader, DialogTitle } from "@vibethink/ui";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 export function NavMobile() {

@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger
-} from "@/components/ui/dialog";
+} from "@vibethink/ui";
 import {
   Command,
   CommandEmpty,
@@ -16,9 +16,9 @@ import {
   CommandInput,
   CommandItem,
   CommandList
-} from "@/components/ui/command";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+} from "@vibethink/ui";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
 
 const users = [
   {

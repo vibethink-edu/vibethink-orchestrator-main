@@ -1,16 +1,16 @@
 import React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { format } from "date-fns";
 import { Calendar, FileIcon, Star, BellIcon } from "lucide-react";
-import { priorityClasses, statusClasses } from "@/app/dashboard/(auth)/apps/todo-list-app/enum";
-import { Todo, TodoStatus } from "@/app/dashboard/(auth)/apps/todo-list-app/types";
+import { priorityClasses, statusClasses } from "./enum";
+import { Todo, TodoStatus } from "./types";
 import { CSS } from "@dnd-kit/utilities";
 import { useSortable } from "@dnd-kit/sortable";
 
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Card, CardContent, CardFooter } from "@vibethink/ui";
+import { Badge } from "@vibethink/ui";
+import { Checkbox } from "@vibethink/ui";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui";
 
 interface TodoItemProps {
   todo: Todo;

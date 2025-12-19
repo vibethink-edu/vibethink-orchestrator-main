@@ -1,8 +1,8 @@
-import { generateMeta } from "@/lib/utils";
+import { generateMeta } from "@/shared/lib/utils";
 import { promises as fs } from "fs";
 import path from "path";
 
-import PosSystemMenu from "@/app/dashboard/(auth)/apps/pos-system/pos-system-menu";
+import PosSystemMenu from "./pos-system-menu";
 
 export async function generateMetadata() {
   return generateMeta({

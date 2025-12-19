@@ -28,7 +28,7 @@ import {
   type CalendarEvent
 } from "./";
 import { DefaultStartHour } from "../constants";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui";
 
 interface MonthViewProps {
   currentDate: Date;

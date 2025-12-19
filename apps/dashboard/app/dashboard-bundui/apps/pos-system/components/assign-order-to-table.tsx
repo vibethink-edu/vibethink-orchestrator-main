@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 
-import { Table, TableCategory, useStore } from "@/app/dashboard/(auth)/apps/pos-system/store";
+import { Table, TableCategory, useStore } from "./store";
 import {
   EnumTableStatus,
   EnumTableStatusColor
@@ -16,16 +16,16 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle
-} from "@/components/ui/dialog";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Button } from "@/components/ui/button";
+} from "@vibethink/ui";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@/components/ui/select";
+} from "@vibethink/ui";
 
 type AssignOrderToTable = {
   open: boolean;

@@ -6,16 +6,16 @@ import {
   PromptInputAction,
   PromptInputActions,
   PromptInputTextarea
-} from "@/components/ui/custom/prompt/input";
-import { Button } from "@/components/ui/button";
+} from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
 import { ArrowUpIcon, Paperclip, SquareIcon, X } from "lucide-react";
-import { Suggestion } from "@/components/ui/custom/prompt/suggestion";
-import { ChatContainer } from "@/components/ui/custom/prompt/chat-container";
-import { Message, MessageContent } from "@/components/ui/custom/prompt/message";
-import { Markdown } from "@/components/ui/custom/prompt/markdown";
-import { cn } from "@/lib/utils";
-import { PromptLoader } from "@/components/ui/custom/prompt/loader";
-import { PromptScrollButton } from "@/components/ui/custom/prompt/scroll-button";
+import { Suggestion } from "@vibethink/ui";
+import { ChatContainer } from "@vibethink/ui";
+import { Message, MessageContent } from "@vibethink/ui";
+import { Markdown } from "@vibethink/ui";
+import { cn } from "@/shared/lib/utils";
+import { PromptLoader } from "@vibethink/ui";
+import { PromptScrollButton } from "@vibethink/ui";
 
 const chatSuggestions = [
   "What's the latest tech trend?",

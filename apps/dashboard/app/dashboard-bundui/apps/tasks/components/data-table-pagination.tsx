@@ -1,14 +1,14 @@
 import { Table } from "@tanstack/react-table";
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@vibethink/ui";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@/components/ui/select";
+} from "@vibethink/ui";
 
 interface DataTablePaginationProps<TData> {
   table: Table<TData>;

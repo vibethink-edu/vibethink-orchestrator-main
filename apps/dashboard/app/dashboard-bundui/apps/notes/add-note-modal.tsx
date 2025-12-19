@@ -2,17 +2,17 @@
 
 import React from "react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { ImageIcon, Tag, PenSquare, Check, Trash2Icon, ArchiveIcon } from "lucide-react";
-import { MinimalTiptapEditor } from "@/components/ui/custom/minimal-tiptap";
+import { MinimalTiptapEditor } from "@vibethink/ui";
 import { Content } from "@tiptap/react";
 
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@vibethink/ui";
+import { Input } from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui";
+import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui";
 import {
   Command,
   CommandEmpty,
@@ -20,10 +20,10 @@ import {
   CommandInput,
   CommandItem,
   CommandList
-} from "@/components/ui/command";
-import { NoteLabel } from "@/app/dashboard/(auth)/apps/notes/types";
-import { Badge } from "@/components/ui/badge";
-import { noteLabels } from "@/app/dashboard/(auth)/apps/notes/data";
+} from "@vibethink/ui";
+import { NoteLabel } from "./types";
+import { Badge } from "@vibethink/ui";
+import { noteLabels } from "./data";
 
 export function AddNoteModal() {
   const [imagePreview, setImagePreview] = React.useState<string | null>(null);

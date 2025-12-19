@@ -4,14 +4,14 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 
-import { Table, TableCategory } from "@/app/dashboard/(auth)/apps/pos-system/store";
+import { Table, TableCategory } from "./store";
 
-import { Button } from "@/components/ui/button";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import TableListItem from "@/app/dashboard/(auth)/apps/pos-system/tables/components/table-list-item";
-import AddTableDialog from "@/app/dashboard/(auth)/apps/pos-system/tables/components/add-table-dialog";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { Button } from "@vibethink/ui";
+import { RadioGroup, RadioGroupItem } from "@vibethink/ui";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui";
+import TableListItem from "./tables/components/table-list-item";
+import AddTableDialog from "./tables/components/add-table-dialog";
+import { ScrollArea, ScrollBar } from "@vibethink/ui";
 
 type PosSystemTableRender = {
   tableCategories: TableCategory[];
