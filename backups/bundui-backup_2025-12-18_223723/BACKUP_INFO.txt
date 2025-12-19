@@ -1,0 +1,24 @@
+BUNDUI BACKUP INFORMATION
+========================
+
+Fecha/Hora:  2025-12-18_223723
+Descripción: Pre-Sprint 2: Antes de arreglar 3 apps finales (Chat/Todo/File-Manager)
+Archivos:    319
+Tamaño:      1.51 MB
+
+Directorios respaldados:
+  - apps\dashboard\app\dashboard-bundui
+  - packages\ui\src\components\bundui
+  - packages\ui\src\index.ts
+
+
+Cómo restaurar:
+===============
+1. Detener servidor: .\scripts\stop-dashboard.ps1
+2. Copiar contenido de este backup a la raíz del proyecto
+3. Reiniciar servidor: .\scripts\start-dashboard.ps1
+
+Comando de restauración:
+------------------------
+Copy-Item -Path "C:\IA Marcelo Labs\vibethink-orchestrator-main\backups\bundui-backup_2025-12-18_223723\*" -Destination "C:\IA Marcelo Labs\vibethink-orchestrator-main\" -Recurse -Force
+
