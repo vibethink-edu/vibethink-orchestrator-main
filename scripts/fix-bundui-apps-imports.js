@@ -19,11 +19,8 @@ const importReplacements = [
     pattern: /from\s+["']@\/components\/ui\/(.+?)["'];?/g,
     replacement: 'from "@vibethink/ui";'
   },
-  // Fix lib/utils imports
-  {
-    pattern: /from\s+["']@\/lib\/utils["'];?/g,
-    replacement: 'from "@/shared/lib/utils";'
-  },
+  // Fix lib/utils imports (keep as @/lib/utils - it exists in dashboard)
+  // No need to change - @/lib/utils is correct for dashboard
   // Fix hooks imports
   {
     pattern: /from\s+["']@\/hooks\/(.+?)["'];?/g,
