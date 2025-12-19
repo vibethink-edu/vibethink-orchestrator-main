@@ -131,7 +131,7 @@ export const navItems: NavGroup[] = [
       },
       {
         title: "Image Generator",
-        href: "/dashboard-bundui/apps/ai-image-generator",
+        href: "/dashboard-bundui/ai-image-generator",
         icon: ImagesIcon,
         isNew: true
       }
@@ -142,7 +142,7 @@ export const navItems: NavGroup[] = [
     items: [
       {
         title: "Kanban",
-        href: "/kanban-dashboard",
+        href: "/dashboard-bundui/apps/kanban",
         icon: SquareKanbanIcon,
         isNew: true
       },
@@ -168,7 +168,7 @@ export const navItems: NavGroup[] = [
         icon: ArchiveRestoreIcon,
         isComing: true
       },
-      { title: "Api Keys", href: "/dashboard-bundui/apps/api-keys", icon: KeyIcon, isNew: true },
+      { title: "Api Keys", href: "/dashboard-bundui/api-keys", icon: KeyIcon, isNew: true },
       { title: "POS App", href: "/dashboard-bundui/apps/pos-system", icon: CookieIcon, isNew: true }
     ]
   },
