@@ -1,0 +1,24 @@
+BUNDUI BACKUP INFORMATION
+========================
+
+Fecha/Hora:  2025-12-18_230940
+Descripción: Pre-Fase 4: Antes de Architecture Upgrade (Multi-tenant + Hooks)
+Archivos:    376
+Tamaño:      2.07 MB
+
+Directorios respaldados:
+  - apps\dashboard\app\dashboard-bundui
+  - packages\ui\src\components\bundui
+  - packages\ui\src\index.ts
+
+
+Cómo restaurar:
+===============
+1. Detener servidor: .\scripts\stop-dashboard.ps1
+2. Copiar contenido de este backup a la raíz del proyecto
+3. Reiniciar servidor: .\scripts\start-dashboard.ps1
+
+Comando de restauración:
+------------------------
+Copy-Item -Path "C:\IA Marcelo Labs\vibethink-orchestrator-main\backups\bundui-backup_2025-12-18_230940\*" -Destination "C:\IA Marcelo Labs\vibethink-orchestrator-main\" -Recurse -Force
+
