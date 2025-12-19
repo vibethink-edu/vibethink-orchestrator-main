@@ -5,6 +5,99 @@ Todos los cambios notables de este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2025-01-XX
+
+### Added
+- ✅ **Sistema i18n Completo**
+  - Arquitectura multidioma para `dashboard-vibethink`
+  - Soporte inglés/español (extensible)
+  - Type-safety completo con TypeScript
+  - Carga incremental por namespace
+  - Middleware de Next.js para detección automática
+  - Componente `LocaleSelector` integrado
+  - Traducciones iniciales: common, navigation, crm, errors, validation, sales, ecommerce
+
+- ✅ **Documentación Consolidada**
+  - `APPLICATION_TERMINOLOGY.md` - Fuente única de verdad para nombres clave
+  - `DASHBOARD_ARCHITECTURE.md` - Arquitectura completa actualizada
+  - Consolidación de documentos de naming y convenciones
+  - Flujo de desarrollo documentado (bundui → vibethink → dashboard)
+
+- ✅ **Separación de Dashboards**
+  - Headers independientes (Bundui sin i18n, VibeThink con i18n)
+  - Propósitos claros documentados:
+    - `/dashboard` - Producción final (integración BD)
+    - `/dashboard-bundui` - Referencia/Inspiración
+    - `/dashboard-vibethink` - Mockup/Sandbox de pruebas
+
+### Fixed
+- ✅ **Correcciones de Build**
+  - Imports corregidos en `pos-system/tables`
+  - Import de chat corregido en `(dashboard)/dashboard/apps/chat`
+  - Exportación de Timeline components desde `@vibethink/ui`
+  - SVG attributes corregidos (kebab-case → camelCase)
+
+### Changed
+- 🔄 **Arquitectura de Documentación**
+  - Consolidación de documentos de naming en un solo sitio
+  - `AGENTS.md` actualizado con información crítica de dashboards
+  - Documentos consolidados marcados con notas de referencia
+
+### Technical
+- ⚡ Sistema i18n con React Context y hooks
+- ⚡ Formateo inteligente (fechas, monedas, números)
+- ⚡ Persistencia en cookies/localStorage
+- ⚡ Code splitting por namespace
+
+## [0.1.0] - 2025-01-18
+
+### Added
+- ✅ **Workflow Dashboard con React Flow**
+  - Editor visual de workflows con drag & drop
+  - Tipos de nodos: Inicio, Proceso, Decisión, Acción, Fin
+  - Estados de nodos: Idle, Running, Completed, Error, Paused
+  - Panel de propiedades para editar nodos
+  - Toolbar con acciones: agregar nodos, ejecutar, guardar, exportar
+  - Minimapa y controles de zoom/pan
+  - Datos mock para desarrollo inicial
+  - Ruta: `/dashboard-vibethink/workflow`
+
+- ✅ **Sistema de Versionamiento**
+  - Archivo centralizado: `apps/dashboard/lib/version.ts`
+  - Versión inicial: `0.1.0 - Workflow Dashboard Initial Release`
+  - Componente Footer reutilizable con versión visible
+  - Footer agregado a layouts de `dashboard-vibethink` y `dashboard-bundui`
+  - Versión visible en footer de `website`
+
+- ✅ **Mejoras de Código (Workflow Dashboard)**
+  - Barrel exports en `hooks/index.ts` (sigue patrón de analytics)
+  - Sincronización de estado corregida (updateNodes, updateEdges)
+  - Validación de datos en `addNode`
+  - Manejo de errores con try-catch
+  - CustomNode memoizado con `React.memo`
+  - WorkflowSidebar funcional con actualización en tiempo real
+  - Removidos todos los `console.log` de producción
+
+- ✅ **Documentación**
+  - `DOCS_INDEX.md` creado en raíz (punto de entrada a documentación)
+  - `docs/reports/DOCUMENTATION_CONSOLIDATION_REPORT.md` (análisis de documentación)
+  - `workflow/README.md` (documentación completa del dashboard)
+  - `workflow/IMPROVEMENTS.md` (mejoras implementadas)
+
+### Changed
+- 🔄 **Arquitectura de Componentes**
+  - Separación Server/Client Components en `workflow/page.tsx`
+  - `WorkflowPageContent` como Client Component
+  - `page.tsx` como Server Component con `generateMetadata`
+
+### Technical
+- ⚡ Integración con `@xyflow/react` (React Flow)
+- ⚡ TypeScript estricto con tipos bien definidos
+- ⚡ Separación de responsabilidades (components, hooks, types, lib)
+- ⚡ Sigue buenas prácticas del proyecto (patrón de hooks, barrel exports)
+
+---
+
 ## [Unreleased] - 2025-01-18
 
 ### Added

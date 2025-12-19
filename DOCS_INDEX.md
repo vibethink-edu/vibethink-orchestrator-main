@@ -38,16 +38,24 @@ Este archivo es un índice rápido. Para la documentación completa y detallada,
 ## 🔍 Navegación por Categoría
 
 ### 🏗️ Arquitectura
+- [Terminología y Nombres Clave](./docs/architecture/APPLICATION_TERMINOLOGY.md) ⭐ - Fuente única de verdad para nombres clave
 - [Arquitectura de Dashboards](./docs/architecture/DASHBOARD_ARCHITECTURE.md)
 - [Reglas de Referencias](./docs/architecture/REFERENCE_RULES.md)
 - [Shadcn UI Compliance](./docs/architecture/SHADCN_MONOREPO_COMPLIANCE.md)
 - [Tandem Bundui-VibeThink](./docs/architecture/BUNDUI_VIBETHINK_TANDEM.md) ⭐ - Comparación completa
+- [Estrategia de Actualización Bundui](./docs/architecture/BUNDUI_UPDATE_STRATEGY.md) ⭐ - Manejo de actualizaciones sin i18n
 - [Estrategia i18n](./docs/architecture/I18N_STRATEGY.md) ⭐ - Bundui vs VibeThink
 - [Arquitectura i18n](./docs/architecture/I18N_ARCHITECTURE.md) - Sistema multidioma completo
 - [Guía de Plantillas i18n](./docs/architecture/I18N_TEMPLATE_GUIDE.md) - Templates para nuevas plantillas
 - [Guía de Uso i18n](./docs/architecture/I18N_USAGE_GUIDE.md) - Referencia rápida
+- [Sistema de Referencia Bundui](./docs/architecture/BUNDUI_REFERENCE_SYSTEM.md) - Implementación completa
+- [Estado de Migración de Dashboards](./docs/architecture/DASHBOARD_MIGRATION_STATUS.md) - Estado actual
+- [Excepciones del Monorepo](./docs/architecture/MONOREPO_EXCEPTIONS.md) - Apps que no siguen reglas estándar
+- [Prevención de Degradación de Reglas](./docs/architecture/RULES_DEGRADATION_PREVENTION.md) - Sistema anti-entropía
+- [Navegación de Reglas](./docs/architecture/RULES_NAVIGATION.md) - Guía de navegación
 
 ### 🎨 UI/UX
+- [Guía Maestra de UI](./docs/ui-ux/UI_MASTER_GUIDE.md) ⭐ - Fuente única de verdad para UI (v3.0.0)
 - [Guía de Shadcn UI](./docs/ui-ux/SHADCN_UI_GUIDE.md)
 - [Migración de Bundui](./docs/ui-ux/BUNDUI_MIGRATION_COMPLETE.md)
 
@@ -55,10 +63,34 @@ Este archivo es un índice rápido. Para la documentación completa y detallada,
 - [Runbook Operacional](./docs/operations/OPERATIONAL_RUNBOOK.md)
 - [Convenciones de Puertos](./docs/operations/PORT_CONVENTIONS.md)
 - [Prevención de Errores](./docs/operations/ERROR_PREVENTION_PLAYBOOK.md)
+- [Estado de Ramas](./docs/operations/BRANCH_STATUS.md) - Ramas activas y su estado
 
 ### 📝 Reportes y Sesiones
 - [Reportes de Consolidación](./docs/reports/)
 - [Sesiones de Desarrollo](./docs/sessions/)
+- [Resúmenes de Sesión](./docs/sessions/SESSION_SUMMARY*.md) - Historial de sesiones
+
+### 🎯 Metodología
+- [FAQ First Methodology](./docs/methodology/FAQ_FIRST_METHODOLOGY.md) ⭐ - Metodología "Valida Donde Estamos"
+
+
+### 🛠️ Desarrollo
+- [Guía Completa de VHELP](./docs/development/VHELP_COMPLETE_GUIDE.md) - Sistema de comandos interactivo
+- [Guía de Errores Redux](./docs/development/REDUX_CHARTOOLTIP_ERROR_GUIDE.md) - Resolución de errores comunes
+
+### 🧪 Testing
+- [Log de Testing de Dashboards](./docs/testing/DASHBOARD_TESTING_LOG.md) - Resultados de pruebas
+- [Pruebas Post-Limpieza](./docs/testing/PRUEBAS_POST_LIMPIEZA.md) - Checklist de validación
+
+### 📋 Planificación
+- [Próximos Pasos](./docs/planning/NEXT_STEPS.md) - Roadmap y acciones pendientes
+
+### ⚙️ Setup
+- [Configuración de Cursor](./docs/setup/CURSOR_SETUP.md) - Configuración del IDE
+
+### 🤖 Coordinación IA
+- [Instrucciones para Claude](./docs/ai-coordination/CLAUDE.md) - Guía para Claude AI
+- [Instrucciones para Codex](./docs/ai-coordination/CODEX.md) - Guía para Codex AI
 
 ---
 
@@ -82,6 +114,11 @@ Este índice se actualiza cuando:
 
 **Última actualización**: 2025-01-18  
 **Mantenido por**: Equipo de Desarrollo VibeThink
+
+### 📍 Reorganización Reciente (2025-01-18)
+
+Se movieron **19 archivos** desde la raíz a `docs/` para mantener la organización.  
+**Ver mapeo completo**: [docs/FILE_RELOCATION_MAP.md](./docs/FILE_RELOCATION_MAP.md) ⭐
 
 ---
 

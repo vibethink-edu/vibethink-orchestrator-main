@@ -9,8 +9,8 @@ import { Table, TableCategory } from "../store";
 import { Button } from "@vibethink/ui";
 import { RadioGroup, RadioGroupItem } from "@vibethink/ui";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui";
-import TableListItem from "./tables/components/table-list-item";
-import AddTableDialog from "./tables/components/add-table-dialog";
+import TableListItem from "./components/table-list-item";
+import AddTableDialog from "./components/add-table-dialog";
 import { ScrollArea, ScrollBar } from "@vibethink/ui";
 
 type PosSystemTableRender = {

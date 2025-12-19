@@ -337,3 +337,4 @@ npm run validate:routes
 - `AGENTS.md` - Filosofía de arquitectura
 - `CHANGELOG.md` - Historial de sincronizaciones
 
+

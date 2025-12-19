@@ -277,3 +277,4 @@ Para cada ruta, verificar:
 - [ ] Actualizar `AGENTS.md` con hallazgos
 
 
+

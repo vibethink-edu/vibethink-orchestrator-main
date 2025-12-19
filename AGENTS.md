@@ -3,25 +3,87 @@ This project is a **VibeThink Orchestrator 1.0** - an Enterprise SaaS Platform w
 
 ## 🚨 CRITICAL: Arquitectura de Dashboards (NUNCA VIOLAR)
 
+### ⚠️ SUPER IMPORTANTE: Los Tres Dashboards Principales
+
+El sistema tiene **3 dashboards principales** con propósitos específicos y críticos:
+
+#### 1. `/dashboard` - Producción Final ⭐
+- **Propósito**: Dashboard de producción final donde se integra con base de datos
+- **Características**:
+  - ✅ **Integración BD**: Módulos reales conectados a base de datos
+  - ✅ **Módulos publicados**: Login, CRM, etc. (los que se publican)
+  - ✅ **Meta de desarrollo**: Es el objetivo final de todos los desarrollos
+  - ✅ **Multidioma**: Implementado
+  - ✅ **Layout**: Minimalista (sin sidebar/header)
+- **Rutas**: `/dashboard/*`
+- **Flujo**: Recibe módulos probados desde `dashboard-vibethink`
+- **Estado**: ✅ Funcional (en desarrollo - meta final)
+
+#### 2. `/dashboard-bundui` - Referencia/Inspiración
+- **Propósito**: Espejo de Bundui Premium, nuestra inspiración (no monorepo, externo)
+- **Sidebar**: Propio e independiente (`AppSidebar` de Bundui)
+- **Rutas**: SIEMPRE `/dashboard-bundui/*`
+- **Modificación**: ❌ NO (o mínimo necesario - mucho trabajo mantenerlo)
+- **Stack**: Shadcn UI first, SIEMPRE
+- **i18n**: ❌ NO implementar (mantener inglés hardcoded como referencia)
+- **Actualización**: ⚠️ Solo cuando hay nuevas versiones del proveedor (sin i18n)
+- **Estado**: ✅ Completo y estable (congelado como referencia)
+
+#### 3. `/dashboard-vibethink` - Mockup/Sandbox de Pruebas
+- **Propósito**: Mockup antes de implementar en producción - donde se prueban interfaces
+- **Características**:
+  - ⚠️ **NO es producción**: Es sandbox de pruebas y mockups
+  - ✅ **Se nutre de**: Bundui, React Flow, AI Chat, y otros componentes
+  - ✅ **Pruebas**: Donde se prueba cómo luce todo antes de integrar con BD
+  - ✅ **Sin BD**: Solo mockups y pruebas
+- **Sidebar**: Propio e independiente (`VibeThinkSidebar`)
+- **Rutas**: SIEMPRE `/dashboard-vibethink/*`
+- **Modificación**: ✅ SÍ (pero debe seguir TODAS las reglas del proyecto)
+- **Stack**: Shadcn UI first, SIEMPRE
+- **i18n**: ✅ OBLIGATORIO (multidioma desde el inicio)
+- **Reglas obligatorias**:
+  - ✅ Debe seguir TODAS las reglas del proyecto
+  - ✅ Debe seguir reglas de `vibethink-dev-kit`
+  - ✅ Monorepo compliance obligatorio
+  - ✅ Changelog y versiones obligatorios
+  - ✅ i18n obligatorio desde el inicio
+- **Flujo**: Prueba módulos antes de migrarlos a `/dashboard` (producción)
+- **Estado**: ✅ Funcional, sandbox activo para pruebas
+
+### 🔄 Flujo de Desarrollo
+
+```
+┌─────────────────────────────────┐
+│  /dashboard-bundui              │
+│  (Referencia/Inspiración)       │
+│  - Bundui Premium externo       │
+│  - Solo inglés, sin i18n         │
+└────────────┬────────────────────┘
+             │ Inspiración
+             ↓
+┌─────────────────────────────────┐
+│  /dashboard-vibethink           │
+│  (Mockup/Sandbox)               │
+│  - Pruebas de interfaces        │
+│  - Multidioma (i18n)            │
+│  - React Flow, AI Chat, etc.    │
+│  - Sin BD (mockups)              │
+└────────────┬────────────────────┘
+             │ Migración probada
+             ↓
+┌─────────────────────────────────┐
+│  /dashboard                     │
+│  (Producción Final) ⭐           │
+│  - Integración con BD            │
+│  - Módulos publicados            │
+│  - Login, CRM, etc.              │
+│  - Multidioma                    │
+└─────────────────────────────────┘
+```
+
 ### Regla Fundamental: Independencia Total de Dashboards
 
 **NO habrá sidebars compartidos NUNCA. Cada sistema de dashboards es completamente independiente.**
-
-#### `/dashboard-bundui` - Espejo Monorepo de Bundui Premium
-- **Propósito**: Versión monorepo de Bundui Premium (espejo fiel)
-- **Sidebar**: Propio e independiente (`AppSidebar` de Bundui)
-- **Rutas**: SIEMPRE `/dashboard-bundui/*`
-- **Modificación**: NO (o mínimo necesario - mucho trabajo mantenerlo)
-- **Stack**: Shadcn UI first, SIEMPRE
-- **i18n**: ❌ NO implementar (mantener inglés hardcoded como referencia)
-
-#### `/dashboard-vibethink` - Mejoras y Extensiones
-- **Propósito**: Mejoras o extensiones de dashboards
-- **Sidebar**: Propio e independiente (`VibeThinkSidebar`)
-- **Rutas**: SIEMPRE `/dashboard-vibethink/*`
-- **Modificación**: SÍ (total libertad)
-- **Stack**: Shadcn UI first, SIEMPRE
-- **i18n**: ✅ OBLIGATORIO (multidioma desde el inicio)
 
 ### ⚠️ Principios Arquitectónicos
 
@@ -30,29 +92,36 @@ This project is a **VibeThink Orchestrator 1.0** - an Enterprise SaaS Platform w
 3. **Shadcn First**: SIEMPRE usar Shadcn UI como base
 4. **Rutas Específicas**: Cada sistema usa su propio prefijo de ruta
 5. **Objetivos Claros**: 
-   - `bundui` = espejo para referencia
-   - `vibethink` = mejoras y extensiones
+   - `dashboard` = producción final (integración BD, módulos publicados) ⭐
+   - `bundui` = referencia/inspiración (externo, no monorepo)
+   - `vibethink` = mockup/sandbox (pruebas antes de producción)
 
 ### 📋 Checklist para Nuevos Dashboards
 
 Antes de crear un dashboard, pregunta:
-- [ ] ¿Va en `/dashboard-bundui` o `/dashboard-vibethink`?
+- [ ] ¿Va en `/dashboard` (producción), `/dashboard-bundui` (referencia), o `/dashboard-vibethink` (mockup)?
+- [ ] Si es `/dashboard`: ¿Está listo para integración con BD? ¿Ya fue probado en vibethink?
+- [ ] Si es `/dashboard-vibethink`: ¿Usa i18n desde el inicio? (OBLIGATORIO)
+- [ ] Si es `/dashboard-bundui`: ¿Mantiene inglés hardcoded? (NO implementar i18n)
 - [ ] ¿Usa el sidebar correcto para ese sistema?
 - [ ] ¿Todas las rutas usan el prefijo correcto?
 - [ ] ¿Está basado en Shadcn UI?
-- [ ] Si es `/dashboard-vibethink`: ¿Usa i18n desde el inicio? (OBLIGATORIO)
-- [ ] Si es `/dashboard-bundui`: ¿Mantiene inglés hardcoded? (NO implementar i18n)
+- [ ] Si es `/dashboard-vibethink`: ¿Sigue todas las reglas del proyecto y vibethink-dev-kit?
 
 **NUNCA intentes compartir componentes de navegación entre sistemas.**
 
-### 🌍 Regla i18n: Bundui vs VibeThink
+### 🌍 Regla i18n: Los Tres Dashboards
 
-**Principio Fundamental:** Bundui es referencia en inglés. VibeThink implementa multidioma desde el inicio.
-
+**Principio Fundamental:** 
+- **`/dashboard`**: ✅ Multidioma (producción final)
 - **`/dashboard-bundui`**: ❌ NO implementar i18n. Mantener inglés hardcoded como referencia.
 - **`/dashboard-vibethink`**: ✅ OBLIGATORIO usar i18n. Todas las nuevas plantillas y mejoras deben usar `useTranslation()` desde el primer commit.
 
-**Documentación completa:** Ver `docs/architecture/I18N_STRATEGY.md` y `docs/architecture/I18N_TEMPLATE_GUIDE.md`
+**Documentación completa:** 
+- `docs/architecture/I18N_STRATEGY.md` - Estrategia i18n
+- `docs/architecture/I18N_TEMPLATE_GUIDE.md` - Templates
+- `docs/architecture/BUNDUI_UPDATE_STRATEGY.md` - Manejo de actualizaciones sin i18n ⭐
+- `docs/architecture/APPLICATION_TERMINOLOGY.md` ⭐ - **Fuente única de verdad para nombres clave y convenciones**
 
 ---
 

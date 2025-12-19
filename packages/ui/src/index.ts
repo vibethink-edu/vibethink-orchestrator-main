@@ -64,4 +64,5 @@ export * from './components/tooltip';
 
 // Extensions
 export * from './components/extensions/kanban';
+export * from './components/extensions/timeline';
 

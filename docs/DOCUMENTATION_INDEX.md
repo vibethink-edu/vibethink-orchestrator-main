@@ -1,6 +1,6 @@
 # 📚 Índice Maestro de Documentación - VibeThink Orchestrator
 
-**Última actualización**: 2025-01-17  
+**Última actualización**: 2025-01-18  
 **Estado**: Activo y mantenido
 
 ---
@@ -34,6 +34,12 @@
   - Problemas identificados y soluciones propuestas
 
 #### UI/UX
+- **[ui-ux/UI_MASTER_GUIDE.md](./ui-ux/UI_MASTER_GUIDE.md)** ⭐
+  - **Fuente única de verdad** para todos los estándares UI
+  - Consolida 181 archivos UI en una guía elegante
+  - Versión v3.0.0 con referencias oficiales shadcn/ui + Bundui-Premium
+  - Bundui Reference First Policy
+
 - **[ui-ux/SHADCN_UI_GUIDE.md](./ui-ux/SHADCN_UI_GUIDE.md)**
   - Guía de uso de Shadcn UI en el proyecto
   - Componentes disponibles y mejores prácticas
@@ -43,6 +49,15 @@
   - Componentes migrados y pendientes
 
 ### 🔧 Desarrollo
+
+- **[development/VHELP_COMPLETE_GUIDE.md](./development/VHELP_COMPLETE_GUIDE.md)** ⭐
+  - **Centro de Comandos Interactivo** del proyecto
+  - Documentación automática de comandos disponibles
+  - Sistema de puertos, validación, limpieza y workflows
+
+- **[development/REDUX_CHARTOOLTIP_ERROR_GUIDE.md](./development/REDUX_CHARTOOLTIP_ERROR_GUIDE.md)**
+  - Guía de resolución de errores Redux ChartTooltipContent
+  - Soluciones sistemáticas y prevención
 
 - **[COMPATIBILITY_REPORT.md](./COMPATIBILITY_REPORT.md)**
   - Reporte de compatibilidad de dependencias
@@ -66,11 +81,52 @@
   - Prevención de errores comunes
   - Mejores prácticas
 
+- **[operations/BRANCH_STATUS.md](./operations/BRANCH_STATUS.md)**
+  - Estado de ramas activas en desarrollo
+  - Puertos asignados y progreso
+
 ### 📝 Historial
 
 - **[changelog.md](./changelog.md)** ⭐
   - Historial de cambios del proyecto
   - Versiones y actualizaciones
+
+- **[sessions/SESSION_SUMMARY*.md](./sessions/)** ⭐
+  - Resúmenes de sesiones de desarrollo
+  - Estado de cambios y commits
+
+
+### 🧪 Testing
+
+- **[testing/DASHBOARD_TESTING_LOG.md](./testing/DASHBOARD_TESTING_LOG.md)**
+  - Log de testing de dashboards
+  - Metodología y resultados
+
+- **[testing/PRUEBAS_POST_LIMPIEZA.md](./testing/PRUEBAS_POST_LIMPIEZA.md)**
+  - Checklist de pruebas post-limpieza
+  - Validación manual y automática
+
+### 📋 Planificación
+
+- **[planning/NEXT_STEPS.md](./planning/NEXT_STEPS.md)**
+  - Próximos pasos del proyecto
+  - Roadmap y acciones pendientes
+
+### ⚙️ Setup
+
+- **[setup/CURSOR_SETUP.md](./setup/CURSOR_SETUP.md)**
+  - Configuración de Cursor IDE
+  - Indexación de documentación oficial
+
+### 🤖 Coordinación IA
+
+- **[ai-coordination/CLAUDE.md](./ai-coordination/CLAUDE.md)**
+  - Instrucciones específicas para Claude AI
+  - Quick operations y comandos
+
+- **[ai-coordination/CODEX.md](./ai-coordination/CODEX.md)**
+  - Instrucciones específicas para Codex AI
+  - Quick operations y comandos
 
 ---
 
@@ -79,6 +135,7 @@
 ```
 docs/
 ├── DOCUMENTATION_INDEX.md          # ⭐ Este archivo (índice maestro)
+├── FILE_RELOCATION_MAP.md          # ⭐ Mapa de archivos movidos (2025-01-18)
 ├── BUNDUI_MONOREPO_MIRROR.md      # ⭐ Bundui y Shadcn UI
 ├── REORGANIZACION_DASHBOARDS_STATUS.md  # ⭐ Estado dashboards
 ├── changelog.md                    # ⭐ Historial de cambios
@@ -86,18 +143,50 @@ docs/
 ├── architecture/                   # Decisiones arquitectónicas
 │   ├── SIDEBAR_SPECIAL_ADJUSTMENT.md  # ⭐⚠️ Ajuste sidebar documentado
 │   ├── CSS_ORGANIZATION.md        # ⭐ Estructura CSS centralizada
-│   ├── CLEANUP_REPORT_2025-01-17.md   # ⭐ Limpieza pre-migraciones
-│   ├── CLEANUP_VERIFICATION_2025-01-17.md  # ⭐ Verificación post-limpieza
+│   ├── BUNDUI_REFERENCE_SYSTEM.md    # Sistema de referencia Bundui
+│   ├── DASHBOARD_MIGRATION_STATUS.md # Estado de migración
+│   ├── MONOREPO_EXCEPTIONS.md        # Excepciones del monorepo
+│   ├── RULES_DEGRADATION_PREVENTION.md # Prevención de degradación
+│   ├── RULES_NAVIGATION.md            # Navegación de reglas
 │   └── ...
 │
 ├── ui-ux/                          # Documentación UI/UX
+│   ├── UI_MASTER_GUIDE.md         # ⭐ Fuente única de verdad UI (v3.0.0)
 │   ├── SHADCN_UI_GUIDE.md
 │   ├── BUNDUI_MIGRATION_COMPLETE.md
 │   └── ...
 │
+├── development/                    # Guías de desarrollo
+│   ├── VHELP_COMPLETE_GUIDE.md    # ⭐ Sistema de comandos interactivo
+│   ├── REDUX_CHARTOOLTIP_ERROR_GUIDE.md
+│   └── ...
+│
 ├── operations/                     # Guías operacionales
 │   ├── OPERATIONAL_RUNBOOK.md
-│   └── ERROR_PREVENTION_PLAYBOOK.md
+│   ├── ERROR_PREVENTION_PLAYBOOK.md
+│   ├── BRANCH_STATUS.md            # Estado de ramas
+│   └── ...
+│
+├── testing/                        # Guías de testing
+│   ├── DASHBOARD_TESTING_LOG.md
+│   ├── PRUEBAS_POST_LIMPIEZA.md
+│   └── ...
+│
+│
+├── sessions/                       # Sesiones de desarrollo
+│   ├── SESSION_SUMMARY.md
+│   └── ...
+│
+├── planning/                       # Planificación
+│   └── NEXT_STEPS.md               # Próximos pasos
+│
+├── setup/                          # Configuración
+│   └── CURSOR_SETUP.md             # Configuración Cursor IDE
+│
+├── ai-coordination/                # Coordinación IA
+│   ├── CLAUDE.md                   # Instrucciones Claude
+│   ├── CODEX.md                    # Instrucciones Codex
+│   └── ...
 │
 ├── references/                     # Referencias técnicas
 │   ├── VENDOR_VERSIONS.md
@@ -212,5 +301,20 @@ La documentación ahora está:
 ---
 
 **Mantenido por**: Equipo de Desarrollo VibeThink  
-**Última revisión**: 2025-01-17
+**Última revisión**: 2025-01-18
+
+---
+
+## 📍 Reorganización de Archivos (2025-01-18)
+
+El 2025-01-18 se movieron **19 archivos** desde la raíz del proyecto a `docs/` para mantener la organización según las reglas del proyecto.
+
+**Ver mapeo completo**: [FILE_RELOCATION_MAP.md](./FILE_RELOCATION_MAP.md) ⭐
+
+**Archivos importantes movidos**:
+- `UI_MASTER_GUIDE.md` → `docs/ui-ux/UI_MASTER_GUIDE.md` ⭐
+- `VHELP_COMPLETE_GUIDE.md` → `docs/development/VHELP_COMPLETE_GUIDE.md` ⭐
+- `BUNDUI_REFERENCE_SYSTEM.md` → `docs/architecture/BUNDUI_REFERENCE_SYSTEM.md`
+- `MONOREPO_EXCEPTIONS.md` → `docs/architecture/MONOREPO_EXCEPTIONS.md`
+- Y 15 archivos más (ver mapeo completo)
 

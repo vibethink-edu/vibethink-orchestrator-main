@@ -114,7 +114,8 @@ export const FooterSection = () => {
               Bundui
             </Link>
           </Button>
-          .
+          <span>|</span>
+          <span className="font-medium text-foreground">{APP_VERSION}</span>
         </div>
         <div className="flex items-center justify-center gap-2">
           <Button size="icon" variant="ghost" className="hover:opacity-50" asChild>

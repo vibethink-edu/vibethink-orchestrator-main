@@ -16,13 +16,13 @@
  * - MINOR: New features (backward compatible)
  * - PATCH: Bug fixes (backward compatible)
  */
-export const APP_VERSION_NUMBER = '0.1.0';
+export const APP_VERSION_NUMBER = '0.2.0';
 
 /**
  * Short description of this version (3-5 words)
  * Used in APP_VERSION string
  */
-export const APP_VERSION_DESCRIPTOR = 'Workflow Dashboard Initial Release';
+export const APP_VERSION_DESCRIPTOR = 'i18n System & Architecture Consolidation';
 
 /**
  * Full version string
@@ -38,6 +38,7 @@ export const VERSION_INFO = {
   number: APP_VERSION_NUMBER,
   descriptor: APP_VERSION_DESCRIPTOR,
   full: APP_VERSION,
-  releaseDate: '2025-01-18',
+  releaseDate: '2025-01-XX',
 } as const;
+
 

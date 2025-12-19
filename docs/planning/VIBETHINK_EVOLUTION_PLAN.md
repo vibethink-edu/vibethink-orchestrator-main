@@ -348,3 +348,4 @@ node scripts/migrate-bundui-to-vibethink.js --all
 **Estado**: ⏸️ PENDIENTE DECISIÓN DEL USUARIO  
 **Próximo paso**: Definir enfoque y comenzar migración
 
+

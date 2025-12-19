@@ -1,6 +1,17 @@
+# ⚠️ DOCUMENTO CONSOLIDADO
+
+**Este documento ha sido consolidado en:**
+- `docs/architecture/APPLICATION_TERMINOLOGY.md`
+
+**Por favor, consulta el documento consolidado para la información más actualizada.**
+
+---
+
 # Convenciones de Nombres - AI Pair Orchestrator Pro
 
 ## 📋 Overview
+
+⚠️ **NOTA**: Este documento ha sido consolidado. Ver `docs/architecture/APPLICATION_TERMINOLOGY.md`
 
 Este documento establece las convenciones de nombres para **TODO** el repositorio AI Pair Orchestrator Pro. Estas reglas son **obligatorias** y deben seguirse en todos los directorios: `src/`, `dev-tools/`, `tests/`, `docs/`, etc.
 

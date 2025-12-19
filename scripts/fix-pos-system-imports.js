@@ -65,3 +65,4 @@ console.log(`\n📊 Resumen:`);
 console.log(`   ✅ Archivos arreglados: ${fixed}/${filesToFix.length}\n`);
 
 
+

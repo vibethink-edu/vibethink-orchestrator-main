@@ -1,7 +1,99 @@
 # 🏗️ Arquitectura de Dashboards - Reglas Críticas
 
-**Última actualización**: 2025-12-18  
+**Última actualización**: 2025-01-XX  
 **Estado**: ⚠️ CRÍTICO - NUNCA VIOLAR ESTAS REGLAS
+
+---
+
+## 🎯 Los Tres Dashboards Principales
+
+El sistema tiene **3 dashboards principales**, cada uno con un propósito específico en el flujo de desarrollo:
+
+### 1. `/dashboard` - Producción Final ⭐
+- **Ruta:** `app/dashboard/`
+- **URL:** `http://localhost:3005/dashboard`
+- **Propósito:** Dashboard de producción final donde se integra con base de datos
+- **Características:**
+  - **Integración con BD:** Módulos reales conectados a base de datos
+  - **Módulos publicados:** Login, CRM, etc. (los que se publican)
+  - **Meta de desarrollo:** Es el objetivo final de todos los desarrollos
+  - **Multidioma:** ✅ Implementado
+  - **Layout:** Minimalista (sin sidebar/header)
+- **Estado:** ✅ Funcional (en desarrollo - meta final)
+- **Flujo:** Aquí llegan los módulos probados desde `dashboard-vibethink`
+
+### 2. `/dashboard-bundui` - Referencia/Inspiración
+- **Ruta:** `app/dashboard-bundui/`
+- **URL:** `http://localhost:3005/dashboard-bundui`
+- **Propósito:** Espejo de Bundui Premium, nuestra inspiración (no monorepo, externo)
+- **Características:**
+  - Sidebar: `AppSidebar` (Bundui original)
+  - Header: `SiteHeader` (sin selector de idioma)
+  - Idioma: Solo inglés (hardcoded, sin i18n)
+  - Badge: "Bundui Premium"
+  - **Fuente de inspiración:** Referencia externa para diseño y funcionalidades
+- **Reglas:** ❌ NO modificar (o mínimo necesario), ❌ NO i18n
+- **Estado:** ✅ Completo y estable (congelado como referencia)
+
+### 3. `/dashboard-vibethink` - Mockup/Sandbox de Pruebas
+- **Ruta:** `app/dashboard-vibethink/`
+- **URL:** `http://localhost:3005/dashboard-vibethink`
+- **Propósito:** Mockup antes de implementar en producción - donde se prueban interfaces
+- **Características:**
+  - **NO es producción:** Es sandbox de pruebas y mockups
+  - **Se nutre de:** Bundui, React Flow, AI Chat, y otros componentes
+  - **Pruebas:** Donde se prueba cómo luce todo antes de integrar con BD
+  - Sidebar: `VibeThinkSidebar` (propio e independiente)
+  - Header: `VibeThinkHeader` (con selector de idioma)
+  - Idioma: Multidioma (inglés/español, extensible)
+  - i18n: ✅ OBLIGATORIO desde el inicio
+  - Badge: "VibeThink Sandbox"
+- **Reglas:** 
+  - ✅ Debe seguir TODAS las reglas del proyecto
+  - ✅ Debe seguir reglas de `vibethink-dev-kit`
+  - ✅ Monorepo compliance
+  - ✅ Changelog y versiones
+  - ✅ i18n obligatorio
+- **Estado:** ✅ Funcional, sandbox activo para pruebas
+- **Flujo:** Aquí se prueban módulos antes de migrarlos a `/dashboard` (producción)
+
+---
+
+## 🔄 Flujo de Desarrollo
+
+```
+┌─────────────────────────────────┐
+│  /dashboard-bundui              │
+│  (Referencia/Inspiración)       │
+│  - Bundui Premium externo       │
+│  - Solo inglés, sin i18n         │
+└────────────┬────────────────────┘
+             │ Inspiración
+             ↓
+┌─────────────────────────────────┐
+│  /dashboard-vibethink           │
+│  (Mockup/Sandbox)               │
+│  - Pruebas de interfaces        │
+│  - Multidioma (i18n)            │
+│  - React Flow, AI Chat, etc.    │
+│  - Sin BD (mockups)             │
+└────────────┬────────────────────┘
+             │ Migración probada
+             ↓
+┌─────────────────────────────────┐
+│  /dashboard                     │
+│  (Producción Final) ⭐           │
+│  - Integración con BD            │
+│  - Módulos publicados            │
+│  - Login, CRM, etc.              │
+│  - Multidioma                    │
+└─────────────────────────────────┘
+```
+
+**Nota sobre `/(dashboard)`:**
+- `app/(dashboard)/` es un grupo de rutas legacy (Next.js route groups)
+- No es un dashboard principal, solo rutas internas antiguas
+- Estado: ⚠️ Legacy - Revisar si se mantiene o migra
 
 ---
 
@@ -13,11 +105,35 @@ Cada sistema de dashboards es completamente independiente y autónomo.
 
 ---
 
-## 📊 Sistemas de Dashboards
+## 📊 Sistemas de Dashboards (Detalle)
 
-### 1. `/dashboard-bundui` - Espejo Monorepo
+### 1. `/dashboard` - Producción Final ⭐
 
-**Propósito**: Versión monorepo de Bundui Premium (espejo fiel del original)
+**Propósito**: Dashboard de producción final con integración a base de datos
+
+**Características**:
+- ✅ **Integración BD:** Módulos reales conectados a base de datos
+- ✅ **Módulos publicados:** Login, CRM, y otros módulos que se publican
+- ✅ **Meta de desarrollo:** Objetivo final de todos los desarrollos
+- ✅ **Multidioma:** Implementado
+- ✅ Layout: Minimalista (sin sidebar/header)
+- ✅ Rutas: `/dashboard/*`
+
+**Objetivo**: Ser el dashboard final donde se despliegan los módulos reales que se conectan con BD y se publican.
+
+**Reglas**:
+- Solo módulos probados y listos para producción
+- Integración completa con base de datos
+- Cumplir con todas las reglas de producción
+- Multidioma obligatorio
+
+**Flujo**: Recibe módulos probados desde `dashboard-vibethink`
+
+---
+
+### 2. `/dashboard-bundui` - Referencia/Inspiración
+
+**Propósito**: Espejo de Bundui Premium, nuestra inspiración (no monorepo, externo)
 
 **Características**:
 - ✅ Sidebar propio: `AppSidebar` (de Bundui Premium)
@@ -25,33 +141,44 @@ Cada sistema de dashboards es completamente independiente y autónomo.
 - ✅ Rutas: SIEMPRE `/dashboard-bundui/*`
 - ❌ Modificación: NO (o mínimo necesario)
 - ✅ Stack: Shadcn UI first
+- ❌ Idioma: Solo inglés (sin i18n)
 
-**Objetivo**: Mantener un espejo fiel de Bundui Premium para referencia y comparación.
+**Objetivo**: Mantener referencia externa de Bundui Premium para inspiración y comparación.
 
 **Reglas**:
 - Solo mostrar dashboards que existen en `apps/dashboard/app/dashboard-bundui/`
 - Mantener estructura 1:1 con Bundui Premium
 - Modificar solo para adaptaciones al monorepo
+- ❌ NO implementar i18n (mantener inglés)
 
 ---
 
-### 2. `/dashboard-vibethink` - Mejoras y Extensiones
+### 3. `/dashboard-vibethink` - Mockup/Sandbox de Pruebas
 
-**Propósito**: Mejoras o extensiones de dashboards con personalizaciones VibeThink
+**Propósito**: Mockup antes de implementar en producción - donde se prueban interfaces
 
 **Características**:
 - ✅ Sidebar propio: `VibeThinkSidebar`
 - ✅ Layout propio: `dashboard-vibethink/layout.tsx`
 - ✅ Rutas: SIEMPRE `/dashboard-vibethink/*`
-- ✅ Modificación: SÍ (total libertad)
+- ✅ Modificación: SÍ (siguiendo reglas del proyecto)
 - ✅ Stack: Shadcn UI first
+- ✅ Idioma: Multidioma (i18n obligatorio)
+- ✅ **Se nutre de:** Bundui, React Flow, AI Chat, y otros componentes
+- ❌ **NO integración BD:** Solo mockups y pruebas
 
-**Objetivo**: Crear versiones mejoradas o extendidas de dashboards, con libertad total de personalización.
+**Objetivo**: Sandbox donde se prueban interfaces y cómo luce todo antes de integrar con BD.
 
 **Reglas**:
+- ✅ Debe seguir TODAS las reglas del proyecto
+- ✅ Debe seguir reglas de `vibethink-dev-kit`
+- ✅ Monorepo compliance obligatorio
+- ✅ Changelog y versiones obligatorios
+- ✅ i18n obligatorio desde el inicio
 - Solo mostrar dashboards que existen en `apps/dashboard/app/dashboard-vibethink/`
-- Puede ser igual o mejor que `dashboard-bundui`
-- Libertad total para innovar y mejorar
+- Pruebas de interfaces antes de migrar a producción
+
+**Flujo**: Prueba módulos antes de migrarlos a `/dashboard` (producción)
 
 ---
 
@@ -127,10 +254,11 @@ Cada sistema tiene:
 
 ### 3. Objetivos Claros
 
-| Sistema | Objetivo | Modificable |
-|---------|----------|-------------|
-| `dashboard-bundui` | Espejo de referencia | ❌ NO (o mínimo) |
-| `dashboard-vibethink` | Mejoras y extensiones | ✅ SÍ (total libertad) |
+| Sistema | Objetivo | Modificable | Integración BD |
+|---------|----------|-------------|----------------|
+| `dashboard` | Producción final | ✅ SÍ | ✅ SÍ (objetivo) |
+| `dashboard-bundui` | Referencia/inspiración | ❌ NO (o mínimo) | ❌ NO |
+| `dashboard-vibethink` | Mockup/sandbox pruebas | ✅ SÍ (con reglas) | ❌ NO (mockups) |
 
 ### 4. Sin Compartir Navegación
 - No sidebars compartidos
@@ -252,9 +380,10 @@ export default function CRM() {
 
 ---
 
-**Última actualización**: 2025-12-18  
+**Última actualización**: 2025-01-XX  
 **Aprobado por**: Usuario  
 **Criticidad**: ⚠️ MÁXIMA
+
 
 
 

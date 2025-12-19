@@ -69,3 +69,4 @@ export function getBrowserLocale(): Locale {
   return isValidLocale(browserLang) ? browserLang : i18nConfig.defaultLocale;
 }
 
+

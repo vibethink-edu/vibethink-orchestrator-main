@@ -10,7 +10,7 @@ import {
 } from "../../enums";
 
 import { Badge } from "@vibethink/ui";
-import TableDetailDialog from "./tables/components/table-detail-dialog";
+import TableDetailDialog from "./table-detail-dialog";
 
 type TableListItem = {
   table: Table;

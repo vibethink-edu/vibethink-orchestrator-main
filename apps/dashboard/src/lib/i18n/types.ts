@@ -118,3 +118,4 @@ export interface I18nConfig {
   cookieName: string;
 }
 
+

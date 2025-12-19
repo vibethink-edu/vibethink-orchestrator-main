@@ -4,7 +4,7 @@ import React from "react";
 import { SidebarProvider, SidebarInset } from '@vibethink/ui';
 import { VibeThinkSidebar } from "@/components/vibethink-sidebar";
 import { DashboardBadge } from "@/components/dashboard-badge";
-import { SiteHeader } from "@/components/layout/header-bundui";
+import { VibeThinkHeader } from "@/components/layout/header-vibethink";
 import { Footer } from "@/components/layout/footer";
 
 /**
@@ -37,7 +37,7 @@ export default function DashboardVibeThinkLayout({
     >
       <VibeThinkSidebar variant="inset" />
       <SidebarInset>
-        <SiteHeader />
+        <VibeThinkHeader />
         <div className="flex items-center gap-2 px-4 pt-2 pb-1 border-b bg-background">
           <DashboardBadge />
         </div>
