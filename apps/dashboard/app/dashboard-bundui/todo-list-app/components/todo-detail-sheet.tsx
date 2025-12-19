@@ -12,8 +12,8 @@ import {
   PlusCircleIcon,
   ClockIcon
 } from "lucide-react";
-import { useTodoStore } from "./store";
-import { statusClasses, priorityClasses } from "./enum";
+import { useTodoStore } from "../store";
+import { statusClasses, priorityClasses } from "../enum";
 import { toast } from "sonner";
 
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@vibethink/ui";

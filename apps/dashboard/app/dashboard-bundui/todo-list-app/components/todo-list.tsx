@@ -15,15 +15,15 @@ import {
   DropdownMenuTrigger
 } from "@vibethink/ui";
 import { Toggle } from "@vibethink/ui";
-import TodoItem from "./components/todo-item";
-import { useTodoStore } from "./store";
-import StatusTabs from "./components/status-tabs";
+import TodoItem from "./todo-item";
+import { useTodoStore } from "../store";
+import StatusTabs from "./status-tabs";
 import { Checkbox } from "@vibethink/ui";
 import { Label } from "@vibethink/ui";
 import {
   priorityDotColors,
   EnumTodoPriority
-} from "@/app/dashboard/(auth)/apps/todo-list-app/enum";
+} from "../enum";
 import { toast } from "sonner";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui";
 import {

@@ -2,7 +2,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { Calendar, FileIcon, Star, BellIcon } from "lucide-react";
-import { priorityClasses, statusClasses } from "./enum";
+import { priorityClasses, statusClasses } from "../enum";
 import { Todo, TodoStatus } from "./types";
 import { CSS } from "@dnd-kit/utilities";
 import { useSortable } from "@dnd-kit/sortable";

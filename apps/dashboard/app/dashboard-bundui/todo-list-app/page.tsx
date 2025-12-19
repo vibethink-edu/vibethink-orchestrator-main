@@ -7,7 +7,7 @@ import Tasks from "./tasks";
 
 async function getTasks() {
   const data = await fs.readFile(
-    path.join(process.cwd(), "app/dashboard/(auth)/apps/todo-list-app/data/tasks.json")
+    path.join(process.cwd(), "app/dashboard-bundui/todo-list-app/data/tasks.json")
   );
   return JSON.parse(data.toString());
 }

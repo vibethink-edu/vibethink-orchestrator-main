@@ -1,7 +1,7 @@
 import React from "react";
 import { Tabs, TabsList, TabsTrigger } from "@vibethink/ui";
 import { FilterTab } from "./types";
-import { EnumTodoStatus, todoStatusNamed } from "./enum";
+import { EnumTodoStatus, todoStatusNamed } from "../enum";
 
 interface StatusTabsProps {
   onTabChange: (tab: FilterTab) => void;
