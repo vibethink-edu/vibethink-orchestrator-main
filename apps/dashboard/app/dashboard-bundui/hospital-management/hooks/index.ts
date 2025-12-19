@@ -6,6 +6,6 @@
  */
 
 export * from './useHospitalData'
-// export * from './useHospitalFilters'  // Coming next
+export * from './useHospitalFilters'
 // export * from './useHospitalOperations'  // Future
 
