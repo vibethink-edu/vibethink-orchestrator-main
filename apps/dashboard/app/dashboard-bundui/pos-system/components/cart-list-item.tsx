@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { X } from "lucide-react";
 
-import { CartItem, useStore } from "./store";
+import { CartItem, useStore } from "../store";
 
 import { Button } from "@vibethink/ui";
 

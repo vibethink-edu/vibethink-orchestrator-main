@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 
-import { Table, TableCategory } from "./store";
+import { Table, TableCategory } from "../store";
 
 import { Button } from "@vibethink/ui";
 import { RadioGroup, RadioGroupItem } from "@vibethink/ui";

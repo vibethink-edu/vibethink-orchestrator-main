@@ -3,11 +3,11 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
-import { useStore, Table } from "./store";
+import { useStore, Table } from "../../store";
 import {
   EnumTableStatus,
   EnumTableStatusColor
-} from "@/app/dashboard/(auth)/apps/pos-system/enums";
+} from "../../enums";
 
 import { Badge } from "@vibethink/ui";
 import TableDetailDialog from "./tables/components/table-detail-dialog";

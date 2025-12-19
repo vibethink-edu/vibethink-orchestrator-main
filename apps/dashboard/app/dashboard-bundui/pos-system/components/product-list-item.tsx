@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { ShoppingCartIcon } from "lucide-react";
 
-import { Product, useStore } from "./store";
+import { Product, useStore } from "../store";
 import { useToast } from "@/shared/hooks/use-toast";
 
 import { Button } from "@vibethink/ui";

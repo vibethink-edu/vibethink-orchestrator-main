@@ -1,0 +1,2 @@
+2025-12-18_215411 | Backup inicial antes de Fase 1 - Verificación de rutas | 317 archivos | 1.46 MB
+2025-12-18_220338 | Antes de Sprint 1 - Instalar @remixicon/react | 317 archivos | 1.46 MB

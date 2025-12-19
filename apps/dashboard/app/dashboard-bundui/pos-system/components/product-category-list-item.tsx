@@ -1,4 +1,4 @@
-import { ProductCategory } from "./store";
+import { ProductCategory } from "../store";
 import { RadioGroupItem } from "@vibethink/ui";
 
 type ProductCategoryListItem = {

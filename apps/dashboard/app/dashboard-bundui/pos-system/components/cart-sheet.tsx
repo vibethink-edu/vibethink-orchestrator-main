@@ -3,10 +3,10 @@
 import React from "react";
 import { ShoppingBasketIcon, Utensils } from "lucide-react";
 
-import { useStore } from "./store";
+import { useStore } from "../store";
 
 import { Card, CardContent } from "@vibethink/ui";
-import CartListItem from "./components/cart-list-item";
+import CartListItem from "./cart-list-item";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@vibethink/ui";
 import { Button } from "@vibethink/ui";
 import { Badge } from "@vibethink/ui";

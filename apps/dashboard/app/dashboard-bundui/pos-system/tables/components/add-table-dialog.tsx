@@ -19,7 +19,7 @@ import {
   SelectValue
 } from "@vibethink/ui";
 import { Button } from "@vibethink/ui";
-import { TableCategory } from "./store";
+import { TableCategory } from "../../store";
 
 type AddTableDialog = {
   tableCategories: TableCategory[];

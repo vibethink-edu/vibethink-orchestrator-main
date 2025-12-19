@@ -3,10 +3,10 @@
 import React from "react";
 import { Utensils } from "lucide-react";
 
-import { useStore } from "./store";
+import { useStore } from "../store";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
-import CartListItem from "./components/cart-list-item";
+import CartListItem from "./cart-list-item";
 import { Button } from "@vibethink/ui";
 
 type POStSystemCart = {
