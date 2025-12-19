@@ -12,13 +12,13 @@ const routes = [
   { name: 'Kanban', url: '/dashboard-bundui/kanban', verified: true, status: 'working' },
   { name: 'Notes', url: '/dashboard-bundui/notes', verified: true, status: 'working' },
   { name: 'Chat', url: '/dashboard-bundui/chat', verified: true, status: 'error', issue: 'Custom components' },
-  { name: 'Mail', url: '/dashboard-bundui/mail', verified: true, status: 'error', issue: 'Custom components (nav-desktop, nav-mobile, mail-display-mobile)' },
+  { name: 'Mail', url: '/dashboard-bundui/mail', verified: true, status: 'working', issue: 'Copiado desde VibeThink' },
   { name: 'Todo List', url: '/dashboard-bundui/todo-list-app', verified: true, status: 'error', issue: 'Multiple files (store, schemas, enum, components)' },
-  { name: 'Tasks', url: '/dashboard-bundui/tasks', verified: true, status: 'blocked', issue: 'Blocked by calendar (@remixicon/react)' },
-  { name: 'Calendar', url: '/dashboard-bundui/calendar', verified: true, status: 'blocked', issue: 'Missing dependency @remixicon/react' },
+  { name: 'Tasks', url: '/dashboard-bundui/tasks', verified: true, status: 'working', issue: 'Desbloqueado por @remixicon/react' },
+  { name: 'Calendar', url: '/dashboard-bundui/calendar', verified: true, status: 'working', issue: 'Desbloqueado por @remixicon/react' },
   { name: 'File Manager', url: '/dashboard-bundui/file-manager', verified: true, status: 'not-migrated', issue: 'Only has /data, missing page.tsx' },
-  { name: 'API Keys', url: '/dashboard-bundui/api-keys', verified: true, status: 'blocked', issue: 'Blocked by calendar (@remixicon/react)' },
-  { name: 'POS System', url: '/dashboard-bundui/pos-system', verified: true, status: 'blocked', issue: 'Blocked by calendar (@remixicon/react)' }
+  { name: 'API Keys', url: '/dashboard-bundui/api-keys', verified: true, status: 'working', issue: 'Desbloqueado por @remixicon/react' },
+  { name: 'POS System', url: '/dashboard-bundui/pos-system', verified: true, status: 'working', issue: 'Desbloqueado por @remixicon/react + fixed imports' }
 ];
 
 console.log('📋 Estado de Rutas Bundui Monorepo\n');
