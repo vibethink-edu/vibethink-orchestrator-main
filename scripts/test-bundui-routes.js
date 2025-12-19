@@ -18,7 +18,9 @@ const routes = [
   { name: 'Calendar', url: '/dashboard-bundui/calendar', verified: true, status: 'working', issue: 'Sprint 1 - @remixicon' },
   { name: 'File Manager', url: '/dashboard-bundui/file-manager', verified: true, status: 'working', issue: 'Sprint 2 - VibeThink' },
   { name: 'API Keys', url: '/dashboard-bundui/api-keys', verified: true, status: 'working', issue: 'Desbloqueado por @remixicon/react' },
-  { name: 'POS System', url: '/dashboard-bundui/pos-system', verified: true, status: 'working', issue: 'Desbloqueado por @remixicon/react + fixed imports' }
+  { name: 'POS System', url: '/dashboard-bundui/pos-system', verified: true, status: 'working', issue: 'Desbloqueado por @remixicon/react + fixed imports' },
+  { name: 'Crypto', url: '/dashboard-bundui/crypto', verified: true, status: 'working', issue: 'Sprint 3 - Enterprise' },
+  { name: 'Finance', url: '/dashboard-bundui/finance', verified: true, status: 'working', issue: 'Sprint 3 - Enterprise' }
 ];
 
 console.log('📋 Estado de Rutas Bundui Monorepo\n');
