@@ -6,6 +6,7 @@ import {
   ArchiveRestoreIcon,
   BadgeDollarSignIcon,
   BrainCircuitIcon,
+  BrainIcon,
   Building2Icon,
   CalendarIcon,
   ChartBarDecreasingIcon,
@@ -14,6 +15,7 @@ import {
   ClipboardMinusIcon,
   ComponentIcon,
   CookieIcon,
+  CreditCardIcon,
   FingerprintIcon,
   FolderDotIcon,
   FolderIcon,
@@ -23,6 +25,7 @@ import {
   KeyIcon,
   MailIcon,
   MessageSquareIcon,
+  MessageSquareHeartIcon,
   ProportionsIcon,
   SettingsIcon,
   ShoppingBagIcon,
@@ -37,7 +40,10 @@ import {
   RedoDotIcon,
   BrushCleaningIcon,
   CoinsIcon,
-  DollarSignIcon
+  DollarSignIcon,
+  SpeechIcon,
+  BookAIcon,
+  PuzzleIcon
 } from "lucide-react";
 import type { NavGroup } from '@vibethink/ui';
 
@@ -46,10 +52,9 @@ export const bunduiNavItems: NavGroup[] = [
     title: "Dashboards",
     items: [
       {
-        title: "Default",
+        title: "Classic Dashboard",
         href: "/dashboard-bundui/default",
-        icon: ChartPieIcon,
-        isNew: true
+        icon: ChartPieIcon
       },
       {
         title: "E-commerce",
@@ -64,43 +69,52 @@ export const bunduiNavItems: NavGroup[] = [
           { title: "Order Detail", href: "/dashboard-bundui/pages/orders/detail" }
         ]
       },
-      { title: "Sales", href: "/dashboard-bundui/sales", icon: BadgeDollarSignIcon, isNew: true },
-      { title: "CRM", href: "/dashboard-bundui/crm", icon: ChartBarDecreasingIcon, isNew: true },
       {
-        title: "Website Analytics",
-        href: "/dashboard-bundui/analytics",
-        icon: GaugeIcon,
-        isNew: true
+        title: "Payment Dashboard",
+        href: "/dashboard-bundui/payment",
+        icon: CreditCardIcon,
+        items: [
+          { title: "Dashboard", href: "/dashboard-bundui/payment" },
+          { title: "Transactions", href: "/dashboard-bundui/payment/transactions" }
+        ]
+      },
+      {
+        title: "Hotel Dashboard",
+        href: "/dashboard-bundui/hotel",
+        icon: Building2Icon,
+        items: [
+          { title: "Dashboard", href: "/dashboard-bundui/hotel" },
+          { title: "Bookings", href: "/dashboard-bundui/hotel/bookings" }
+        ]
       },
       {
         title: "Project Management",
-        href: "/dashboard-bundui/projects",
+        href: "/dashboard-bundui/project-management",
         icon: FolderDotIcon,
-        isNew: true
+        items: [
+          { title: "Dashboard", href: "/dashboard-bundui/project-management" },
+          { title: "Project List", href: "/dashboard-bundui/project-list" }
+        ]
       },
-      { title: "File Manager", href: "/dashboard-bundui/file-manager", icon: FolderIcon, isNew: true },
-      { title: "Crypto", href: "/dashboard-bundui/crypto", icon: CoinsIcon, isNew: true },
-      { title: "Finance", href: "/dashboard-bundui/finance", icon: DollarSignIcon, isNew: true },
-      { title: "Academy/School", href: "/dashboard-bundui/academy", icon: GraduationCapIcon, isNew: true },
-      { title: "Hospital Management", href: "/dashboard-bundui/hospital-management", icon: ActivityIcon, isNew: true },
-      { title: "Hotel Dashboard", href: "/dashboard-bundui/hotel", icon: Building2Icon, isComing: true }
-    ]
-  },
-  {
-    title: "AI",
-    items: [
-      { title: "AI Chat", href: "/dashboard-bundui/ai-chat", icon: BrainCircuitIcon, isNew: true },
+      { title: "Sales", href: "/dashboard-bundui/sales", icon: BadgeDollarSignIcon },
+      { title: "CRM", href: "/dashboard-bundui/crm", icon: ChartBarDecreasingIcon },
       {
-        title: "AI Chat V2",
-        href: "/dashboard-bundui/ai-chat-v2",
-        icon: BrainCircuitIcon,
-        isNew: true
+        title: "Website Analytics",
+        href: "/dashboard-bundui/analytics",
+        icon: GaugeIcon
       },
       {
-        title: "Image Generator",
-        href: "/dashboard-bundui/ai-image-generator",
-        icon: ImagesIcon,
-        isNew: true
+        title: "File Manager",
+        href: "/dashboard-bundui/file-manager",
+        icon: FolderIcon
+      },
+      { title: "Crypto", href: "/dashboard-bundui/crypto", icon: WalletMinimalIcon },
+      { title: "Academy/School", href: "/dashboard-bundui/academy", icon: GraduationCapIcon },
+      { title: "Hospital Management", href: "/dashboard-bundui/hospital-management", icon: ActivityIcon },
+      {
+        title: "Finance Dashboard",
+        href: "/dashboard-bundui/finance",
+        icon: WalletMinimalIcon
       }
     ]
   },
@@ -110,33 +124,59 @@ export const bunduiNavItems: NavGroup[] = [
       {
         title: "Kanban",
         href: "/dashboard-bundui/kanban",
-        icon: SquareKanbanIcon,
-        isNew: true
+        icon: SquareKanbanIcon
       },
-      { title: "Notes", href: "/dashboard-bundui/notes", icon: StickyNoteIcon, isDataBadge: "8", isNew: true },
-      { title: "Chats", href: "/dashboard-bundui/chat", icon: MessageSquareIcon, isDataBadge: "5", isNew: true },
-      { title: "Mail", href: "/dashboard-bundui/mail", icon: MailIcon, isNew: true },
+      { title: "Notes", href: "/dashboard-bundui/notes", icon: StickyNoteIcon, isDataBadge: "8" },
+      { title: "Chats", href: "/dashboard-bundui/chat", icon: MessageSquareIcon, isDataBadge: "5" },
+      {
+        title: "Social Media",
+        href: "/dashboard-bundui/social-media",
+        icon: MessageSquareHeartIcon
+      },
+      { title: "Mail", href: "/dashboard-bundui/mail", icon: MailIcon },
       {
         title: "Todo List App",
         href: "/dashboard-bundui/todo-list-app",
-        icon: SquareCheckIcon,
-        isNew: true
+        icon: SquareCheckIcon
       },
       {
         title: "Tasks",
         href: "/dashboard-bundui/tasks",
-        icon: ClipboardCheckIcon,
-        isNew: true
+        icon: ClipboardCheckIcon
       },
-      { title: "Calendar", href: "/dashboard-bundui/calendar", icon: CalendarIcon, isNew: true },
+      { title: "Calendar", href: "/dashboard-bundui/calendar", icon: CalendarIcon },
       {
         title: "File Manager",
         href: "/dashboard-bundui/file-manager",
         icon: ArchiveRestoreIcon,
-        isComing: true
+        isNew: true
       },
-      { title: "Api Keys", href: "/dashboard-bundui/api-keys", icon: KeyIcon, isNew: true },
-      { title: "POS App", href: "/dashboard-bundui/pos-system", icon: CookieIcon, isNew: true }
+      { title: "Api Keys", href: "/dashboard-bundui/api-keys", icon: KeyIcon },
+      { title: "POS App", href: "/dashboard-bundui/pos-system", icon: CookieIcon },
+      { title: "Courses", href: "/dashboard-bundui/courses", icon: BookAIcon, isComing: true }
+    ]
+  },
+  {
+    title: "AI Apps",
+    items: [
+      { title: "AI Chat", href: "/dashboard-bundui/ai-chat", icon: BrainIcon },
+      {
+        title: "AI Chat V2",
+        href: "/dashboard-bundui/ai-chat-v2",
+        icon: BrainCircuitIcon,
+        isNew: true
+      },
+      {
+        title: "Image Generator",
+        href: "/dashboard-bundui/ai-image-generator",
+        icon: ImagesIcon
+      },
+      {
+        title: "Text to Speech",
+        href: "/dashboard-bundui/text-to-speech",
+        icon: SpeechIcon,
+        isComing: true
+      }
     ]
   },
   {
@@ -150,6 +190,11 @@ export const bunduiNavItems: NavGroup[] = [
       {
         title: "Profile",
         href: "/dashboard-bundui/pages/profile",
+        icon: UserIcon
+      },
+      {
+        title: "Profile V2",
+        href: "/dashboard-bundui/pages/user-profile",
         icon: UserIcon
       },
       {
@@ -174,6 +219,7 @@ export const bunduiNavItems: NavGroup[] = [
         items: [
           { title: "Profile", href: "/dashboard-bundui/pages/settings" },
           { title: "Account", href: "/dashboard-bundui/pages/settings/account" },
+          { title: "Billing", href: "/dashboard-bundui/pages/settings/billing" },
           { title: "Appearance", href: "/dashboard-bundui/pages/settings/appearance" },
           { title: "Notifications", href: "/dashboard-bundui/pages/settings/notifications" },
           { title: "Display", href: "/dashboard-bundui/pages/settings/display" }
@@ -237,7 +283,17 @@ export const bunduiNavItems: NavGroup[] = [
     title: "Others",
     items: [
       {
-        title: "Download VibeThink Pro",
+        title: "Widgets",
+        href: "#",
+        icon: PuzzleIcon,
+        items: [
+          { title: "Fitness", href: "/dashboard-bundui/widgets/fitness" },
+          { title: "E-commerce", href: "/dashboard-bundui/widgets/ecommerce" },
+          { title: "Analytics", href: "/dashboard-bundui/widgets/analytics" }
+        ]
+      },
+      {
+        title: "Download Shadcn UI Kit",
         href: "/pricing",
         icon: ClipboardMinusIcon,
         newTab: true

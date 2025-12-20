@@ -35,6 +35,7 @@ import {
   Calendar,
   Mail,
   StickyNote,
+  FileText,
   FolderOpen,
   GraduationCap,
   Activity,
@@ -134,6 +135,12 @@ const vibethinkNavItems: NavItem[] = [
     title: "Notes",
     href: "/dashboard-vibethink/notes",
     icon: StickyNote,
+  },
+  {
+    title: "Notes V2",
+    href: "/dashboard-vibethink/notes-v2",
+    icon: FileText,
+    badge: "New",
   },
   {
     title: "Payment",

@@ -16,13 +16,13 @@
  * - MINOR: New features (backward compatible)
  * - PATCH: Bug fixes (backward compatible)
  */
-export const APP_VERSION_NUMBER = '0.2.0';
+export const APP_VERSION_NUMBER = '0.3.0';
 
 /**
  * Short description of this version (3-5 words)
  * Used in APP_VERSION string
  */
-export const APP_VERSION_DESCRIPTOR = 'i18n System & Architecture Consolidation';
+export const APP_VERSION_DESCRIPTOR = 'Bundui Modules Migration & Sidebar Sync';
 
 /**
  * Full version string

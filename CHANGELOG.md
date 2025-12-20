@@ -5,6 +5,46 @@ Todos los cambios notables de este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2025-01-16
+
+### Added
+- ✅ **Módulos Nuevos de Bundui Premium**
+  - Módulo Social Media (`/dashboard-bundui/social-media`)
+    - Componentes: posts, stories, sidebar, create post dialog
+    - Integración completa con `@vibethink/ui`
+  - Módulo Widgets (`/dashboard-bundui/widgets`)
+    - Fitness Widgets: 11 componentes (hero, daily activity, workouts, etc.)
+    - E-commerce y Analytics widgets (estructura creada)
+  
+- ✅ **Sincronización de Sidebar**
+  - Sidebar de `dashboard-bundui` sincronizado con Bundui Premium Original
+  - Orden de navegación actualizado para facilitar comparación
+  - Nuevos items agregados: Social Media, Courses, Text to Speech, Profile V2, Widgets (con submenus)
+
+- ✅ **Documentación de Errores**
+  - `FITNESS_WIDGETS_RUNTIME_ERROR.md` - Documentación completa del error de runtime
+  - Análisis de componentes afectados y soluciones intentadas
+  - Próximos pasos sugeridos para resolución
+
+### Changed
+- 🔄 **Navegación Actualizada**
+  - `bundui-nav-items.ts` reordenado para match con Bundui Premium
+  - Iconos actualizados (BrainCircuit → Brain para AI Chat)
+  - Badges "New" agregados a módulos recientes
+
+### Known Issues
+- ⚠️ **Runtime Error en Fitness Widgets**
+  - Error: "Objects are not valid as a React child" en `/dashboard-bundui/widgets/fitness`
+  - Componentes afectados: `workouts-card.tsx`, `daily-activity-card.tsx`
+  - Causa: Renderizado dinámico de iconos Lucide durante SSR
+  - Estado: Documentado, pendiente resolución
+  - Ver: `docs/architecture/FITNESS_WIDGETS_RUNTIME_ERROR.md`
+
+### Technical
+- 📦 Imports actualizados a `@vibethink/ui` en módulos migrados
+- 📦 Componentes de layout migrados desde `bundui-premium` a `@vibethink/ui`
+- 📝 Documentación comparativa actualizada (`BUNDUI_COMPARISON.md`, `BUNDUI_SIDEBAR_SYNC.md`)
+
 ## [0.2.0] - 2025-01-XX
 
 ### Added
