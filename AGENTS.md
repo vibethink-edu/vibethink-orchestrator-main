@@ -1,5 +1,30 @@
 # Project Mission
-This project is a **VibeThink Orchestrator 1.0** - an Enterprise SaaS Platform with AI Integration featuring multiple dashboard systems for different purposes.
+This project is a **VibeThink Orchestrator 1.0** (codename: **ViTo**) - an Enterprise SaaS Platform with AI Integration featuring multiple dashboard systems for different purposes.
+
+## 🎯 Project Name: ViTo
+
+**ViTo** is the internal codename and acronym for **VibeThink Orchestrator**.
+
+### Key Rules for AI Agents:
+
+1. **Always use full name in first mention:**
+   - ✅ "ViTo - VibeThink Orchestrator" (first mention)
+   - ✅ "ViTo" (subsequent references)
+
+2. **ViTo is INTERNAL ONLY:**
+   - ✅ Code, scripts, technical docs, internal communication
+   - ❌ Marketing, public materials, standalone branding
+
+3. **ViTo is an acronym, not a standalone brand:**
+   - **V** = VibeThink
+   - **T** = Think  
+   - **O** = Orchestrator
+
+4. **Legal justification:** ViTo is a legitimate internal acronym, clearly anchored to VibeThink, for internal/non-commercial use only.
+
+**Documentation:**
+- [PROJECT_NAME.md](docs/PROJECT_NAME.md) - Complete name documentation
+- [VITO_MANIFESTO.md](docs/VITO_MANIFESTO.md) - Official ViTo manifesto
 
 ## 🚨 CRITICAL: Arquitectura de Dashboards (NUNCA VIOLAR)
 
@@ -26,8 +51,9 @@ El sistema tiene **3 dashboards principales** con propósitos específicos y cr�
 - **Modificación**: ❌ NO (o mínimo necesario - mucho trabajo mantenerlo)
 - **Stack**: Shadcn UI first, SIEMPRE
 - **i18n**: ❌ NO implementar (mantener inglés hardcoded como referencia)
-- **Actualización**: ⚠️ Solo cuando hay nuevas versiones del proveedor (sin i18n)
-- **Estado**: ✅ Completo y estable (congelado como referencia)
+- **Actualización**: ✅ **SÍ, es viable descargar/actualizar Bundui Original** (ver `docs/architecture/BUNDUI_DOWNLOAD_UPDATE.md`)
+- **Bundui Original**: `C:\IA Marcelo Labs\bundui\shadcn-ui-kit-dashboard/` - Se puede actualizar/descargar nueva versión
+- **Estado**: ✅ Completo y estable (referencia actualizable)
 
 #### 3. `/dashboard-vibethink` - Mockup/Sandbox de Pruebas
 - **Propósito**: Mockup antes de implementar en producción - donde se prueban interfaces
@@ -293,7 +319,8 @@ XYFlow Reference (puede cambiar)      ───►  apps/dashboard/... (nuestros
 
 **✅ Dónde SÍ hacer cambios (en el monorepo):**
 - `apps/dashboard/app/dashboard-vibethink/` - Personalizaciones (SÍ modificar - total libertad)
-- `apps/dashboard/src/shared/components/bundui-premium/` - Componentes adaptados (SÍ modificar)
+- `apps/dashboard/src/shared/components/bundui-premium/` - ⚠️ **DEPRECATED** - Componentes legacy (mantener solo para compatibilidad, NO crear nuevos)
+- `packages/ui/src/components/layout/` - ✅ **NUEVO** - Componentes de layout migrados (SÍ modificar - usar estos)
 - `apps/dashboard/app/dashboard-bundui/` - Espejo modificable (SÍ modificar, aunque es espejo)
 
 **⚠️ Espejo vs Reference:**
@@ -310,6 +337,76 @@ XYFlow Reference (puede cambiar)      ───►  apps/dashboard/... (nuestros
 **Documentación completa:** 
 - `docs/architecture/REFERENCE_RULES.md` - Reglas generales para TODAS las referencias
 - `docs/architecture/BUNDUI_REFERENCE_RULE.md` - Específico de Bundui
+
+## 🚨 CRITICAL: Migración de bundui-premium a @vibethink/ui
+
+**⚠️ IMPORTANTE: Los componentes de layout de `bundui-premium` han sido migrados a `@vibethink/ui`**
+
+### **Estado de la Migración**
+
+✅ **COMPLETADA** - Todos los componentes de layout han sido migrados a `@vibethink/ui`
+
+### **Componentes Migrados**
+
+| Componente | Ubicación Nueva | Estado |
+|------------|----------------|--------|
+| `AppSidebar` | `@vibethink/ui` → `AppSidebar` | ✅ Migrado |
+| `SiteHeader` | `@vibethink/ui` → `SiteHeader` | ✅ Migrado |
+| `NavMain` | `@vibethink/ui` → `NavMain` | ✅ Migrado |
+| `NavUser` | `@vibethink/ui` → `NavUser` | ✅ Migrado |
+| `Notifications` | `@vibethink/ui` → `Notifications` | ✅ Migrado |
+| `Search` | `@vibethink/ui` → `Search` | ✅ Migrado |
+| `ThemeSwitch` | `@vibethink/ui` → `ThemeSwitch` | ✅ Migrado |
+| `UserMenu` | `@vibethink/ui` → `UserMenu` | ✅ Migrado |
+| `IconWrapper` | `@vibethink/ui` → `IconWrapper` | ✅ Migrado |
+| `useIsMobile` | `@vibethink/ui` → `useIsMobile` | ✅ Migrado |
+| `useIsTablet` | `@vibethink/ui` → `useIsTablet` | ✅ Migrado |
+
+### **Reglas Obligatorias**
+
+1. **✅ SIEMPRE usar `@vibethink/ui` para componentes de layout**
+   ```typescript
+   // ✅ CORRECTO
+   import { AppSidebar, SiteHeader, NavMain } from '@vibethink/ui';
+   
+   // ❌ INCORRECTO (deprecated)
+   import { AppSidebar } from "@/shared/components/bundui-premium/...";
+   ```
+
+2. **✅ SIEMPRE usar hooks de `@vibethink/ui`**
+   ```typescript
+   // ✅ CORRECTO
+   import { useIsMobile, useIsTablet } from '@vibethink/ui';
+   
+   // ❌ INCORRECTO (deprecated)
+   import { useIsMobile } from "@/hooks/use-mobile";
+   ```
+
+3. **❌ NUNCA crear nuevos componentes en `bundui-premium`**
+   - Todos los nuevos componentes deben ir en `@vibethink/ui`
+   - `bundui-premium` es solo para compatibilidad legacy
+
+4. **✅ Usar datos centralizados**
+   ```typescript
+   // ✅ CORRECTO
+   import { bunduiNavItems } from '@/shared/data/bundui-nav-items';
+   <AppSidebar navItems={bunduiNavItems} />
+   ```
+
+### **Documentación Completa**
+
+**Documentos esenciales:**
+- `docs/architecture/BUNDUI_PREMIUM_STATUS.md` ⭐ - **LEER PRIMERO** - Estado actual y clarificación
+- `docs/architecture/BUNDUI_PREMIUM_MIGRATION.md` - Detalles de la migración
+- `docs/architecture/COMPONENT_VALIDATION_PROCESS.md` - Proceso de validación de componentes
+- `docs/architecture/BUNDUI_UPDATE_STRATEGY.md` - Estrategia de actualización
+- `docs/architecture/BUNDUI_VERSIONS.md` - Historial de versiones
+
+**Para actualizar Bundui Premium:**
+1. Leer `BUNDUI_PREMIUM_STATUS.md` (entender estado actual)
+2. Leer `BUNDUI_UPDATE_STRATEGY.md` (proceso de actualización)
+3. Seguir `COMPONENT_VALIDATION_PROCESS.md` (validar componentes)
+4. Actualizar `BUNDUI_VERSIONS.md` (documentar versión)
 
 # Architectural Guidelines
 

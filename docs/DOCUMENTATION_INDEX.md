@@ -1,11 +1,27 @@
 # 📚 Índice Maestro de Documentación - VibeThink Orchestrator
 
-**Última actualización**: 2025-01-18  
+**Última actualización**: 2025-12-19  
 **Estado**: Activo y mantenido
 
 ---
 
 ## 🎯 Documentación Esencial (Actual)
+
+### 📋 Información del Proyecto
+
+- **[PROJECT_NAME.md](./PROJECT_NAME.md)** ⭐
+  - Nombre del proyecto: ViTo (VibeThink Orchestrator)
+  - Etimología y convenciones de nomenclatura
+  - Dónde usar ViTo vs VibeThink Orchestrator
+  - Migración de "Pana" a "ViTo"
+  - Justificación legal y práctica
+
+- **[VITO_MANIFESTO.md](./VITO_MANIFESTO.md)** ⭐
+  - Manifiesto oficial de ViTo
+  - Qué es y qué NO es ViTo
+  - Principios fundamentales
+  - Convenciones de uso
+  - Ownership y propiedad
 
 ### 🏗️ Arquitectura y Estructura
 
@@ -16,6 +32,53 @@
   - Estructura y propósito de `/dashboard-bundui`
 
 #### Architecture
+- **[architecture/BUNDUI_PREMIUM_STATUS.md](./architecture/BUNDUI_PREMIUM_STATUS.md)** ⭐🚨
+  - **ESTADO ACTUAL:** bundui-premium está DEPRECATED
+  - Todos los componentes migrados a @vibethink/ui
+  - Clarificación de arquitectura actual
+  - **LEER PRIMERO** antes de trabajar con componentes de layout
+
+- **[architecture/BUNDUI_PREMIUM_MIGRATION.md](./architecture/BUNDUI_PREMIUM_MIGRATION.md)** ⭐
+  - Detalles completos de la migración
+  - Componentes migrados y ubicaciones nuevas
+  - Guía de actualización de imports
+  - Checklist de migración
+
+- **[architecture/COMPONENT_VALIDATION_PROCESS.md](./architecture/COMPONENT_VALIDATION_PROCESS.md)** ⭐
+  - Proceso completo de validación de componentes
+  - Checklist de validación técnica
+  - Precauciones especiales
+  - Template de validación
+
+- **[architecture/BUNDUI_UPDATE_STRATEGY.md](./architecture/BUNDUI_UPDATE_STRATEGY.md)** ⭐
+  - Estrategia de actualización de Bundui Premium
+  - Proceso documentado paso a paso
+  - Precauciones críticas
+  - Checklist de actualización
+
+- **[architecture/BUNDUI_VERSIONS.md](./architecture/BUNDUI_VERSIONS.md)**
+  - Historial de versiones de Bundui Premium
+  - Features migradas y pendientes
+  - Tracking de actualizaciones
+
+- **[architecture/BUNDUI_DOWNLOAD_UPDATE.md](./architecture/BUNDUI_DOWNLOAD_UPDATE.md)** ⭐
+  - **Proceso simple:** Cómo descargar/actualizar Bundui Original
+  - Checklist de actualización
+  - Desplegar para ver
+  - Precauciones y mejores prácticas
+
+- **[architecture/BUNDUI_SAFE_UPDATE.md](./architecture/BUNDUI_SAFE_UPDATE.md)** ⭐🚨
+  - **Seguridad:** ¿Daña el despliegue si sobrescribo Bundui Original?
+  - **Respuesta:** NO, son completamente independientes
+  - Arquitectura de independencia
+  - Proceso seguro de sobrescritura
+
+- **[architecture/I18N_TRANSLATION_REQUIREMENTS.md](./architecture/I18N_TRANSLATION_REQUIREMENTS.md)** ⭐🚨
+  - **REQUISITOS CRÍTICOS:** Traducciones en DOS idiomas (en, es)
+  - Checklist de validación
+  - Errores comunes y soluciones
+  - Template de traducción
+
 - **[architecture/SIDEBAR_SPECIAL_ADJUSTMENT.md](./architecture/SIDEBAR_SPECIAL_ADJUSTMENT.md)** ⭐⚠️
   - Ajuste especial documentado del componente Sidebar
   - Shadcn First compliance explicado
@@ -54,6 +117,12 @@
   - **Centro de Comandos Interactivo** del proyecto
   - Documentación automática de comandos disponibles
   - Sistema de puertos, validación, limpieza y workflows
+
+- **[development/IMPORTS_AND_MODULE_RESOLUTION.md](./development/IMPORTS_AND_MODULE_RESOLUTION.md)** ⭐
+  - Lecciones aprendidas sobre imports y resolución de módulos
+  - Caso de estudio: Componentes custom de prompt (AI Chat V2)
+  - Estructura de imports en ViTo y configuración de paths
+  - Mejores prácticas, troubleshooting y checklist
 
 - **[development/REDUX_CHARTOOLTIP_ERROR_GUIDE.md](./development/REDUX_CHARTOOLTIP_ERROR_GUIDE.md)**
   - Guía de resolución de errores Redux ChartTooltipContent
