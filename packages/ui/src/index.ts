@@ -65,4 +65,11 @@ export * from './components/tooltip';
 // Extensions
 export * from './components/extensions/kanban';
 export * from './components/extensions/timeline';
+export * from './components/extensions/minimal-tiptap';
+
+// Layout components (migrated from bundui-premium)
+export * from './components/layout';
+
+// Hooks
+export { useIsMobile, useIsTablet } from './hooks/use-mobile';
 
