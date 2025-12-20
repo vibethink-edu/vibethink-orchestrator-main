@@ -22,8 +22,9 @@ export default function DashboardBunduiLayout({
   children: React.ReactNode;
 }) {
   return (
-    <SidebarProvider 
+    <SidebarProvider
       defaultOpen={true}
+      cookieName="bundui_sidebar_state"
       style={
         {
           "--sidebar-width": "calc(var(--spacing) * 64)",

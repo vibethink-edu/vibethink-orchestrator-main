@@ -1,0 +1,157 @@
+{
+  "customizer": {
+    "title": "Customization",
+    "aspect": {
+      "label": "Aspect",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "theme": {
+      "label": "Color Theme",
+      "subtitle": "Primary",
+      "description": "Change the main theme colors (Sunset Glow, Ocean Breeze, etc.)"
+    },
+    "font": {
+      "label": "Font",
+      "description": "Select the typography font for the application"
+    },
+    "advanced": {
+      "title": "Advanced Customization",
+      "baseColor": {
+        "label": "Base Color",
+        "optional": "Optional",
+        "description": "Base color palette (neutral, slate, blue, etc.)"
+      },
+      "menu": {
+        "title": "Sidebar / Menu",
+        "color": {
+          "label": "Menu color",
+          "default": "Default",
+          "muted": "Muted",
+          "accent": "Accent"
+        },
+        "accent": {
+          "label": "Menu accent",
+          "subtle": "Subtle",
+          "moderate": "Moderate",
+          "bold": "Bold",
+          "description": "Color and accent of the sidebar menu"
+        }
+      },
+      "size": {
+        "title": "Size and Shape",
+        "scale": {
+          "label": "Scale",
+          "none": "—",
+          "sm": "XS",
+          "lg": "LG"
+        },
+        "radius": {
+          "label": "Radius",
+          "none": "—",
+          "sm": "SM",
+          "md": "MD",
+          "lg": "LG",
+          "xl": "XL"
+        },
+        "description": "Size scale and border radius"
+      },
+      "layout": {
+        "title": "Layout",
+        "content": {
+          "label": "Layout",
+          "full": "Full",
+          "centered": "Centered"
+        },
+        "sidebar": {
+          "label": "Sidebar Mode",
+          "default": "Default",
+          "icon": "Icon"
+        }
+      }
+    }
+  },
+  "themes": {
+    "default": {
+      "name": "Default",
+      "description": "Neutral default theme"
+    },
+    "underground": {
+      "name": "Underground",
+      "description": "Emerald green theme"
+    },
+    "rose-garden": {
+      "name": "Rose Garden",
+      "description": "Elegant pink theme"
+    },
+    "lake-view": {
+      "name": "Lake View",
+      "description": "Turquoise blue theme"
+    },
+    "sunset-glow": {
+      "name": "Sunset Glow",
+      "description": "Warm orange theme"
+    },
+    "forest-whisper": {
+      "name": "Forest Whisper",
+      "description": "Forest green theme"
+    },
+    "ocean-breeze": {
+      "name": "Ocean Breeze",
+      "description": "Ocean blue theme"
+    },
+    "lavender-dream": {
+      "name": "Lavender Dream",
+      "description": "Soft purple theme"
+    }
+  },
+  "fonts": {
+    "inter": {
+      "name": "Inter",
+      "description": "Modern sans-serif"
+    },
+    "noto-sans": {
+      "name": "Noto Sans",
+      "description": "Clean and readable"
+    },
+    "nunito-sans": {
+      "name": "Nunito Sans",
+      "description": "Rounded and friendly"
+    },
+    "figtree": {
+      "name": "Figtree",
+      "description": "Geometric sans-serif"
+    },
+    "geist": {
+      "name": "Geist",
+      "description": "Default font"
+    },
+    "roboto": {
+      "name": "Roboto",
+      "description": "Google's signature font"
+    },
+    "poppins": {
+      "name": "Poppins",
+      "description": "Geometric and modern"
+    },
+    "montserrat": {
+      "name": "Montserrat",
+      "description": "Elegant and versatile"
+    },
+    "pt-sans": {
+      "name": "PT Sans",
+      "description": "Humanist sans-serif"
+    },
+    "system": {
+      "name": "System",
+      "description": "System default font"
+    }
+  }
+}
+
+
+
+
+
+

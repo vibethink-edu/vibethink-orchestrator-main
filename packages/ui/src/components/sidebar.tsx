@@ -95,11 +95,13 @@ function SidebarProvider({
   className,
   style,
   children,
+  cookieName,
   ...props
 }: React.ComponentProps<"div"> & {
   defaultOpen?: boolean;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
+  cookieName?: string;
 }) {
   const isMobile = useIsMobile();
   const [openMobile, setOpenMobile] = React.useState(false);
@@ -140,6 +142,26 @@ function SidebarProvider({
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [toggleSidebar]);
+
+  // Restore state from cookie on mount
+  React.useEffect(() => {
+    if (openProp !== undefined) return;
+
+    // Cookie name might have a prefix if we are in a dashboard context
+    const finalCookieName = cookieName || SIDEBAR_COOKIE_NAME;
+
+    // Simple cookie parser
+    const value = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith(`${finalCookieName}=`))
+      ?.split("=")[1];
+
+    if (value === "true") {
+      _setOpen(true);
+    } else if (value === "false") {
+      _setOpen(false);
+    }
+  }, []); // Only run on mount
 
   // We add a state so that we can do data-state="expanded" or "collapsed".
   // This makes it easier to style the sidebar with Tailwind classes.
@@ -581,7 +603,7 @@ function SidebarMenuAction({
         "peer-data-[size=lg]/menu-button:top-2.5",
         "group-data-[collapsible=icon]:hidden",
         showOnHover &&
-          "peer-data-[active=true]/menu-button:text-sidebar-accent-foreground group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100 data-[state=open]:opacity-100 md:opacity-0",
+        "peer-data-[active=true]/menu-button:text-sidebar-accent-foreground group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100 data-[state=open]:opacity-100 md:opacity-0",
         className
       )}
       {...props}
