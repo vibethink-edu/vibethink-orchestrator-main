@@ -491,9 +491,26 @@ node scripts/detect-hardcoded-strings-by-component.js \
 
 ---
 
+## 🔄 Módulos Reutilizables (Context-Aware)
+
+**⚠️ IMPORTANTE:** Si un componente se usa en múltiples contextos (ej: Booking en Hotel y Studio), usar estrategia de context-aware translations.
+
+**Ejemplo:**
+- Hotel: "Reserva habitación", tipos "Premium", "De Lujo"
+- Studio: "Reserva Sala 10", tipos "Tipo A", "Sin instrumentos"
+
+**Estrategia:** Namespaces específicos por contexto
+- `hotel.booking.*` para contexto Hotel
+- `studio.booking.*` para contexto Studio
+
+**Documentación completa:** `docs/architecture/I18N_CONTEXT_AWARE_TRANSLATIONS.md` ⭐
+
+---
+
 ## 📚 Referencias
 
 - **Protocolo i18n:** `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md`
+- **Context-Aware Translations:** `docs/architecture/I18N_CONTEXT_AWARE_TRANSLATIONS.md` ⭐
 - **Protocolo maestro:** `docs/architecture/MODULE_IMPORT_DEPLOYMENT_PROTOCOL.md`
 - **Scripts de validación:** `scripts/detect-missing-i18n-keys.js`
 
