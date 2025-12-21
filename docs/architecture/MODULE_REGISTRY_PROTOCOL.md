@@ -1,18 +1,42 @@
 # Protocolo: Registro y Validación de Módulos Migrados
 
 **Fecha de creación:** 2025-12-20  
-**Estado:** ✅ Activo - Parte del protocolo de migración estándar
+**Estado:** ✅ Activo - Parte del protocolo de migración estándar  
+**🚨 ÚNICA FUENTE DE VERDAD** para módulos y componentes migrados
+
+---
+
+## 🚨 REGLA CRÍTICA PARA AGENTES AI
+
+**ESTE REGISTRO ES LA ÚNICA FUENTE DE VERDAD**
+
+**ANTES de migrar, importar, o modificar cualquier módulo/componente externo:**
+
+1. ✅ **SIEMPRE consultar** `apps/dashboard/src/shared/data/module-registry.ts`
+2. ✅ **VERIFICAR** si el módulo ya está registrado
+3. ✅ **VALIDAR** compatibilidad con nuestro stack
+4. ✅ **REGISTRAR** cualquier nuevo módulo importado
+5. ✅ **ACTUALIZAR** el registro si modificas un módulo existente
+
+**NUNCA:**
+- ❌ Asumir que un módulo no existe sin consultar el registro
+- ❌ Importar componentes sin registrarlos
+- ❌ Modificar módulos sin actualizar el registro
+- ❌ Confiar en memoria o documentación desactualizada
+
+**El registro es la autoridad definitiva sobre qué módulos están migrados, de dónde vienen, y cómo están adaptados.**
 
 ---
 
 ## 📋 Resumen Ejecutivo
 
-Este protocolo establece un sistema de registro y validación para módulos y componentes migrados desde fuentes externas (Bundui Premium, etc.) a nuestro monorepo. Permite:
+Este protocolo establece un sistema de registro y validación para módulos y componentes migrados desde fuentes externas (Bundui Premium, Shadcn UI Kit, React Flow, TipTap, etc.) a nuestro monorepo. Permite:
 
 - ✅ **Tracking:** Registrar qué módulos están migrados
 - ✅ **Control de versiones:** Llevar control de versiones de importación
 - ✅ **Validación:** Verificar compatibilidad con nuestro stack
 - ✅ **Historial:** Mantener referencia histórica de migraciones
+- ✅ **Única fuente de verdad:** Autoridad definitiva para agentes AI
 
 ---
 

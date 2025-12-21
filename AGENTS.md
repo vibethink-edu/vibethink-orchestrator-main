@@ -338,6 +338,67 @@ XYFlow Reference (puede cambiar)      ───►  apps/dashboard/... (nuestros
 - `docs/architecture/REFERENCE_RULES.md` - Reglas generales para TODAS las referencias
 - `docs/architecture/BUNDUI_REFERENCE_RULE.md` - Específico de Bundui
 
+## 🚨 CRITICAL: Module Registry - Única Fuente de Verdad
+
+**⚠️ REGLA OBLIGATORIA: El Module Registry es la ÚNICA FUENTE DE VERDAD para módulos y componentes migrados**
+
+### **ANTES de migrar, importar o modificar cualquier módulo/componente externo:**
+
+1. **✅ SIEMPRE consultar** `apps/dashboard/src/shared/data/module-registry.ts`
+2. **✅ VERIFICAR** si el módulo ya está registrado
+3. **✅ VALIDAR** compatibilidad con nuestro stack usando `validateStackCompatibility()`
+4. **✅ REGISTRAR** cualquier nuevo módulo importado
+5. **✅ ACTUALIZAR** el registro si modificas un módulo existente
+
+### **NUNCA:**
+
+- ❌ Asumir que un módulo no existe sin consultar el registro
+- ❌ Importar componentes sin registrarlos
+- ❌ Modificar módulos sin actualizar el registro
+- ❌ Confiar en memoria o documentación desactualizada
+
+### **Fuentes Soportadas:**
+
+El registro soporta módulos de múltiples fuentes:
+- `bundui-premium` - Bundui Premium Dashboard Templates
+- `bundui-original` - Bundui Original Source Code
+- `shadcn-ui-kit` - shadcnuikit.com/components/
+- `react-flow` - reactflow.dev / @xyflow/react
+- `tiptap` - github.com/ueberdosis/tiptap
+- `shadcn-ui` - ui.shadcn.com (base components)
+- `custom` - Componentes desarrollados internamente
+- `other` - Otras fuentes externas
+
+### **Documentación Completa:**
+
+- `apps/dashboard/src/shared/data/module-registry.ts` - **Registro principal (LEER PRIMERO)**
+- `docs/architecture/MODULE_REGISTRY_PROTOCOL.md` - **Protocolo completo**
+- `docs/architecture/EXTERNAL_LIBRARIES_EVALUATION.md` - Evaluación crítica de bibliotecas
+
+### **Funciones Útiles:**
+
+```typescript
+import { 
+  getModuleById, 
+  getModuleByPath, 
+  getModulesBySource,
+  validateStackCompatibility 
+} from '@/shared/data/module-registry';
+
+// Verificar si un módulo existe
+const module = getModuleById('hotel-dashboard');
+
+// Validar compatibilidad
+if (module) {
+  const validation = validateStackCompatibility(module);
+  if (!validation.compatible) {
+    console.warn('Issues:', validation.issues);
+  }
+}
+```
+
+---
+
 ## 🚨 CRITICAL: Migración de bundui-premium a @vibethink/ui
 
 **⚠️ IMPORTANTE: Los componentes de layout de `bundui-premium` han sido migrados a `@vibethink/ui`**
