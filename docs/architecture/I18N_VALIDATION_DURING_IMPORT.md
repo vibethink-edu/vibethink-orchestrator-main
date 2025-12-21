@@ -237,15 +237,26 @@
       - [ ] Ejemplo: `t(\`components.statCards.titles.${item.key}\`)` donde `item.key` puede ser `todayCheckIn`, `todayCheckOut`, etc.
       - [ ] Validar que `hotel.components.statCards.titles.todayCheckIn`, `hotel.components.statCards.titles.todayCheckOut`, etc. existen
     - **Documentar** claves dinámicas en el reporte de validación
-  - [ ] **Ejecutar script de validación:**
+  - [ ] **Ejecutar script de validación (OBLIGATORIO):**
     ```bash
     node scripts/validate-i18n-keys.js --module apps/dashboard/app/dashboard-bundui/module-name --namespace module-name
     ```
     - ✅ El script debe pasar sin errores
     - ⚠️ Si hay claves dinámicas, validarlas manualmente
-  - [ ] **Documentar claves faltantes:**
-    - Si falta alguna clave, documentarla y agregarla a ambos JSON antes de marcar como completo
-    - No dejar claves faltantes (causa errores en runtime - las claves aparecen visibles en la UI)
+  
+  - [ ] **Ejecutar script de detección de claves faltantes:**
+    ```bash
+    node scripts/detect-missing-i18n-keys.js --module apps/dashboard/app/dashboard-bundui/module-name --namespace module-name
+    ```
+    - ✅ Este script compara claves del código vs JSON y muestra las faltantes
+    - ✅ Genera reporte con las claves que DEBEN agregarse
+    - ✅ Ayuda a identificar claves que aparecen visibles en UI (ej: `hotel.roomTypes.deluxe`)
+  
+  - [ ] **🚨 Documentar y agregar claves faltantes INMEDIATAMENTE:**
+    - Si falta alguna clave, NO dejar para después
+    - Agregar a AMBOS JSON (EN/ES) antes de marcar como completo
+    - **Regla crítica:** No dejar claves faltantes (causa que aparezcan visibles en la UI como `namespace.key.path`)
+    - Si aparecen claves visibles (ej: `hotel.roomTypes.deluxe`), significa que la clave NO existe en el JSON
 
 ### Fase 6: Validación Completa
 
