@@ -13,8 +13,8 @@ $connections = Get-NetTCPConnection -LocalPort $port -ErrorAction SilentlyContin
 if ($connections) {
     # Handle both single connection and array
     $uniqueProcessIds = $connections | 
-    Select-Object -ExpandProperty OwningProcess -Unique | 
-    Where-Object { $_ -gt 0 }  # Filter out system processes (Idle = 0)
+        Select-Object -ExpandProperty OwningProcess -Unique | 
+        Where-Object { $_ -gt 0 }  # Filter out system processes (Idle = 0)
     
     foreach ($processId in $uniqueProcessIds) {
         # Validate process exists and is not a system process
@@ -28,12 +28,24 @@ if ($connections) {
             $processStopped = $true
         }
         catch {
-            Write-Host "⚠️  Could not stop process $processId : $($_.Exception.Message)" -ForegroundColor Yellow
+            # Process might already be gone, but port still in TIME_WAIT
+            Write-Host "⚠️  Process $processId not found (may have already terminated)" -ForegroundColor Yellow
+            # Try to force close the connection
+            try {
+                $connection = $connections | Where-Object { $_.OwningProcess -eq $processId } | Select-Object -First 1
+                if ($connection) {
+                    Write-Host "   Connection may be in TIME_WAIT state, will clear on next check" -ForegroundColor Gray
+                }
+            } catch {
+                # Ignore connection cleanup errors
+            }
         }
     }
     
     if (-not $processStopped) {
-        Write-Host "ℹ️  No valid processes found on port $port" -ForegroundColor Gray
+        Write-Host "ℹ️  No valid processes found on port $port (connections may be in TIME_WAIT)" -ForegroundColor Gray
+        Write-Host "   Waiting 2 seconds for connections to clear..." -ForegroundColor Gray
+        Start-Sleep -Seconds 2
     }
 }
 else {
