@@ -261,6 +261,8 @@ Los componentes en `bundui-premium` siguen existiendo para compatibilidad, pero 
 
 - `packages/ui/src/components/layout/` - Componentes migrados
 - `apps/dashboard/src/shared/data/bundui-nav-items.ts` - Datos centralizados
+- `apps/dashboard/src/shared/data/module-registry.ts` - Registro de módulos migrados
+- `docs/architecture/MODULE_REGISTRY_PROTOCOL.md` - Protocolo de registro y validación
 - `docs/architecture/SHADCN_MONOREPO_COMPLIANCE.md` - Estándares de monorepo
 - `docs/architecture/DASHBOARD_ARCHITECTURE.md` - Arquitectura de dashboards
 
