@@ -127,6 +127,7 @@
     "date-fns": "4.1.0",
     "embla-carousel-react": "8.6.0",
     "framer-motion": "11.3.31",
+    "lottie-react": "^2.4.1",
     "lucide-react": "^0.522.0",
     "motion": "12.11.4",
     "next": "15.3.4",

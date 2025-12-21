@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { generateMeta } from "@/lib/utils";
+import { generateMeta } from "@/shared/lib/utils";
 
 import AIChatSidebar from "../components/ai-chat-sidebar";
 import AIChatInterface from "../components/ai-chat-interface";
