@@ -58,6 +58,48 @@
 
 **Documentación:** `docs/architecture/LOCALE.md`
 
+---
+
+## 🗂️ Estrategia de Namespaces por Componente (SubWorkspace)
+
+**⚠️ IMPORTANTE:** Los strings deben organizarse por componente dentro del namespace del módulo.
+
+### Organización por Componente
+
+**Estructura:**
+```
+hotel (namespace principal)
+├── components (subWorkspace de componentes)
+│   ├── header
+│   ├── statCards
+│   ├── bookingList
+│   ├── bookingsCard
+│   ├── campaignOverview
+│   ├── reservationsCard
+│   ├── revenueStat
+│   └── ...
+├── formatters
+├── status
+└── ...
+```
+
+**Convención de nomenclatura:**
+- Archivo: `revenue-stat.tsx` → Namespace: `components.revenueStat`
+- Archivo: `booking-list.tsx` → Namespace: `components.bookingList`
+
+### Validación Sistemática por Componente
+
+**Protocolo:**
+1. Listar TODOS los archivos `.tsx` del módulo
+2. Para cada componente:
+   - Identificar strings hardcoded
+   - Crear namespace `components.{componentName}`
+   - Agregar todas las claves a JSON (EN/ES)
+   - Adaptar código a usar `t()`
+3. Validar componente por componente
+
+**Documentación completa:** `docs/architecture/I18N_COMPONENT_NAMESPACE_STRATEGY.md` ⭐
+
 **⚠️ REGLA CRÍTICA:** 
 - ✅ **Validar SIEMPRE los 3 niveles** durante importación
 - ✅ **No asumir** que un nivel está completo sin validar

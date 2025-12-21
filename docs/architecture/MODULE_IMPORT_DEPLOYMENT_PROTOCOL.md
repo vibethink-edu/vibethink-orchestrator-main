@@ -970,6 +970,28 @@ cell: ({ row }) => {
 
 **Documentación:** `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md` (Problema 5)
 
+### Lección 12: Validación Sistemática por Componente (SubWorkspace)
+
+**Problema:**
+- Strings hardcoded quedan sin detectar
+- No hay sistema organizado para validar componente por componente
+- Difícil identificar qué componente necesita traducción
+
+**Solución:**
+- ✅ Organizar namespaces por componente (`components.{componentName}`)
+- ✅ Validar componente por componente sistemáticamente
+- ✅ Usar scripts mejorados que detectan por componente
+- ✅ Crear namespace completo desde el inicio
+
+**Estrategia:**
+1. **Identificar componentes:** Listar todos los `.tsx` y mapear a namespace
+2. **Auditar por componente:** Detectar strings hardcoded por archivo
+3. **Crear namespace:** Estructura completa en EN/ES
+4. **Adaptar código:** Reemplazar strings con `t()`
+5. **Validar:** Verificar que todas las claves existen
+
+**Documentación:** `docs/architecture/I18N_COMPONENT_NAMESPACE_STRATEGY.md` ⭐
+
 ---
 
 ## 📋 Checklist Maestro de Importación

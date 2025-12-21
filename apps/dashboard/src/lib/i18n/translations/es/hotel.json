@@ -168,6 +168,21 @@
         }
       },
       
+      "revenueStat": {
+        "title": "Estadísticas de Ingresos",
+        "fromLastMonth": "desde el mes pasado",
+        "periods": {
+          "placeholder": "Seleccionar período",
+          "weekly": "Semanal",
+          "monthly": "Mensual",
+          "yearly": "Anual"
+        },
+        "chart": {
+          "revenue": "Ingresos",
+          "projected": "Proyectado"
+        }
+      },
+      
       "meetingRoomSchedule": {
         "title": "Horario de Salas de Reuniones",
         "actions": {

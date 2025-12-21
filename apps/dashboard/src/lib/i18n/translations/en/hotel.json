@@ -168,6 +168,21 @@
         }
       },
       
+      "revenueStat": {
+        "title": "Revenue Stat",
+        "fromLastMonth": "from last month",
+        "periods": {
+          "placeholder": "Select period",
+          "weekly": "Weekly",
+          "monthly": "Monthly",
+          "yearly": "Yearly"
+        },
+        "chart": {
+          "revenue": "Revenue",
+          "projected": "Projected"
+        }
+      },
+      
       "meetingRoomSchedule": {
         "title": "Meeting Room Schedule",
         "actions": {
