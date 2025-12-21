@@ -213,10 +213,23 @@ export const moduleRegistry: ModuleRegistryEntry[] = [
       { title: "Bookings", path: "/dashboard-bundui/hotel/bookings" }
     ],
     dependencies: ["recharts", "date-fns", "@tanstack/react-table"],
-    notes: "Módulo completo con todas las subopciones. Requiere 'use client' en page.tsx debido a imports de @vibethink/ui",
+    notes: "Módulo completo con todas las subopciones. Requiere 'use client' en page.tsx debido a imports de @vibethink/ui. i18n aplicado parcialmente según protocolo (65% cobertura).",
     issues: [],
-    i18nNamespace: undefined, // TODO: Crear namespace hotel.json
-    i18nCoverage: 0
+    i18nNamespace: "hotel",
+    i18nCoverage: 65,
+    i18nStatus: {
+      total: 210,
+      translated: 135,
+      pending: 75,
+      categories: {
+        navigation: 4,
+        components: 90,
+        forms: 45,
+        toolbar: 8,
+        messages: 10,
+        validation: 13
+      }
+    }
   },
   {
     id: "ai-chat-v2",
