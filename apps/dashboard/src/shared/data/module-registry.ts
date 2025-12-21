@@ -14,9 +14,18 @@
  * @see docs/architecture/MODULE_REGISTRY_PROTOCOL.md - Protocolo completo
  */
 
-export type MigrationSource = "bundui-premium" | "bundui-original" | "custom" | "other";
+export type MigrationSource = 
+  | "bundui-premium"           // Bundui Premium Dashboard Templates
+  | "bundui-original"          // Bundui Original Source Code
+  | "shadcn-ui-kit"            // shadcnuikit.com/components/
+  | "react-flow"               // reactflow.dev / @xyflow/react
+  | "tiptap"                   // github.com/ueberdosis/tiptap
+  | "shadcn-ui"                // ui.shadcn.com (base components)
+  | "custom"                   // Componente custom desarrollado internamente
+  | "other";                   // Otra fuente externa
+
 export type ModuleStatus = "complete" | "partial" | "deprecated" | "experimental";
-export type ComponentType = "dashboard" | "component" | "hook" | "utility" | "layout";
+export type ComponentType = "dashboard" | "component" | "hook" | "utility" | "layout" | "extension" | "library";
 
 export interface StackCompatibility {
   react: string;
@@ -60,8 +69,32 @@ export interface ModuleRegistryEntry {
   
   /**
    * Versión de la fuente al momento de migración
+   * Ejemplo: "2.22.3" para TipTap, "12.10.0" para React Flow
    */
   sourceVersion?: string;
+  
+  /**
+   * URL de la fuente original (para referencia)
+   */
+  sourceUrl?: string;
+  
+  /**
+   * Adaptaciones realizadas para nuestro monorepo
+   */
+  adaptations?: {
+    /**
+     * Cambios realizados para adaptar al monorepo
+     */
+    monorepo?: string[];
+    /**
+     * Adaptaciones de i18n/multilang
+     */
+    i18n?: string[];
+    /**
+     * Otras adaptaciones específicas
+     */
+    other?: string[];
+  };
   
   /**
    * Fecha de migración (ISO 8601)
