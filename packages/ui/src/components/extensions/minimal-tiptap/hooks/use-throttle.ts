@@ -1,6 +1,8 @@
-import {useRef, useCallback} from 'react'
+"use client";
 
-export function useThrottle<T extends (...args: never[]) => void>(
+import { useRef, useCallback } from 'react'
+
+export function useThrottle<T extends (...args: any[]) => void>(
     callback: T,
     delay: number
 ): (...args: Parameters<T>) => void {

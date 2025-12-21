@@ -5,6 +5,47 @@ Todos los cambios notables de este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.1] - 2025-12-20
+
+### Fixed
+- ✅ **Cirugía de Recuperación Completada**
+  - Recuperación exitosa desde estado problemático (14:14) a estado estable (06:32)
+  - Fixes críticos aplicados sin perder nuevas features
+  - Build compila exitosamente
+  - Servidor de desarrollo funcionando correctamente
+
+- ✅ **MinimalTiptapEditor Export**
+  - Export habilitado en `@vibethink/ui` barrel file
+  - "use client" agregado a hooks necesarios (`use-container-size`, `use-throttle`, `use-drag-resize`)
+  - Fix de errores de build relacionados con SSR
+
+- ✅ **React Version Consistency**
+  - React overrides agregados en `package.json` root
+  - Versión única forzada: React 19.0.0, @types/react 19.0.0
+  - Prevención de problema repetitivo React 18 vs 19
+
+- ✅ **Limpieza de Archivos Problemáticos**
+  - Eliminados `tsc_output*.txt` (79,248 líneas)
+  - Eliminado `packages/ui/node_modules_bak/` (100+ archivos)
+  - Archivos que no deberían estar en Git removidos
+
+### Added
+- ✅ **Documentación de Recuperación**
+  - `docs/sessions/CIRUGIA_RECUPERACION_2025-12-20.md` - Log completo de cirugía
+  - `docs/TROUBLESHOOTING.md` - Guía de troubleshooting actualizada
+  - `docs/sessions/GIT_HEALTH_REPORT_2025-12-20.md` - Reporte de salud de Git
+  - Scripts de validación: `scripts/validate-react-versions.js`
+
+### Technical
+- 📦 React 19.0.0 forzado en todo el monorepo (overrides)
+- 📦 @types/react 19.0.0 alineado
+- 📝 Validación automatizada de versiones de React
+- 🔧 Scripts de validación mejorados
+
+### Known Issues
+- ⚠️ Error React children en página `/404` (solo afecta prerendering, no desarrollo)
+- ⚠️ Error `ai-image-generator` - Class extends value undefined (requiere investigación)
+
 ## [0.3.0] - 2025-01-16
 
 ### Added
