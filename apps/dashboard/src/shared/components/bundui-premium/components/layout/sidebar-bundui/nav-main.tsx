@@ -122,20 +122,25 @@ export const navItems: NavGroup[] = [
     ]
   },
   {
-    title: "AI",
+    title: "AI Apps",
     items: [
-      { title: "AI Chat", href: "/dashboard-bundui/ai-chat", icon: BrainCircuitIcon, isNew: true },
+      { title: "AI Chat", href: "/dashboard-bundui/ai-chat", icon: BrainIcon },
       {
         title: "AI Chat V2",
-        href: "/dashboard-bundui/ai-chat",
+        href: "/dashboard-bundui/ai-chat-v2",
         icon: BrainCircuitIcon,
-        isComing: true
+        isNew: true
       },
       {
         title: "Image Generator",
         href: "/dashboard-bundui/ai-image-generator",
-        icon: ImagesIcon,
-        isNew: true
+        icon: ImagesIcon
+      },
+      {
+        title: "Text to Speech",
+        href: "/dashboard-bundui/text-to-speech",
+        icon: SpeechIcon,
+        isComing: true
       }
     ]
   },
