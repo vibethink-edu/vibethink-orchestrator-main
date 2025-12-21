@@ -1,0 +1,64 @@
+{
+  "title": "Dashboard Financiero",
+  "description": "Un dashboard financiero es un panel de administración que visualiza datos financieros clave como ingresos, gastos, flujo de efectivo, presupuesto y ganancias. Construido con shadcn/ui, Tailwind CSS, Next.js.",
+  "actions": {
+    "download": "Descargar"
+  },
+  "kpi": {
+    "revenue": "Ingresos",
+    "expenses": "Gastos",
+    "profit": "Ganancia",
+    "cashFlow": "Flujo de Efectivo",
+    "fromLastMonth": "del mes pasado",
+    "increase": "Aumento",
+    "decrease": "Disminución"
+  },
+  "revenue": {
+    "title": "Ingresos",
+    "total": "Ingresos Totales",
+    "growth": "Crecimiento",
+    "period": "Período"
+  },
+  "expenses": {
+    "title": "Gastos Mensuales",
+    "total": "Gastos Totales",
+    "byCategory": "Por Categoría",
+    "other": "Otros"
+  },
+  "summary": {
+    "title": "Resumen",
+    "income": "Ingresos",
+    "expenses": "Gastos",
+    "balance": "Balance"
+  },
+  "transactions": {
+    "title": "Transacciones Recientes",
+    "date": "Fecha",
+    "description": "Descripción",
+    "amount": "Cantidad",
+    "type": "Tipo",
+    "status": "Estado",
+    "viewAll": "Ver Todo",
+    "income": "Ingreso",
+    "expense": "Gasto"
+  },
+  "saving": {
+    "title": "Meta de Ahorro",
+    "target": "Objetivo",
+    "current": "Actual",
+    "remaining": "Restante",
+    "progress": "Progreso"
+  },
+  "wallet": {
+    "title": "Mi Billetera",
+    "cards": "Tarjetas de Crédito",
+    "balance": "Balance",
+    "available": "Crédito Disponible"
+  },
+  "status": {
+    "completed": "Completado",
+    "pending": "Pendiente",
+    "failed": "Fallido"
+  }
+}
+

@@ -1,0 +1,76 @@
+{
+  "title": "AI Chat",
+  "subtitle": "Chat with AI Assistant",
+  "description": "AI chatbot is an app ui template that allows users to interact with an AI for messaging and assistance. Built with shadcn/ui, Next.js and Tailwind CSS.",
+  "v2": {
+    "title": "AI Chat V2",
+    "description": "AI chatbot is an app ui template that allows users to interact with an AI for messaging and assistance. Built with shadcn/ui, Next.js and Tailwind CSS."
+  },
+  "sidebar": {
+    "search": "Search chats...",
+    "newChat": "New Chat",
+    "untitledChat": "Untitled Chat"
+  },
+  "input": {
+    "placeholder": "Type your message... (Press Enter to send, Shift+Enter for new line)",
+    "send": "Send",
+    "sending": "Sending...",
+    "error": "Error sending message:"
+  },
+  "messages": {
+    "aiGenerating": "AI is generating a response...",
+    "aiAssistant": "AI Assistant",
+    "copy": "Copy message",
+    "copied": "Copied!",
+    "copyError": "Failed to copy message:"
+  },
+  "settings": {
+    "systemInstructions": "Enter system instructions for the AI...",
+    "selectModel": "Select a model",
+    "localModel": "Local Model"
+  },
+  "upgrade": {
+    "title": "Upgrade to Pro",
+    "currentPlan": "Current Plan",
+    "processing": "Processing...",
+    "plans": {
+      "free": {
+        "title": "Free",
+        "description": "Perfect for getting started",
+        "features": [
+          "Basic AI models",
+          "Standard support",
+          "Web access only"
+        ]
+      },
+      "pro": {
+        "title": "Pro",
+        "description": "For power users and professionals",
+        "features": [
+          "Unlimited messages",
+          "Advanced AI models (iBeeBot 4o)",
+          "Priority support",
+          "API access",
+          "Custom integrations",
+          "Advanced analytics"
+        ],
+        "button": "Upgrade to Pro"
+      },
+      "enterprise": {
+        "title": "Enterprise",
+        "description": "For teams and organizations",
+        "features": [
+          "Everything in Pro",
+          "Team collaboration",
+          "SSO & advanced security",
+          "Dedicated support",
+          "Custom models",
+          "On-premise deployment"
+        ],
+        "button": "Contact Sales"
+      }
+    }
+  },
+  "dateFormat": "MMMM d, yyyy"
+}
+
