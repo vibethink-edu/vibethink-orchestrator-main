@@ -1,0 +1,151 @@
+{
+  "customizer": {
+    "aspect": {
+      "label": "Appearance",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "theme": {
+      "label": "Theme",
+      "subtitle": "Color scheme",
+      "description": "Choose a color theme for your dashboard"
+    },
+    "font": {
+      "label": "Font",
+      "description": "Select a font family"
+    },
+    "advanced": {
+      "title": "Advanced",
+      "baseColor": {
+        "label": "Base Color",
+        "optional": "Optional",
+        "description": "Base color palette"
+      },
+      "menu": {
+        "title": "Menu",
+        "color": {
+          "label": "Menu Color",
+          "default": "Default",
+          "muted": "Muted",
+          "accent": "Accent"
+        },
+        "accent": {
+          "label": "Menu Accent",
+          "subtle": "Subtle",
+          "moderate": "Moderate",
+          "bold": "Bold",
+          "description": "Menu accent intensity"
+        }
+      },
+      "size": {
+        "title": "Size",
+        "scale": {
+          "label": "Scale",
+          "none": "None",
+          "sm": "Small",
+          "lg": "Large"
+        },
+        "radius": {
+          "label": "Radius",
+          "none": "None",
+          "sm": "Small",
+          "md": "Medium",
+          "lg": "Large",
+          "xl": "Extra Large"
+        },
+        "description": "Adjust component sizes"
+      },
+      "layout": {
+        "title": "Layout",
+        "content": {
+          "label": "Content Layout",
+          "full": "Full",
+          "centered": "Centered"
+        },
+        "sidebar": {
+          "label": "Sidebar Mode",
+          "default": "Default",
+          "icon": "Icon"
+        }
+      }
+    }
+  },
+  "themes": {
+    "default": {
+      "name": "Default",
+      "description": "Default theme"
+    },
+    "underground": {
+      "name": "Underground",
+      "description": "Emerald green theme"
+    },
+    "rose-garden": {
+      "name": "Rose Garden",
+      "description": "Elegant pink theme"
+    },
+    "lake-view": {
+      "name": "Lake View",
+      "description": "Turquoise blue theme"
+    },
+    "sunset-glow": {
+      "name": "Sunset Glow",
+      "description": "Warm orange theme"
+    },
+    "forest-whisper": {
+      "name": "Forest Whisper",
+      "description": "Forest green theme"
+    },
+    "ocean-breeze": {
+      "name": "Ocean Breeze",
+      "description": "Ocean blue theme"
+    },
+    "lavender-dream": {
+      "name": "Lavender Dream",
+      "description": "Soft purple theme"
+    }
+  },
+  "fonts": {
+    "inter": {
+      "name": "Inter",
+      "description": "Modern sans-serif"
+    },
+    "noto-sans": {
+      "name": "Noto Sans",
+      "description": "Clean and readable"
+    },
+    "nunito-sans": {
+      "name": "Nunito Sans",
+      "description": "Rounded and friendly"
+    },
+    "figtree": {
+      "name": "Figtree",
+      "description": "Geometric sans-serif"
+    },
+    "geist": {
+      "name": "Geist",
+      "description": "Default font"
+    },
+    "roboto": {
+      "name": "Roboto",
+      "description": "Google's signature font"
+    },
+    "poppins": {
+      "name": "Poppins",
+      "description": "Geometric and modern"
+    },
+    "montserrat": {
+      "name": "Montserrat",
+      "description": "Elegant and versatile"
+    },
+    "pt-sans": {
+      "name": "PT Sans",
+      "description": "Humanist sans-serif"
+    },
+    "system": {
+      "name": "System",
+      "description": "System default font"
+    }
+  }
+}
+

@@ -90,10 +90,12 @@ export function I18nProvider({
       if (translationStore.has(locale)) {
         const localeStore = translationStore.get(locale)!;
         if (localeStore.has(namespace)) {
+          console.log(`[i18n] Namespace '${namespace}' already loaded for locale '${locale}'`);
           return localeStore.get(namespace)!;
         }
       }
 
+      console.log(`[i18n] Loading namespace '${namespace}' for locale '${locale}'...`);
       // Load translation
       const translation = await loadTranslation(locale, namespace);
 
@@ -102,6 +104,7 @@ export function I18nProvider({
         translationStore.set(locale, new Map());
       }
       translationStore.get(locale)!.set(namespace, translation);
+      console.log(`[i18n] Namespace '${namespace}' stored for locale '${locale}'`);
 
       return translation;
     },
@@ -115,8 +118,12 @@ export function I18nProvider({
     const init = async () => {
       setIsLoading(true);
       try {
-        // Preload common namespaces
-        await preloadTranslations(locale, preloadNamespaces);
+        console.log(`[i18n] Preloading namespaces for locale '${locale}':`, preloadNamespaces);
+        // Preload common namespaces and store them
+        for (const namespace of preloadNamespaces) {
+          await loadNamespace(namespace);
+        }
+        console.log(`[i18n] Preload complete. Store contents:`, Array.from(translationStore.get(locale)?.keys() || []));
       } catch (error) {
         console.error('[i18n] Failed to initialize translations:', error);
       } finally {
@@ -125,7 +132,7 @@ export function I18nProvider({
     };
 
     init();
-  }, [locale, preloadNamespaces]);
+  }, [locale, preloadNamespaces, loadNamespace]);
 
   /**
    * Translation function
@@ -144,14 +151,16 @@ export function I18nProvider({
       // Get translation from store
       const localeStore = translationStore.get(locale);
       if (!localeStore) {
+        console.warn(`[i18n] Locale store not found for: ${locale}`);
         return key;
       }
 
       const namespaceTranslations = localeStore.get(namespace);
       if (!namespaceTranslations) {
         // Try to load on demand
-        loadNamespace(namespace).catch(() => {
-          console.warn(`[i18n] Failed to load namespace: ${namespace}`);
+        console.log(`[i18n] Namespace '${namespace}' not loaded, loading on demand...`);
+        loadNamespace(namespace).catch((error) => {
+          console.error(`[i18n] Failed to load namespace '${namespace}':`, error);
         });
         return key;
       }
@@ -159,7 +168,7 @@ export function I18nProvider({
       // Get nested value
       const translation = getNestedValue(namespaceTranslations, translationKey);
       if (!translation) {
-        console.warn(`[i18n] Translation not found: ${key}`);
+        console.warn(`[i18n] Translation not found: ${key} (namespace: ${namespace}, key: ${translationKey})`);
         return key;
       }
 

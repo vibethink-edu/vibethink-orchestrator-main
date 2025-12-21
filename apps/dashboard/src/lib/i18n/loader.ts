@@ -35,19 +35,21 @@ export async function loadTranslation(
   }
 
   try {
+    console.log(`[i18n] Loading translation: ${locale}/${namespace}`);
     // Dynamic import with error handling
     const translation = await import(
       `./translations/${locale}/${namespace}.json`
     );
 
     const translations = translation.default || translation;
+    console.log(`[i18n] Successfully loaded ${locale}/${namespace}:`, Object.keys(translations).slice(0, 5));
     
     // Cache the translation
     translationCache.set(cacheKey, translations);
     
     return translations;
   } catch (error) {
-    console.warn(
+    console.error(
       `[i18n] Failed to load translation for ${locale}/${namespace}:`,
       error
     );

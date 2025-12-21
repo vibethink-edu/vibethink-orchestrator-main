@@ -37,6 +37,10 @@ interface ThemePickerProps {
    * para evitar conflictos de accesibilidad con aria-hidden
    */
   useSelect?: boolean;
+  /**
+   * Prefijo para aislar cookies por dashboard (ej: "bundui", "vibethink")
+   */
+  dashboardPrefix?: string;
 }
 
 /**
@@ -54,10 +58,11 @@ export function ThemePicker({
   className,
   variant = "outline",
   size = "default",
-  useSelect = false
+  useSelect = false,
+  dashboardPrefix
 }: ThemePickerProps) {
   const [open, setOpen] = React.useState(false);
-  const { preset, setPreset, mounted, currentTheme } = useThemePreset();
+  const { preset, setPreset, mounted, currentTheme } = useThemePreset(dashboardPrefix);
   const { t } = useTranslation('theme');
 
   React.useEffect(() => {

@@ -1,0 +1,151 @@
+{
+  "customizer": {
+    "aspect": {
+      "label": "Apariencia",
+      "light": "Claro",
+      "dark": "Oscuro",
+      "system": "Sistema"
+    },
+    "theme": {
+      "label": "Tema",
+      "subtitle": "Esquema de colores",
+      "description": "Elige un tema de color para tu dashboard"
+    },
+    "font": {
+      "label": "Fuente",
+      "description": "Selecciona una familia de fuentes"
+    },
+    "advanced": {
+      "title": "Avanzado",
+      "baseColor": {
+        "label": "Color Base",
+        "optional": "Opcional",
+        "description": "Paleta de colores base"
+      },
+      "menu": {
+        "title": "Menú",
+        "color": {
+          "label": "Color del Menú",
+          "default": "Por Defecto",
+          "muted": "Atenuado",
+          "accent": "Acento"
+        },
+        "accent": {
+          "label": "Acento del Menú",
+          "subtle": "Sutil",
+          "moderate": "Moderado",
+          "bold": "Negrita",
+          "description": "Intensidad del acento del menú"
+        }
+      },
+      "size": {
+        "title": "Tamaño",
+        "scale": {
+          "label": "Escala",
+          "none": "Ninguno",
+          "sm": "Pequeño",
+          "lg": "Grande"
+        },
+        "radius": {
+          "label": "Radio",
+          "none": "Ninguno",
+          "sm": "Pequeño",
+          "md": "Mediano",
+          "lg": "Grande",
+          "xl": "Extra Grande"
+        },
+        "description": "Ajustar tamaños de componentes"
+      },
+      "layout": {
+        "title": "Diseño",
+        "content": {
+          "label": "Diseño del Contenido",
+          "full": "Completo",
+          "centered": "Centrado"
+        },
+        "sidebar": {
+          "label": "Modo del Sidebar",
+          "default": "Por Defecto",
+          "icon": "Icono"
+        }
+      }
+    }
+  },
+  "themes": {
+    "default": {
+      "name": "Por Defecto",
+      "description": "Tema por defecto"
+    },
+    "underground": {
+      "name": "Underground",
+      "description": "Tema verde esmeralda"
+    },
+    "rose-garden": {
+      "name": "Rose Garden",
+      "description": "Tema rosa elegante"
+    },
+    "lake-view": {
+      "name": "Lake View",
+      "description": "Tema azul turquesa"
+    },
+    "sunset-glow": {
+      "name": "Sunset Glow",
+      "description": "Tema naranja cálido"
+    },
+    "forest-whisper": {
+      "name": "Forest Whisper",
+      "description": "Tema verde bosque"
+    },
+    "ocean-breeze": {
+      "name": "Ocean Breeze",
+      "description": "Tema azul océano"
+    },
+    "lavender-dream": {
+      "name": "Lavender Dream",
+      "description": "Tema púrpura suave"
+    }
+  },
+  "fonts": {
+    "inter": {
+      "name": "Inter",
+      "description": "Sans-serif moderno"
+    },
+    "noto-sans": {
+      "name": "Noto Sans",
+      "description": "Limpio y legible"
+    },
+    "nunito-sans": {
+      "name": "Nunito Sans",
+      "description": "Redondeado y amigable"
+    },
+    "figtree": {
+      "name": "Figtree",
+      "description": "Sans-serif geométrico"
+    },
+    "geist": {
+      "name": "Geist",
+      "description": "Fuente por defecto"
+    },
+    "roboto": {
+      "name": "Roboto",
+      "description": "Fuente característica de Google"
+    },
+    "poppins": {
+      "name": "Poppins",
+      "description": "Geométrico y moderno"
+    },
+    "montserrat": {
+      "name": "Montserrat",
+      "description": "Elegante y versátil"
+    },
+    "pt-sans": {
+      "name": "PT Sans",
+      "description": "Sans-serif humanista"
+    },
+    "system": {
+      "name": "Sistema",
+      "description": "Fuente por defecto del sistema"
+    }
+  }
+}
+

@@ -84,6 +84,10 @@ export const FONT_OPTIONS: Array<{
 interface FontSelectorProps {
   className?: string;
   useSelect?: boolean;
+  /**
+   * Prefijo para aislar cookies por dashboard (ej: "bundui", "vibethink")
+   */
+  dashboardPrefix?: string;
 }
 
 /**
@@ -94,9 +98,10 @@ interface FontSelectorProps {
  */
 export function FontSelector({
   className,
-  useSelect = true
+  useSelect = true,
+  dashboardPrefix
 }: FontSelectorProps) {
-  const { settings, setFont, mounted } = useThemeSettings();
+  const { settings, setFont, mounted } = useThemeSettings(dashboardPrefix);
   const { t } = useTranslation('theme');
 
   if (!mounted) {
