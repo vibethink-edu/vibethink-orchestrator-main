@@ -173,9 +173,15 @@
   - [ ] Footer: Copyright, links, texto legal
   - [ ] Header: Título, breadcrumbs, acciones
   - [ ] Toolbar: Filtros, búsqueda, ordenamiento
-  - [ ] Sidebar: Navegación, menús
+  - [ ] **Sidebar: Navegación, menús, títulos** (CRÍTICO - ver sección específica)
   - [ ] Modales: Títulos, botones, mensajes
   - [ ] Formularios: Labels, placeholders, validaciones
+- [ ] **🚨 VALIDAR DESPLIEGUE EN SIDEBAR:**
+  - [ ] Agregar módulo a `bundui-nav-items.ts` (si es dashboard-bundui)
+  - [ ] Agregar módulo a `nav-main.tsx` (si es dashboard-bundui)
+  - [ ] Verificar títulos del sidebar (deben ser traducibles)
+  - [ ] Verificar subopciones/rutas del sidebar
+  - [ ] Si el sidebar usa títulos hardcoded, documentar para migración futura
 
 ### Fase 6: Validación Completa
 
@@ -193,10 +199,17 @@
   - [ ] Mensajes de error/success
   - [ ] Headers/Footers visibles
 
-- [ ] **Probar en ambos idiomas:**
-  - [ ] Cambiar idioma en la UI
-  - [ ] Verificar que todos los strings cambian
+- [ ] **🚨 PROBAR EN AMBOS IDIOMAS (EN/ES):**
+  - [ ] Cambiar idioma en la UI (usar LocaleSelector)
+  - [ ] Verificar que todos los strings cambian en la página principal
+  - [ ] Verificar que todos los strings cambian en subcomponentes
+  - [ ] **Verificar sidebar en ambos idiomas:**
+    - [ ] Título del módulo en sidebar cambia según idioma
+    - [ ] Subopciones del sidebar cambian según idioma
+    - [ ] Tooltips (si aplica) cambian según idioma
+  - [ ] Verificar navegación (breadcrumbs, tabs) en ambos idiomas
   - [ ] Verificar que no quedan strings en inglés cuando está en español
+  - [ ] Verificar que no quedan strings en español cuando está en inglés
 
 ---
 
@@ -245,13 +258,21 @@
 - Acciones en masa (Bulk actions)
 ```
 
-#### Sidebar Component
+#### Sidebar Component (CRÍTICO - Despliegue en Navegación)
 ```typescript
 // ✅ VALIDAR:
 - Título de secciones
 - Items de navegación
 - Badges y contadores
 - Tooltips en collapsed mode
+
+// 🚨 VALIDACIÓN ESPECÍFICA DEL SIDEBAR:
+- [ ] Módulo agregado a bundui-nav-items.ts (si aplica)
+- [ ] Módulo agregado a nav-main.tsx (si aplica)
+- [ ] Título del módulo en sidebar (verificar si usa i18n o está hardcoded)
+- [ ] Subopciones/rutas del sidebar traducidas
+- [ ] Verificar en ambos idiomas (EN/ES) que el sidebar muestra correctamente
+- [ ] Si el sidebar usa títulos hardcoded, documentar para migración futura
 ```
 
 #### Modal/Dialog Components
@@ -358,6 +379,18 @@ node scripts/audit-module-i18n.js \
       "reports": "Reports"
     },
     
+    "sidebar": {
+      "title": "Module Name",  // Título que aparece en el sidebar
+      "subOptions": {
+        "dashboard": "Dashboard",
+        "bookings": "Bookings",
+        "settings": "Settings"
+      },
+      "tooltips": {
+        "collapsed": "Module Name"  // Tooltip cuando sidebar está colapsado
+      }
+    },
+    
     "components": {
       "header": {
         "title": "Header Title",
@@ -452,16 +485,38 @@ node scripts/audit-module-i18n.js \
 - [ ] **Formularios validados** (si aplica)
 - [ ] **Mensajes críticos traducidos** (error, success)
 - [ ] **Código adaptado** con `useTranslation()`
-- [ ] **Prueba en ambos idiomas** exitosa
+- [ ] **🚨 DESPLIEGUE EN SIDEBAR VALIDADO:**
+  - [ ] Módulo agregado a `bundui-nav-items.ts` o `nav-main.tsx`
+  - [ ] Títulos del sidebar traducidos (usar i18n si aplica)
+  - [ ] Subopciones/rutas del sidebar traducidas
+  - [ ] Verificado en ambos idiomas (EN/ES) en el sidebar
+  - [ ] Tooltips del sidebar traducidos (si aplica)
+- [ ] **🚨 VALIDACIÓN DE IDIOMAS:**
+  - [ ] Probar en inglés (EN) - todos los strings visibles
+  - [ ] Probar en español (ES) - todos los strings traducidos
+  - [ ] Verificar que no quedan strings hardcoded en inglés cuando está en español
+  - [ ] Verificar sidebar en ambos idiomas
+  - [ ] Verificar navegación en ambos idiomas
 - [ ] **Module Registry actualizado:**
   ```typescript
   {
     i18nNamespace: "module-name",
     i18nCoverage: 100, // o porcentaje actual
+    i18nStatus: {
+      total: 210,
+      translated: 210,
+      pending: 0,
+      categories: {
+        navigation: 10,
+        sidebar: 5,  // Títulos y opciones del sidebar
+        // ...
+      }
+    },
     adaptations: {
       i18n: [
         "Todos los strings principales traducidos",
         "Subcomponentes (header, footer, toolbar) validados",
+        "Sidebar con títulos traducidos",
         "Namespace estructurado por categorías"
       ]
     }

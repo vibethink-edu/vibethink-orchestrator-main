@@ -352,12 +352,17 @@ if (!validation.compatible) {
 - [ ] Corregir imports a `@vibethink/ui`
 - [ ] Agregar `"use client"` si es necesario
 - [ ] Verificar rutas de assets
-- [ ] Agregar al sidebar si aplica
+- [ ] **🚨 DESPLIEGUE EN SIDEBAR:**
+  - [ ] Agregar módulo a `bundui-nav-items.ts` (si es dashboard-bundui)
+  - [ ] Agregar módulo a `nav-main.tsx` (si es dashboard-bundui)
+  - [ ] Verificar títulos del sidebar (deben ser traducibles o usar i18n)
+  - [ ] Documentar si sidebar usa títulos hardcoded (para migración futura)
 - [ ] **🚨 VALIDACIÓN i18n OBLIGATORIA:**
   - [ ] Identificar todos los strings hardcoded
-  - [ ] Crear namespace i18n (EN/ES)
-  - [ ] Validar subcomponentes (headers, footers, toolbars)
+  - [ ] Crear namespace i18n (EN/ES) - incluir sección "sidebar"
+  - [ ] Validar subcomponentes (headers, footers, toolbars, **sidebar**)
   - [ ] Adaptar código con `useTranslation()`
+  - [ ] **Validar sidebar en ambos idiomas (EN/ES)**
   - [ ] Ver `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md` para proceso completo
 
 ### Después de Migrar

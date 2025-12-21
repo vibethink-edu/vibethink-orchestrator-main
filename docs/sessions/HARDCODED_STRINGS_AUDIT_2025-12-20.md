@@ -1,10 +1,10 @@
 # Auditoría de Textos Hardcoded - 2025-12-20
 
-**Total encontrados:** 2515
+**Total encontrados:** 2592
 
 ---
 
-## dashboard-bundui (1254 strings)
+## dashboard-bundui (1332 strings)
 
 ### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\app\dashboard-bundui\academy\components\courses-list.tsx
 
@@ -548,7 +548,7 @@
 - **Línea 29:** `Can view, comment and edit.`
 - **Línea 34:** `Can view, comment and manage billing.`
 - **Línea 39:** `Admin-level access to all resources.`
-- **Línea 46:** `Toby Belhome`
+- **Línea 46:** `Vito Escallón`
 - **Línea 53:** `Jackson Lee`
 - **Línea 60:** `Hally Gray`
 - **Línea 101:** `Select new role...`
@@ -770,15 +770,99 @@
 
 - **Línea 178:** `Unknown error`
 
+### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\app\dashboard-bundui\hotel\bookings\components\booking-form-sheet.tsx
+
+- **Línea 43:** `Name must be at least 2 characters.`
+- **Línea 46:** `Name must be less than 50 characters.`
+- **Línea 49:** `Please select a room.`
+- **Línea 52:** `Please select a date.`
+- **Línea 55:** `Please select a time slot.`
+- **Línea 58:** `Please select a start time.`
+- **Línea 61:** `Please select an end time.`
+- **Línea 66:** `Phone number must be at least 10 digits.`
+- **Línea 69:** `Phone number must be less than 15 digits.`
+- **Línea 72:** `Please select a status.`
+- **Línea 90:** `Booking created`
+- **Línea 118:** `Enter name`
+- **Línea 174:** `Select a room`
+- **Línea 199:** `Select time slot`
+- **Línea 290:** `Select status`
+- **Línea 118:** `Enter name`
+- **Línea 174:** `Select a room`
+- **Línea 199:** `Select time slot`
+- **Línea 274:** `0812 3290 0992`
+- **Línea 290:** `Select status`
+
+### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\app\dashboard-bundui\hotel\bookings\components\meeting-room-schedule.tsx
+
+- **Línea 68:** `Room 1`
+- **Línea 68:** `Room 2`
+- **Línea 68:** `Room 3`
+- **Línea 68:** `Room 4`
+- **Línea 68:** `Room 5`
+- **Línea 68:** `Room 6`
+- **Línea 68:** `Room 7`
+- **Línea 229:** `Booking deleted successfully`
+- **Línea 249:** `EEE, MMM d`
+
+### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\app\dashboard-bundui\hotel\bookings\page.tsx
+
+- **Línea 9:** `On the hotel management admin dashboard, you can see your turnover, manage reservations, and view your customers. Built with shadcn/ui, Tailwind CSS, Next.js.`
+
+### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\app\dashboard-bundui\hotel\components\booking-list.tsx
+
+- **Línea 46:** `Checked-In`
+- **Línea 61:** `LG-B00108`
+- **Línea 62:** `Angus Copper`
+- **Línea 64:** `Room 101`
+- **Línea 66:** `June 19, 2028`
+- **Línea 67:** `June 22, 2028`
+- **Línea 68:** `Checked-In`
+- **Línea 71:** `LG-B00109`
+- **Línea 72:** `Catherine Lopp`
+- **Línea 74:** `Room 202`
+- **Línea 76:** `June 19, 2028`
+- **Línea 77:** `June 21, 2028`
+- **Línea 78:** `Checked-In`
+- **Línea 81:** `LG-B00110`
+- **Línea 82:** `Edgar Irving`
+- **Línea 84:** `Room 303`
+- **Línea 86:** `June 19, 2028`
+- **Línea 87:** `June 24, 2028`
+- **Línea 91:** `LG-B00111`
+- **Línea 92:** `Ice B. Holand`
+- **Línea 94:** `Room 105`
+- **Línea 96:** `June 19, 2028`
+- **Línea 97:** `June 23, 2028`
+- **Línea 98:** `Checked-In`
+- **Línea 101:** `LG-B00112`
+- **Línea 102:** `John Smith`
+- **Línea 104:** `Room 201`
+- **Línea 106:** `June 20, 2028`
+- **Línea 107:** `June 22, 2028`
+- **Línea 111:** `LG-B00113`
+- **Línea 112:** `Mary Johnson`
+- **Línea 114:** `Room 401`
+- **Línea 116:** `June 21, 2028`
+- **Línea 117:** `June 28, 2028`
+- **Línea 118:** `Checked-In`
+- **Línea 235:** `Checked-In`
+- **Línea 296:** `Search guest, status, etc`
+- **Línea 306:** `All Status`
+- **Línea 310:** `Checked-In`
+- **Línea 296:** `Search guest, status, etc`
+- **Línea 306:** `All Status`
+
+### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\app\dashboard-bundui\hotel\components\reservations-card.tsx
+
+- **Línea 39:** `Checked In`
+- **Línea 43:** `Checked Out`
+
 ### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\app\dashboard-bundui\hotel\components\stat-cards.tsx
 
 - **Línea 14:** `Today check-out`
 - **Línea 21:** `Total guests`
 - **Línea 28:** `Total amount`
-
-### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\app\dashboard-bundui\hotel\page.tsx
-
-- **Línea 74:** `M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z`
 
 ### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\app\dashboard-bundui\kanban\components\add-assigne.tsx
 
@@ -1277,7 +1361,7 @@
 
 ### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\app\dashboard-bundui\pages\user-profile\store.ts
 
-- **Línea 65:** `Toby Belhome`
+- **Línea 65:** `Vito Escallón`
 - **Línea 69:** `San Francisco, US`
 - **Línea 70:** `March 2025`
 - **Línea 73:** `No department`
@@ -1654,6 +1738,13 @@
 - **Línea 71:** `Charlie XXX`
 - **Línea 77:** `Star Warz`
 
+### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\app\dashboard-bundui\social-media\components\post-item.tsx
+
+- **Línea 161:** `Video thumbnail`
+- **Línea 246:** `Hide comments`
+- **Línea 300:** `Add a comment...`
+- **Línea 300:** `Add a comment...`
+
 ### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\app\dashboard-bundui\social-media\components\social-media-sidebar.tsx
 
 - **Línea 44:** `Help & Support`
@@ -1701,6 +1792,11 @@
 - **Línea 256:** `Asuna Yuuki`
 - **Línea 260:** `Weekend Waves`
 - **Línea 261:** `Slow-motion ocean clips from the coast.`
+
+### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\app\dashboard-bundui\social-media\page.tsx
+
+- **Línea 15:** `Social Media App`
+- **Línea 17:** `Social media app is a ui template used to connect, share and interact with users online. Built with shadcn/ui, Tailwind CSS, Next.js and React.`
 
 ### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\app\dashboard-bundui\tasks\components\columns.tsx
 
@@ -2190,7 +2286,7 @@
 - **Línea 29:** `Can view, comment and edit.`
 - **Línea 34:** `Can view, comment and manage billing.`
 - **Línea 39:** `Admin-level access to all resources.`
-- **Línea 46:** `Toby Belhome`
+- **Línea 46:** `Vito Escallón`
 - **Línea 53:** `Jackson Lee`
 - **Línea 60:** `Hally Gray`
 - **Línea 101:** `Select new role...`
@@ -3283,7 +3379,7 @@
 - **Línea 88:** `RESET_WORKFLOW`
 
 
-## shared (160 strings)
+## shared (159 strings)
 
 ### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\src\components\dashboard-badge.tsx
 
@@ -3416,45 +3512,44 @@
 - **Línea 99:** `Add Product`
 - **Línea 100:** `Order List`
 - **Línea 101:** `Order Detail`
-- **Línea 107:** `Website Analytics`
-- **Línea 113:** `Project Management`
-- **Línea 118:** `File Manager`
-- **Línea 121:** `Academy/School`
-- **Línea 122:** `Hospital Management`
-- **Línea 123:** `Hotel Dashboard`
-- **Línea 127:** `AI Apps`
-- **Línea 129:** `AI Chat`
-- **Línea 131:** `AI Chat V2`
-- **Línea 137:** `Image Generator`
-- **Línea 142:** `Text to Speech`
-- **Línea 162:** `Todo List App`
-- **Línea 175:** `File Manager`
-- **Línea 180:** `Api Keys`
-- **Línea 181:** `POS App`
-- **Línea 188:** `Users List`
-- **Línea 198:** `Onboarding Flow`
-- **Línea 203:** `Empty States`
-- **Línea 207:** `Empty States 01`
-- **Línea 208:** `Empty States 02`
-- **Línea 209:** `Empty States 03`
-- **Línea 229:** `Column Pricing`
-- **Línea 230:** `Table Pricing`
-- **Línea 231:** `Single Pricing`
-- **Línea 239:** `Login v1`
-- **Línea 240:** `Login v2`
-- **Línea 241:** `Register v1`
-- **Línea 242:** `Register v2`
-- **Línea 243:** `Forgot Password`
-- **Línea 247:** `Error Pages`
-- **Línea 261:** `AI Chat`
-- **Línea 265:** `E-commerce`
-- **Línea 266:** `File Manager`
-- **Línea 270:** `POS System`
-- **Línea 281:** `Download VibeThink Pro`
+- **Línea 107:** `CRM V2`
+- **Línea 113:** `Website Analytics`
+- **Línea 119:** `Project Management`
+- **Línea 124:** `File Manager`
+- **Línea 127:** `Crypto V2`
+- **Línea 134:** `Finance V2`
+- **Línea 139:** `Academy/School`
+- **Línea 140:** `Hospital Management`
+- **Línea 142:** `Hotel Dashboard`
+- **Línea 154:** `AI Apps`
+- **Línea 156:** `AI Chat`
+- **Línea 158:** `AI Chat V2`
+- **Línea 164:** `Image Generator`
+- **Línea 169:** `Text to Speech`
+- **Línea 189:** `Todo List App`
+- **Línea 202:** `File Manager`
+- **Línea 207:** `Api Keys`
+- **Línea 208:** `POS App`
+- **Línea 215:** `Users List`
+- **Línea 225:** `Onboarding Flow`
+- **Línea 230:** `Empty States`
+- **Línea 234:** `Empty States 01`
+- **Línea 235:** `Empty States 02`
+- **Línea 236:** `Empty States 03`
+- **Línea 256:** `Column Pricing`
+- **Línea 257:** `Table Pricing`
+- **Línea 258:** `Single Pricing`
+- **Línea 266:** `Login v1`
+- **Línea 267:** `Login v2`
+- **Línea 268:** `Register v1`
+- **Línea 269:** `Register v2`
+- **Línea 270:** `Forgot Password`
+- **Línea 274:** `Error Pages`
+- **Línea 289:** `Download VibeThink Pro`
 
 ### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\src\shared\components\bundui-premium\components\layout\sidebar-bundui\nav-user.tsx
 
-- **Línea 19:** `Toby Belhome`
+- **Línea 19:** `Vito Escallón`
 
 ### C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\src\shared\components\bundui-premium\components\layout\sidebar.tsx
 
