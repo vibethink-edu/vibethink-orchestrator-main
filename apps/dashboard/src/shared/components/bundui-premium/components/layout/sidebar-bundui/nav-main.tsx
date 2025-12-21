@@ -138,7 +138,16 @@ export const navItems: NavGroup[] = [
       },
       { title: "Academy/School", href: "/dashboard-bundui/academy", icon: GraduationCapIcon, isNew: true },
       { title: "Hospital Management", href: "/dashboard-bundui/hospital-management", icon: ActivityIcon, isNew: true },
-      { title: "Hotel Dashboard", href: "/dashboard-bundui/hotel", icon: Building2Icon, isComing: true }
+      {
+        title: "Hotel Dashboard",
+        href: "/dashboard-bundui/hotel",
+        icon: Building2Icon,
+        isNew: true,
+        items: [
+          { title: "Dashboard", href: "/dashboard-bundui/hotel" },
+          { title: "Bookings", href: "/dashboard-bundui/hotel/bookings" }
+        ]
+      }
     ]
   },
   {
