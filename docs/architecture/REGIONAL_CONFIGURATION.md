@@ -1,3 +1,9 @@
+# Sistema de Configuración Regional (Referencia Rápida)
+
+> **Para documentación completa, ver:** [`LOCALE.md`](./LOCALE.md)
+> 
+> Este documento es una referencia rápida. Para detalles completos sobre locales, timezones, monedas, y casos de uso SaaS empresarial, consulta `LOCALE.md`.
+
 # Sistema de Configuración Regional
 
 ## 🎯 Objetivo
