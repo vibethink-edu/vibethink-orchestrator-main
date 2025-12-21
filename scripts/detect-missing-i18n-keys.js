@@ -217,11 +217,53 @@ for (const jsonKey of enKeys) {
   }
 }
 
+// Check for untranslated values (same value in EN and ES)
+const untranslated = [];
+function getNestedValue(obj, path) {
+  const keys = path.split('.');
+  let current = obj;
+  for (const key of keys) {
+    if (current && typeof current === 'object' && key in current) {
+      current = current[key];
+    } else {
+      return undefined;
+    }
+  }
+  return typeof current === 'string' ? current : undefined;
+}
+
+for (const key of codeKeys) {
+  if (key.endsWith('.*')) continue;
+  
+  const enValue = getNestedValue(enNamespaceContent, key);
+  const esValue = getNestedValue(esNamespaceContent, key);
+  
+  // If both exist and are the same (and not empty), might be untranslated
+  if (enValue && esValue && enValue === esValue && enValue.trim().length > 0) {
+    // Skip common values that are the same in both languages (like "Suite", "Deluxe")
+    const commonSameValues = ['Suite', 'Deluxe', 'Standard', 'Premium', 'Basic'];
+    if (!commonSameValues.includes(enValue)) {
+      untranslated.push({ key, value: enValue });
+    }
+  }
+}
+
 // Report results
 console.log('📊 Resultados:\n');
 
 if (codeKeys.length > 0 && missingInEn.length === 0 && missingInEs.length === 0) {
   console.log(`   ✅ Todas las claves del código existen en ambos JSON`);
+  
+  if (untranslated.length > 0) {
+    console.log(`\n   ⚠️  ${untranslated.length} claves con el mismo valor en EN y ES (posiblemente sin traducir):`);
+    untranslated.slice(0, 10).forEach(({ key, value }) => {
+      console.log(`      - ${namespace}.${key}: "${value}"`);
+    });
+    if (untranslated.length > 10) {
+      console.log(`      ... y ${untranslated.length - 10} más`);
+    }
+    console.log();
+  }
 } else {
   if (missingInEn.length > 0) {
     console.log(`   ❌ ${missingInEn.length} claves FALTANTES en EN:`);
