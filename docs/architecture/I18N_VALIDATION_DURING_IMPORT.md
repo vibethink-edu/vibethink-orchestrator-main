@@ -635,6 +635,86 @@ node scripts/audit-module-i18n.js \
 
 ---
 
+## 🐛 Troubleshooting: Problemas Comunes
+
+### Problema 4: Componentes siguen en inglés después de cambiar idioma
+
+**Síntomas:**
+- Al cambiar a español, algunos componentes siguen mostrando texto en inglés
+- Ejemplos: "Bookings", "Online Booking", "Unlock in-depth analysis with a premium subscription"
+
+**Causas:**
+
+1. **Componente NO usa `useTranslation()`:**
+   ```typescript
+   // ❌ INCORRECTO - Componente sin i18n
+   export function BookingsCard() {
+     return <CardTitle>Bookings</CardTitle>; // Hardcoded en inglés
+   }
+   
+   // ✅ CORRECTO - Componente con i18n
+   export function BookingsCard() {
+     const { t } = useTranslation('hotel');
+     return <CardTitle>{t('components.bookingsCard.title')}</CardTitle>;
+   }
+   ```
+
+2. **Strings hardcoded en el código:**
+   - Texto directamente en JSX sin usar `t()`
+   - Metadata hardcoded en `generateMetadata()`
+   - Mensajes de error/success hardcoded
+
+3. **Componentes subordinados no validados:**
+   - Se adaptaron los componentes principales pero se olvidaron los subordinados
+   - Ejemplo: Se adaptó `booking-list.tsx` pero no `bookings-card.tsx`
+
+**Detección:**
+
+```bash
+# Buscar componentes que NO usan useTranslation
+grep -L "useTranslation" apps/dashboard/app/dashboard-bundui/module-name/**/*.tsx
+
+# Buscar strings hardcoded (aproximado)
+grep -r "['\"]Bookings['\"]" apps/dashboard/app/dashboard-bundui/module-name/ --include="*.tsx"
+```
+
+**Solución:**
+
+1. **Identificar todos los componentes del módulo:**
+   ```bash
+   find apps/dashboard/app/dashboard-bundui/module-name -name "*.tsx" -type f
+   ```
+
+2. **Verificar que CADA componente usa `useTranslation()`:**
+   - Si el componente tiene texto visible, DEBE usar `useTranslation()`
+   - Excepciones: Componentes puramente visuales sin texto
+
+3. **Adaptar TODOS los componentes:**
+   - No dejar componentes "para después"
+   - Incluir subcomponentes (cards, forms, tables, etc.)
+   - Incluir metadata (`generateMetadata()`)
+
+4. **Validar en ambos idiomas:**
+   - Cambiar idioma en la UI
+   - Verificar que TODOS los textos cambian
+   - Si algún texto sigue en inglés, buscar el componente y adaptarlo
+
+**Regla crítica:**
+- ✅ **TODOS los componentes con texto visible DEBEN usar `useTranslation()`**
+- ❌ **NO dejar componentes "para después"** - hacerlo durante la importación
+- ✅ **Validar TODOS los componentes del módulo, no solo los principales**
+
+**Checklist de validación:**
+- [ ] Listar TODOS los archivos `.tsx` del módulo
+- [ ] Verificar que cada componente con texto usa `useTranslation()`
+- [ ] Verificar metadata (`generateMetadata()`) usa i18n
+- [ ] Probar en ambos idiomas y verificar que TODO cambia
+- [ ] Si algún texto sigue en inglés, adaptar el componente inmediatamente
+
+**Para más problemas comunes:** Ver secciones anteriores (Problema 1, 2, 3) en este mismo documento.
+
+---
+
 ## 🎯 Beneficios de Validar Durante Importación
 
 1. **Eficiencia:** No repetir trabajo masivamente después
