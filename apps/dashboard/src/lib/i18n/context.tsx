@@ -175,12 +175,22 @@ export function I18nProvider({
       // Get nested value
       const translation = getNestedValue(namespaceTranslations, translationKey);
       if (!translation) {
-        console.warn(`[i18n] Translation not found: ${key} (namespace: ${namespace}, key: ${translationKey})`);
+        console.warn(`[i18n] Translation not found: ${key}`);
+        console.warn(`[i18n]   Namespace: ${namespace}, Key: ${translationKey}`);
+        console.warn(`[i18n]   Available keys in namespace:`, Object.keys(namespaceTranslations || {}).slice(0, 10));
+        console.warn(`[i18n]   Full namespace object:`, namespaceTranslations);
         return key;
       }
 
       // Replace parameters
-      return replaceParams(translation, params);
+      const result = replaceParams(translation, params);
+      if (result === key || result.includes('{{') || result.includes('{')) {
+        console.warn(`[i18n] Parameters not replaced in: ${key}`);
+        console.warn(`[i18n]   Translation: ${translation}`);
+        console.warn(`[i18n]   Params:`, params);
+        console.warn(`[i18n]   Result: ${result}`);
+      }
+      return result;
     },
     [locale, loadNamespace]
   );
