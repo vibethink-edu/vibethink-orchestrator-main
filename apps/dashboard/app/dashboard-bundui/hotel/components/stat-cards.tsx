@@ -1,36 +1,13 @@
 import { Card, CardContent, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, Button } from "@vibethink/ui";
 import { MoreVertical, Clock, LogOut, Users, DollarSign, CreditCard } from "lucide-react";
 import { cn } from "@vibethink/utils";
+import { useTranslation } from "@/lib/i18n";
 
-const items = [
-  {
-    title: "Today's check-in",
-    value: "200",
-    unitNumber: "1,000",
-    color: "cyan" as const,
-    icon: "checkin" as const
-  },
-  {
-    title: "Today check-out",
-    value: "34",
-    unitNumber: "520",
-    color: "green" as const,
-    icon: "checkout" as const
-  },
-  {
-    title: "Total guests",
-    value: "3432",
-    unitNumber: "152",
-    color: "pink" as const,
-    icon: "guests" as const
-  },
-  {
-    title: "Total amount",
-    value: "$668,726",
-    unitNumber: "266",
-    color: "yellow" as const,
-    icon: "amount" as const
-  }
+const statCardKeys = [
+  { key: "todayCheckIn", value: "200", unitNumber: "1,000", color: "cyan" as const, icon: "checkin" as const },
+  { key: "todayCheckOut", value: "34", unitNumber: "520", color: "green" as const, icon: "checkout" as const },
+  { key: "totalGuests", value: "3432", unitNumber: "152", color: "pink" as const, icon: "guests" as const },
+  { key: "totalAmount", value: "$668,726", unitNumber: "266", color: "yellow" as const, icon: "amount" as const }
 ];
 
 const colorClasses = {
@@ -65,9 +42,11 @@ const iconMap = {
 };
 
 export function StatCards() {
+  const { t } = useTranslation('hotel');
+  
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {items.map((item, index) => {
+      {statCardKeys.map((item, index) => {
         const IconComponent = iconMap[item.icon];
         return (
           <Card key={index} className={`${colorClasses[item.color].card} border-0 shadow-none`}>
@@ -87,17 +66,17 @@ export function StatCards() {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
-                    <DropdownMenuItem>View Details</DropdownMenuItem>
-                    <DropdownMenuItem>Export</DropdownMenuItem>
+                    <DropdownMenuItem>{t('components.statCards.actions.viewDetails')}</DropdownMenuItem>
+                    <DropdownMenuItem>{t('components.statCards.actions.export')}</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-              <p className="text-muted-foreground text-sm">{item.title}</p>
+              <p className="text-muted-foreground text-sm">{t(`components.statCards.titles.${item.key}`)}</p>
               <p
                 className={cn("text-2xl font-semibold lg:text-3xl", colorClasses[item.color].text)}>
                 {item.value}
               </p>
-              <p className="text-muted-foreground text-sm">Unit Number: {item.unitNumber}</p>
+              <p className="text-muted-foreground text-sm">{t('components.statCards.unitNumber', { number: item.unitNumber })}</p>
             </CardContent>
           </Card>
         );

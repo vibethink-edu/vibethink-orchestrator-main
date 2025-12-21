@@ -1,6 +1,5 @@
 "use client";
 
-import { Metadata } from "next";
 import { ReservationsCard } from "./components/reservations-card";
 import { CampaignOverview } from "./components/campaign-overview";
 import { RecentActivities } from "./components/recent-activities";
@@ -10,18 +9,21 @@ import { BookingsCard } from "./components/bookings-card";
 import { BookingList } from "./components/booking-list";
 import { ClipboardMinusIcon, PlusIcon } from "lucide-react";
 import { Button } from "@vibethink/ui";
+import { useTranslation } from "@/lib/i18n";
 
 export default function Page() {
+  const { t } = useTranslation('hotel');
+  
   return (
     <div className="space-y-4">
       <div className="flex flex-row items-center justify-between">
-        <h1 className="text-xl font-bold tracking-tight lg:text-2xl">Hotel Management</h1>
+        <h1 className="text-xl font-bold tracking-tight lg:text-2xl">{t('components.header.title')}</h1>
         <div className="flex gap-2">
           <Button>
-            <PlusIcon /> <span className="hidden md:flex">Add New</span>
+            <PlusIcon /> <span className="hidden md:flex">{t('components.header.actions.addNew')}</span>
           </Button>
           <Button variant="outline">
-            <ClipboardMinusIcon /> <span className="hidden md:flex">Reports</span>
+            <ClipboardMinusIcon /> <span className="hidden md:flex">{t('components.header.actions.reports')}</span>
           </Button>
         </div>
       </div>

@@ -44,7 +44,7 @@ export default async function RootLayout({
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange>
-          <I18nProvider initialLocale={initialLocale} preloadNamespaces={['common', 'navigation', 'theme']}>
+          <I18nProvider initialLocale={initialLocale} preloadNamespaces={['common', 'navigation', 'theme', 'hotel']}>
             <AuthProvider>
               {children}
               {/* <Toaster position="top-center" richColors /> */}

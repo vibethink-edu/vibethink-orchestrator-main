@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -12,6 +12,7 @@ import {
   getSortedRowModel,
   useReactTable
 } from "@tanstack/react-table";
+import { useTranslation } from "@/lib/i18n";
 import { Input } from "@vibethink/ui";
 import { Badge } from "@vibethink/ui";
 import { Button } from "@vibethink/ui";
@@ -119,140 +120,156 @@ const bookings: Booking[] = [
   }
 ];
 
-const columns: ColumnDef<Booking>[] = [
-  {
-    accessorKey: "bookingId",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        className="text-muted-foreground px-0 font-normal hover:bg-transparent">
-        Booking ID
-        <ArrowUpDown className="ml-1 h-3 w-3" />
-      </Button>
-    ),
-    cell: ({ row }) => <span className="text-foreground">{row.getValue("bookingId")}</span>
-  },
-  {
-    accessorKey: "guestName",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        className="text-muted-foreground px-0 font-normal hover:bg-transparent">
-        Guest Name
-        <ArrowUpDown className="ml-1 h-3 w-3" />
-      </Button>
-    ),
-    cell: ({ row }) => <span className="text-foreground">{row.getValue("guestName")}</span>
-  },
-  {
-    accessorKey: "roomType",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        className="text-muted-foreground px-0 font-normal hover:bg-transparent">
-        Room Type
-        <ArrowUpDown className="ml-1 h-3 w-3" />
-      </Button>
-    ),
-    cell: ({ row }) => (
-      <div className="flex items-center gap-2">
-        <span className="h-2 w-2 rounded-full bg-lime-400" />
-        <Badge
-          variant="outline"
-          className="border-lime-300 bg-lime-50 font-normal text-lime-700 dark:border-lime-900 dark:bg-lime-950 dark:text-lime-300">
-          {row.getValue("roomType")}
-        </Badge>
-      </div>
-    )
-  },
-  {
-    accessorKey: "roomNumber",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        className="text-muted-foreground px-0 font-normal hover:bg-transparent">
-        Room Number
-        <ArrowUpDown className="ml-1 h-3 w-3" />
-      </Button>
-    ),
-    cell: ({ row }) => <span className="text-foreground">{row.getValue("roomNumber")}</span>
-  },
-  {
-    accessorKey: "duration",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        className="text-muted-foreground px-0 font-normal hover:bg-transparent">
-        Duration
-        <ArrowUpDown className="ml-1 h-3 w-3" />
-      </Button>
-    ),
-    cell: ({ row }) => <span className="text-foreground">{row.getValue("duration")}</span>
-  },
-  {
-    id: "checkInOut",
-    accessorFn: (row) => row.checkIn,
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        className="text-muted-foreground px-0 font-normal hover:bg-transparent">
-        Check-In & Check-Out
-        <ArrowUpDown className="ml-1 h-3 w-3" />
-      </Button>
-    ),
-    cell: ({ row }) => (
-      <span className="text-foreground">
-        {row.original.checkIn} - {row.original.checkOut}
-      </span>
-    )
-  },
-  {
-    accessorKey: "status",
-    header: ({ column }) => (
-      <div className="flex justify-end">
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="text-muted-foreground px-0 font-normal hover:bg-transparent">
-          Status
-          <ArrowUpDown className="ml-1 h-3 w-3" />
-        </Button>
-      </div>
-    ),
-    cell: ({ row }) => {
-      const status = row.getValue("status") as BookingStatus;
-      return (
-        <div className="flex justify-end">
-          <Badge
-            variant="outline"
-            className={
-              status === "Checked-In"
-                ? "border-lime-300 bg-lime-50 font-normal text-lime-700 dark:border-lime-900 dark:bg-lime-950 dark:text-lime-300"
-                : "border-yellow-300 bg-yellow-50 font-normal text-yellow-700"
-            }>
-            {status}
-          </Badge>
-        </div>
-      );
-    },
-    filterFn: (row, columnId, filterValue) => {
-      if (filterValue === "all") return true;
-      return row.getValue(columnId) === filterValue;
-    }
-  }
-];
+// Columns moved inside component to use i18n
 
 export function BookingList() {
+  const { t } = useTranslation('hotel');
   const [sorting, setSorting] = useState<SortingState>([]);
   const [globalFilter, setGlobalFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+
+  const columns: ColumnDef<Booking>[] = useMemo(() => [
+    {
+      accessorKey: "bookingId",
+      header: ({ column }) => (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-muted-foreground px-0 font-normal hover:bg-transparent">
+          {t('components.bookingList.table.headers.bookingId')}
+          <ArrowUpDown className="ml-1 h-3 w-3" />
+        </Button>
+      ),
+      cell: ({ row }) => <span className="text-foreground">{row.getValue("bookingId")}</span>
+    },
+    {
+      accessorKey: "guestName",
+      header: ({ column }) => (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-muted-foreground px-0 font-normal hover:bg-transparent">
+          {t('components.bookingList.table.headers.guestName')}
+          <ArrowUpDown className="ml-1 h-3 w-3" />
+        </Button>
+      ),
+      cell: ({ row }) => <span className="text-foreground">{row.getValue("guestName")}</span>
+    },
+    {
+      accessorKey: "roomType",
+      header: ({ column }) => (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-muted-foreground px-0 font-normal hover:bg-transparent">
+          {t('components.bookingList.table.headers.roomType')}
+          <ArrowUpDown className="ml-1 h-3 w-3" />
+        </Button>
+      ),
+      cell: ({ row }) => {
+        const roomType = row.getValue("roomType") as string;
+        const roomTypeKey = roomType.toLowerCase() as keyof typeof roomTypeMap;
+        const translatedRoomType = roomTypeMap[roomTypeKey] || roomType;
+        return (
+          <div className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-lime-400" />
+            <Badge
+              variant="outline"
+              className="border-lime-300 bg-lime-50 font-normal text-lime-700 dark:border-lime-900 dark:bg-lime-950 dark:text-lime-300">
+              {translatedRoomType}
+            </Badge>
+          </div>
+        );
+      }
+    },
+    {
+      accessorKey: "roomNumber",
+      header: ({ column }) => (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-muted-foreground px-0 font-normal hover:bg-transparent">
+          {t('components.bookingList.table.headers.roomNumber')}
+          <ArrowUpDown className="ml-1 h-3 w-3" />
+        </Button>
+      ),
+      cell: ({ row }) => <span className="text-foreground">{row.getValue("roomNumber")}</span>
+    },
+    {
+      accessorKey: "duration",
+      header: ({ column }) => (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-muted-foreground px-0 font-normal hover:bg-transparent">
+          {t('components.bookingList.table.headers.duration')}
+          <ArrowUpDown className="ml-1 h-3 w-3" />
+        </Button>
+      ),
+      cell: ({ row }) => <span className="text-foreground">{row.getValue("duration")}</span>
+    },
+    {
+      id: "checkInOut",
+      accessorFn: (row) => row.checkIn,
+      header: ({ column }) => (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="text-muted-foreground px-0 font-normal hover:bg-transparent">
+          {t('components.bookingList.table.headers.checkInOut')}
+          <ArrowUpDown className="ml-1 h-3 w-3" />
+        </Button>
+      ),
+      cell: ({ row }) => (
+        <span className="text-foreground">
+          {row.original.checkIn} - {row.original.checkOut}
+        </span>
+      )
+    },
+    {
+      accessorKey: "status",
+      header: ({ column }) => (
+        <div className="flex justify-end">
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            className="text-muted-foreground px-0 font-normal hover:bg-transparent">
+            {t('components.bookingList.table.headers.status')}
+            <ArrowUpDown className="ml-1 h-3 w-3" />
+          </Button>
+        </div>
+      ),
+      cell: ({ row }) => {
+        const status = row.getValue("status") as BookingStatus;
+        const statusKey = status === "Checked-In" ? "checkedIn" : status.toLowerCase();
+        const translatedStatus = t(`status.${statusKey}`) || status;
+        return (
+          <div className="flex justify-end">
+            <Badge
+              variant="outline"
+              className={
+                status === "Checked-In"
+                  ? "border-lime-300 bg-lime-50 font-normal text-lime-700 dark:border-lime-900 dark:bg-lime-950 dark:text-lime-300"
+                  : "border-yellow-300 bg-yellow-50 font-normal text-yellow-700"
+              }>
+              {translatedStatus}
+            </Badge>
+          </div>
+        );
+      },
+      filterFn: (row, columnId, filterValue) => {
+        if (filterValue === "all") return true;
+        return row.getValue(columnId) === filterValue;
+      }
+    }
+  ], [t]);
+
+  const roomTypeMap: Record<string, string> = {
+    deluxe: t('roomTypes.deluxe'),
+    standard: t('roomTypes.standard'),
+    suite: t('roomTypes.suite')
+  };
 
   const table = useReactTable({
     data: bookings,
@@ -289,11 +306,11 @@ export function BookingList() {
     <Card>
       <CardHeader>
         <div className="flex flex-col justify-between space-y-4 lg:flex-row lg:items-center lg:space-y-0">
-          <CardTitle>Booking List</CardTitle>
+          <CardTitle>{t('components.bookingList.title')}</CardTitle>
           <div className="flex items-center gap-3">
             <InputGroup>
               <InputGroupInput
-                placeholder="Search guest, status, etc"
+                placeholder={t('components.bookingList.search.placeholder')}
                 value={globalFilter}
                 onChange={(e) => setGlobalFilter(e.target.value)}
               />
@@ -303,12 +320,12 @@ export function BookingList() {
             </InputGroup>
             <Select value={statusFilter} onValueChange={handleStatusChange}>
               <SelectTrigger>
-                <SelectValue placeholder="All Status" />
+                <SelectValue placeholder={t('components.bookingList.filters.allStatus')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Status</SelectItem>
-                <SelectItem value="Checked-In">Checked-In</SelectItem>
-                <SelectItem value="Pending">Pending</SelectItem>
+                <SelectItem value="all">{t('components.bookingList.filters.allStatus')}</SelectItem>
+                <SelectItem value="Checked-In">{t('status.checkedIn')}</SelectItem>
+                <SelectItem value="Pending">{t('status.pending')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -346,7 +363,7 @@ export function BookingList() {
               ) : (
                 <TableRow>
                   <TableCell colSpan={columns.length} className="h-24 text-center">
-                    No results found.
+                    {t('components.bookingList.table.empty')}
                   </TableCell>
                 </TableRow>
               )}
@@ -357,35 +374,42 @@ export function BookingList() {
 
           <div className="flex items-center justify-between">
             <p className="text-muted-foreground text-sm">
-              Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
+              {t('components.bookingList.pagination.page', { 
+                current: table.getState().pagination.pageIndex + 1, 
+                total: table.getPageCount() 
+              })}
             </p>
             <div className="flex items-center gap-2">
               <Button
                 variant="outline"
                 size="icon"
                 onClick={() => table.setPageIndex(0)}
-                disabled={!table.getCanPreviousPage()}>
+                disabled={!table.getCanPreviousPage()}
+                title={t('components.bookingList.pagination.first')}>
                 <ChevronsLeft />
               </Button>
               <Button
                 variant="outline"
                 size="icon"
                 onClick={() => table.previousPage()}
-                disabled={!table.getCanPreviousPage()}>
+                disabled={!table.getCanPreviousPage()}
+                title={t('components.bookingList.pagination.previous')}>
                 <ChevronLeft />
               </Button>
               <Button
                 variant="outline"
                 size="icon"
                 onClick={() => table.nextPage()}
-                disabled={!table.getCanNextPage()}>
+                disabled={!table.getCanNextPage()}
+                title={t('components.bookingList.pagination.next')}>
                 <ChevronRight />
               </Button>
               <Button
                 variant="outline"
                 size="icon"
                 onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-                disabled={!table.getCanNextPage()}>
+                disabled={!table.getCanNextPage()}
+                title={t('components.bookingList.pagination.last')}>
                 <ChevronsRight />
               </Button>
             </div>
