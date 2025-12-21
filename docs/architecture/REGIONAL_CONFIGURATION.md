@@ -240,23 +240,28 @@ export async function updateCompanyRegionalConfig(
 
 ### Funciones de Formateo
 
-#### `formatNumber(value, options?)`
+**Nota:** Estas funciones están exportadas con el sufijo `Regional` para evitar conflictos con los formatters genéricos (legacy).
+
+#### `formatNumberRegional(value, options?)`
 Formatea un número según la configuración regional.
 
-#### `formatCurrency(amount, options?)`
+#### `formatCurrencyRegional(amount, options?)`
 Formatea una cantidad monetaria.
 
-#### `formatDate(date, options?)`
+#### `formatDateRegional(date, options?)`
 Formatea una fecha.
 
-#### `formatTime(date, options?)`
+#### `formatTimeRegional(date, options?)`
 Formatea una hora.
 
-#### `formatDateTime(date, options?)`
+#### `formatDateTimeRegional(date, options?)`
 Formatea fecha y hora juntos.
 
-#### `formatRelativeTime(date, options?)`
+#### `formatRelativeTimeRegional(date, options?)`
 Formatea tiempo relativo ("hace 2 horas", "en 3 días").
+
+#### `formatPercentageRegional(value, options?)`
+Formatea un porcentaje.
 
 ---
 
@@ -398,14 +403,18 @@ const SYSTEM_DEFAULTS: Record<string, Partial<RegionalConfiguration>> = {
    const formatted = number.toLocaleString('es-ES');
    
    // ✅ Después
-   import { formatNumber } from '@vibethink/utils';
-   const formatted = formatNumber(number);
+   import { formatNumberRegional } from '@vibethink/utils';
+   const formatted = formatNumberRegional(number);
    ```
 
 3. **Actualizar imports:**
    ```typescript
    // Actualizar apps/dashboard/src/lib/i18n/utils.ts
-   import { formatNumber, formatCurrency, formatDate } from '@vibethink/utils';
+   import { 
+     formatNumberRegional, 
+     formatCurrencyRegional, 
+     formatDateRegional 
+   } from '@vibethink/utils';
    ```
 
 ---
