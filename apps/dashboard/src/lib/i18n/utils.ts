@@ -31,7 +31,9 @@ export function getNestedValue(
 
 /**
  * Replace placeholders in translation string
+ * Supports both formats: {param} and {{param}}
  * Example: replaceParams('Hello {name}', { name: 'John' }) => 'Hello John'
+ * Example: replaceParams('Hello {{name}}', { name: 'John' }) => 'Hello John'
  */
 export function replaceParams(
   template: string,
@@ -39,10 +41,23 @@ export function replaceParams(
 ): string {
   if (!params) return template;
 
-  return template.replace(/\{(\w+)\}/g, (match, key) => {
+  // First try double braces {{param}} (preferred format)
+  let result = template.replace(/\{\{(\w+)\}\}/g, (match, key) => {
     const value = params[key];
     return value !== undefined ? String(value) : match;
   });
+
+  // Then try single braces {param} (fallback for compatibility)
+  result = result.replace(/\{(\w+)\}/g, (match, key) => {
+    // Skip if already replaced (double braces)
+    if (match.startsWith('{{') && match.endsWith('}}')) {
+      return match;
+    }
+    const value = params[key];
+    return value !== undefined ? String(value) : match;
+  });
+
+  return result;
 }
 
 /**

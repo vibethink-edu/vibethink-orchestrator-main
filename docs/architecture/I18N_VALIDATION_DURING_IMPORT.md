@@ -201,6 +201,15 @@
     - **IMPORTANTE:** `useTranslation('hotel')` agrega el prefijo `hotel.`, entonces:
       - Código: `t('components.statCards.titles.todayCheckIn')`
       - JSON debe tener: `hotel.components.statCards.titles.todayCheckIn` ✅
+  - [ ] **🚨 VALIDAR FORMATO DE PARÁMETROS (CRÍTICO):**
+    - **Formato correcto en JSON:** `{{param}}` (doble llave)
+    - **Ejemplo:** `"unitNumber": "Unit Number: {{number}}"`
+    - **Uso en código:** `t('components.statCards.unitNumber', { number: item.unitNumber })`
+    - **⚠️ NO usar:** `{param}` (llave simple) - no funciona con el sistema actual
+    - **Validar que:**
+      - [ ] Todos los parámetros en JSON usan formato `{{param}}`
+      - [ ] El código pasa los parámetros correctamente: `{ param: value }`
+      - [ ] Probar que los parámetros se reemplazan correctamente en la UI
   - [ ] **Validar claves dinámicas:**
     - Si usas `t(\`key.${variable}\`)` o `t('key.' + variable)`:
       - [ ] Verificar que TODOS los valores posibles de `variable` existen en el JSON
