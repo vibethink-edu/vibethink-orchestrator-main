@@ -76,6 +76,20 @@
         }
       },
       
+      "bookingsCard": {
+        "title": "Bookings",
+        "totalBookings": "Total Bookings",
+        "onlineBooking": "Online Booking",
+        "offlineBooking": "Offline Booking",
+        "premiumMessage": "Unlock in-depth analysis with a premium subscription",
+        "periods": {
+          "daily": "D",
+          "weekly": "W",
+          "monthly": "M",
+          "yearly": "Y"
+        }
+      },
+      
       "bookingForm": {
         "title": "New Booking",
         "description": "Fill out the form to create a new room booking.",

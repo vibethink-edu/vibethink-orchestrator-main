@@ -18,6 +18,56 @@
 
 **Hacer esto masivamente después es ineficiente y genera deuda técnica.**
 
+## 📊 Niveles de Traducción (SIEMPRE VALIDAR)
+
+**⚠️ IMPORTANTE:** El sistema de traducción tiene múltiples niveles que DEBEN validarse:
+
+### Nivel 1: Dashboard General / Generalidades
+**Namespace:** `common`, `navigation`, `errors`, `validation`
+- Strings compartidos por todos los módulos
+- Navegación general (sidebar, breadcrumbs)
+- Mensajes de error comunes
+- Validaciones de formularios comunes
+- Botones y acciones comunes (Save, Cancel, Delete, etc.)
+
+**Ejemplos:**
+- `common.buttons.save`
+- `navigation.sidebar.dashboard`
+- `errors.notFound`
+
+### Nivel 2: Módulos Específicos
+**Namespace:** `[module-name]` (ej: `hotel`, `crm`, `finance`)
+- Strings específicos del módulo
+- Componentes del módulo
+- Formularios del módulo
+- Mensajes del módulo
+
+**Ejemplos:**
+- `hotel.title`
+- `hotel.components.statCards.titles.todayCheckIn`
+- `crm.components.contactsTable.headers.name`
+
+### Nivel 3: Locales y Regionales
+**Sistema:** `@vibethink/utils` - Regional Configuration
+- **Meses:** Enero, Febrero, Marzo... (formateo de fechas)
+- **Días:** Lunes, Martes... (calendarios)
+- **Formato de números:** Separadores, decimales (1,234.56 vs 1.234,56)
+- **Monedas:** Símbolos y formato (USD: $1,234.56 vs EUR: 1.234,56 €)
+- **Fechas:** Formato según locale (MM/dd/yyyy vs dd/MM/yyyy)
+- **Horas:** Formato 12h/24h (3:45 PM vs 15:45)
+
+**Documentación:** `docs/architecture/LOCALE.md`
+
+**⚠️ REGLA CRÍTICA:** 
+- ✅ **Validar SIEMPRE los 3 niveles** durante importación
+- ✅ **No asumir** que un nivel está completo sin validar
+- ✅ **Documentar** qué nivel falta si se detecta
+
+**Checklist de Niveles:**
+- [ ] **Nivel 1 (General):** ¿El módulo usa strings comunes? ¿Están traducidos?
+- [ ] **Nivel 2 (Módulo):** ¿Todos los strings del módulo están en su namespace?
+- [ ] **Nivel 3 (Locale):** ¿Fechas, números, monedas usan configuración regional?
+
 ---
 
 ## 📋 Checklist de Validación i18n Durante Importación

@@ -9,7 +9,7 @@
     },
     
     "sidebar": {
-      "title": "Hotel Dashboard",
+      "title": "Hotel",
       "subOptions": {
         "dashboard": "Panel",
         "bookings": "Reservas"
@@ -27,10 +27,10 @@
       
       "statCards": {
         "titles": {
-          "todayCheckIn": "Check-in de hoy",
-          "todayCheckOut": "Check-out de hoy",
-          "totalGuests": "Total de huéspedes",
-          "totalAmount": "Monto total"
+          "todayCheckIn": "Registros de hoy",
+          "todayCheckOut": "Salidas de hoy",
+          "totalGuests": "Huéspedes totales",
+          "totalAmount": "Importe total"
         },
         "unitNumber": "Número de unidad: {{number}}",
         "actions": {
@@ -56,7 +56,7 @@
             "roomType": "Tipo de Habitación",
             "roomNumber": "Número de Habitación",
             "duration": "Duración",
-            "checkInOut": "Check-In y Check-Out",
+            "checkInOut": "Entrada y Salida",
             "status": "Estado",
             "actions": "Acciones"
           },
@@ -73,6 +73,20 @@
           "next": "Siguiente",
           "first": "Primera",
           "last": "Última"
+        }
+      },
+      
+      "bookingsCard": {
+        "title": "Reservas",
+        "totalBookings": "Reservas totales",
+        "onlineBooking": "Reserva en línea",
+        "offlineBooking": "Reserva fuera de línea",
+        "premiumMessage": "Desbloquea análisis detallado con una suscripción avanzada",
+        "periods": {
+          "daily": "D",
+          "weekly": "S",
+          "monthly": "M",
+          "yearly": "A"
         }
       },
       
