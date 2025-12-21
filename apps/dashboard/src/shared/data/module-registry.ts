@@ -153,6 +153,25 @@ export interface ModuleRegistryEntry {
    * i18n: Porcentaje de traducción (0-100)
    */
   i18nCoverage?: number;
+  
+  /**
+   * i18n: Estado detallado de traducción
+   */
+  i18nStatus?: {
+    total: number;              // Total de strings identificados
+    translated: number;         // Strings traducidos
+    pending: number;            // Strings pendientes
+    categories?: {
+      navigation?: number;
+      components?: number;
+      header?: number;
+      footer?: number;
+      toolbar?: number;
+      forms?: number;
+      messages?: number;
+      validation?: number;
+    };
+  };
 }
 
 /**
