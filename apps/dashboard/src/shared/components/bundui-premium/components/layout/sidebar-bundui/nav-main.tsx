@@ -16,6 +16,7 @@ import {
   ArchiveRestoreIcon,
   BadgeDollarSignIcon,
   BrainCircuitIcon,
+  BrainIcon,
   Building2Icon,
   CalendarIcon,
   ChartBarDecreasingIcon,
@@ -48,7 +49,8 @@ import {
   RedoDotIcon,
   BrushCleaningIcon,
   CoinsIcon,
-  DollarSignIcon
+  DollarSignIcon,
+  SpeechIcon
 } from "lucide-react";
 import Link from "next/link";
 import { IconWrapper } from "./icon-wrapper";
