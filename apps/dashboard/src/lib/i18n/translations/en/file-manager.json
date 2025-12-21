@@ -1,0 +1,163 @@
+{
+  "title": "File Manager",
+  "description": "Manage your files, folders, and storage across your organization",
+  "header": {
+    "search": {
+      "placeholder": "Search files and folders..."
+    },
+    "viewMode": {
+      "grid": "Grid View",
+      "list": "List View"
+    },
+    "filters": {
+      "label": "Filters",
+      "active": "Active"
+    },
+    "upload": {
+      "label": "Upload Files",
+      "button": "Upload"
+    }
+  },
+  "summary": {
+    "totalFiles": "Total Files",
+    "totalFolders": "Total Folders",
+    "totalStorage": "Total Storage",
+    "usedStorage": "Used Storage",
+    "availableStorage": "Available Storage"
+  },
+  "folders": {
+    "title": "Folders",
+    "empty": "No folders found",
+    "create": "Create Folder",
+    "new": "New Folder",
+    "edit": "Edit Folder",
+    "delete": "Delete Folder",
+    "deleteConfirm": "Are you sure you want to delete this folder?",
+    "name": "Folder Name",
+    "description": "Folder Description",
+    "created": "Created",
+    "modified": "Modified",
+    "items": "items"
+  },
+  "files": {
+    "title": "Recent Files",
+    "empty": "No files found",
+    "name": "File Name",
+    "size": "Size",
+    "type": "Type",
+    "modified": "Modified",
+    "actions": {
+      "view": "View",
+      "download": "Download",
+      "share": "Share",
+      "delete": "Delete",
+      "rename": "Rename",
+      "move": "Move",
+      "favorite": "Add to Favorites",
+      "unfavorite": "Remove from Favorites"
+    },
+    "deleteConfirm": "Are you sure you want to delete this file?",
+    "shareDialog": {
+      "title": "Share File",
+      "link": "Share Link",
+      "copy": "Copy Link",
+      "copied": "Link copied!",
+      "permissions": "Permissions",
+      "expires": "Expires",
+      "never": "Never"
+    }
+  },
+  "storage": {
+    "title": "Storage Status",
+    "used": "Used",
+    "available": "Available",
+    "total": "Total",
+    "percentage": "{{value}}% used",
+    "breakdown": {
+      "title": "Storage Breakdown",
+      "images": "Images",
+      "documents": "Documents",
+      "videos": "Videos",
+      "audio": "Audio",
+      "other": "Other"
+    }
+  },
+  "upload": {
+    "title": "Upload Files",
+    "dialog": {
+      "title": "Upload Files",
+      "description": "Select files to upload or drag and drop them here",
+      "selectFiles": "Select Files",
+      "dragDrop": "Drag and drop files here, or click to select",
+      "uploading": "Uploading...",
+      "uploaded": "Uploaded",
+      "failed": "Upload failed",
+      "cancel": "Cancel",
+      "upload": "Upload",
+      "folder": "Upload to Folder",
+      "tags": "Tags",
+      "addTag": "Add Tag",
+      "tagPlaceholder": "Enter tag name"
+    },
+    "progress": "Uploading {{current}} of {{total}} files...",
+    "success": "Files uploaded successfully!",
+    "error": "Failed to upload files"
+  },
+  "transfer": {
+    "title": "File Transfer",
+    "uploaded": "Uploaded",
+    "downloaded": "Downloaded",
+    "period": "Last 7 days"
+  },
+  "actions": {
+    "bulk": {
+      "title": "Bulk Actions",
+      "selectAll": "Select All",
+      "deselectAll": "Deselect All",
+      "delete": "Delete Selected",
+      "download": "Download Selected",
+      "move": "Move Selected",
+      "share": "Share Selected"
+    },
+    "createFolder": "New Folder",
+    "bulkActions": "Bulk Actions"
+  },
+  "stats": {
+    "files": "{{count}} files",
+    "folders": "{{count}} folders",
+    "storageUsed": "{{percentage}}% used"
+  },
+  "errors": {
+    "loadError": "Error Loading File Manager",
+    "retry": "Retry",
+    "uploadError": "Failed to upload file",
+    "deleteError": "Failed to delete file",
+    "downloadError": "Failed to download file",
+    "shareError": "Failed to share file",
+    "folderError": "Failed to create folder",
+    "operationError": "Operation failed"
+  },
+  "loading": {
+    "manager": "Loading file manager...",
+    "operation": "Processing file operation...",
+    "upload": "Uploading files...",
+    "delete": "Deleting files...",
+    "download": "Downloading files..."
+  },
+  "types": {
+    "image": "Image",
+    "document": "Document",
+    "video": "Video",
+    "audio": "Audio",
+    "archive": "Archive",
+    "other": "Other"
+  },
+  "units": {
+    "bytes": "B",
+    "kilobytes": "KB",
+    "megabytes": "MB",
+    "gigabytes": "GB",
+    "terabytes": "TB"
+  }
+}
+
