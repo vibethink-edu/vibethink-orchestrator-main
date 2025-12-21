@@ -431,6 +431,47 @@ node scripts/validate-i18n-keys.js \
    - hotel.components.statCards.titles.missingKey
 ```
 
+### Script de Detección de Claves Faltantes (RECOMENDADO)
+
+**🚨 ÚTIL:** Este script detecta claves que aparecen visibles en la UI (no traducidas).
+
+```bash
+# Detectar claves faltantes (más detallado)
+node scripts/detect-missing-i18n-keys.js \
+  --module apps/dashboard/app/dashboard-bundui/hotel \
+  --namespace hotel
+```
+
+**Output esperado:**
+```
+✅ Todas las claves usadas en el código existen en ambos idiomas.
+```
+
+**Si hay claves faltantes:**
+```
+❌ 3 claves FALTANTES en EN:
+   - hotel.roomTypes.deluxe
+   - hotel.roomTypes.standard
+   - hotel.roomTypes.suite
+
+📝 Claves faltantes que DEBEN agregarse al JSON:
+EN JSON:
+  "roomTypes.deluxe": "Deluxe",
+  "roomTypes.standard": "Standard",
+  "roomTypes.suite": "Suite",
+```
+
+**Ventajas:**
+- Muestra exactamente qué claves faltan
+- Genera código listo para copiar/pegar en JSON
+- Detecta claves no usadas (potencialmente sin usar)
+- Más detallado que `validate-i18n-keys.js`
+
+**Cuándo usar:**
+- Si ves claves visibles en UI (ej: `hotel.roomTypes.deluxe`)
+- Después de adaptar componentes a i18n
+- Para verificar que todas las claves existen antes de commit
+
 ### Script Básico de Auditoría
 
 ```bash
