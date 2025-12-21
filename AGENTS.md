@@ -577,6 +577,36 @@ docs/
 - If doc is < 200 lines and related to existing doc → Merge
 - **Example:** Don't create `DEPLOYMENT_SECURITY.md` + `DEPLOYMENT_STEPS.md` → Use single `docs/DEPLOYMENT.md`
 
+### 📁 Document Organization Rules for AI Agents:
+
+**CRITICAL:** Always consolidate related documents. Never create duplicate documents.
+
+**Organization by Type:**
+- **`docs/sessions/`** - Session reports, validation reports, analysis reports (date-based)
+  - Format: `{TYPE}_{MODULE}_{DATE}.md` (e.g., `VALIDACION_HOTEL_COMPLETA_2025-12-20.md`)
+  - **NEVER create multiple documents for the same validation/analysis**
+  - **ALWAYS consolidate** related documents into one
+  - If updating a validation, update the existing document or consolidate into a new one
+  
+- **`docs/reports/`** - Consolidated reports, quality reports
+- **`docs/architecture/`** - Architecture decisions and protocols
+- **`docs/development/`** - Development guides
+- **`docs/operations/`** - Operations guides
+
+**Before Creating Any Document:**
+1. ✅ Check if similar document exists
+2. ✅ If exists, update/consolidate instead of creating new
+3. ✅ Use descriptive names that include date and purpose
+4. ✅ Update `DOCS_INDEX.md` if needed
+
+**Example of Bad Practice:**
+- ❌ `VALIDACION_HOTEL_2025-12-20.md`
+- ❌ `VALIDACION_HOTEL_I18N_2025-12-20.md`
+- ❌ `VALIDACION_HOTEL_I18N_COMPLETA_2025-12-20.md`
+
+**Example of Good Practice:**
+- ✅ `VALIDACION_HOTEL_COMPLETA_2025-12-20.md` (consolidated)
+
 ## Configuration & Security
 - **Credentials**: SENSITIVE KEYS (Gemini API, ElevenLabs) must be stored in `.env.local`.
 - **Git**: Never commit `.env` or `.env.local`. Use `.env.example` for templates.
