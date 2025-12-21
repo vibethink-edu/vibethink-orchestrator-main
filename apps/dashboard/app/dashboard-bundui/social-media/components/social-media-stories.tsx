@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { HeartIcon, PlusIcon } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components";
