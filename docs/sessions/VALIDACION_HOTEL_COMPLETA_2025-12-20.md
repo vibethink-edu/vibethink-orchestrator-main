@@ -260,8 +260,14 @@ apps/dashboard/app/dashboard-bundui/hotel/
 
 ### Fase 6: Validación Completa
 - [x] Sidebar validado (documentado estado hardcoded)
-- [ ] Validación automatizada ejecutada ⏳
-- [ ] Prueba en ambos idiomas (EN/ES) ⏳
+- [x] **Validación de existencia de claves ejecutada** ✅
+  - Script: `scripts/validate-i18n-keys.js`
+  - Resultado: **25 claves válidas**, 2 claves dinámicas validadas manualmente
+  - Claves dinámicas validadas:
+    - `components.statCards.titles.*` → `todayCheckIn`, `todayCheckOut`, `totalGuests`, `totalAmount` (todos existen ✅)
+    - `status.*` → `checkedIn`, `pending` (todos existen ✅)
+  - **Estado:** ✅ Todas las claves usadas en el código existen en ambos JSON (EN/ES)
+- [ ] Prueba funcional en ambos idiomas (EN/ES) (PENDIENTE - después de completar componentes restantes)
 
 ---
 
