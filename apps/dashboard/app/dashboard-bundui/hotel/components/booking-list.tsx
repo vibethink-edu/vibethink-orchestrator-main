@@ -194,7 +194,19 @@ export function BookingList() {
           <ArrowUpDown className="ml-1 h-3 w-3" />
         </Button>
       ),
-      cell: ({ row }) => <span className="text-foreground">{row.getValue("roomNumber")}</span>
+      cell: ({ row }) => {
+        // Formatear Room Number - extraer número si viene como "Room 101"
+        const roomNumber = row.getValue("roomNumber") as string;
+        const roomMatch = roomNumber.match(/\d+/);
+        if (roomMatch) {
+          return (
+            <span className="text-foreground">
+              {t('formatters.roomNumber', { number: roomMatch[0] })}
+            </span>
+          );
+        }
+        return <span className="text-foreground">{roomNumber}</span>;
+      }
     },
     {
       accessorKey: "duration",
@@ -207,7 +219,21 @@ export function BookingList() {
           <ArrowUpDown className="ml-1 h-3 w-3" />
         </Button>
       ),
-      cell: ({ row }) => <span className="text-foreground">{row.getValue("duration")}</span>
+      cell: ({ row }) => {
+        // Formatear duration - extraer número de "3 nights"
+        const duration = row.getValue("duration") as string;
+        const nightMatch = duration.match(/(\d+)\s*nights?/i);
+        if (nightMatch) {
+          const count = parseInt(nightMatch[1], 10);
+          const key = count === 1 ? 'formatters.nights' : 'formatters.nightsPlural';
+          return (
+            <span className="text-foreground">
+              {t(key, { count })}
+            </span>
+          );
+        }
+        return <span className="text-foreground">{duration}</span>;
+      }
     },
     {
       id: "checkInOut",
@@ -221,11 +247,16 @@ export function BookingList() {
           <ArrowUpDown className="ml-1 h-3 w-3" />
         </Button>
       ),
-      cell: ({ row }) => (
-        <span className="text-foreground">
-          {row.original.checkIn} - {row.original.checkOut}
-        </span>
-      )
+      cell: ({ row }) => {
+        // Las fechas mock están hardcoded - en producción vendrían como Date objects
+        // Por ahora solo mostramos las fechas como están, pero deberían formatearse
+        // usando formatDateRegional cuando sean Date objects reales
+        return (
+          <span className="text-foreground">
+            {row.original.checkIn} - {row.original.checkOut}
+          </span>
+        );
+      }
     },
     {
       accessorKey: "status",

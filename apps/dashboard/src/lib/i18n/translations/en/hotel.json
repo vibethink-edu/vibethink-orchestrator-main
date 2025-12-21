@@ -138,6 +138,36 @@
         }
       },
       
+      "campaignOverview": {
+        "title": "Campaign Overview",
+        "booked": "Booked",
+        "visited": "Visited",
+        "performance": "Performance",
+        "comparedToLastWeek": "Compared to last week",
+        "dateRanges": {
+          "thisWeek": "This Week",
+          "lastWeek": "Last Week",
+          "thisMonth": "This Month",
+          "lastMonth": "Last Month",
+          "last3Months": "Last 3 Months"
+        },
+        "chart": {
+          "booked": "Booked",
+          "visited": "Visited"
+        }
+      },
+      
+      "reservationsCard": {
+        "title": "Reservations",
+        "totalLabel": "Reservations",
+        "totalSalesThisWeek": "Total Sales This Week",
+        "chart": {
+          "confirmed": "Confirmed",
+          "checkedIn": "Checked In",
+          "checkedOut": "Checked Out"
+        }
+      },
+      
       "meetingRoomSchedule": {
         "title": "Meeting Room Schedule",
         "actions": {
@@ -182,13 +212,21 @@
       "finished": "Finished",
       "cancelled": "Cancelled",
       "approved": "Approved",
-      "completed": "Completed"
+      "completed": "Completed",
+      "confirmed": "Confirmed",
+      "checkedOut": "Checked Out"
     },
     
     "roomTypes": {
       "deluxe": "Deluxe",
       "standard": "Standard",
       "suite": "Suite"
+    },
+    
+    "formatters": {
+      "roomNumber": "Room {{number}}",
+      "nights": "{{count}} night",
+      "nightsPlural": "{{count}} nights"
     },
     
     "messages": {

@@ -828,6 +828,104 @@ grep -r "['\"]Bookings['\"]" apps/dashboard/app/dashboard-bundui/module-name/ --
 
 **Para más problemas comunes:** Ver secciones anteriores (Problema 1, 2, 3) en este mismo documento.
 
+### Problema 5: Datos Mock con Strings Hardcoded
+
+**Síntomas:**
+- Strings visibles en inglés en la UI (ej: "Room 101", "3 nights", "June 19, 2028")
+- Datos mock con valores hardcoded que se muestran directamente
+- Fechas, números, y otros valores no traducidos
+
+**Causas:**
+
+1. **Datos mock con strings hardcoded:**
+   ```typescript
+   // ❌ INCORRECTO - Datos mock con strings hardcoded
+   const bookings = [
+     {
+       roomNumber: "Room 101",
+       duration: "3 nights",
+       checkIn: "June 19, 2028"
+     }
+   ];
+   
+   // Se muestra directamente
+   <span>{row.getValue("roomNumber")}</span> // "Room 101" en inglés
+   ```
+
+2. **Formateo directo sin i18n:**
+   - Números, fechas, y otros valores formateados sin considerar locale
+   - Valores que deberían traducirse mostrados directamente
+
+**Solución:**
+
+1. **Formatear datos mock en el componente:**
+   ```typescript
+   // ✅ CORRECTO - Formatear usando i18n
+   cell: ({ row }) => {
+     const roomNumber = row.getValue("roomNumber") as string;
+     const roomMatch = roomNumber.match(/\d+/);
+     if (roomMatch) {
+       return (
+         <span>{t('formatters.roomNumber', { number: roomMatch[0] })}</span>
+       );
+     }
+     return <span>{roomNumber}</span>;
+   }
+   ```
+
+2. **Crear helpers de formateo:**
+   ```typescript
+   // ✅ CORRECTO - Helper para formatear duración
+   cell: ({ row }) => {
+     const duration = row.getValue("duration") as string;
+     const nightMatch = duration.match(/(\d+)\s*nights?/i);
+     if (nightMatch) {
+       const count = parseInt(nightMatch[1], 10);
+       const key = count === 1 ? 'formatters.nights' : 'formatters.nightsPlural';
+       return <span>{t(key, { count })}</span>;
+     }
+     return <span>{duration}</span>;
+   }
+   ```
+
+3. **Usar formateo regional para fechas y números:**
+   ```typescript
+   // ✅ CORRECTO - Usar formateo regional
+   import { formatDateRegional, formatNumberRegional } from '@vibethink/utils';
+   
+   // En producción, los datos vendrían como Date objects
+   const formattedDate = formatDateRegional(row.original.checkIn, {
+     dateStyle: 'medium'
+   });
+   ```
+
+4. **Agregar formatters al namespace:**
+   ```json
+   {
+     "hotel": {
+       "formatters": {
+         "roomNumber": "Room {{number}}",
+         "nights": "{{count}} night",
+         "nightsPlural": "{{count}} nights"
+       }
+     }
+   }
+   ```
+
+**Regla crítica:**
+- ✅ **Validar datos mock** durante importación
+- ✅ **Formatear valores** usando i18n cuando sea posible
+- ✅ **Documentar** que datos mock deberían ser reemplazados por datos reales en producción
+- ✅ **Usar helpers** de formateo para valores comunes (roomNumber, duration, etc.)
+
+**Checklist de validación para datos mock:**
+- [ ] ¿Hay strings hardcoded en datos mock? → Formatear en componente
+- [ ] ¿Hay fechas hardcoded? → Usar formateo regional cuando sea posible
+- [ ] ¿Hay números hardcoded? → Usar formateo regional
+- [ ] ¿Hay valores que deberían traducirse? → Agregar formatters al namespace
+
+**Nota:** En producción, los datos vendrían desde una API y ya estarían en el formato correcto. Los datos mock son temporales, pero aún así deben formatearse correctamente para evitar confusión durante desarrollo y pruebas.
+
 ---
 
 ## 🎯 Beneficios de Validar Durante Importación

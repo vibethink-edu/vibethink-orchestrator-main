@@ -13,6 +13,7 @@ import {
 } from "@vibethink/ui";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
 import { CalendarIcon, Download } from "lucide-react";
+import { useTranslation } from "@/lib/i18n";
 
 const data: Record<
   string,
@@ -87,20 +88,23 @@ const data: Record<
   }
 };
 
-const chartConfig = {
-  visited: {
-    label: "Visited",
-    color: "var(--chart-1)"
-  },
-  booked: {
-    label: "Booked",
-    color: "var(--chart-4)"
-  }
-};
+// chartConfig moved inside component to use i18n
 
 export function CampaignOverview() {
+  const { t } = useTranslation('hotel');
   const [dateRange, setDateRange] = useState("this-week");
   const campaignData = data[dateRange];
+
+  const chartConfig = {
+    visited: {
+      label: t('components.campaignOverview.chart.visited'),
+      color: "var(--chart-1)"
+    },
+    booked: {
+      label: t('components.campaignOverview.chart.booked'),
+      color: "var(--chart-4)"
+    }
+  };
 
   const handleDateRangeChange = (value: string) => {
     setDateRange(value);
@@ -109,7 +113,7 @@ export function CampaignOverview() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Campaign Overview</CardTitle>
+        <CardTitle>{t('components.campaignOverview.title')}</CardTitle>
         <CardAction className="flex gap-2">
           <Select value={dateRange} onValueChange={handleDateRangeChange}>
             <SelectTrigger>
@@ -119,11 +123,11 @@ export function CampaignOverview() {
               </div>
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="this-week">This Week</SelectItem>
-              <SelectItem value="last-week">Last Week</SelectItem>
-              <SelectItem value="this-month">This Month</SelectItem>
-              <SelectItem value="last-month">Last Month</SelectItem>
-              <SelectItem value="last-3-months">Last 3 Months</SelectItem>
+              <SelectItem value="this-week">{t('components.campaignOverview.dateRanges.thisWeek')}</SelectItem>
+              <SelectItem value="last-week">{t('components.campaignOverview.dateRanges.lastWeek')}</SelectItem>
+              <SelectItem value="this-month">{t('components.campaignOverview.dateRanges.thisMonth')}</SelectItem>
+              <SelectItem value="last-month">{t('components.campaignOverview.dateRanges.lastMonth')}</SelectItem>
+              <SelectItem value="last-3-months">{t('components.campaignOverview.dateRanges.last3Months')}</SelectItem>
             </SelectContent>
           </Select>
           <Button variant="outline" size="icon">
@@ -135,19 +139,19 @@ export function CampaignOverview() {
         <div className="mb-4 grid items-end gap-4 lg:grid-cols-2 lg:gap-6">
           <div className="order-2 grid grid-cols-2 divide-x rounded-lg border lg:order-1">
             <div className="space-y-1 p-4">
-              <p className="text-muted-foreground text-sm">Booked</p>
+              <p className="text-muted-foreground text-sm">{t('components.campaignOverview.booked')}</p>
               <p className="text-xl font-semibold lg:text-2xl">{campaignData.booked}</p>
             </div>
             <div className="space-y-1 p-4">
-              <p className="text-muted-foreground text-sm">Visited</p>
+              <p className="text-muted-foreground text-sm">{t('components.campaignOverview.visited')}</p>
               <p className="text-xl font-semibold lg:text-2xl">{campaignData.visited}</p>
             </div>
           </div>
           <div className="order-1 space-y-1 lg:order-2 lg:text-end">
-            <p>Performance</p>
+            <p>{t('components.campaignOverview.performance')}</p>
             <p className="text-sm">
               <span className="text-green-500">{campaignData.performanceChange}+</span>
-              <span className="text-muted-foreground ml-1">Compared to last week</span>
+              <span className="text-muted-foreground ml-1">{t('components.campaignOverview.comparedToLastWeek')}</span>
             </p>
           </div>
         </div>

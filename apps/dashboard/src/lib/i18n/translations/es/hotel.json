@@ -138,6 +138,36 @@
         }
       },
       
+      "campaignOverview": {
+        "title": "Resumen de Campaña",
+        "booked": "Reservado",
+        "visited": "Visitado",
+        "performance": "Rendimiento",
+        "comparedToLastWeek": "Comparado con la semana pasada",
+        "dateRanges": {
+          "thisWeek": "Esta Semana",
+          "lastWeek": "Semana Pasada",
+          "thisMonth": "Este Mes",
+          "lastMonth": "Mes Pasado",
+          "last3Months": "Últimos 3 Meses"
+        },
+        "chart": {
+          "booked": "Reservado",
+          "visited": "Visitado"
+        }
+      },
+      
+      "reservationsCard": {
+        "title": "Reservaciones",
+        "totalLabel": "Reservaciones",
+        "totalSalesThisWeek": "Ventas Totales Esta Semana",
+        "chart": {
+          "confirmed": "Confirmado",
+          "checkedIn": "Registrado",
+          "checkedOut": "Salida"
+        }
+      },
+      
       "meetingRoomSchedule": {
         "title": "Horario de Salas de Reuniones",
         "actions": {
@@ -182,13 +212,21 @@
       "finished": "Finalizado",
       "cancelled": "Cancelado",
       "approved": "Aprobado",
-      "completed": "Completado"
+      "completed": "Completado",
+      "confirmed": "Confirmado",
+      "checkedOut": "Salida"
     },
     
     "roomTypes": {
       "deluxe": "De lujo",
       "standard": "Estándar",
       "suite": "Suite"
+    },
+    
+    "formatters": {
+      "roomNumber": "Habitación {{number}}",
+      "nights": "{{count}} noche",
+      "nightsPlural": "{{count}} noches"
     },
     
     "messages": {
