@@ -104,6 +104,12 @@ export const navItems: NavGroup[] = [
       { title: "Sales", href: "/dashboard-bundui/sales", icon: BadgeDollarSignIcon, isNew: true },
       { title: "CRM", href: "/dashboard-bundui/crm", icon: ChartBarDecreasingIcon, isNew: true },
       {
+        title: "CRM V2",
+        href: "/dashboard-bundui/crm-v2",
+        icon: ChartBarDecreasingIcon,
+        isNew: true
+      },
+      {
         title: "Website Analytics",
         href: "/dashboard-bundui/analytics",
         icon: GaugeIcon,
@@ -117,7 +123,19 @@ export const navItems: NavGroup[] = [
       },
       { title: "File Manager", href: "/dashboard-bundui/file-manager", icon: FolderIcon, isNew: true },
       { title: "Crypto", href: "/dashboard-bundui/crypto", icon: CoinsIcon, isNew: true },
+      {
+        title: "Crypto V2",
+        href: "/dashboard-bundui/crypto-v2",
+        icon: CoinsIcon,
+        isNew: true
+      },
       { title: "Finance", href: "/dashboard-bundui/finance", icon: DollarSignIcon, isNew: true },
+      {
+        title: "Finance V2",
+        href: "/dashboard-bundui/finance-v2",
+        icon: DollarSignIcon,
+        isNew: true
+      },
       { title: "Academy/School", href: "/dashboard-bundui/academy", icon: GraduationCapIcon, isNew: true },
       { title: "Hospital Management", href: "/dashboard-bundui/hospital-management", icon: ActivityIcon, isNew: true },
       { title: "Hotel Dashboard", href: "/dashboard-bundui/hotel", icon: Building2Icon, isComing: true }

@@ -99,6 +99,12 @@ export const bunduiNavItems: NavGroup[] = [
       { title: "Sales", href: "/dashboard-bundui/sales", icon: BadgeDollarSignIcon },
       { title: "CRM", href: "/dashboard-bundui/crm", icon: ChartBarDecreasingIcon },
       {
+        title: "CRM V2",
+        href: "/dashboard-bundui/crm-v2",
+        icon: ChartBarDecreasingIcon,
+        isNew: true
+      },
+      {
         title: "Website Analytics",
         href: "/dashboard-bundui/analytics",
         icon: GaugeIcon
@@ -109,12 +115,24 @@ export const bunduiNavItems: NavGroup[] = [
         icon: FolderIcon
       },
       { title: "Crypto", href: "/dashboard-bundui/crypto", icon: WalletMinimalIcon },
+      {
+        title: "Crypto V2",
+        href: "/dashboard-bundui/crypto-v2",
+        icon: WalletMinimalIcon,
+        isNew: true
+      },
       { title: "Academy/School", href: "/dashboard-bundui/academy", icon: GraduationCapIcon },
       { title: "Hospital Management", href: "/dashboard-bundui/hospital-management", icon: ActivityIcon },
       {
         title: "Finance Dashboard",
         href: "/dashboard-bundui/finance",
         icon: WalletMinimalIcon
+      },
+      {
+        title: "Finance V2",
+        href: "/dashboard-bundui/finance-v2",
+        icon: WalletMinimalIcon,
+        isNew: true
       }
     ]
   },
