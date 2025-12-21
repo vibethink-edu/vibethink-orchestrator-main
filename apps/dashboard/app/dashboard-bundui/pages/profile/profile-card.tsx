@@ -37,7 +37,7 @@ export function ProfileCard() {
           </div>
           <div className="flex flex-col gap-y-4">
             <div className="flex items-center gap-3 text-sm">
-              <Mail className="text-muted-foreground size-4" /> hello@tobybelhome.com
+              <Mail className="text-muted-foreground size-4" /> vito@vibethink.ai
             </div>
             <div className="flex items-center gap-3 text-sm">
               <PhoneCall className="text-muted-foreground size-4" /> (+1-876) 8654 239 581

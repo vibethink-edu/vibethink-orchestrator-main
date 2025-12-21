@@ -37,7 +37,7 @@ export function CreatePostDialog() {
               <AvatarFallback>XA</AvatarFallback>
             </Avatar>
             <div>
-              <p className="font-semibold">Toby Belhome</p>
+              <p className="font-semibold">Vito Escallón</p>
               <p className="text-muted-foreground text-xs">Public</p>
             </div>
           </div>

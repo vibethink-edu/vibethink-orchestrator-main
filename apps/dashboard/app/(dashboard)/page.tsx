@@ -82,7 +82,7 @@ export default function DashboardPage() {
   const { data: teamMembers, loading: teamLoading } = useGenericData<TeamMember[]>({
     endpoint: '/api/team',
     initialData: [
-      { id: '1', name: 'Toby Belhome', email: 'hello@tobybelhome.com', role: 'Viewer', avatar: 'TB' },
+      { id: '1', name: 'Vito Escallón', email: 'vito@vibethink.ai', role: 'Viewer', avatar: 'VE' },
       { id: '2', name: 'Jackson Lee', email: 'pre@example.com', role: 'Developer', avatar: 'JL' },
       { id: '3', name: 'Hally Gray', email: 'hally@site.com', role: 'Viewer', avatar: 'HG' }
     ],
