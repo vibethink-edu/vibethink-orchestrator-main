@@ -344,6 +344,7 @@ if (!validation.compatible) {
 - [ ] Verificar que el módulo no está ya registrado
 - [ ] Revisar compatibilidad con stack actual
 - [ ] Identificar dependencias específicas
+- [ ] **Auditar strings hardcoded** (usar `scripts/audit-hardcoded-text.js`)
 
 ### Durante Migración
 
@@ -352,15 +353,38 @@ if (!validation.compatible) {
 - [ ] Agregar `"use client"` si es necesario
 - [ ] Verificar rutas de assets
 - [ ] Agregar al sidebar si aplica
+- [ ] **🚨 VALIDACIÓN i18n OBLIGATORIA:**
+  - [ ] Identificar todos los strings hardcoded
+  - [ ] Crear namespace i18n (EN/ES)
+  - [ ] Validar subcomponentes (headers, footers, toolbars)
+  - [ ] Adaptar código con `useTranslation()`
+  - [ ] Ver `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md` para proceso completo
 
 ### Después de Migrar
 
 - [ ] Agregar entrada al registro
-- [ ] Completar todos los campos requeridos
+- [ ] Completar todos los campos requeridos (incluyendo `i18nStatus`)
 - [ ] Validar compatibilidad con `validateStackCompatibility()`
 - [ ] Documentar issues conocidos
-- [ ] Crear namespace i18n si aplica
+- [ ] **Verificar namespace i18n creado y registrado**
+- [ ] **Actualizar `i18nCoverage` y `i18nStatus` en el registro**
 - [ ] Commit con mensaje descriptivo
+
+---
+
+## 🚨 Validación i18n Durante Importación (OBLIGATORIO)
+
+**NO dejar la validación i18n para después. Hacerla durante la importación.**
+
+**Ver documentación completa:**
+- `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md` - Protocolo completo
+
+**Resumen rápido:**
+1. ✅ Auditar strings hardcoded (componentes + subcomponentes)
+2. ✅ Crear namespace i18n estructurado (EN/ES)
+3. ✅ Validar headers, footers, toolbars, sidebars
+4. ✅ Adaptar código con `useTranslation()`
+5. ✅ Registrar estado en `i18nStatus`
 
 ---
 
@@ -541,6 +565,7 @@ Este registro se integra con:
 
 - `docs/architecture/BUNDUI_PREMIUM_MIGRATION.md` - Protocolo general
 - `docs/architecture/BUNDUI_MIGRATION_USE_CLIENT_PROTOCOL.md` - Protocolo "use client"
+- `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md` - **🚨 Validación i18n durante importación (OBLIGATORIO)**
 - `docs/TROUBLESHOOTING.md` - Problemas comunes
 
 ### Archivos del Sistema
