@@ -1,4 +1,6 @@
-import { generateMeta } from "@/shared/lib/utils";
+"use client";
+
+import { Metadata } from "next";
 import { ReservationsCard } from "./components/reservations-card";
 import { CampaignOverview } from "./components/campaign-overview";
 import { RecentActivities } from "./components/recent-activities";
@@ -8,15 +10,6 @@ import { BookingsCard } from "./components/bookings-card";
 import { BookingList } from "./components/booking-list";
 import { ClipboardMinusIcon, PlusIcon } from "lucide-react";
 import { Button } from "@vibethink/ui";
-
-export async function generateMetadata() {
-  return generateMeta({
-    title: "Hotel Admin Dashboard",
-    description:
-      "On the hotel management admin dashboard, you can see your turnover, manage reservations, and view your customers. Built with shadcn/ui, Tailwind CSS, Next.js.",
-    canonical: "/hotel"
-  });
-}
 
 export default function Page() {
   return (
