@@ -274,8 +274,32 @@ Los componentes en `bundui-premium` siguen existiendo para compatibilidad, pero 
 - [x] Actualizar imports en layouts principales
 - [x] Actualizar componentes legacy para usar datos centralizados
 - [x] Crear documentación de migración
+- [x] Crear protocolo para `"use client"` en migración
 - [ ] Validar que todo funciona correctamente
 - [ ] Eliminar componentes legacy (después de validación)
+
+## 📋 Protocolo: "use client" en page.tsx
+
+**IMPORTANTE:** Al migrar módulos completos, puede ser necesario agregar `"use client"` al `page.tsx`.
+
+**Cuándo agregar `"use client"`:**
+- El módulo tiene componentes interactivos (botones, formularios, charts)
+- Los componentes importan desde `@vibethink/ui`
+- Ocurre error: `Class extends value undefined is not a constructor or null`
+
+**Protocolo completo:** Ver `docs/architecture/BUNDUI_MIGRATION_USE_CLIENT_PROTOCOL.md`
+
+**Ejemplo:**
+```tsx
+"use client";  // Agregar si es necesario
+
+import { Button } from "@vibethink/ui";
+import { StatCards } from "./components/stat-cards";
+
+export default function Page() {
+  return <StatCards />;
+}
+```
 
 ---
 

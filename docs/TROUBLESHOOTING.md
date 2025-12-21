@@ -459,6 +459,47 @@ Agregar el módulo a `bundui-nav-items.ts`:
 
 **Nota:** 
 - Si va en `dashboard-bundui` → ruta: `/dashboard-bundui/...`
+
+#### 6. Error: "Class extends value undefined is not a constructor or null"
+
+**Síntomas:**
+- Error al cargar página migrada: `TypeError: Class extends value undefined is not a constructor or null`
+- Error menciona "React Class Component being rendered in a Server Component"
+- La página no carga (error 500)
+
+**Causa:**
+El `page.tsx` es un Server Component pero importa componentes que usan `@vibethink/ui`, que exporta `minimal-tiptap` (requiere Client Component).
+
+**Solución:**
+Agregar `"use client"` al inicio del `page.tsx`:
+
+```tsx
+// ❌ INCORRECTO (causa error)
+import { Button } from "@vibethink/ui";
+import { StatCards } from "./components/stat-cards";
+
+export default function Page() {
+  return <StatCards />;
+}
+
+// ✅ CORRECTO
+"use client";
+
+import { Button } from "@vibethink/ui";
+import { StatCards } from "./components/stat-cards";
+
+export default function Page() {
+  return <StatCards />;
+}
+```
+
+**⚠️ Nota importante:**
+- Si agregas `"use client"`, **NO puedes usar `generateMetadata()`** (solo funciona en Server Components)
+- Si necesitas SEO crítico, usa patrón híbrido (Server Component wrapper + Client Component interno)
+
+**Protocolo completo:** Ver `docs/architecture/BUNDUI_MIGRATION_USE_CLIENT_PROTOCOL.md` - Guía completa sobre cuándo usar `"use client"` durante migración
+
+**Referencia:** Caso real documentado en módulo Hotel (2025-12-20)
 - Si va en `dashboard-vibethink` → ruta: `/dashboard-vibethink/...`
 
 ### Checklist de Migración de Módulo
