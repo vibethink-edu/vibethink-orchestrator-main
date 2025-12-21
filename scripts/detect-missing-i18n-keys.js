@@ -219,6 +219,9 @@ for (const jsonKey of enKeys) {
 
 // Check for untranslated values (same value in EN and ES)
 const untranslated = [];
+// Check for English words in Spanish translations
+const englishInSpanish = [];
+
 function getNestedValue(obj, path) {
   const keys = path.split('.');
   let current = obj;
@@ -232,6 +235,67 @@ function getNestedValue(obj, path) {
   return typeof current === 'string' ? current : undefined;
 }
 
+// Common English words that should not appear in Spanish translations
+const englishWords = [
+  'nights', 'night', 'days', 'day', 'hours', 'hour', 'minutes', 'minute',
+  'weeks', 'week', 'months', 'month', 'years', 'year',
+  'check-in', 'check-out', 'check in', 'check out',
+  'booking', 'bookings', 'room', 'rooms', 'guest', 'guests',
+  'total', 'amount', 'price', 'discount', 'tax', 'subtotal',
+  'view', 'edit', 'delete', 'save', 'cancel', 'submit', 'search',
+  'filter', 'sort', 'export', 'import', 'download', 'upload',
+  'status', 'pending', 'approved', 'rejected', 'completed', 'cancelled',
+  'dashboard', 'settings', 'profile', 'logout', 'login',
+  'premium', 'subscription', 'unlock', 'analysis', 'in-depth'
+];
+
+// Function to detect English words in Spanish text
+function containsEnglishWords(text) {
+  const lowerText = text.toLowerCase();
+  return englishWords.some(word => {
+    // Match whole words (not just substrings)
+    const regex = new RegExp(`\\b${word}\\b`, 'i');
+    return regex.test(lowerText);
+  });
+}
+
+// Function to check if value looks like English (heuristic)
+function looksLikeEnglish(text) {
+  // Common English patterns
+  const englishPatterns = [
+    /\b(nights?|days?|hours?|minutes?)\b/i,  // "3 nights", "2 days"
+    /\b(check[- ]?in|check[- ]?out)\b/i,    // "check-in", "check out"
+    /\b(room|rooms|guest|guests)\b/i,         // "Room 101", "2 guests"
+    /\b(total|amount|price|discount)\b/i,    // "Total amount"
+    /\b(view|edit|delete|save|cancel)\b/i,    // Action verbs
+  ];
+  
+  return englishPatterns.some(pattern => pattern.test(text));
+}
+
+// Check all keys in ES namespace (not just code keys) for English words
+function checkAllSpanishValues(namespaceContent, prefix = '') {
+  for (const key in namespaceContent) {
+    if (namespaceContent.hasOwnProperty(key)) {
+      const fullKey = prefix ? `${prefix}.${key}` : key;
+      const value = namespaceContent[key];
+      
+      if (typeof value === 'string' && value.trim().length > 0) {
+        // Skip if it's a number or very short (might be valid)
+        if (value.trim().length > 3 && !/^\d+$/.test(value.trim())) {
+          if (containsEnglishWords(value) || looksLikeEnglish(value)) {
+            const enValue = getNestedValue(enNamespaceContent, fullKey) || 'N/A';
+            englishInSpanish.push({ key: fullKey, value, enValue });
+          }
+        }
+      } else if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+        // Recursive for nested objects
+        checkAllSpanishValues(value, fullKey);
+      }
+    }
+  }
+}
+
 for (const key of codeKeys) {
   if (key.endsWith('.*')) continue;
   
@@ -241,12 +305,15 @@ for (const key of codeKeys) {
   // If both exist and are the same (and not empty), might be untranslated
   if (enValue && esValue && enValue === esValue && enValue.trim().length > 0) {
     // Skip common values that are the same in both languages (like "Suite", "Deluxe")
-    const commonSameValues = ['Suite', 'Deluxe', 'Standard', 'Premium', 'Basic'];
+    const commonSameValues = ['Suite', 'Deluxe', 'Standard', 'Premium', 'Basic', 'VIP'];
     if (!commonSameValues.includes(enValue)) {
       untranslated.push({ key, value: enValue });
     }
   }
 }
+
+// Check all Spanish values for English words
+checkAllSpanishValues(esNamespaceContent);
 
 // Report results
 console.log('📊 Resultados:\n');
@@ -262,6 +329,21 @@ if (codeKeys.length > 0 && missingInEn.length === 0 && missingInEs.length === 0)
     if (untranslated.length > 10) {
       console.log(`      ... y ${untranslated.length - 10} más`);
     }
+    console.log();
+  }
+  
+  if (englishInSpanish.length > 0) {
+    console.log(`\n   🚨 ${englishInSpanish.length} claves en ES que contienen palabras en INGLÉS (NO traducidas):`);
+    englishInSpanish.slice(0, 15).forEach(({ key, value, enValue }) => {
+      console.log(`      - ${namespace}.${key}:`);
+      console.log(`        ES: "${value}" ❌`);
+      console.log(`        EN: "${enValue}"`);
+    });
+    if (englishInSpanish.length > 15) {
+      console.log(`      ... y ${englishInSpanish.length - 15} más`);
+    }
+    console.log();
+    console.log('   ⚠️  ACCIÓN REQUERIDA: Traducir estos valores al español');
     console.log();
   }
 } else {
@@ -327,18 +409,30 @@ if (missingInEn.length > 0 || missingInEs.length > 0) {
   }
 }
 
-// Exit with error if there are missing keys
-const hasErrors = missingInEn.length > 0 || missingInEs.length > 0;
+// Exit with error if there are missing keys or untranslated values
+const hasErrors = missingInEn.length > 0 || missingInEs.length > 0 || englishInSpanish.length > 0;
 
 if (hasErrors) {
-  console.log('❌ Hay claves faltantes que causan que aparezcan visibles en la UI.\n');
+  console.log('❌ Problemas encontrados que causan que aparezcan visibles o en inglés en la UI.\n');
   console.log('📝 Acción requerida:');
-  console.log('   1. Agregar las claves faltantes a ambos JSON (EN/ES)');
-  console.log('   2. Asegurar que todas las claves sean strings válidos');
-  console.log('   3. Ejecutar este script nuevamente para validar\n');
+  
+  if (missingInEn.length > 0 || missingInEs.length > 0) {
+    console.log('   1. Agregar las claves faltantes a ambos JSON (EN/ES)');
+  }
+  
+  if (englishInSpanish.length > 0) {
+    console.log('   2. Traducir valores en ES que contienen palabras en inglés:');
+    englishInSpanish.slice(0, 5).forEach(({ key, value }) => {
+      console.log(`      - ${namespace}.${key}: "${value}" → Traducir al español`);
+    });
+  }
+  
+  console.log('   3. Asegurar que todas las claves sean strings válidos y traducidos');
+  console.log('   4. Ejecutar este script nuevamente para validar\n');
   process.exit(1);
 } else {
-  console.log('✅ Todas las claves usadas en el código existen en ambos idiomas.\n');
+  console.log('✅ Todas las claves usadas en el código existen en ambos idiomas.');
+  console.log('✅ No se detectaron valores en inglés dentro de traducciones en español.\n');
   process.exit(0);
 }
 

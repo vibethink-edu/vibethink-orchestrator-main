@@ -244,12 +244,14 @@
     - ✅ El script debe pasar sin errores
     - ⚠️ Si hay claves dinámicas, validarlas manualmente
   
-  - [ ] **Ejecutar script de detección de claves faltantes:**
+  - [ ] **Ejecutar script de detección de claves faltantes (OBLIGATORIO):**
     ```bash
     node scripts/detect-missing-i18n-keys.js --module apps/dashboard/app/dashboard-bundui/module-name --namespace module-name
     ```
     - ✅ Este script compara claves del código vs JSON y muestra las faltantes
     - ✅ Genera reporte con las claves que DEBEN agregarse
+    - ✅ **Detecta valores en inglés dentro de traducciones en español** (ej: "3 nights" en ES)
+    - ✅ Detecta valores idénticos en EN/ES (posiblemente no traducidos)
     - ✅ Ayuda a identificar claves que aparecen visibles en UI (ej: `hotel.roomTypes.deluxe`)
   
   - [ ] **🚨 Documentar y agregar claves faltantes INMEDIATAMENTE:**
@@ -257,6 +259,17 @@
     - Agregar a AMBOS JSON (EN/ES) antes de marcar como completo
     - **Regla crítica:** No dejar claves faltantes (causa que aparezcan visibles en la UI como `namespace.key.path`)
     - Si aparecen claves visibles (ej: `hotel.roomTypes.deluxe`), significa que la clave NO existe en el JSON
+  
+  - [ ] **🚨 VALIDAR QUE VALORES EN ES ESTÁN TRADUCIDOS (CRÍTICO):**
+    - **NO copiar valores de EN a ES sin traducir**
+    - **NO dejar palabras en inglés dentro de valores en español** (ej: "3 nights" debe ser "3 noches")
+    - El script detecta automáticamente:
+      - Palabras comunes en inglés: "nights", "check-in", "booking", "room", etc.
+      - Patrones en inglés: "3 nights", "check-out", "total amount", etc.
+    - **Si el script reporta valores en inglés en ES:**
+      - Traducir INMEDIATAMENTE
+      - Verificar que el valor tiene sentido en español
+      - Probar en UI que se muestra correctamente
 
 ### Fase 6: Validación Completa
 
