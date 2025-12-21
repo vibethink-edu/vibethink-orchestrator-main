@@ -930,6 +930,46 @@ node scripts/detect-missing-i18n-keys.js \
 - ✅ Incluir subcomponentes en validación
 - ✅ Listar TODOS los archivos `.tsx` y verificar cada uno
 
+### Lección 11: Datos Mock con Strings Hardcoded
+
+**Problema:**
+- Datos mock con valores hardcoded (ej: "Room 101", "3 nights", "June 19, 2028")
+- Se muestran directamente sin formateo
+- Aparecen en inglés incluso cuando el idioma está en español
+
+**Solución:**
+- ✅ Formatear datos mock usando i18n en el componente
+- ✅ Crear helpers de formateo (roomNumber, duration, etc.)
+- ✅ Usar formateo regional para fechas y números cuando sea posible
+- ✅ Agregar `formatters` al namespace para valores comunes
+
+**Ejemplo:**
+```typescript
+// ✅ Formatear roomNumber
+cell: ({ row }) => {
+  const roomNumber = row.getValue("roomNumber") as string;
+  const roomMatch = roomNumber.match(/\d+/);
+  if (roomMatch) {
+    return <span>{t('formatters.roomNumber', { number: roomMatch[0] })}</span>;
+  }
+  return <span>{roomNumber}</span>;
+}
+
+// ✅ Formatear duration con pluralización
+cell: ({ row }) => {
+  const duration = row.getValue("duration") as string;
+  const nightMatch = duration.match(/(\d+)\s*nights?/i);
+  if (nightMatch) {
+    const count = parseInt(nightMatch[1], 10);
+    const key = count === 1 ? 'formatters.nights' : 'formatters.nightsPlural';
+    return <span>{t(key, { count })}</span>;
+  }
+  return <span>{duration}</span>;
+}
+```
+
+**Documentación:** `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md` (Problema 5)
+
 ---
 
 ## 📋 Checklist Maestro de Importación
