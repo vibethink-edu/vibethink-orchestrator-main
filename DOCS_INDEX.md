@@ -38,6 +38,7 @@ Este archivo es un índice rápido. Para la documentación completa y detallada,
 ## 🔍 Navegación por Categoría
 
 ### 🏗️ Arquitectura
+- [Protocolo de Importación y Despliegue](./docs/architecture/MODULE_IMPORT_DEPLOYMENT_PROTOCOL.md) 🚨 **⭐ PROTOCOLO MAESTRO** - Consolida TODAS las lecciones aprendidas
 - [Terminología y Nombres Clave](./docs/architecture/APPLICATION_TERMINOLOGY.md) ⭐ - Fuente única de verdad para nombres clave
 - [Module Registry Protocol](./docs/architecture/MODULE_REGISTRY_PROTOCOL.md) 🚨 **ÚNICA FUENTE DE VERDAD** - Registro de módulos migrados
 - [Evaluación de Bibliotecas Externas](./docs/architecture/EXTERNAL_LIBRARIES_EVALUATION.md) - Evaluación crítica de React Flow, TipTap, Shadcn UI Kit

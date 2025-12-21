@@ -338,20 +338,43 @@ XYFlow Reference (puede cambiar)      ───►  apps/dashboard/... (nuestros
 - `docs/architecture/REFERENCE_RULES.md` - Reglas generales para TODAS las referencias
 - `docs/architecture/BUNDUI_REFERENCE_RULE.md` - Específico de Bundui
 
-## 🚨 CRITICAL: Module Registry - Única Fuente de Verdad
+## 🚨 CRITICAL: Module Import & Deployment Protocol - Única Fuente de Verdad
 
-**⚠️ REGLA OBLIGATORIA: El Module Registry es la ÚNICA FUENTE DE VERDAD para módulos y componentes migrados**
+**⚠️ REGLA OBLIGATORIA: El Protocolo de Importación es la ÚNICA FUENTE DE VERDAD para importar módulos/componentes**
 
-### **ANTES de migrar, importar o modificar cualquier módulo/componente externo:**
+### **ANTES de importar cualquier módulo/componente:**
 
-1. **✅ SIEMPRE consultar** `apps/dashboard/src/shared/data/module-registry.ts`
-2. **✅ VERIFICAR** si el módulo ya está registrado
-3. **✅ VALIDAR** compatibilidad con nuestro stack usando `validateStackCompatibility()`
-4. **✅ REGISTRAR** cualquier nuevo módulo importado
-5. **✅ ACTUALIZAR** el registro si modificas un módulo existente
+1. **✅ SIEMPRE leer** `docs/architecture/MODULE_IMPORT_DEPLOYMENT_PROTOCOL.md` (PROTOCOLO MAESTRO)
+2. **✅ CONSULTAR** `apps/dashboard/src/shared/data/module-registry.ts` (verificar si ya existe)
+3. **✅ SEGUIR** todas las fases del protocolo en orden
+4. **✅ VALIDAR** cada fase antes de continuar
+
+### **El Protocolo Maestro consolida TODAS las lecciones aprendidas:**
+
+- ✅ Validación React 18 vs 19 (problema repetitivo)
+- ✅ Protocolo "use client" vs Server Component
+- ✅ Validación i18n durante importación (OBLIGATORIO)
+- ✅ Manejo de assets (repositorio central)
+- ✅ Registro de módulos
+- ✅ Validación de compatibilidad
+- ✅ Corrección de imports
+- ✅ Validación de sidebar
+- ✅ Y más...
+
+### **Documentación Completa:**
+
+- `docs/architecture/MODULE_IMPORT_DEPLOYMENT_PROTOCOL.md` - **⭐ PROTOCOLO MAESTRO (LEER PRIMERO)**
+- `apps/dashboard/src/shared/data/module-registry.ts` - **Registro de módulos**
+- `docs/architecture/MODULE_REGISTRY_PROTOCOL.md` - **Protocolo de registro**
+- `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md` - **Protocolo i18n**
+- `docs/architecture/BUNDUI_MIGRATION_USE_CLIENT_PROTOCOL.md` - **Protocolo "use client"**
+- `docs/architecture/ASSETS_REPOSITORY_POLICY.md` - **Política de assets**
+- `docs/TROUBLESHOOTING.md` - **Problemas comunes y soluciones**
 
 ### **NUNCA:**
 
+- ❌ Importar módulos sin leer el protocolo maestro
+- ❌ Saltarse fases del protocolo
 - ❌ Asumir que un módulo no existe sin consultar el registro
 - ❌ Importar componentes sin registrarlos
 - ❌ Modificar módulos sin actualizar el registro
@@ -359,7 +382,7 @@ XYFlow Reference (puede cambiar)      ───►  apps/dashboard/... (nuestros
 
 ### **Fuentes Soportadas:**
 
-El registro soporta módulos de múltiples fuentes:
+El protocolo soporta módulos de múltiples fuentes:
 - `bundui-premium` - Bundui Premium Dashboard Templates
 - `bundui-original` - Bundui Original Source Code
 - `shadcn-ui-kit` - shadcnuikit.com/components/
@@ -368,12 +391,6 @@ El registro soporta módulos de múltiples fuentes:
 - `shadcn-ui` - ui.shadcn.com (base components)
 - `custom` - Componentes desarrollados internamente
 - `other` - Otras fuentes externas
-
-### **Documentación Completa:**
-
-- `apps/dashboard/src/shared/data/module-registry.ts` - **Registro principal (LEER PRIMERO)**
-- `docs/architecture/MODULE_REGISTRY_PROTOCOL.md` - **Protocolo completo**
-- `docs/architecture/EXTERNAL_LIBRARIES_EVALUATION.md` - Evaluación crítica de bibliotecas
 
 ### **Funciones Útiles:**
 
