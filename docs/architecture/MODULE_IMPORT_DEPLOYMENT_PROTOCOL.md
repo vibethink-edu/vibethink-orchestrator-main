@@ -1100,6 +1100,7 @@ src="/assets/images/avatars/user-default.png"
 - **"use client" Protocol:** `docs/architecture/BUNDUI_MIGRATION_USE_CLIENT_PROTOCOL.md` ⭐
 - **Module Registry:** `docs/architecture/MODULE_REGISTRY_PROTOCOL.md` ⭐
 - **Assets Policy:** `docs/architecture/ASSETS_REPOSITORY_POLICY.md` ⭐
+- **Component Namespace Strategy:** `docs/architecture/I18N_COMPONENT_NAMESPACE_STRATEGY.md` ⭐ **NUEVO** - Estrategia de namespaces por componente
 - **Bundui Premium Migration:** `docs/architecture/BUNDUI_PREMIUM_MIGRATION.md`
 - **Troubleshooting:** `docs/TROUBLESHOOTING.md` ⭐
 - **React Compatibility:** `docs/TROUBLESHOOTING.md` (sección React 18 vs 19)
