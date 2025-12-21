@@ -651,6 +651,13 @@ node scripts/audit-assets.js
 - ❌ Falta de `overrides` en root package.json
 - ⚠️ **Este es el problema más común y repetitivo**
 
+**i18n (Traducciones):**
+- ❌ Claves aparecen visibles en UI (ej: `hotel.components.statCards.unitNumber`)
+- ❌ Parámetros no se reemplazan (ej: `{{number}}` aparece visible)
+- ❌ Namespace no se carga (mensaje: `[i18n] Namespace 'module-name' not loaded`)
+- ❌ Formato incorrecto de parámetros en JSON (`{param}` en lugar de `{{param}}`)
+- ❌ Estructura del JSON incorrecta (falta namespace como clave raíz)
+
 **Assets:**
 - ❌ Imágenes referenciadas que no existen en el monorepo (vienen de Bundui Original)
 - ❌ Assets duplicados (mismo archivo en múltiples ubicaciones)
