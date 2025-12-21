@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import { cn } from "@/shared/lib/utils";
 import { HeartIcon, PlusIcon } from "lucide-react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components";
-import { Carousel, CarouselContent } from "@vibethink/ui/components";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
+import { Carousel, CarouselContent } from "@vibethink/ui";
 import {
   Reel,
   ReelContent,
@@ -18,9 +18,9 @@ import {
   ReelPlayButton,
   ReelProgress,
   ReelVideo
-} from "@vibethink/ui/components/extensions/reel";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@vibethink/ui/components";
-import { Button } from "@vibethink/ui/components";
+} from "@vibethink/ui";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
 
 import { reels } from "../data";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
