@@ -1,10 +1,12 @@
-import { Card, CardContent, CardHeader, CardTitle, Button, Badge } from '@vibethink/ui'
-import { 
-  Plus, 
-  UserPlus, 
-  FileText, 
-  Phone, 
-  Mail, 
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Button } from "@vibethink/ui/components/button";
+import { Badge } from "@vibethink/ui/components/badge";
+import {
+  Plus,
+  UserPlus,
+  FileText,
+  Phone,
+  Mail,
   Calendar,
   Target,
   Settings,

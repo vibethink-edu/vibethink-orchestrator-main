@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import { Button } from "@vibethink/ui";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 
 export function EcommerceWelcomeCard() {
   return (
@@ -32,6 +32,7 @@ export function EcommerceWelcomeCard() {
     </Card>
   );
 }
+
 
 
 

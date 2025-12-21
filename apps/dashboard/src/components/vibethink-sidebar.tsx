@@ -20,9 +20,9 @@ import {
   useSidebar,
   SidebarInset,
   SidebarTrigger,
-} from '@vibethink/ui';
-import { Logo } from "@vibethink/ui";
-import { ScrollArea } from '@vibethink/ui';
+} from '@vibethink/ui/components/sidebar';
+import { Logo } from "@vibethink/ui/components/logo";
+import { ScrollArea } from '@vibethink/ui/components/scroll-area';
 import { NavUser } from "@/components/layout/sidebar-bundui/nav-user";
 import {
   Users,
@@ -271,8 +271,8 @@ export function VibeThinkSidebar({ ...props }: React.ComponentProps<typeof Sideb
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton 
-              size="lg" 
+            <SidebarMenuButton
+              size="lg"
               asChild
               className="hover:text-foreground hover:bg-[var(--primary)]/5"
             >

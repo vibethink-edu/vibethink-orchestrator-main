@@ -2,14 +2,14 @@
 
 import { PanelLeftIcon } from "lucide-react";
 
-import { Separator } from '@vibethink/ui';
+import { Separator } from '@vibethink/ui/components/separator';
 import Notifications from "@/shared/components/bundui-premium/components/layout/header-bundui/notifications";
 import Search from "@/shared/components/bundui-premium/components/layout/header-bundui/search";
 import ThemeSwitch from "@/shared/components/bundui-premium/components/layout/header-bundui/theme-switch";
 import UserMenu from "@/shared/components/bundui-premium/components/layout/header-bundui/user-menu";
 import { ThemeCustomizerPanel } from "@/shared/components/bundui-premium/components/panel";
-import { Button } from '@vibethink/ui';
-import { useSidebar } from '@vibethink/ui';
+import { Button } from '@vibethink/ui/components/button';
+import { useSidebar } from '@vibethink/ui/components/sidebar';
 import { LocaleSelector } from '@/components/i18n/LocaleSelector';
 
 /**

@@ -6,16 +6,18 @@ import { format } from "date-fns";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
+import { Button } from "@vibethink/ui/components/button";
+import { Calendar } from "@vibethink/ui/components/calendar";
 import {
-  Button,
-  Calendar,
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
+} from "@vibethink/ui/components/command";
+import {
   Form,
   FormControl,
   FormDescription,
@@ -23,13 +25,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-  Input,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  Card,
-  CardContent
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/form";
+import { Input } from "@vibethink/ui/components/input";
+import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui/components/popover";
+import { Card, CardContent } from "@vibethink/ui/components/card";
 import { toast } from "sonner";
 
 const languages = [
@@ -209,6 +208,7 @@ export default function Page() {
     </Card>
   );
 }
+
 
 
 

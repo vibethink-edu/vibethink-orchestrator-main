@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { generateMeta } from "@/lib/utils";
+import { generateMeta } from "@/shared/lib/utils";
 
 import { SidebarNav } from "./components/sidebar-nav";
 
@@ -30,6 +30,7 @@ export default function SettingsLayout({ children }: { children: React.ReactNode
     </div>
   );
 }
+
 
 
 

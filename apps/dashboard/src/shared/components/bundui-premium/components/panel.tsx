@@ -1,12 +1,29 @@
 "use client";
 
 import { Settings } from "lucide-react";
-import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, Label, ToggleGroup, ToggleGroupItem, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@vibethink/ui";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu";
+import { Label } from "@/components/ui/label";
+import {
+  ToggleGroup,
+  ToggleGroupItem
+} from "@/components/ui/toggle-group";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from "@/components/ui/select";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useTheme } from "next-themes";
-import { ThemePicker } from "@/shared/components/theme-picker";
-import { FontSelector } from "@/shared/components/font-selector";
-import { useThemeSettings } from "@/shared/lib/use-theme-settings";
+import { ThemePicker } from "../../theme-picker";
+import { FontSelector } from "../../font-selector";
+import { useThemeSettings } from "../../../lib/use-theme-settings";
 import { useTranslation } from "@/lib/i18n";
 
 // ColorModeSelector - Funcional con next-themes
@@ -161,10 +178,10 @@ function BaseColorSelector() {
   if (!mounted) return null;
 
   const baseColors = [
-    "neutral", "slate", "gray", "zinc", "stone", 
-    "red", "orange", "amber", "yellow", "lime", 
-    "green", "emerald", "teal", "cyan", "sky", 
-    "blue", "indigo", "violet", "purple", "fuchsia", 
+    "neutral", "slate", "gray", "zinc", "stone",
+    "red", "orange", "amber", "yellow", "lime",
+    "green", "emerald", "teal", "cyan", "sky",
+    "blue", "indigo", "violet", "purple", "fuchsia",
     "pink", "rose"
   ] as const;
 

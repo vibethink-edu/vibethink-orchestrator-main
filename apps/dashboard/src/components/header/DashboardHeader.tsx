@@ -8,21 +8,23 @@
  */
 
 import React from 'react';
-import { Button } from '@vibethink/ui';
-import { Input } from '@vibethink/ui';
-import { Badge } from '@vibethink/ui';
-import { DropdownMenu,
+import { Button } from '@vibethink/ui/components/button';
+import { Input } from '@vibethink/ui/components/input';
+import { Badge } from '@vibethink/ui/components/badge';
+import {
+  DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger, } from '@vibethink/ui';
-import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui';
-import { 
-  Bell, 
-  Search, 
-  Brain, 
-  Users, 
+  DropdownMenuTrigger,
+} from '@vibethink/ui/components/dropdown-menu';
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui/components/avatar';
+import {
+  Bell,
+  Search,
+  Brain,
+  Users,
   Settings,
   MoreHorizontal,
   Zap,

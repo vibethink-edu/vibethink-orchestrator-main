@@ -1,13 +1,34 @@
-import { Button, Input, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Badge, Card, CardContent, CardHeader, CardTitle, Popover, PopoverContent, PopoverTrigger, Calendar } from '@vibethink/ui'
+import { Button } from '@vibethink/ui/components/button'
+import { Input } from '@vibethink/ui/components/input'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@vibethink/ui/components/select'
+import { Badge } from '@vibethink/ui/components/badge'
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle
+} from '@vibethink/ui/components/card'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger
+} from '@vibethink/ui/components/popover'
+import { Calendar } from '@vibethink/ui/components/calendar'
 import { useState } from 'react'
 import { format } from 'date-fns'
 import { FinanceHeaderProps } from '../types'
-import { 
-  Plus, 
-  Download, 
-  Filter, 
-  X, 
-  Search, 
+import {
+  Plus,
+  Download,
+  Filter,
+  X,
+  Search,
   Calendar as CalendarIcon,
   DollarSign,
   Receipt,
@@ -32,12 +53,12 @@ import {
  * - Filter reset functionality
  * - HSL color variables for theme compatibility
  */
-export function FinanceHeader({ 
-  onFiltersChange, 
-  onExport, 
-  onAddExpense, 
-  onAddRevenue, 
-  className 
+export function FinanceHeader({
+  onFiltersChange,
+  onExport,
+  onAddExpense,
+  onAddRevenue,
+  className
 }: FinanceHeaderProps) {
   const [searchQuery, setSearchQuery] = useState('')
   const [dateRange, setDateRange] = useState<'all' | 'today' | 'week' | 'month' | 'quarter' | 'year' | 'custom'>('month')
@@ -162,7 +183,7 @@ export function FinanceHeader({
     setAmountMax('')
     setCustomDateFrom(undefined)
     setCustomDateTo(undefined)
-    
+
     onFiltersChange?.({
       searchQuery: '',
       category: 'all',
@@ -175,13 +196,13 @@ export function FinanceHeader({
   }
 
   // Check if any filters are active
-  const hasActiveFilters = searchQuery || 
-    dateRange !== 'month' || 
-    category !== 'all' || 
-    status !== 'all' || 
-    department !== 'all' || 
-    currency !== 'all' || 
-    amountMin || 
+  const hasActiveFilters = searchQuery ||
+    dateRange !== 'month' ||
+    category !== 'all' ||
+    status !== 'all' ||
+    department !== 'all' ||
+    currency !== 'all' ||
+    amountMin ||
     amountMax
 
   const activeFilterCount = [
@@ -498,7 +519,7 @@ export function FinanceHeader({
             </div>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardContent className="p-4">
             <div className="flex items-center gap-3">
@@ -512,7 +533,7 @@ export function FinanceHeader({
             </div>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardContent className="p-4">
             <div className="flex items-center gap-3">
@@ -526,7 +547,7 @@ export function FinanceHeader({
             </div>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardContent className="p-4">
             <div className="flex items-center gap-3">

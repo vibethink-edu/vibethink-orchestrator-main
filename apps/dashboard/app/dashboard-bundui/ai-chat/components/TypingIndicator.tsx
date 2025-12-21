@@ -15,10 +15,10 @@
 // =============================================================================
 
 import React from 'react'
-import { Avatar, AvatarFallback } from '@vibethink/ui'
-import { Badge } from '@vibethink/ui'
+import { Avatar, AvatarFallback } from '@vibethink/ui/components/avatar'
+import { Badge } from '@vibethink/ui/components/badge'
 import { Bot, Sparkles, Zap } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 
 /**
  * Props para el indicador de escritura
@@ -34,13 +34,13 @@ interface TypingIndicatorProps {
  * Indicador de que la AI está escribiendo
  * Muestra animación de puntos y mensaje personalizable
  */
-export function TypingIndicator({ 
+export function TypingIndicator({
   message = "AI is thinking...",
   variant = 'default',
   showAvatar = true,
   className
 }: TypingIndicatorProps) {
-  
+
   // Obtener configuración según variante
   const getVariantConfig = () => {
     switch (variant) {
@@ -56,7 +56,7 @@ export function TypingIndicator({
         return {
           icon: <Zap className="w-4 h-4" />,
           message: "Processing your request...",
-          bgColor: "bg-chart-2/10", 
+          bgColor: "bg-chart-2/10",
           textColor: "text-chart-2",
           borderColor: "border-chart-2/20"
         }
@@ -83,7 +83,7 @@ export function TypingIndicator({
           </AvatarFallback>
         </Avatar>
       )}
-      
+
       {/* Typing Bubble */}
       <div className={cn(
         "rounded-lg px-4 py-3 border",
@@ -111,7 +111,7 @@ export function TypingIndicator({
               config.textColor
             )} />
           </div>
-          
+
           {/* Message */}
           <span className={cn(
             "text-sm font-medium",
@@ -128,10 +128,10 @@ export function TypingIndicator({
 /**
  * Indicador compacto para usar en sidebars o headers
  */
-export function CompactTypingIndicator({ 
-  className 
-}: { 
-  className?: string 
+export function CompactTypingIndicator({
+  className
+}: {
+  className?: string
 }) {
   return (
     <div className={cn("flex items-center gap-2", className)}>
@@ -148,7 +148,7 @@ export function CompactTypingIndicator({
 /**
  * Indicador de estado de AI con badge
  */
-export function AIStatusIndicator({ 
+export function AIStatusIndicator({
   status = 'idle',
   className
 }: {
@@ -198,21 +198,21 @@ export function AIStatusIndicator({
   const config = getStatusConfig()
 
   return (
-    <Badge 
+    <Badge
       variant={config.variant}
       className={cn("gap-2 text-xs", className)}
     >
       {config.showDots && (
         <div className="flex items-center gap-0.5">
-          <div 
+          <div
             className="w-1 h-1 rounded-full animate-bounce [animation-delay:-0.3s]"
             style={{ backgroundColor: config.color }}
           />
-          <div 
+          <div
             className="w-1 h-1 rounded-full animate-bounce [animation-delay:-0.15s]"
             style={{ backgroundColor: config.color }}
           />
-          <div 
+          <div
             className="w-1 h-1 rounded-full animate-bounce"
             style={{ backgroundColor: config.color }}
           />

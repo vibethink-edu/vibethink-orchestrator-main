@@ -8,26 +8,30 @@ import { usePathname } from "next/navigation";
 import { useIsTablet } from "@/hooks/use-mobile";
 import Link from "next/link";
 
-import { Sidebar,
+import {
+  Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar } from '@vibethink/ui';
+  useSidebar
+} from "@vibethink/ui/components/sidebar";
 import { NavMain } from "./nav-main";
 import { NavUser } from "./nav-user";
-import { ScrollArea } from '@vibethink/ui';
-import { Logo } from "@vibethink/ui";
-import { DropdownMenu,
+import { ScrollArea } from "@vibethink/ui/components/scroll-area";
+import { Logo } from "@vibethink/ui/components/logo";
+import {
+  DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger } from '@vibethink/ui';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui';
-import { Button } from '@vibethink/ui';
+  DropdownMenuTrigger
+} from "@vibethink/ui/components/dropdown-menu";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Button } from "@vibethink/ui/components/button";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();

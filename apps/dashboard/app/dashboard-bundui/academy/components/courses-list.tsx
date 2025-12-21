@@ -16,26 +16,30 @@ import {
 } from "@tanstack/react-table";
 import { ChevronLeft, ChevronRight, MoreHorizontalIcon, StarIcon } from "lucide-react";
 
-import { 
-  Button,
+import { Button } from "@vibethink/ui/components/button";
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
-  Input,
+  DropdownMenuTrigger
+} from "@vibethink/ui/components/dropdown-menu";
+import { Input } from "@vibethink/ui/components/input";
+import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
+  TableRow
+} from "@vibethink/ui/components/table";
+import {
   Card,
   CardAction,
   CardContent,
   CardHeader,
-  CardTitle,
-  Progress
-} from "@vibethink/ui";
+  CardTitle
+} from "@vibethink/ui/components/card";
+import { Progress } from "@vibethink/ui/components/progress";
 
 const data: Course[] = [
   {

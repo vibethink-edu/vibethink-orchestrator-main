@@ -8,7 +8,10 @@ import {
   TreePalmIcon,
   UnlinkIcon
 } from "lucide-react";
-import { Button, Progress, Card, CardAction, CardContent, CardFooter, CardHeader, CardTitle, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { Progress } from "@vibethink/ui/components/progress";
+import { Card, CardAction, CardContent, CardFooter, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@vibethink/ui/components/table";
 
 const projects = [
   {
@@ -118,6 +121,7 @@ export function ProjectsTable() {
     </Card>
   );
 }
+
 
 
 

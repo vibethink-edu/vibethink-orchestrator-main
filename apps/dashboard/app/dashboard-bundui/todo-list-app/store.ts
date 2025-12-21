@@ -6,7 +6,7 @@ import {
   ViewMode,
   TodoFile,
   TodoPriority
-} from "@/app/dashboard/(auth)/apps/todo-list-app/types";
+} from "./types";
 
 interface TodoStore {
   todos: Todo[];
@@ -117,16 +117,16 @@ export const useTodoStore = create<TodoStore>((set) => ({
       todos: state.todos.map((todo) =>
         todo.id === todoId
           ? {
-              ...todo,
-              comments: [
-                ...todo.comments,
-                {
-                  id: uuidv4(),
-                  text,
-                  createdAt: new Date()
-                }
-              ]
-            }
+            ...todo,
+            comments: [
+              ...todo.comments,
+              {
+                id: uuidv4(),
+                text,
+                createdAt: new Date()
+              }
+            ]
+          }
           : todo
       )
     })),
@@ -136,9 +136,9 @@ export const useTodoStore = create<TodoStore>((set) => ({
       todos: state.todos.map((todo) =>
         todo.id === todoId
           ? {
-              ...todo,
-              comments: todo.comments.filter((comment) => comment.id !== commentId)
-            }
+            ...todo,
+            comments: todo.comments.filter((comment) => comment.id !== commentId)
+          }
           : todo
       )
     })),
@@ -188,15 +188,15 @@ export const useTodoStore = create<TodoStore>((set) => ({
       todos: state.todos.map((todo) =>
         todo.id === todoId
           ? {
-              ...todo,
-              files: [
-                ...(todo.files || []),
-                {
-                  ...file,
-                  id: uuidv4()
-                }
-              ]
-            }
+            ...todo,
+            files: [
+              ...(todo.files || []),
+              {
+                ...file,
+                id: uuidv4()
+              }
+            ]
+          }
           : todo
       )
     })),
@@ -206,9 +206,9 @@ export const useTodoStore = create<TodoStore>((set) => ({
       todos: state.todos.map((todo) =>
         todo.id === todoId
           ? {
-              ...todo,
-              files: (todo.files || []).filter((file) => file.id !== fileId)
-            }
+            ...todo,
+            files: (todo.files || []).filter((file) => file.id !== fileId)
+          }
           : todo
       )
     })),
@@ -218,16 +218,16 @@ export const useTodoStore = create<TodoStore>((set) => ({
       todos: state.todos.map((todo) =>
         todo.id === todoId
           ? {
-              ...todo,
-              subTasks: [
-                ...(todo.subTasks || []),
-                {
-                  id: uuidv4(),
-                  title,
-                  completed: false
-                }
-              ]
-            }
+            ...todo,
+            subTasks: [
+              ...(todo.subTasks || []),
+              {
+                id: uuidv4(),
+                title,
+                completed: false
+              }
+            ]
+          }
           : todo
       )
     })),
@@ -237,11 +237,11 @@ export const useTodoStore = create<TodoStore>((set) => ({
       todos: state.todos.map((todo) =>
         todo.id === todoId
           ? {
-              ...todo,
-              subTasks: (todo.subTasks || []).map((subTask) =>
-                subTask.id === subTaskId ? { ...subTask, completed } : subTask
-              )
-            }
+            ...todo,
+            subTasks: (todo.subTasks || []).map((subTask) =>
+              subTask.id === subTaskId ? { ...subTask, completed } : subTask
+            )
+          }
           : todo
       )
     })),
@@ -251,9 +251,9 @@ export const useTodoStore = create<TodoStore>((set) => ({
       todos: state.todos.map((todo) =>
         todo.id === todoId
           ? {
-              ...todo,
-              subTasks: (todo.subTasks || []).filter((subTask) => subTask.id !== subTaskId)
-            }
+            ...todo,
+            subTasks: (todo.subTasks || []).filter((subTask) => subTask.id !== subTaskId)
+          }
           : todo
       )
     })),

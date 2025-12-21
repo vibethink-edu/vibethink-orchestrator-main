@@ -2,20 +2,22 @@
 
 import { Pie, PieChart, ResponsiveContainer, Cell } from 'recharts'
 import { Globe, TrendingUp, TrendingDown, MapPin } from 'lucide-react'
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
   CardTitle,
-  ChartConfig, 
+} from '@vibethink/ui/components/card'
+import {
+  ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-  Badge,
-  Progress,
-  Skeleton
-} from '@vibethink/ui'
+} from '@vibethink/ui/components/chart'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Progress } from '@vibethink/ui/components/progress'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
 import { useAnalyticsData } from '../hooks'
 import { AnalyticsCardProps } from '../types'
 
@@ -45,7 +47,7 @@ const chartConfig = {
 
 // Mock country sales data
 const countrySalesData = [
-  { 
+  {
     country: 'United States',
     code: 'US',
     sales: 124500,
@@ -54,7 +56,7 @@ const countrySalesData = [
     orders: 1245,
     flag: '🇺🇸'
   },
-  { 
+  {
     country: 'Canada',
     code: 'CA',
     sales: 85200,
@@ -63,7 +65,7 @@ const countrySalesData = [
     orders: 890,
     flag: '🇨🇦'
   },
-  { 
+  {
     country: 'United Kingdom',
     code: 'GB',
     sales: 45600,
@@ -72,7 +74,7 @@ const countrySalesData = [
     orders: 567,
     flag: '🇬🇧'
   },
-  { 
+  {
     country: 'Germany',
     code: 'DE',
     sales: 24800,
@@ -81,7 +83,7 @@ const countrySalesData = [
     orders: 298,
     flag: '🇩🇪'
   },
-  { 
+  {
     country: 'Australia',
     code: 'AU',
     sales: 14300,
@@ -112,13 +114,13 @@ const COLORS = [
  * 
  * Provides insights into market performance and geographic trends
  */
-export function SalesByCountriesCard({ 
+export function SalesByCountriesCard({
   className = '',
   isLoading: externalLoading = false,
   error: externalError = null
 }: AnalyticsCardProps) {
   const { countrySales, isLoading, error } = useAnalyticsData()
-  
+
   const loading = isLoading || externalLoading
   const errorState = error || externalError
 
@@ -201,11 +203,11 @@ export function SalesByCountriesCard({
             {formatPercentage(averageGrowth)} Avg
           </Badge>
         </div>
-        
+
         <CardDescription>
           Geographic distribution of sales and revenue
         </CardDescription>
-        
+
         {/* Summary Stats */}
         <div className="flex items-center justify-between pt-2 text-sm">
           <div>
@@ -218,7 +220,7 @@ export function SalesByCountriesCard({
           </div>
         </div>
       </CardHeader>
-      
+
       <CardContent className="space-y-6">
         {/* Geographic Distribution Chart */}
         <div className="h-48">
@@ -236,9 +238,9 @@ export function SalesByCountriesCard({
                   label={({ percentage }) => `${percentage.toFixed(1)}%`}
                 >
                   {countrySalesData.map((entry, index) => (
-                    <Cell 
-                      key={`cell-${index}`} 
-                      fill={COLORS[index % COLORS.length]} 
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={COLORS[index % COLORS.length]}
                     />
                   ))}
                 </Pie>
@@ -257,8 +259,8 @@ export function SalesByCountriesCard({
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="flex items-center gap-2">
-                      <div 
-                        className="h-3 w-3 rounded-full" 
+                      <div
+                        className="h-3 w-3 rounded-full"
                         style={{ backgroundColor: COLORS[index] }}
                       />
                       <span className="text-lg">{country.flag}</span>
@@ -280,8 +282,8 @@ export function SalesByCountriesCard({
                     </div>
                   </div>
                 </div>
-                <Progress 
-                  value={country.percentage} 
+                <Progress
+                  value={country.percentage}
                   className="h-1.5"
                   style={{
                     backgroundColor: 'hsl(var(--muted))'
@@ -319,7 +321,7 @@ export function SalesByCountriesCard({
               {formatCurrency(countrySalesData[0].sales)}
             </div>
           </div>
-          
+
           <div className="rounded-lg bg-blue-50 p-3 dark:bg-blue-950/20">
             <div className="text-sm font-bold text-blue-600">
               Fastest Growing

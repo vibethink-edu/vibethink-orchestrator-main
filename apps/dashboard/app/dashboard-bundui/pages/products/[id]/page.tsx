@@ -12,22 +12,18 @@ import {
   TruckIcon
 } from "lucide-react";
 
+import { Button } from "@vibethink/ui/components/button";
 import {
-  Button,
   Card,
   CardAction,
   CardContent,
   CardHeader,
-  CardTitle,
-  Progress,
-  RadioGroup,
-  RadioGroupItem,
-  Label,
-  Table,
-  TableBody,
-  TableCell,
-  TableRow
-} from "@vibethink/ui";
+  CardTitle
+} from "@vibethink/ui/components/card";
+import { Progress } from "@vibethink/ui/components/progress";
+import { RadioGroup, RadioGroupItem } from "@vibethink/ui/components/radio-group";
+import { Label } from "@vibethink/ui/components/label";
+import { Table, TableBody, TableCell, TableRow } from "@vibethink/ui/components/table";
 import ProductReviewList from "./reviews";
 import SubmitReviewForm from "./submit-review-form";
 
@@ -281,6 +277,7 @@ export default function Page() {
     </div>
   );
 }
+
 
 
 

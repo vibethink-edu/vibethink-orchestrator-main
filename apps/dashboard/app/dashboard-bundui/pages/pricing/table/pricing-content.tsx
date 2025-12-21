@@ -2,7 +2,18 @@
 
 import { useState } from "react";
 import { Check, X } from "lucide-react";
-import { Button, Switch, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, Card, CardContent, CardHeader, CardTitle, Badge } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { Switch } from "@vibethink/ui/components/switch";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
+} from "@vibethink/ui/components/table";
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Badge } from "@vibethink/ui/components/badge";
 
 export function PricingContent() {
   const [isYearly, setIsYearly] = useState(false);
@@ -84,7 +95,7 @@ export function PricingContent() {
                     <TableHead key={index} className="text-center">
                       {tier.name}
                       {isYearly && (
-                        <Badge variant="success" className="absolute ms-2">
+                        <Badge variant="secondary" className="absolute ms-2">
                           Save {calculateYearlySavings(tier.monthlyPrice, tier.yearlyPrice)}%
                         </Badge>
                       )}
@@ -176,6 +187,7 @@ export function PricingContent() {
     </div>
   );
 }
+
 
 
 

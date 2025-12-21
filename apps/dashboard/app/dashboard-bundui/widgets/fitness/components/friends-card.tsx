@@ -1,6 +1,6 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { Users } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";
 
 const friends = [
   {

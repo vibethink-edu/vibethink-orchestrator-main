@@ -9,7 +9,7 @@
 
 export const PRODUCT_CONFIG = {
     // Product Name (configurable via env)
-    name: process.env.NEXT_PUBLIC_PRODUCT_NAME || 'Pana',
+    name: process.env.NEXT_PUBLIC_PRODUCT_NAME || 'ViTo',
 
     // Tagline
     tagline: process.env.NEXT_PUBLIC_PRODUCT_TAGLINE || 'El amigo que orquesta tu empresa',

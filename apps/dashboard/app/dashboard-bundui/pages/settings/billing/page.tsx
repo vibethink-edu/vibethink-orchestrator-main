@@ -2,22 +2,24 @@
 
 import { Edit2, Plus } from "lucide-react";
 
+import { Button } from "@vibethink/ui/components/button";
 import {
-  Button,
   Card,
   CardAction,
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle,
+  CardTitle
+} from "@vibethink/ui/components/card";
+import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
-  Badge
-} from "@vibethink/ui";
+  TableRow
+} from "@vibethink/ui/components/table";
+import { Badge } from "@vibethink/ui/components/badge";
 
 type TransactionStatus = "pending" | "failed" | "paid";
 
@@ -99,7 +101,7 @@ export default function Page() {
             <div className="space-y-2">
               <div className="flex items-center gap-2">
                 <div className="font-medium">Carolyn Perkins •••• 0392</div>
-                <Badge variant="info">Primary</Badge>
+                <Badge variant="secondary">Primary</Badge>
               </div>
               <p className="text-muted-foreground text-sm">Expired Dec 2025</p>
             </div>
@@ -143,10 +145,10 @@ export default function Page() {
             <TableBody>
               {transactions.map((transaction) => {
                 const statusMap = {
-                  pending: "warning",
-                  failed: "destructive",
-                  paid: "success"
-                } as const;
+                  pending: "secondary" as const,
+                  failed: "destructive" as const,
+                  paid: "default" as const
+                };
 
                 const statusClass = statusMap[transaction.status] ?? "secondary";
 

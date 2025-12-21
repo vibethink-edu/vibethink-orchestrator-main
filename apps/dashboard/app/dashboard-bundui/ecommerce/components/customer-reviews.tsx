@@ -6,8 +6,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle
-} from "@vibethink/ui";
-import { Button } from "@vibethink/ui";
+} from "@vibethink/ui/components/card";
+import { Button } from "@vibethink/ui/components/button";
 
 interface ReviewStat {
   stars: number;
@@ -141,6 +141,7 @@ export function EcommerceCustomerReviewsCard() {
     </Card>
   );
 }
+
 
 
 

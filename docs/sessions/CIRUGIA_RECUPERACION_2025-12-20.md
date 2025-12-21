@@ -493,8 +493,25 @@ npm run build:dashboard
 
 ---
 
-**Última actualización:** Servidor iniciado con script oficial
-**Estado general:** ✅ **CIRUGÍA COMPLETADA** - Listo para pruebas en `http://localhost:3005/dashboard-bundui`
+**Última actualización:** Versión actualizada a 0.3.1 - Recovery & Critical Fixes
+**Estado general:** ✅ **CIRUGÍA COMPLETADA** - Listo para commit y pruebas
+
+---
+
+## 📦 Versión Actualizada
+
+**Versión:** `0.3.1` - "Recovery & Critical Fixes"
+
+**Archivos actualizados:**
+- ✅ `apps/dashboard/src/lib/version.ts` - Versión 0.3.1
+- ✅ `CHANGELOG.md` - Entrada completa de recuperación
+
+**Commit preparado:** Listo para commit con todos los fixes y documentación
+
+---
+
+**Última actualización:** Versión 0.3.1 - Recovery & Critical Fixes
+**Estado general:** ✅ **CIRUGÍA COMPLETADA** - Listo para commit
 
 ---
 

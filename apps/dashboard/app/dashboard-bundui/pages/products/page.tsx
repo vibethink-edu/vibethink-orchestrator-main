@@ -4,7 +4,15 @@ import Link from "next/link";
 import { PlusIcon } from "@radix-ui/react-icons";
 import { Metadata } from "next";
 
-import { Button, Card, CardAction, CardDescription, CardHeader, CardTitle, Badge } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import {
+  Card,
+  CardAction,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@vibethink/ui/components/card";
+import { Badge } from "@vibethink/ui/components/badge";
 import ProductList from "./product-list";
 
 export const metadata: Metadata = {

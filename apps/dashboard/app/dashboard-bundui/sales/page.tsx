@@ -1,4 +1,4 @@
-import CustomDateRangePicker from "@/shared/components/custom-date-range-picker";
+import CustomDateRangePicker from "@/shared/components/bundui-premium/components/custom-date-range-picker";
 import {
   BalanceCard,
   TaxCard,
@@ -8,7 +8,7 @@ import {
   TableOrderStatus,
   RevenueChart
 } from "./components";
-import { Button } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
 import { Download } from "lucide-react";
 
 /**

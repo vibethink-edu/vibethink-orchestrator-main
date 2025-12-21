@@ -1,4 +1,4 @@
-import { generateMeta } from "@/lib/utils";
+import { generateMeta } from "@/shared/lib/utils";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -12,5 +12,6 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Page() {
   return <div className="text-muted-foreground ps-2 text-sm">Coming soon...</div>;
 }
+
 
 

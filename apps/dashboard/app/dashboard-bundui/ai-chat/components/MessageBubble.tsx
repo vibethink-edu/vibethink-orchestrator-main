@@ -15,15 +15,26 @@
 // =============================================================================
 
 import React, { useState } from 'react'
-import { Button } from '@vibethink/ui'
-import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui'
-import { Badge } from '@vibethink/ui'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@vibethink/ui'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@vibethink/ui'
-import { 
-  Copy, 
-  Edit, 
-  Trash2, 
+import { Button } from '@vibethink/ui/components/button'
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui/components/avatar'
+import { Badge } from '@vibethink/ui/components/badge'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from '@vibethink/ui/components/dropdown-menu'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from '@vibethink/ui/components/tooltip'
+import {
+  Copy,
+  Edit,
+  Trash2,
   MoreVertical,
   User,
   Bot,
@@ -34,7 +45,7 @@ import {
   CheckCircle,
   AlertCircle
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 import { MessageBubbleProps, ChatMessage } from '../types'
 import { formatDistanceToNow } from 'date-fns'
 
@@ -123,7 +134,7 @@ export function MessageBubble({
   }
 
   return (
-    <div 
+    <div
       className={cn(
         "flex gap-3 group",
         isUser && "flex-row-reverse"
@@ -133,7 +144,7 @@ export function MessageBubble({
     >
       {/* Avatar */}
       {getAvatar()}
-      
+
       {/* Message Content */}
       <div className={cn(
         "flex-1 max-w-[80%] space-y-2",
@@ -146,7 +157,7 @@ export function MessageBubble({
         )}>
           <span className="font-medium">{getRoleName()}</span>
           <span>{formatTime(message.created_at)}</span>
-          
+
           {/* Model info for AI messages */}
           {isAI && message.metadata?.model_info && (
             <>
@@ -177,7 +188,7 @@ export function MessageBubble({
           {message.attachments && message.attachments.length > 0 && (
             <div className="mt-3 space-y-2">
               {message.attachments.map((attachment) => (
-                <div 
+                <div
                   key={attachment.id}
                   className="flex items-center gap-2 p-2 rounded bg-background/50 border"
                 >
@@ -215,9 +226,9 @@ export function MessageBubble({
             {/* Copy Action */}
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
+                <Button
+                  variant="ghost"
+                  size="sm"
                   className="h-6 w-6 p-0"
                   onClick={handleCopy}
                 >
@@ -237,9 +248,9 @@ export function MessageBubble({
             {isUser && onEdit && (
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
+                  <Button
+                    variant="ghost"
+                    size="sm"
                     className="h-6 w-6 p-0"
                     onClick={() => onEdit(message.content)}
                   >
@@ -254,9 +265,9 @@ export function MessageBubble({
             {isUser && onDelete && (
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
+                  <Button
+                    variant="ghost"
+                    size="sm"
                     className="h-6 w-6 p-0 text-destructive hover:text-destructive"
                     onClick={onDelete}
                   >
@@ -270,9 +281,9 @@ export function MessageBubble({
             {/* More Actions */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
+                <Button
+                  variant="ghost"
+                  size="sm"
                   className="h-6 w-6 p-0"
                 >
                   <MoreVertical className="h-3 w-3" />
@@ -283,20 +294,20 @@ export function MessageBubble({
                   <Copy className="w-4 h-4" />
                   Copy text
                 </DropdownMenuItem>
-                
+
                 {message.attachments && message.attachments.length > 0 && (
                   <DropdownMenuItem className="gap-2">
                     <Download className="w-4 h-4" />
                     Download attachments
                   </DropdownMenuItem>
                 )}
-                
+
                 {isUser && (
                   <>
                     <DropdownMenuSeparator />
                     {onEdit && (
-                      <DropdownMenuItem 
-                        onClick={() => onEdit(message.content)} 
+                      <DropdownMenuItem
+                        onClick={() => onEdit(message.content)}
                         className="gap-2"
                       >
                         <Edit className="w-4 h-4" />
@@ -304,8 +315,8 @@ export function MessageBubble({
                       </DropdownMenuItem>
                     )}
                     {onDelete && (
-                      <DropdownMenuItem 
-                        onClick={onDelete} 
+                      <DropdownMenuItem
+                        onClick={onDelete}
                         className="gap-2 text-destructive"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -331,7 +342,7 @@ export function MessageBubble({
                 <span>{message.metadata.tokens_used} tokens</span>
               </div>
             )}
-            
+
             {message.metadata.response_time && (
               <div className="flex items-center gap-1">
                 <Clock className="w-3 h-3" />

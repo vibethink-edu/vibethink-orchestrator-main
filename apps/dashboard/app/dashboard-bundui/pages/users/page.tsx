@@ -2,11 +2,11 @@ import { promises as fs } from "fs";
 import path from "path";
 
 import Link from "next/link";
-import { generateMeta } from "@/lib/utils";
+import { generateMeta } from "@/shared/lib/utils";
 import { Metadata } from "next";
 
 import { PlusCircledIcon } from "@radix-ui/react-icons";
-import { Button } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
 import UsersDataTable from "./data-table";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -42,6 +42,7 @@ export default async function Page() {
     </>
   );
 }
+
 
 
 

@@ -15,18 +15,30 @@
 // =============================================================================
 
 import React, { useState } from 'react'
-import { Button } from '@vibethink/ui'
-import { Label } from '@vibethink/ui'
-import { Slider } from '@vibethink/ui'
-import { Input } from '@vibethink/ui'
-import { Textarea } from '@vibethink/ui'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@vibethink/ui'
-import { Switch } from '@vibethink/ui'
-import { Badge } from '@vibethink/ui'
-import { Separator } from '@vibethink/ui'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui'
-import { 
+import { Button } from '@vibethink/ui/components/button'
+import { Label } from '@vibethink/ui/components/label'
+import { Slider } from '@vibethink/ui/components/slider'
+import { Input } from '@vibethink/ui/components/input'
+import { Textarea } from '@vibethink/ui/components/textarea'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@vibethink/ui/components/select'
+import { Switch } from '@vibethink/ui/components/switch'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Separator } from '@vibethink/ui/components/separator'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '@vibethink/ui/components/card'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui/components/tabs'
+import {
   Settings,
   Bot,
   Zap,
@@ -37,7 +49,7 @@ import {
   RotateCcw,
   Info
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 import { ChatSettingsProps, ChatSettings as ChatSettingsType, AIProviderType } from '../types'
 import { ModelSelector } from './ModelSelector'
 
@@ -112,7 +124,7 @@ export function ChatSettings({
               Revert
             </Button>
           )}
-          
+
           <Button
             onClick={handleSave}
             disabled={!hasChanges}

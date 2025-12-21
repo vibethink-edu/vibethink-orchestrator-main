@@ -9,7 +9,9 @@ import {
   PaletteIcon,
   UserCheck
 } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage, Button, Card, CardContent, CardFooter, CardHeader, CardTitle } from "@vibethink/ui";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";
+import { Button } from "@vibethink/ui/components/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 
 const connections = [
   {
@@ -87,12 +89,12 @@ export function ConnectionsTeams() {
 
               {connection.status === "connected" ? (
                 <Button
-                  size="icon-sm"
+                  size="icon"
                   className="shrink-0 rounded-full bg-blue-500 hover:bg-blue-600">
                   <UserCheck />
                 </Button>
               ) : (
-                <Button size="icon-sm" variant="outline" className="shrink-0 rounded-full">
+                <Button size="icon" variant="outline" className="shrink-0 rounded-full">
                   <UserPlus />
                 </Button>
               )}
@@ -136,6 +138,7 @@ export function ConnectionsTeams() {
     </div>
   );
 }
+
 
 
 

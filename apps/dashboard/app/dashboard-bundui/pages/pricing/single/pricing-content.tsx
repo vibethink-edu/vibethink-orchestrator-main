@@ -1,7 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Card, CardContent, CardHeader, CardTitle, Switch, Accordion, AccordionContent, AccordionItem, AccordionTrigger, Badge } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Switch } from "@vibethink/ui/components/switch";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@vibethink/ui/components/accordion";
+import { Badge } from "@vibethink/ui/components/badge";
 import { Check } from "lucide-react";
 
 const features = [
@@ -139,7 +148,7 @@ export function PricingContent() {
                   <Button className="w-full">Start Plan</Button>
 
                   {isAnnual && (
-                    <Badge variant="success" className="absolute end-4 top-2">
+                    <Badge variant="secondary" className="absolute end-4 top-2">
                       Save {savings}%
                     </Badge>
                   )}
@@ -204,6 +213,7 @@ export function PricingContent() {
     </div>
   );
 }
+
 
 
 

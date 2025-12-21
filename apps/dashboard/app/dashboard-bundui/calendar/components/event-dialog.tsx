@@ -6,10 +6,10 @@ import { format, isBefore } from "date-fns";
 
 import type { CalendarEvent, EventColor } from "./";
 import { DefaultEndHour, DefaultStartHour, EndHour, StartHour } from "../constants";
-import { cn } from "@/lib/utils";
-import { Button } from "@vibethink/ui";
-import { Calendar } from "@vibethink/ui";
-import { Checkbox } from "@vibethink/ui";
+import { cn } from "@/shared/lib/utils";
+import { Button } from "@vibethink/ui/components/button";
+import { Calendar } from "@vibethink/ui/components/calendar";
+import { Checkbox } from "@vibethink/ui/components/checkbox";
 import {
   Dialog,
   DialogContent,
@@ -17,19 +17,19 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle
-} from "@vibethink/ui";
-import { Input } from "@vibethink/ui";
-import { Label } from "@vibethink/ui";
-import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui";
-import { RadioGroup, RadioGroupItem } from "@vibethink/ui";
+} from "@vibethink/ui/components/dialog";
+import { Input } from "@vibethink/ui/components/input";
+import { Label } from "@vibethink/ui/components/label";
+import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui/components/popover";
+import { RadioGroup, RadioGroupItem } from "@vibethink/ui/components/radio-group";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@vibethink/ui";
-import { Textarea } from "@vibethink/ui";
+} from "@vibethink/ui/components/select";
+import { Textarea } from "@vibethink/ui/components/textarea";
 
 interface EventDialogProps {
   event: CalendarEvent | null;
@@ -100,7 +100,7 @@ export function EventDialog({ event, isOpen, onClose, onSave, onDelete }: EventD
 
   // Memoize time options so they're only calculated once
   const timeOptions = useMemo(() => {
-    const options = [];
+    const options: { value: string; label: string }[] = [];
     for (let hour = StartHour; hour <= EndHour; hour++) {
       for (let minute = 0; minute < 60; minute += 15) {
         const formattedHour = hour.toString().padStart(2, "0");
@@ -174,43 +174,43 @@ export function EventDialog({ event, isOpen, onClose, onSave, onDelete }: EventD
     bgClass: string;
     borderClass: string;
   }> = [
-    {
-      value: "sky",
-      label: "Sky",
-      bgClass: "bg-sky-400 data-[state=checked]:bg-sky-400",
-      borderClass: "border-sky-400 data-[state=checked]:border-sky-400"
-    },
-    {
-      value: "amber",
-      label: "Amber",
-      bgClass: "bg-amber-400 data-[state=checked]:bg-amber-400",
-      borderClass: "border-amber-400 data-[state=checked]:border-amber-400"
-    },
-    {
-      value: "violet",
-      label: "Violet",
-      bgClass: "bg-violet-400 data-[state=checked]:bg-violet-400",
-      borderClass: "border-violet-400 data-[state=checked]:border-violet-400"
-    },
-    {
-      value: "rose",
-      label: "Rose",
-      bgClass: "bg-rose-400 data-[state=checked]:bg-rose-400",
-      borderClass: "border-rose-400 data-[state=checked]:border-rose-400"
-    },
-    {
-      value: "emerald",
-      label: "Emerald",
-      bgClass: "bg-emerald-400 data-[state=checked]:bg-emerald-400",
-      borderClass: "border-emerald-400 data-[state=checked]:border-emerald-400"
-    },
-    {
-      value: "orange",
-      label: "Orange",
-      bgClass: "bg-orange-400 data-[state=checked]:bg-orange-400",
-      borderClass: "border-orange-400 data-[state=checked]:border-orange-400"
-    }
-  ];
+      {
+        value: "sky",
+        label: "Sky",
+        bgClass: "bg-sky-400 data-[state=checked]:bg-sky-400",
+        borderClass: "border-sky-400 data-[state=checked]:border-sky-400"
+      },
+      {
+        value: "amber",
+        label: "Amber",
+        bgClass: "bg-amber-400 data-[state=checked]:bg-amber-400",
+        borderClass: "border-amber-400 data-[state=checked]:border-amber-400"
+      },
+      {
+        value: "violet",
+        label: "Violet",
+        bgClass: "bg-violet-400 data-[state=checked]:bg-violet-400",
+        borderClass: "border-violet-400 data-[state=checked]:border-violet-400"
+      },
+      {
+        value: "rose",
+        label: "Rose",
+        bgClass: "bg-rose-400 data-[state=checked]:bg-rose-400",
+        borderClass: "border-rose-400 data-[state=checked]:border-rose-400"
+      },
+      {
+        value: "emerald",
+        label: "Emerald",
+        bgClass: "bg-emerald-400 data-[state=checked]:bg-emerald-400",
+        borderClass: "border-emerald-400 data-[state=checked]:border-emerald-400"
+      },
+      {
+        value: "orange",
+        label: "Orange",
+        bgClass: "bg-orange-400 data-[state=checked]:bg-orange-400",
+        borderClass: "border-orange-400 data-[state=checked]:border-orange-400"
+      }
+    ];
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>

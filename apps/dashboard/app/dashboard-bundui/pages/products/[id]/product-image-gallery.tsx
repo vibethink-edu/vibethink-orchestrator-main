@@ -11,7 +11,7 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-import { Card, CardContent } from "@vibethink/ui";
+import { Card, CardContent } from "@vibethink/ui/components/card";
 
 export default function ProductImageGallery() {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
@@ -80,6 +80,7 @@ export default function ProductImageGallery() {
     </div>
   );
 }
+
 
 
 

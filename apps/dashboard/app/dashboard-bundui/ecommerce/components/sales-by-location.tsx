@@ -1,9 +1,9 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
-import { Badge } from "@vibethink/ui";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Badge } from "@vibethink/ui/components/badge";
 import { ExportButton } from "@/shared/components/CardActionMenus";
-import { Progress } from "@vibethink/ui";
+import { Progress } from "@vibethink/ui/components/progress";
 
 type SalesData = {
   country: string;
@@ -60,6 +60,7 @@ export function EcommerceSalesByLocationCard() {
     </Card>
   );
 }
+
 
 
 

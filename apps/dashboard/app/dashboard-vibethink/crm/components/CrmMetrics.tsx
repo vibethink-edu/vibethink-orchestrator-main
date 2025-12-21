@@ -1,4 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle, Skeleton } from '@vibethink/ui'
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui/components/card'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
 import { Users, DollarSign, TrendingUp, Target } from 'lucide-react'
 import { useCrmData } from '../hooks/useCrmData'
 
@@ -59,7 +60,7 @@ export function CrmMetrics({ className }: CrmMetricsProps) {
           </p>
         </CardContent>
       </Card>
-      
+
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">Revenue</CardTitle>
@@ -72,7 +73,7 @@ export function CrmMetrics({ className }: CrmMetricsProps) {
           </p>
         </CardContent>
       </Card>
-      
+
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">Active Deals</CardTitle>
@@ -85,7 +86,7 @@ export function CrmMetrics({ className }: CrmMetricsProps) {
           </p>
         </CardContent>
       </Card>
-      
+
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">Conversion Rate</CardTitle>

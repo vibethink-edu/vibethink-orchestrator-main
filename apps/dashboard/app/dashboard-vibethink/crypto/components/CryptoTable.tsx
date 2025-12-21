@@ -4,19 +4,26 @@
  */
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle, Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@vibethink/ui'
-import { 
-  MoreHorizontal, 
-  TrendingUp, 
-  TrendingDown, 
-  Edit, 
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui/components/card'
+import { Button } from '@vibethink/ui/components/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from '@vibethink/ui/components/dropdown-menu'
+import {
+  MoreHorizontal,
+  TrendingUp,
+  TrendingDown,
+  Edit,
   Trash2,
   ExternalLink
 } from 'lucide-react'
 import { CryptoTableProps } from '../types'
 
-export const CryptoTable: React.FC<CryptoTableProps> = ({ 
-  holdings, 
+export const CryptoTable: React.FC<CryptoTableProps> = ({
+  holdings,
   loading = false,
   onEdit,
   onDelete
@@ -146,9 +153,8 @@ export const CryptoTable: React.FC<CryptoTableProps> = ({
                         <p className="font-medium">{formatCurrency(holding.total_value)}</p>
                       </td>
                       <td className="py-4 px-2">
-                        <div className={`${
-                          holding.profit_loss >= 0 ? 'text-green-600' : 'text-red-600'
-                        }`}>
+                        <div className={`${holding.profit_loss >= 0 ? 'text-green-600' : 'text-red-600'
+                          }`}>
                           <div className="flex items-center space-x-1">
                             {holding.profit_loss >= 0 ? (
                               <TrendingUp className="w-4 h-4" />
@@ -188,7 +194,7 @@ export const CryptoTable: React.FC<CryptoTableProps> = ({
                               View Details
                             </DropdownMenuItem>
                             {onDelete && (
-                              <DropdownMenuItem 
+                              <DropdownMenuItem
                                 onClick={() => onDelete(holding.id)}
                                 className="text-red-600"
                               >
@@ -240,7 +246,7 @@ export const CryptoTable: React.FC<CryptoTableProps> = ({
                         View Details
                       </DropdownMenuItem>
                       {onDelete && (
-                        <DropdownMenuItem 
+                        <DropdownMenuItem
                           onClick={() => onDelete(holding.id)}
                           className="text-red-600"
                         >
@@ -251,7 +257,7 @@ export const CryptoTable: React.FC<CryptoTableProps> = ({
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
-                
+
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
                     <p className="text-muted-foreground">Holdings</p>
@@ -267,9 +273,8 @@ export const CryptoTable: React.FC<CryptoTableProps> = ({
                   </div>
                   <div>
                     <p className="text-muted-foreground">P&L</p>
-                    <div className={`${
-                      holding.profit_loss >= 0 ? 'text-green-600' : 'text-red-600'
-                    }`}>
+                    <div className={`${holding.profit_loss >= 0 ? 'text-green-600' : 'text-red-600'
+                      }`}>
                       <div className="flex items-center space-x-1">
                         {holding.profit_loss >= 0 ? (
                           <TrendingUp className="w-4 h-4" />
@@ -283,7 +288,7 @@ export const CryptoTable: React.FC<CryptoTableProps> = ({
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="mt-3 pt-3 border-t">
                   <div className="flex items-center justify-between">
                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 capitalize">

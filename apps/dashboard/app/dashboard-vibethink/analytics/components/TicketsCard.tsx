@@ -1,6 +1,9 @@
 'use client'
 import { Headphones, ClockIcon, CheckCircle, AlertTriangle, Star } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Progress, Skeleton } from '@vibethink/ui'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui/components/card'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Progress } from '@vibethink/ui/components/progress'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
 import { useAnalyticsData } from '../hooks'
 import { AnalyticsCardProps } from '../types'
 
@@ -37,21 +40,21 @@ const ticketsData = {
  * 
  * Provides insights into support team performance and customer service quality
  */
-export function TicketsCard({ 
+export function TicketsCard({
   className = '',
   isLoading: externalLoading = false,
   error: externalError = null
 }: AnalyticsCardProps) {
   const { supportTickets, isLoading, error } = useAnalyticsData()
-  
+
   const loading = isLoading || externalLoading
   const errorState = error || externalError
 
   // Calculate metrics
   const resolutionRate = (ticketsData.resolved / ticketsData.total) * 100
   const pendingTickets = ticketsData.open + ticketsData.inProgress
-  const responseTimeStatus = ticketsData.averageResponseTime <= 4 ? 'excellent' : 
-                           ticketsData.averageResponseTime <= 8 ? 'good' : 'needs-improvement'
+  const responseTimeStatus = ticketsData.averageResponseTime <= 4 ? 'excellent' :
+    ticketsData.averageResponseTime <= 8 ? 'good' : 'needs-improvement'
 
   // Format time
   const formatTime = (hours: number): string => {
@@ -115,20 +118,20 @@ export function TicketsCard({
             <Headphones className="h-5 w-5 text-chart-1" />
             Support Tickets
           </CardTitle>
-          <Badge 
-            variant="outline" 
+          <Badge
+            variant="outline"
             className={`gap-1 ${getStatusColor(responseTimeStatus)}`}
           >
             <ClockIcon className="h-3 w-3" />
             {formatTime(ticketsData.averageResponseTime)} avg
           </Badge>
         </div>
-        
+
         <CardDescription>
           Support team performance and ticket analytics
         </CardDescription>
       </CardHeader>
-      
+
       <CardContent className="space-y-6">
         {/* Key Metrics Overview */}
         <div className="grid grid-cols-2 gap-4">
@@ -142,7 +145,7 @@ export function TicketsCard({
               {ticketsData.resolved} resolved
             </div>
           </div>
-          
+
           <div className="rounded-lg bg-yellow-50 p-3 dark:bg-yellow-950/20">
             <div className="flex items-center gap-2 mb-1">
               <Star className="h-4 w-4 text-yellow-600" />
@@ -158,7 +161,7 @@ export function TicketsCard({
         {/* Ticket Status Breakdown */}
         <div className="space-y-3">
           <h4 className="text-sm font-medium text-muted-foreground">Ticket Status</h4>
-          
+
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
               <div className="flex items-center gap-2">
@@ -169,7 +172,7 @@ export function TicketsCard({
             </div>
             <Progress value={(ticketsData.resolved / ticketsData.total) * 100} className="h-1.5" />
           </div>
-          
+
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
               <div className="flex items-center gap-2">
@@ -180,7 +183,7 @@ export function TicketsCard({
             </div>
             <Progress value={(ticketsData.inProgress / ticketsData.total) * 100} className="h-1.5" />
           </div>
-          
+
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
               <div className="flex items-center gap-2">
@@ -196,7 +199,7 @@ export function TicketsCard({
         {/* Priority Breakdown */}
         <div className="space-y-3">
           <h4 className="text-sm font-medium text-muted-foreground">Priority Distribution</h4>
-          
+
           <div className="grid grid-cols-3 gap-2 text-center">
             <div className="rounded-lg bg-red-50 p-2 dark:bg-red-950/20">
               <div className="flex items-center justify-center gap-1 mb-1">
@@ -205,7 +208,7 @@ export function TicketsCard({
               </div>
               <div className="text-sm font-bold">{ticketsData.priorityBreakdown.high}</div>
             </div>
-            
+
             <div className="rounded-lg bg-yellow-50 p-2 dark:bg-yellow-950/20">
               <div className="flex items-center justify-center gap-1 mb-1">
                 <ClockIcon className="h-3 w-3 text-yellow-600" />
@@ -213,7 +216,7 @@ export function TicketsCard({
               </div>
               <div className="text-sm font-bold">{ticketsData.priorityBreakdown.medium}</div>
             </div>
-            
+
             <div className="rounded-lg bg-green-50 p-2 dark:bg-green-950/20">
               <div className="flex items-center justify-center gap-1 mb-1">
                 <CheckCircle className="h-3 w-3 text-green-600" />
@@ -227,12 +230,12 @@ export function TicketsCard({
         {/* Category Breakdown */}
         <div className="space-y-3">
           <h4 className="text-sm font-medium text-muted-foreground">Top Categories</h4>
-          
+
           <div className="space-y-2">
             {ticketsData.categoryBreakdown.slice(0, 4).map((category, index) => (
               <div key={category.category} className="flex items-center justify-between text-sm">
                 <div className="flex items-center gap-2">
-                  <div 
+                  <div
                     className="h-2 w-2 rounded-full"
                     style={{ backgroundColor: `hsl(var(--chart-${index + 1}))` }}
                   ></div>

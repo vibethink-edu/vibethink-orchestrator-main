@@ -1,5 +1,7 @@
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle, Progress, Badge } from "@vibethink/ui";
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Progress } from "@vibethink/ui/components/progress";
+import { Badge } from "@vibethink/ui/components/badge";
 import { CalendarCheck2Icon, CalendarClockIcon } from "lucide-react";
 
 export function ProgressStatisticsCard() {

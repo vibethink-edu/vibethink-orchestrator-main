@@ -1,5 +1,7 @@
 import { UserPlus, MoreHorizontal } from "lucide-react";
-import { Button, Tabs, TabsList, TabsTrigger, Badge } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { Tabs, TabsList, TabsTrigger } from "@vibethink/ui/components/tabs";
+import { Badge } from "@vibethink/ui/components/badge";
 import { ProfileHeader } from "./ProfileHeader";
 import { ProfileSidebar } from "./ProfileSidebar";
 import { ActivityStream } from "./ActivityStream";
@@ -43,7 +45,7 @@ export function ProfilePage() {
                   <UserPlus />
                   <span className="hidden md:inline">Connect</span>
                 </Button>
-                <Button variant="outline" size="icon-sm">
+                <Button variant="outline" size="icon">
                   <MoreHorizontal />
                 </Button>
               </div>
@@ -64,6 +66,7 @@ export function ProfilePage() {
     </div>
   );
 }
+
 
 
 

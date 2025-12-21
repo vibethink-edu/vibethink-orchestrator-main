@@ -1,6 +1,6 @@
 import { ProfilePage } from "./components/ProfilePage";
 import { Metadata } from "next";
-import { generateMeta } from "@/lib/utils";
+import { generateMeta } from "@/shared/lib/utils";
 
 export async function generateMetadata(): Promise<Metadata> {
   return generateMeta({
@@ -16,6 +16,7 @@ function App() {
 }
 
 export default App;
+
 
 
 

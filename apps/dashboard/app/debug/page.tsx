@@ -4,7 +4,7 @@
  * Esta página incluye debugging para sidebar y sistema general
  */
 
-import { DashboardLayout } from '@vibethink/ui';
+import { DashboardLayout } from '@vibethink/ui/components/dashboard-layout';
 import SidebarTestPage from './sidebar-test';
 
 export default function DebugPage() {
@@ -16,7 +16,7 @@ export default function DebugPage() {
           <h2 className="text-xl font-semibold mb-4 text-blue-700">🔧 Sidebar Layout Debug</h2>
           <SidebarTestPage />
         </div>
-        
+
         {/* Debug Panels - TODO: Migrar desde bundui-ui */}
         <div className="mb-8 p-4 bg-muted rounded-lg">
           <h2 className="text-xl font-semibold mb-4 text-gray-700">Debug Panels</h2>

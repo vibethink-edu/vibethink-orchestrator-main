@@ -34,7 +34,7 @@ import {
   CheckCircle,
   AlertCircle
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 import { MessageBubbleProps, ChatMessage } from '../types'
 import { formatDistanceToNow } from 'date-fns'
 

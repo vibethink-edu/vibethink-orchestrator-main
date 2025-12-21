@@ -4,19 +4,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { Button } from "@vibethink/ui/components/button";
+import { Checkbox } from "@vibethink/ui/components/checkbox";
 import {
-  Button,
-  Checkbox,
   Form,
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
-  Card,
-  CardContent
-} from "@vibethink/ui";
+  FormMessage
+} from "@vibethink/ui/components/form";
+import { Card, CardContent } from "@vibethink/ui/components/card";
 import { toast } from "sonner";
 
 const items = [
@@ -106,8 +105,8 @@ export default function Page() {
                                   return checked
                                     ? field.onChange([...field.value, item.id])
                                     : field.onChange(
-                                        field.value?.filter((value) => value !== item.id)
-                                      );
+                                      field.value?.filter((value) => value !== item.id)
+                                    );
                                 }}
                               />
                             </FormControl>
@@ -128,6 +127,7 @@ export default function Page() {
     </Card>
   );
 }
+
 
 
 

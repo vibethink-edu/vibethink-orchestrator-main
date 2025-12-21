@@ -1,4 +1,4 @@
-import { generateMeta } from "@/lib/utils";
+import { generateMeta } from "@/shared/lib/utils";
 import { Metadata } from "next";
 
 import EventCalendarApp from "./components/event-calendar-app";

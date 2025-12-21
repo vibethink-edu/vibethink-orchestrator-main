@@ -37,7 +37,7 @@ import {
   RotateCcw,
   Info
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 import { ChatSettingsProps, ChatSettings as ChatSettingsType, AIProviderType } from '../types'
 import { ModelSelector } from './ModelSelector'
 

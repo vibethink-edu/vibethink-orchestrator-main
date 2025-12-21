@@ -15,15 +15,15 @@ import {
 } from "@tanstack/react-table";
 import { ArrowUpDown, ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 
-import { Button } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger
-} from "@vibethink/ui";
-import { Input } from "@vibethink/ui";
+} from "@vibethink/ui/components/dropdown-menu";
+import { Input } from "@vibethink/ui/components/input";
 import {
   Table,
   TableBody,
@@ -31,8 +31,8 @@ import {
   TableHead,
   TableHeader,
   TableRow
-} from "@vibethink/ui";
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
+} from "@vibethink/ui/components/table";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { ExportButton } from "@/shared/components/CardActionMenus";
 import Image from "next/image";
 

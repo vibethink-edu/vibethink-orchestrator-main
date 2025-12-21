@@ -1,8 +1,8 @@
 
 import { Moon } from "lucide-react";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
-import { Progress } from "@vibethink/ui";
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Progress } from "@vibethink/ui/components/progress";
 
 export function SleepCard() {
   return (

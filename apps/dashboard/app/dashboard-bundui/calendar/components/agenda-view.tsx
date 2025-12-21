@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import { addDays, format, isToday } from "date-fns";
 
 import { AgendaDaysToShow, CalendarEvent, EventItem, getAgendaEventsForDay } from "./";
+import { cn } from "@/shared/lib/utils";
 import { Calendar } from "lucide-react";
 
 interface AgendaViewProps {

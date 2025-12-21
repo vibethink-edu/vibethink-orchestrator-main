@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui'
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 // Chart components from recharts - mantener import directo
 // import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@vibethink/ui'
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts'
@@ -62,10 +62,10 @@ export function CrmCharts() {
               <XAxis dataKey="month" />
               <YAxis />
               {/* ChartTooltip - TODO: Implementar con recharts */}
-              <Line 
-                type="monotone" 
-                dataKey="customers" 
-                stroke="hsl(var(--chart-1))" 
+              <Line
+                type="monotone"
+                dataKey="customers"
+                stroke="hsl(var(--chart-1))"
                 strokeWidth={2}
                 dot={{ fill: "hsl(var(--chart-1))" }}
               />
@@ -92,8 +92,8 @@ export function CrmCharts() {
               <XAxis dataKey="stage" />
               <YAxis />
               {/* ChartTooltip - TODO: Implementar con recharts */}
-              <Bar 
-                dataKey="value" 
+              <Bar
+                dataKey="value"
                 fill="var(--color-value)"
               />
             </BarChart>
@@ -123,8 +123,8 @@ export function CrmCharts() {
               <XAxis dataKey="month" />
               <YAxis />
               {/* ChartTooltip - TODO: Implementar con recharts */}
-              <Bar 
-                dataKey="revenue" 
+              <Bar
+                dataKey="revenue"
                 fill="var(--color-revenue)"
               />
             </BarChart>

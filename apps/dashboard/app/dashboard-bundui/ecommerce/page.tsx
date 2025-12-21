@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Button } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
 
 import {
   EcommerceBestSellingProductsCard,
@@ -14,7 +14,7 @@ import {
   EcommerceVisitBySourceCard,
   EcommerceWelcomeCard
 } from "./components";
-import CustomDateRangePicker from "@/shared/components/custom-date-range-picker";
+import CustomDateRangePicker from "@/shared/components/bundui-premium/components/custom-date-range-picker";
 import { Download } from "lucide-react";
 
 export const metadata: Metadata = {

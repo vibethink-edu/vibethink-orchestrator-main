@@ -4,12 +4,12 @@
  */
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui'
-import { 
-  DollarSign, 
-  TrendingUp, 
-  TrendingDown, 
-  Target, 
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui/components/card'
+import {
+  DollarSign,
+  TrendingUp,
+  TrendingDown,
+  Target,
   Wallet,
   Activity,
   BarChart3,
@@ -17,9 +17,9 @@ import {
 } from 'lucide-react'
 import { PortfolioOverviewProps } from '../types'
 
-export const PortfolioOverview: React.FC<PortfolioOverviewProps> = ({ 
-  metrics, 
-  loading = false 
+export const PortfolioOverview: React.FC<PortfolioOverviewProps> = ({
+  metrics,
+  loading = false
 }) => {
   if (loading) {
     return (
@@ -96,20 +96,17 @@ export const PortfolioOverview: React.FC<PortfolioOverviewProps> = ({
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-muted-foreground">24h Change</p>
-              <p className={`text-2xl font-bold ${
-                metrics.daily_change >= 0 ? 'text-green-600' : 'text-red-600'
-              }`}>
+              <p className={`text-2xl font-bold ${metrics.daily_change >= 0 ? 'text-green-600' : 'text-red-600'
+                }`}>
                 {formatPercentage(metrics.daily_change_percentage)}
               </p>
-              <p className={`text-xs mt-1 ${
-                metrics.daily_change >= 0 ? 'text-green-600' : 'text-red-600'
-              }`}>
+              <p className={`text-xs mt-1 ${metrics.daily_change >= 0 ? 'text-green-600' : 'text-red-600'
+                }`}>
                 {metrics.daily_change >= 0 ? '+' : ''}{formatCurrency(metrics.daily_change)}
               </p>
             </div>
-            <div className={`p-2 rounded-full ${
-              metrics.daily_change >= 0 ? 'bg-green-100' : 'bg-red-100'
-            }`}>
+            <div className={`p-2 rounded-full ${metrics.daily_change >= 0 ? 'bg-green-100' : 'bg-red-100'
+              }`}>
               {metrics.daily_change >= 0 ? (
                 <TrendingUp className="h-6 w-6 text-green-600" />
               ) : (
@@ -126,20 +123,17 @@ export const PortfolioOverview: React.FC<PortfolioOverviewProps> = ({
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-muted-foreground">Total P&L</p>
-              <p className={`text-2xl font-bold ${
-                metrics.total_profit_loss >= 0 ? 'text-green-600' : 'text-red-600'
-              }`}>
+              <p className={`text-2xl font-bold ${metrics.total_profit_loss >= 0 ? 'text-green-600' : 'text-red-600'
+                }`}>
                 {metrics.total_profit_loss >= 0 ? '+' : ''}{formatCurrency(metrics.total_profit_loss)}
               </p>
-              <p className={`text-xs mt-1 ${
-                metrics.total_profit_loss >= 0 ? 'text-green-600' : 'text-red-600'
-              }`}>
+              <p className={`text-xs mt-1 ${metrics.total_profit_loss >= 0 ? 'text-green-600' : 'text-red-600'
+                }`}>
                 {formatPercentage(metrics.total_profit_loss_percentage)}
               </p>
             </div>
-            <div className={`p-2 rounded-full ${
-              metrics.total_profit_loss >= 0 ? 'bg-green-100' : 'bg-red-100'
-            }`}>
+            <div className={`p-2 rounded-full ${metrics.total_profit_loss >= 0 ? 'bg-green-100' : 'bg-red-100'
+              }`}>
               <Target className="h-6 w-6 text-primary" />
             </div>
           </div>
@@ -172,14 +166,12 @@ export const PortfolioOverview: React.FC<PortfolioOverviewProps> = ({
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-muted-foreground">7d Change</p>
-              <p className={`text-xl font-bold ${
-                metrics.weekly_change >= 0 ? 'text-green-600' : 'text-red-600'
-              }`}>
+              <p className={`text-xl font-bold ${metrics.weekly_change >= 0 ? 'text-green-600' : 'text-red-600'
+                }`}>
                 {formatPercentage(metrics.weekly_change_percentage)}
               </p>
-              <p className={`text-xs mt-1 ${
-                metrics.weekly_change >= 0 ? 'text-green-600' : 'text-red-600'
-              }`}>
+              <p className={`text-xs mt-1 ${metrics.weekly_change >= 0 ? 'text-green-600' : 'text-red-600'
+                }`}>
                 {metrics.weekly_change >= 0 ? '+' : ''}{formatCurrency(metrics.weekly_change)}
               </p>
             </div>
@@ -196,14 +188,12 @@ export const PortfolioOverview: React.FC<PortfolioOverviewProps> = ({
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-muted-foreground">30d Change</p>
-              <p className={`text-xl font-bold ${
-                metrics.monthly_change >= 0 ? 'text-green-600' : 'text-red-600'
-              }`}>
+              <p className={`text-xl font-bold ${metrics.monthly_change >= 0 ? 'text-green-600' : 'text-red-600'
+                }`}>
                 {formatPercentage(metrics.monthly_change_percentage)}
               </p>
-              <p className={`text-xs mt-1 ${
-                metrics.monthly_change >= 0 ? 'text-green-600' : 'text-red-600'
-              }`}>
+              <p className={`text-xs mt-1 ${metrics.monthly_change >= 0 ? 'text-green-600' : 'text-red-600'
+                }`}>
                 {metrics.monthly_change >= 0 ? '+' : ''}{formatCurrency(metrics.monthly_change)}
               </p>
             </div>

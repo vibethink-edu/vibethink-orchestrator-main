@@ -1,5 +1,17 @@
 import { Clock12Icon, FileText, MoreHorizontal } from "lucide-react";
-import { Badge, Button, Card, CardAction, CardContent, CardFooter, CardHeader, CardTitle, Timeline, TimelineContent, TimelineDate, TimelineHeader, TimelineIndicator, TimelineItem, TimelineSeparator, TimelineTitle } from "@vibethink/ui";
+import { Badge } from "@vibethink/ui/components/badge";
+import { Button } from "@vibethink/ui/components/button";
+import { Card, CardAction, CardContent, CardFooter, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import {
+  Timeline,
+  TimelineContent,
+  TimelineDate,
+  TimelineHeader,
+  TimelineIndicator,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineTitle
+} from "@vibethink/ui/components/extensions/timeline";
 import Link from "next/link";
 
 const activities = [
@@ -52,7 +64,7 @@ export function ActivityStream() {
       <CardHeader>
         <CardTitle>Activity stream</CardTitle>
         <CardAction>
-          <Button variant="ghost" size="icon-sm">
+          <Button variant="ghost" size="icon">
             <MoreHorizontal />
           </Button>
         </CardAction>
@@ -113,6 +125,7 @@ export function ActivityStream() {
     </Card>
   );
 }
+
 
 
 

@@ -15,14 +15,20 @@
 // =============================================================================
 
 import React from 'react'
-import { Button } from '@vibethink/ui'
-import { Badge } from '@vibethink/ui'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@vibethink/ui'
-import { Separator } from '@vibethink/ui'
-import { 
-  Settings, 
-  Share2, 
-  Download, 
+import { Button } from '@vibethink/ui/components/button'
+import { Badge } from '@vibethink/ui/components/badge'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from '@vibethink/ui/components/dropdown-menu'
+import { Separator } from '@vibethink/ui/components/separator'
+import {
+  Settings,
+  Share2,
+  Download,
   MoreVertical,
   Bot,
   MessageSquare,
@@ -30,7 +36,7 @@ import {
   Zap,
   User
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 import { ChatHeaderProps, AIProviderType } from '../types'
 import { formatDistanceToNow } from 'date-fns'
 
@@ -123,12 +129,12 @@ export function ChatHeader({
             <h1 className="font-semibold text-foreground truncate">
               {chat.title || 'Untitled Chat'}
             </h1>
-            
+
             {/* Provider Badge */}
-            <Badge 
-              variant="outline" 
+            <Badge
+              variant="outline"
               className="text-xs px-2 py-0.5 shrink-0"
-              style={{ 
+              style={{
                 borderColor: getProviderColor(chat.ai_provider),
                 color: getProviderColor(chat.ai_provider)
               }}
@@ -143,16 +149,16 @@ export function ChatHeader({
               <Bot className="w-3 h-3" />
               <span>{chat.ai_model}</span>
             </div>
-            
+
             <Separator orientation="vertical" className="h-3" />
-            
+
             <div className="flex items-center gap-1">
               <MessageSquare className="w-3 h-3" />
               <span>{messagesCount} messages</span>
             </div>
-            
+
             <Separator orientation="vertical" className="h-3" />
-            
+
             <div className="flex items-center gap-1">
               <Clock className="w-3 h-3" />
               <span>{formatRelativeTime(chat.last_message_at || chat.updated_at)}</span>
@@ -160,7 +166,7 @@ export function ChatHeader({
 
             {/* Temperature indicator */}
             <Separator orientation="vertical" className="h-3" />
-            
+
             <div className="flex items-center gap-1">
               <Zap className="w-3 h-3" />
               <span>T: {chat.settings.temperature}</span>

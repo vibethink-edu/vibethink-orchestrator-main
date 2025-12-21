@@ -1,7 +1,7 @@
 import React from "react";
 import { format } from "date-fns";
 import { CalendarIcon, Plus, X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useTodoStore } from "../store";
@@ -15,20 +15,29 @@ import {
 } from "../enum";
 import { toast } from "sonner";
 
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@vibethink/ui";
-import { Button } from "@vibethink/ui";
-import { Input } from "@vibethink/ui";
-import { Textarea } from "@vibethink/ui";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle
+} from "@vibethink/ui/components/sheet";
+import { Button } from "@vibethink/ui/components/button";
+import { Input } from "@vibethink/ui/components/input";
+import { Textarea } from "@vibethink/ui/components/textarea";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@vibethink/ui";
-import { Calendar } from "@vibethink/ui";
-import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui";
-import { Badge } from "@vibethink/ui";
+} from "@vibethink/ui/components/select";
+import { Calendar } from "@vibethink/ui/components/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger
+} from "@vibethink/ui/components/popover";
+import { Badge } from "@vibethink/ui/components/badge";
 import {
   Form,
   FormControl,
@@ -36,7 +45,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/form";
 
 interface AddTodoSheetProps {
   isOpen: boolean;
@@ -127,7 +136,7 @@ const AddTodoSheet: React.FC<AddTodoSheetProps> = ({ isOpen, onClose, editTodoId
           <SheetTitle>{editTodoId ? "Edit To-Do" : "Add New To-Do"}</SheetTitle>
         </SheetHeader>
 
-        <Form {...form}>
+        <Form {...(form as any)}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-4 pt-0">
             <FormField
               control={form.control}

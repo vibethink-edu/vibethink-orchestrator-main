@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import {
   ChartConfig,
   ChartContainer,
@@ -8,7 +8,7 @@ import {
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/chart";
 import { Label, Pie, PieChart } from "recharts";
 
 export function EcommerceVisitBySourceCard() {
@@ -95,6 +95,7 @@ export function EcommerceVisitBySourceCard() {
     </Card>
   );
 }
+
 
 
 

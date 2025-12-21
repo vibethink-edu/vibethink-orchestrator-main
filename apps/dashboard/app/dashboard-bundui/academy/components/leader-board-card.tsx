@@ -1,6 +1,15 @@
 import { ChevronRight } from "lucide-react";
 
-import { Card, CardAction, CardContent, CardHeader, CardTitle, Badge, Button, Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardHeader,
+  CardTitle
+} from "@vibethink/ui/components/card";
+import { Badge } from "@vibethink/ui/components/badge";
+import { Button } from "@vibethink/ui/components/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";
 
 export function LeaderboardCard() {
   const topStudents = [

@@ -1,10 +1,19 @@
-import { Card, CardContent, CardHeader, CardTitle, Button, Badge, Skeleton, ScrollArea } from '@vibethink/ui'
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle
+} from '@vibethink/ui/components/card'
+import { Button } from '@vibethink/ui/components/button'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
+import { ScrollArea } from '@vibethink/ui/components/scroll-area'
 import { FinancialInsightsProps, FinancialInsight } from '../types'
-import { 
-  Lightbulb, 
-  TrendingUp, 
-  TrendingDown, 
-  AlertTriangle, 
+import {
+  Lightbulb,
+  TrendingUp,
+  TrendingDown,
+  AlertTriangle,
   CheckCircle,
   DollarSign,
   Target,
@@ -35,10 +44,10 @@ import { useState } from 'react'
  * - Loading states with skeletons
  * - HSL color variables for theme compatibility
  */
-export function FinancialInsights({ 
-  insights, 
-  loading = false, 
-  className 
+export function FinancialInsights({
+  insights,
+  loading = false,
+  className
 }: FinancialInsightsProps) {
   const [dismissedInsights, setDismissedInsights] = useState<Set<string>>(new Set())
   const [filter, setFilter] = useState<'all' | 'high' | 'medium' | 'low'>('all')
@@ -180,15 +189,15 @@ export function FinancialInsights({
   const sortedInsights = [...filteredInsights].sort((a, b) => {
     const priorityOrder = { urgent: 3, important: 2, normal: 1 }
     const impactOrder = { high: 3, medium: 2, low: 1 }
-    
+
     const aPriority = priorityOrder[a.priority as keyof typeof priorityOrder] || 0
     const bPriority = priorityOrder[b.priority as keyof typeof priorityOrder] || 0
-    
+
     if (aPriority !== bPriority) return bPriority - aPriority
-    
+
     const aImpact = impactOrder[a.impact as keyof typeof impactOrder] || 0
     const bImpact = impactOrder[b.impact as keyof typeof impactOrder] || 0
-    
+
     return bImpact - aImpact
   })
 
@@ -262,8 +271,8 @@ export function FinancialInsights({
               </div>
             ) : (
               sortedInsights.map((insight) => (
-                <div 
-                  key={insight.id} 
+                <div
+                  key={insight.id}
                   className="p-4 border rounded-lg space-y-3 hover:bg-muted/20 transition-colors"
                 >
                   {/* Insight Header */}
@@ -278,14 +287,14 @@ export function FinancialInsights({
                           {getTrendIcon(insight.trend)}
                         </div>
                         <div className="flex items-center gap-2 mb-2">
-                          <Badge 
-                            variant={getImpactBadgeVariant(insight.impact)} 
+                          <Badge
+                            variant={getImpactBadgeVariant(insight.impact)}
                             className="text-xs capitalize"
                           >
                             {insight.impact} impact
                           </Badge>
-                          <Badge 
-                            variant="outline" 
+                          <Badge
+                            variant="outline"
                             className={`text-xs capitalize ${getPriorityColor(insight.priority)}`}
                           >
                             {insight.priority}
@@ -329,8 +338,8 @@ export function FinancialInsights({
                           {insight.action_suggestion}
                         </p>
                       </div>
-                      <Button 
-                        size="sm" 
+                      <Button
+                        size="sm"
                         onClick={() => handleTakeAction(insight)}
                         className="ml-3 gap-1"
                       >

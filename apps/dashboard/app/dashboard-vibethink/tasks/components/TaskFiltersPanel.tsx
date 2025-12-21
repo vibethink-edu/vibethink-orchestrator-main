@@ -8,24 +8,15 @@
 'use client'
 
 import React, { useState } from 'react'
-import { 
-  Card, 
-  CardContent, 
-  Button, 
-  Input, 
-  Label, 
-  Checkbox, 
-  Badge,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger
-} from '@vibethink/ui'
-import { 
+import { Card, CardContent } from '@vibethink/ui/components/card'
+import { Button } from '@vibethink/ui/components/button'
+import { Input } from '@vibethink/ui/components/input'
+import { Label } from '@vibethink/ui/components/label'
+import { Checkbox } from '@vibethink/ui/components/checkbox'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@vibethink/ui/components/select'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@vibethink/ui/components/collapsible'
+import {
   Filter,
   Search,
   X,
@@ -56,7 +47,7 @@ export default function TaskFiltersPanel({
   const statusOptions: Task['status'][] = ['todo', 'in-progress', 'in-review', 'completed', 'cancelled']
   const priorityOptions: Task['priority'][] = ['low', 'medium', 'high', 'critical']
   const categoryOptions: Task['category'][] = [
-    'development', 'design', 'testing', 'documentation', 
+    'development', 'design', 'testing', 'documentation',
     'meeting', 'research', 'maintenance', 'other'
   ]
 
@@ -65,7 +56,7 @@ export default function TaskFiltersPanel({
     const newStatuses = checked
       ? [...currentStatuses, status]
       : currentStatuses.filter(s => s !== status)
-    
+
     onFiltersChange({
       ...filters,
       status: newStatuses.length > 0 ? newStatuses : undefined
@@ -77,7 +68,7 @@ export default function TaskFiltersPanel({
     const newPriorities = checked
       ? [...currentPriorities, priority]
       : currentPriorities.filter(p => p !== priority)
-    
+
     onFiltersChange({
       ...filters,
       priority: newPriorities.length > 0 ? newPriorities : undefined
@@ -89,7 +80,7 @@ export default function TaskFiltersPanel({
     const newCategories = checked
       ? [...currentCategories, category]
       : currentCategories.filter(c => c !== category)
-    
+
     onFiltersChange({
       ...filters,
       category: newCategories.length > 0 ? newCategories : undefined
@@ -101,7 +92,7 @@ export default function TaskFiltersPanel({
     const newAssignees = checked
       ? [...currentAssignees, assigneeId]
       : currentAssignees.filter(a => a !== assigneeId)
-    
+
     onFiltersChange({
       ...filters,
       assigned_to: newAssignees.length > 0 ? newAssignees : undefined
@@ -148,7 +139,7 @@ export default function TaskFiltersPanel({
               className="pl-10"
             />
           </div>
-          
+
           <Button
             variant="outline"
             onClick={() => setIsExpanded(!isExpanded)}
@@ -194,7 +185,7 @@ export default function TaskFiltersPanel({
                 </button>
               </Badge>
             ))}
-            
+
             {filters.priority?.map(priority => (
               <Badge key={priority} variant="secondary" className="flex items-center space-x-1">
                 <span>Priority: {priority}</span>
@@ -264,11 +255,11 @@ export default function TaskFiltersPanel({
                       <Checkbox
                         id={`status-${status}`}
                         checked={filters.status?.includes(status) || false}
-                        onCheckedChange={(checked) => 
+                        onCheckedChange={(checked) =>
                           handleStatusChange(status, checked as boolean)
                         }
                       />
-                      <Label 
+                      <Label
                         htmlFor={`status-${status}`}
                         className="text-sm font-normal capitalize cursor-pointer"
                       >
@@ -291,11 +282,11 @@ export default function TaskFiltersPanel({
                       <Checkbox
                         id={`priority-${priority}`}
                         checked={filters.priority?.includes(priority) || false}
-                        onCheckedChange={(checked) => 
+                        onCheckedChange={(checked) =>
                           handlePriorityChange(priority, checked as boolean)
                         }
                       />
-                      <Label 
+                      <Label
                         htmlFor={`priority-${priority}`}
                         className="text-sm font-normal capitalize cursor-pointer"
                       >
@@ -318,11 +309,11 @@ export default function TaskFiltersPanel({
                       <Checkbox
                         id={`category-${category}`}
                         checked={filters.category?.includes(category) || false}
-                        onCheckedChange={(checked) => 
+                        onCheckedChange={(checked) =>
                           handleCategoryChange(category, checked as boolean)
                         }
                       />
-                      <Label 
+                      <Label
                         htmlFor={`category-${category}`}
                         className="text-sm font-normal capitalize cursor-pointer"
                       >
@@ -345,11 +336,11 @@ export default function TaskFiltersPanel({
                       <Checkbox
                         id={`assignee-${member.id}`}
                         checked={filters.assigned_to?.includes(member.id) || false}
-                        onCheckedChange={(checked) => 
+                        onCheckedChange={(checked) =>
                           handleAssigneeChange(member.id, checked as boolean)
                         }
                       />
-                      <Label 
+                      <Label
                         htmlFor={`assignee-${member.id}`}
                         className="text-sm font-normal cursor-pointer flex items-center space-x-2"
                       >
@@ -371,7 +362,7 @@ export default function TaskFiltersPanel({
                   <Checkbox
                     id="overdue"
                     checked={filters.is_overdue || false}
-                    onCheckedChange={(checked) => 
+                    onCheckedChange={(checked) =>
                       onFiltersChange({
                         ...filters,
                         is_overdue: checked ? true : undefined

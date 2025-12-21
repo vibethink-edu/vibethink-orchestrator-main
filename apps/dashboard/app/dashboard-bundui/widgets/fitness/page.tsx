@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { generateMeta } from "@/lib/utils";
+import { generateMeta } from "@/shared/lib/utils";
 
 import { HeroCard } from "./components/hero-card";
 import { DailyActivityCard } from "./components/daily-activity-card";
@@ -49,5 +49,6 @@ export default function DashboardPage() {
     </div>
   );
 }
+
 
 

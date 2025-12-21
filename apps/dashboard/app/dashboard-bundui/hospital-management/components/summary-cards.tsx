@@ -1,9 +1,14 @@
 import { CalendarIcon, CreditCardIcon, DollarSignIcon, UsersIcon } from "lucide-react";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import CountAnimation from "@/shared/components/ui/custom/count-animation";
+import { HospitalStats } from "../types";
 
-export default function SummaryCards() {
+interface SummaryCardsProps {
+  stats: HospitalStats | null;
+}
+
+export default function SummaryCards({ stats }: SummaryCardsProps) {
   return (
     <div className="overflow-hidden rounded-md border">
       <div className="grid divide-y-1! md:grid-cols-2 md:divide-x-1! lg:grid-cols-4 lg:divide-y-0! [&>*:nth-child(2)]:border-e-0! md:[&>*:nth-child(2)]:border-e-0! lg:[&>*:nth-child(2)]:border-e-1!">
@@ -16,7 +21,7 @@ export default function SummaryCards() {
           </CardHeader>
           <CardContent className="space-y-1">
             <div className="font-display text-3xl">
-              <CountAnimation number={2350} />
+              <CountAnimation number={stats?.total_appointments ?? 0} />
             </div>
             <p className="text-muted-foreground text-xs">
               <span className="text-green-600">+20.1%</span> from last month
@@ -32,7 +37,7 @@ export default function SummaryCards() {
           </CardHeader>
           <CardContent className="space-y-1">
             <div className="font-display text-3xl">
-              <CountAnimation number={145} />
+              <CountAnimation number={stats?.total_patients ?? 0} />
             </div>
             <p className="text-muted-foreground text-xs">
               <span className="text-green-600">+180.1%</span> from last month
@@ -48,7 +53,7 @@ export default function SummaryCards() {
           </CardHeader>
           <CardContent className="space-y-1">
             <div className="font-display text-3xl">
-              <CountAnimation number={89} />
+              <CountAnimation number={stats?.total_procedures ?? 0} />
             </div>
             <p className="text-muted-foreground text-xs">
               <span className="text-red-600">-19%</span> from last month
@@ -64,7 +69,7 @@ export default function SummaryCards() {
           </CardHeader>
           <CardContent className="space-y-1">
             <div className="font-display text-3xl">
-              $<CountAnimation number={9583} />
+              $<CountAnimation number={stats?.revenue_this_month ?? 0} />
             </div>
             <p className="text-muted-foreground text-xs">
               <span className="text-green-600">+20.1%</span> from last month

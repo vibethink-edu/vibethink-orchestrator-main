@@ -10,19 +10,27 @@ import {
   getSortedRowModel
 } from "@tanstack/react-table";
 
+import { Badge } from "@vibethink/ui/components/badge";
+import { Button } from "@vibethink/ui/components/button";
+import { Input } from "@vibethink/ui/components/input";
 import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
-  Button,
-  Input
-} from "@vibethink/ui";
+  TableRow
+} from "@vibethink/ui/components/table";
+import { Patient, Appointment, HospitalStats } from "../types";
+
+interface HospitalReportsProps {
+  patients: Patient[];
+  appointments: Appointment[];
+  stats: HospitalStats | null;
+}
 import { reportsData, columns } from "./reports-data";
 
-export default function HospitalReports() {
+export default function HospitalReports({ patients, appointments, stats }: HospitalReportsProps) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [filtering, setFiltering] = useState("");
 

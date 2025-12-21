@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "../../button";
 import { cn } from "@/lib/utils";
 import { VariantProps } from "class-variance-authority";
 

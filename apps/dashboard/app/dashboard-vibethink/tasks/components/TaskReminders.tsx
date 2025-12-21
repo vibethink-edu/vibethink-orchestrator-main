@@ -8,7 +8,10 @@
 'use client'
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle, Badge, Button, Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui'
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui/components/card'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Button } from '@vibethink/ui/components/button'
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui/components/avatar'
 import { Bell, Clock, AlertTriangle, Calendar, Plus } from 'lucide-react'
 
 // Mock reminders data
@@ -77,11 +80,11 @@ export default function TaskReminders() {
     const date = new Date(dateString)
     const now = new Date()
     const diffHours = Math.round((date.getTime() - now.getTime()) / (1000 * 60 * 60))
-    
+
     if (diffHours < 0) return 'Overdue'
     if (diffHours < 1) return 'Due now'
     if (diffHours < 24) return `Due in ${diffHours}h`
-    
+
     const diffDays = Math.round(diffHours / 24)
     return `Due in ${diffDays}d`
   }
@@ -110,7 +113,7 @@ export default function TaskReminders() {
               <div className="flex-shrink-0 mt-1">
                 {getTypeIcon(reminder.type)}
               </div>
-              
+
               <div className="flex-1 min-w-0 space-y-1">
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-medium truncate">{reminder.title}</p>
@@ -118,17 +121,17 @@ export default function TaskReminders() {
                     {reminder.priority}
                   </Badge>
                 </div>
-                
+
                 <p className="text-xs text-muted-foreground line-clamp-2">
                   {reminder.description}
                 </p>
-                
+
                 {reminder.task_title && (
                   <p className="text-xs text-blue-600 dark:text-blue-400">
                     Task: {reminder.task_title}
                   </p>
                 )}
-                
+
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <Avatar className="h-5 w-5">
@@ -141,7 +144,7 @@ export default function TaskReminders() {
                       {reminder.assignee_name}
                     </span>
                   </div>
-                  
+
                   <span className="text-xs font-medium text-orange-600 dark:text-orange-400">
                     {formatDueDate(reminder.due_date)}
                   </span>
@@ -149,7 +152,7 @@ export default function TaskReminders() {
               </div>
             </div>
           ))}
-          
+
           {mockReminders.length === 0 && (
             <div className="text-center py-6 text-muted-foreground">
               <Bell className="h-8 w-8 mx-auto mb-2 opacity-50" />

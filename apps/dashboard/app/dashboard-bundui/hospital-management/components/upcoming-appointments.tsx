@@ -1,7 +1,15 @@
 import { ChevronRight, MoreVerticalIcon } from "lucide-react";
 
-import { Button, Card, CardAction, CardContent, CardHeader, CardTitle, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@vibethink/ui/components/table";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@vibethink/ui/components/dropdown-menu";
 import { ExportButton } from "@/shared/components/CardActionMenus";
+import { Appointment } from "../types";
+
+interface UpcomingAppointmentsProps {
+  appointments: Appointment[];
+}
 
 const appointments = [
   {
@@ -62,7 +70,7 @@ const appointments = [
   }
 ];
 
-export default function UpcomingAppointments() {
+export default function UpcomingAppointments({ appointments }: UpcomingAppointmentsProps) {
   return (
     <Card className="col-span-4">
       <CardHeader>
@@ -91,10 +99,10 @@ export default function UpcomingAppointments() {
             <TableBody>
               {appointments.map((appointment) => (
                 <TableRow key={appointment.id}>
-                  <TableCell className="font-medium">{appointment.patient}</TableCell>
-                  <TableCell>{appointment.date}</TableCell>
+                  <TableCell className="font-medium">{appointment.patient_name}</TableCell>
+                  <TableCell>{new Date(appointment.date).toLocaleDateString()}</TableCell>
                   <TableCell>{appointment.time}</TableCell>
-                  <TableCell>{appointment.doctor}</TableCell>
+                  <TableCell>{appointment.doctor_name}</TableCell>
                   <TableCell>{appointment.department}</TableCell>
                   <TableCell className="text-end">
                     <DropdownMenu>

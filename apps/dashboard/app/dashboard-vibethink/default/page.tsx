@@ -1,4 +1,4 @@
-import { Button } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
 import {
   ChatWidget,
   ExerciseMinutes,
@@ -8,7 +8,7 @@ import {
   TeamMembersCard,
   TotalRevenueCard
 } from "./components";
-import CustomDateRangePicker from "@/shared/components/custom-date-range-picker";
+import CustomDateRangePicker from "@/shared/components/bundui-premium/components/custom-date-range-picker";
 import { Download } from "lucide-react";
 
 /**

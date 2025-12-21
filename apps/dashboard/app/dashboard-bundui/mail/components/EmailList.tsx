@@ -22,7 +22,7 @@ import {
   MoreVertical
 } from 'lucide-react'
 import { Email } from '../types'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 // Simple date formatting without external dependencies
 
 /**

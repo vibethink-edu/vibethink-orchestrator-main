@@ -15,15 +15,26 @@
 // =============================================================================
 
 import React, { useState, useRef, useCallback, useEffect } from 'react'
-import { Button } from '@vibethink/ui'
-import { Textarea } from '@vibethink/ui'
-import { Badge } from '@vibethink/ui'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@vibethink/ui'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@vibethink/ui'
-import { 
-  Send, 
-  Paperclip, 
-  Mic, 
+import { Button } from '@vibethink/ui/components/button'
+import { Textarea } from '@vibethink/ui/components/textarea'
+import { Badge } from '@vibethink/ui/components/badge'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from '@vibethink/ui/components/tooltip'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from '@vibethink/ui/components/dropdown-menu'
+import {
+  Send,
+  Paperclip,
+  Mic,
   Smile,
   MoreHorizontal,
   X,
@@ -32,7 +43,7 @@ import {
   Loader2,
   Zap
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 import { ChatInputProps } from '../types'
 
 /**
@@ -50,7 +61,7 @@ export function ChatInput({
   const [attachments, setAttachments] = useState<File[]>([])
   const [isUploading, setIsUploading] = useState(false)
   const [dragActive, setDragActive] = useState(false)
-  
+
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
@@ -72,7 +83,7 @@ export function ChatInput({
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!message.trim() && attachments.length === 0) return
     if (disabled) return
 
@@ -81,7 +92,7 @@ export function ChatInput({
       await onSendMessage(message.trim(), attachments)
       setMessage('')
       setAttachments([])
-      
+
       // Reset textarea height
       if (textareaRef.current) {
         textareaRef.current.style.height = 'auto'
@@ -99,7 +110,7 @@ export function ChatInput({
       e.preventDefault()
       handleSubmit(e)
     }
-    
+
     // Ctrl/Cmd + Enter also sends
     if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
       e.preventDefault()
@@ -136,7 +147,7 @@ export function ChatInput({
   const handleDrag = (e: React.DragEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    
+
     if (e.type === 'dragenter' || e.type === 'dragover') {
       setDragActive(true)
     } else if (e.type === 'dragleave') {
@@ -182,7 +193,7 @@ export function ChatInput({
         <div className="p-3 border-b bg-muted/20">
           <div className="flex flex-wrap gap-2">
             {attachments.map((file, index) => (
-              <div 
+              <div
                 key={index}
                 className="flex items-center gap-2 bg-background border rounded-lg px-3 py-2 text-sm"
               >
@@ -206,7 +217,7 @@ export function ChatInput({
       )}
 
       {/* Input Area */}
-      <div 
+      <div
         className={cn(
           "p-4 relative",
           dragActive && allowAttachments && "bg-primary/5 border-primary/20"
@@ -232,12 +243,12 @@ export function ChatInput({
                 "focus:ring-2 focus:ring-primary/20 border-border",
                 dragActive && allowAttachments && "border-primary/50"
               )}
-              style={{ 
+              style={{
                 height: '60px',
                 scrollbarWidth: 'thin'
               }}
             />
-            
+
             {/* Input Actions */}
             <div className="absolute bottom-3 right-3 flex items-center gap-1">
               {/* File Upload */}
@@ -254,10 +265,10 @@ export function ChatInput({
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <Button 
+                        <Button
                           type="button"
-                          variant="ghost" 
-                          size="sm" 
+                          variant="ghost"
+                          size="sm"
                           className="h-7 w-7 p-0"
                           onClick={() => fileInputRef.current?.click()}
                           disabled={disabled}
@@ -274,10 +285,10 @@ export function ChatInput({
               {/* More Actions */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button 
+                  <Button
                     type="button"
-                    variant="ghost" 
-                    size="sm" 
+                    variant="ghost"
+                    size="sm"
                     className="h-7 w-7 p-0"
                     disabled={disabled}
                   >
@@ -302,9 +313,9 @@ export function ChatInput({
               </DropdownMenu>
             </div>
           </div>
-          
+
           {/* Send Button */}
-          <Button 
+          <Button
             type="submit"
             disabled={!canSend}
             className="h-[60px] px-6 gap-2"
@@ -322,18 +333,18 @@ export function ChatInput({
         <div className="flex items-center justify-between mt-2 text-xs text-muted-foreground">
           <div className="flex items-center gap-3">
             <span>
-              Press <kbd className="px-1.5 py-0.5 bg-muted rounded text-xs">Enter</kbd> to send, 
+              Press <kbd className="px-1.5 py-0.5 bg-muted rounded text-xs">Enter</kbd> to send,
               <kbd className="px-1.5 py-0.5 bg-muted rounded text-xs ml-1">Shift+Enter</kbd> for new line
             </span>
           </div>
-          
+
           <div className="flex items-center gap-2">
             {attachments.length > 0 && (
               <Badge variant="outline" className="text-xs">
                 {attachments.length} file{attachments.length !== 1 ? 's' : ''}
               </Badge>
             )}
-            
+
             <span className={cn(
               characterCount > maxLength * 0.9 && "text-warning",
               characterCount >= maxLength && "text-destructive"

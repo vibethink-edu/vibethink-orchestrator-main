@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { format } from "date-fns";
 import {
   Check,
@@ -16,13 +16,18 @@ import { useTodoStore } from "../store";
 import { statusClasses, priorityClasses } from "../enum";
 import { toast } from "sonner";
 
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@vibethink/ui";
-import { Badge } from "@vibethink/ui";
-import { Button } from "@vibethink/ui";
-import { Textarea } from "@vibethink/ui";
-import { Input } from "@vibethink/ui";
-import { Separator } from "@vibethink/ui";
-import { Checkbox } from "@vibethink/ui";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle
+} from "@vibethink/ui/components/sheet";
+import { Badge } from "@vibethink/ui/components/badge";
+import { Button } from "@vibethink/ui/components/button";
+import { Textarea } from "@vibethink/ui/components/textarea";
+import { Input } from "@vibethink/ui/components/input";
+import { Separator } from "@vibethink/ui/components/separator";
+import { Checkbox } from "@vibethink/ui/components/checkbox";
 
 interface TodoDetailSheetProps {
   isOpen: boolean;

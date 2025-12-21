@@ -1,27 +1,27 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import Link from 'next/link';
-import { 
-  GraduationCap, 
-  MessageSquare, 
-  BarChart3, 
-  Calendar, 
-  Users, 
-  Bitcoin, 
-  ShoppingCart, 
-  FolderOpen, 
-  DollarSign, 
-  Hospital, 
-  Building2, 
-  Mail, 
-  StickyNote, 
-  CreditCard, 
-  ShoppingBag, 
-  FolderKanban, 
-  Briefcase, 
-  TrendingUp, 
-  CheckSquare 
+import {
+  GraduationCap,
+  MessageSquare,
+  BarChart3,
+  Calendar,
+  Users,
+  Bitcoin,
+  ShoppingCart,
+  FolderOpen,
+  DollarSign,
+  Hospital,
+  Building2,
+  Mail,
+  StickyNote,
+  CreditCard,
+  ShoppingBag,
+  FolderKanban,
+  Briefcase,
+  TrendingUp,
+  CheckSquare
 } from 'lucide-react';
 
 const dashboards = [
@@ -125,7 +125,7 @@ export default function DashboardBunduiIndex() {
       <div className="space-y-2">
         <h1 className="text-4xl font-bold tracking-tight">Bundui Premium Dashboards</h1>
         <p className="text-muted-foreground">
-          Reference implementations mirroring the latest Bundui Premium version. 
+          Reference implementations mirroring the latest Bundui Premium version.
           These are demo/reference dashboards using our monorepo architecture and Shadcn UI.
         </p>
       </div>

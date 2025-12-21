@@ -1,6 +1,8 @@
 "use client";
 
-import { Button, Label, RadioGroup, RadioGroupItem } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { Label } from "@vibethink/ui/components/label";
+import { RadioGroup, RadioGroupItem } from "@vibethink/ui/components/radio-group";
 import { useOnboardingStore } from "../store";
 import { User, Building2, Users, Briefcase } from "lucide-react";
 
@@ -79,6 +81,7 @@ export function AccountTypeStep() {
     </div>
   );
 }
+
 
 
 

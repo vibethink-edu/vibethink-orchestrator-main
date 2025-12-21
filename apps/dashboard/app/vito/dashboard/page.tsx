@@ -1,9 +1,9 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui'
-import { Badge } from '@vibethink/ui'
-import { Button } from '@vibethink/ui'
-import { Avatar, AvatarFallback } from '@vibethink/ui'
-import { Progress } from '@vibethink/ui'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui/components/card'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Button } from '@vibethink/ui/components/button'
+import { Avatar, AvatarFallback } from '@vibethink/ui/components/avatar'
+import { Progress } from '@vibethink/ui/components/progress'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui/components/tabs'
 import {
     Building2,
     Users,
@@ -16,7 +16,7 @@ import {
 } from 'lucide-react'
 import { getBranding } from '@/lib/branding'
 
-export default function PanaDashboard() {
+export default function ViToDashboard() {
     const branding = getBranding()
 
     return (

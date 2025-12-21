@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { useFieldArray, useForm } from "react-hook-form";
 import { z } from "zod";
 import { toast } from "sonner";
@@ -10,8 +10,8 @@ import { CircleUserRoundIcon, Trash2Icon } from "lucide-react";
 
 import { useFileUpload } from "@/hooks/use-file-upload";
 
+import { Button } from "@vibethink/ui/components/button";
 import {
-  Button,
   Form,
   FormControl,
   FormDescription,
@@ -19,19 +19,18 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-  Input,
+} from "@vibethink/ui/components/form";
+import { Input } from "@vibethink/ui/components/input";
+import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-  Textarea,
-  Card,
-  CardContent,
-  Avatar,
-  AvatarFallback,
-  AvatarImage
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/select";
+import { Textarea } from "@vibethink/ui/components/textarea";
+import { Card, CardContent } from "@vibethink/ui/components/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";
 
 const profileFormSchema = z.object({
   username: z
@@ -228,6 +227,7 @@ export default function Page() {
     </Card>
   );
 }
+
 
 
 

@@ -1,4 +1,7 @@
-import { Button, Input, Label, Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { Input } from "@vibethink/ui/components/input";
+import { Label } from "@vibethink/ui/components/label";
+import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui/components/popover";
 import { PlusCircle } from "lucide-react";
 
 export default function AddNewCategory() {
@@ -18,6 +21,7 @@ export default function AddNewCategory() {
     </Popover>
   );
 }
+
 
 
 

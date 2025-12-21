@@ -31,7 +31,7 @@ import {
   WeekCellsHeight,
   WeekView
 } from "./";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { Button } from "@vibethink/ui";
 import {
   DropdownMenu,

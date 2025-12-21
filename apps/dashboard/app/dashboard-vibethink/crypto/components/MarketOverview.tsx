@@ -4,7 +4,7 @@
  */
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui'
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui/components/card'
 import { TrendingUp, TrendingDown, Activity, DollarSign } from 'lucide-react'
 
 interface MarketOverviewProps {
@@ -19,10 +19,10 @@ interface MarketOverviewProps {
   loading?: boolean
 }
 
-export const MarketOverview: React.FC<MarketOverviewProps> = ({ 
-  sentiment, 
-  topCryptos, 
-  loading = false 
+export const MarketOverview: React.FC<MarketOverviewProps> = ({
+  sentiment,
+  topCryptos,
+  loading = false
 }) => {
   if (loading) {
     return (
@@ -70,19 +70,17 @@ export const MarketOverview: React.FC<MarketOverviewProps> = ({
             <div className="text-center">
               <p className="text-sm text-muted-foreground">Fear & Greed</p>
               <p className="text-lg font-bold">{mockSentiment.fear_greed_index}</p>
-              <p className={`text-xs ${
-                mockSentiment.fear_greed_index > 50 ? 'text-yellow-600' : 'text-red-600'
-              }`}>
+              <p className={`text-xs ${mockSentiment.fear_greed_index > 50 ? 'text-yellow-600' : 'text-red-600'
+                }`}>
                 {mockSentiment.fear_greed_classification}
               </p>
             </div>
-            
+
             <div className="text-center">
               <p className="text-sm text-muted-foreground">Market Cap</p>
               <p className="text-lg font-bold">$1.65T</p>
-              <p className={`text-xs flex items-center justify-center gap-1 ${
-                mockSentiment.market_cap_change_24h >= 0 ? 'text-green-600' : 'text-red-600'
-              }`}>
+              <p className={`text-xs flex items-center justify-center gap-1 ${mockSentiment.market_cap_change_24h >= 0 ? 'text-green-600' : 'text-red-600'
+                }`}>
                 {mockSentiment.market_cap_change_24h >= 0 ? (
                   <TrendingUp className="h-3 w-3" />
                 ) : (
@@ -92,13 +90,12 @@ export const MarketOverview: React.FC<MarketOverviewProps> = ({
                 {mockSentiment.market_cap_change_24h}%
               </p>
             </div>
-            
+
             <div className="text-center">
               <p className="text-sm text-muted-foreground">24h Volume</p>
               <p className="text-lg font-bold">$65.2B</p>
-              <p className={`text-xs flex items-center justify-center gap-1 ${
-                mockSentiment.volume_change_24h >= 0 ? 'text-green-600' : 'text-red-600'
-              }`}>
+              <p className={`text-xs flex items-center justify-center gap-1 ${mockSentiment.volume_change_24h >= 0 ? 'text-green-600' : 'text-red-600'
+                }`}>
                 {mockSentiment.volume_change_24h >= 0 ? (
                   <TrendingUp className="h-3 w-3" />
                 ) : (
@@ -108,7 +105,7 @@ export const MarketOverview: React.FC<MarketOverviewProps> = ({
                 {mockSentiment.volume_change_24h}%
               </p>
             </div>
-            
+
             <div className="text-center">
               <p className="text-sm text-muted-foreground">BTC Dominance</p>
               <p className="text-lg font-bold">{mockSentiment.bitcoin_dominance?.toFixed(1)}%</p>

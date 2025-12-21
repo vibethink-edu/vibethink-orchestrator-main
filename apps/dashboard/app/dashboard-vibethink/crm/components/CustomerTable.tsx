@@ -1,4 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle, Badge, Avatar, AvatarFallback, AvatarImage, Button, Skeleton } from '@vibethink/ui'
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui/components/card'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui/components/avatar'
+import { Button } from '@vibethink/ui/components/button'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
 import { MoreHorizontal, Mail, Phone } from 'lucide-react'
 import { useCrmData } from '../hooks/useCrmData'
 import { useCrmFilters } from '../hooks/useCrmFilters'
@@ -19,7 +23,7 @@ interface CustomerTableProps {
 export function CustomerTable({ className }: CustomerTableProps) {
   const { customers, loading, error } = useCrmData()
   const { filterCustomers } = useCrmFilters()
-  
+
   const filteredCustomers = filterCustomers(customers)
 
   if (loading) {
@@ -86,7 +90,7 @@ export function CustomerTable({ className }: CustomerTableProps) {
                       {customer.name.split(' ').map(n => n[0]).join('')}
                     </AvatarFallback>
                   </Avatar>
-                  
+
                   <div className="space-y-1">
                     <p className="text-sm font-medium">{customer.name}</p>
                     <p className="text-sm text-muted-foreground">{customer.company}</p>
@@ -96,7 +100,7 @@ export function CustomerTable({ className }: CustomerTableProps) {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-4">
                   <div className="text-right">
                     <p className="text-sm font-medium">${customer.value.toLocaleString()}</p>
@@ -105,11 +109,11 @@ export function CustomerTable({ className }: CustomerTableProps) {
                       <span>{customer.phone}</span>
                     </div>
                   </div>
-                  
+
                   <Badge className={statusColors[customer.status as keyof typeof statusColors]}>
                     {CUSTOMER_STATUSES[customer.status]}
                   </Badge>
-                  
+
                   <Button variant="ghost" size="sm">
                     <MoreHorizontal className="h-4 w-4" />
                   </Button>

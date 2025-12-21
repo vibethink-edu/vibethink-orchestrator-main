@@ -1,7 +1,10 @@
 'use client'
 
 import { TrendingUp, DollarSign, BarChart3 } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Tabs, TabsContent, TabsList, TabsTrigger, Skeleton } from '@vibethink/ui'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui/components/card'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui/components/tabs'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
 import { useAnalyticsData } from '../hooks'
 import { AnalyticsCardProps } from '../types'
 
@@ -20,13 +23,13 @@ const earningsData = [
  * 
  * Displays earning analysis with CSS-based visualizations
  */
-export function EarningReportsCard({ 
+export function EarningReportsCard({
   className = '',
   isLoading: externalLoading = false,
   error: externalError = null
 }: AnalyticsCardProps) {
   const { earningReports, isLoading, error } = useAnalyticsData()
-  
+
   const loading = isLoading || externalLoading
   const errorState = error || externalError
 
@@ -87,11 +90,11 @@ export function EarningReportsCard({
             {averageGrowthRate.toFixed(1)}% Avg Growth
           </Badge>
         </div>
-        
+
         <CardDescription>
           Revenue analysis and profit trends
         </CardDescription>
-        
+
         {/* Summary Metrics */}
         <div className="grid grid-cols-3 gap-4 pt-2">
           <div className="text-center">
@@ -108,7 +111,7 @@ export function EarningReportsCard({
           </div>
         </div>
       </CardHeader>
-      
+
       <CardContent>
         {/* Revenue Chart - CSS Visualization */}
         <div className="h-64 p-4">
@@ -117,18 +120,18 @@ export function EarningReportsCard({
               const maxValue = Math.max(...earningsData.map(d => d.revenue))
               const height = (item.revenue / maxValue) * 100
               const profitHeight = (item.profit / maxValue) * 100
-              
+
               return (
                 <div key={item.month} className="flex flex-col items-center flex-1">
                   <div className="flex flex-col w-full h-full justify-end relative">
                     {/* Revenue Bar */}
-                    <div 
+                    <div
                       className="w-full bg-gradient-to-t from-blue-500 to-blue-300 rounded-t-sm"
                       style={{ height: `${height}%` }}
                       title={`${item.month} Revenue: ${formatCurrency(item.revenue)}`}
                     />
                     {/* Profit Bar */}
-                    <div 
+                    <div
                       className="absolute bottom-0 w-full bg-gradient-to-t from-green-500 to-green-300 rounded-t-sm opacity-80"
                       style={{ height: `${profitHeight}%` }}
                       title={`${item.month} Profit: ${formatCurrency(item.profit)}`}

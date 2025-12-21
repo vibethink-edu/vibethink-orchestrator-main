@@ -61,6 +61,7 @@ export type TranslationNamespace =
   | 'ai-chat'           // AI Chat module
   | 'ai-image-generator' // AI Image Generator module
   | 'academy'           // Academy module
+  | 'theme'             // Theme customization
   | 'errors'            // Error messages
   | 'validation';       // Form validation messages
 

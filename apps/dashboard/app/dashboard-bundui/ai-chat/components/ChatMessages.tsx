@@ -15,18 +15,18 @@
 // =============================================================================
 
 import React, { useEffect, useRef, useState } from 'react'
-import { ScrollArea } from '@vibethink/ui'
-import { Button } from '@vibethink/ui'
-import { Separator } from '@vibethink/ui'
-import { Badge } from '@vibethink/ui'
-import { 
-  ArrowDown, 
-  MessageSquare, 
+import { ScrollArea } from '@vibethink/ui/components/scroll-area'
+import { Button } from '@vibethink/ui/components/button'
+import { Separator } from '@vibethink/ui/components/separator'
+import { Badge } from '@vibethink/ui/components/badge'
+import {
+  ArrowDown,
+  MessageSquare,
   Clock,
   RefreshCw,
   AlertTriangle
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 import { ChatMessagesProps, ChatMessage } from '../types'
 import { MessageBubble } from './MessageBubble'
 import { TypingIndicator } from './TypingIndicator'
@@ -52,7 +52,7 @@ export function ChatMessages({
   // Auto-scroll a nuevos mensajes
   useEffect(() => {
     if (isNearBottom && messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ 
+      messagesEndRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'end'
       })
@@ -62,7 +62,7 @@ export function ChatMessages({
   // Monitor scroll position
   const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
     const element = event.currentTarget
-    const isScrolledToBottom = 
+    const isScrolledToBottom =
       element.scrollHeight - element.scrollTop <= element.clientHeight + 100
 
     setIsNearBottom(isScrolledToBottom)
@@ -71,7 +71,7 @@ export function ChatMessages({
 
   // Scroll to bottom manually
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ 
+    messagesEndRef.current?.scrollIntoView({
       behavior: 'smooth',
       block: 'end'
     })
@@ -80,7 +80,7 @@ export function ChatMessages({
   // Agrupar mensajes por fecha
   const groupMessagesByDate = (messages: ChatMessage[]) => {
     const groups: { [key: string]: ChatMessage[] } = {}
-    
+
     messages.forEach(message => {
       const date = format(new Date(message.created_at), 'yyyy-MM-dd')
       if (!groups[date]) {
@@ -88,7 +88,7 @@ export function ChatMessages({
       }
       groups[date].push(message)
     })
-    
+
     return groups
   }
 
@@ -125,7 +125,7 @@ export function ChatMessages({
   return (
     <div className="flex-1 relative flex flex-col min-h-0">
       {/* Messages Area */}
-      <ScrollArea 
+      <ScrollArea
         ref={scrollAreaRef}
         className="flex-1 px-4"
         onScroll={handleScroll}
@@ -142,7 +142,7 @@ export function ChatMessages({
                   Start the conversation
                 </h3>
                 <p className="text-sm text-muted-foreground max-w-md mx-auto">
-                  Send a message to begin chatting with AI. You can ask questions, 
+                  Send a message to begin chatting with AI. You can ask questions,
                   request help, or have a conversation about any topic.
                 </p>
               </div>
@@ -181,7 +181,7 @@ export function ChatMessages({
           {/* Typing Indicator */}
           {isTyping && (
             <div className="mt-6">
-              <TypingIndicator 
+              <TypingIndicator
                 variant="thinking"
                 message="AI is generating a response..."
               />
@@ -223,7 +223,7 @@ export function ChatMessages({
         <div className="px-4 py-2 border-t bg-muted/20">
           <div className="flex items-center justify-between text-xs text-muted-foreground">
             <span>{messages.length} messages in this conversation</span>
-            
+
             {/* Token usage if available */}
             {messages.some(m => m.metadata?.tokens_used) && (
               <span>

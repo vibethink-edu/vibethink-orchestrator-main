@@ -1,7 +1,9 @@
 'use client'
 
 import { TrendingUp, TrendingDown, Eye, Users, Clock, MousePointer } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Skeleton } from '@vibethink/ui'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui/components/card'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
 import { useAnalyticsData } from '../hooks'
 import { AnalyticsCardProps } from '../types'
 
@@ -15,13 +17,13 @@ import { AnalyticsCardProps } from '../types'
  * 
  * Follows Bundui Premium design with VThink 1.0 patterns
  */
-export function WebsiteAnalyticsCard({ 
+export function WebsiteAnalyticsCard({
   className = '',
   isLoading: externalLoading = false,
   error: externalError = null
 }: AnalyticsCardProps) {
   const { websiteMetrics, isLoading, error } = useAnalyticsData()
-  
+
   const loading = isLoading || externalLoading
   const errorState = error || externalError
 
@@ -40,7 +42,7 @@ export function WebsiteAnalyticsCard({
 
   // Calculate percentage changes (mock for development)
   const previousMetrics = websiteMetrics[1] || null
-  const pageViewsChange = previousMetrics 
+  const pageViewsChange = previousMetrics
     ? ((latestMetrics.page_views - previousMetrics.page_views) / previousMetrics.page_views) * 100
     : 12.5
 
@@ -135,14 +137,14 @@ export function WebsiteAnalyticsCard({
           Total traffic and engagement metrics overview
         </CardDescription>
       </CardHeader>
-      
+
       <CardContent className="space-y-6">
         {/* Main Metrics Grid */}
         <div className="grid grid-cols-2 gap-4">
           {/* Page Views */}
           <div className="flex items-center gap-3">
-            <Badge 
-              variant="secondary" 
+            <Badge
+              variant="secondary"
               className="flex h-10 w-14 items-center justify-center border border-border font-mono text-xs"
             >
               {formatNumber(latestMetrics.page_views)}
@@ -160,8 +162,8 @@ export function WebsiteAnalyticsCard({
 
           {/* Unique Visitors */}
           <div className="flex items-center gap-3">
-            <Badge 
-              variant="secondary" 
+            <Badge
+              variant="secondary"
               className="flex h-10 w-14 items-center justify-center border border-border font-mono text-xs"
             >
               {formatNumber(latestMetrics.unique_visitors)}
@@ -174,8 +176,8 @@ export function WebsiteAnalyticsCard({
 
           {/* Session Duration */}
           <div className="flex items-center gap-3">
-            <Badge 
-              variant="secondary" 
+            <Badge
+              variant="secondary"
               className="flex h-10 w-14 items-center justify-center border border-border font-mono text-xs"
             >
               {formatDuration(latestMetrics.session_duration)}
@@ -188,8 +190,8 @@ export function WebsiteAnalyticsCard({
 
           {/* Bounce Rate */}
           <div className="flex items-center gap-3">
-            <Badge 
-              variant="secondary" 
+            <Badge
+              variant="secondary"
               className="flex h-10 w-14 items-center justify-center border border-border font-mono text-xs"
             >
               {formatPercentage(latestMetrics.bounce_rate)}

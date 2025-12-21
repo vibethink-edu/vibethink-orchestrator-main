@@ -1,6 +1,13 @@
 import { ChevronRight } from "lucide-react";
 
-import { Avatar, AvatarFallback, AvatarImage, Button, Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";
+import { Button } from "@vibethink/ui/components/button";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Patient } from "../types";
+
+interface PatientsWithLastProcedureProps {
+  patients: Patient[];
+}
 
 const patients = [
   {
@@ -45,7 +52,7 @@ const patients = [
   }
 ];
 
-export default function PatientsWithLastProcedure() {
+export default function PatientsWithLastProcedure({ patients }: PatientsWithLastProcedureProps) {
   return (
     <Card className="col-span-3">
       <CardHeader className="relative">
@@ -61,7 +68,7 @@ export default function PatientsWithLastProcedure() {
           {patients.map((patient) => (
             <div key={patient.id} className="flex">
               <Avatar>
-                <AvatarImage src={patient.avatar} alt="Avatar" />
+                <AvatarImage src={`/assets/images/avatars/${(parseInt(patient.id.split('_')[1]) % 5 + 1).toString().padStart(2, '0')}.png`} alt="Avatar" />
                 <AvatarFallback>
                   {patient.name
                     .split(" ")
@@ -74,8 +81,8 @@ export default function PatientsWithLastProcedure() {
                 <p className="text-muted-foreground text-sm">{patient.email}</p>
               </div>
               <div className="ml-auto space-y-1 text-end font-medium">
-                <p className="text-sm">{patient.lastProcedure}</p>
-                <p className="text-muted-foreground text-sm">{patient.date}</p>
+                <p className="text-sm">{patient.department}</p>
+                <p className="text-muted-foreground text-sm">{new Date(patient.last_visit_date).toLocaleDateString()}</p>
               </div>
             </div>
           ))}

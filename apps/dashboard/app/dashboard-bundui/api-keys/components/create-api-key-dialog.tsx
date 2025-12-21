@@ -6,28 +6,28 @@ import { format } from "date-fns";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { Button } from "@vibethink/ui/components/button";
 import {
-  Button,
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
-  Input,
+  DialogTrigger
+} from "@vibethink/ui/components/dialog";
+import { Input } from "@vibethink/ui/components/input";
+import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  Calendar
-} from "@vibethink/ui";
+  FormMessage
+} from "@vibethink/ui/components/form";
+import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui/components/popover";
+import { Calendar } from "@vibethink/ui/components/calendar";
 import { toast } from "sonner";
-import { cn } from '@/lib/utils';
+import { cn } from '@/shared/lib/utils';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -121,6 +121,7 @@ export default function CreateApiKeyDialog() {
     </>
   );
 }
+
 
 
 

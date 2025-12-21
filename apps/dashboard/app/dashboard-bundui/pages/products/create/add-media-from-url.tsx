@@ -1,4 +1,13 @@
-import { Button, Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, Input } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger
+} from "@vibethink/ui/components/dialog";
+import { Input } from "@vibethink/ui/components/input";
 
 export function AddMediaFromUrl({ children }: { children: React.ReactNode }) {
   return (
@@ -18,6 +27,7 @@ export function AddMediaFromUrl({ children }: { children: React.ReactNode }) {
     </Dialog>
   );
 }
+
 
 
 

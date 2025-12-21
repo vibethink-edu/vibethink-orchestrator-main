@@ -1,11 +1,16 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui'
-import { 
-  LineChart, 
-  Line, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip, 
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle
+} from '@vibethink/ui/components/card'
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
   ResponsiveContainer,
   AreaChart,
   Area,
@@ -13,7 +18,21 @@ import {
   Bar
 } from 'recharts'
 import { useFinanceData } from '../hooks/useFinanceData'
-import { Tabs, TabsContent, TabsList, TabsTrigger, Skeleton, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Badge } from '@vibethink/ui'
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger
+} from '@vibethink/ui/components/tabs'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@vibethink/ui/components/select'
+import { Badge } from '@vibethink/ui/components/badge'
 import { useState } from 'react'
 import { RevenueChartProps } from '../types'
 import { TrendingUp, TrendingDown, Target, DollarSign } from 'lucide-react'
@@ -94,8 +113,8 @@ export function RevenueChart({ data, title = "Revenue Analysis", className, heig
   const totalTarget = currentData.reduce((sum, item) => sum + item.target, 0)
   const achievement = totalTarget > 0 ? (totalRevenue / totalTarget) * 100 : 0
   const averageRevenue = totalRevenue / currentData.length
-  const growth = currentData.length >= 2 
-    ? ((currentData[currentData.length - 1].revenue - currentData[0].revenue) / currentData[0].revenue) * 100 
+  const growth = currentData.length >= 2
+    ? ((currentData[currentData.length - 1].revenue - currentData[0].revenue) / currentData[0].revenue) * 100
     : 0
 
   return (
@@ -130,20 +149,20 @@ export function RevenueChart({ data, title = "Revenue Analysis", className, heig
               <AreaChart data={currentData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <defs>
                   <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="hsl(var(--chart-1))" stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor="hsl(var(--chart-1))" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="hsl(var(--chart-1))" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="hsl(var(--chart-1))" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                <XAxis 
-                  dataKey="period" 
-                  className="text-xs fill-muted-foreground" 
+                <XAxis
+                  dataKey="period"
+                  className="text-xs fill-muted-foreground"
                 />
-                <YAxis 
+                <YAxis
                   className="text-xs fill-muted-foreground"
                   tickFormatter={formatCurrency}
                 />
-                <Tooltip 
+                <Tooltip
                   formatter={formatTooltip}
                   labelFormatter={(label) => `Period: ${label}`}
                   contentStyle={{
@@ -163,7 +182,7 @@ export function RevenueChart({ data, title = "Revenue Analysis", className, heig
                 />
               </AreaChart>
             </ResponsiveContainer>
-            
+
             {/* Trend Summary */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t">
               <div className="text-center">
@@ -175,8 +194,8 @@ export function RevenueChart({ data, title = "Revenue Analysis", className, heig
                 <p className="text-xs text-muted-foreground">Average</p>
               </div>
               <div className="text-center flex items-center justify-center gap-2">
-                {growth >= 0 ? 
-                  <TrendingUp className="h-4 w-4 text-green-600" /> : 
+                {growth >= 0 ?
+                  <TrendingUp className="h-4 w-4 text-green-600" /> :
                   <TrendingDown className="h-4 w-4 text-red-600" />
                 }
                 <div>
@@ -198,15 +217,15 @@ export function RevenueChart({ data, title = "Revenue Analysis", className, heig
             <ResponsiveContainer width="100%" height={height}>
               <BarChart data={currentData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                <XAxis 
-                  dataKey="period" 
-                  className="text-xs fill-muted-foreground" 
+                <XAxis
+                  dataKey="period"
+                  className="text-xs fill-muted-foreground"
                 />
-                <YAxis 
+                <YAxis
                   className="text-xs fill-muted-foreground"
                   tickFormatter={formatCurrency}
                 />
-                <Tooltip 
+                <Tooltip
                   formatter={formatTooltip}
                   labelFormatter={(label) => `Period: ${label}`}
                   contentStyle={{
@@ -216,14 +235,14 @@ export function RevenueChart({ data, title = "Revenue Analysis", className, heig
                     boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
                   }}
                 />
-                <Bar 
-                  dataKey="revenue" 
+                <Bar
+                  dataKey="revenue"
                   name="revenue"
                   fill="hsl(var(--chart-1))"
                   radius={[2, 2, 0, 0]}
                 />
-                <Bar 
-                  dataKey="target" 
+                <Bar
+                  dataKey="target"
                   name="target"
                   fill="hsl(var(--chart-2))"
                   radius={[2, 2, 0, 0]}
@@ -231,7 +250,7 @@ export function RevenueChart({ data, title = "Revenue Analysis", className, heig
                 />
               </BarChart>
             </ResponsiveContainer>
-            
+
             {/* Performance Summary */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t">
               <div className="text-center">
@@ -271,15 +290,15 @@ export function RevenueChart({ data, title = "Revenue Analysis", className, heig
             <ResponsiveContainer width="100%" height={height}>
               <LineChart data={currentData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                <XAxis 
-                  dataKey="period" 
-                  className="text-xs fill-muted-foreground" 
+                <XAxis
+                  dataKey="period"
+                  className="text-xs fill-muted-foreground"
                 />
-                <YAxis 
+                <YAxis
                   className="text-xs fill-muted-foreground"
                   tickFormatter={formatCurrency}
                 />
-                <Tooltip 
+                <Tooltip
                   formatter={formatTooltip}
                   labelFormatter={(label) => `Period: ${label}`}
                   contentStyle={{
@@ -316,7 +335,7 @@ export function RevenueChart({ data, title = "Revenue Analysis", className, heig
                 />
               </LineChart>
             </ResponsiveContainer>
-            
+
             {/* Forecast Legend and Info */}
             <div className="space-y-4 pt-4 border-t">
               <div className="flex justify-center gap-6">
@@ -333,7 +352,7 @@ export function RevenueChart({ data, title = "Revenue Analysis", className, heig
                   <span className="text-sm text-muted-foreground">Target</span>
                 </div>
               </div>
-              
+
               <div className="text-center">
                 <p className="text-sm text-muted-foreground">
                   Forecast based on historical trends and current performance patterns

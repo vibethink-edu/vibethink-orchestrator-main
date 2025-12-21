@@ -3,8 +3,8 @@
 import { Heart } from "lucide-react";
 import { Label, PolarGrid, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts";
 
-import { ChartConfig, ChartContainer } from "@vibethink/ui";
-import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
+import { ChartConfig, ChartContainer } from "@vibethink/ui/components/chart";
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 
 const chartData = [{ browser: "safari", visitors: 200, fill: "var(--color-safari)" }];
 

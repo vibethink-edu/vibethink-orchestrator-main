@@ -279,3 +279,4 @@ Copia y pega esto para reportar tus hallazgos:
 **Próximo paso**: Ejecutar pruebas y documentar hallazgos
 
 
+

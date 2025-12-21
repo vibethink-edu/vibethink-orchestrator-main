@@ -4,7 +4,7 @@ import "./styles/index.css";
 import type { Content, Editor } from "@tiptap/react";
 import type { UseMinimalTiptapEditorProps } from "./hooks/use-minimal-tiptap";
 import { EditorContent } from "@tiptap/react";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "../../separator";
 import { cn } from "@/lib/utils";
 import { SectionTwo } from "./components/section/two";
 import { SectionFour } from "./components/section/four";

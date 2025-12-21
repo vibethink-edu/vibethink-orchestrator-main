@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { SidebarProvider, SidebarInset } from '@vibethink/ui';
+import { SidebarProvider, SidebarInset } from "@vibethink/ui/components/sidebar";
 import { AppSidebar } from "@/shared/components/bundui-premium/components/layout/sidebar-bundui/app-sidebar";
 import { DashboardBadge } from "@/shared/components/dashboard-badge";
 import { SiteHeader } from "@/shared/components/bundui-premium/components/layout/header-bundui";
@@ -22,7 +22,7 @@ export default function DashboardBunduiLayout({
   children: React.ReactNode;
 }) {
   return (
-    <SidebarProvider 
+    <SidebarProvider
       defaultOpen={true}
       style={
         {

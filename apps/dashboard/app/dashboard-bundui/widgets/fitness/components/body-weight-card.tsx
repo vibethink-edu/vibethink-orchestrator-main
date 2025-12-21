@@ -1,13 +1,13 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/chart";
 
 const chartData = [
   { month: "January", weight: 68 },

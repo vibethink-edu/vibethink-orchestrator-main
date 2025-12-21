@@ -5,8 +5,8 @@ export const todoFormSchema = z.object({
   title: z.string().min(1, "Title is required"),
   description: z.string().optional(),
   assignedTo: z.array(z.string()).min(1, "At least one assignee is required"),
-  status: z.enum(Object.values(EnumTodoStatus) as [EnumTodoStatus, ...EnumTodoStatus[]]),
-  priority: z.enum(Object.values(EnumTodoPriority) as [EnumTodoPriority, ...EnumTodoPriority[]]),
+  status: z.nativeEnum(EnumTodoStatus),
+  priority: z.nativeEnum(EnumTodoPriority),
   dueDate: z.date().optional().nullable(),
   reminderDate: z.date().optional().nullable()
 });

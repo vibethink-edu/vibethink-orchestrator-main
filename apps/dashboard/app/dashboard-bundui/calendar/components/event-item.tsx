@@ -6,7 +6,7 @@ import type { SyntheticListenerMap } from "@dnd-kit/core/dist/hooks/utilities";
 import { differenceInMinutes, format, getMinutes, isPast } from "date-fns";
 
 import { getBorderRadiusClasses, getEventColorClasses, type CalendarEvent } from "./";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 
 // Using date-fns format with custom formatting:
 // 'h' - hours (1-12)
@@ -49,9 +49,9 @@ function EventWrapper({
   // Always use the currentTime (if provided) to determine if the event is in the past
   const displayEnd = currentTime
     ? new Date(
-        new Date(currentTime).getTime() +
-          (new Date(event.end).getTime() - new Date(event.start).getTime())
-      )
+      new Date(currentTime).getTime() +
+      (new Date(event.end).getTime() - new Date(event.start).getTime())
+    )
     : new Date(event.end);
 
   const isEventInPast = isPast(displayEnd);
@@ -119,9 +119,9 @@ export function EventItem({
   const displayEnd = useMemo(() => {
     return currentTime
       ? new Date(
-          new Date(currentTime).getTime() +
-            (new Date(event.end).getTime() - new Date(event.start).getTime())
-        )
+        new Date(currentTime).getTime() +
+        (new Date(event.end).getTime() - new Date(event.start).getTime())
+      )
       : new Date(event.end);
   }, [currentTime, event.start, event.end]);
 

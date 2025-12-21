@@ -1,15 +1,15 @@
 "use client";
 
-import { Card, CardAction, CardContent, CardDescription, CardHeader } from "@vibethink/ui";
+import { Card, CardAction, CardContent, CardDescription, CardHeader } from "@vibethink/ui/components/card";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/chart";
 import { ExportButton } from "@/shared/components/CardActionMenus";
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
-import { Badge } from "@vibethink/ui";
+import { Badge } from "@vibethink/ui/components/badge";
 
 export function EcommerceReturnRateCard() {
   const chartConfig = {
@@ -88,6 +88,7 @@ export function EcommerceReturnRateCard() {
     </Card>
   );
 }
+
 
 
 

@@ -1,6 +1,6 @@
 import type React from "react";
 import { Megaphone, SquareTerminal, CalendarDays, ChevronRight, ArrowRight } from "lucide-react";
-import { Card } from "@vibethink/ui";
+import { Card } from "@vibethink/ui/components/card";
 import Link from "next/link";
 
 export default function CreateProjectEmptyState() {
@@ -67,6 +67,7 @@ function TemplateCard({ icon, iconBgColor, title, description }: TemplateCardPro
     </Card>
   );
 }
+
 
 
 

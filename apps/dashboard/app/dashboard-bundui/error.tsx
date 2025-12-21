@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
 import { useEffect } from "react";
 
 export default function Error({
@@ -24,6 +24,7 @@ export default function Error({
     </div>
   );
 }
+
 
 
 

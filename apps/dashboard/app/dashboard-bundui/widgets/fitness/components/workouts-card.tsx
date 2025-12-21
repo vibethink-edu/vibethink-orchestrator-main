@@ -5,10 +5,10 @@ import {
   CardDescription,
   CardHeader,
   CardTitle
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/card";
 import { Plus, Check, Dumbbell, Flower2 } from "lucide-react";
-import { Button } from "@vibethink/ui";
-import { Badge } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { Badge } from "@vibethink/ui/components/badge";
 
 const workouts = [
   {
@@ -47,7 +47,7 @@ export function WorkoutsCard() {
         <CardTitle>Today&#39;s Workouts</CardTitle>
         <CardDescription>3 sessions planned</CardDescription>
         <CardAction>
-          <Button variant="ghost" size="icon-sm">
+          <Button variant="ghost" size="icon">
             <Plus />
           </Button>
         </CardAction>

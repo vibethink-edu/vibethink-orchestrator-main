@@ -1,29 +1,14 @@
-import { 
-  Card, 
-  CardContent, 
-  CardHeader, 
-  CardTitle,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-  Badge,
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-  Button,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  Skeleton
-} from '@vibethink/ui'
-import { 
-  MoreHorizontal, 
-  Edit, 
-  Eye, 
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui/components/card'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@vibethink/ui/components/table'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui/components/avatar'
+import { Button } from '@vibethink/ui/components/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@vibethink/ui/components/dropdown-menu'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
+import {
+  MoreHorizontal,
+  Edit,
+  Eye,
   Trash2,
   Calendar,
   DollarSign,
@@ -161,9 +146,9 @@ export function SalesTable({ className }: SalesTableProps) {
 
   const formatCurrency = (value: number) => `$${value.toLocaleString()}`
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', { 
-      month: 'short', 
-      day: 'numeric' 
+    return new Date(dateString).toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric'
     })
   }
 
@@ -289,7 +274,7 @@ export function SalesTable({ className }: SalesTableProps) {
                         <Edit className="h-4 w-4 mr-2" />
                         Edit Deal
                       </DropdownMenuItem>
-                      <DropdownMenuItem 
+                      <DropdownMenuItem
                         onClick={() => handleDelete(sale)}
                         className="text-destructive"
                       >

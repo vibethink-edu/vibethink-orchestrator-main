@@ -444,3 +444,4 @@ node scripts/validate-assets-duplicates.js
 **Próximo paso**: Ejecutar validación y corregir cualquier issue
 
 
+

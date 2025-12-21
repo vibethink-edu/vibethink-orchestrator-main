@@ -17,13 +17,13 @@ import {
 import { ArrowUpDown, ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 import Link from "next/link";
 
-import { Button } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/dropdown-menu";
 import {
   Table,
   TableBody,
@@ -31,12 +31,13 @@ import {
   TableHead,
   TableHeader,
   TableRow
-} from "@vibethink/ui";
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
-import { Avatar, AvatarImage } from "@vibethink/ui";
+} from "@vibethink/ui/components/table";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Avatar, AvatarImage } from "@vibethink/ui/components/avatar";
 import { ExportButton } from "@/shared/components/CardActionMenus";
-import { Input } from "@vibethink/ui";
-import { Badge } from "@vibethink/ui";
+import { Input } from "@vibethink/ui/components/input";
+import { Badge } from "@vibethink/ui/components/badge";
+import { cn } from "@/shared/lib/utils";
 
 export type Order = {
   id: number;
@@ -308,16 +309,16 @@ const columns: ColumnDef<Order>[] = [
       const status = row.original.status;
 
       const statusMap = {
-        success: "success",
-        processing: "info",
-        paid: "warning",
-        failed: "destructive"
+        success: { variant: "default", className: "bg-green-500 hover:bg-green-600 border-transparent text-white" },
+        processing: { variant: "secondary", className: "bg-blue-500 hover:bg-blue-600 border-transparent text-white" },
+        paid: { variant: "secondary", className: "bg-yellow-500 hover:bg-yellow-600 border-transparent text-black" },
+        failed: { variant: "destructive", className: "" }
       } as const;
 
-      const statusClass = statusMap[status] ?? "default";
+      const statusConfig = statusMap[status] ?? { variant: "default", className: "" };
 
       return (
-        <Badge variant={statusClass} className="capitalize">
+        <Badge variant={statusConfig.variant} className={cn("capitalize", statusConfig.className)}>
           {status.replace("-", " ")}
         </Badge>
       );

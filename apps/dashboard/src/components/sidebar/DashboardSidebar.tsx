@@ -8,7 +8,8 @@
  */
 
 import React from 'react';
-import { Sidebar,
+import {
+  Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
@@ -17,16 +18,17 @@ import { Sidebar,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarTrigger,
-  useSidebar } from '@vibethink/ui';
+  useSidebar
+} from '@vibethink/ui/components/sidebar';
 import DashboardNavigation from '@/components/navigation/DashboardNavigation';
-import { Button } from '@vibethink/ui';
-import { Card, CardContent } from '@vibethink/ui';
-import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui';
-import { Badge } from '@vibethink/ui';
-import { 
-  Brain, 
-  Zap, 
-  Settings, 
+import { Button } from '@vibethink/ui/components/button';
+import { Card, CardContent } from '@vibethink/ui/components/card';
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui/components/avatar';
+import { Badge } from '@vibethink/ui/components/badge';
+import {
+  Brain,
+  Zap,
+  Settings,
   HelpCircle,
   ChevronLeft,
   ChevronRight
@@ -68,7 +70,7 @@ const DashboardSidebar: React.FC = () => {
       {/* Content */}
       <SidebarContent className="px-2">
         <DashboardNavigation />
-        
+
         {/* AI Status Card */}
         {open && (
           <div className="mt-6 px-2">
@@ -119,7 +121,7 @@ const DashboardSidebar: React.FC = () => {
               </div>
             </SidebarMenuButton>
           </SidebarMenuItem>
-          
+
           {open && (
             <>
               <SidebarMenuItem>
@@ -128,7 +130,7 @@ const DashboardSidebar: React.FC = () => {
                   <span>Settings</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
-              
+
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <HelpCircle className="h-4 w-4" />

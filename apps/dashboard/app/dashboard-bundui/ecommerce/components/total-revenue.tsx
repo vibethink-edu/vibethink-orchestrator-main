@@ -7,13 +7,13 @@ import {
   CardDescription,
   CardHeader,
   CardTitle
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/card";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/chart";
 import { Bar, BarChart, XAxis } from "recharts";
 
 export function EcommerceTotalRevenueCard() {
@@ -84,6 +84,7 @@ export function EcommerceTotalRevenueCard() {
     </Card>
   );
 }
+
 
 
 

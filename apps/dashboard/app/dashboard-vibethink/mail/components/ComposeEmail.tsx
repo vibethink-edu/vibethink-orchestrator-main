@@ -34,7 +34,7 @@ import {
   List
 } from 'lucide-react'
 import { ComposeEmailData, EmailPriority } from '../types'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 
 /**
  * Compose Email Component

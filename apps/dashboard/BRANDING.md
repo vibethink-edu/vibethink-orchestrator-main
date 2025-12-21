@@ -8,7 +8,7 @@
 
 ## 📋 Overview
 
-This guide explains how to configure product branding across the entire monorepo. The product name "Pana" is used during development and can be easily changed for production.
+This guide explains how to configure product branding across the entire monorepo. The product name "ViTo" is used during development and can be easily changed for production.
 
 ---
 
@@ -29,8 +29,8 @@ This guide explains how to configure product branding across the entire monorepo
 
 ```bash
 # --- Product Branding (Configurable) ---
-# Development name: "Pana" | Production name: TBD
-NEXT_PUBLIC_PRODUCT_NAME=Pana
+# Development name: "ViTo" | Production name: TBD
+NEXT_PUBLIC_PRODUCT_NAME=ViTo
 NEXT_PUBLIC_PRODUCT_TAGLINE=El amigo que orquesta tu empresa
 NEXT_PUBLIC_PRODUCT_DESCRIPTION=AI-powered business orchestration platform
 NEXT_PUBLIC_COMPANY_NAME=VibeThink
@@ -48,7 +48,7 @@ NEXT_PUBLIC_COMPANY_NAME=VibeThink
 import { getBranding } from '@/lib/branding'
 
 const branding = getBranding()
-// branding.name → "Pana" (or configured value)
+// branding.name → "ViTo" (or configured value)
 // branding.tagline → "El amigo que orquesta tu empresa"
 // branding.gradient.text → "P" (first letter)
 ```
@@ -194,7 +194,7 @@ import { getBranding } from '@/lib/branding'
 ### No Hardcoded Strings
 ```typescript
 // ❌ Bad
-<h1>Pana</h1>
+<h1>ViTo</h1>
 
 // ✅ Good
 <h1>{branding.name}</h1>
@@ -215,10 +215,10 @@ NEXT_PUBLIC_PRODUCT_NAME="TestName" npm run dev
 
 ```bash
 # .env.development
-NEXT_PUBLIC_PRODUCT_NAME=Pana (Dev)
+NEXT_PUBLIC_PRODUCT_NAME=ViTo (Dev)
 
 # .env.staging
-NEXT_PUBLIC_PRODUCT_NAME=Pana (Staging)
+NEXT_PUBLIC_PRODUCT_NAME=ViTo (Staging)
 
 # .env.production
 NEXT_PUBLIC_PRODUCT_NAME=ProductionName
@@ -248,7 +248,7 @@ const branding = getBranding()
 <h1>{branding.name}</h1>
 
 // ❌ Bad
-<h1>Pana</h1>
+<h1>ViTo</h1>
 ```
 
 ### 2. Destructure When Needed

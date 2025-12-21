@@ -28,7 +28,7 @@ import {
   type CalendarEvent
 } from "./";
 import { DefaultStartHour } from "../constants";
-import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui";
+import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui/components/popover";
 
 interface MonthViewProps {
   currentDate: Date;
@@ -55,8 +55,8 @@ export function MonthView({ currentDate, events, onEventSelect, onEventCreate }:
   }, []);
 
   const weeks = useMemo(() => {
-    const result = [];
-    let week = [];
+    const result: Date[][] = [];
+    let week: Date[] = [];
 
     for (let i = 0; i < days.length; i++) {
       week.push(days[i]);

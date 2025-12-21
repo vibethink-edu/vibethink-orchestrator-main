@@ -5,22 +5,20 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { Button } from "@vibethink/ui/components/button";
+import { Checkbox } from "@vibethink/ui/components/checkbox";
 import {
-  Button,
-  Checkbox,
   Form,
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
-  RadioGroup,
-  RadioGroupItem,
-  Switch,
-  Card,
-  CardContent
-} from "@vibethink/ui";
+  FormMessage
+} from "@vibethink/ui/components/form";
+import { RadioGroup, RadioGroupItem } from "@vibethink/ui/components/radio-group";
+import { Switch } from "@vibethink/ui/components/switch";
+import { Card, CardContent } from "@vibethink/ui/components/card";
 import { toast } from "sonner";
 
 const notificationsFormSchema = z.object({
@@ -203,6 +201,7 @@ export default function Page() {
     </Card>
   );
 }
+
 
 
 

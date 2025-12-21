@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { generateMeta } from "@/lib/utils";
+import { generateMeta } from "@/shared/lib/utils";
 import { PricingContent } from "./pricing-content";
 
 export async function generateMetadata(): Promise<Metadata> {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { FileSearchIcon, LayoutGridIcon, ListIcon, MenuIcon, Search } from "lucide-react";
 
 import { Button } from "@vibethink/ui";

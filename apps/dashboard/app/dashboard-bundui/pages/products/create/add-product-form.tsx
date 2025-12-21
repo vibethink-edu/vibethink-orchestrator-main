@@ -15,33 +15,37 @@ import {
 } from "lucide-react";
 import { useFileUpload } from "@/hooks/use-file-upload";
 
+import { Button } from "@vibethink/ui/components/button";
 import {
-  Button,
   Form,
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
-  Input,
+  FormMessage
+} from "@vibethink/ui/components/form";
+import { Input } from "@vibethink/ui/components/input";
+import {
   Card,
   CardAction,
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle,
-  Textarea,
-  Checkbox,
-  Switch,
-  Label,
+  CardTitle
+} from "@vibethink/ui/components/card";
+import { Textarea } from "@vibethink/ui/components/textarea";
+import { Checkbox } from "@vibethink/ui/components/checkbox";
+import { Switch } from "@vibethink/ui/components/switch";
+import { Label } from "@vibethink/ui/components/label";
+import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/select";
 import { AddMediaFromUrl } from "./add-media-from-url";
 import AddNewCategory from "./add-category";
 
@@ -539,6 +543,7 @@ export default function AddProductForm() {
     </Form>
   );
 }
+
 
 
 

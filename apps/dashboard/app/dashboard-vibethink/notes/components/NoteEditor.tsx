@@ -31,7 +31,7 @@ import {
   Image,
   CheckSquare
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/shared/lib/utils';
 import { Note, NoteType, ChecklistItem } from '../types';
 import type { UseNoteEditorReturn } from '../hooks/useNoteEditor';
 

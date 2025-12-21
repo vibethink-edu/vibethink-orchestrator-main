@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { Settings } from "lucide-react";
 import { CompleteYourProfileCard } from "./complete-your-profile";
-import { generateMeta } from "@/lib/utils";
+import { generateMeta } from "@/shared/lib/utils";
 import { Metadata } from "next";
 
-import { Button, Tabs, TabsList, TabsTrigger } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { Tabs, TabsList, TabsTrigger } from "@vibethink/ui/components/tabs";
 import { CardSkills } from "./card-skills";
 import { LatestActivity } from "./latest-activity";
 import { AboutMe } from "./about-me";
@@ -61,6 +62,7 @@ export default function Page() {
     </div>
   );
 }
+
 
 
 

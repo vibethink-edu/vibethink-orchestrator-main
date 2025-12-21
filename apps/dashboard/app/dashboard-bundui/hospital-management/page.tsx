@@ -2,8 +2,10 @@
 
 import { Download, RefreshCw } from "lucide-react";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger, Button, Badge } from "@vibethink/ui";
-import CustomDateRangePicker from "@/shared/components/custom-date-range-picker";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@vibethink/ui/components/tabs";
+import { Button } from "@vibethink/ui/components/button";
+import { Badge } from "@vibethink/ui/components/badge";
+import CustomDateRangePicker from "@/shared/components/bundui-premium/components/custom-date-range-picker";
 
 import PatientVisitsChart from "./components/patient-visits-chart";
 import PatientsByDepartmentChart from "./components/patients-by-department-chart";
@@ -53,7 +55,7 @@ export default function HospitalManagementDashboardPage() {
     lastUpdated,
     refresh
   } = useHospitalData();
-  
+
   const {
     filters,
     filterPatients,
@@ -61,11 +63,11 @@ export default function HospitalManagementDashboardPage() {
     activeFiltersCount,
     setDateRange
   } = useHospitalFilters();
-  
+
   // Apply filters
   const filteredPatients = filterPatients(patients);
   const filteredAppointments = filterAppointments(appointments);
-  
+
   // Loading state
   if (isLoading) {
     return (
@@ -77,7 +79,7 @@ export default function HospitalManagementDashboardPage() {
       </div>
     );
   }
-  
+
   return (
     <div className="space-y-4">
       {/* Header */}
@@ -100,7 +102,7 @@ export default function HospitalManagementDashboardPage() {
           )}
         </div>
         <div className="flex items-center space-x-2">
-          <CustomDateRangePicker 
+          <CustomDateRangePicker
             onDateChange={(from, to) => setDateRange(from, to)}
           />
           <Button onClick={refresh} variant="outline" size="sm">
@@ -113,16 +115,16 @@ export default function HospitalManagementDashboardPage() {
           </Button>
         </div>
       </div>
-      
+
       {/* Stats Summary */}
       {lastUpdated && (
         <p className="text-xs text-muted-foreground">
-          Last updated: {lastUpdated.toLocaleTimeString()} • 
-          {filteredPatients.length} patients • 
+          Last updated: {lastUpdated.toLocaleTimeString()} •
+          {filteredPatients.length} patients •
           {filteredAppointments.length} appointments
         </p>
       )}
-      
+
       {/* Main Content */}
       <Tabs defaultValue="overview" className="space-y-4">
         <TabsList>
@@ -136,32 +138,32 @@ export default function HospitalManagementDashboardPage() {
           {/* Pass filtered data to components */}
           <SummaryCards stats={stats} />
           <div className="gap-4 space-y-4 md:grid-cols-2 lg:grid lg:grid-cols-7 lg:space-y-0">
-            <PatientVisitsChart 
-              patients={filteredPatients} 
-              stats={stats} 
+            <PatientVisitsChart
+              patients={filteredPatients}
+              stats={stats}
             />
-            <PatientsByDepartmentChart 
+            <PatientsByDepartmentChart
               patients={filteredPatients}
               stats={stats}
             />
           </div>
           <div className="gap-4 space-y-4 md:grid-cols-2 lg:grid lg:grid-cols-7 lg:space-y-0">
-            <UpcomingAppointments 
+            <UpcomingAppointments
               appointments={filteredAppointments}
             />
-            <PatientsWithLastProcedure 
+            <PatientsWithLastProcedure
               patients={filteredPatients}
             />
           </div>
           <div className="gap-4 space-y-4 md:grid-cols-2 lg:grid lg:grid-cols-2 lg:space-y-0">
-            <PlannedCalendar 
+            <PlannedCalendar
               appointments={filteredAppointments}
             />
             <Notes company_id={company_id} />
           </div>
         </TabsContent>
         <TabsContent value="reports" className="space-y-4">
-          <HospitalReports 
+          <HospitalReports
             patients={filteredPatients}
             appointments={filteredAppointments}
             stats={stats}
