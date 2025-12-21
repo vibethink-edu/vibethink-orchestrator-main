@@ -42,12 +42,25 @@ export async function loadTranslation(
     );
 
     const translations = translation.default || translation;
-    console.log(`[i18n] Successfully loaded ${locale}/${namespace}:`, Object.keys(translations).slice(0, 5));
+    
+    // Extract namespace content if JSON has namespace as root key
+    // JSON structure: { "hotel": { ... } } -> extract { ... }
+    let namespaceContent: TranslationDictionary;
+    if (translations[namespace] && typeof translations[namespace] === 'object') {
+      namespaceContent = translations[namespace] as TranslationDictionary;
+      console.log(`[i18n] Successfully loaded ${locale}/${namespace}: extracted namespace content`);
+    } else {
+      // If no namespace wrapper, use translations directly
+      namespaceContent = translations as TranslationDictionary;
+      console.log(`[i18n] Successfully loaded ${locale}/${namespace}: using direct content`);
+    }
+    
+    console.log(`[i18n] Namespace keys:`, Object.keys(namespaceContent).slice(0, 5));
     
     // Cache the translation
-    translationCache.set(cacheKey, translations);
+    translationCache.set(cacheKey, namespaceContent);
     
-    return translations;
+    return namespaceContent;
   } catch (error) {
     console.error(
       `[i18n] Failed to load translation for ${locale}/${namespace}:`,
