@@ -118,6 +118,24 @@
     }
   }
   ```
+  
+  **🚨 REGLAS CRÍTICAS:**
+  - ✅ **Namespace como clave raíz:** El JSON DEBE tener el namespace como clave raíz: `{ "moduleName": { ... } }`
+  - ✅ **Formato de parámetros:** Usar SIEMPRE `{{param}}` (doble llave) para parámetros
+  - ❌ **NO usar:** `{param}` (llave simple) - aunque funciona, `{{param}}` es el estándar obligatorio
+  - ✅ **Ejemplo de parámetros:**
+    ```json
+    {
+      "moduleName": {
+        "components": {
+          "statCards": {
+            "unitNumber": "Unit Number: {{number}}",
+            "pagination": "Page {{current}} of {{total}}"
+          }
+        }
+      }
+    }
+    ```
 
 ### Fase 4: Registrar Strings Identificados
 
