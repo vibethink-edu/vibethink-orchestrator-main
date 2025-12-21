@@ -81,18 +81,29 @@ export function I18nProvider({
   const [locale, setLocaleState] = useState<Locale>(getInitialLocale);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Initialize locale store immediately to prevent "Locale store not found" warnings
+  useEffect(() => {
+    if (!translationStore.has(locale)) {
+      translationStore.set(locale, new Map());
+      console.log(`[i18n] Initialized locale store for: ${locale}`);
+    }
+  }, [locale]);
+
   /**
    * Load translation for a namespace
    */
   const loadNamespace = useCallback(
     async (namespace: TranslationNamespace) => {
+      // Ensure locale store exists
+      if (!translationStore.has(locale)) {
+        translationStore.set(locale, new Map());
+      }
+
       // Check if already loaded
-      if (translationStore.has(locale)) {
-        const localeStore = translationStore.get(locale)!;
-        if (localeStore.has(namespace)) {
-          console.log(`[i18n] Namespace '${namespace}' already loaded for locale '${locale}'`);
-          return localeStore.get(namespace)!;
-        }
+      const localeStore = translationStore.get(locale)!;
+      if (localeStore.has(namespace)) {
+        console.log(`[i18n] Namespace '${namespace}' already loaded for locale '${locale}'`);
+        return localeStore.get(namespace)!;
       }
 
       console.log(`[i18n] Loading namespace '${namespace}' for locale '${locale}'...`);
@@ -100,10 +111,7 @@ export function I18nProvider({
       const translation = await loadTranslation(locale, namespace);
 
       // Store in cache
-      if (!translationStore.has(locale)) {
-        translationStore.set(locale, new Map());
-      }
-      translationStore.get(locale)!.set(namespace, translation);
+      localeStore.set(namespace, translation);
       console.log(`[i18n] Namespace '${namespace}' stored for locale '${locale}'`);
 
       return translation;
@@ -148,12 +156,11 @@ export function I18nProvider({
 
       const { namespace, key: translationKey } = parsed;
 
-      // Get translation from store
-      const localeStore = translationStore.get(locale);
-      if (!localeStore) {
-        console.warn(`[i18n] Locale store not found for: ${locale}`);
-        return key;
+      // Get translation from store (ensure it exists)
+      if (!translationStore.has(locale)) {
+        translationStore.set(locale, new Map());
       }
+      const localeStore = translationStore.get(locale)!;
 
       const namespaceTranslations = localeStore.get(namespace);
       if (!namespaceTranslations) {
