@@ -182,6 +182,40 @@
   - [ ] Verificar títulos del sidebar (deben ser traducibles)
   - [ ] Verificar subopciones/rutas del sidebar
   - [ ] Si el sidebar usa títulos hardcoded, documentar para migración futura
+- [ ] **🚨 VALIDAR EXISTENCIA DE TRADUCCIONES (OBLIGATORIO):**
+  - [ ] **Extraer TODAS las claves usadas en el código:**
+    ```bash
+    # Buscar todos los t('...') en el módulo
+    grep -r "t\('.*'\)" apps/dashboard/app/dashboard-bundui/module-name/
+    grep -r 't\(".*"\)' apps/dashboard/app/dashboard-bundui/module-name/
+    grep -r 't\(`.*`\)' apps/dashboard/app/dashboard-bundui/module-name/
+    ```
+  - [ ] **Verificar que CADA clave existe en AMBOS JSON (EN/ES):**
+    - [ ] Todas las claves usadas en `t('key')` deben existir en `en/module-name.json`
+    - [ ] Todas las claves usadas en `t('key')` deben existir en `es/module-name.json`
+    - [ ] Verificar claves dinámicas (ej: `t(\`key.${variable}\`)`)
+    - [ ] Verificar parámetros (ej: `t('key', { param: value })`)
+  - [ ] **Formato de validación:**
+    - Clave en código: `t('components.statCards.titles.todayCheckIn')`
+    - Debe existir en JSON: `hotel.components.statCards.titles.todayCheckIn` (el namespace se agrega automáticamente)
+    - **IMPORTANTE:** `useTranslation('hotel')` agrega el prefijo `hotel.`, entonces:
+      - Código: `t('components.statCards.titles.todayCheckIn')`
+      - JSON debe tener: `hotel.components.statCards.titles.todayCheckIn` ✅
+  - [ ] **Validar claves dinámicas:**
+    - Si usas `t(\`key.${variable}\`)` o `t('key.' + variable)`:
+      - [ ] Verificar que TODOS los valores posibles de `variable` existen en el JSON
+      - [ ] Ejemplo: `t(\`components.statCards.titles.${item.key}\`)` donde `item.key` puede ser `todayCheckIn`, `todayCheckOut`, etc.
+      - [ ] Validar que `hotel.components.statCards.titles.todayCheckIn`, `hotel.components.statCards.titles.todayCheckOut`, etc. existen
+    - **Documentar** claves dinámicas en el reporte de validación
+  - [ ] **Ejecutar script de validación:**
+    ```bash
+    node scripts/validate-i18n-keys.js --module apps/dashboard/app/dashboard-bundui/module-name --namespace module-name
+    ```
+    - ✅ El script debe pasar sin errores
+    - ⚠️ Si hay claves dinámicas, validarlas manualmente
+  - [ ] **Documentar claves faltantes:**
+    - Si falta alguna clave, documentarla y agregarla a ambos JSON antes de marcar como completo
+    - No dejar claves faltantes (causa errores en runtime - las claves aparecen visibles en la UI)
 
 ### Fase 6: Validación Completa
 
@@ -199,10 +233,34 @@
   - [ ] Mensajes de error/success
   - [ ] Headers/Footers visibles
 
+- [ ] **🚨 VALIDAR EXISTENCIA DE TODAS LAS TRADUCCIONES (ANTES DE PROBAR):**
+  - [ ] **Ejecutar script de validación (OBLIGATORIO):**
+    ```bash
+    node scripts/validate-i18n-keys.js --module apps/dashboard/app/dashboard-bundui/module-name --namespace module-name
+    ```
+  - [ ] **El script debe pasar sin errores:**
+    - ✅ "Validación exitosa: Todas las claves existen en ambos idiomas"
+    - ❌ Si hay errores: Agregar claves faltantes a ambos JSON y ejecutar nuevamente
+  - [ ] **Validar claves dinámicas manualmente:**
+    - Si el script reporta claves dinámicas (ej: `components.statCards.titles.*`):
+      - [ ] Identificar todos los valores posibles de la variable
+      - [ ] Verificar que cada valor existe en el JSON
+      - [ ] Ejemplo: Si `item.key` puede ser `todayCheckIn`, `todayCheckOut`, `totalGuests`, `totalAmount`:
+        - [ ] Verificar `hotel.components.statCards.titles.todayCheckIn` existe ✅
+        - [ ] Verificar `hotel.components.statCards.titles.todayCheckOut` existe ✅
+        - [ ] Verificar `hotel.components.statCards.titles.totalGuests` existe ✅
+        - [ ] Verificar `hotel.components.statCards.titles.totalAmount` existe ✅
+  - [ ] **Formato correcto:**
+    - ✅ `useTranslation('hotel')` → `t('components.statCards.titles.todayCheckIn')` → busca `hotel.components.statCards.titles.todayCheckIn` en JSON
+    - ❌ Clave faltante → La clave aparece visible en la UI (ej: `hotel.components.statCards.titles.missingKey`) → Agregar al JSON
+  - [ ] **Regla crítica:**
+    - **TODAS las claves usadas en `t('...')` DEBEN existir en AMBOS JSON (EN/ES)**
+    - **Ninguna clave puede estar faltante** - esto causa que las claves aparezcan visibles en la UI en lugar del texto traducido
 - [ ] **🚨 PROBAR EN AMBOS IDIOMAS (EN/ES):**
   - [ ] Cambiar idioma en la UI (usar LocaleSelector)
   - [ ] Verificar que todos los strings cambian en la página principal
   - [ ] Verificar que todos los strings cambian en subcomponentes
+  - [ ] **Verificar que NO aparecen claves de traducción** (ej: `hotel.components.statCards.titles.todayCheckIn` visible)
   - [ ] **Verificar sidebar en ambos idiomas:**
     - [ ] Título del módulo en sidebar cambia según idioma
     - [ ] Subopciones del sidebar cambian según idioma
@@ -309,6 +367,28 @@
 ---
 
 ## 🔧 Scripts de Validación
+
+### Script de Validación de Claves (OBLIGATORIO)
+
+**🚨 CRÍTICO:** Este script valida que TODAS las claves usadas en el código existan en los JSON.
+
+```bash
+# Validar que todas las claves existen
+node scripts/validate-i18n-keys.js \
+  --module apps/dashboard/app/dashboard-bundui/hotel \
+  --namespace hotel
+```
+
+**Output esperado:**
+```
+✅ Validación exitosa: Todas las claves existen en ambos idiomas.
+```
+
+**Si hay errores:**
+```
+❌ Validación fallida: Hay claves faltantes o inválidas.
+   - hotel.components.statCards.titles.missingKey
+```
 
 ### Script Básico de Auditoría
 
