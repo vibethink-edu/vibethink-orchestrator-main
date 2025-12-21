@@ -187,13 +187,16 @@
   <Button>{t('components.header.actions.save')}</Button>
   ```
 
-- [ ] **Validar subcomponentes:**
+- [ ] **🚨 Validar subcomponentes (CRÍTICO - NO OLVIDAR):**
   - [ ] Footer: Copyright, links, texto legal
   - [ ] Header: Título, breadcrumbs, acciones
   - [ ] Toolbar: Filtros, búsqueda, ordenamiento
   - [ ] **Sidebar: Navegación, menús, títulos** (CRÍTICO - ver sección específica)
   - [ ] Modales: Títulos, botones, mensajes
   - [ ] Formularios: Labels, placeholders, validaciones
+  - [ ] **Cards/Tarjetas:** Títulos, labels, mensajes (ej: BookingsCard, ReservationsCard)
+  - [ ] **Subpáginas:** Páginas anidadas (ej: `/hotel/bookings`) - metadata y componentes
+  - [ ] **⚠️ VALIDAR TODOS:** Listar TODOS los archivos `.tsx` y verificar que CADA UNO usa `useTranslation()` si tiene texto visible
 - [ ] **🚨 VALIDAR DESPLIEGUE EN SIDEBAR:**
   - [ ] Agregar módulo a `bundui-nav-items.ts` (si es dashboard-bundui)
   - [ ] Agregar módulo a `nav-main.tsx` (si es dashboard-bundui)
