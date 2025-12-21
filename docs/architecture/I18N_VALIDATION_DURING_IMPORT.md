@@ -267,6 +267,19 @@ hotel (namespace principal)
 
 **NO dejar para después - hacer durante la migración:**
 
+- [ ] **Validar componente por componente (OBLIGATORIO):**
+  ```bash
+  # Auditar todos los componentes
+  node scripts/detect-hardcoded-strings-by-component.js \
+    --module apps/dashboard/app/dashboard-bundui/[module-name] \
+    --namespace [module-name] \
+    --all-components
+  ```
+  - [ ] Listar TODOS los archivos `.tsx` del módulo
+  - [ ] Identificar namespace por componente: `components.{componentName}`
+  - [ ] Auditar cada componente individualmente
+  - [ ] Crear namespace completo para cada componente
+
 - [ ] **Reemplazar strings hardcoded con `useTranslation()`:**
   ```typescript
   // ❌ ANTES (hardcoded)

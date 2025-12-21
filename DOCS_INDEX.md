@@ -41,6 +41,7 @@ Este archivo es un índice rápido. Para la documentación completa y detallada,
 - [Protocolo de Importación y Despliegue](./docs/architecture/MODULE_IMPORT_DEPLOYMENT_PROTOCOL.md) 🚨 **⭐ PROTOCOLO MAESTRO** - Consolida TODAS las lecciones aprendidas
 - [Terminología y Nombres Clave](./docs/architecture/APPLICATION_TERMINOLOGY.md) ⭐ - Fuente única de verdad para nombres clave
 - [Module Registry Protocol](./docs/architecture/MODULE_REGISTRY_PROTOCOL.md) 🚨 **ÚNICA FUENTE DE VERDAD** - Registro de módulos migrados
+- [Estrategia de Namespaces por Componente](./docs/architecture/I18N_COMPONENT_NAMESPACE_STRATEGY.md) ⭐ - Validación sistemática por componente (subWorkspace)
 - [Evaluación de Bibliotecas Externas](./docs/architecture/EXTERNAL_LIBRARIES_EVALUATION.md) - Evaluación crítica de React Flow, TipTap, Shadcn UI Kit
 - [Arquitectura de Dashboards](./docs/architecture/DASHBOARD_ARCHITECTURE.md)
 - [Reglas de Referencias](./docs/architecture/REFERENCE_RULES.md)

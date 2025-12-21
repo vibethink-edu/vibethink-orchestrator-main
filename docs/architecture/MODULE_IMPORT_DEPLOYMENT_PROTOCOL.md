@@ -1021,9 +1021,9 @@ cell: ({ row }) => {
 - [ ] Agregar `asChild` donde sea necesario
 
 ### i18n (OBLIGATORIO)
-- [ ] Auditar strings hardcoded
-- [ ] Crear namespace i18n (EN/ES)
-- [ ] Adaptar código a `useTranslation()`
+- [ ] Auditar strings hardcoded por componente (`detect-hardcoded-strings-by-component.js`)
+- [ ] Crear namespaces por componente: `components.{componentName}` (EN/ES)
+- [ ] Adaptar código a `useTranslation()` componente por componente
 - [ ] Validar TODOS los componentes (incluyendo subcomponentes)
 - [ ] Validar sidebar deployment
 - [ ] Validar existencia de traducciones (`validate-i18n-keys.js`)
