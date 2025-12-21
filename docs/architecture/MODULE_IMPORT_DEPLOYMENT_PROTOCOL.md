@@ -992,6 +992,33 @@ cell: ({ row }) => {
 
 **Documentación:** `docs/architecture/I18N_COMPONENT_NAMESPACE_STRATEGY.md` ⭐
 
+### Lección 13: Módulos Reutilizables (Context-Aware Translations)
+
+**Problema:**
+- Módulo Booking se usa en Hotel ("Reserva habitación", "Premium", "De Lujo")
+- El mismo módulo se usa en Studio ("Reserva Sala 10", "Tipo A", "Sin instrumentos")
+- Strings están hardcoded para un contexto específico
+
+**Solución:**
+- ✅ Usar namespaces específicos por contexto (`hotel.booking.*` vs `studio.booking.*`)
+- ✅ Componente recibe `context` como prop para determinar namespace
+- ✅ Validar en todos los contextos soportados
+- ✅ Documentar contextos soportados
+
+**Estrategia recomendada:**
+```typescript
+// Componente recibe contexto
+interface BookingFormProps {
+  context: 'hotel' | 'studio';
+}
+
+// Usar namespace según contexto
+const { t } = useTranslation(context);
+const label = t('booking.reserveLabel'); // "Reserva habitación" o "Reserva Sala"
+```
+
+**Documentación:** `docs/architecture/I18N_CONTEXT_AWARE_TRANSLATIONS.md` ⭐
+
 ---
 
 ## 📋 Checklist Maestro de Importación
