@@ -360,6 +360,114 @@ export const moduleRegistry: ModuleRegistryEntry[] = [
     dependencies: ["@vibethink/ui"],
     i18nNamespace: "file-manager",
     i18nCoverage: 100
+  },
+  {
+    id: "minimal-tiptap-editor",
+    name: "Minimal TipTap Editor",
+    path: "packages/ui/src/components/extensions/minimal-tiptap",
+    type: "extension",
+    source: "tiptap",
+    sourceUrl: "https://github.com/ueberdosis/tiptap",
+    sourceVersion: "2.22.3",
+    migratedAt: "2025-12-20T00:00:00Z",
+    updatedAt: "2025-12-20T00:00:00Z",
+    status: "complete",
+    stackCompatibility: {
+      react: "19.0.0",
+      nextjs: "15.3.4",
+      typescript: "5.9.2",
+      tailwind: "4.1.10"
+    },
+    components: [
+      "MinimalTiptapEditor",
+      "TiptapEditorProvider",
+      "TiptapToolbar",
+      "TiptapBubbleMenu"
+    ],
+    dependencies: [
+      "@tiptap/react@2.22.3",
+      "@tiptap/starter-kit@2.22.3",
+      "@tiptap/extension-image@2.22.3",
+      "@tiptap/extension-link@2.22.3",
+      "@tiptap/extension-color@2.22.3",
+      "@tiptap/extension-text-style@2.22.3",
+      "@tiptap/extension-placeholder@2.22.3",
+      "@tiptap/extension-code-block-lowlight@2.22.3",
+      "lowlight@3.3.0"
+    ],
+    adaptations: {
+      monorepo: [
+        "Wrapped en @vibethink/ui para exportación centralizada",
+        "Agregados 'use client' directives a hooks (use-container-size, use-throttle, use-drag-resize)",
+        "Integrado con sistema de componentes del monorepo"
+      ],
+      i18n: [
+        "TODO: Agregar soporte i18n para toolbar labels",
+        "Placeholder text debería ser traducible"
+      ],
+      other: [
+        "Exportado como MinimalTiptapEditor desde packages/ui/src/index.ts",
+        "Usado en dashboard-vibethink/notes-v2 y dashboard-bundui/notes"
+      ]
+    },
+    notes: "Editor rich text basado en TipTap. Integrado en nuestro monorepo como extensión de @vibethink/ui. Requiere 'use client' en varios hooks.",
+    issues: [
+      "Pendiente: i18n para toolbar y placeholders",
+      "Pendiente: Validar compatibilidad completa con React 19"
+    ],
+    i18nNamespace: undefined,
+    i18nCoverage: 0
+  },
+  {
+    id: "react-flow-workflow",
+    name: "React Flow Workflow Editor",
+    path: "apps/dashboard/app/dashboard-vibethink/workflow",
+    type: "component",
+    source: "react-flow",
+    sourceUrl: "https://reactflow.dev/",
+    sourceVersion: "12.10.0",
+    migratedAt: "2025-12-20T00:00:00Z",
+    updatedAt: "2025-12-20T00:00:00Z",
+    status: "complete",
+    stackCompatibility: {
+      react: "19.0.0",
+      nextjs: "15.3.4",
+      typescript: "5.9.2",
+      tailwind: "4.1.10",
+      other: {
+        "@xyflow/react": "12.10.0"
+      }
+    },
+    components: [
+      "WorkflowCanvas",
+      "CustomNode",
+      "WorkflowToolbar"
+    ],
+    dependencies: [
+      "@xyflow/react@12.10.0"
+    ],
+    adaptations: {
+      monorepo: [
+        "Integrado en dashboard-vibethink como módulo workflow",
+        "Custom nodes adaptados a nuestro diseño system",
+        "Tipado con TypeScript estricto"
+      ],
+      i18n: [
+        "TODO: Traducir labels de nodos personalizados",
+        "TODO: Traducir mensajes del toolbar"
+      ],
+      other: [
+        "CSS importado: @xyflow/react/dist/style.css",
+        "Usado para editor visual de workflows"
+      ]
+    },
+    notes: "Editor visual de workflows usando React Flow. Compatible con React 19 y Next.js 15. Requiere importar CSS de @xyflow/react.",
+    issues: [
+      "Pendiente: i18n para labels y mensajes",
+      "Verificar compatibilidad completa con React Flow 12.10.0 y React 19"
+    ],
+    i18nNamespace: undefined,
+    i18nCoverage: 0
   }
 ];
 
