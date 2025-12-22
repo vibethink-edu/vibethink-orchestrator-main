@@ -515,5 +515,29 @@ const response = await gemini.generate({
 
 ---
 
+## 🎯 Enfoque IA First: Componentes Reutilizables
+
+**Concepto clave:** Un componente (ej: `BookingCard`) funciona para `hotel/studio/cowork` sin cambiar código, solo cambiando `context`.
+
+**Documentación completa:** `docs/architecture/IA_FIRST_REUSABLE_COMPONENTS.md` ⭐
+
+**Ejemplo:**
+```typescript
+// Un solo componente para todos los contextos
+<BookingCard booking={booking} />
+// → Auto-detecta context desde ruta
+// → Hotel: "Reserva de Habitación", "habitación", "3 noches"
+// → Studio: "Reserva de Sala", "sala", "2 horas"
+// → Cowork: "Reserva de Espacio", "espacio", "1 día"
+```
+
+**Ventajas:**
+- ✅ Agentes de IA pueden usar automáticamente
+- ✅ Auto-detección de contexto desde ruta
+- ✅ Terminología correcta según contexto
+- ✅ Sin duplicación de código
+
+---
+
 **Esta solución permite que tanto componentes React como agentes de IA resuelvan automáticamente el contexto de módulos reutilizables, usando la terminología correcta según el contexto (Hotel, Studio, Cowork, etc.).**
 
