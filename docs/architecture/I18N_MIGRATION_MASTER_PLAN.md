@@ -365,20 +365,27 @@ Antes de comenzar Fase 0:
 
 ---
 
-## 🌍 Soporte RTL (Right-to-Left) y Árabe - Fase Futura
+## 🌍 Soporte RTL (Right-to-Left) y Árabe - Estrategia Híbrida
 
-**Estado:** 📋 Planificado - Fase 2  
-**Prioridad:** P1 - Cuando cliente Dubai confirme  
-**Duración estimada:** 10-12 días
+**Estado:** 🟡 **HÍBRIDO** - Preparación ahora, implementación Fase 2  
+**Prioridad:** 
+- P0.5 - Preparación básica (2-3 días, AHORA) ✅
+- P1 - Implementación completa (10-12 días, Fase 2)
 
-**Decisión estratégica:** ✅ **OPCIÓN B - Cliente Dubai es Fase 2**
+**Decisión estratégica:** ✅ **OPCIÓN HÍBRIDA - Preparación ahora, implementación después**
 
-RTL será implementado **después** de completar la migración ICU/Money porque:
-- RTL requiere 10-12 días mínimo
-- ICU/Money es la base necesaria primero
-- Es mejor hacer RTL bien hecho que apresurado
+**Estrategia:**
+- **AHORA (2-3 días):** Auditoría + Configuración base + Documentación
+  - ✅ No bloquea ICU/Money
+  - ✅ Identifica scope temprano
+  - ✅ Scripts y utilidades listas
+- **Fase 2 (10-12 días):** Implementación completa de componentes RTL
+  - ⏳ Cuando cliente Dubai confirme
+  - ⏳ Con scope ya conocido
 
-**Documentación completa:** `docs/architecture/RTL_ARABIC_SUPPORT_PLAN.md`
+**Documentación:**
+- **Preparación:** `docs/architecture/RTL_PREPARATION_PHASE.md` ⭐
+- **Implementación completa:** `docs/architecture/RTL_ARABIC_SUPPORT_PLAN.md`
 
 ---
 

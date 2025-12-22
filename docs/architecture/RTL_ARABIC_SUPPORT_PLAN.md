@@ -1,26 +1,29 @@
 # Plan de Soporte RTL (Right-to-Left) y Árabe
 
 **Fecha:** 2025-12-20  
-**Estado:** 📋 Planificado - Fase 2 (Después de ICU/Money)  
-**Prioridad:** P1 - Cuando cliente Dubai confirme  
-**Duración estimada:** 10-12 días
+**Estado:** 🟡 **HÍBRIDO** - Preparación ahora, implementación Fase 2  
+**Prioridad:** P0.5 - Preparación básica (auditoría) | P1 - Implementación completa  
+**Duración estimada:** 
+- Preparación: 2-3 días (AHORA)
+- Implementación completa: 10-12 días (Fase 2)
 
 ---
 
 ## 🎯 Decisión Estratégica
 
-**Opción seleccionada:** ✅ **OPCIÓN B - Cliente Dubai es Fase 2**
+**Opción seleccionada:** ✅ **OPCIÓN HÍBRIDA - Preparación ahora, implementación Fase 2**
 
 **Razones:**
-1. ✅ RTL requiere 10-12 días mínimo para implementación completa
-2. ✅ Es mejor hacer RTL bien hecho que apresurado
-3. ✅ ICU/Money migration es la base necesaria primero
-4. ✅ RTL puede esperar a confirmación del cliente Dubai
-5. ✅ Permite validar fundamentos antes de agregar complejidad RTL
+1. ✅ Auditoría y preparación básica no bloquea ICU/Money
+2. ✅ Identificar problemas temprano es prudente
+3. ✅ Saber el scope exacto ayuda a planificar mejor
+4. ✅ Implementación completa puede esperar a confirmación
+5. ✅ Estar "listos" para cuando se necesite es estratégico
 
-**Timeline:**
+**Timeline Híbrido:**
+- **AHORA (2-3 días):** Auditoría RTL + Preparación básica ✅
 - **Semana 1-2:** ICU migration + Money (como planeado) ✅
-- **Semana 3-4:** RTL support cuando cliente Dubai confirme ⏳
+- **Semana 3-4:** RTL implementación completa cuando cliente Dubai confirme ⏳
 
 ---
 

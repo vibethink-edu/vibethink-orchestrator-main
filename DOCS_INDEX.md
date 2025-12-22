@@ -52,7 +52,8 @@ Este archivo es un índice rápido. Para la documentación completa y detallada,
 - [Estrategia i18n](./docs/architecture/I18N_STRATEGY.md) ⭐ - Bundui vs VibeThink
 - [Plan Maestro de Migración i18n](./docs/architecture/I18N_MIGRATION_MASTER_PLAN.md) 🚨 **CRÍTICO** - Migración gradual a ICU/Money
 - [Log de Ejecución Migración](./docs/architecture/I18N_MIGRATION_EXECUTION_LOG.md) - Seguimiento de progreso
-- [Plan de Soporte RTL/Árabe](./docs/architecture/RTL_ARABIC_SUPPORT_PLAN.md) 📋 **Fase 2** - RTL y árabe para cliente Dubai
+- [Fase de Preparación RTL](./docs/architecture/RTL_PREPARATION_PHASE.md) 🟡 **AHORA** - Auditoría y preparación básica (2-3 días)
+- [Plan de Soporte RTL/Árabe](./docs/architecture/RTL_ARABIC_SUPPORT_PLAN.md) 📋 **Fase 2** - Implementación completa RTL (10-12 días)
 - [Arquitectura i18n](./docs/architecture/I18N_ARCHITECTURE.md) - Sistema multidioma completo
 - [Guía de Plantillas i18n](./docs/architecture/I18N_TEMPLATE_GUIDE.md) - Templates para nuevas plantillas
 - [Guía de Uso i18n](./docs/architecture/I18N_USAGE_GUIDE.md) - Referencia rápida
