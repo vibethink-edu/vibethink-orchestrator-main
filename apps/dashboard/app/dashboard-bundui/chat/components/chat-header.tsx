@@ -2,25 +2,15 @@
 
 import React from "react";
 import { ArrowLeft, Ellipsis } from "lucide-react";
-import {
-  Button,
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-  AvatarIndicator
-} from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
 import { generateAvatarFallback } from "@/shared/lib/utils";
 import useChatStore from "../useChatStore";
 
-import {
-  CallDialog,
-  ChatUserDropdown,
-  VideoCallDialog
-} from "./";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui";
+import { CallDialog } from "./call-dialog";
+import { ChatUserDropdown } from "./chat-list-item-dropdown";
+import { VideoCallDialog } from "./video-call-dialog";
+import { Avatar, AvatarFallback, AvatarImage, AvatarIndicator } from "@vibethink/ui";
 import { UserPropsTypes } from "../types";
 
 export function ChatHeader({ user }: { user: UserPropsTypes }) {
@@ -80,4 +70,3 @@ export function ChatHeader({ user }: { user: UserPropsTypes }) {
     </div>
   );
 }
-

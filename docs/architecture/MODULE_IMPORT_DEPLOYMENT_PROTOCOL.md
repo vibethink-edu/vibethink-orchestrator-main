@@ -420,6 +420,34 @@ grep -r "useState\|useEffect\|useRef" apps/dashboard/app/dashboard-bundui/[modul
 </SidebarMenuButton>
 ```
 
+### 4.5. Validaciones Críticas de Renderizado y Dependencias (NUEVO)
+
+**🚨 Lecciones Aprendidas del Chat Module (2025-12-22):**
+
+#### A. Prohibido Dependencias Circulares (Barrel Files)
+**El problema:** Importar componentes hermanos usando `index.ts` (`from "."` o `from "./"`) crea ciclos que rompen el runtime ("Objects are not valid as a React child").
+
+**La Regla:**
+- ❌ **PROHIBIDO:** `import { Header } from "./";` (dentro del mismo directorio)
+- ✅ **OBLIGATORIO:** `import { Header } from "./header";` (importación directa)
+
+**Validación:**
+```bash
+grep -r 'from "\./"' apps/dashboard/app/dashboard-bundui/[module-name]
+```
+
+#### B. Renderizado Estricto (No usar `&&`)
+**El problema:** `array.length && <Component />` renderiza `0` si el array está vacío, rompiendo la hidratación en Server Components.
+
+**La Regla:**
+- ❌ **PROHIBIDO:** `{items.length && <List />}`
+- ✅ **OBLIGATORIO:** `{items.length > 0 ? <List /> : null}` (Ternario Estricto)
+
+**Validación:**
+```bash
+grep -r "&&" apps/dashboard/app/dashboard-bundui/[module-name] | grep "tsx"
+```
+
 ---
 
 ## 🌍 Fase 5: Validación i18n (OBLIGATORIO)

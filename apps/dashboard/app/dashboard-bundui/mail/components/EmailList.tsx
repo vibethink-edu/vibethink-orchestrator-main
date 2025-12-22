@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { 
+import {
   Checkbox,
   Button,
   Badge,
@@ -12,11 +12,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@vibethink/ui'
-import { 
-  Star, 
-  Paperclip, 
-  Reply, 
-  Forward, 
+import {
+  Star,
+  Paperclip,
+  Reply,
+  Forward,
   Archive,
   Trash2,
   MoreVertical
@@ -46,6 +46,8 @@ interface EmailListProps {
   loading?: boolean
 }
 
+import { useTranslation } from '@/lib/i18n'
+
 export function EmailList({
   emails,
   selectedEmails,
@@ -59,6 +61,7 @@ export function EmailList({
   onDelete,
   loading = false
 }: EmailListProps) {
+  const { t } = useTranslation('mail')
   const [hoveredEmail, setHoveredEmail] = useState<string | null>(null)
 
   const allSelected = selectedEmails.length === emails.length && emails.length > 0
@@ -71,19 +74,19 @@ export function EmailList({
       const diffMs = now.getTime() - emailDate.getTime()
       const diffHours = Math.floor(diffMs / (1000 * 60 * 60))
       const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24))
-      
+
       if (diffHours < 1) {
         const diffMinutes = Math.floor(diffMs / (1000 * 60))
-        return diffMinutes < 1 ? 'Just now' : `${diffMinutes}m ago`
+        return diffMinutes < 1 ? t('list.justNow') : t('list.minutesAgo', { count: diffMinutes })
       } else if (diffHours < 24) {
-        return `${diffHours}h ago`
+        return t('list.hoursAgo', { count: diffHours })
       } else if (diffDays < 7) {
-        return `${diffDays}d ago`
+        return t('list.daysAgo', { count: diffDays })
       } else {
         return emailDate.toLocaleDateString()
       }
     } catch {
-      return 'Unknown'
+      return t('list.unknown')
     }
   }
 
@@ -105,7 +108,7 @@ export function EmailList({
       <div className="flex-1 flex items-center justify-center">
         <div className="text-center space-y-2">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
-          <p className="text-sm text-muted-foreground">Loading emails...</p>
+          <p className="text-sm text-muted-foreground">{t('common.loading')}</p>
         </div>
       </div>
     )
@@ -115,9 +118,9 @@ export function EmailList({
     return (
       <div className="flex-1 flex items-center justify-center">
         <div className="text-center space-y-2">
-          <p className="text-lg font-medium">No emails found</p>
+          <p className="text-lg font-medium">{t('common.noEmails')}</p>
           <p className="text-sm text-muted-foreground">
-            Your inbox is empty or no emails match your current filters.
+            {t('list.emptyState')}
           </p>
         </div>
       </div>
@@ -131,15 +134,15 @@ export function EmailList({
         <Checkbox
           checked={allSelected}
           onCheckedChange={onSelectAll}
-          aria-label="Select all emails"
+          aria-label={t('list.selectAll')}
           className="data-[state=indeterminate]:bg-primary data-[state=indeterminate]:text-primary-foreground"
           {...(someSelected && { 'data-state': 'indeterminate' })}
         />
         <span className="text-sm text-muted-foreground">
           {selectedEmails.length > 0 ? (
-            `${selectedEmails.length} of ${emails.length} selected`
+            `${selectedEmails.length} ${t('list.of')} ${emails.length} ${t('header.selected')}`
           ) : (
-            `${emails.length} emails`
+            `${emails.length} ${t('list.emails')}`
           )}
         </span>
       </div>
@@ -150,7 +153,7 @@ export function EmailList({
           {emails.map((email) => {
             const isSelected = selectedEmails.includes(email.id)
             const isHovered = hoveredEmail === email.id
-            
+
             return (
               <div
                 key={email.id}
@@ -169,7 +172,7 @@ export function EmailList({
                   checked={isSelected}
                   onCheckedChange={() => onEmailToggle(email.id)}
                   onClick={(e) => e.stopPropagation()}
-                  aria-label={`Select email from ${email.from_name}`}
+                  aria-label={t('list.selectEmailFrom', { name: email.from_name })}
                 />
 
                 {/* Star button */}
@@ -182,17 +185,17 @@ export function EmailList({
                     onStar(email.id)
                   }}
                 >
-                  <Star 
+                  <Star
                     className={cn(
                       "h-4 w-4",
                       email.starred && "fill-yellow-400 text-yellow-400"
-                    )} 
+                    )}
                   />
                 </Button>
 
                 {/* Priority indicator */}
                 {email.priority !== 'normal' && (
-                  <div 
+                  <div
                     className="w-1 h-8 rounded-full"
                     style={{ backgroundColor: getPriorityColor(email.priority) }}
                   />
@@ -209,16 +212,16 @@ export function EmailList({
                       )}>
                         {email.from_name}
                       </span>
-                      
+
                       {/* Labels */}
                       {email.labels.map((label) => (
-                        <Badge 
+                        <Badge
                           key={label.id}
                           variant="outline"
                           className="h-5 text-xs px-1.5"
-                          style={{ 
+                          style={{
                             borderColor: label.color,
-                            color: label.color 
+                            color: label.color
                           }}
                         >
                           {label.name}
@@ -264,7 +267,7 @@ export function EmailList({
                   >
                     <Reply className="h-3 w-3" />
                   </Button>
-                  
+
                   <Button
                     variant="ghost"
                     size="sm"
@@ -291,24 +294,24 @@ export function EmailList({
                     <DropdownMenuContent align="end" className="w-48">
                       <DropdownMenuItem onClick={() => onArchive([email.id])}>
                         <Archive className="mr-2 h-4 w-4" />
-                        Archive
+                        {t('common.archive')}
                       </DropdownMenuItem>
-                      <DropdownMenuItem 
+                      <DropdownMenuItem
                         onClick={() => onDelete([email.id])}
                         className="text-destructive focus:text-destructive"
                       >
                         <Trash2 className="mr-2 h-4 w-4" />
-                        Delete
+                        {t('common.delete')}
                       </DropdownMenuItem>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem>
-                        Mark as unread
+                        {t('list.markAsUnread')}
                       </DropdownMenuItem>
                       <DropdownMenuItem>
-                        Add label
+                        {t('list.addLabel')}
                       </DropdownMenuItem>
                       <DropdownMenuItem>
-                        Move to folder
+                        {t('list.move')}
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>

@@ -1,4 +1,4 @@
-import { cn } from "@vibethink/ui/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { Ellipsis, FileIcon, PlayIcon } from "lucide-react";
 import { ChatMessageProps } from "../types";
 
@@ -39,7 +39,7 @@ function TextChatBubble({ message }: { message: ChatMessageProps }) {
               <DropdownMenuGroup>
                 <DropdownMenuItem>Forward</DropdownMenuItem>
                 <DropdownMenuItem>Star</DropdownMenuItem>
-                {message.own_message && <DropdownMenuItem>Edit</DropdownMenuItem>}
+                {message.own_message ? <DropdownMenuItem>Edit</DropdownMenuItem> : null}
                 <DropdownMenuItem>Delete</DropdownMenuItem>
               </DropdownMenuGroup>
             </DropdownMenuContent>
@@ -56,7 +56,7 @@ function TextChatBubble({ message }: { message: ChatMessageProps }) {
           })}>
           05:23 PM
         </time>
-        {message.own_message && <MessageStatusIcon status="read" />}
+        {message.own_message ? <MessageStatusIcon status="read" /> : null}
       </div>
     </div>
   );
@@ -100,7 +100,7 @@ function FileChatBubble({ message }: { message: ChatMessageProps }) {
               <DropdownMenuGroup>
                 <DropdownMenuItem>Forward</DropdownMenuItem>
                 <DropdownMenuItem>Star</DropdownMenuItem>
-                {message.own_message && <DropdownMenuItem>Edit</DropdownMenuItem>}
+                {message.own_message ? <DropdownMenuItem>Edit</DropdownMenuItem> : null}
                 <DropdownMenuItem>Delete</DropdownMenuItem>
               </DropdownMenuGroup>
             </DropdownMenuContent>
@@ -117,7 +117,7 @@ function FileChatBubble({ message }: { message: ChatMessageProps }) {
           })}>
           05:23 PM
         </time>
-        {message.own_message && <MessageStatusIcon status="read" />}
+        {message.own_message ? <MessageStatusIcon status="read" /> : null}
       </div>
     </div>
   );
@@ -153,7 +153,7 @@ function VideoChatBubble({ message }: { message: ChatMessageProps }) {
               <DropdownMenuGroup>
                 <DropdownMenuItem>Forward</DropdownMenuItem>
                 <DropdownMenuItem>Star</DropdownMenuItem>
-                {message.own_message && <DropdownMenuItem>Edit</DropdownMenuItem>}
+                {message.own_message ? <DropdownMenuItem>Edit</DropdownMenuItem> : null}
                 <DropdownMenuItem>Delete</DropdownMenuItem>
               </DropdownMenuGroup>
             </DropdownMenuContent>
@@ -170,7 +170,7 @@ function VideoChatBubble({ message }: { message: ChatMessageProps }) {
           })}>
           05:23 PM
         </time>
-        {message.own_message && <MessageStatusIcon status="read" />}
+        {message.own_message ? <MessageStatusIcon status="read" /> : null}
       </div>
     </div>
   );
@@ -203,7 +203,7 @@ function SoundChatBubble({ message }: { message: ChatMessageProps }) {
               <DropdownMenuGroup>
                 <DropdownMenuItem>Forward</DropdownMenuItem>
                 <DropdownMenuItem>Star</DropdownMenuItem>
-                {message.own_message && <DropdownMenuItem>Edit</DropdownMenuItem>}
+                {message.own_message ? <DropdownMenuItem>Edit</DropdownMenuItem> : null}
                 <DropdownMenuItem>Delete</DropdownMenuItem>
               </DropdownMenuGroup>
             </DropdownMenuContent>
@@ -220,7 +220,7 @@ function SoundChatBubble({ message }: { message: ChatMessageProps }) {
           })}>
           05:23 PM
         </time>
-        {message.own_message && <MessageStatusIcon status="read" />}
+        {message.own_message ? <MessageStatusIcon status="read" /> : null}
       </div>
     </div>
   );
@@ -242,7 +242,7 @@ function ImageChatBubble({ message }: { message: ChatMessageProps }) {
             "relative order-1 flex items-center justify-center": message.own_message
           })}>
           {message.content}
-          {images.length && (
+          {images.length > 0 ? (
             <div
               className={cn("grid gap-2", {
                 "grid-cols-1": images.length === 1,
@@ -260,15 +260,15 @@ function ImageChatBubble({ message }: { message: ChatMessageProps }) {
                     alt="shadcn/ui"
                     unoptimized
                   />
-                  {key + 1 === images_limit && images.length > images_limit && (
+                  {key + 1 === images_limit && images.length > images_limit ? (
                     <div className="absolute inset-0 flex items-center justify-center bg-black/40 text-3xl font-semibold text-white">
                       +{images.length - images_with_limit.length}
                     </div>
-                  )}
+                  ) : null}
                 </figure>
               ))}
             </div>
-          )}
+          ) : null}
         </div>
         <div className={cn({ "order-2": !message.own_message })}>
           <DropdownMenu>
@@ -281,7 +281,7 @@ function ImageChatBubble({ message }: { message: ChatMessageProps }) {
               <DropdownMenuGroup>
                 <DropdownMenuItem>Forward</DropdownMenuItem>
                 <DropdownMenuItem>Star</DropdownMenuItem>
-                {message.own_message && <DropdownMenuItem>Edit</DropdownMenuItem>}
+                {message.own_message ? <DropdownMenuItem>Edit</DropdownMenuItem> : null}
                 <DropdownMenuItem>Delete</DropdownMenuItem>
               </DropdownMenuGroup>
             </DropdownMenuContent>
@@ -298,7 +298,7 @@ function ImageChatBubble({ message }: { message: ChatMessageProps }) {
           })}>
           05:23 PM
         </time>
-        {message.own_message && <MessageStatusIcon status="read" />}
+        {message.own_message ? <MessageStatusIcon status="read" /> : null}
       </div>
     </div>
   );
@@ -320,4 +320,3 @@ export function ChatBubble({ message, type }: { message: ChatMessageProps; type?
       break;
   }
 }
-

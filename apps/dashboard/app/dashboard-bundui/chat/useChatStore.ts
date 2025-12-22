@@ -18,4 +18,3 @@ const chatStore: StateCreator<UseChatStore> = (set) => ({
 const useChatStore = create(chatStore);
 
 export default useChatStore;
-

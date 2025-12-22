@@ -199,9 +199,13 @@ export default function AiChatPage() {
                   messages={messages}
                   isLoading={isLoading}
                   isTyping={isTyping}
-                  onMessageEdit={() => {/* TODO: Implement edit */ }}
-                  onMessageDelete={() => {/* TODO: Implement delete */ }}
-                  onMessageCopy={(content) => navigator.clipboard.writeText(content)}
+                  onMessageEdit={undefined}
+                  onMessageDelete={undefined}
+                  onMessageCopy={(content) => {
+                    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+                      navigator.clipboard.writeText(content)
+                    }
+                  }}
                 />
 
                 {/* Input Area */}

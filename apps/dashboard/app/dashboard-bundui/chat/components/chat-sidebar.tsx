@@ -50,7 +50,7 @@ export function ChatSidebar({ chats }: { chats: ChatItemProps[] }) {
 
       <CardContent className="flex-1 overflow-auto p-0">
         <div className="block min-w-0 divide-y">
-          {filteredChats.length ? (
+          {filteredChats.length > 0 ? (
             filteredChats.map((chat, key) => (
               <ChatListItem
                 chat={chat}
@@ -66,4 +66,3 @@ export function ChatSidebar({ chats }: { chats: ChatItemProps[] }) {
     </Card>
   );
 }
-

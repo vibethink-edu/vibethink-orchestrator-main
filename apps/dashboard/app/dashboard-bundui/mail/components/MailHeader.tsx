@@ -1,6 +1,6 @@
 'use client'
 
-import { 
+import {
   Button,
   Input,
   Badge,
@@ -10,11 +10,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@vibethink/ui'
-import { 
-  Search, 
-  Plus, 
-  RefreshCw, 
-  Settings, 
+import {
+  Search,
+  Plus,
+  RefreshCw,
+  Settings,
   Filter,
   Archive,
   Trash2,
@@ -43,6 +43,8 @@ interface MailHeaderProps {
   loading?: boolean
 }
 
+import { useTranslation } from '@/lib/i18n'
+
 export function MailHeader({
   searchQuery,
   onSearchChange,
@@ -55,23 +57,24 @@ export function MailHeader({
   onStar,
   loading = false
 }: MailHeaderProps) {
+  const { t } = useTranslation('mail')
   return (
     <div className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex items-center justify-between p-4">
         {/* Left section - Title and metrics */}
         <div className="flex items-center gap-4">
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight">Mail</h1>
+            <h1 className="text-2xl font-semibold tracking-tight">{t('common.mail')}</h1>
             {metrics && (
               <div className="flex items-center gap-4 mt-1">
                 <Badge variant="secondary" className="text-xs">
-                  {metrics.unread_emails} unread
+                  {metrics.unread_emails} {t('header.unread')}
                 </Badge>
                 <Badge variant="outline" className="text-xs">
-                  {metrics.total_emails} total
+                  {metrics.total_emails} {t('header.total')}
                 </Badge>
                 <span className="text-xs text-muted-foreground">
-                  {((metrics.storage_used / metrics.storage_limit) * 100).toFixed(1)}% storage used
+                  {((metrics.storage_used / metrics.storage_limit) * 100).toFixed(1)}% {t('header.storageUsed')}
                 </span>
               </div>
             )}
@@ -84,7 +87,7 @@ export function MailHeader({
           <div className="relative w-80">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder="Search emails..."
+              placeholder={t('common.search')}
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
               className="pl-8"
@@ -95,27 +98,27 @@ export function MailHeader({
           {selectedCount > 0 && (
             <div className="flex items-center gap-1 ml-2">
               <Badge variant="secondary" className="mr-2">
-                {selectedCount} selected
+                {selectedCount} {t('header.selected')}
               </Badge>
-              <Button 
-                variant="ghost" 
-                size="sm" 
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={onStar}
                 className="h-8 w-8 p-0"
               >
                 <Star className="h-4 w-4" />
               </Button>
-              <Button 
-                variant="ghost" 
-                size="sm" 
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={onArchive}
                 className="h-8 w-8 p-0"
               >
                 <Archive className="h-4 w-4" />
               </Button>
-              <Button 
-                variant="ghost" 
-                size="sm" 
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={onDelete}
                 className="h-8 w-8 p-0 text-destructive hover:text-destructive"
               >
@@ -125,9 +128,9 @@ export function MailHeader({
           )}
 
           {/* Main actions */}
-          <Button 
-            variant="ghost" 
-            size="sm" 
+          <Button
+            variant="ghost"
+            size="sm"
             onClick={onRefresh}
             disabled={loading}
             className="h-8 w-8 p-0"
@@ -143,26 +146,26 @@ export function MailHeader({
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48">
               <DropdownMenuItem>
-                <span>All mail</span>
+                <span>{t('header.allMail')}</span>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <span>Unread</span>
+                <span>{t('common.unread')}</span>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <span>Starred</span>
+                <span>{t('common.starred')}</span>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <span>Important</span>
+                <span>{t('header.important')}</span>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <span>Has attachments</span>
+                <span>{t('header.hasAttachments')}</span>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <span>From today</span>
+                <span>{t('header.fromToday')}</span>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <span>From this week</span>
+                <span>{t('header.fromThisWeek')}</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -176,17 +179,17 @@ export function MailHeader({
             <DropdownMenuContent align="end" className="w-48">
               <DropdownMenuItem>
                 <Settings className="mr-2 h-4 w-4" />
-                <span>Settings</span>
+                <span>{t('common.settings')}</span>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <span>Import/Export</span>
+                <span>{t('header.importExport')}</span>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <span>Keyboard shortcuts</span>
+                <span>{t('header.shortcuts')}</span>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <span>Help & Support</span>
+                <span>{t('header.help')}</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -194,7 +197,7 @@ export function MailHeader({
           {/* Compose button */}
           <Button onClick={onCompose} className="ml-2">
             <Plus className="mr-2 h-4 w-4" />
-            Compose
+            {t('common.compose')}
           </Button>
         </div>
       </div>

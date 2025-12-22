@@ -152,7 +152,7 @@ export function ChatSidebar({
             onClick={() => handleProviderFilter('openai')}
             className="text-xs gap-1"
           >
-            {getProviderIcon('openai')} GPT
+            <span>{getProviderIcon('openai')}</span> <span>GPT</span>
           </Button>
           <Button
             variant={filters.ai_provider === 'anthropic' ? "default" : "outline"}
@@ -160,7 +160,7 @@ export function ChatSidebar({
             onClick={() => handleProviderFilter('anthropic')}
             className="text-xs gap-1"
           >
-            {getProviderIcon('anthropic')} Claude
+            <span>{getProviderIcon('anthropic')}</span> <span>Claude</span>
           </Button>
         </div>
       </div>
@@ -318,7 +318,7 @@ function ChatSessionItem({
               color: getProviderColor(session.ai_provider)
             }}
           >
-            {getProviderIcon(session.ai_provider)} {session.ai_provider}
+            <span>{getProviderIcon(session.ai_provider)}</span> <span>{session.ai_provider}</span>
           </Badge>
 
           <span className="text-xs text-muted-foreground truncate">

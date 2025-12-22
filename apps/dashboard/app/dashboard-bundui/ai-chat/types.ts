@@ -195,8 +195,8 @@ export interface ChatMessagesProps {
   messages: ChatMessage[]
   isLoading: boolean
   isTyping: boolean
-  onMessageEdit: (messageId: string, content: string) => void
-  onMessageDelete: (messageId: string) => void
+  onMessageEdit?: (messageId: string, content: string) => void
+  onMessageDelete?: (messageId: string) => void
   onMessageCopy: (content: string) => void
 }
 

@@ -166,11 +166,10 @@ export function FileUpload({
   }
 
   // Obtener icono de archivo
+  // Get file icon component (not JSX)
   const getFileIcon = (file: File) => {
-    if (file.type.startsWith('image/')) {
-      return <Image className="w-4 h-4" />
-    }
-    return <FileText className="w-4 h-4" />
+    if (file.type.startsWith('image/')) return Image
+    return FileText
   }
 
   // Formatear tamaño de archivo
@@ -278,7 +277,10 @@ export function FileUpload({
               >
                 {/* File Icon */}
                 <div className="shrink-0">
-                  {getFileIcon(file)}
+                  {(() => {
+                    const FileIcon = getFileIcon(file)
+                    return <FileIcon className="w-4 h-4" />
+                  })()}
                 </div>
 
                 {/* File Info */}

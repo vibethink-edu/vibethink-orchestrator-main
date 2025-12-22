@@ -3,7 +3,8 @@ import path from "path";
 import { promises as fs } from "fs";
 import { ChatItemProps, UserPropsTypes } from "./types";
 
-import { ChatSidebar, ChatContent } from "./components";
+import { ChatSidebar } from "./components/chat-sidebar";
+import { ChatContent } from "./components/chat-content";
 
 export async function generateMetadata() {
   return generateMeta({
@@ -48,4 +49,3 @@ export default async function Page() {
     </div>
   );
 }
-

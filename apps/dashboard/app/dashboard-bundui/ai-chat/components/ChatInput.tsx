@@ -175,12 +175,10 @@ export function ChatInput({
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
   }
 
-  // Get file icon
+  // Get file icon component (not JSX)
   const getFileIcon = (file: File) => {
-    if (file.type.startsWith('image/')) {
-      return <Image className="w-4 h-4" />
-    }
-    return <FileText className="w-4 h-4" />
+    if (file.type.startsWith('image/')) return Image
+    return FileText
   }
 
   const canSend = (message.trim() || attachments.length > 0) && !disabled && !isUploading
@@ -192,26 +190,29 @@ export function ChatInput({
       {attachments.length > 0 && (
         <div className="p-3 border-b bg-muted/20">
           <div className="flex flex-wrap gap-2">
-            {attachments.map((file, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 bg-background border rounded-lg px-3 py-2 text-sm"
-              >
-                {getFileIcon(file)}
-                <span className="truncate max-w-32">{file.name}</span>
-                <span className="text-xs text-muted-foreground">
-                  {formatFileSize(file.size)}
-                </span>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="h-4 w-4 p-0 ml-1"
-                  onClick={() => removeAttachment(index)}
+            {attachments.map((file, index) => {
+              const FileIcon = getFileIcon(file)
+              return (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 bg-background border rounded-lg px-3 py-2 text-sm"
                 >
-                  <X className="w-3 h-3" />
-                </Button>
-              </div>
-            ))}
+                  <FileIcon className="w-4 h-4" />
+                  <span className="truncate max-w-32">{file.name}</span>
+                  <span className="text-xs text-muted-foreground">
+                    {formatFileSize(file.size)}
+                  </span>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-4 w-4 p-0 ml-1"
+                    onClick={() => removeAttachment(index)}
+                  >
+                    <X className="w-3 h-3" />
+                  </Button>
+                </div>
+              )
+            })}
           </div>
         </div>
       )}
@@ -341,7 +342,7 @@ export function ChatInput({
           <div className="flex items-center gap-2">
             {attachments.length > 0 && (
               <Badge variant="outline" className="text-xs">
-                {attachments.length} file{attachments.length !== 1 ? 's' : ''}
+                <span>{attachments.length} file{attachments.length !== 1 ? 's' : ''}</span>
               </Badge>
             )}
 

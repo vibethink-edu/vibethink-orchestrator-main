@@ -124,8 +124,8 @@ export function ModelSelector({
           <SelectTrigger id="provider-select">
             <SelectValue>
               <div className="flex items-center gap-2">
-                <span>{getProviderIcon(selectedProviderId)}</span>
-                <span>{selectedProvider?.name}</span>
+                <span>{String(getProviderIcon(selectedProviderId))}</span>
+                <span>{String(selectedProvider?.name || '')}</span>
                 {!selectedProvider?.enabled && (
                   <Badge variant="secondary" className="text-xs">
                     Disabled
@@ -142,8 +142,8 @@ export function ModelSelector({
                 disabled={!provider.enabled}
               >
                 <div className="flex items-center gap-2">
-                  <span>{getProviderIcon(provider.id)}</span>
-                  <span>{provider.name}</span>
+                  <span>{String(getProviderIcon(provider.id))}</span>
+                  <span>{String(provider.name)}</span>
                   {!provider.enabled && (
                     <Badge variant="secondary" className="text-xs ml-auto">
                       Disabled
@@ -211,7 +211,7 @@ export function ModelSelector({
                 <Zap className="w-4 h-4 text-muted-foreground" />
                 <span>Max Tokens:</span>
                 <Badge variant="outline" className="text-xs">
-                  {selectedModelData.max_tokens.toLocaleString()}
+                  <span>{selectedModelData.max_tokens.toLocaleString()}</span>
                 </Badge>
               </div>
 

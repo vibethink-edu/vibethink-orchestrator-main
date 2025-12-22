@@ -139,7 +139,7 @@ export function ChatHeader({
                 color: getProviderColor(chat.ai_provider)
               }}
             >
-              {getProviderIcon(chat.ai_provider)} {getProviderName(chat.ai_provider)}
+              <span>{getProviderIcon(chat.ai_provider)}</span> <span>{getProviderName(chat.ai_provider)}</span>
             </Badge>
           </div>
 

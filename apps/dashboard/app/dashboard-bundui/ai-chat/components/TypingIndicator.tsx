@@ -46,32 +46,47 @@ export function TypingIndicator({
     switch (variant) {
       case 'thinking':
         return {
-          icon: <Sparkles className="w-4 h-4" />,
           message: "AI is thinking...",
           bgColor: "bg-chart-3/10",
           textColor: "text-chart-3",
-          borderColor: "border-chart-3/20"
+          borderColor: "border-chart-3/20",
+          iconVariant: 'thinking' as const
         }
       case 'processing':
         return {
-          icon: <Zap className="w-4 h-4" />,
           message: "Processing your request...",
           bgColor: "bg-chart-2/10",
           textColor: "text-chart-2",
-          borderColor: "border-chart-2/20"
+          borderColor: "border-chart-2/20",
+          iconVariant: 'processing' as const
         }
       default:
         return {
-          icon: <Bot className="w-4 h-4" />,
           message: "AI is typing...",
           bgColor: "bg-muted",
           textColor: "text-muted-foreground",
-          borderColor: "border-border"
+          borderColor: "border-border",
+          iconVariant: 'default' as const
         }
     }
   }
 
   const config = getVariantConfig()
+
+  // Get icon component (not JSX)
+  const getIconComponent = () => {
+    switch (config.iconVariant) {
+      case 'thinking':
+        return Sparkles
+      case 'processing':
+        return Zap
+      default:
+        return Bot
+    }
+  }
+
+  // Get icon component
+  const IconComponent = getIconComponent()
 
   return (
     <div className={cn("flex gap-3 animate-in fade-in-0 duration-300", className)}>
@@ -79,7 +94,7 @@ export function TypingIndicator({
       {showAvatar && (
         <Avatar className="h-8 w-8">
           <AvatarFallback className="bg-secondary text-secondary-foreground">
-            {config.icon}
+            <IconComponent className="w-4 h-4" />
           </AvatarFallback>
         </Avatar>
       )}

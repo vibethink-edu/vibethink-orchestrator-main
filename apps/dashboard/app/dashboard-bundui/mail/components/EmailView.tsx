@@ -1,6 +1,6 @@
 'use client'
 
-import { 
+import {
   Button,
   Badge,
   ScrollArea,
@@ -12,10 +12,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@vibethink/ui'
-import { 
-  Reply, 
-  ReplyAll, 
-  Forward, 
+import {
+  Reply,
+  ReplyAll,
+  Forward,
   Star,
   Archive,
   Trash2,
@@ -46,6 +46,8 @@ interface EmailViewProps {
   onBack: () => void
 }
 
+import { useTranslation } from '@/lib/i18n'
+
 export function EmailView({
   email,
   onReply,
@@ -56,13 +58,14 @@ export function EmailView({
   onDelete,
   onBack
 }: EmailViewProps) {
+  const { t } = useTranslation('mail')
   if (!email) {
     return (
       <div className="flex-1 flex items-center justify-center bg-muted/20">
         <div className="text-center space-y-2">
-          <p className="text-lg font-medium text-muted-foreground">No email selected</p>
+          <p className="text-lg font-medium text-muted-foreground">{t('view.noEmailSelected')}</p>
           <p className="text-sm text-muted-foreground">
-            Select an email from the list to view its contents.
+            {t('view.selectToView')}
           </p>
         </div>
       </div>
@@ -81,7 +84,7 @@ export function EmailView({
         hour12: true
       })
     } catch {
-      return 'Unknown date'
+      return t('view.unknownDate')
     }
   }
 
@@ -129,29 +132,29 @@ export function EmailView({
           >
             <ArrowLeft className="h-4 w-4" />
           </Button>
-          
+
           <div className="flex items-center gap-2">
             {/* Priority indicator */}
             {email.priority !== 'normal' && (
-              <div 
+              <div
                 className="w-1 h-6 rounded-full"
                 style={{ backgroundColor: getPriorityColor(email.priority) }}
               />
             )}
-            
+
             <h2 className="text-lg font-semibold truncate max-w-md">
               {email.subject}
             </h2>
-            
+
             {/* Labels */}
             {email.labels.map((label) => (
-              <Badge 
+              <Badge
                 key={label.id}
                 variant="outline"
                 className="text-xs"
-                style={{ 
+                style={{
                   borderColor: label.color,
-                  color: label.color 
+                  color: label.color
                 }}
               >
                 {label.name}
@@ -168,14 +171,14 @@ export function EmailView({
             onClick={() => onStar(email.id)}
             className="h-8 w-8 p-0"
           >
-            <Star 
+            <Star
               className={cn(
                 "h-4 w-4",
                 email.starred && "fill-yellow-400 text-yellow-400"
-              )} 
+              )}
             />
           </Button>
-          
+
           <Button
             variant="ghost"
             size="sm"
@@ -184,7 +187,7 @@ export function EmailView({
           >
             <Reply className="h-4 w-4" />
           </Button>
-          
+
           <Button
             variant="ghost"
             size="sm"
@@ -193,7 +196,7 @@ export function EmailView({
           >
             <ReplyAll className="h-4 w-4" />
           </Button>
-          
+
           <Button
             variant="ghost"
             size="sm"
@@ -212,27 +215,27 @@ export function EmailView({
             <DropdownMenuContent align="end" className="w-48">
               <DropdownMenuItem onClick={() => onArchive([email.id])}>
                 <Archive className="mr-2 h-4 w-4" />
-                Archive
+                {t('common.archive')}
               </DropdownMenuItem>
-              <DropdownMenuItem 
+              <DropdownMenuItem
                 onClick={() => onDelete([email.id])}
                 className="text-destructive focus:text-destructive"
               >
                 <Trash2 className="mr-2 h-4 w-4" />
-                Delete
+                {t('common.delete')}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                Mark as unread
+                {t('list.markAsUnread')}
               </DropdownMenuItem>
               <DropdownMenuItem>
-                Add label
+                {t('list.addLabel')}
               </DropdownMenuItem>
               <DropdownMenuItem>
-                Move to folder
+                {t('list.move')}
               </DropdownMenuItem>
               <DropdownMenuItem>
-                Print
+                {t('view.print')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -250,7 +253,7 @@ export function EmailView({
                   {getInitials(email.from_name)}
                 </AvatarFallback>
               </Avatar>
-              
+
               <div className="flex-1 space-y-2">
                 <div className="flex items-center justify-between">
                   <div>
@@ -261,14 +264,14 @@ export function EmailView({
                     {formatDate(email.created_at)}
                   </p>
                 </div>
-                
+
                 <div className="text-sm text-muted-foreground space-y-1">
                   <div>
-                    <span className="font-medium">To:</span> {email.to.join(', ')}
+                    <span className="font-medium">{t('view.to')}</span> {email.to.join(', ')}
                   </div>
                   {email.cc && email.cc.length > 0 && (
                     <div>
-                      <span className="font-medium">CC:</span> {email.cc.join(', ')}
+                      <span className="font-medium">{t('view.cc')}</span> {email.cc.join(', ')}
                     </div>
                   )}
                 </div>
@@ -282,13 +285,13 @@ export function EmailView({
               <div className="flex items-center gap-2 mb-3">
                 <Paperclip className="h-4 w-4" />
                 <span className="text-sm font-medium">
-                  {email.attachments.length} attachment{email.attachments.length > 1 ? 's' : ''}
+                  {email.attachments.length} {email.attachments.length > 1 ? t('view.attachments') : t('view.attachment')}
                 </span>
               </div>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {email.attachments.map((attachment) => (
-                  <div 
+                  <div
                     key={attachment.id}
                     className="flex items-center justify-between p-2 border border-border rounded bg-muted/30"
                   >
@@ -303,7 +306,7 @@ export function EmailView({
                         </p>
                       </div>
                     </div>
-                    
+
                     <Button
                       variant="ghost"
                       size="sm"
@@ -332,15 +335,15 @@ export function EmailView({
           <div className="flex gap-2 pt-4 border-t border-border">
             <Button onClick={() => onReply(email)}>
               <Reply className="mr-2 h-4 w-4" />
-              Reply
+              {t('common.reply')}
             </Button>
             <Button variant="outline" onClick={() => onReplyAll(email)}>
               <ReplyAll className="mr-2 h-4 w-4" />
-              Reply All
+              {t('common.replyAll')}
             </Button>
             <Button variant="outline" onClick={() => onForward(email)}>
               <Forward className="mr-2 h-4 w-4" />
-              Forward
+              {t('common.forward')}
             </Button>
           </div>
         </div>

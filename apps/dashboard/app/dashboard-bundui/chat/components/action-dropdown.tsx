@@ -1,3 +1,5 @@
+"use client";
+
 import { PlusIcon } from "@radix-ui/react-icons";
 
 import {
@@ -27,4 +29,3 @@ export function ActionDropdown() {
     </DropdownMenu>
   );
 }
-

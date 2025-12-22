@@ -28,4 +28,3 @@ export function ChatUserDropdown({ children }: { children: React.ReactNode }) {
     </DropdownMenu>
   );
 }
-

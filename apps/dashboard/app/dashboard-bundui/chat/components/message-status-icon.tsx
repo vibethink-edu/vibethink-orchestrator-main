@@ -13,4 +13,3 @@ export function MessageStatusIcon({ status }: MessageStatusIconType) {
       break;
   }
 }
-

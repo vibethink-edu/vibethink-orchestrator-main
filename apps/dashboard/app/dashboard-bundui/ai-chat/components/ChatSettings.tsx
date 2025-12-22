@@ -182,7 +182,7 @@ export function ChatSettings({
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span>Provider:</span>
-                    <Badge variant="outline">{provider.name}</Badge>
+                    <Badge variant="outline"><span>{String(provider.name)}</span></Badge>
                   </div>
                   <div className="flex justify-between">
                     <span>Max Tokens:</span>

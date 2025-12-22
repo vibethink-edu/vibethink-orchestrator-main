@@ -149,7 +149,16 @@ Antes de crear un dashboard, pregunta:
 - **`/dashboard-bundui`**: ✅ **OBLIGATORIO usar i18n** - Aplicación de metodología AI-First con namespaces/sub-namespaces. Todas las nuevas plantillas y mejoras deben usar `useTranslation()` desde el primer commit.
 - **`/dashboard-vibethink`**: ✅ OBLIGATORIO usar i18n. Todas las nuevas plantillas y mejoras deben usar `useTranslation()` desde el primer commit.
 
+**Buenas Prácticas i18n (OBLIGATORIO para AI Agents):**
+- **Validación de Keys:** SIEMPRE verificar que todas las keys usadas existan en ambos archivos (en/es) usando `grep`
+- **Preload Anti-Blink:** SIEMPRE crear/actualizar `layout.tsx` con `I18nProvider` y `preloadNamespaces` incluyendo el módulo
+- **Nunca asumir:** NUNCA asumir que una key existe sin verificar
+- **Checklist completo:** Seguir el checklist completo de validación por módulo
+
 **Documentación completa:** 
+- `docs/architecture/I18N_BEST_PRACTICES_AGENTS.md` ⭐ - **LEER PRIMERO** - Buenas prácticas para AI Agents (validación keys + anti-blink)
+- `docs/architecture/I18N_VALIDATION_PROTOCOL.md` - Protocolo de validación de keys
+- `docs/architecture/I18N_NO_BLINK_STRATEGY.md` - Estrategia detallada anti-blink
 - `docs/architecture/I18N_STRATEGY.md` - Estrategia i18n
 - `docs/architecture/I18N_TEMPLATE_GUIDE.md` - Templates
 - `docs/architecture/BUNDUI_UPDATE_STRATEGY.md` - Manejo de actualizaciones sin i18n ⭐
@@ -373,6 +382,8 @@ XYFlow Reference (puede cambiar)      ───►  apps/dashboard/... (nuestros
 - `apps/dashboard/src/shared/data/module-registry.ts` - **Registro de módulos**
 - `docs/architecture/MODULE_REGISTRY_PROTOCOL.md` - **Protocolo de registro**
 - `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md` - **Protocolo i18n**
+- `docs/architecture/I18N_BEST_PRACTICES_AGENTS.md` ⭐ - **Buenas prácticas i18n (validación + anti-blink)**
+- `docs/architecture/I18N_VALIDATION_PROTOCOL.md` - **Validación sistemática de keys**
 - `docs/architecture/BUNDUI_MIGRATION_USE_CLIENT_PROTOCOL.md` - **Protocolo "use client"**
 - `docs/architecture/ASSETS_REPOSITORY_POLICY.md` - **Política de assets**
 - `docs/TROUBLESHOOTING.md` - **Problemas comunes y soluciones**

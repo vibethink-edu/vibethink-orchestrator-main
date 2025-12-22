@@ -58,4 +58,3 @@ export type MediaListItemType = {
 export type MessageStatusIconType = {
   status?: string;
 };
-

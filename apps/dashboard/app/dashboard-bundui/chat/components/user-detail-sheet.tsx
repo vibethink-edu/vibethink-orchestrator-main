@@ -46,25 +46,25 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
             </div>
           </div>
           <div className="space-y-2 divide-y">
-            {user.about && (
+            {user.about ? (
               <div className="space-y-3 py-4">
                 <h5 className="text-xs font-semibold uppercase">About</h5>
                 <div className="text-muted-foreground">{user.about}</div>
               </div>
-            )}
-            {user.phone && (
+            ) : null}
+            {user.phone ? (
               <div className="space-y-3 py-4">
                 <h5 className="text-xs font-semibold uppercase">Phone</h5>
                 <div className="text-muted-foreground">{user.phone}</div>
               </div>
-            )}
-            {user.country && (
+            ) : null}
+            {user.country ? (
               <div className="space-y-3 py-4">
                 <h5 className="text-xs font-semibold uppercase">Country</h5>
                 <div className="text-muted-foreground">{user.country}</div>
               </div>
-            )}
-            {user.medias?.length && (
+            ) : null}
+            {user.medias?.length ? (
               <div className="space-y-3 py-4">
                 <h5 className="text-xs font-semibold uppercase">Media</h5>
                 <div>
@@ -72,7 +72,7 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
                     <div className="flex gap-4 *:shrink-0">
                       {user.medias.map((item) => (
                         <>
-                          {item.type === "image" && (
+                          {item.type === "image" ? (
                             <div>
                               <Image
                                 width={40}
@@ -83,8 +83,8 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
                                 unoptimized
                               />
                             </div>
-                          )}
-                          {item.type === "pdf" && (
+                          ) : null}
+                          {item.type === "pdf" ? (
                             <div>
                               <Link
                                 href={item.path ?? "#"}
@@ -92,8 +92,8 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
                                 <SheetIcon className="h-8 w-8 text-green-500" />
                               </Link>
                             </div>
-                          )}
-                          {item.type === "file" && (
+                          ) : null}
+                          {item.type === "file" ? (
                             <div>
                               <a
                                 href="#"
@@ -101,8 +101,8 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
                                 <FileText className="h-8 w-8 text-orange-500" />
                               </a>
                             </div>
-                          )}
-                          {item.type === "excel" && (
+                          ) : null}
+                          {item.type === "excel" ? (
                             <div>
                               <a
                                 href="#"
@@ -110,7 +110,7 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
                                 <FileText className="h-8 w-8 text-orange-500" />
                               </a>
                             </div>
-                          )}
+                          ) : null}
                         </>
                       ))}
                     </div>
@@ -118,8 +118,8 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
                   </ScrollArea>
                 </div>
               </div>
-            )}
-            {user.website && (
+            ) : null}
+            {user.website ? (
               <div className="space-y-3 py-4">
                 <h5 className="text-xs font-semibold uppercase">Website</h5>
                 <div>
@@ -131,8 +131,8 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
                   </a>
                 </div>
               </div>
-            )}
-            {user.social_links?.length && (
+            ) : null}
+            {user.social_links?.length ? (
               <div className="space-y-3 py-4">
                 <h5 className="text-xs font-semibold uppercase">Social Links</h5>
                 <div className="flex flex-wrap items-center gap-2 *:shrink-0">
@@ -147,21 +147,20 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
                         href="#"
                         target="_blank"
                         className="flex items-center justify-center rounded-full *:h-5 *:w-5">
-                        {item.name === "Facebook" && <Facebook />}
-                        {item.name === "X" && <X />}
-                        {item.name === "Dribbble" && <Dribbble />}
-                        {item.name === "Linkedin" && <Linkedin />}
-                        {item.name === "Instagram" && <Instagram />}
+                        {item.name === "Facebook" ? <Facebook /> : null}
+                        {item.name === "X" ? <X /> : null}
+                        {item.name === "Dribbble" ? <Dribbble /> : null}
+                        {item.name === "Linkedin" ? <Linkedin /> : null}
+                        {item.name === "Instagram" ? <Instagram /> : null}
                       </Link>
                     </Button>
                   ))}
                 </div>
               </div>
-            )}
+            ) : null}
           </div>
         </div>
       </SheetContent>
     </Sheet>
   );
 }
-

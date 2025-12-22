@@ -44,7 +44,7 @@ export function ChatMessages({
   onMessageDelete,
   onMessageCopy
 }: ChatMessagesProps) {
-  const scrollAreaRef = useRef<HTMLDivElement>(null)
+  const scrollAreaRef = useRef<React.ElementRef<typeof ScrollArea>>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const [showScrollButton, setShowScrollButton] = useState(false)
   const [isNearBottom, setIsNearBottom] = useState(true)
@@ -108,7 +108,10 @@ export function ChatMessages({
     }
   }
 
-  const messageGroups = groupMessagesByDate(messages)
+  // Agrupar mensajes por fecha
+  const messageGroups = React.useMemo(() => {
+    return groupMessagesByDate(messages)
+  }, [messages])
 
   // Estados de carga y error
   if (isLoading && messages.length === 0) {
@@ -157,23 +160,33 @@ export function ChatMessages({
                 <Separator className="flex-1" />
                 <Badge variant="outline" className="text-xs px-3 py-1">
                   <Clock className="w-3 h-3 mr-1" />
-                  {formatDateSeparator(date)}
+                  <span>{formatDateSeparator(date)}</span>
                 </Badge>
                 <Separator className="flex-1" />
               </div>
 
               {/* Messages for this date */}
               <div className="space-y-6">
-                {dateMessages.map((message, index) => (
-                  <MessageBubble
-                    key={message.id}
-                    message={message}
-                    isUser={message.role === 'user'}
-                    onEdit={onMessageEdit ? (content) => onMessageEdit(message.id, content) : undefined}
-                    onDelete={onMessageDelete ? () => onMessageDelete(message.id) : undefined}
-                    onCopy={() => onMessageCopy(message.content)}
-                  />
-                ))}
+                {dateMessages.map((message, index) => {
+                  const handleCopy = () => {
+                    if (onMessageCopy) {
+                      onMessageCopy(message.content)
+                    }
+                  }
+                  const handleEdit = onMessageEdit ? (content: string) => onMessageEdit(message.id, content) : undefined
+                  const handleDelete = onMessageDelete ? () => onMessageDelete(message.id) : undefined
+                  
+                  return (
+                    <MessageBubble
+                      key={message.id}
+                      message={message}
+                      isUser={message.role === 'user'}
+                      onEdit={handleEdit}
+                      onDelete={handleDelete}
+                      onCopy={handleCopy}
+                    />
+                  )
+                })}
               </div>
             </div>
           ))}
