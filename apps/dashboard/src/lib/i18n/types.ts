@@ -63,6 +63,7 @@ export type TranslationNamespace =
   | 'academy'           // Academy module
   | 'hotel'             // Hotel module
   | 'theme'             // Theme customization
+  | 'concept'           // Concept terminology (IA First reusable components)
   | 'errors'            // Error messages
   | 'validation';       // Form validation messages
 
