@@ -10,11 +10,11 @@
 
 import React, { useState } from 'react'
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts'
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
   CardTitle,
   Select,
   SelectContent,
@@ -24,15 +24,17 @@ import {
   Button,
   Badge
 } from '@vibethink/ui'
-import { 
-  TrendingUp, 
-  BarChart3, 
+import {
+  TrendingUp,
+  BarChart3,
   PieChart as PieChartIcon,
   MoreHorizontal,
   Download
 } from 'lucide-react'
 import { useProjectData } from '../hooks/useProjectData'
+
 import { ProjectOverviewChartData } from '../types'
+import { useTranslation } from '@/lib/i18n'
 
 interface ProjectOverviewChartProps {
   className?: string
@@ -40,7 +42,7 @@ interface ProjectOverviewChartProps {
 
 const CHART_COLORS = {
   active: 'hsl(var(--chart-1))',
-  completed: 'hsl(var(--chart-2))', 
+  completed: 'hsl(var(--chart-2))',
   'on-hold': 'hsl(var(--chart-3))',
   cancelled: 'hsl(var(--chart-4))'
 }
@@ -72,8 +74,8 @@ const CustomLegend = ({ payload }: any) => {
     <div className="flex flex-wrap gap-4 justify-center mt-4">
       {payload.map((entry: any, index: number) => (
         <div key={index} className="flex items-center space-x-2">
-          <div 
-            className="w-3 h-3 rounded-full" 
+          <div
+            className="w-3 h-3 rounded-full"
             style={{ backgroundColor: entry.color }}
           />
           <span className="text-sm text-muted-foreground">
@@ -85,9 +87,10 @@ const CustomLegend = ({ payload }: any) => {
   )
 }
 
-export const ProjectOverviewChart: React.FC<ProjectOverviewChartProps> = ({ 
-  className 
+export const ProjectOverviewChart: React.FC<ProjectOverviewChartProps> = ({
+  className
 }) => {
+  const { t } = useTranslation('projects')
   const [chartType, setChartType] = useState<'pie' | 'donut'>('donut')
   const [timeRange, setTimeRange] = useState('all')
   const { projects, isLoading, error } = useProjectData()
@@ -142,7 +145,7 @@ export const ProjectOverviewChart: React.FC<ProjectOverviewChartProps> = ({
           <div className="h-[300px] flex items-center justify-center">
             <div className="text-center text-muted-foreground">
               <BarChart3 className="h-12 w-12 mx-auto mb-4 opacity-50" />
-              <p>No projects found</p>
+              <p>{t('sections.noProjectsFound')}</p>
             </div>
           </div>
         </CardContent>
@@ -157,33 +160,33 @@ export const ProjectOverviewChart: React.FC<ProjectOverviewChartProps> = ({
           <div>
             <CardTitle className="flex items-center space-x-2">
               <PieChartIcon className="h-5 w-5" />
-              <span>Projects Overview</span>
+              <span>{t('sections.projectsOverview')}</span>
             </CardTitle>
             <CardDescription>
-              Project status distribution across {totalProjects} projects
+              {t('sections.projectsOverviewDesc', { count: totalProjects })}
             </CardDescription>
           </div>
-          
+
           <div className="flex items-center space-x-2">
             <Select value={timeRange} onValueChange={setTimeRange}>
               <SelectTrigger className="w-32">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Time</SelectItem>
-                <SelectItem value="30d">Last 30 days</SelectItem>
-                <SelectItem value="90d">Last 90 days</SelectItem>
-                <SelectItem value="year">This Year</SelectItem>
+                <SelectItem value="all">{t('common.allTime')}</SelectItem>
+                <SelectItem value="30d">{t('common.last30Days')}</SelectItem>
+                <SelectItem value="90d">{t('common.last90Days')}</SelectItem>
+                <SelectItem value="year">{t('common.thisYear')}</SelectItem>
               </SelectContent>
             </Select>
-            
+
             <Button variant="outline" size="sm">
               <Download className="h-4 w-4" />
             </Button>
           </div>
         </div>
       </CardHeader>
-      
+
       <CardContent>
         <div className="grid lg:grid-cols-2 gap-6">
           {/* Chart Section */}
@@ -213,16 +216,16 @@ export const ProjectOverviewChart: React.FC<ProjectOverviewChartProps> = ({
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">Total Projects</p>
+                <p className="text-sm text-muted-foreground">{t('summary.totalProjects')}</p>
                 <p className="text-2xl font-bold">{totalProjects}</p>
               </div>
-              
+
               <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">Success Rate</p>
+                <p className="text-sm text-muted-foreground">{t('summary.successRate')}</p>
                 <div className="flex items-center space-x-2">
                   <p className="text-2xl font-bold">{successRate}%</p>
                   <Badge variant={successRate >= 80 ? "default" : successRate >= 60 ? "secondary" : "destructive"}>
-                    {successRate >= 80 ? 'Excellent' : successRate >= 60 ? 'Good' : 'Needs Improvement'}
+                    {successRate >= 80 ? t('common.excellent') : successRate >= 60 ? t('common.good') : t('common.needsImprovement')}
                   </Badge>
                 </div>
               </div>
@@ -230,12 +233,12 @@ export const ProjectOverviewChart: React.FC<ProjectOverviewChartProps> = ({
 
             {/* Detailed Breakdown */}
             <div className="space-y-3">
-              <h4 className="font-medium text-sm">Project Breakdown</h4>
+              <h4 className="font-medium text-sm">{t('sections.projectBreakdown')}</h4>
               {chartData.map((item, index) => (
                 <div key={index} className="flex items-center justify-between py-2 border-b last:border-b-0">
                   <div className="flex items-center space-x-3">
-                    <div 
-                      className="w-3 h-3 rounded-full" 
+                    <div
+                      className="w-3 h-3 rounded-full"
                       style={{ backgroundColor: item.color }}
                     />
                     <span className="text-sm font-medium">{item.name}</span>

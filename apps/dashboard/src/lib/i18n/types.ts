@@ -53,6 +53,7 @@ export type TranslationNamespace =
   | 'notes'             // Notes module
   | 'payment'           // Payment module
   | 'pos-system'        // POS System module
+  | 'projects'          // Projects module
   | 'project-management' // Project Management module
   | 'tasks'             // Tasks module
   | 'website-analytics' // Website Analytics module

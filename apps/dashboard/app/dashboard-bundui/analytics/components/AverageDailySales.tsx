@@ -10,6 +10,7 @@ import {
   ChartContainer
 } from "@vibethink/ui/components/chart";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { useTranslation } from '@/lib/i18n'
 import { AnalyticsCardProps } from '../types'
 
 const chartData = [
@@ -40,10 +41,12 @@ export function AverageDailySalesCard({
   isLoading: externalLoading = false,
   error: externalError = null
 }: AnalyticsCardProps) {
+  const { t } = useTranslation('analytics')
+  
   return (
     <Card className={`h-full overflow-hidden pb-0 ${className}`}>
       <CardHeader>
-        <CardDescription>Average Daily Sales</CardDescription>
+        <CardDescription>{t('cards.averageDailySales.title')}</CardDescription>
         <div className="font-display mb-4 text-2xl lg:text-3xl">$28,450</div>
         <div className="flex items-center gap-2">
           <TrendingDown className="size-4 text-red-600" />

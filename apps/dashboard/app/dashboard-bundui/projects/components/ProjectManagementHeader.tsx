@@ -9,7 +9,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { 
+import {
   Button,
   Input,
   Select,
@@ -23,11 +23,11 @@ import {
   DropdownMenuTrigger,
   Badge
 } from '@vibethink/ui'
-import { 
-  Search, 
-  Plus, 
-  Filter, 
-  Download, 
+import {
+  Search,
+  Plus,
+  Filter,
+  Download,
   Calendar,
   Users,
   MoreHorizontal,
@@ -35,6 +35,7 @@ import {
 } from 'lucide-react'
 import { useProjectFilters, useFilterOptions } from '../hooks/useProjectFilters'
 import { useProjectData } from '../hooks/useProjectData'
+import { useTranslation } from '@/lib/i18n'
 
 interface ProjectManagementHeaderProps {
   onCreateProject?: () => void
@@ -47,13 +48,14 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
   onCreateTask,
   onExportData
 }) => {
+  const { t } = useTranslation('projects')
   const [searchTerm, setSearchTerm] = useState('')
   const { filters, updateFilter, clearFilter, clearAllFilters, hasActiveFilters } = useProjectFilters()
   const { projects, tasks, teamMembers } = useProjectData(filters)
-  const { 
-    projectStatusOptions, 
-    projectPriorityOptions, 
-    teamMemberOptions 
+  const {
+    projectStatusOptions,
+    projectPriorityOptions,
+    teamMemberOptions
   } = useFilterOptions(projects, tasks, teamMembers)
 
   const handleSearchChange = (value: string) => {
@@ -89,10 +91,10 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
   }
 
   const getActiveFiltersCount = () => {
-    return (filters.status?.length || 0) + 
-           (filters.priority?.length || 0) + 
-           (filters.team_lead?.length || 0) +
-           (filters.search ? 1 : 0)
+    return (filters.status?.length || 0) +
+      (filters.priority?.length || 0) +
+      (filters.team_lead?.length || 0) +
+      (filters.search ? 1 : 0)
   }
 
   return (
@@ -100,33 +102,33 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
       {/* Main Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Project Management</h1>
+          <h1 className="text-3xl font-bold tracking-tight">{t('header.title')}</h1>
           <p className="text-muted-foreground">
-            Track projects, manage tasks, and monitor team performance
+            {t('header.subtitle')}
           </p>
         </div>
-        
+
         <div className="flex items-center space-x-2">
           <Button variant="outline" onClick={onExportData}>
             <Download className="h-4 w-4 mr-2" />
-            Export
+            {t('header.export')}
           </Button>
-          
+
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button>
                 <Plus className="h-4 w-4 mr-2" />
-                Create
+                {t('common.create')}
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem onClick={onCreateProject}>
                 <Calendar className="h-4 w-4 mr-2" />
-                New Project
+                {t('header.newProject')}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={onCreateTask}>
                 <Users className="h-4 w-4 mr-2" />
-                New Task
+                {t('header.newTask')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -139,7 +141,7 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
         <div className="relative flex-1 max-w-sm">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
-            placeholder="Search projects..."
+            placeholder={t('header.searchPlaceholder')}
             value={searchTerm}
             onChange={(e) => handleSearchChange(e.target.value)}
             className="pl-9"
@@ -158,10 +160,10 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
           }}
         >
           <SelectTrigger className="w-40">
-            <SelectValue placeholder="Status" />
+            <SelectValue placeholder={t('header.status')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All Statuses</SelectItem>
+            <SelectItem value="all">{t('header.allStatuses')}</SelectItem>
             {projectStatusOptions.map((option) => (
               <SelectItem key={option.value} value={option.value}>
                 {option.label}
@@ -182,10 +184,10 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
           }}
         >
           <SelectTrigger className="w-40">
-            <SelectValue placeholder="Priority" />
+            <SelectValue placeholder={t('header.priority')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All Priorities</SelectItem>
+            <SelectItem value="all">{t('header.allPriorities')}</SelectItem>
             {projectPriorityOptions.map((option) => (
               <SelectItem key={option.value} value={option.value}>
                 {option.label}
@@ -206,10 +208,10 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
           }}
         >
           <SelectTrigger className="w-40">
-            <SelectValue placeholder="Team Lead" />
+            <SelectValue placeholder={t('header.teamLead')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All Team Leads</SelectItem>
+            <SelectItem value="all">{t('header.allTeamLeads')}</SelectItem>
             {teamMemberOptions.map((option) => (
               <SelectItem key={option.value} value={option.value}>
                 {option.label}
@@ -222,7 +224,7 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
         {hasActiveFilters && (
           <Button variant="ghost" size="sm" onClick={clearAllFilters}>
             <X className="h-4 w-4 mr-1" />
-            Clear ({getActiveFiltersCount()})
+            {t('header.clearFilters')} ({getActiveFiltersCount()})
           </Button>
         )}
 
@@ -231,7 +233,7 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="sm">
               <Filter className="h-4 w-4 mr-2" />
-              Filters
+              {t('header.filters')}
               {getActiveFiltersCount() > 0 && (
                 <Badge variant="secondary" className="ml-2 h-5 w-5 rounded-full p-0 text-xs">
                   {getActiveFiltersCount()}
@@ -241,7 +243,7 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-56">
             <div className="p-2">
-              <h4 className="font-medium text-sm mb-2">Quick Filters</h4>
+              <h4 className="font-medium text-sm mb-2">{t('header.quickFilters')}</h4>
               <div className="space-y-2">
                 <Button
                   variant="ghost"
@@ -249,7 +251,7 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
                   className="w-full justify-start"
                   onClick={() => updateFilter('status', ['active'])}
                 >
-                  Active Projects Only
+                  {t('header.activeProjectsOnly')}
                 </Button>
                 <Button
                   variant="ghost"
@@ -257,7 +259,7 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
                   className="w-full justify-start"
                   onClick={() => updateFilter('priority', ['urgent', 'high'])}
                 >
-                  High Priority Projects
+                  {t('header.highPriorityProjects')}
                 </Button>
                 <Button
                   variant="ghost"
@@ -272,7 +274,7 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
                     })
                   }}
                 >
-                  Overdue Projects
+                  {t('header.overdueProjects')}
                 </Button>
               </div>
             </div>
@@ -281,70 +283,72 @@ export const ProjectManagementHeader: React.FC<ProjectManagementHeaderProps> = (
       </div>
 
       {/* Active Filters Display */}
-      {hasActiveFilters && (
-        <div className="flex items-center space-x-2 flex-wrap">
-          <span className="text-sm text-muted-foreground">Active filters:</span>
-          
-          {filters.status?.map((status) => (
-            <Badge key={`status-${status}`} variant="secondary" className="text-xs">
-              Status: {status}
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-4 w-4 p-0 ml-1 hover:bg-transparent"
-                onClick={() => handleStatusFilter(status)}
-              >
-                <X className="h-3 w-3" />
-              </Button>
-            </Badge>
-          ))}
-          
-          {filters.priority?.map((priority) => (
-            <Badge key={`priority-${priority}`} variant="secondary" className="text-xs">
-              Priority: {priority}
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-4 w-4 p-0 ml-1 hover:bg-transparent"
-                onClick={() => handlePriorityFilter(priority)}
-              >
-                <X className="h-3 w-3" />
-              </Button>
-            </Badge>
-          ))}
-          
-          {filters.team_lead?.map((teamLeadId) => {
-            const teamLead = teamMemberOptions.find(tm => tm.value === teamLeadId)
-            return (
-              <Badge key={`team-lead-${teamLeadId}`} variant="secondary" className="text-xs">
-                Lead: {teamLead?.label || teamLeadId}
+      {
+        hasActiveFilters && (
+          <div className="flex items-center space-x-2 flex-wrap">
+            <span className="text-sm text-muted-foreground">{t('header.activeFilters')}:</span>
+
+            {filters.status?.map((status) => (
+              <Badge key={`status-${status}`} variant="secondary" className="text-xs">
+                Status: {status}
                 <Button
                   variant="ghost"
                   size="sm"
                   className="h-4 w-4 p-0 ml-1 hover:bg-transparent"
-                  onClick={() => handleTeamLeadFilter(teamLeadId)}
+                  onClick={() => handleStatusFilter(status)}
                 >
                   <X className="h-3 w-3" />
                 </Button>
               </Badge>
-            )
-          })}
-          
-          {filters.search && (
-            <Badge variant="secondary" className="text-xs">
-              Search: &quot;{filters.search}&quot;
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-4 w-4 p-0 ml-1 hover:bg-transparent"
-                onClick={() => handleSearchChange('')}
-              >
-                <X className="h-3 w-3" />
-              </Button>
-            </Badge>
-          )}
-        </div>
-      )}
-    </div>
+            ))}
+
+            {filters.priority?.map((priority) => (
+              <Badge key={`priority-${priority}`} variant="secondary" className="text-xs">
+                Priority: {priority}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-4 w-4 p-0 ml-1 hover:bg-transparent"
+                  onClick={() => handlePriorityFilter(priority)}
+                >
+                  <X className="h-3 w-3" />
+                </Button>
+              </Badge>
+            ))}
+
+            {filters.team_lead?.map((teamLeadId) => {
+              const teamLead = teamMemberOptions.find(tm => tm.value === teamLeadId)
+              return (
+                <Badge key={`team-lead-${teamLeadId}`} variant="secondary" className="text-xs">
+                  Lead: {teamLead?.label || teamLeadId}
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-4 w-4 p-0 ml-1 hover:bg-transparent"
+                    onClick={() => handleTeamLeadFilter(teamLeadId)}
+                  >
+                    <X className="h-3 w-3" />
+                  </Button>
+                </Badge>
+              )
+            })}
+
+            {filters.search && (
+              <Badge variant="secondary" className="text-xs">
+                Search: &quot;{filters.search}&quot;
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-4 w-4 p-0 ml-1 hover:bg-transparent"
+                  onClick={() => handleSearchChange('')}
+                >
+                  <X className="h-3 w-3" />
+                </Button>
+              </Badge>
+            )}
+          </div>
+        )
+      }
+    </div >
   )
 }

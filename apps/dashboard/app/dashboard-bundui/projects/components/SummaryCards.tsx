@@ -9,18 +9,18 @@
 'use client'
 
 import React from 'react'
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
   CardTitle,
   Skeleton
 } from '@vibethink/ui'
-import { 
-  Briefcase, 
-  Users, 
-  Clock, 
+import {
+  Briefcase,
+  Users,
+  Clock,
   TrendingUp,
   TrendingDown,
   CheckCircle,
@@ -28,6 +28,7 @@ import {
   Target
 } from 'lucide-react'
 import { useProjectSummary } from '../hooks/useProjectData'
+import { useTranslation } from '@/lib/i18n'
 
 interface MetricCardProps {
   title: string
@@ -104,6 +105,7 @@ const SummaryCardsSkeleton: React.FC = () => (
 )
 
 export const SummaryCards: React.FC = () => {
+  const { t } = useTranslation('projects')
   const { data: summary, isLoading, error } = useProjectSummary()
 
   if (isLoading) {
@@ -117,7 +119,7 @@ export const SummaryCards: React.FC = () => {
           <CardContent className="flex items-center justify-center py-8">
             <div className="text-center">
               <AlertTriangle className="h-8 w-8 text-red-500 mx-auto mb-2" />
-              <p className="text-sm text-muted-foreground">Failed to load metrics</p>
+              <p className="text-sm text-muted-foreground">{t('summary.failedToLoad')}</p>
             </div>
           </CardContent>
         </Card>
@@ -135,46 +137,46 @@ export const SummaryCards: React.FC = () => {
   const teamMembersChange = '+2'
   const overdueTasksChange = '-15.3%'
 
-  const budgetUtilization = summary.total_budget > 0 
+  const budgetUtilization = summary.total_budget > 0
     ? ((summary.total_spent / summary.total_budget) * 100).toFixed(1)
     : '0'
 
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       <MetricCard
-        title="Active Projects"
+        title={t('summary.activeProjects')}
         value={summary.active_projects}
-        description="from last month"
+        description={t('summary.fromLastMonth')}
         change={activeProjectsChange}
         isPositive={true}
         trend="up"
         icon={<Briefcase className="h-4 w-4" />}
       />
-      
+
       <MetricCard
-        title="Completed Tasks"
+        title={t('summary.completedTasks')}
         value={summary.completed_tasks_this_month}
-        description="this month"
+        description={t('summary.thisMonth')}
         change={completedTasksChange}
         isPositive={true}
         trend="up"
         icon={<CheckCircle className="h-4 w-4" />}
       />
-      
+
       <MetricCard
-        title="Team Members"
+        title={t('summary.teamMembers')}
         value={summary.total_team_members}
-        description="active contributors"
+        description={t('summary.activeContributors')}
         change={teamMembersChange}
         isPositive={true}
         trend="up"
         icon={<Users className="h-4 w-4" />}
       />
-      
+
       <MetricCard
-        title="Overdue Tasks"
+        title={t('summary.overdueTasks')}
         value={summary.overdue_tasks}
-        description="from last week"
+        description={t('summary.fromLastWeek')}
         change={overdueTasksChange}
         isPositive={true}
         trend="down"

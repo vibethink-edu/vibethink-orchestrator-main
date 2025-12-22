@@ -1,0 +1,70 @@
+npm warn Unknown project config "package-manager-strict". This will stop working in the next major version of npm.
+
+> vibethink-orchestrator@1.0.0 build:dashboard
+> cd apps/dashboard && npx --no-install next build
+
+npm warn Unknown env config "package-manager-strict". This will stop working in the next major version of npm.
+npm warn Unknown project config "package-manager-strict". This will stop working in the next major version of npm.
+   Ôû▓ Next.js 15.3.4
+   - Environments: .env
+
+   Creating an optimized production build ...
+Failed to compile.
+
+./app/dashboard-bundui/projects/components/AchievementByYear.tsx
+Module parse failed: Identifier 'useProjectData' has already been declared (13:9)
+File was processed with these loaders:
+ * ../../node_modules/next/dist/build/webpack/loaders/next-flight-client-module-loader.js
+ * ../../node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+You may need an additional loader to handle the result of these loaders.
+| import { Award, Trophy, Target, Calendar, TrendingUp, Download } from "__barrel_optimize__?names=Award,Calendar,Download,Target,TrendingUp,Trophy!=!lucide-react";
+| import { useProjectData } from '../hooks/useProjectData';
+> import { useProjectData } from '../hooks/useProjectData';
+| import { useTranslation } from '@/lib/i18n';
+| const CustomTooltip = ({ active, payload, label })=>{
+
+Import trace for requested module:
+./app/dashboard-bundui/projects/components/AchievementByYear.tsx
+./app/dashboard-bundui/projects/components/index.ts
+./app/dashboard-bundui/projects/page.tsx
+
+./app/dashboard-bundui/projects/components/AddReminderDialog.tsx
+Error:   x Expected a semicolon
+     ,-[C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\dashboard\app\dashboard-bundui\projects\components\AddReminderDialog.tsx:157:1]
+ 154 |     } finally {
+ 155 |       console.error('Failed to create reminder:', error)
+ 156 |       setErrors({ submit: t('reminders.failedToCreate') })
+ 157 |     } finally {
+     :       ^^^^^^^
+ 158 |       setIsSubmitting(false)
+ 159 |     }
+ 159 |   }
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/dashboard-bundui/projects/components/AddReminderDialog.tsx
+./app/dashboard-bundui/projects/components/index.ts
+./app/dashboard-bundui/projects/page.tsx
+
+./app/dashboard-bundui/projects/components/ProjectEfficiencyChart.tsx
+Module parse failed: Identifier 'useProjectData' has already been declared (13:9)
+File was processed with these loaders:
+ * ../../node_modules/next/dist/build/webpack/loaders/next-flight-client-module-loader.js
+ * ../../node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+You may need an additional loader to handle the result of these loaders.
+| import { TrendingUp, TrendingDown, Activity, Zap, Clock, Target } from "__barrel_optimize__?names=Activity,Clock,Target,TrendingDown,TrendingUp,Zap!=!lucide-react";
+| import { useProjectData } from '../hooks/useProjectData';
+> import { useProjectData } from '../hooks/useProjectData';
+| import { useTranslation } from '@/lib/i18n';
+| const CustomTooltip = ({ active, payload, label })=>{
+
+Import trace for requested module:
+./app/dashboard-bundui/projects/components/ProjectEfficiencyChart.tsx
+./app/dashboard-bundui/projects/components/index.ts
+./app/dashboard-bundui/projects/page.tsx
+
+
+> Build failed because of webpack errors

@@ -16,10 +16,10 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
   CardTitle,
   Button,
   Badge,
@@ -39,7 +39,7 @@ import {
   SelectValue,
   Input
 } from '@vibethink/ui'
-import { 
+import {
   MoreHorizontal,
   Edit,
   Trash2,
@@ -55,7 +55,9 @@ import {
 } from 'lucide-react'
 import { useProjectData, useUpdateProjectProgress } from '../hooks/useProjectData'
 import { useProjectFilters } from '../hooks/useProjectFilters'
+
 import { Project } from '../types'
+import { useTranslation } from '@/lib/i18n'
 
 interface RecentProjectsTableProps {
   className?: string
@@ -133,6 +135,7 @@ export const RecentProjectsTable: React.FC<RecentProjectsTableProps> = ({
   onDeleteProject,
   onViewProject
 }) => {
+  const { t } = useTranslation('projects')
   const [sortField, setSortField] = useState<SortField>('due_date')
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc')
   const [searchTerm, setSearchTerm] = useState('')
@@ -220,8 +223,8 @@ export const RecentProjectsTable: React.FC<RecentProjectsTableProps> = ({
     return (
       <Card className={className}>
         <CardHeader>
-          <CardTitle>Recent Projects</CardTitle>
-          <CardDescription>Loading projects...</CardDescription>
+          <CardTitle>{t('sections.recentProjects')}</CardTitle>
+          <CardDescription>{t('common.loading')}</CardDescription>
         </CardHeader>
         <CardContent>
           <ProjectTableSkeleton />
@@ -234,12 +237,12 @@ export const RecentProjectsTable: React.FC<RecentProjectsTableProps> = ({
     return (
       <Card className={className}>
         <CardHeader>
-          <CardTitle>Recent Projects</CardTitle>
-          <CardDescription>Failed to load projects</CardDescription>
+          <CardTitle>{t('sections.recentProjects')}</CardTitle>
+          <CardDescription>{t('summary.failedToLoad')}</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="text-center py-8">
-            <p className="text-muted-foreground">Error loading project data</p>
+            <p className="text-muted-foreground">{t('summary.errorLoadingSuccessMetrics')}</p>
           </div>
         </CardContent>
       </Card>
@@ -251,114 +254,114 @@ export const RecentProjectsTable: React.FC<RecentProjectsTableProps> = ({
       <CardHeader>
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle>Recent Projects</CardTitle>
+            <CardTitle>{t('sections.recentProjects')}</CardTitle>
             <CardDescription>
-              Manage and track project progress ({filteredAndSortedProjects.length} projects)
+              {t('sections.recentProjectsDesc', { count: filteredAndSortedProjects.length })}
             </CardDescription>
           </div>
         </div>
-        
+
         {/* Filters and Search */}
         <div className="flex items-center space-x-4 mt-4">
           <div className="relative flex-1 max-w-sm">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder="Search projects..."
+              placeholder={t('header.searchPlaceholder')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-9"
             />
           </div>
-          
+
           <Select value={statusFilter} onValueChange={setStatusFilter}>
             <SelectTrigger className="w-32">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Status</SelectItem>
-              <SelectItem value="active">Active</SelectItem>
-              <SelectItem value="completed">Completed</SelectItem>
-              <SelectItem value="on-hold">On Hold</SelectItem>
-              <SelectItem value="cancelled">Cancelled</SelectItem>
+              <SelectItem value="all">{t('header.allStatuses')}</SelectItem>
+              <SelectItem value="active">{t('status.active')}</SelectItem>
+              <SelectItem value="completed">{t('status.completed')}</SelectItem>
+              <SelectItem value="on-hold">{t('status.onHold')}</SelectItem>
+              <SelectItem value="cancelled">{t('status.cancelled')}</SelectItem>
             </SelectContent>
           </Select>
-          
+
           <Select value={priorityFilter} onValueChange={setPriorityFilter}>
             <SelectTrigger className="w-32">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Priority</SelectItem>
-              <SelectItem value="urgent">Urgent</SelectItem>
-              <SelectItem value="high">High</SelectItem>
-              <SelectItem value="medium">Medium</SelectItem>
-              <SelectItem value="low">Low</SelectItem>
+              <SelectItem value="all">{t('header.allPriorities')}</SelectItem>
+              <SelectItem value="urgent">{t('priority.urgent')}</SelectItem>
+              <SelectItem value="high">{t('priority.high')}</SelectItem>
+              <SelectItem value="medium">{t('priority.medium')}</SelectItem>
+              <SelectItem value="low">{t('priority.low')}</SelectItem>
             </SelectContent>
           </Select>
         </div>
       </CardHeader>
-      
+
       <CardContent>
         <div className="rounded-md border">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead 
+                <TableHead
                   className="cursor-pointer hover:bg-muted/50"
                   onClick={() => handleSort('name')}
                 >
                   <div className="flex items-center space-x-1">
-                    <span>Project</span>
+                    <span>{t('table.project')}</span>
                     {getSortIcon('name')}
                   </div>
                 </TableHead>
-                <TableHead 
+                <TableHead
                   className="cursor-pointer hover:bg-muted/50"
                   onClick={() => handleSort('status')}
                 >
                   <div className="flex items-center space-x-1">
-                    <span>Status</span>
+                    <span>{t('header.status')}</span>
                     {getSortIcon('status')}
                   </div>
                 </TableHead>
-                <TableHead 
+                <TableHead
                   className="cursor-pointer hover:bg-muted/50"
                   onClick={() => handleSort('priority')}
                 >
                   <div className="flex items-center space-x-1">
-                    <span>Priority</span>
+                    <span>{t('header.priority')}</span>
                     {getSortIcon('priority')}
                   </div>
                 </TableHead>
-                <TableHead 
+                <TableHead
                   className="cursor-pointer hover:bg-muted/50"
                   onClick={() => handleSort('progress')}
                 >
                   <div className="flex items-center space-x-1">
-                    <span>Progress</span>
+                    <span>{t('table.progress')}</span>
                     {getSortIcon('progress')}
                   </div>
                 </TableHead>
-                <TableHead>Team Lead</TableHead>
-                <TableHead 
+                <TableHead>{t('header.teamLead')}</TableHead>
+                <TableHead
                   className="cursor-pointer hover:bg-muted/50"
                   onClick={() => handleSort('due_date')}
                 >
                   <div className="flex items-center space-x-1">
-                    <span>Due Date</span>
+                    <span>{t('table.dueDate')}</span>
                     {getSortIcon('due_date')}
                   </div>
                 </TableHead>
-                <TableHead 
+                <TableHead
                   className="cursor-pointer hover:bg-muted/50"
                   onClick={() => handleSort('budget')}
                 >
                   <div className="flex items-center space-x-1">
-                    <span>Budget</span>
+                    <span>{t('table.budget')}</span>
                     {getSortIcon('budget')}
                   </div>
                 </TableHead>
-                <TableHead className="text-right">Actions</TableHead>
+                <TableHead className="text-right">{t('table.actions')}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -367,8 +370,8 @@ export const RecentProjectsTable: React.FC<RecentProjectsTableProps> = ({
                   <TableCell colSpan={8} className="text-center py-8">
                     <div className="text-muted-foreground">
                       <Filter className="h-8 w-8 mx-auto mb-2 opacity-50" />
-                      <p>No projects found</p>
-                      <p className="text-sm">Try adjusting your filters</p>
+                      <p>{t('sections.noProjectsFound')}</p>
+                      <p className="text-sm">{t('table.tryAdjustingFilters')}</p>
                     </div>
                   </TableCell>
                 </TableRow>
@@ -383,15 +386,15 @@ export const RecentProjectsTable: React.FC<RecentProjectsTableProps> = ({
                         </div>
                       </div>
                     </TableCell>
-                    
+
                     <TableCell>
                       {getStatusBadge(project.status)}
                     </TableCell>
-                    
+
                     <TableCell>
                       {getPriorityBadge(project.priority)}
                     </TableCell>
-                    
+
                     <TableCell>
                       <div className="space-y-2">
                         <div className="flex items-center justify-between text-sm">
@@ -400,13 +403,13 @@ export const RecentProjectsTable: React.FC<RecentProjectsTableProps> = ({
                             {project.status === 'completed' ? 'Complete' : 'In Progress'}
                           </span>
                         </div>
-                        <Progress 
-                          value={project.progress} 
+                        <Progress
+                          value={project.progress}
                           className="h-2"
                         />
                       </div>
                     </TableCell>
-                    
+
                     <TableCell>
                       <div className="flex items-center space-x-2">
                         <Avatar className="h-8 w-8">
@@ -418,23 +421,23 @@ export const RecentProjectsTable: React.FC<RecentProjectsTableProps> = ({
                         <span className="text-sm">{project.team_lead_name || 'Unassigned'}</span>
                       </div>
                     </TableCell>
-                    
+
                     <TableCell>
                       <div className="text-sm">
-                        {new Date(project.due_date).toLocaleDateString('en-US', { 
-                          month: 'short', 
-                          day: '2-digit', 
-                          year: 'numeric' 
+                        {new Date(project.due_date).toLocaleDateString('en-US', {
+                          month: 'short',
+                          day: '2-digit',
+                          year: 'numeric'
                         })}
                       </div>
                       <div className="text-xs text-muted-foreground">
-                        {new Date(project.due_date) < new Date() && project.status !== 'completed' 
-                          ? 'Overdue' 
+                        {new Date(project.due_date) < new Date() && project.status !== 'completed'
+                          ? 'Overdue'
                           : `${Math.ceil((new Date(project.due_date).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))} days left`
                         }
                       </div>
                     </TableCell>
-                    
+
                     <TableCell>
                       <div className="text-sm">
                         <div className="font-medium">${project.budget.toLocaleString()}</div>
@@ -443,7 +446,7 @@ export const RecentProjectsTable: React.FC<RecentProjectsTableProps> = ({
                         </div>
                       </div>
                     </TableCell>
-                    
+
                     <TableCell className="text-right">
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -469,7 +472,7 @@ export const RecentProjectsTable: React.FC<RecentProjectsTableProps> = ({
                             View Timeline
                           </DropdownMenuItem>
                           <DropdownMenuSeparator />
-                          <DropdownMenuItem 
+                          <DropdownMenuItem
                             className="text-red-600"
                             onClick={() => onDeleteProject?.(project.id)}
                           >

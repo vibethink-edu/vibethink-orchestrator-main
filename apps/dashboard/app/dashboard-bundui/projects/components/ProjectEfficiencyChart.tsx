@@ -9,23 +9,23 @@
 'use client'
 
 import React, { useState, useMemo } from 'react'
-import { 
-  LineChart, 
-  Line, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip, 
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
   ResponsiveContainer,
   Area,
   AreaChart,
   ReferenceLine
 } from 'recharts'
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
   CardTitle,
   Select,
   SelectContent,
@@ -35,8 +35,8 @@ import {
   Button,
   Badge
 } from '@vibethink/ui'
-import { 
-  TrendingUp, 
+import {
+  TrendingUp,
   TrendingDown,
   Activity,
   Zap,
@@ -44,7 +44,9 @@ import {
   Target
 } from 'lucide-react'
 import { useProjectData } from '../hooks/useProjectData'
+
 import { ProjectEfficiencyChartData } from '../types'
+import { useTranslation } from '@/lib/i18n'
 
 interface ProjectEfficiencyChartProps {
   className?: string
@@ -58,15 +60,15 @@ const CustomTooltip = ({ active, payload, label }: any) => {
         {payload.map((item: any, index: number) => (
           <div key={index} className="flex items-center justify-between space-x-4">
             <div className="flex items-center space-x-2">
-              <div 
-                className="w-2 h-2 rounded-full" 
+              <div
+                className="w-2 h-2 rounded-full"
                 style={{ backgroundColor: item.color }}
               />
               <span className="text-sm">{item.name}</span>
             </div>
             <span className="text-sm font-medium">
-              {item.name === 'Efficiency' || item.name === 'Productivity' 
-                ? `${item.value}%` 
+              {item.name === 'Efficiency' || item.name === 'Productivity'
+                ? `${item.value}%`
                 : item.value
               }
             </span>
@@ -82,16 +84,16 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 const generateEfficiencyData = (): ProjectEfficiencyChartData[] => {
   const data: ProjectEfficiencyChartData[] = []
   const today = new Date()
-  
+
   for (let i = 29; i >= 0; i--) {
     const date = new Date(today)
     date.setDate(today.getDate() - i)
-    
+
     // Generate realistic efficiency data with trends
     const baseEfficiency = 75 + Math.sin(i * 0.1) * 10 + Math.random() * 10
     const baseProductivity = 80 + Math.cos(i * 0.15) * 8 + Math.random() * 8
     const completedTasks = Math.floor(Math.random() * 15) + 5
-    
+
     data.push({
       date: date.toISOString().split('T')[0],
       efficiency: Math.round(Math.max(0, Math.min(100, baseEfficiency))),
@@ -99,13 +101,14 @@ const generateEfficiencyData = (): ProjectEfficiencyChartData[] => {
       completed_tasks: completedTasks
     })
   }
-  
+
   return data
 }
 
-export const ProjectEfficiencyChart: React.FC<ProjectEfficiencyChartProps> = ({ 
-  className 
+export const ProjectEfficiencyChart: React.FC<ProjectEfficiencyChartProps> = ({
+  className
 }) => {
+  const { t } = useTranslation('projects')
   const [timeRange, setTimeRange] = useState('30d')
   const [chartType, setChartType] = useState<'line' | 'area'>('area')
   const { projects, tasks, isLoading } = useProjectData()
@@ -139,8 +142,8 @@ export const ProjectEfficiencyChart: React.FC<ProjectEfficiencyChartProps> = ({
     return (
       <Card className={className}>
         <CardHeader>
-          <CardTitle>Team Efficiency</CardTitle>
-          <CardDescription>Loading efficiency data...</CardDescription>
+          <CardTitle>{t('sections.teamEfficiency')}</CardTitle>
+          <CardDescription>{t('common.loading')}</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="h-[300px] flex items-center justify-center">
@@ -158,38 +161,38 @@ export const ProjectEfficiencyChart: React.FC<ProjectEfficiencyChartProps> = ({
           <div>
             <CardTitle className="flex items-center space-x-2">
               <Activity className="h-5 w-5" />
-              <span>Team Efficiency</span>
+              <span>{t('sections.teamEfficiency')}</span>
             </CardTitle>
             <CardDescription>
-              Performance trends and productivity metrics
+              {t('sections.teamEfficiencyDesc')}
             </CardDescription>
           </div>
-          
+
           <div className="flex items-center space-x-2">
             <Select value={chartType} onValueChange={(value: 'line' | 'area') => setChartType(value)}>
               <SelectTrigger className="w-24">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="line">Line</SelectItem>
-                <SelectItem value="area">Area</SelectItem>
+                <SelectItem value="line">{t('common.line')}</SelectItem>
+                <SelectItem value="area">{t('common.area')}</SelectItem>
               </SelectContent>
             </Select>
-            
+
             <Select value={timeRange} onValueChange={setTimeRange}>
               <SelectTrigger className="w-32">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="7d">Last 7 days</SelectItem>
-                <SelectItem value="30d">Last 30 days</SelectItem>
-                <SelectItem value="90d">Last 90 days</SelectItem>
+                <SelectItem value="7d">{t('common.last7Days')}</SelectItem>
+                <SelectItem value="30d">{t('common.last30Days')}</SelectItem>
+                <SelectItem value="90d">{t('common.last90Days')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
         </div>
       </CardHeader>
-      
+
       <CardContent>
         <div className="space-y-6">
           {/* Key Metrics */}
@@ -199,7 +202,7 @@ export const ProjectEfficiencyChart: React.FC<ProjectEfficiencyChartProps> = ({
                 <Zap className="h-5 w-5 text-primary" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Avg Efficiency</p>
+                <p className="text-sm text-muted-foreground">{t('efficiency.avgEfficiency')}</p>
                 <div className="flex items-center space-x-1">
                   <p className="text-xl font-bold">{averageEfficiency}%</p>
                   {efficiencyTrend === 'up' && <TrendingUp className="h-4 w-4 text-green-500" />}
@@ -207,23 +210,23 @@ export const ProjectEfficiencyChart: React.FC<ProjectEfficiencyChartProps> = ({
                 </div>
               </div>
             </div>
-            
+
             <div className="flex items-center space-x-3 p-3 bg-muted/50 rounded-lg">
               <div className="flex items-center justify-center w-10 h-10 bg-blue-500/10 rounded-lg">
                 <Target className="h-5 w-5 text-blue-500" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Productivity</p>
+                <p className="text-sm text-muted-foreground">{t('efficiency.productivity')}</p>
                 <p className="text-xl font-bold">{averageProductivity}%</p>
               </div>
             </div>
-            
+
             <div className="flex items-center space-x-3 p-3 bg-muted/50 rounded-lg">
               <div className="flex items-center justify-center w-10 h-10 bg-green-500/10 rounded-lg">
                 <Clock className="h-5 w-5 text-green-500" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Tasks Completed</p>
+                <p className="text-sm text-muted-foreground">{t('efficiency.tasksCompleted')}</p>
                 <p className="text-xl font-bold">{totalCompletedTasks}</p>
               </div>
             </div>
@@ -245,13 +248,13 @@ export const ProjectEfficiencyChart: React.FC<ProjectEfficiencyChartProps> = ({
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                  <XAxis 
-                    dataKey="date" 
+                  <XAxis
+                    dataKey="date"
                     stroke="hsl(var(--muted-foreground))"
                     fontSize={12}
                     tickFormatter={(value) => new Date(value).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                   />
-                  <YAxis 
+                  <YAxis
                     stroke="hsl(var(--muted-foreground))"
                     fontSize={12}
                     domain={[0, 100]}
@@ -264,7 +267,7 @@ export const ProjectEfficiencyChart: React.FC<ProjectEfficiencyChartProps> = ({
                     stroke="hsl(var(--chart-1))"
                     fill="url(#efficiencyGradient)"
                     strokeWidth={2}
-                    name="Efficiency"
+                    name={t('efficiency.efficiency')}
                   />
                   <Area
                     type="monotone"
@@ -272,19 +275,19 @@ export const ProjectEfficiencyChart: React.FC<ProjectEfficiencyChartProps> = ({
                     stroke="hsl(var(--chart-2))"
                     fill="url(#productivityGradient)"
                     strokeWidth={2}
-                    name="Productivity"
+                    name={t('efficiency.productivity')}
                   />
                 </AreaChart>
               ) : (
                 <LineChart data={chartData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                  <XAxis 
-                    dataKey="date" 
+                  <XAxis
+                    dataKey="date"
                     stroke="hsl(var(--muted-foreground))"
                     fontSize={12}
                     tickFormatter={(value) => new Date(value).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                   />
-                  <YAxis 
+                  <YAxis
                     stroke="hsl(var(--muted-foreground))"
                     fontSize={12}
                     domain={[0, 100]}
@@ -297,7 +300,7 @@ export const ProjectEfficiencyChart: React.FC<ProjectEfficiencyChartProps> = ({
                     stroke="hsl(var(--chart-1))"
                     strokeWidth={3}
                     dot={{ fill: 'hsl(var(--chart-1))', strokeWidth: 2, r: 4 }}
-                    name="Efficiency"
+                    name={t('efficiency.efficiency')}
                   />
                   <Line
                     type="monotone"
@@ -305,7 +308,7 @@ export const ProjectEfficiencyChart: React.FC<ProjectEfficiencyChartProps> = ({
                     stroke="hsl(var(--chart-2))"
                     strokeWidth={3}
                     dot={{ fill: 'hsl(var(--chart-2))', strokeWidth: 2, r: 4 }}
-                    name="Productivity"
+                    name={t('efficiency.productivity')}
                   />
                 </LineChart>
               )}
@@ -315,36 +318,36 @@ export const ProjectEfficiencyChart: React.FC<ProjectEfficiencyChartProps> = ({
           {/* Performance Insights */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 border rounded-lg">
-              <h4 className="font-medium text-sm mb-2">Performance Status</h4>
+              <h4 className="font-medium text-sm mb-2">{t('efficiency.performanceStatus')}</h4>
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm">Team Efficiency</span>
+                  <span className="text-sm">{t('efficiency.teamEfficiency')}</span>
                   <Badge variant={averageEfficiency >= 80 ? "default" : averageEfficiency >= 60 ? "secondary" : "destructive"}>
-                    {averageEfficiency >= 80 ? 'Excellent' : averageEfficiency >= 60 ? 'Good' : 'Needs Focus'}
+                    {averageEfficiency >= 80 ? t('common.excellent') : averageEfficiency >= 60 ? t('common.good') : t('common.needsFocus')}
                   </Badge>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm">Productivity</span>
+                  <span className="text-sm">{t('efficiency.productivity')}</span>
                   <Badge variant={averageProductivity >= 80 ? "default" : averageProductivity >= 60 ? "secondary" : "destructive"}>
-                    {averageProductivity >= 80 ? 'High' : averageProductivity >= 60 ? 'Moderate' : 'Low'}
+                    {averageProductivity >= 80 ? t('priority.high') : averageProductivity >= 60 ? t('priority.medium') : t('priority.low')}
                   </Badge>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm">Trend</span>
+                  <span className="text-sm">{t('efficiency.trend')}</span>
                   <Badge variant={efficiencyTrend === 'up' ? "default" : efficiencyTrend === 'down' ? "destructive" : "secondary"}>
-                    {efficiencyTrend === 'up' ? 'Improving' : efficiencyTrend === 'down' ? 'Declining' : 'Stable'}
+                    {efficiencyTrend === 'up' ? t('efficiency.improving') : efficiencyTrend === 'down' ? t('efficiency.declining') : t('efficiency.stable')}
                   </Badge>
                 </div>
               </div>
             </div>
-            
+
             <div className="p-4 border rounded-lg">
-              <h4 className="font-medium text-sm mb-2">Key Insights</h4>
+              <h4 className="font-medium text-sm mb-2">{t('efficiency.keyInsights')}</h4>
               <div className="space-y-1 text-xs text-muted-foreground">
-                <p>• Average efficiency above industry standard (75%)</p>
-                <p>• {totalCompletedTasks} tasks completed in selected period</p>
-                <p>• Team maintains consistent productivity levels</p>
-                <p>• {efficiencyTrend === 'up' ? 'Positive trend indicates good momentum' : 'Focus on efficiency improvements needed'}</p>
+                <p>• {t('efficiency.avgEfficiencyAbove')}</p>
+                <p>• {t('efficiency.tasksCompletedPeriod', { count: totalCompletedTasks })}</p>
+                <p>• {t('efficiency.consistentProductivity')}</p>
+                <p>• {efficiencyTrend === 'up' ? t('efficiency.positiveTrend') : t('efficiency.needsImprovement')}</p>
               </div>
             </div>
           </div>

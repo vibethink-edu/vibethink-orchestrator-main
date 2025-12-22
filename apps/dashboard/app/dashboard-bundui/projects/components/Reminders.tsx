@@ -9,11 +9,11 @@
 'use client'
 
 import React, { useState } from 'react'
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
   CardTitle,
   Button,
   Badge,
@@ -28,7 +28,7 @@ import {
   SelectTrigger,
   SelectValue
 } from '@vibethink/ui'
-import { 
+import {
   Bell,
   Plus,
   Clock,
@@ -43,7 +43,9 @@ import {
 } from 'lucide-react'
 import { useReminders, useCompleteReminder } from '../hooks/useTeamData'
 import { AddReminderDialog } from './AddReminderDialog'
+
 import { Reminder } from '../types'
+import { useTranslation } from '@/lib/i18n'
 
 interface RemindersProps {
   className?: string
@@ -137,13 +139,13 @@ const getTimeUntil = (dueDate: string) => {
   const due = new Date(dueDate)
   const now = new Date()
   const diffMs = due.getTime() - now.getTime()
-  
+
   if (diffMs < 0) return 'Overdue'
-  
+
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24))
   const diffHours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
   const diffMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60))
-  
+
   if (diffDays > 0) return `in ${diffDays} day${diffDays > 1 ? 's' : ''}`
   if (diffHours > 0) return `in ${diffHours} hour${diffHours > 1 ? 's' : ''}`
   if (diffMinutes > 0) return `in ${diffMinutes} minute${diffMinutes > 1 ? 's' : ''}`
@@ -169,7 +171,7 @@ const ReminderItem: React.FC<{
             onCheckedChange={() => onComplete(reminder.id)}
             className="mt-1"
           />
-          
+
           <div className="flex-1 space-y-2">
             <div className="flex items-center space-x-2">
               <div className={getPriorityColor(reminder.priority)}>
@@ -182,42 +184,42 @@ const ReminderItem: React.FC<{
                 <AlertTriangle className="h-4 w-4 text-red-500" />
               )}
             </div>
-            
+
             {reminder.description && (
               <p className={`text-sm ${reminder.is_completed ? 'line-through text-muted-foreground' : 'text-muted-foreground'}`}>
                 {reminder.description}
               </p>
             )}
-            
+
             <div className="flex items-center space-x-2 flex-wrap">
               {getPriorityBadge(reminder.priority)}
               {getTypeBadge(reminder.type)}
-              
+
               {reminder.project_name && (
                 <Badge variant="outline" className="text-xs">
                   {reminder.project_name}
                 </Badge>
               )}
-              
+
               {reminder.task_title && (
                 <Badge variant="outline" className="text-xs">
                   {reminder.task_title}
                 </Badge>
               )}
             </div>
-            
+
             <div className="flex items-center space-x-4 text-xs text-muted-foreground">
               <div className="flex items-center space-x-1">
                 <Calendar className="h-3 w-3" />
                 <span>
-                  {new Date(reminder.due_date).toLocaleDateString('en-US', { 
-                    month: 'short', 
-                    day: '2-digit', 
-                    year: 'numeric' 
-                  })} {new Date(reminder.due_date).toLocaleTimeString('en-US', { 
-                    hour: '2-digit', 
-                    minute: '2-digit', 
-                    hour12: false 
+                  {new Date(reminder.due_date).toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: '2-digit',
+                    year: 'numeric'
+                  })} {new Date(reminder.due_date).toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
                   })}
                 </span>
               </div>
@@ -229,7 +231,7 @@ const ReminderItem: React.FC<{
             </div>
           </div>
         </div>
-        
+
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
@@ -241,7 +243,7 @@ const ReminderItem: React.FC<{
               <Edit className="h-4 w-4 mr-2" />
               Edit
             </DropdownMenuItem>
-            <DropdownMenuItem 
+            <DropdownMenuItem
               className="text-red-600"
               onClick={() => onDelete(reminder.id)}
             >
@@ -256,6 +258,7 @@ const ReminderItem: React.FC<{
 }
 
 export const Reminders: React.FC<RemindersProps> = ({ className }) => {
+  const { t } = useTranslation('projects')
   const [filter, setFilter] = useState<ReminderFilter>('all')
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false)
   const [editingReminder, setEditingReminder] = useState<Reminder | null>(null)
@@ -287,11 +290,11 @@ export const Reminders: React.FC<RemindersProps> = ({ className }) => {
       const priorityOrder = { urgent: 4, high: 3, medium: 2, low: 1 }
       const aPriority = priorityOrder[a.priority]
       const bPriority = priorityOrder[b.priority]
-      
+
       if (aPriority !== bPriority) {
         return bPriority - aPriority
       }
-      
+
       return new Date(a.due_date).getTime() - new Date(b.due_date).getTime()
     })
   }, [reminders, filter])
@@ -319,15 +322,15 @@ export const Reminders: React.FC<RemindersProps> = ({ className }) => {
     setEditingReminder(null)
   }
 
-  const urgentCount = reminders?.filter(r => 
+  const urgentCount = reminders?.filter(r =>
     !r.is_completed && (r.priority === 'urgent' || isReminderOverdue(r.due_date))
   ).length || 0
 
-  const todayCount = reminders?.filter(r => 
+  const todayCount = reminders?.filter(r =>
     !r.is_completed && isReminderToday(r.due_date)
   ).length || 0
 
-  const overdueCount = reminders?.filter(r => 
+  const overdueCount = reminders?.filter(r =>
     !r.is_completed && isReminderOverdue(r.due_date)
   ).length || 0
 
@@ -335,8 +338,8 @@ export const Reminders: React.FC<RemindersProps> = ({ className }) => {
     return (
       <Card className={className}>
         <CardHeader>
-          <CardTitle>Reminders</CardTitle>
-          <CardDescription>Loading reminders...</CardDescription>
+          <CardTitle>{t('sections.reminders')}</CardTitle>
+          <CardDescription>{t('common.loading')}</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -359,13 +362,13 @@ export const Reminders: React.FC<RemindersProps> = ({ className }) => {
     return (
       <Card className={className}>
         <CardHeader>
-          <CardTitle>Reminders</CardTitle>
-          <CardDescription>Failed to load reminders</CardDescription>
+          <CardTitle>{t('sections.reminders')}</CardTitle>
+          <CardDescription>{t('summary.failedToLoad')}</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="text-center py-8">
             <Bell className="h-8 w-8 mx-auto mb-2 text-muted-foreground opacity-50" />
-            <p className="text-muted-foreground">Error loading reminders</p>
+            <p className="text-muted-foreground">{t('summary.errorLoadingReminders')}</p>
           </div>
         </CardContent>
       </Card>
@@ -380,24 +383,24 @@ export const Reminders: React.FC<RemindersProps> = ({ className }) => {
             <div>
               <CardTitle className="flex items-center space-x-2">
                 <Bell className="h-5 w-5" />
-                <span>Reminders</span>
+                <span>{t('sections.reminders')}</span>
                 {urgentCount > 0 && (
                   <Badge variant="destructive" className="text-xs">
-                    {urgentCount} urgent
+                    {urgentCount} {t('priority.urgent').toLowerCase()}
                   </Badge>
                 )}
               </CardTitle>
               <CardDescription>
-                Task reminders and important deadlines
+                {t('sections.remindersDesc')}
               </CardDescription>
             </div>
-            
+
             <Button size="sm" onClick={() => setIsAddDialogOpen(true)}>
               <Plus className="h-4 w-4 mr-1" />
-              Add
+              {t('common.add')}
             </Button>
           </div>
-          
+
           {/* Filter Tabs */}
           <div className="flex items-center space-x-2 mt-4">
             <Select value={filter} onValueChange={(value: ReminderFilter) => setFilter(value)}>
@@ -405,36 +408,36 @@ export const Reminders: React.FC<RemindersProps> = ({ className }) => {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Reminders</SelectItem>
+                <SelectItem value="all">{t('reminders.allReminders')}</SelectItem>
                 <SelectItem value="urgent">
-                  Urgent {urgentCount > 0 && `(${urgentCount})`}
+                  {t('priority.urgent')} {urgentCount > 0 && `(${urgentCount})`}
                 </SelectItem>
                 <SelectItem value="today">
-                  Today {todayCount > 0 && `(${todayCount})`}
+                  {t('reminders.today')} {todayCount > 0 && `(${todayCount})`}
                 </SelectItem>
                 <SelectItem value="overdue">
-                  Overdue {overdueCount > 0 && `(${overdueCount})`}
+                  {t('reminders.overdue')} {overdueCount > 0 && `(${overdueCount})`}
                 </SelectItem>
-                <SelectItem value="upcoming">Upcoming</SelectItem>
+                <SelectItem value="upcoming">{t('reminders.upcoming')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
         </CardHeader>
-        
+
         <CardContent>
           {filteredReminders.length === 0 ? (
             <div className="text-center py-8">
               <Bell className="h-12 w-12 mx-auto mb-4 text-muted-foreground opacity-50" />
-              <h3 className="text-lg font-medium mb-2">No reminders</h3>
+              <h3 className="text-lg font-medium mb-2">{t('reminders.noReminders')}</h3>
               <p className="text-muted-foreground mb-4">
-                {filter === 'all' 
-                  ? "You're all caught up! No active reminders."
-                  : `No ${filter} reminders found.`
+                {filter === 'all'
+                  ? t('reminders.allCaughtUp')
+                  : t('reminders.noFilterReminders', { filter: filter })
                 }
               </p>
               <Button onClick={() => setIsAddDialogOpen(true)}>
                 <Plus className="h-4 w-4 mr-2" />
-                Add Reminder
+                {t('reminders.addReminder')}
               </Button>
             </div>
           ) : (
@@ -450,24 +453,24 @@ export const Reminders: React.FC<RemindersProps> = ({ className }) => {
               ))}
             </div>
           )}
-          
+
           {/* Quick Stats */}
           {reminders && reminders.length > 0 && (
             <div className="mt-4 pt-4 border-t">
               <div className="grid grid-cols-3 gap-4 text-center text-sm">
                 <div>
                   <div className="font-medium text-red-600">{overdueCount}</div>
-                  <div className="text-muted-foreground">Overdue</div>
+                  <div className="text-muted-foreground">{t('reminders.overdue')}</div>
                 </div>
                 <div>
                   <div className="font-medium text-yellow-600">{todayCount}</div>
-                  <div className="text-muted-foreground">Today</div>
+                  <div className="text-muted-foreground">{t('reminders.today')}</div>
                 </div>
                 <div>
                   <div className="font-medium text-blue-600">
                     {reminders.filter(r => isReminderUpcoming(r.due_date) && !r.is_completed).length}
                   </div>
-                  <div className="text-muted-foreground">Upcoming</div>
+                  <div className="text-muted-foreground">{t('reminders.upcoming')}</div>
                 </div>
               </div>
             </div>

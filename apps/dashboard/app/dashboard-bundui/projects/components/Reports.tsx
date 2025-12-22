@@ -9,11 +9,11 @@
 'use client'
 
 import React, { useState, useMemo } from 'react'
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
   CardTitle,
   Button,
   Badge,
@@ -30,7 +30,7 @@ import {
   TableRow,
   Input
 } from '@vibethink/ui'
-import { 
+import {
   FileText,
   Download,
   Calendar,
@@ -46,7 +46,9 @@ import {
   RefreshCw
 } from 'lucide-react'
 import { useProjectData } from '../hooks/useProjectData'
+
 import { ProjectReport } from '../types'
+import { useTranslation } from '@/lib/i18n'
 
 interface ReportsProps {
   className?: string
@@ -154,6 +156,7 @@ const getReportTypeBadge = (type: ReportType) => {
 }
 
 const ReportGenerationCard = () => {
+  const { t } = useTranslation('projects')
   const [reportType, setReportType] = useState<ReportType>('status')
   const [dateRange, setDateRange] = useState('30d')
   const [format, setFormat] = useState<ReportFormat>('pdf')
@@ -172,49 +175,49 @@ const ReportGenerationCard = () => {
       <CardHeader>
         <CardTitle className="flex items-center space-x-2">
           <Target className="h-5 w-5" />
-          <span>Generate New Report</span>
+          <span>{t('reports.generateNew')}</span>
         </CardTitle>
         <CardDescription>
-          Create custom reports for project analysis and insights
+          {t('reports.createCustom')}
         </CardDescription>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="space-y-2">
-              <label className="text-sm font-medium">Report Type</label>
+              <label className="text-sm font-medium">{t('reports.reportType')}</label>
               <Select value={reportType} onValueChange={(value: ReportType) => setReportType(value)}>
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="status">Project Status</SelectItem>
-                  <SelectItem value="performance">Team Performance</SelectItem>
-                  <SelectItem value="budget">Budget Analysis</SelectItem>
-                  <SelectItem value="timeline">Timeline Review</SelectItem>
-                  <SelectItem value="team">Team Workload</SelectItem>
+                  <SelectItem value="status">{t('reports.projectStatus')}</SelectItem>
+                  <SelectItem value="performance">{t('reports.teamPerformance')}</SelectItem>
+                  <SelectItem value="budget">{t('reports.budgetAnalysis')}</SelectItem>
+                  <SelectItem value="timeline">{t('reports.timelineReview')}</SelectItem>
+                  <SelectItem value="team">{t('reports.teamWorkload')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
-            
+
             <div className="space-y-2">
-              <label className="text-sm font-medium">Date Range</label>
+              <label className="text-sm font-medium">{t('reports.dateRange')}</label>
               <Select value={dateRange} onValueChange={setDateRange}>
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="7d">Last 7 days</SelectItem>
-                  <SelectItem value="30d">Last 30 days</SelectItem>
-                  <SelectItem value="90d">Last 90 days</SelectItem>
-                  <SelectItem value="year">This Year</SelectItem>
-                  <SelectItem value="custom">Custom Range</SelectItem>
+                  <SelectItem value="7d">{t('common.last7Days')}</SelectItem>
+                  <SelectItem value="30d">{t('common.last30Days')}</SelectItem>
+                  <SelectItem value="90d">{t('common.last90Days')}</SelectItem>
+                  <SelectItem value="year">{t('common.thisYear')}</SelectItem>
+                  <SelectItem value="custom">{t('common.customRange')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
-            
+
             <div className="space-y-2">
-              <label className="text-sm font-medium">Format</label>
+              <label className="text-sm font-medium">{t('reports.format')}</label>
               <Select value={format} onValueChange={(value: ReportFormat) => setFormat(value)}>
                 <SelectTrigger>
                   <SelectValue />
@@ -227,21 +230,21 @@ const ReportGenerationCard = () => {
               </Select>
             </div>
           </div>
-          
-          <Button 
-            onClick={handleGenerateReport} 
+
+          <Button
+            onClick={handleGenerateReport}
             disabled={isGenerating}
             className="w-full"
           >
             {isGenerating ? (
               <>
                 <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
-                Generating Report...
+                {t('reports.generating')}
               </>
             ) : (
               <>
                 <FileText className="h-4 w-4 mr-2" />
-                Generate Report
+                {t('reports.generate')}
               </>
             )}
           </Button>
@@ -252,6 +255,7 @@ const ReportGenerationCard = () => {
 }
 
 export const Reports: React.FC<ReportsProps> = ({ className }) => {
+  const { t } = useTranslation('projects')
   const [searchTerm, setSearchTerm] = useState('')
   const [typeFilter, setTypeFilter] = useState<string>('all')
   const { projects, isLoading } = useProjectData()
@@ -259,9 +263,9 @@ export const Reports: React.FC<ReportsProps> = ({ className }) => {
   const filteredReports = useMemo(() => {
     return mockReports.filter(report => {
       const matchesSearch = report.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           report.description.toLowerCase().includes(searchTerm.toLowerCase())
+        report.description.toLowerCase().includes(searchTerm.toLowerCase())
       const matchesType = typeFilter === 'all' || report.type === typeFilter
-      
+
       return matchesSearch && matchesType
     })
   }, [searchTerm, typeFilter])
@@ -276,47 +280,47 @@ export const Reports: React.FC<ReportsProps> = ({ className }) => {
     <div className={`space-y-6 ${className}`}>
       {/* Report Generation */}
       <ReportGenerationCard />
-      
+
       {/* Existing Reports */}
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between">
             <div>
-              <CardTitle>Generated Reports</CardTitle>
+              <CardTitle>{t('reports.generatedReports')}</CardTitle>
               <CardDescription>
-                View and download previously generated project reports
+                {t('reports.viewDownloaded')}
               </CardDescription>
             </div>
           </div>
-          
+
           {/* Filters */}
           <div className="flex items-center space-x-4 mt-4">
             <div className="relative flex-1 max-w-sm">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
-                placeholder="Search reports..."
+                placeholder={t('reports.searchPlaceholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-9"
               />
             </div>
-            
+
             <Select value={typeFilter} onValueChange={setTypeFilter}>
               <SelectTrigger className="w-40">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Types</SelectItem>
-                <SelectItem value="status">Status</SelectItem>
-                <SelectItem value="performance">Performance</SelectItem>
-                <SelectItem value="budget">Budget</SelectItem>
-                <SelectItem value="timeline">Timeline</SelectItem>
-                <SelectItem value="team">Team</SelectItem>
+                <SelectItem value="all">{t('reports.allTypes')}</SelectItem>
+                <SelectItem value="status">{t('reports.status')}</SelectItem>
+                <SelectItem value="performance">{t('reports.performance')}</SelectItem>
+                <SelectItem value="budget">{t('reports.budget')}</SelectItem>
+                <SelectItem value="timeline">{t('reports.timeline')}</SelectItem>
+                <SelectItem value="team">{t('reports.team')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
         </CardHeader>
-        
+
         <CardContent>
           {isLoading ? (
             <div className="space-y-4">
@@ -334,11 +338,11 @@ export const Reports: React.FC<ReportsProps> = ({ className }) => {
           ) : filteredReports.length === 0 ? (
             <div className="text-center py-8">
               <FileText className="h-12 w-12 mx-auto mb-4 text-muted-foreground opacity-50" />
-              <h3 className="text-lg font-medium mb-2">No reports found</h3>
+              <h3 className="text-lg font-medium mb-2">{t('reports.noReportsFound')}</h3>
               <p className="text-muted-foreground">
-                {searchTerm || typeFilter !== 'all' 
-                  ? 'Try adjusting your search or filters'
-                  : 'Generate your first report to get started'
+                {searchTerm || typeFilter !== 'all'
+                  ? t('reports.tryAdjusting')
+                  : t('reports.generateFirst')
                 }
               </p>
             </div>
@@ -347,11 +351,11 @@ export const Reports: React.FC<ReportsProps> = ({ className }) => {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Report</TableHead>
-                    <TableHead>Type</TableHead>
-                    <TableHead>Date Range</TableHead>
-                    <TableHead>Generated</TableHead>
-                    <TableHead className="text-right">Actions</TableHead>
+                    <TableHead>{t('reports.report')}</TableHead>
+                    <TableHead>{t('reports.type')}</TableHead>
+                    <TableHead>{t('reports.dateRange')}</TableHead>
+                    <TableHead>{t('reports.generated')}</TableHead>
+                    <TableHead className="text-right">{t('common.actions')}</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -368,11 +372,11 @@ export const Reports: React.FC<ReportsProps> = ({ className }) => {
                           </p>
                         </div>
                       </TableCell>
-                      
+
                       <TableCell>
                         {getReportTypeBadge(report.type)}
                       </TableCell>
-                      
+
                       <TableCell>
                         <div className="text-sm">
                           <div>{new Date(report.date_range.start).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}</div>
@@ -381,7 +385,7 @@ export const Reports: React.FC<ReportsProps> = ({ className }) => {
                           </div>
                         </div>
                       </TableCell>
-                      
+
                       <TableCell>
                         <div className="text-sm">
                           {new Date(report.generated_at).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}
@@ -390,7 +394,7 @@ export const Reports: React.FC<ReportsProps> = ({ className }) => {
                           </div>
                         </div>
                       </TableCell>
-                      
+
                       <TableCell className="text-right">
                         <div className="flex items-center justify-end space-x-2">
                           <Button
@@ -399,7 +403,7 @@ export const Reports: React.FC<ReportsProps> = ({ className }) => {
                             onClick={() => handleDownloadReport(report)}
                           >
                             <Download className="h-4 w-4 mr-1" />
-                            Download
+                            {t('common.download')}
                           </Button>
                         </div>
                       </TableCell>
@@ -417,10 +421,10 @@ export const Reports: React.FC<ReportsProps> = ({ className }) => {
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
             <PieChart className="h-5 w-5" />
-            <span>Quick Insights</span>
+            <span>{t('reports.quickInsights')}</span>
           </CardTitle>
           <CardDescription>
-            Key metrics and trends from recent reports
+            {t('reports.keyMetrics')}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -432,7 +436,7 @@ export const Reports: React.FC<ReportsProps> = ({ className }) => {
                 ↑ 3.2% from last period
               </div>
             </div>
-            
+
             <div className="p-4 border rounded-lg text-center">
               <div className="text-2xl font-bold text-blue-600">87%</div>
               <div className="text-sm text-muted-foreground">On-Time Delivery</div>
@@ -440,7 +444,7 @@ export const Reports: React.FC<ReportsProps> = ({ className }) => {
                 ↑ 5.1% from last period
               </div>
             </div>
-            
+
             <div className="p-4 border rounded-lg text-center">
               <div className="text-2xl font-bold text-purple-600">$2.4M</div>
               <div className="text-sm text-muted-foreground">Total Budget Managed</div>

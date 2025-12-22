@@ -9,6 +9,7 @@ import {
 } from '@vibethink/ui/components/chart'
 import { Badge } from '@vibethink/ui/components/badge'
 import { Skeleton } from '@vibethink/ui/components/skeleton'
+import { useTranslation } from '@/lib/i18n'
 import { useAnalyticsData } from '../hooks'
 import { AnalyticsCardProps } from '../types'
 
@@ -50,6 +51,7 @@ export function TotalEarningCard({
   isLoading: externalLoading = false,
   error: externalError = null
 }: AnalyticsCardProps) {
+  const { t } = useTranslation('analytics')
   const { earningReports, salesAnalytics, isLoading, error } = useAnalyticsData()
 
   const loading = isLoading || externalLoading
@@ -120,15 +122,15 @@ export function TotalEarningCard({
     return (
       <Card className={`h-full ${className}`}>
         <CardHeader>
-          <CardTitle className="text-red-600">Error Loading Earnings</CardTitle>
+          <CardTitle className="text-red-600">{t('error')}</CardTitle>
           <CardDescription>
-            {errorState.message || 'Failed to load earning data'}
+            {errorState.message || t('noData')}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex items-center justify-center py-8">
             <p className="text-sm text-muted-foreground">
-              Please try refreshing or contact support.
+              {t('pleaseWait')}
             </p>
           </div>
         </CardContent>
@@ -142,7 +144,7 @@ export function TotalEarningCard({
         <div className="flex items-center justify-between">
           <CardDescription className="flex items-center gap-2">
             <DollarSign className="h-4 w-4 text-chart-1" />
-            Total Earning
+            {t('cards.totalEarning.title')}
           </CardDescription>
           <Badge
             variant="outline"
@@ -158,12 +160,12 @@ export function TotalEarningCard({
             {Math.round(latestEarnings.profit_margin * 100)}%
           </div>
           <div className="text-muted-foreground text-sm">
-            Profit Margin
+            {t('cards.totalEarning.profitMargin')}
           </div>
         </div>
 
         <div className="text-muted-foreground text-sm">
-          {formatCurrency(latestEarnings.total_earnings)} total earnings this period
+          {formatCurrency(latestEarnings.total_earnings)} {t('cards.totalEarning.totalEarningsThisPeriod')}
         </div>
       </CardHeader>
 
@@ -200,8 +202,8 @@ export function TotalEarningCard({
               <HandCoins className="h-4 w-4 text-green-600" />
             </div>
             <div className="flex-1">
-              <div className="font-medium">Total Revenue</div>
-              <div className="text-xs text-muted-foreground">Client Payments</div>
+              <div className="font-medium">{t('cards.totalEarning.totalRevenue')}</div>
+              <div className="text-xs text-muted-foreground">{t('cards.totalEarning.clientPayments')}</div>
             </div>
             <div className="text-sm font-bold text-green-600">
               +{formatCurrency(totalRevenue)}
@@ -214,8 +216,8 @@ export function TotalEarningCard({
               <DollarSign className="h-4 w-4 text-red-600" />
             </div>
             <div className="flex-1">
-              <div className="font-medium">Refunds & Returns</div>
-              <div className="text-xs text-muted-foreground">Customer Returns</div>
+              <div className="font-medium">{t('cards.totalEarning.refundsReturns')}</div>
+              <div className="text-xs text-muted-foreground">{t('cards.totalEarning.customerReturns')}</div>
             </div>
             <div className="text-sm font-bold text-red-600">
               -{formatCurrency(totalRefunds)}
@@ -225,12 +227,12 @@ export function TotalEarningCard({
 
         {/* Revenue Breakdown */}
         <div className="space-y-3">
-          <h4 className="text-sm font-medium text-muted-foreground">Revenue Sources</h4>
+          <h4 className="text-sm font-medium text-muted-foreground">{t('cards.totalEarning.revenueSources')}</h4>
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-chart-1"></div>
-                <span>Subscriptions</span>
+                <span>{t('cards.totalEarning.subscriptions')}</span>
               </div>
               <span className="font-medium">
                 {formatCurrency(latestEarnings.revenue_breakdown.subscription)}
@@ -240,7 +242,7 @@ export function TotalEarningCard({
             <div className="flex items-center justify-between text-sm">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-chart-2"></div>
-                <span>One-time Sales</span>
+                <span>{t('cards.totalEarning.oneTimeSales')}</span>
               </div>
               <span className="font-medium">
                 {formatCurrency(latestEarnings.revenue_breakdown.one_time_payment)}
@@ -250,7 +252,7 @@ export function TotalEarningCard({
             <div className="flex items-center justify-between text-sm">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-chart-3"></div>
-                <span>Commissions</span>
+                <span>{t('cards.totalEarning.commissions')}</span>
               </div>
               <span className="font-medium">
                 {formatCurrency(latestEarnings.revenue_breakdown.commission)}
@@ -260,7 +262,7 @@ export function TotalEarningCard({
             <div className="flex items-center justify-between text-sm">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-chart-4"></div>
-                <span>Affiliate</span>
+                <span>{t('cards.totalEarning.affiliate')}</span>
               </div>
               <span className="font-medium">
                 {formatCurrency(latestEarnings.revenue_breakdown.affiliate)}
