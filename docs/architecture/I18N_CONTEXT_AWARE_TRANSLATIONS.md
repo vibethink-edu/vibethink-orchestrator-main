@@ -481,11 +481,42 @@ export function BookingFormBase({ context, roomTypes, onSubmit }: BookingFormBas
 
 ---
 
+## 🤖 Resolución de Contexto para Agentes de IA
+
+**IMPORTANTE:** Los agentes de IA (Gemini, Claude, OpenAI) también necesitan resolver el contexto automáticamente.
+
+**Documentación completa:** `docs/architecture/I18N_AI_AGENT_CONTEXT_RESOLUTION.md` ⭐
+
+**Resumen:**
+- ✅ Detección automática desde ruta (para componentes React)
+- ✅ Resolución explícita para agentes de IA (function calling)
+- ✅ Detección desde query del usuario (NLP básico)
+- ✅ Metadata de terminología por contexto
+- ✅ Compatible con ICU Message Format
+
+**Ejemplo rápido:**
+```typescript
+import { resolveContextForAI } from '@vibethink/utils';
+
+// Agente detecta contexto desde query
+const { context, namespace, terminology } = resolveContextForAI(
+  "¿Hay salas disponibles?", // query
+  "/dashboard-bundui/studio" // path
+);
+
+// context = 'studio'
+// namespace = 'booking.studio'
+// terminology.space = 'sala'
+```
+
+---
+
 ## 📚 Referencias
 
 - **Protocolo i18n:** `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md`
 - **Component Namespace Strategy:** `docs/architecture/I18N_COMPONENT_NAMESPACE_STRATEGY.md`
 - **Protocolo maestro:** `docs/architecture/MODULE_IMPORT_DEPLOYMENT_PROTOCOL.md`
+- **Resolución para Agentes de IA:** `docs/architecture/I18N_AI_AGENT_CONTEXT_RESOLUTION.md` ⭐
 
 ---
 
