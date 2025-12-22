@@ -250,3 +250,5 @@ Para prevenir este problema en futuras migraciones:
 **Estado:** Problema identificado, solución documentada
 
 
+
+

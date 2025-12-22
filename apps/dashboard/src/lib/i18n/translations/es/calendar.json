@@ -1,6 +1,6 @@
 {
-  "title": "",
-  "description": "",
+  "title": "Calendario de Eventos",
+  "description": "Planifica tus eventos o tareas de manera organizada con la plantilla de aplicación Calendario. Construida con shadcn/ui, Next.js, Tailwind CSS y React.",
   "loading": "Cargando...",
   "error": "Error",
   "success": "Éxito",
@@ -44,7 +44,7 @@
   "viewDetails": "Ver Detalles",
   "viewMore": "Ver Más",
   "add": "Agregar",
-  "addNew": "Agregar Nuevo",
+  "addNew": "Add New",
   "remove": "Eliminar",
   "removeAll": "Eliminar Todo",
   "today": "Hoy",
@@ -87,5 +87,97 @@
     "title": "No se encontraron elementos",
     "description": "Comienza creando un nuevo elemento",
     "action": "Crear Nuevo"
+  },
+  "header": {
+    "title": "Calendario de Eventos",
+    "addEvent": "Agregar Evento",
+    "today": "Hoy",
+    "viewMode": {
+      "month": "Mes",
+      "week": "Semana",
+      "day": "Día"
+    }
+  },
+  "event": {
+    "title": "Evento",
+    "titlePlaceholder": "Título del evento",
+    "description": "Descripción",
+    "descriptionPlaceholder": "Descripción del evento",
+    "startDate": "Fecha de Inicio",
+    "endDate": "Fecha de Fin",
+    "startTime": "Hora de Inicio",
+    "endTime": "Hora de Fin",
+    "location": "Ubicación",
+    "locationPlaceholder": "Ubicación del evento",
+    "allDay": "Todo el Día",
+    "recurring": "Recurrente",
+    "reminder": "Recordatorio"
+  },
+  "views": {
+    "month": "Mes",
+    "week": "Semana",
+    "day": "Día",
+    "agenda": "Agenda"
+  },
+  "actions": {
+    "create": "Crear Evento",
+    "edit": "Editar Evento",
+    "delete": "Eliminar Evento",
+    "duplicate": "Duplicar Evento"
+  },
+  "messages": {
+    "success": {
+      "created": "Evento creado exitosamente",
+      "updated": "Evento actualizado exitosamente",
+      "deleted": "Evento eliminado exitosamente"
+    },
+    "error": {
+      "createFailed": "Error al crear evento",
+      "updateFailed": "Error al actualizar evento",
+      "deleteFailed": "Error al eliminar evento",
+      "endDateBeforeStart": "La fecha de fin no puede ser anterior a la fecha de inicio",
+      "timeOutOfRange": "La hora seleccionada debe estar entre {startHour}:00 y {endHour}:00"
+    }
+  },
+  "dialog": {
+    "editEvent": "Editar Evento",
+    "createEvent": "Crear Evento",
+    "editDescription": "Edita los detalles de este evento",
+    "createDescription": "Agrega un nuevo evento a tu calendario",
+    "deleteEvent": "Eliminar evento",
+    "noTitle": "(sin título)"
+  },
+  "form": {
+    "pickDate": "Seleccionar fecha",
+    "selectTime": "Seleccionar hora",
+    "etiquette": "Etiqueta"
+  },
+  "colors": {
+    "sky": "Cielo",
+    "amber": "Ámbar",
+    "violet": "Violeta",
+    "rose": "Rosa",
+    "emerald": "Esmeralda",
+    "orange": "Naranja"
+  },
+  "toolbar": {
+    "today": "Hoy",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "newEvent": "Nuevo evento"
+  },
+  "toast": {
+    "eventUpdated": "Evento \"{title}\" actualizado",
+    "eventAdded": "Evento \"{title}\" agregado",
+    "eventDeleted": "Evento \"{title}\" eliminado",
+    "eventMoved": "Evento \"{title}\" movido"
+  },
+  "empty": {
+    "noEvents": "Sin eventos",
+    "noEventsFound": "No se encontraron eventos",
+    "noEventsScheduled": "No hay eventos programados para este período de tiempo."
+  },
+  "labels": {
+    "more": "más"
   }
 }

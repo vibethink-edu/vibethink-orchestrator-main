@@ -1,4 +1,5 @@
-import { Metadata } from "next";
+"use client";
+
 import { Button } from "@vibethink/ui/components/button";
 
 import {
@@ -16,23 +17,20 @@ import {
 } from "./components";
 import CustomDateRangePicker from "@/shared/components/bundui-premium/components/custom-date-range-picker";
 import { Download } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Ecommerce Admin Dashboard - VibeThink Orchestrator",
-  description:
-    "The e-commerce admin dashboard template is an admin template that you can use for your e-commerce website projects. Built with shadcn/ui, Tailwind CSS, Next.js."
-};
+import { useTranslation } from "@/lib/i18n";
 
 export default function Page() {
+  const { t } = useTranslation('ecommerce');
+  
   return (
     <div className="space-y-4">
       <div className="flex flex-row items-center justify-between">
-        <h1 className="text-xl font-bold tracking-tight lg:text-2xl">E-Commerce Dashboard</h1>
+        <h1 className="text-xl font-bold tracking-tight lg:text-2xl">{t('header.title')}</h1>
         <div className="flex items-center space-x-2">
           <CustomDateRangePicker />
           <Button>
             <Download />
-            <span className="hidden lg:inline">Download</span>
+            <span className="hidden lg:inline">{t('header.download')}</span>
           </Button>
         </div>
       </div>

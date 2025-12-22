@@ -363,3 +363,5 @@ if (needsDate) {
 **Autor:** AI Assistant (Cursor)  
 **Revisado por:** Pendiente
 
+
+

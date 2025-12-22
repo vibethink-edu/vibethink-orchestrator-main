@@ -635,3 +635,5 @@ formatBookingDuration(3, 'night'); // "3 noches"
 **Esta arquitectura establece las bases correctas para el sistema de terminología, asegurando separación de responsabilidades, conceptos atómicos, y soporte completo para agentes de IA.**
 
 
+
+

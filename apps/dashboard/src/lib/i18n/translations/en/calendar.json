@@ -1,6 +1,6 @@
 {
-  "title": "",
-  "description": "",
+  "title": "Event Calendar",
+  "description": "Plan your events or tasks in an organized way with the Calendar app template. Built with shadcn/ui, Next.js, Tailwind CSS and React.",
   "loading": "Loading...",
   "error": "Error",
   "success": "Success",
@@ -87,5 +87,97 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+  },
+  "header": {
+    "title": "Event Calendar",
+    "addEvent": "Add Event",
+    "today": "Today",
+    "viewMode": {
+      "month": "Month",
+      "week": "Week",
+      "day": "Day"
+    }
+  },
+  "event": {
+    "title": "Event",
+    "titlePlaceholder": "Event title",
+    "description": "Description",
+    "descriptionPlaceholder": "Event description",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "startTime": "Start Time",
+    "endTime": "End Time",
+    "location": "Location",
+    "locationPlaceholder": "Event location",
+    "allDay": "All Day",
+    "recurring": "Recurring",
+    "reminder": "Reminder"
+  },
+  "views": {
+    "month": "Month",
+    "week": "Week",
+    "day": "Day",
+    "agenda": "Agenda"
+  },
+  "actions": {
+    "create": "Create Event",
+    "edit": "Edit Event",
+    "delete": "Delete Event",
+    "duplicate": "Duplicate Event"
+  },
+  "messages": {
+    "success": {
+      "created": "Event created successfully",
+      "updated": "Event updated successfully",
+      "deleted": "Event deleted successfully"
+    },
+    "error": {
+      "createFailed": "Failed to create event",
+      "updateFailed": "Failed to update event",
+      "deleteFailed": "Failed to delete event",
+      "endDateBeforeStart": "End date cannot be before start date",
+      "timeOutOfRange": "Selected time must be between {startHour}:00 and {endHour}:00"
+    }
+  },
+  "dialog": {
+    "editEvent": "Edit Event",
+    "createEvent": "Create Event",
+    "editDescription": "Edit the details of this event",
+    "createDescription": "Add a new event to your calendar",
+    "deleteEvent": "Delete event",
+    "noTitle": "(no title)"
+  },
+  "form": {
+    "pickDate": "Pick a date",
+    "selectTime": "Select time",
+    "etiquette": "Etiquette"
+  },
+  "colors": {
+    "sky": "Sky",
+    "amber": "Amber",
+    "violet": "Violet",
+    "rose": "Rose",
+    "emerald": "Emerald",
+    "orange": "Orange"
+  },
+  "toolbar": {
+    "today": "Today",
+    "previous": "Previous",
+    "next": "Next",
+    "newEvent": "New event"
+  },
+  "toast": {
+    "eventUpdated": "Event \"{title}\" updated",
+    "eventAdded": "Event \"{title}\" added",
+    "eventDeleted": "Event \"{title}\" deleted",
+    "eventMoved": "Event \"{title}\" moved"
+  },
+  "empty": {
+    "noEvents": "No events",
+    "noEventsFound": "No events found",
+    "noEventsScheduled": "There are no events scheduled for this time period."
+  },
+  "labels": {
+    "more": "more"
   }
 }

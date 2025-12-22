@@ -19,6 +19,11 @@ Este archivo es un índice rápido. Para la documentación completa y detallada,
 - **[AGENTS.md](./AGENTS.md)** - Reglas para agentes AI (fuente de verdad normativa)
 - **[CHANGELOG.md](./CHANGELOG.md)** - Historial de versiones
 
+### 📋 Planes y Trabajo Activo
+- **[PLAN_I18N_PENDIENTE.md](./PLAN_I18N_PENDIENTE.md)** ⭐ - Plan activo de aplicación AI-First i18n/l10n
+- **[INSTRUCCIONES_NUEVO_CHAT_I18N.md](./INSTRUCCIONES_NUEVO_CHAT_I18N.md)** ⭐ - Instrucciones para continuar trabajo i18n
+- **[INSTRUCCIONES_CONSOLIDACION.md](./INSTRUCCIONES_CONSOLIDACION.md)** 📦 - Guía de consolidación de archivos
+
 ### Arquitectura
 - **[docs/BUNDUI_MONOREPO_MIRROR.md](./docs/BUNDUI_MONOREPO_MIRROR.md)** ⭐ - Bundui y Shadcn UI
 - **[docs/REORGANIZACION_DASHBOARDS_STATUS.md](./docs/REORGANIZACION_DASHBOARDS_STATUS.md)** ⭐ - Estado de dashboards
@@ -97,6 +102,12 @@ Este archivo es un índice rápido. Para la documentación completa y detallada,
 - [Reportes de Consolidación](./docs/reports/)
 - [Sesiones de Desarrollo](./docs/sessions/)
 - [Resúmenes de Sesión](./docs/sessions/SESSION_SUMMARY*.md) - Historial de sesiones
+- [Consolidación de Sesión 2025-12-21](./docs/sessions/CONSOLIDACION_SESION_2025-12-21.md) 📦 - Consolidación de archivos y análisis completados
+- [Sesiones Archivadas](./docs/sessions/archived/) - Archivos completados y archivados
+
+### 🎯 Decisiones y Metodologías
+- [Decisiones y Reportes Consolidados](./docs/DECISIONES_Y_REPORTES_CONSOLIDADOS.md) ⭐ **DOCUMENTO MAESTRO** - Decisiones importantes, reportes archivados, metodologías activas
+- [FAQ First Methodology](./docs/methodology/FAQ_FIRST_METHODOLOGY.md) ⭐ - Metodología "Valida Donde Estamos"
 
 ### 🎯 Metodología
 - [FAQ First Methodology](./docs/methodology/FAQ_FIRST_METHODOLOGY.md) ⭐ - Metodología "Valida Donde Estamos"
@@ -140,13 +151,19 @@ Este índice se actualiza cuando:
 - Se reorganiza la estructura de `docs/`
 - Se consolida documentación
 
-**Última actualización**: 2025-01-18  
+**Última actualización**: 2025-12-21  
 **Mantenido por**: Equipo de Desarrollo VibeThink
 
-### 📍 Reorganización Reciente (2025-01-18)
+### 📍 Reorganización Reciente
 
-Se movieron **19 archivos** desde la raíz a `docs/` para mantener la organización.  
-**Ver mapeo completo**: [docs/FILE_RELOCATION_MAP.md](./docs/FILE_RELOCATION_MAP.md) ⭐
+**2025-12-21:** Consolidación de archivos de sesión
+- 12 archivos movidos a `docs/sessions/archived/`
+- 6 logs temporales eliminados
+- Ver: [INSTRUCCIONES_CONSOLIDACION.md](./INSTRUCCIONES_CONSOLIDACION.md)
+
+**2025-01-18:** Reorganización de documentación
+- Se movieron **19 archivos** desde la raíz a `docs/` para mantener la organización.  
+- **Ver mapeo completo**: [docs/FILE_RELOCATION_MAP.md](./docs/FILE_RELOCATION_MAP.md) ⭐
 
 ---
 

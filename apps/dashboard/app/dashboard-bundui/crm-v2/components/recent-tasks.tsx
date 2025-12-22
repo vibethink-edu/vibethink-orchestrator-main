@@ -14,6 +14,7 @@ import {
   CardTitle
 } from "@vibethink/ui/components/card";
 import { Checkbox } from "@vibethink/ui/components/checkbox";
+import { useTranslation } from "@/lib/i18n";
 
 type Task = {
   id: string;
@@ -24,35 +25,36 @@ type Task = {
   priority: "high" | "medium" | "low";
 };
 
-const initialTasks: Task[] = [
+const createInitialTasks = (t: (key: string) => string): Task[] => [
   {
     id: "1",
-    title: "Follow up with Acme Inc.",
-    description: "Send proposal and schedule meeting",
+    title: t('tasks.sample.followUp'),
+    description: t('tasks.sample.sendProposal'),
     completed: false,
-    dueDate: "Today",
+    dueDate: t('tasks.today'),
     priority: "high"
   },
   {
     id: "2",
-    title: "Prepare quarterly report",
-    description: "Compile sales data and forecasts",
+    title: t('tasks.sample.prepareReport'),
+    description: t('tasks.sample.compileData'),
     completed: false,
-    dueDate: "Tomorrow",
+    dueDate: t('tasks.tomorrow'),
     priority: "medium"
   },
   {
     id: "3",
-    title: "Update customer profiles",
-    description: "Verify contact information and preferences",
+    title: t('tasks.sample.updateProfiles'),
+    description: t('tasks.sample.verifyContact'),
     completed: true,
-    dueDate: "Oct 15",
+    dueDate: t('tasks.sample.oct15'),
     priority: "low"
   }
 ];
 
 export function RecentTasks() {
-  const [tasks, setTasks] = useState<Task[]>(initialTasks);
+  const { t } = useTranslation('crm-v2');
+  const [tasks, setTasks] = useState<Task[]>(() => createInitialTasks(t));
 
   const toggleTaskStatus = (id: string) => {
     setTasks(
@@ -63,11 +65,11 @@ export function RecentTasks() {
   return (
     <Card className="h-full">
       <CardHeader>
-        <CardTitle>Tasks</CardTitle>
-        <CardDescription>Track and manage your upcoming tasks.</CardDescription>
+        <CardTitle>{t('cards.recentTasks.title')}</CardTitle>
+        <CardDescription>{t('cards.recentTasks.description')}</CardDescription>
         <CardAction>
           <Button variant="outline" size="sm">
-            <PlusCircleIcon /> Add Task
+            <PlusCircleIcon /> {t('tasks.addTask')}
           </Button>
         </CardAction>
       </CardHeader>
@@ -103,9 +105,9 @@ export function RecentTasks() {
                     task.priority === "medium" && "bg-amber-100 text-amber-700",
                     task.priority === "low" && "bg-green-100 text-green-700"
                   )}>
-                  {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
+                  {t(`tasks.priority.${task.priority}`)}
                 </div>
-                <span className="text-muted-foreground text-xs">Due {task.dueDate}</span>
+                <span className="text-muted-foreground text-xs">{t('tasks.due')} {task.dueDate}</span>
               </div>
             </div>
           </div>

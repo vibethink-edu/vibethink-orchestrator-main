@@ -8,15 +8,18 @@ import {
   ChartTooltip,
   ChartTooltipContent
 } from "@vibethink/ui/components/chart";
+import { useTranslation } from "@/lib/i18n";
 
 export function EcommerceRevenueCard() {
+  const { t } = useTranslation('ecommerce');
+  
   const chartConfig = {
     desktop: {
-      label: "Desktop",
+      label: t('cards.totalRevenue.desktop'),
       color: "var(--chart-1)"
     },
     mobile: {
-      label: "Mobile",
+      label: t('cards.totalRevenue.mobile'),
       color: "var(--chart-2)"
     }
   } satisfies ChartConfig;
@@ -33,9 +36,9 @@ export function EcommerceRevenueCard() {
   return (
     <Card className="md:col-span-6 xl:col-span-3">
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>Revenue</CardTitle>
+        <CardTitle>{t('cards.revenue.title')}</CardTitle>
         <CardDescription className="text-xs">
-          <span className="text-green-500">+20.1%</span> from last month
+          <span className="text-green-500">+20.1%</span> {t('cards.revenue.fromLastMonth', { percentage: '20.1' })}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -70,6 +73,7 @@ export function EcommerceRevenueCard() {
     </Card>
   );
 }
+
 
 
 

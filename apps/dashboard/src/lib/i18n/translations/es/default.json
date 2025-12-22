@@ -1,6 +1,6 @@
 {
-  "title": "",
-  "description": "",
+  "title": "Panel",
+  "description": "Panel principal con resumen de métricas clave",
   "loading": "Cargando...",
   "error": "Error",
   "success": "Éxito",
@@ -87,5 +87,119 @@
     "title": "No se encontraron elementos",
     "description": "Comienza creando un nuevo elemento",
     "action": "Crear Nuevo"
+  },
+  "header": {
+    "title": "Panel",
+    "download": "Descargar"
+  },
+  "cards": {
+    "totalRevenue": {
+      "title": "Ingresos Totales",
+      "label": "Ingresos",
+      "fromLastMonth": "+{percentage}% desde el mes pasado"
+    },
+    "subscriptions": {
+      "title": "Suscripciones",
+      "fromLastMonth": "+{percentage}% desde el mes pasado"
+    },
+    "teamMembers": {
+      "title": "Miembros del Equipo",
+      "description": "Invita a los miembros de tu equipo para colaborar."
+    },
+    "exerciseMinutes": {
+      "title": "Minutos de Ejercicio",
+      "description": "Tus minutos de ejercicio están por encima de lo normal.",
+      "average": "Promedio",
+      "today": "Hoy"
+    },
+    "paymentMethod": {
+      "title": "Método de Pago",
+      "description": "Agrega un nuevo método de pago a tu cuenta.",
+      "continue": "Continuar"
+    }
+  },
+  "table": {
+    "selectAll": "Seleccionar todo",
+    "selectRow": "Seleccionar fila",
+    "noResults": "Sin resultados.",
+    "customer": "Cliente",
+    "email": "Correo",
+    "amount": "Monto",
+    "status": "Estado"
+  },
+  "payments": {
+    "title": "Pagos Recientes",
+    "filterPlaceholder": "Filtrar pagos...",
+    "actions": "Acciones",
+    "selected": "seleccionado",
+    "rowsSelected": "{count} de {total} fila(s) seleccionada(s).",
+    "bulkActions": {
+      "delete": "Eliminar seleccionados",
+      "export": "Exportar seleccionados",
+      "email": "Enviar correo a clientes",
+      "tag": "Etiquetar pagos"
+    },
+    "menu": {
+      "viewDetails": "Ver detalles",
+      "downloadReceipt": "Descargar recibo",
+      "contactCustomer": "Contactar cliente"
+    }
+  },
+  "roles": {
+    "viewer": "Visualizador",
+    "developer": "Desarrollador",
+    "billing": "Facturación",
+    "owner": "Propietario",
+    "descriptions": {
+      "viewer": "Puede ver y comentar.",
+      "developer": "Puede ver, comentar y editar.",
+      "billing": "Puede ver, comentar y gestionar facturación.",
+      "owner": "Acceso de administrador a todos los recursos."
+    },
+    "selectPlaceholder": "Seleccionar nuevo rol...",
+    "noRolesFound": "No se encontraron roles."
+  },
+  "chat": {
+    "newMessage": "Nuevo mensaje",
+    "typePlaceholder": "Escribe tu mensaje...",
+    "send": "Enviar",
+    "dialog": {
+      "title": "Nuevo mensaje",
+      "description": "Invita a un usuario a este hilo. Esto creará un nuevo mensaje grupal.",
+      "searchPlaceholder": "Buscar usuario...",
+      "noUsersFound": "No se encontraron usuarios.",
+      "selectUsers": "Selecciona usuarios para agregar a este hilo.",
+      "continue": "Continuar"
+    }
+  },
+  "paymentForm": {
+    "methods": {
+      "card": "Tarjeta",
+      "paypal": "Paypal",
+      "apple": "Apple"
+    },
+    "fields": {
+      "nameOnCard": "Nombre en la tarjeta",
+      "city": "Ciudad",
+      "cardNumber": "Número de tarjeta",
+      "expires": "Vence",
+      "month": "Mes",
+      "year": "Año",
+      "cvc": "CVC"
+    },
+    "months": {
+      "1": "Enero",
+      "2": "Febrero",
+      "3": "Marzo",
+      "4": "Abril",
+      "5": "Mayo",
+      "6": "Junio",
+      "7": "Julio",
+      "8": "Agosto",
+      "9": "Septiembre",
+      "10": "Octubre",
+      "11": "Noviembre",
+      "12": "Diciembre"
+    }
   }
 }

@@ -7,6 +7,7 @@ import { format, isBefore } from "date-fns";
 import type { CalendarEvent, EventColor } from "./";
 import { DefaultEndHour, DefaultStartHour, EndHour, StartHour } from "../constants";
 import { cn } from "@/shared/lib/utils";
+import { useTranslation } from "@/lib/i18n";
 import { Button } from "@vibethink/ui/components/button";
 import { Calendar } from "@vibethink/ui/components/calendar";
 import { Checkbox } from "@vibethink/ui/components/checkbox";
@@ -40,6 +41,7 @@ interface EventDialogProps {
 }
 
 export function EventDialog({ event, isOpen, onClose, onSave, onDelete }: EventDialogProps) {
+  const { t } = useTranslation('calendar');
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [startDate, setStartDate] = useState<Date>(new Date());
@@ -129,7 +131,7 @@ export function EventDialog({ event, isOpen, onClose, onSave, onDelete }: EventD
         endHours < StartHour ||
         endHours > EndHour
       ) {
-        setError(`Selected time must be between ${StartHour}:00 and ${EndHour}:00`);
+        setError(t('messages.error.timeOutOfRange', { startHour: StartHour, endHour: EndHour }));
         return;
       }
 
@@ -142,12 +144,12 @@ export function EventDialog({ event, isOpen, onClose, onSave, onDelete }: EventD
 
     // Validate that end date is not before start date
     if (isBefore(end, start)) {
-      setError("End date cannot be before start date");
+      setError(t('messages.error.endDateBeforeStart'));
       return;
     }
 
     // Use generic title if empty
-    const eventTitle = title.trim() ? title : "(no title)";
+    const eventTitle = title.trim() ? title : t('dialog.noTitle');
 
     onSave({
       id: event?.id || "",
@@ -176,37 +178,37 @@ export function EventDialog({ event, isOpen, onClose, onSave, onDelete }: EventD
   }> = [
       {
         value: "sky",
-        label: "Sky",
+        label: t('colors.sky'),
         bgClass: "bg-sky-400 data-[state=checked]:bg-sky-400",
         borderClass: "border-sky-400 data-[state=checked]:border-sky-400"
       },
       {
         value: "amber",
-        label: "Amber",
+        label: t('colors.amber'),
         bgClass: "bg-amber-400 data-[state=checked]:bg-amber-400",
         borderClass: "border-amber-400 data-[state=checked]:border-amber-400"
       },
       {
         value: "violet",
-        label: "Violet",
+        label: t('colors.violet'),
         bgClass: "bg-violet-400 data-[state=checked]:bg-violet-400",
         borderClass: "border-violet-400 data-[state=checked]:border-violet-400"
       },
       {
         value: "rose",
-        label: "Rose",
+        label: t('colors.rose'),
         bgClass: "bg-rose-400 data-[state=checked]:bg-rose-400",
         borderClass: "border-rose-400 data-[state=checked]:border-rose-400"
       },
       {
         value: "emerald",
-        label: "Emerald",
+        label: t('colors.emerald'),
         bgClass: "bg-emerald-400 data-[state=checked]:bg-emerald-400",
         borderClass: "border-emerald-400 data-[state=checked]:border-emerald-400"
       },
       {
         value: "orange",
-        label: "Orange",
+        label: t('colors.orange'),
         bgClass: "bg-orange-400 data-[state=checked]:bg-orange-400",
         borderClass: "border-orange-400 data-[state=checked]:border-orange-400"
       }
@@ -216,9 +218,9 @@ export function EventDialog({ event, isOpen, onClose, onSave, onDelete }: EventD
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>{event?.id ? "Edit Event" : "Create Event"}</DialogTitle>
+          <DialogTitle>{event?.id ? t('dialog.editEvent') : t('dialog.createEvent')}</DialogTitle>
           <DialogDescription className="sr-only">
-            {event?.id ? "Edit the details of this event" : "Add a new event to your calendar"}
+            {event?.id ? t('dialog.editDescription') : t('dialog.createDescription')}
           </DialogDescription>
         </DialogHeader>
         {error && (
@@ -228,23 +230,24 @@ export function EventDialog({ event, isOpen, onClose, onSave, onDelete }: EventD
         )}
         <div className="grid gap-4 py-4">
           <div className="*:not-first:mt-1.5">
-            <Label htmlFor="title">Title</Label>
-            <Input id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
+            <Label htmlFor="title">{t('event.title')}</Label>
+            <Input id="title" value={title} onChange={(e) => setTitle(e.target.value)} placeholder={t('event.titlePlaceholder')} />
           </div>
 
           <div className="*:not-first:mt-1.5">
-            <Label htmlFor="description">Description</Label>
+            <Label htmlFor="description">{t('event.description')}</Label>
             <Textarea
               id="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={3}
+              placeholder={t('event.descriptionPlaceholder')}
             />
           </div>
 
           <div className="flex gap-4">
             <div className="flex-1 *:not-first:mt-1.5">
-              <Label htmlFor="start-date">Start Date</Label>
+              <Label htmlFor="start-date">{t('event.startDate')}</Label>
               <Popover open={startDateOpen} onOpenChange={setStartDateOpen}>
                 <PopoverTrigger asChild>
                   <Button
@@ -255,7 +258,7 @@ export function EventDialog({ event, isOpen, onClose, onSave, onDelete }: EventD
                       !startDate && "text-muted-foreground"
                     )}>
                     <span className={cn("truncate", !startDate && "text-muted-foreground")}>
-                      {startDate ? format(startDate, "PPP") : "Pick a date"}
+                      {startDate ? format(startDate, "PPP") : t('form.pickDate')}
                     </span>
                     <RiCalendarLine
                       size={16}
@@ -287,10 +290,10 @@ export function EventDialog({ event, isOpen, onClose, onSave, onDelete }: EventD
 
             {!allDay && (
               <div className="min-w-28 *:not-first:mt-1.5">
-                <Label htmlFor="start-time">Start Time</Label>
+                <Label htmlFor="start-time">{t('event.startTime')}</Label>
                 <Select value={startTime} onValueChange={setStartTime}>
                   <SelectTrigger id="start-time">
-                    <SelectValue placeholder="Select time" />
+                    <SelectValue placeholder={t('form.selectTime')} />
                   </SelectTrigger>
                   <SelectContent>
                     {timeOptions.map((option) => (
@@ -306,7 +309,7 @@ export function EventDialog({ event, isOpen, onClose, onSave, onDelete }: EventD
 
           <div className="flex gap-4">
             <div className="flex-1 *:not-first:mt-1.5">
-              <Label htmlFor="end-date">End Date</Label>
+              <Label htmlFor="end-date">{t('event.endDate')}</Label>
               <Popover open={endDateOpen} onOpenChange={setEndDateOpen}>
                 <PopoverTrigger asChild>
                   <Button
@@ -317,7 +320,7 @@ export function EventDialog({ event, isOpen, onClose, onSave, onDelete }: EventD
                       !endDate && "text-muted-foreground"
                     )}>
                     <span className={cn("truncate", !endDate && "text-muted-foreground")}>
-                      {endDate ? format(endDate, "PPP") : "Pick a date"}
+                      {endDate ? format(endDate, "PPP") : t('form.pickDate')}
                     </span>
                     <RiCalendarLine
                       size={16}
@@ -346,10 +349,10 @@ export function EventDialog({ event, isOpen, onClose, onSave, onDelete }: EventD
 
             {!allDay && (
               <div className="min-w-28 *:not-first:mt-1.5">
-                <Label htmlFor="end-time">End Time</Label>
+                <Label htmlFor="end-time">{t('event.endTime')}</Label>
                 <Select value={endTime} onValueChange={setEndTime}>
                   <SelectTrigger id="end-time">
-                    <SelectValue placeholder="Select time" />
+                    <SelectValue placeholder={t('form.selectTime')} />
                   </SelectTrigger>
                   <SelectContent>
                     {timeOptions.map((option) => (
@@ -369,15 +372,15 @@ export function EventDialog({ event, isOpen, onClose, onSave, onDelete }: EventD
               checked={allDay}
               onCheckedChange={(checked) => setAllDay(checked === true)}
             />
-            <Label htmlFor="all-day">All day</Label>
+            <Label htmlFor="all-day">{t('event.allDay')}</Label>
           </div>
 
           <div className="*:not-first:mt-1.5">
-            <Label htmlFor="location">Location</Label>
-            <Input id="location" value={location} onChange={(e) => setLocation(e.target.value)} />
+            <Label htmlFor="location">{t('event.location')}</Label>
+            <Input id="location" value={location} onChange={(e) => setLocation(e.target.value)} placeholder={t('event.locationPlaceholder')} />
           </div>
           <fieldset className="space-y-4">
-            <legend className="text-foreground text-sm leading-none font-medium">Etiquette</legend>
+            <legend className="text-foreground text-sm leading-none font-medium">{t('form.etiquette')}</legend>
             <RadioGroup
               className="flex gap-1.5"
               defaultValue={colorOptions[0]?.value}
@@ -397,15 +400,15 @@ export function EventDialog({ event, isOpen, onClose, onSave, onDelete }: EventD
         </div>
         <DialogFooter className="flex-row sm:justify-between">
           {event?.id && (
-            <Button variant="outline" size="icon" onClick={handleDelete} aria-label="Delete event">
+            <Button variant="outline" size="icon" onClick={handleDelete} aria-label={t('dialog.deleteEvent')}>
               <RiDeleteBinLine size={16} aria-hidden="true" />
             </Button>
           )}
           <div className="flex flex-1 justify-end gap-2">
             <Button variant="outline" onClick={onClose}>
-              Cancel
+              {t('cancel')}
             </Button>
-            <Button onClick={handleSave}>Save</Button>
+            <Button onClick={handleSave}>{t('save')}</Button>
           </div>
         </DialogFooter>
       </DialogContent>

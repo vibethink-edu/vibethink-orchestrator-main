@@ -161,3 +161,5 @@ if (!validation.compatible) {
 **Para agentes AI:** Este es el documento de referencia rápida. Consulta el protocolo completo para detalles.
 
 
+
+

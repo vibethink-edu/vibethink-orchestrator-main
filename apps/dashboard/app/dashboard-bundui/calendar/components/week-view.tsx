@@ -29,6 +29,7 @@ import {
 } from "./";
 import { EndHour, StartHour } from "../constants";
 import { cn } from "@/shared/lib/utils";
+import { useTranslation } from "@/lib/i18n";
 
 interface WeekViewProps {
   currentDate: Date;
@@ -47,6 +48,7 @@ interface PositionedEvent {
 }
 
 export function WeekView({ currentDate, events, onEventSelect, onEventCreate }: WeekViewProps) {
+  const { t } = useTranslation('calendar');
   const days = useMemo(() => {
     const weekStart = startOfWeek(currentDate, { weekStartsOn: 0 });
     const weekEnd = endOfWeek(currentDate, { weekStartsOn: 0 });
@@ -225,7 +227,7 @@ export function WeekView({ currentDate, events, onEventSelect, onEventCreate }: 
           <div className="grid grid-cols-8">
             <div className="border-border/70 relative border-r">
               <span className="text-muted-foreground/70 absolute bottom-0 left-0 h-6 w-16 max-w-full pe-2 text-right text-[10px] sm:pe-4 sm:text-xs">
-                All day
+                {t('event.allDay')}
               </span>
             </div>
             {days.map((day, dayIndex) => {

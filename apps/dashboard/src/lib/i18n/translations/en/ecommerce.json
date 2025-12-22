@@ -1,5 +1,106 @@
-{}
-
-
-
-
+{
+  "title": "E-Commerce Dashboard",
+  "description": "The e-commerce admin dashboard template is an admin template that you can use for your e-commerce website projects. Built with shadcn/ui, Tailwind CSS, Next.js.",
+  "header": {
+    "title": "E-Commerce Dashboard",
+    "download": "Download"
+  },
+  "welcome": {
+    "title": "Congratulations {name}! 🎉",
+    "description": "Best seller of the month",
+    "fromLastMonth": "+{percentage}% from last month",
+    "viewSales": "View Sales"
+  },
+  "cards": {
+    "revenue": {
+      "title": "Revenue",
+      "fromLastMonth": "+{percentage}% from last month"
+    },
+    "sales": {
+      "title": "Sales",
+      "fromLastMonth": "{percentage}% from last month"
+    },
+    "newCustomers": {
+      "title": "New Customers",
+      "fromLastMonth": "+{percentage}% from last month"
+    },
+    "totalRevenue": {
+      "title": "Total Revenue",
+      "description": "Income in the last 28 days",
+      "desktop": "Desktop",
+      "mobile": "Mobile"
+    },
+    "returnRate": {
+      "title": "Returning Rate"
+    },
+    "salesByLocation": {
+      "title": "Sales by Location"
+    },
+    "visitBySource": {
+      "title": "Store Visits by Source"
+    }
+  },
+  "orders": {
+    "title": "Recent Orders",
+    "filterPlaceholder": "Filter orders...",
+    "noResults": "No results.",
+    "showing": "Showing {from} to {to} of {total} entries",
+    "columns": {
+      "id": "ID",
+      "customer": "Customer",
+      "product": "Product",
+      "amount": "Amount",
+      "status": "Status"
+    },
+    "menu": {
+      "openMenu": "Open menu",
+      "copyOrderId": "Copy order ID",
+      "viewCustomer": "View customer",
+      "viewPaymentDetails": "View payment details"
+    }
+  },
+  "products": {
+    "title": "Best Selling Products",
+    "filterPlaceholder": "Filter products...",
+    "noResults": "No results.",
+    "selected": "{selected} of {total} row(s) selected.",
+    "columns": {
+      "product": "Product",
+      "sold": "Sold",
+      "sales": "Sales"
+    },
+    "menu": {
+      "openMenu": "Open menu",
+      "copyProductId": "Copy product ID",
+      "viewCustomer": "View customer",
+      "viewPaymentDetails": "View payment details"
+    }
+  },
+  "reviews": {
+    "title": "Customer Reviews",
+    "description": "Based on {count} verified purchases",
+    "viewAll": "View All",
+    "outOf5": "out of 5",
+    "verifiedPurchase": "Verified Purchase"
+  },
+  "status": {
+    "success": "success",
+    "processing": "processing",
+    "paid": "paid",
+    "failed": "failed"
+  },
+  "months": {
+    "January": "January",
+    "February": "February",
+    "March": "March",
+    "April": "April",
+    "May": "May",
+    "June": "June",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "October",
+    "November": "November",
+    "December": "December"
+  }
+}

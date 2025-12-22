@@ -15,15 +15,18 @@ import {
   ChartTooltipContent
 } from "@vibethink/ui/components/chart";
 import { Bar, BarChart, XAxis } from "recharts";
+import { useTranslation } from "@/lib/i18n";
 
 export function EcommerceTotalRevenueCard() {
+  const { t } = useTranslation('ecommerce');
+  
   const chartConfig = {
     desktop: {
-      label: "Desktop",
+      label: t('cards.totalRevenue.desktop'),
       color: "var(--chart-1)"
     },
     mobile: {
-      label: "Mobile",
+      label: t('cards.totalRevenue.mobile'),
       color: "var(--chart-2)"
     }
   } satisfies ChartConfig;
@@ -40,17 +43,17 @@ export function EcommerceTotalRevenueCard() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Total Revenue</CardTitle>
-        <CardDescription>Income in the last 28 days</CardDescription>
+        <CardTitle>{t('cards.totalRevenue.title')}</CardTitle>
+        <CardDescription>{t('cards.totalRevenue.description')}</CardDescription>
         <CardAction className="relative col-start-auto row-start-auto justify-self-start lg:col-start-2 lg:row-start-1 lg:justify-self-end">
           <div className="end-0 top-0 mt-2 flex flex-col items-stretch space-y-0 p-0 sm:flex-row lg:absolute lg:mt-0">
             <div className="flex gap-8 rounded-lg border p-4">
               <button className="flex flex-1 flex-col justify-center gap-2 text-left">
-                <span className="text-muted-foreground text-xs">Desktop</span>
+                <span className="text-muted-foreground text-xs">{t('cards.totalRevenue.desktop')}</span>
                 <span className="font-display text-lg leading-none sm:text-2xl">24,828</span>
               </button>
               <button className="flex flex-1 flex-col justify-center gap-2 text-left">
-                <span className="text-muted-foreground text-xs">Mobile</span>
+                <span className="text-muted-foreground text-xs">{t('cards.totalRevenue.mobile')}</span>
                 <span className="font-display text-lg leading-none sm:text-2xl">25,010</span>
               </button>
             </div>
@@ -84,6 +87,7 @@ export function EcommerceTotalRevenueCard() {
     </Card>
   );
 }
+
 
 
 

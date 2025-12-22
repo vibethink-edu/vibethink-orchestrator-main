@@ -5,6 +5,45 @@ Todos los cambios notables de este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2025-12-21
+
+### Added
+- ✅ **Inventario Completo Bundui Premium vs Monorepo**
+  - Documento completo de comparación de módulos (`docs/reports/INVENTARIO_BUNDUI_PREMIUM_VS_MONOREPO.md`)
+  - Identificación de 34+ módulos migrados
+  - Estado de i18n por módulo documentado
+  - Módulos faltantes identificados (logistics, text-to-speech, courses)
+
+- ✅ **i18n Completado en Múltiples Módulos**
+  - `crm-v2` - Completo (9 componentes con `useTranslation()`)
+  - `calendar` - Completo (8 componentes con `useTranslation()`)
+  - `default` - Completo (8 componentes con `useTranslation()`)
+  - `ecommerce` - Completo (13 componentes con `useTranslation()`)
+  - Correcciones en traducciones de `crm-v2/recent-tasks.tsx`
+
+- ✅ **Consolidación de Documentación**
+  - Archivos de sesión consolidados y archivados
+  - Reportes completados movidos a `docs/sessions/archived/`
+  - Documentación de decisiones preservadas en `docs/DECISIONES_Y_REPORTES_CONSOLIDADOS.md`
+  - Scripts de archivado automatizados
+
+### Fixed
+- ✅ **Traducciones en CRM V2**
+  - Corregido "Update customer profiles" y otros strings hardcoded en `recent-tasks.tsx`
+  - Agregadas claves `tasks.today` y `tasks.tomorrow` en traducciones
+  - Datos de ejemplo ahora usan `useTranslation()` dinámicamente
+
+### Changed
+- ✅ **Estructura de Documentación**
+  - Limpieza de archivos temporales y reportes completados
+  - Organización mejorada de sesiones y reportes
+  - Documentación activa separada de archivos históricos
+
+### Technical
+- 📦 38 archivos de traducción generados (incluye 5 compartidos)
+- 📝 Inventario completo de módulos con estado de migración e i18n
+- 🔧 Scripts de consolidación y archivado automatizados
+
 ## [0.4.0] - 2025-12-21
 
 ### Added

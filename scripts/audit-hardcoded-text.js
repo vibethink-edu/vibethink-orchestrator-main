@@ -238,3 +238,5 @@ if (require.main === module) {
 module.exports = { findHardcodedStrings, scanDirectory };
 
 
+
+

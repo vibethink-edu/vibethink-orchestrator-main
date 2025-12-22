@@ -601,3 +601,5 @@ Para dudas o problemas:
 **Última actualización:** 2025-12-21  
 **Versión:** 3.0.0
 
+
+

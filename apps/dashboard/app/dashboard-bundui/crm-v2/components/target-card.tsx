@@ -3,6 +3,7 @@
 import { Label, PolarGrid, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { ChartConfig, ChartContainer } from "@vibethink/ui/components/chart";
+import { useTranslation } from "@/lib/i18n";
 
 const chartData = [{ browser: "safari", visitors: 200, fill: "var(--color-safari)" }];
 
@@ -17,10 +18,12 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function TargetCard() {
+  const { t } = useTranslation('crm-v2');
+  
   return (
     <Card className="gap-2">
       <CardHeader>
-        <CardTitle className="font-display text-xl">Your target is incomplete</CardTitle>
+        <CardTitle className="font-display text-xl">{t('cards.target.title')}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="flex items-center gap-2">
@@ -65,8 +68,7 @@ export function TargetCard() {
             </ChartContainer>
           </div>
           <p className="text-muted-foreground text-sm">
-            You have completed <span className="text-orange-500">48%</span> of the given target, you
-            can also check your status
+            {t('cards.target.completed')} <span className="text-orange-500">48%</span> {t('cards.target.ofTarget')}
           </p>
         </div>
       </CardContent>

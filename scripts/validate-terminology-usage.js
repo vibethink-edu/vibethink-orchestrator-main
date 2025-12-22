@@ -287,3 +287,5 @@ if (require.main === module) {
 
 module.exports = { validateTerminologyUsage, TERMINOLOGY_PATTERNS };
 
+
+

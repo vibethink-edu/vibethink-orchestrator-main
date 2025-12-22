@@ -41,27 +41,31 @@ El sistema tiene **3 dashboards principales** con propósitos específicos y cr�
   - ✅ **Multidioma**: Implementado
   - ✅ **Layout**: Minimalista (sin sidebar/header)
 - **Rutas**: `/dashboard/*`
-- **Flujo**: Recibe módulos probados desde `dashboard-vibethink`
+- **Flujo**: Recibe módulos estabilizados desde `dashboard-bundui`
 - **Estado**: ✅ Funcional (en desarrollo - meta final)
 
-#### 2. `/dashboard-bundui` - Referencia/Inspiración
-- **Propósito**: Espejo de Bundui Premium, nuestra inspiración (no monorepo, externo)
+#### 2. `/dashboard-bundui` - Desarrollo/Estabilización ⭐
+- **Propósito**: Donde se estabilizan módulos con metodología AI-First antes de producción
+- **Características**:
+  - ✅ **Desarrollo activo**: Trabajo de estabilización de módulos aquí
+  - ✅ **i18n implementado**: Aplicación de AI-First i18n/l10n en progreso
+  - ✅ **Sandbox de desarrollo**: Pruebas y estabilización antes de producción
+  - ✅ **Stack**: Shadcn UI + i18n + AI-First methodology
+  - ✅ **Modificación**: ✅ SÍ (trabajo activo aquí)
 - **Sidebar**: Propio e independiente (`AppSidebar` de Bundui)
 - **Rutas**: SIEMPRE `/dashboard-bundui/*`
-- **Modificación**: ❌ NO (o mínimo necesario - mucho trabajo mantenerlo)
-- **Stack**: Shadcn UI first, SIEMPRE
-- **i18n**: ❌ NO implementar (mantener inglés hardcoded como referencia)
-- **Actualización**: ✅ **SÍ, es viable descargar/actualizar Bundui Original** (ver `docs/architecture/BUNDUI_DOWNLOAD_UPDATE.md`)
-- **Bundui Original**: `C:\IA Marcelo Labs\bundui\shadcn-ui-kit-dashboard/` - Se puede actualizar/descargar nueva versión
-- **Estado**: ✅ Completo y estable (referencia actualizable)
+- **i18n**: ✅ **OBLIGATORIO** - Aplicación de metodología AI-First con namespaces/sub-namespaces
+- **Flujo**: Estabiliza módulos → Migra a `/dashboard` (producción)
+- **Estado**: ✅ Trabajo activo - Estabilización en progreso
+- **Nota**: Originalmente era referencia de Bundui Premium, pero ahora es donde se estabiliza todo el trabajo
 
-#### 3. `/dashboard-vibethink` - Mockup/Sandbox de Pruebas
-- **Propósito**: Mockup antes de implementar en producción - donde se prueban interfaces
+#### 3. `/dashboard-vibethink` - Experimentación/Prototipos (Opcional)
+- **Propósito**: Experimentos y prototipos avanzados antes de estabilizar
 - **Características**:
-  - ⚠️ **NO es producción**: Es sandbox de pruebas y mockups
-  - ✅ **Se nutre de**: Bundui, React Flow, AI Chat, y otros componentes
-  - ✅ **Pruebas**: Donde se prueba cómo luce todo antes de integrar con BD
-  - ✅ **Sin BD**: Solo mockups y pruebas
+  - ⚠️ **Experimentación**: Para prototipos que aún no están listos para estabilizar
+  - ⚠️ **Integraciones complejas**: React Flow, AI Chat avanzado, etc.
+  - ⚠️ **Pruebas de conceptos**: Validación de ideas antes de estabilizar
+  - ⚠️ **Opcional**: Solo si se necesita experimentar algo nuevo
 - **Sidebar**: Propio e independiente (`VibeThinkSidebar`)
 - **Rutas**: SIEMPRE `/dashboard-vibethink/*`
 - **Modificación**: ✅ SÍ (pero debe seguir TODAS las reglas del proyecto)
@@ -73,29 +77,21 @@ El sistema tiene **3 dashboards principales** con propósitos específicos y cr�
   - ✅ Monorepo compliance obligatorio
   - ✅ Changelog y versiones obligatorios
   - ✅ i18n obligatorio desde el inicio
-- **Flujo**: Prueba módulos antes de migrarlos a `/dashboard` (producción)
-- **Estado**: ✅ Funcional, sandbox activo para pruebas
+- **Flujo (Opcional)**: Experimenta → Si funciona, estabiliza en `dashboard-bundui` → Migra a `/dashboard` (producción)
+- **Estado**: ⚠️ Opcional - Solo para experimentación avanzada
 
-### 🔄 Flujo de Desarrollo
+### 🔄 Flujo de Desarrollo (Actualizado 2025-12-21)
 
 ```
 ┌─────────────────────────────────┐
 │  /dashboard-bundui              │
-│  (Referencia/Inspiración)       │
-│  - Bundui Premium externo       │
-│  - Solo inglés, sin i18n         │
+│  (Desarrollo/Estabilización) ⭐  │
+│  - Módulos con i18n             │
+│  - AI-First methodology         │
+│  - Sandbox de desarrollo        │
+│  - Trabajo activo aquí          │
 └────────────┬────────────────────┘
-             │ Inspiración
-             ↓
-┌─────────────────────────────────┐
-│  /dashboard-vibethink           │
-│  (Mockup/Sandbox)               │
-│  - Pruebas de interfaces        │
-│  - Multidioma (i18n)            │
-│  - React Flow, AI Chat, etc.    │
-│  - Sin BD (mockups)              │
-└────────────┬────────────────────┘
-             │ Migración probada
+             │ Módulos estabilizados
              ↓
 ┌─────────────────────────────────┐
 │  /dashboard                     │
@@ -105,6 +101,16 @@ El sistema tiene **3 dashboards principales** con propósitos específicos y cr�
 │  - Login, CRM, etc.              │
 │  - Multidioma                    │
 └─────────────────────────────────┘
+
+┌─────────────────────────────────┐
+│  /dashboard-vibethink           │
+│  (Experimentación - Opcional)    │
+│  - Prototipos avanzados         │
+│  - Integraciones complejas      │
+│  - Solo si se necesita          │
+└─────────────────────────────────┘
+     ↓ (si funciona)
+     └─→ dashboard-bundui (estabilización)
 ```
 
 ### Regla Fundamental: Independencia Total de Dashboards
@@ -119,28 +125,28 @@ El sistema tiene **3 dashboards principales** con propósitos específicos y cr�
 4. **Rutas Específicas**: Cada sistema usa su propio prefijo de ruta
 5. **Objetivos Claros**: 
    - `dashboard` = producción final (integración BD, módulos publicados) ⭐
-   - `bundui` = referencia/inspiración (externo, no monorepo)
-   - `vibethink` = mockup/sandbox (pruebas antes de producción)
+   - `bundui` = desarrollo/estabilización (trabajo activo, i18n, AI-First) ⭐
+   - `vibethink` = experimentación opcional (prototipos avanzados)
 
 ### 📋 Checklist para Nuevos Dashboards
 
 Antes de crear un dashboard, pregunta:
-- [ ] ¿Va en `/dashboard` (producción), `/dashboard-bundui` (referencia), o `/dashboard-vibethink` (mockup)?
-- [ ] Si es `/dashboard`: ¿Está listo para integración con BD? ¿Ya fue probado en vibethink?
-- [ ] Si es `/dashboard-vibethink`: ¿Usa i18n desde el inicio? (OBLIGATORIO)
-- [ ] Si es `/dashboard-bundui`: ¿Mantiene inglés hardcoded? (NO implementar i18n)
+- [ ] ¿Va en `/dashboard` (producción), `/dashboard-bundui` (desarrollo/estabilización), o `/dashboard-vibethink` (experimentación)?
+- [ ] Si es `/dashboard`: ¿Está listo para integración con BD? ¿Ya fue estabilizado en bundui?
+- [ ] Si es `/dashboard-bundui`: ¿Usa i18n desde el inicio? (OBLIGATORIO - AI-First methodology)
+- [ ] Si es `/dashboard-vibethink`: ¿Es un experimento/prototipo? ¿Usa i18n desde el inicio? (OBLIGATORIO)
 - [ ] ¿Usa el sidebar correcto para ese sistema?
 - [ ] ¿Todas las rutas usan el prefijo correcto?
 - [ ] ¿Está basado en Shadcn UI?
-- [ ] Si es `/dashboard-vibethink`: ¿Sigue todas las reglas del proyecto y vibethink-dev-kit?
+- [ ] Si es `/dashboard-bundui` o `/dashboard-vibethink`: ¿Sigue todas las reglas del proyecto y vibethink-dev-kit?
 
 **NUNCA intentes compartir componentes de navegación entre sistemas.**
 
-### 🌍 Regla i18n: Los Tres Dashboards
+### 🌍 Regla i18n: Los Tres Dashboards (Actualizado 2025-12-21)
 
 **Principio Fundamental:** 
 - **`/dashboard`**: ✅ Multidioma (producción final)
-- **`/dashboard-bundui`**: ❌ NO implementar i18n. Mantener inglés hardcoded como referencia.
+- **`/dashboard-bundui`**: ✅ **OBLIGATORIO usar i18n** - Aplicación de metodología AI-First con namespaces/sub-namespaces. Todas las nuevas plantillas y mejoras deben usar `useTranslation()` desde el primer commit.
 - **`/dashboard-vibethink`**: ✅ OBLIGATORIO usar i18n. Todas las nuevas plantillas y mejoras deben usar `useTranslation()` desde el primer commit.
 
 **Documentación completa:** 
@@ -413,6 +419,122 @@ if (module) {
   }
 }
 ```
+
+---
+
+## 🚨 CRITICAL: Componentes Reutilizables (Context-Aware Translations)
+
+**⚠️ REGLA FUNDAMENTAL:** Cuando un componente se usa en múltiples contextos (ej: Booking en Hotel y Studio, Calendar en diferentes módulos), usar **namespaces específicos por contexto**.
+
+### **Problema Común:**
+
+Un mismo componente (ej: `BookingForm`, `Calendar`) se usa en diferentes módulos con strings diferentes:
+- **Hotel:** "Reserva habitación", "Premium", "De Lujo", "Check-in", "Check-out"
+- **Studio:** "Reserva Sala", "Tipo A", "Tipo B", "Hora de inicio", "Hora de fin"
+
+### **Solución: Namespaces Específicos por Contexto**
+
+**Estrategia recomendada:**
+
+1. **Cada contexto tiene su propio namespace:**
+   ```json
+   // hotel.json
+   {
+     "hotel": {
+       "booking": {
+         "reserveLabel": "Reserva habitación",
+         "itemLabel": "Habitación",
+         "roomTypes": {
+           "premium": "Premium",
+           "deluxe": "De Lujo"
+         }
+       }
+     }
+   }
+   
+   // studio.json
+   {
+     "studio": {
+       "booking": {
+         "reserveLabel": "Reserva Sala",
+         "itemLabel": "Sala",
+         "roomTypes": {
+           "typeA": "Tipo A",
+           "typeB": "Tipo B"
+         }
+       }
+     }
+   }
+   ```
+
+2. **Componente recibe `context` como prop:**
+   ```typescript
+   interface BookingFormProps {
+     context: 'hotel' | 'studio';
+     // ... otros props
+   }
+   
+   export function BookingForm({ context, ...props }: BookingFormProps) {
+     // Usar namespace según contexto
+     const { t } = useTranslation(context); // 'hotel' o 'studio'
+     
+     return (
+       <div>
+         <h2>{t('booking.reserveLabel')}</h2>
+         <label>{t('booking.itemLabel')}</label>
+         {/* ... */}
+       </div>
+     );
+   }
+   ```
+
+3. **Uso en módulos:**
+   ```typescript
+   // En módulo Hotel
+   <BookingForm context="hotel" />
+   
+   // En módulo Studio
+   <BookingForm context="studio" />
+   ```
+
+### **Reglas Críticas:**
+
+- ✅ **SIEMPRE** usar namespaces específicos por contexto (`hotel.booking.*` vs `studio.booking.*`)
+- ✅ **SIEMPRE** pasar `context` como prop al componente reutilizable
+- ✅ **SIEMPRE** usar `useTranslation(context)` dinámicamente según contexto
+- ✅ **SIEMPRE** validar en todos los contextos soportados
+- ✅ **SIEMPRE** documentar contextos soportados en el componente
+- ❌ **NUNCA** hardcodear strings específicos del contexto en componentes compartidos
+- ❌ **NUNCA** asumir un contexto único
+- ❌ **NUNCA** mezclar contextos en un solo namespace
+
+### **Auto-detección de Contexto (Opcional):**
+
+Para componentes que pueden auto-detectar el contexto desde la ruta:
+
+```typescript
+import { useAutoDetectContext } from '@/hooks/use-auto-detect-context';
+
+export function BookingCard({ context: explicitContext, ...props }) {
+  // Auto-detectar si no se pasa explícitamente
+  const autoContext = useAutoDetectContext();
+  const finalContext = explicitContext || autoContext;
+  
+  const { t } = useTranslation(finalContext);
+  // ...
+}
+```
+
+### **Documentación Completa:**
+
+- `docs/architecture/I18N_CONTEXT_AWARE_TRANSLATIONS.md` ⭐ - **DOCUMENTO MAESTRO**
+- `docs/architecture/IA_FIRST_REUSABLE_COMPONENTS.md` - Componentes reutilizables IA-First
+- `docs/architecture/MODULE_IMPORT_DEPLOYMENT_PROTOCOL.md` - Lección 13: Módulos Reutilizables
+
+### **Ejemplo Real:**
+
+Ver implementación en:
+- `apps/dashboard/src/shared/components/booking/booking-card.tsx` - Componente reutilizable con auto-detección
 
 ---
 

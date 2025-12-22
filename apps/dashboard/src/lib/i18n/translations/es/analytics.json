@@ -1,6 +1,6 @@
 {
-  "title": "",
-  "description": "",
+  "title": "Analíticas del Sitio Web",
+  "description": "Panel de analíticas completo con métricas e insights en tiempo real",
   "loading": "Cargando...",
   "error": "Error",
   "success": "Éxito",
@@ -87,5 +87,65 @@
     "title": "No se encontraron elementos",
     "description": "Comienza creando un nuevo elemento",
     "action": "Crear Nuevo"
+  },
+  "header": {
+    "title": "Analíticas del Sitio Web",
+    "dateRange": "Rango de Fechas",
+    "export": "Exportar",
+    "refresh": "Actualizar"
+  },
+  "cards": {
+    "totalEarning": {
+      "title": "Ganancia Total",
+      "description": "Ingresos totales generados"
+    },
+    "averageDailySales": {
+      "title": "Ventas Diarias Promedio",
+      "description": "Promedio de ventas por día"
+    },
+    "salesOverflow": {
+      "title": "Desbordamiento de Ventas",
+      "description": "Métricas de rendimiento de ventas"
+    },
+    "websiteAnalytics": {
+      "title": "Analíticas del Sitio Web",
+      "description": "Métricas de tráfico y engagement"
+    },
+    "earningReports": {
+      "title": "Reportes de Ganancias",
+      "description": "Desglose detallado de ganancias"
+    },
+    "tickets": {
+      "title": "Tickets de Soporte",
+      "description": "Métricas de atención al cliente"
+    },
+    "salesByCountries": {
+      "title": "Ventas por Países",
+      "description": "Distribución geográfica de ventas"
+    },
+    "monthlyCampaign": {
+      "title": "Estado de Campaña Mensual",
+      "description": "Resumen de rendimiento de campañas"
+    }
+  },
+  "metrics": {
+    "visitors": "Visitantes",
+    "pageViews": "Vistas de Página",
+    "bounceRate": "Tasa de Rebote",
+    "conversionRate": "Tasa de Conversión",
+    "revenue": "Ingresos",
+    "sales": "Ventas",
+    "orders": "Pedidos",
+    "customers": "Clientes"
+  },
+  "periods": {
+    "today": "Hoy",
+    "yesterday": "Ayer",
+    "last7Days": "Últimos 7 Días",
+    "last30Days": "Últimos 30 Días",
+    "thisMonth": "Este Mes",
+    "lastMonth": "Mes Pasado",
+    "thisYear": "Este Año",
+    "lastYear": "Año Pasado"
   }
 }

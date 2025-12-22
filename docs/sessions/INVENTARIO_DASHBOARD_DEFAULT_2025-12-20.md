@@ -499,3 +499,5 @@ const { t } = useTranslation('default-dashboard');
 **Estado:** Inventario completo - Listo para migración i18n
 
 
+
+

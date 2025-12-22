@@ -29,6 +29,7 @@ import {
 } from "./";
 import { DefaultStartHour } from "../constants";
 import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui/components/popover";
+import { useTranslation } from "@/lib/i18n";
 
 interface MonthViewProps {
   currentDate: Date;
@@ -38,6 +39,7 @@ interface MonthViewProps {
 }
 
 export function MonthView({ currentDate, events, onEventSelect, onEventCreate }: MonthViewProps) {
+  const { t } = useTranslation('calendar');
   const days = useMemo(() => {
     const monthStart = startOfMonth(currentDate);
     const monthEnd = endOfMonth(monthStart);
@@ -189,7 +191,7 @@ export function MonthView({ currentDate, events, onEventSelect, onEventCreate }:
                               className="focus-visible:border-ring focus-visible:ring-ring/50 text-muted-foreground hover:text-foreground hover:bg-muted/50 mt-[var(--event-gap)] flex h-[var(--event-height)] w-full items-center overflow-hidden px-1 text-left text-[10px] backdrop-blur-md transition outline-none select-none focus-visible:ring-[3px] sm:px-2 sm:text-xs"
                               onClick={(e) => e.stopPropagation()}>
                               <span>
-                                + {remainingCount} <span className="max-sm:sr-only">more</span>
+                                + {remainingCount} <span className="max-sm:sr-only">{t('labels.more')}</span>
                               </span>
                             </button>
                           </PopoverTrigger>

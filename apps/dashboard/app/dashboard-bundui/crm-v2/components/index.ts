@@ -6,3 +6,4 @@ export * from "./total-revenue";
 export * from "./total-deals";
 export * from "./total-customers";
 export * from "./recent-tasks";
+export * from "./page-content";

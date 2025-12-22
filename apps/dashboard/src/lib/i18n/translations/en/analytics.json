@@ -1,6 +1,6 @@
 {
-  "title": "",
-  "description": "",
+  "title": "Website Analytics",
+  "description": "Comprehensive analytics dashboard with real-time metrics and insights",
   "loading": "Loading...",
   "error": "Error",
   "success": "Success",
@@ -87,5 +87,65 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+  },
+  "header": {
+    "title": "Website Analytics",
+    "dateRange": "Date Range",
+    "export": "Export",
+    "refresh": "Refresh"
+  },
+  "cards": {
+    "totalEarning": {
+      "title": "Total Earning",
+      "description": "Total revenue generated"
+    },
+    "averageDailySales": {
+      "title": "Average Daily Sales",
+      "description": "Average sales per day"
+    },
+    "salesOverflow": {
+      "title": "Sales Overflow",
+      "description": "Sales performance metrics"
+    },
+    "websiteAnalytics": {
+      "title": "Website Analytics",
+      "description": "Traffic and engagement metrics"
+    },
+    "earningReports": {
+      "title": "Earning Reports",
+      "description": "Detailed earning breakdown"
+    },
+    "tickets": {
+      "title": "Support Tickets",
+      "description": "Customer support metrics"
+    },
+    "salesByCountries": {
+      "title": "Sales by Countries",
+      "description": "Geographic sales distribution"
+    },
+    "monthlyCampaign": {
+      "title": "Monthly Campaign State",
+      "description": "Campaign performance overview"
+    }
+  },
+  "metrics": {
+    "visitors": "Visitors",
+    "pageViews": "Page Views",
+    "bounceRate": "Bounce Rate",
+    "conversionRate": "Conversion Rate",
+    "revenue": "Revenue",
+    "sales": "Sales",
+    "orders": "Orders",
+    "customers": "Customers"
+  },
+  "periods": {
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "last7Days": "Last 7 Days",
+    "last30Days": "Last 30 Days",
+    "thisMonth": "This Month",
+    "lastMonth": "Last Month",
+    "thisYear": "This Year",
+    "lastYear": "Last Year"
   }
 }

@@ -7,6 +7,7 @@ import { differenceInMinutes, format, getMinutes, isPast } from "date-fns";
 
 import { getBorderRadiusClasses, getEventColorClasses, type CalendarEvent } from "./";
 import { cn } from "@/shared/lib/utils";
+import { useTranslation } from "@/lib/i18n";
 
 // Using date-fns format with custom formatting:
 // 'h' - hours (1-12)
@@ -109,6 +110,7 @@ export function EventItem({
   onMouseDown,
   onTouchStart
 }: EventItemProps) {
+  const { t } = useTranslation('calendar');
   const eventColor = event.color;
 
   // Use the provided currentTime (for dragging) or the event's actual time
@@ -131,7 +133,7 @@ export function EventItem({
   }, [displayStart, displayEnd]);
 
   const getEventTime = () => {
-    if (event.allDay) return "All day";
+    if (event.allDay) return t('event.allDay');
 
     // For short events (less than 45 minutes), only show start time
     if (durationMinutes < 45) {
@@ -228,7 +230,7 @@ export function EventItem({
       <div className="text-sm font-medium">{event.title}</div>
       <div className="text-xs opacity-70">
         {event.allDay ? (
-          <span>All day</span>
+          <span>{t('event.allDay')}</span>
         ) : (
           <span className="uppercase">
             {formatTimeWithOptionalMinutes(displayStart)} -{" "}

@@ -16,13 +16,13 @@
  * - MINOR: New features (backward compatible)
  * - PATCH: Bug fixes (backward compatible)
  */
-export const APP_VERSION_NUMBER = '0.4.0';
+export const APP_VERSION_NUMBER = '0.5.0';
 
 /**
  * Short description of this version (3-5 words)
  * Used in APP_VERSION string
  */
-export const APP_VERSION_DESCRIPTOR = 'DateTime AI-First System';
+export const APP_VERSION_DESCRIPTOR = 'Bundui Inventory & i18n Progress';
 
 /**
  * Full version string

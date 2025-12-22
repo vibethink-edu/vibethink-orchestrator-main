@@ -40,6 +40,7 @@ import {
 } from "@vibethink/ui";
 import { Badge } from "@vibethink/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
+import { useTranslation } from "@/lib/i18n";
 
 interface Payment {
   id: string;
@@ -51,6 +52,7 @@ interface Payment {
 }
 
 export function LatestPayments() {
+  const { t } = useTranslation('default');
   const data = React.useMemo<Payment[]>(
     () => [
       {
@@ -193,13 +195,13 @@ export function LatestPayments() {
 
     // For demo purposes, let's just show what would happen
     if (action === "delete") {
-      alert(`Deleting ${selectedRows.length} payments`);
+      alert(t('payments.bulkActions.delete') + ` (${selectedRows.length})`);
     } else if (action === "export") {
-      alert(`Exporting ${selectedRows.length} payments`);
+      alert(t('payments.bulkActions.export') + ` (${selectedRows.length})`);
     } else if (action === "email") {
-      alert(`Sending email to ${selectedRows.length} customers`);
+      alert(t('payments.bulkActions.email') + ` (${selectedRows.length})`);
     } else if (action === "tag") {
-      alert(`Tagging ${selectedRows.length} payments`);
+      alert(t('payments.bulkActions.tag') + ` (${selectedRows.length})`);
     }
   };
 
@@ -214,14 +216,14 @@ export function LatestPayments() {
               (table.getIsSomePageRowsSelected() && "indeterminate")
             }
             onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-            aria-label="Select all"
+            aria-label={t('table.selectAll')}
           />
         ),
         cell: ({ row }) => (
           <Checkbox
             checked={row.getIsSelected()}
             onCheckedChange={(value) => row.toggleSelected(!!value)}
-            aria-label="Select row"
+            aria-label={t('table.selectRow')}
           />
         ),
         enableSorting: false,
@@ -229,7 +231,7 @@ export function LatestPayments() {
       },
       {
         accessorKey: "name",
-        header: "Customer",
+        header: t('table.customer'),
         cell: ({ row }) => (
           <div>
             {row.original.firstName} {row.original.lastName}
@@ -238,12 +240,12 @@ export function LatestPayments() {
       },
       {
         accessorKey: "email",
-        header: "Email",
+        header: t('table.email'),
         cell: ({ row }) => <div>{row.original.email}</div>
       },
       {
         accessorKey: "amount",
-        header: () => <div className="text-right">Amount</div>,
+        header: () => <div className="text-right">{t('table.amount')}</div>,
         cell: ({ row }) => {
           const amount = Number.parseFloat(row.original.amount.toString());
           return <div className="text-right font-medium">${amount.toFixed(2)}</div>;
@@ -251,7 +253,7 @@ export function LatestPayments() {
       },
       {
         accessorKey: "status",
-        header: "Status",
+        header: t('table.status'),
         cell: ({ row }) => {
           const status = row.original.status;
 
@@ -283,9 +285,9 @@ export function LatestPayments() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                  <DropdownMenuItem>View details</DropdownMenuItem>
-                  <DropdownMenuItem>Download receipt</DropdownMenuItem>
-                  <DropdownMenuItem>Contact customer</DropdownMenuItem>
+                  <DropdownMenuItem>{t('payments.menu.viewDetails')}</DropdownMenuItem>
+                  <DropdownMenuItem>{t('payments.menu.downloadReceipt')}</DropdownMenuItem>
+                  <DropdownMenuItem>{t('payments.menu.contactCustomer')}</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
@@ -321,12 +323,12 @@ export function LatestPayments() {
   return (
     <Card className="h-full">
       <CardHeader>
-        <CardTitle>Latest Payments</CardTitle>
+        <CardTitle>{t('payments.title')}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="flex gap-2">
           <Input
-            placeholder="Filter payments..."
+            placeholder={t('payments.filterPlaceholder')}
             className="max-w-sm"
             value={globalFilter}
             onChange={(e) => setGlobalFilter(e.target.value)}
@@ -336,26 +338,26 @@ export function LatestPayments() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline">
-                  Actions <Badge variant="outline">{selectedRowsCount} selected</Badge>
+                  {t('payments.actions')} <Badge variant="outline">{selectedRowsCount} {t('payments.selected')}</Badge>
                   <ChevronDown />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem onClick={() => handleBulkAction("delete")}>
                   <Trash2 />
-                  Delete selected
+                  {t('payments.bulkActions.delete')}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleBulkAction("export")}>
                   <Download />
-                  Export selected
+                  {t('payments.bulkActions.export')}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleBulkAction("email")}>
                   <Mail />
-                  Email customers
+                  {t('payments.bulkActions.email')}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleBulkAction("tag")}>
                   <Tag />
-                  Tag payments
+                  {t('payments.bulkActions.tag')}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -391,7 +393,7 @@ export function LatestPayments() {
               ) : (
                 <TableRow>
                   <TableCell colSpan={columns.length} className="h-24 text-center">
-                    No results.
+                    {t('table.noResults')}
                   </TableCell>
                 </TableRow>
               )}
@@ -401,7 +403,7 @@ export function LatestPayments() {
 
         <div className="flex items-center justify-between">
           <p className="text-muted-foreground text-sm">
-            {selectedRowsCount} of {data.length} row(s) selected.
+            {t('payments.rowsSelected', { count: selectedRowsCount, total: data.length })}
           </p>
           <div className="space-x-2">
             <Button

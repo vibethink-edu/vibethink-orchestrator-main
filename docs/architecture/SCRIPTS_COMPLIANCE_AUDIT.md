@@ -294,3 +294,5 @@ Validar que todos los scripts de importación y validación estén alineados con
 **Autor:** AI Assistant (Cursor)  
 **Revisado por:** Pendiente
 
+
+

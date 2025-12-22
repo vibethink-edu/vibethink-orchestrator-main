@@ -11,6 +11,7 @@ import {
   ChartTooltipContent
 } from "@vibethink/ui/components/chart";
 import { ExportButton } from "@/shared/components/CardActionMenus";
+import { useTranslation } from "@/lib/i18n";
 
 const chartData = [
   { source: "social", leads: 275, fill: "var(--color-social)" },
@@ -41,6 +42,7 @@ const chartConfig = {
 type ChartConfigKeys = keyof typeof chartConfig;
 
 export function LeadBySourceCard() {
+  const { t } = useTranslation('crm-v2');
   const totalVisitors = React.useMemo(() => {
     return chartData.reduce((acc, curr) => acc + curr.leads, 0);
   }, []);
@@ -48,7 +50,7 @@ export function LeadBySourceCard() {
   return (
     <Card className="flex flex-col">
       <CardHeader className="flex flex-row justify-between">
-        <CardTitle>Leads by Source</CardTitle>
+        <CardTitle>{t('cards.leadsBySource.title')}</CardTitle>
         <CardAction className="relative">
           <ExportButton className="absolute end-0 top-0" />
         </CardAction>
@@ -77,7 +79,7 @@ export function LeadBySourceCard() {
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 24}
                           className="fill-muted-foreground">
-                          Leads
+                          {t('leads.title')}
                         </tspan>
                       </text>
                     );

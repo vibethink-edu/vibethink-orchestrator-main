@@ -9,6 +9,7 @@ import {
   ChartTooltip,
   ChartTooltipContent
 } from "@vibethink/ui";
+import { useTranslation } from "@/lib/i18n";
 
 const chartData = [
   { browser: "chrome", visitors: 100, fill: "var(--color-visitors)" },
@@ -18,23 +19,25 @@ const chartData = [
   { browser: "other", visitors: 110, fill: "var(--color-visitors)" }
 ];
 
-const chartConfig = {
-  visitors: {
-    label: "Revenue",
-    color: "var(--chart-1)"
-  }
-} satisfies ChartConfig;
-
 export function TotalRevenueCard() {
+  const { t } = useTranslation('default');
+  
+  const chartConfig = {
+    visitors: {
+      label: t('cards.totalRevenue.label'),
+      color: "var(--chart-1)"
+    }
+  } satisfies ChartConfig;
+
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Total Revenue</CardTitle>
+        <CardTitle>{t('cards.totalRevenue.title')}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="font-display text-3xl leading-6">$15,231.89</div>
         <p className="text-muted-foreground mt-1.5 text-xs">
-          <span className="text-green-600">+20.1%</span> from last month
+          <span className="text-green-600">+20.1%</span> {t('cards.totalRevenue.fromLastMonth', { percentage: '20.1' })}
         </p>
         <ChartContainer className="mt-4 h-[100px] w-full" config={chartConfig}>
           <LineChart
