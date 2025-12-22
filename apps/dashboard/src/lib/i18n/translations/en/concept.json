@@ -1,39 +1,177 @@
 {
-  "concept": {
-    "resource": {
-      "room": "room",
-      "studio": "studio",
-      "space": "space",
-      "bedroom": "bedroom"
-    },
-    "booking": {
-      "label": "{context, select, hotel {Hotel Booking} studio {Studio Booking} cowork {Space Booking} coliving {Room Booking} other {Booking}}",
-      "title": "{context, select, hotel {Booking} studio {Booking} cowork {Booking} coliving {Booking} other {Booking}}"
-    },
-    "unit": {
-      "night": "{count, plural, one {night} other {nights}}",
-      "hour": "{count, plural, one {hour} other {hours}}",
-      "day": "{count, plural, one {day} other {days}}"
-    },
-    "duration": {
-      "label": "Duration"
-    },
-    "status": {
-      "pending": "Pending",
-      "confirmed": "Confirmed",
-      "cancelled": "Cancelled"
-    },
-    "guest": {
-      "hotel": "Guest",
-      "studio": "Client",
-      "cowork": "User",
-      "coliving": "Resident",
-      "default": "Client"
-    },
-    "amount": {
-      "label": "Amount"
-    }
+  "concept.common.entity": {
+    "label": "Entity",
+    "plural": "Entities",
+    "gender": "f",
+    "synonyms": ["Entidad", "Elemento"],
+    "description": "Generic entity in the system"
+  },
+  "concept.common.status.active": {
+    "label": "Active",
+    "plural": "Active",
+    "gender": "m",
+    "synonyms": ["Activo", "Activo"],
+    "description": "Entity is currently active"
+  },
+  "concept.common.status.inactive": {
+    "label": "Inactive",
+    "plural": "Inactive",
+    "gender": "m",
+    "synonyms": ["Inactivo", "Inactivo"],
+    "description": "Entity is currently inactive"
+  },
+  "concept.common.status.pending": {
+    "label": "Pending",
+    "plural": "Pending",
+    "gender": "m",
+    "synonyms": ["Pendiente", "Pendiente"],
+    "description": "Entity is pending action"
+  },
+  "concept.common.status.completed": {
+    "label": "Completed",
+    "plural": "Completed",
+    "gender": "m",
+    "synonyms": ["Completado", "Finalizado"],
+    "description": "Entity has been completed"
+  },
+  "concept.crm.entity.deal": {
+    "label": "Deal",
+    "plural": "Deals",
+    "gender": "m",
+    "synonyms": ["Oportunidad", "Negocio", "Trato"],
+    "description": "Sales opportunity or potential sale"
+  },
+  "concept.crm.entity.lead": {
+    "label": "Lead",
+    "plural": "Leads",
+    "gender": "m",
+    "synonyms": ["Prospecto", "Cliente Potencial"],
+    "description": "Potential customer who hasn't purchased yet"
+  },
+  "concept.crm.entity.contact": {
+    "label": "Contact",
+    "plural": "Contacts",
+    "gender": "m",
+    "synonyms": ["Contacto", "Persona de Contacto"],
+    "description": "Individual person in CRM system"
+  },
+  "concept.crm.entity.account": {
+    "label": "Account",
+    "plural": "Accounts",
+    "gender": "m",
+    "synonyms": ["Cuenta", "Cliente", "Empresa"],
+    "description": "Company or organization account"
+  },
+  "concept.crm.status.qualified": {
+    "label": "Qualified",
+    "plural": "Qualified",
+    "gender": "m",
+    "synonyms": ["Calificado", "Aprobado"],
+    "description": "Lead that meets qualification criteria"
+  },
+  "concept.crm.status.open": {
+    "label": "Open",
+    "plural": "Open",
+    "gender": "m",
+    "synonyms": ["Abierto", "En Proceso"],
+    "description": "Deal or opportunity is open"
+  },
+  "concept.crm.status.closed": {
+    "label": "Closed",
+    "plural": "Closed",
+    "gender": "m",
+    "synonyms": ["Cerrado", "Finalizado"],
+    "description": "Deal or opportunity is closed"
+  },
+  "concept.operations.task.entity": {
+    "label": "Task",
+    "plural": "Tasks",
+    "gender": "f",
+    "synonyms": ["Tarea", "Actividad", "Trabajo"],
+    "description": "Unit of work assigned to a user"
+  },
+  "concept.operations.task.status.backlog": {
+    "label": "Backlog",
+    "plural": "Backlog",
+    "gender": "m",
+    "synonyms": ["Pendiente", "Cola"],
+    "description": "Task is in backlog"
+  },
+  "concept.operations.task.status.todo": {
+    "label": "Todo",
+    "plural": "Todo",
+    "gender": "m",
+    "synonyms": ["Por Hacer", "Pendiente"],
+    "description": "Task is to be done"
+  },
+  "concept.operations.task.status.in_progress": {
+    "label": "In Progress",
+    "plural": "In Progress",
+    "gender": "m",
+    "synonyms": ["En Progreso", "En Curso"],
+    "description": "Task is currently being worked on"
+  },
+  "concept.operations.task.status.done": {
+    "label": "Done",
+    "plural": "Done",
+    "gender": "m",
+    "synonyms": ["Completado", "Finalizado"],
+    "description": "Task has been completed"
+  },
+  "concept.operations.task.priority.low": {
+    "label": "Low",
+    "plural": "Low",
+    "gender": "f",
+    "synonyms": ["Baja", "Bajo"],
+    "description": "Low priority task"
+  },
+  "concept.operations.task.priority.medium": {
+    "label": "Medium",
+    "plural": "Medium",
+    "gender": "f",
+    "synonyms": ["Media", "Medio"],
+    "description": "Medium priority task"
+  },
+  "concept.operations.task.priority.high": {
+    "label": "High",
+    "plural": "High",
+    "gender": "f",
+    "synonyms": ["Alta", "Alto"],
+    "description": "High priority task"
+  },
+  "concept.hotel.booking.entity": {
+    "label": "Booking",
+    "plural": "Bookings",
+    "gender": "m",
+    "synonyms": ["Reserva", "Reservación"],
+    "description": "Hotel room reservation"
+  },
+  "concept.hotel.booking.unit.night": {
+    "label": "Night",
+    "plural": "Nights",
+    "gender": "f",
+    "synonyms": ["Noche", "Estadía"],
+    "description": "Unit of time for hotel bookings"
+  },
+  "concept.hotel.booking.status.checked_in": {
+    "label": "Checked In",
+    "plural": "Checked In",
+    "gender": "m",
+    "synonyms": ["Registrado", "Check-in Realizado"],
+    "description": "Guest has checked in"
+  },
+  "concept.hotel.booking.status.checked_out": {
+    "label": "Checked Out",
+    "plural": "Checked Out",
+    "gender": "m",
+    "synonyms": ["Salida", "Check-out Realizado"],
+    "description": "Guest has checked out"
+  },
+  "concept.hotel.booking.status.pending": {
+    "label": "Pending",
+    "plural": "Pending",
+    "gender": "m",
+    "synonyms": ["Pendiente", "En Espera"],
+    "description": "Booking is pending confirmation"
   }
 }
-
-
