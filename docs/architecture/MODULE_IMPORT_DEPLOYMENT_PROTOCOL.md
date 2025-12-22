@@ -1047,15 +1047,27 @@ const label = t('booking.reserveLabel'); // "Reserva habitación" o "Reserva Sal
 - [ ] Decidir "use client" vs Server Component
 - [ ] Agregar `asChild` donde sea necesario
 
-### i18n (OBLIGATORIO)
+### i18n (OBLIGATORIO - ACTUALIZADO 2025-12-20)
+
+**⚠️ NUEVO SISTEMA:** Todos los módulos importados DEBEN usar ICU Message Format desde el inicio.
+
+- [ ] **NUEVO:** Usar ICU Message Format (NO `{{param}}` legacy)
+  - Pluralización: `{count, plural, one {1 item} other {# items}}`
+  - Selección: `{context, select, hotel {Hotel} studio {Studio} other {Generic}}`
+- [ ] **NUEVO:** Usar Money model para monedas (NO números decimales)
+  - `{ amountMinor: 9999, currency: 'USD' }` en lugar de `99.99`
 - [ ] Auditar strings hardcoded por componente (`detect-hardcoded-strings-by-component.js`)
-- [ ] Crear namespaces por componente: `components.{componentName}` (EN/ES)
+- [ ] Crear namespaces por componente: `components.{componentName}` (EN/ES) con ICU
 - [ ] Adaptar código a `useTranslation()` componente por componente
 - [ ] Validar TODOS los componentes (incluyendo subcomponentes)
 - [ ] Validar sidebar deployment
+- [ ] **NUEVO:** Validar sintaxis ICU (`detect-icu-syntax-errors.ts`)
 - [ ] Validar existencia de traducciones (`validate-i18n-keys.js`)
+- [ ] **NUEVO:** Validar completitud (`validate-i18n-completeness.ts`)
 - [ ] Detectar claves faltantes (`detect-missing-i18n-keys.js`)
 - [ ] Probar en ambos idiomas (EN/ES)
+
+**Documentación:** `docs/architecture/I18N_MIGRATION_MASTER_PLAN.md` ⭐
 
 ### Registro
 - [ ] Registrar en `module-registry.ts`

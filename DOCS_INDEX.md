@@ -50,6 +50,8 @@ Este archivo es un índice rápido. Para la documentación completa y detallada,
 - [Tandem Bundui-VibeThink](./docs/architecture/BUNDUI_VIBETHINK_TANDEM.md) ⭐ - Comparación completa
 - [Estrategia de Actualización Bundui](./docs/architecture/BUNDUI_UPDATE_STRATEGY.md) ⭐ - Manejo de actualizaciones sin i18n
 - [Estrategia i18n](./docs/architecture/I18N_STRATEGY.md) ⭐ - Bundui vs VibeThink
+- [Plan Maestro de Migración i18n](./docs/architecture/I18N_MIGRATION_MASTER_PLAN.md) 🚨 **CRÍTICO** - Migración gradual a ICU/Money
+- [Log de Ejecución Migración](./docs/architecture/I18N_MIGRATION_EXECUTION_LOG.md) - Seguimiento de progreso
 - [Arquitectura i18n](./docs/architecture/I18N_ARCHITECTURE.md) - Sistema multidioma completo
 - [Guía de Plantillas i18n](./docs/architecture/I18N_TEMPLATE_GUIDE.md) - Templates para nuevas plantillas
 - [Guía de Uso i18n](./docs/architecture/I18N_USAGE_GUIDE.md) - Referencia rápida
