@@ -365,5 +365,22 @@ Antes de comenzar Fase 0:
 
 ---
 
+## 🌍 Soporte RTL (Right-to-Left) y Árabe - Fase Futura
+
+**Estado:** 📋 Planificado - Fase 2  
+**Prioridad:** P1 - Cuando cliente Dubai confirme  
+**Duración estimada:** 10-12 días
+
+**Decisión estratégica:** ✅ **OPCIÓN B - Cliente Dubai es Fase 2**
+
+RTL será implementado **después** de completar la migración ICU/Money porque:
+- RTL requiere 10-12 días mínimo
+- ICU/Money es la base necesaria primero
+- Es mejor hacer RTL bien hecho que apresurado
+
+**Documentación completa:** `docs/architecture/RTL_ARABIC_SUPPORT_PLAN.md`
+
+---
+
 **Este es el plan maestro. Ejecutar fase por fase, validando cada paso antes de continuar.**
 
