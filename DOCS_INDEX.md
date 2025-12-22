@@ -54,6 +54,12 @@ Este archivo es un índice rápido. Para la documentación completa y detallada,
 - [Log de Ejecución Migración](./docs/architecture/I18N_MIGRATION_EXECUTION_LOG.md) - Seguimiento de progreso
 - [Fase de Preparación RTL](./docs/architecture/RTL_PREPARATION_PHASE.md) 🟡 **AHORA** - Auditoría y preparación básica (2-3 días)
 - [Plan de Soporte RTL/Árabe](./docs/architecture/RTL_ARABIC_SUPPORT_PLAN.md) 📋 **Fase 2** - Implementación completa RTL (10-12 días)
+
+#### 🌍 Base Universal i18n (90% Idiomas)
+
+- [Estrategia Base Universal i18n](./docs/architecture/I18N_UNIVERSAL_BASE_STRATEGY.md) 📋 **Estrategia** - Plan para soportar 90% de idiomas
+- [Implementación Base Universal](./docs/architecture/I18N_UNIVERSAL_BASE_IMPLEMENTATION.md) ✅ **Completado** - UTF-8 + CSS universal (P0)
+- [Evaluación Base Universal](./docs/sessions/EVALUACION_I18N_UNIVERSAL_2025-12-20.md) 📊 **Análisis** - Estado actual vs. target
 - [Arquitectura i18n](./docs/architecture/I18N_ARCHITECTURE.md) - Sistema multidioma completo
 - [Guía de Plantillas i18n](./docs/architecture/I18N_TEMPLATE_GUIDE.md) - Templates para nuevas plantillas
 - [Guía de Uso i18n](./docs/architecture/I18N_USAGE_GUIDE.md) - Referencia rápida
