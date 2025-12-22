@@ -35,6 +35,11 @@ export default async function RootLayout({
 
   return (
     <html lang={initialLocale} suppressHydrationWarning>
+      <head>
+        {/* UTF-8 encoding - CRITICAL for universal i18n support */}
+        {/* Ensures proper rendering of all Unicode characters (Chinese, Arabic, etc.) */}
+        <meta charSet="UTF-8" />
+      </head>
       <body
         suppressHydrationWarning
         className={cn("bg-background group/layout font-sans")}
