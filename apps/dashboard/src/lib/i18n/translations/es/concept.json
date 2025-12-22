@@ -1,0 +1,38 @@
+{
+  "concept": {
+    "resource": {
+      "room": "habitación",
+      "studio": "sala",
+      "space": "espacio",
+      "bedroom": "dormitorio"
+    },
+    "booking": {
+      "label": "{context, select, hotel {Reserva de Habitación} studio {Reserva de Sala} cowork {Reserva de Espacio} coliving {Reserva de Dormitorio} other {Reserva}}",
+      "title": "{context, select, hotel {Reserva} studio {Reserva} cowork {Reserva} coliving {Reserva} other {Reserva}}"
+    },
+    "unit": {
+      "night": "{count, plural, one {noche} other {noches}}",
+      "hour": "{count, plural, one {hora} other {horas}}",
+      "day": "{count, plural, one {día} other {días}}"
+    },
+    "duration": {
+      "label": "Duración"
+    },
+    "status": {
+      "pending": "Pendiente",
+      "confirmed": "Confirmado",
+      "cancelled": "Cancelado"
+    },
+    "guest": {
+      "hotel": "Huésped",
+      "studio": "Cliente",
+      "cowork": "Usuario",
+      "coliving": "Residente",
+      "default": "Cliente"
+    },
+    "amount": {
+      "label": "Monto"
+    }
+  }
+}
+
