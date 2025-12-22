@@ -17,3 +17,33 @@ export {
   formatRelativeTime as formatRelativeTimeRegional,
   formatPercentage as formatPercentageRegional,
 } from './formatters-enhanced';
+
+// Export ICU Message Format utilities
+export {
+  formatMessage,
+  isICUMessage,
+  clearMessageCache,
+} from './i18n/message-formatter';
+
+// Export Money model
+export type {
+  Money,
+  CurrencyCode,
+} from './money/types';
+
+export {
+  CURRENCY_CONFIG,
+} from './money/types';
+
+export {
+  formatMoney,
+  createMoney,
+  moneyToDecimal,
+  addMoney,
+  multiplyMoney,
+} from './money/formatters';
+
+export {
+  formatCurrencyRegional as formatCurrencyRegionalCompat,
+  formatCurrencyRegionalWithWarning,
+} from './money/compat';

@@ -20,6 +20,7 @@ import {
   formatPercentage as formatPercentageUtil,
   parseTranslationKey,
 } from './utils';
+import { formatMessage, isICUMessage } from '@vibethink/utils';
 
 /**
  * i18n Context
@@ -144,6 +145,7 @@ export function I18nProvider({
 
   /**
    * Translation function
+   * Soporta ICU Message Format y legacy {{param}}
    */
   const t = useCallback(
     (key: string, params?: Record<string, string | number | boolean>): string => {
@@ -182,9 +184,21 @@ export function I18nProvider({
         return key;
       }
 
-      // Replace parameters
-      const result = replaceParams(translation, params);
-      if (result === key || result.includes('{{') || result.includes('{')) {
+      // Replace parameters (con soporte ICU + legacy)
+      // Detectar si es ICU y usar formatMessage directamente
+      if (isICUMessage(translation)) {
+        try {
+          const result = formatMessage(locale, translation, params);
+          return result;
+        } catch (error) {
+          console.error(`[i18n] ICU format error for key '${key}':`, error);
+          // Fallback a replaceParams legacy
+        }
+      }
+      
+      // Usar replaceParams (soporta legacy {{param}} y ICU básico)
+      const result = replaceParams(translation, params, locale);
+      if (result === key || (result.includes('{{') && params)) {
         console.warn(`[i18n] Parameters not replaced in: ${key}`);
         console.warn(`[i18n]   Translation: ${translation}`);
         console.warn(`[i18n]   Params:`, params);
