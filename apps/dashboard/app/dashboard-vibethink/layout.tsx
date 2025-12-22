@@ -22,8 +22,9 @@ export default function DashboardVibeThinkLayout({
   children: React.ReactNode;
 }) {
   return (
-    <SidebarProvider 
+    <SidebarProvider
       defaultOpen={true}
+      cookieName="vibethink_sidebar_state"
       style={
         {
           "--sidebar-width": "calc(var(--spacing) * 64)",

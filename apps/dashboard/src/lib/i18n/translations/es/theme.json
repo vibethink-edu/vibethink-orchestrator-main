@@ -1,0 +1,157 @@
+{
+  "customizer": {
+    "title": "Personalización",
+    "aspect": {
+      "label": "Aspecto",
+      "light": "Claro",
+      "dark": "Oscuro",
+      "system": "Sistema"
+    },
+    "theme": {
+      "label": "Tema de Color",
+      "subtitle": "Principal",
+      "description": "Cambia los colores principales del tema (Sunset Glow, Ocean Breeze, etc.)"
+    },
+    "font": {
+      "label": "Fuente",
+      "description": "Selecciona la fuente tipográfica de la aplicación"
+    },
+    "advanced": {
+      "title": "Personalización Avanzada",
+      "baseColor": {
+        "label": "Base Color",
+        "optional": "Opcional",
+        "description": "Paleta de colores base (neutral, slate, blue, etc.)"
+      },
+      "menu": {
+        "title": "Sidebar / Menú",
+        "color": {
+          "label": "Color del menú",
+          "default": "Default",
+          "muted": "Muted",
+          "accent": "Accent"
+        },
+        "accent": {
+          "label": "Acento del menú",
+          "subtle": "Sutil",
+          "moderate": "Moderado",
+          "bold": "Fuerte",
+          "description": "Color y acento del menú lateral"
+        }
+      },
+      "size": {
+        "title": "Tamaño y Forma",
+        "scale": {
+          "label": "Escala",
+          "none": "—",
+          "sm": "XS",
+          "lg": "LG"
+        },
+        "radius": {
+          "label": "Radio",
+          "none": "—",
+          "sm": "SM",
+          "md": "MD",
+          "lg": "LG",
+          "xl": "XL"
+        },
+        "description": "Escala de tamaño y radio de bordes"
+      },
+      "layout": {
+        "title": "Layout",
+        "content": {
+          "label": "Layout",
+          "full": "Full",
+          "centered": "Centered"
+        },
+        "sidebar": {
+          "label": "Modo Sidebar",
+          "default": "Default",
+          "icon": "Icon"
+        }
+      }
+    }
+  },
+  "themes": {
+    "default": {
+      "name": "Por Defecto",
+      "description": "Tema neutro por defecto"
+    },
+    "underground": {
+      "name": "Underground",
+      "description": "Tema verde esmeralda"
+    },
+    "rose-garden": {
+      "name": "Rose Garden",
+      "description": "Tema rosa elegante"
+    },
+    "lake-view": {
+      "name": "Lake View",
+      "description": "Tema azul turquesa"
+    },
+    "sunset-glow": {
+      "name": "Sunset Glow",
+      "description": "Tema naranja cálido"
+    },
+    "forest-whisper": {
+      "name": "Forest Whisper",
+      "description": "Tema verde bosque"
+    },
+    "ocean-breeze": {
+      "name": "Ocean Breeze",
+      "description": "Tema azul océano"
+    },
+    "lavender-dream": {
+      "name": "Lavender Dream",
+      "description": "Tema púrpura suave"
+    }
+  },
+  "fonts": {
+    "inter": {
+      "name": "Inter",
+      "description": "Modern sans-serif"
+    },
+    "noto-sans": {
+      "name": "Noto Sans",
+      "description": "Clean and readable"
+    },
+    "nunito-sans": {
+      "name": "Nunito Sans",
+      "description": "Rounded and friendly"
+    },
+    "figtree": {
+      "name": "Figtree",
+      "description": "Geometric sans-serif"
+    },
+    "geist": {
+      "name": "Geist",
+      "description": "Default font"
+    },
+    "roboto": {
+      "name": "Roboto",
+      "description": "Google's signature font"
+    },
+    "poppins": {
+      "name": "Poppins",
+      "description": "Geometric and modern"
+    },
+    "montserrat": {
+      "name": "Montserrat",
+      "description": "Elegant and versatile"
+    },
+    "pt-sans": {
+      "name": "PT Sans",
+      "description": "Humanist sans-serif"
+    },
+    "system": {
+      "name": "System",
+      "description": "System default font"
+    }
+  }
+}
+
+
+
+
+
+

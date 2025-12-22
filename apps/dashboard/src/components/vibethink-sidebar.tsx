@@ -271,17 +271,12 @@ export function VibeThinkSidebar({ ...props }: React.ComponentProps<typeof Sideb
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton 
-              size="lg" 
-              asChild
-              className="hover:text-foreground hover:bg-[var(--primary)]/5"
-            >
-              <Link href={isVibeThinkRoute ? "/dashboard-vibethink" : "/dashboard-bundui"} className="flex items-center">
-                <Logo className={state === "collapsed" ? "scale-110 transition-transform" : "transition-transform"} />
-                <div className="flex flex-col gap-0.5 group-data-[collapsible=icon]:hidden ml-2">
-                  <span className="font-semibold">VibeThink</span>
-                  <span className="text-xs text-muted-foreground">{sectionTitle}</span>
-                </div>
+            <SidebarMenuButton
+              size="lg"
+              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
+              <Link href="/dashboard-vibethink/default" className="flex items-center gap-2">
+                <Logo />
+                <span className="font-semibold">VibeThink Orchestrator</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

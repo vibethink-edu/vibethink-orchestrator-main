@@ -46,9 +46,7 @@ export function AppSidebar({ navItems, ...props }: AppSidebarProps) {
     if (isMobile) setOpenMobile(false);
   }, [pathname, isMobile, setOpenMobile]);
 
-  useEffect(() => {
-    setOpen(!isTablet);
-  }, [isTablet, setOpen]);
+
 
   return (
     <Sidebar collapsible="icon" {...props}>
