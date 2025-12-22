@@ -110,6 +110,12 @@ export const navItems: NavGroup[] = [
         isNew: true
       },
       {
+        title: "CRM V2 + AI",
+        href: "/dashboard-bundui/crm-v2-ai",
+        icon: BrainCircuitIcon,
+        isNew: true
+      },
+      {
         title: "Website Analytics",
         href: "/dashboard-bundui/analytics",
         icon: GaugeIcon,

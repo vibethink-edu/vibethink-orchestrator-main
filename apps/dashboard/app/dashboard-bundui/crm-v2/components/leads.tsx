@@ -37,6 +37,7 @@ import {
   TableRow
 } from "@vibethink/ui/components/table";
 import { ChevronDownIcon, ChevronsUpDown, Ellipsis } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const data: Payment[] = [
   {
@@ -167,6 +168,7 @@ export const columns: ColumnDef<Payment>[] = [
 ];
 
 export function LeadsCard() {
+  const router = useRouter();
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
@@ -248,7 +250,12 @@ export function LeadsCard() {
             <TableBody>
               {table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
-                  <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
+                  <TableRow 
+                    key={row.id} 
+                    data-state={row.getIsSelected() && "selected"}
+                    className="cursor-pointer hover:bg-muted/50"
+                    onClick={() => router.push(`/dashboard-bundui/crm-v2-ai/lead/${row.original.id}`)}
+                  >
                     {row.getVisibleCells().map((cell) => (
                       <TableCell key={cell.id} className="[&:has([role=checkbox])]:pl-3">
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
