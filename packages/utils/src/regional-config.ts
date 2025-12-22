@@ -259,6 +259,8 @@ export class RegionalConfigManager {
       ...config,
       level: 'company',
     };
+    // Limpiar cache de terminología al cambiar configuración
+    this.clearTerminologyCache();
   }
 
   /**
@@ -269,6 +271,54 @@ export class RegionalConfigManager {
       ...config,
       level: 'user',
     };
+    // Limpiar cache de terminología al cambiar configuración
+    this.clearTerminologyCache();
+  }
+  
+  /**
+   * Set locale (clears terminology cache)
+   */
+  setLocale(locale: string): void {
+    if (this.systemConfig) {
+      this.systemConfig.number.locale = locale;
+      this.systemConfig.currency.locale = locale;
+      this.systemConfig.date.locale = locale;
+      this.systemConfig.time.locale = locale;
+    }
+    this.clearTerminologyCache();
+  }
+  
+  /**
+   * Set context (clears terminology cache)
+   */
+  setContext(context: string | null): void {
+    // Context se almacena en metadata o configuración específica
+    // Por ahora, limpiar cache cuando cambia contexto
+    this.clearTerminologyCache();
+  }
+  
+  /**
+   * Set tenant ID (clears terminology cache)
+   */
+  setTenantId(tenantId: string | null): void {
+    // Tenant ID se almacena en metadata
+    // Limpiar cache cuando cambia tenant
+    this.clearTerminologyCache();
+  }
+  
+  /**
+   * Limpia cache de terminología
+   * Se llama automáticamente cuando cambia locale, context, o tenantId
+   */
+  private clearTerminologyCache(): void {
+    // Importar dinámicamente para evitar dependencia circular
+    try {
+      const { clearTerminologyCache } = require('./i18n/terminology-cache');
+      clearTerminologyCache();
+    } catch (error) {
+      // Si no está disponible, ignorar (puede no estar inicializado aún)
+      console.warn('[RegionalConfig] Terminology cache not available:', error);
+    }
   }
 
   /**
@@ -357,6 +407,8 @@ export class RegionalConfigManager {
     } as RegionalConfiguration;
     this.companyConfig = null;
     this.userConfig = null;
+    // Limpiar cache al resetear
+    this.clearTerminologyCache();
   }
 }
 

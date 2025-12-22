@@ -47,3 +47,28 @@ export {
   formatCurrencyRegional as formatCurrencyRegionalCompat,
   formatCurrencyRegionalWithWarning,
 } from './money/compat';
+
+// Export Translation Loader Interface and Registry
+export type { TranslationLoader } from './i18n/translation-loader.interface';
+export {
+  registerTranslationLoader,
+  getTranslationLoader,
+  isTranslationLoaderRegistered,
+} from './i18n/translation-loader-registry';
+
+// Export Terminology System
+export {
+  term,
+  termSync,
+  preloadTerminology,
+} from './i18n/terminology';
+
+// Export Terminology Cache
+export {
+  buildCacheKey,
+  getCachedTranslation,
+  setCachedTranslation,
+  clearTerminologyCache,
+  clearTerminologyCacheFor,
+  isCached,
+} from './i18n/terminology-cache';

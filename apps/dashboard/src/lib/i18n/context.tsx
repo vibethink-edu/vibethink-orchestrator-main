@@ -10,6 +10,7 @@ import React, { createContext, useContext, useEffect, useState, useCallback } fr
 import { Locale, TranslationNamespace, TranslationDictionary, I18nContextValue } from './types';
 import { i18nConfig, getBrowserLocale, isValidLocale } from './config';
 import { loadTranslation, preloadTranslations } from './loader';
+import { registerDashboardTranslationLoader } from './loader-impl';
 import {
   getNestedValue,
   replaceParams,
@@ -81,6 +82,11 @@ export function I18nProvider({
 
   const [locale, setLocaleState] = useState<Locale>(getInitialLocale);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Registrar TranslationLoader al montar
+  useEffect(() => {
+    registerDashboardTranslationLoader();
+  }, []);
 
   // Initialize locale store immediately to prevent "Locale store not found" warnings
   useEffect(() => {
