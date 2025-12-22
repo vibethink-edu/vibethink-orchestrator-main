@@ -44,6 +44,7 @@ Este archivo es un índice rápido. Para la documentación completa y detallada,
 - [Estrategia de Namespaces por Componente](./docs/architecture/I18N_COMPONENT_NAMESPACE_STRATEGY.md) ⭐ - Validación sistemática por componente (subWorkspace)
 - [Traducciones Sensibles al Contexto](./docs/architecture/I18N_CONTEXT_AWARE_TRANSLATIONS.md) ⭐ - Módulos reutilizables (Hotel, Studio, etc.)
 - [Resolución de Contexto para Agentes de IA](./docs/architecture/I18N_AI_AGENT_CONTEXT_RESOLUTION.md) 🤖 **⭐ CRÍTICO** - Cómo agentes de IA resuelven contexto automáticamente
+- [Arquitectura de Terminología](./docs/architecture/I18N_TERMINOLOGY_ARCHITECTURE.md) 🚨 **OBLIGATORIO** - Sistema de terminología atómica y context-aware
 - [Evaluación de Bibliotecas Externas](./docs/architecture/EXTERNAL_LIBRARIES_EVALUATION.md) - Evaluación crítica de React Flow, TipTap, Shadcn UI Kit
 - [Arquitectura de Dashboards](./docs/architecture/DASHBOARD_ARCHITECTURE.md)
 - [Reglas de Referencias](./docs/architecture/REFERENCE_RULES.md)
