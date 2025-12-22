@@ -8,6 +8,7 @@ import { taskSchema } from "./data/schema";
 import { generateMeta } from "@/shared/lib/utils";
 
 export async function generateMetadata() {
+  // TODO: Use translations for metadata (requires async term() or getSnapshot)
   return generateMeta({
     title: "Tasks",
     description: "A task and issue tracker build using Tanstack Table.",
