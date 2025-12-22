@@ -369,11 +369,13 @@ export function BookingCard({
           </div>
           <div>
             <span className="font-medium">Desde: </span>
-            <span>{booking.startDate.toLocaleDateString(finalLocale)}</span>
+            <span>{formatBookingRange(bookingWindow, finalLocale)}</span>
+            {/* ✅ CORRECTO: Usa formatBookingRange() de @vibethink/utils/datetime */}
+            {/* ❌ INCORRECTO: booking.startDate.toLocaleDateString() */}
           </div>
           <div>
             <span className="font-medium">Hasta: </span>
-            <span>{booking.endDate.toLocaleDateString(finalLocale)}</span>
+            {/* Ya incluido en formatBookingRange() */}
           </div>
         </div>
       </CardContent>
@@ -611,4 +613,5 @@ export function useAutoDetectContext() {
 ---
 
 **Este enfoque permite crear componentes que funcionan para múltiples contextos sin cambiar código, diseñados desde el inicio para ser usados por agentes de IA de forma automática e inteligente.**
+
 

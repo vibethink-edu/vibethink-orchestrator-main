@@ -297,3 +297,4 @@ const { t } = useTranslation();
 **Última actualización:** 2025-12-20
 **Estado:** Plan creado, listo para implementación
 
+

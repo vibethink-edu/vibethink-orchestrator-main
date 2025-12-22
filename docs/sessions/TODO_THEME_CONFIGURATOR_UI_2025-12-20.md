@@ -57,3 +57,4 @@ El theme configurator está funcionalmente completo, pero el diseño visual pued
 
 **Última actualización:** 2025-12-20
 
+

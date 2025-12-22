@@ -295,3 +295,4 @@ export function WorkflowEditor() {
 **Última actualización:** 2025-12-20  
 **Próxima revisión:** Cuando se evalúe nueva biblioteca externa
 
+

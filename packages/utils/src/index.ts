@@ -72,3 +72,17 @@ export {
   clearTerminologyCacheFor,
   isCached,
 } from './i18n/terminology-cache';
+
+// Export DateTime Module (ViTo Architecture Spec v3.0.0)
+export * from './datetime';
+
+// Export Context Types (Resource Context for External Normalization)
+export type {
+  SourceSystem,
+  ResourceContext,
+} from './context/types';
+
+export {
+  createResourceContext,
+  createResourceContextFromCoords,
+} from './context/types';

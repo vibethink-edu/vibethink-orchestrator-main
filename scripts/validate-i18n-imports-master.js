@@ -83,6 +83,7 @@ function main() {
     boundaries: null,
     terminology: null,
     hardcoded: null,
+    aiFirst: null,
     i18n: null
   };
   
@@ -153,8 +154,26 @@ function main() {
     log('\n⏭️  3/4: Detección de strings hardcoded omitida', 'yellow');
   }
   
-  // 4. Validación de i18n completeness (si existe el script)
-  log('\n📋 4/4: Validando completitud de i18n...', 'cyan');
+  // 4. Validación AI-First compliance (NUEVO)
+  log('\n📋 4/5: Validando compliance AI-First...', 'cyan');
+  const aiFirstScriptPath = path.join(__dirname, 'validate-ai-first-compliance.js');
+  if (fs.existsSync(aiFirstScriptPath)) {
+    const aiFirstResult = runScript('validate-ai-first-compliance.js', fileArg ? [`--file=${fileArg.split('=')[1]}`] : []);
+    results.aiFirst = aiFirstResult;
+    
+    if (aiFirstResult.success || (aiFirstResult.output && aiFirstResult.output.includes('✅ Todos los módulos cumplen'))) {
+      log('   ✅ Compliance AI-First: OK', 'green');
+    } else {
+      log('   ⚠️  Compliance AI-First: PROBLEMAS ENCONTRADOS', 'yellow');
+      warnings.push('Compliance AI-First');
+      log(aiFirstResult.output, 'yellow');
+    }
+  } else {
+    log('   ⏭️  Script de validación AI-First no encontrado', 'yellow');
+  }
+  
+  // 5. Validación de i18n completeness (si existe el script)
+  log('\n📋 5/5: Validando completitud de i18n...', 'cyan');
   const i18nScriptPath = path.join(__dirname, 'validate-i18n-keys.js');
   if (fs.existsSync(i18nScriptPath)) {
     const i18nResult = runScript('validate-i18n-keys.js', []);

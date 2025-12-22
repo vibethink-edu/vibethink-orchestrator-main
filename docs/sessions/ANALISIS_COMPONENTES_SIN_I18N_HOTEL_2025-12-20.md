@@ -249,3 +249,4 @@ Para prevenir este problema en futuras migraciones:
 **Última actualización:** 2025-12-20  
 **Estado:** Problema identificado, solución documentada
 
+

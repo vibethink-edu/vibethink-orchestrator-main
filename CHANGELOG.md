@@ -5,6 +5,55 @@ Todos los cambios notables de este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2025-12-21
+
+### Added
+- ✅ **Sistema DateTime AI-First (ViTo Architecture Spec v3.0.0)**
+  - `CivilDate` vs `InstantISO` (dualidad de tipos)
+  - `NormalizedWindow` (discriminated union type-safe)
+  - `formatBookingRange()` unificado con timezone safety
+  - Safe Noon Trick (evita bugs de DST)
+  - `ResourceContext` para normalización externa
+  - Normalizers para Airbnb, Google Calendar, PMS
+
+- ✅ **Metodología AI-First Universal**
+  - `AI_FIRST_UNIVERSAL_METHODOLOGY.md` - Metodología aplicable a TODOS los módulos
+  - Visión: ViTo como Orchestrator multipropósito (no solo booking)
+  - Context-Aware Terminology para Hotel, Studio, CRM, Tareas, etc.
+
+- ✅ **Scripts de Validación AI-First**
+  - `validate-ai-first-compliance.js` - Valida compliance universal
+  - Integrado en `validate-all-migrated-modules.js` y `validate-i18n-imports-master.js`
+  - Valida NormalizedWindow, ResourceContext, CivilDate vs InstantISO
+
+- ✅ **Documentación Arquitectónica**
+  - `VITO_ARCHITECTURE_SPEC_UNIFIED.md` (v3.0.0) - Especificación maestra consolidada
+  - `SCRIPTS_COMPLIANCE_AUDIT.md` - Auditoría de alineación de scripts
+
+### Fixed
+- ✅ **Fechas Hardcoded en Hotel Module**
+  - Corregido "June 19, 2028" → `CivilDate` ('2028-06-19')
+  - Implementado `formatBookingRange()` con respeto a locale
+  - Ahora muestra "junio" en español, no "June"
+
+- ✅ **Compliance AI-First en Hotel**
+  - Módulo hotel ahora usa `NormalizedWindow`
+  - `ResourceContext` configurado (mock por ahora)
+  - Fechas respetan venueTimezone
+
+### Changed
+- ✅ **Scripts de Validación Mejorados**
+  - `validate-ai-first-compliance.js` ahora valida NormalizedWindow, ResourceContext
+  - `validate-all-migrated-modules.js` incluye validación AI-First
+  - `validate-i18n-imports-master.js` incluye validación AI-First
+
+### Technical
+- 📦 `packages/utils/src/datetime/` - Tipos, parsing, formateo
+- 📦 `packages/utils/src/context/` - ResourceContext types
+- 📦 `packages/integrations/` - Normalizers externos (Airbnb, PMS, Google Calendar)
+- 🔧 Build compila correctamente con nuevos imports
+- ✅ TypeScript estricto habilitado
+
 ## [0.3.1] - 2025-12-20
 
 ### Fixed

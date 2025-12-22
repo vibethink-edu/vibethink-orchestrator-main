@@ -377,3 +377,4 @@ export default function Page() {
 **Última actualización:** 2025-12-20  
 **Próxima revisión:** Cuando se identifique un caso nuevo que no esté cubierto
 
+

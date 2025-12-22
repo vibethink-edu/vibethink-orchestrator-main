@@ -257,3 +257,4 @@ apps/dashboard/app/dashboard-bundui/file-manager/
 **Última actualización:** 2025-12-20  
 **Estado:** Estructura completa - Pendiente migración i18n
 
+

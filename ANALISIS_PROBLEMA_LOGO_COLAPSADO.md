@@ -181,3 +181,4 @@ El problema NO es la lógica de colapso en sí, sino:
 
 **La solución es simple:** Restaurar `asChild` y usar la misma técnica CSS que funciona en bundui.
 
+

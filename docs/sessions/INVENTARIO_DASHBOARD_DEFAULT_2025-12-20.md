@@ -498,3 +498,4 @@ const { t } = useTranslation('default-dashboard');
 **Última actualización:** 2025-12-20  
 **Estado:** Inventario completo - Listo para migración i18n
 
+

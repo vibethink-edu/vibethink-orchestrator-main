@@ -100,3 +100,4 @@ Si en el futuro quieres actualizar main:
 
 **Última actualización:** 2025-12-20
 
+

@@ -313,3 +313,4 @@ Ya usamos:
 **Evaluado por:** AI Assistant  
 **Revisión recomendada:** Antes de agregar nuevos idiomas
 
+

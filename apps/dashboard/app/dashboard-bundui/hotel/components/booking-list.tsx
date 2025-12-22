@@ -13,6 +13,7 @@ import {
   useReactTable
 } from "@tanstack/react-table";
 import { useTranslation } from "@/lib/i18n";
+import { formatBookingRange, type NormalizedWindow, type CivilDate, createResourceContext, type ResourceContext } from '@vibethink/utils';
 import { Input } from "@vibethink/ui";
 import { Badge } from "@vibethink/ui";
 import { Button } from "@vibethink/ui";
@@ -52,11 +53,12 @@ interface Booking {
   roomType: RoomType;
   roomNumber: string;
   duration: string;
-  checkIn: string;
-  checkOut: string;
+  checkIn: CivilDate; // ✅ Cambiado a CivilDate
+  checkOut: CivilDate; // ✅ Cambiado a CivilDate
   status: BookingStatus;
 }
 
+// ✅ CORRECTO: Usar CivilDate (YYYY-MM-DD) en lugar de strings hardcoded
 const bookings: Booking[] = [
   {
     bookingId: "LG-B00108",
@@ -64,8 +66,8 @@ const bookings: Booking[] = [
     roomType: "Deluxe",
     roomNumber: "Room 101",
     duration: "3 nights",
-    checkIn: "June 19, 2028",
-    checkOut: "June 22, 2028",
+    checkIn: "2028-06-19" as CivilDate, // ✅ CivilDate format
+    checkOut: "2028-06-22" as CivilDate,
     status: "Checked-In"
   },
   {
@@ -74,8 +76,8 @@ const bookings: Booking[] = [
     roomType: "Standard",
     roomNumber: "Room 202",
     duration: "2 nights",
-    checkIn: "June 19, 2028",
-    checkOut: "June 21, 2028",
+    checkIn: "2028-06-19" as CivilDate,
+    checkOut: "2028-06-21" as CivilDate,
     status: "Checked-In"
   },
   {
@@ -84,8 +86,8 @@ const bookings: Booking[] = [
     roomType: "Suite",
     roomNumber: "Room 303",
     duration: "5 nights",
-    checkIn: "June 19, 2028",
-    checkOut: "June 24, 2028",
+    checkIn: "2028-06-19" as CivilDate,
+    checkOut: "2028-06-24" as CivilDate,
     status: "Pending"
   },
   {
@@ -94,8 +96,8 @@ const bookings: Booking[] = [
     roomType: "Standard",
     roomNumber: "Room 105",
     duration: "4 nights",
-    checkIn: "June 19, 2028",
-    checkOut: "June 23, 2028",
+    checkIn: "2028-06-19" as CivilDate,
+    checkOut: "2028-06-23" as CivilDate,
     status: "Checked-In"
   },
   {
@@ -104,8 +106,8 @@ const bookings: Booking[] = [
     roomType: "Deluxe",
     roomNumber: "Room 201",
     duration: "2 nights",
-    checkIn: "June 20, 2028",
-    checkOut: "June 22, 2028",
+    checkIn: "2028-06-20" as CivilDate,
+    checkOut: "2028-06-22" as CivilDate,
     status: "Pending"
   },
   {
@@ -114,8 +116,8 @@ const bookings: Booking[] = [
     roomType: "Suite",
     roomNumber: "Room 401",
     duration: "7 nights",
-    checkIn: "June 21, 2028",
-    checkOut: "June 28, 2028",
+    checkIn: "2028-06-21" as CivilDate,
+    checkOut: "2028-06-28" as CivilDate,
     status: "Checked-In"
   }
 ];
@@ -248,12 +250,31 @@ export function BookingList() {
         </Button>
       ),
       cell: ({ row }) => {
-        // Las fechas mock están hardcoded - en producción vendrían como Date objects
-        // Por ahora solo mostramos las fechas como están, pero deberían formatearse
-        // usando formatDateRegional cuando sean Date objects reales
+        // ✅ CORRECTO: Usar formatBookingRange() con NormalizedWindow
+        const { locale } = useTranslation();
+        
+        // ResourceContext mock (en producción vendría de configuración)
+        const resourceCtx: ResourceContext = createResourceContext(
+          'hotel_mock',
+          'pms',
+          'America/Cancun' // Timezone del hotel
+        );
+        
+        // Crear NormalizedWindow
+        const bookingWindow: NormalizedWindow = {
+          kind: 'civil_range',
+          domain: 'hotel',
+          unit: 'night',
+          resourceId: resourceCtx.resourceId,
+          venueTimezone: resourceCtx.timeZone,
+          checkInDate: row.original.checkIn,
+          checkOutDate: row.original.checkOut,
+        };
+        
+        // Formatear usando formatBookingRange() (respeta locale y timezone)
         return (
           <span className="text-foreground">
-            {row.original.checkIn} - {row.original.checkOut}
+            {formatBookingRange(bookingWindow, locale, { includeDuration: false })}
           </span>
         );
       }

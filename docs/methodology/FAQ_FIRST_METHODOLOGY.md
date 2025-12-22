@@ -400,3 +400,4 @@ Antes de comenzar desarrollo, verificar:
 **Estado**: ✅ Metodología vigente y en uso
 
 
+

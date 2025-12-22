@@ -386,3 +386,4 @@ El componente `ai-image-generator` está presente, completo y funcional. No est�
 **Última actualización:** 2025-12-20  
 **Estado:** Componente completo - Pendiente i18n y API
 
+

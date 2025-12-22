@@ -935,3 +935,4 @@ formatRelativeTimeRegional(new Date(Date.now() - 3600000)); // "hace 1 hora"
 **Última actualización:** 2025-12-20
 **Versión:** 1.0.0
 
+

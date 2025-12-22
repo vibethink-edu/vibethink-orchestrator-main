@@ -26,3 +26,4 @@
 // 3. El Logo se muestra siempre (no necesita lógica condicional)
 // 4. Link dinámico mantiene flexibilidad entre rutas
 
+

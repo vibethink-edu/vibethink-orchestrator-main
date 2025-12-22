@@ -42,6 +42,7 @@
     "validate:i18n:terminology": "node scripts/validate-terminology-usage.js",
     "validate:i18n:hardcoded": "node scripts/detect-hardcoded-strings-by-component.js",
     "validate:all-modules": "node scripts/validate-all-migrated-modules.js",
+    "validate:ai-first": "node scripts/validate-ai-first-compliance.js",
     "fix:deps": "node fix-npm-duplications.cjs",
     "pre-commit": "npm run validate:universal",
     "ai:commit": "npm run validate && git add . && git commit -m",

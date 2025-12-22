@@ -297,3 +297,4 @@ Durante el debugging, se eliminaron accidentalmente algunos archivos de Social M
 **Prioridad:** Media (bloquea funcionalidad de Fitness Widgets)
 
 
+

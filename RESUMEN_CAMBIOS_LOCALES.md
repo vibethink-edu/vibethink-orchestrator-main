@@ -80,3 +80,4 @@ Dado que:
 **Generado:** 2025-12-20
 **Estado:** Cambios locales sobre commit 64939c2
 
+

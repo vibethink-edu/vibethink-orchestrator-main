@@ -45,3 +45,4 @@ export function isTranslationLoaderRegistered(): boolean {
   return loaderInstance !== null;
 }
 
+

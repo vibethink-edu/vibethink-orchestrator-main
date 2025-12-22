@@ -127,3 +127,4 @@
 
 **Nota:** Las tareas de traducción global pueden ejecutarse en paralelo con la recuperación de módulos, ya que son independientes.
 
+

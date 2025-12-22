@@ -77,7 +77,8 @@ function validateModule(module) {
   const results = {
     boundaries: { success: false, output: '' },
     terminology: { success: false, output: '' },
-    hardcoded: { success: false, output: '' }
+    hardcoded: { success: false, output: '' },
+    aiFirst: { success: false, output: '' }
   };
   
   // Extraer nombre del módulo del path
@@ -131,6 +132,22 @@ function validateModule(module) {
     }
   }
   
+  // 4. AI-First Compliance (NUEVO - integrado)
+  try {
+    const output = execSync(`node scripts/validate-ai-first-compliance.js`, {
+      encoding: 'utf8',
+      stdio: 'pipe',
+      cwd: path.resolve(__dirname, '..')
+    });
+    // Considerar éxito si no hay errores críticos o si todos los módulos cumplen
+    const success = output.includes('Todos los módulos cumplen') || 
+                    output.includes('✅ OK:') ||
+                    (!output.includes('🔴 MÓDULOS CON PROBLEMAS CRÍTICOS'));
+    results.aiFirst = { success, output };
+  } catch (error) {
+    results.aiFirst = { success: false, output: error.stdout || error.message };
+  }
+  
   return results;
 }
 
@@ -153,6 +170,7 @@ function generateReport(modules, results) {
     if (!result.boundaries.success) issues.push('Boundaries');
     if (!result.terminology.success) issues.push('Terminology');
     if (!result.hardcoded.success) issues.push('Hardcoded');
+    if (!result.aiFirst?.success) issues.push('AI-First');
     
     const status = {
       module,

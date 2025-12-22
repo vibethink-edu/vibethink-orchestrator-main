@@ -198,3 +198,4 @@ Todos los dashboards cumplen con su arquitectura definida:
 **Validado por**: Sistema Automatizado + Revisión Manual
 
 
+

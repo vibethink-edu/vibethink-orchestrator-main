@@ -311,3 +311,4 @@ Implementar base universal que soporta 90% de idiomas del mundo con:
 
 **Esta implementación establece la base universal para soportar 90% de idiomas del mundo con mínimo esfuerzo.**
 
+

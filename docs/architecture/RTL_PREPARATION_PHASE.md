@@ -213,3 +213,4 @@ Semana 3-4:
 
 **Esta fase de preparación es prudente y no bloquea trabajo crítico. Ejecutar cuando haya tiempo disponible.**
 
+

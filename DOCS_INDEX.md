@@ -59,6 +59,11 @@ Este archivo es un índice rápido. Para la documentación completa y detallada,
 - [Log de Ejecución Migración](./docs/architecture/I18N_MIGRATION_EXECUTION_LOG.md) - Seguimiento de progreso
 - [Fase de Preparación RTL](./docs/architecture/RTL_PREPARATION_PHASE.md) 🟡 **AHORA** - Auditoría y preparación básica (2-3 días)
 - [Plan de Soporte RTL/Árabe](./docs/architecture/RTL_ARABIC_SUPPORT_PLAN.md) 📋 **Fase 2** - Implementación completa RTL (10-12 días)
+- [Manejo de Fechas/Horas en Bookings](./docs/architecture/DATE_TIME_HANDLING_POSITION.md) 🚨 **OBLIGATORIO** - CivilDate vs InstantISO, venueTimezone, formatBookingRange() (v1.2.0)
+- [ViTo Architecture Spec — Unified Core System](./docs/architecture/VITO_ARCHITECTURE_SPEC_UNIFIED.md) 🚨 **⭐ ESPECIFICACIÓN MAESTRA** - Consolida i18n/Terminology + DateTime + External Normalization (v3.0.0)
+- [AI-First Universal Methodology](./docs/architecture/AI_FIRST_UNIVERSAL_METHODOLOGY.md) 🚨 **⭐ METODOLOGÍA UNIVERSAL** - Aplicable a TODOS los módulos (Hotel, Studio, CRM, Tareas, Calendario, Soporte)
+- [Scripts Compliance Audit](./docs/architecture/SCRIPTS_COMPLIANCE_AUDIT.md) 🔍 **AUDITORÍA** - Alineación de scripts con reglas AI-First & Locale/Naming
+- [ViTo Architecture Implementation Status](./docs/architecture/VITO_ARCHITECTURE_IMPLEMENTATION_STATUS.md) 📊 **ESTADO ACTUAL** - Phase A completada, Phase B y C pendientes
 
 #### 🌍 Base Universal i18n (90% Idiomas)
 

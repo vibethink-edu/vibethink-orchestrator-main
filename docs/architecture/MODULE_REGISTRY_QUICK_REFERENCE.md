@@ -160,3 +160,4 @@ if (!validation.compatible) {
 **Última actualización:** 2025-12-20  
 **Para agentes AI:** Este es el documento de referencia rápida. Consulta el protocolo completo para detalles.
 
+
