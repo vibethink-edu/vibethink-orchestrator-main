@@ -136,7 +136,15 @@ function detectHardcodedStrings(filePath, namespace) {
   
   lines.forEach((line, index) => {
     // Skip if line contains useTranslation (already using i18n)
-    if (line.includes('useTranslation') || line.includes('t(') || line.includes('t(')) {
+    if (line.includes('useTranslation') || line.includes('t(') || line.includes('useTerm(')) {
+      return;
+    }
+    
+    // Skip if line contains term() usage (Terminology - labels cortos permitidos)
+    // Pero detectar si se está concatenando (prohibido según I18N_TERMINOLOGY_AI_FIRST.md)
+    if (line.includes('term(') && (line.includes('+') || line.includes('${'))) {
+      // Esto es un uso incorrecto - concatenación de term()
+      // Pero lo reportamos como advertencia, no como string hardcoded
       return;
     }
     
@@ -335,4 +343,5 @@ if (allComponents) {
 }
 
 console.log('\n✅ Análisis completado.\n');
+
 

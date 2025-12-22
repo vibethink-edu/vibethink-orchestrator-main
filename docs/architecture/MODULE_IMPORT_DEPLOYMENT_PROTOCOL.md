@@ -34,6 +34,29 @@
 
 ## 🔍 Fase 0: Pre-Importación
 
+### 0.0. Validación Maestra (NUEVO - I18N_TERMINOLOGY_AI_FIRST.md)
+
+**🚨 CRÍTICO:** Antes de importar cualquier módulo, ejecutar validación maestra:
+
+```bash
+# Validación completa
+node scripts/validate-i18n-imports-master.js
+
+# Validación para módulo específico
+node scripts/validate-i18n-imports-master.js --module hotel
+
+# Validación para archivo específico
+node scripts/validate-i18n-imports-master.js --file apps/dashboard/src/components/MyComponent.tsx
+```
+
+**Validaciones incluidas:**
+1. ✅ Boundaries de imports (UI ↔ AI Agents ↔ Terminology)
+2. ✅ Uso correcto de Terminology (RSC vs Client)
+3. ✅ Detección de strings hardcoded
+4. ✅ Completitud de i18n
+
+**Si hay errores:** Corregir antes de continuar con la importación.
+
 ### 0.1. Consultar Module Registry
 
 **🚨 CRÍTICO:** Verificar si el módulo ya está migrado.
