@@ -227,12 +227,18 @@ export const columns: ColumnDef<Project>[] = [
     },
     {
         accessorKey: "name",
-        header: "Project Name",
+        header: ({ column }) => {
+            const { t } = useTranslation('projects');
+            return t('v2.table.columns.projectName');
+        },
         cell: ({ row }) => row.getValue("name")
     },
     {
         accessorKey: "client",
-        header: "Client Name",
+        header: ({ column }) => {
+            const { t } = useTranslation('projects');
+            return t('v2.table.columns.clientName');
+        },
         cell: ({ row }) => {
             const client = row.getValue("client") as Client;
 
@@ -249,17 +255,26 @@ export const columns: ColumnDef<Project>[] = [
     },
     {
         accessorKey: "date",
-        header: "Start Date",
+        header: ({ column }) => {
+            const { t } = useTranslation('projects');
+            return t('v2.table.columns.startDate');
+        },
         cell: ({ row }) => row.getValue("date")
     },
     {
         accessorKey: "deadline",
-        header: "Deadline",
+        header: ({ column }) => {
+            const { t } = useTranslation('projects');
+            return t('v2.table.columns.deadline');
+        },
         cell: ({ row }) => row.getValue("deadline")
     },
     {
         accessorKey: "status",
-        header: "Status",
+        header: ({ column }) => {
+            const { t } = useTranslation('projects');
+            return t('v2.table.columns.status');
+        },
         cell: ({ row }) => {
             const status = row.getValue("status") as "pending" | "active" | "completed" | "cancel";
 
@@ -275,7 +290,10 @@ export const columns: ColumnDef<Project>[] = [
     },
     {
         accessorKey: "progress",
-        header: "Progress",
+        header: ({ column }) => {
+            const { t } = useTranslation('projects');
+            return t('v2.table.columns.progress');
+        },
         cell: ({ row }) => (
             <div className="flex flex-col lg:flex-row lg:items-center lg:gap-2">
                 <Progress value={row.getValue("progress")} className="h-2" />
