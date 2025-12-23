@@ -529,6 +529,186 @@ npm run test:rtl
 
 ---
 
+## 🚫 ZERO TOLERANCE RULE: NO HARDCODED STRINGS
+
+### ABSOLUTE RULE: Every String MUST Be Localized
+
+**MANDATORY:** There is **ZERO TOLERANCE** for hardcoded strings anywhere in the codebase.
+
+**This rule applies to:**
+
+#### ✅ ALL User-Facing Text
+- Buttons, labels, links
+- Titles, subtitles, headings
+- Messages (success, error, warning, info)
+- Tooltips and help text
+- Placeholders in inputs
+- Alt text for images
+- Breadcrumbs and navigation
+- Table headers and columns
+- Form labels and validation messages
+- Modal titles and content
+- Notifications and toasts
+- Loading states and spinners
+- Empty states
+- 404/500 error pages
+
+#### ✅ ALL AI Context and Prompts
+- System prompts for AI agents
+- User instructions
+- AI response templates
+- Context descriptions
+- Voice agent scripts
+- Chatbot responses
+- Auto-complete suggestions
+- Search hints
+
+#### ✅ ALL Internal UI Elements
+- Developer tools
+- Debug messages (visible in UI)
+- Admin panel text
+- Settings and preferences
+- Dashboard widgets
+- Status indicators
+- Progress messages
+
+#### ✅ ALL Data Displayed to Users
+- User names (when templated)
+- Dates and times (formatted)
+- Numbers and currency
+- Percentages and metrics
+- Lists and enumerations
+
+### ❌ FORBIDDEN Examples
+
+```typescript
+// ❌ ABSOLUTELY FORBIDDEN
+<button>Save</button>
+<h1>Welcome to ViTo</h1>
+<p>Loading...</p>
+<input placeholder="Enter your name" />
+<img alt="User avatar" />
+
+// ❌ FORBIDDEN: AI Context
+const systemPrompt = "You are a helpful assistant";
+const aiInstruction = "Please summarize this text";
+
+// ❌ FORBIDDEN: Error Messages
+throw new Error("Invalid input");
+toast.error("Something went wrong");
+
+// ❌ FORBIDDEN: Status Text
+<span>Active</span>
+<div>Pending approval</div>
+
+// ❌ FORBIDDEN: Even Comments Visible in UI
+{/* This feature is coming soon */}  // If shown to users
+```
+
+### ✅ CORRECT Examples
+
+```typescript
+// ✅ CORRECT: All text localized
+<button>{t('common.save')}</button>
+<h1>{t('welcome.title')}</h1>
+<p>{t('common.loading')}</p>
+<input placeholder={t('form.name_placeholder')} />
+<img alt={t('user.avatar_alt')} />
+
+// ✅ CORRECT: AI Context
+const systemPrompt = t('ai.system_prompt');
+const aiInstruction = t('ai.summarize_instruction');
+
+// ✅ CORRECT: Error Messages
+throw new Error(t('errors.invalid_input'));
+toast.error(t('errors.generic'));
+
+// ✅ CORRECT: Status Text
+<span>{t('status.active')}</span>
+<div>{t('status.pending_approval')}</div>
+```
+
+### 🔍 Detection and Enforcement
+
+**Automated Checks:**
+```bash
+# Run before every commit
+npm run lint:hardcoded-strings
+
+# CI/CD Pipeline
+- name: Check for hardcoded strings
+  run: |
+    node scripts/detect-hardcoded-strings.js --strict --fail-on-found
+```
+
+**Manual Review:**
+- Every PR must be reviewed for hardcoded strings
+- Reviewers MUST reject PRs with any hardcoded text
+- No exceptions without CTO approval
+
+**Detection Script:**
+```javascript
+// scripts/detect-hardcoded-strings.js
+// Scans for:
+// - JSX text nodes without {t(...)}
+// - String literals in render functions
+// - Hardcoded error messages
+// - Non-localized placeholders
+```
+
+### 📋 Migration Checklist
+
+**For Existing Code:**
+1. Identify all hardcoded strings
+2. Create translation keys in `en/*.json`
+3. Replace strings with `t('key')`
+4. Generate translations for all 7 languages
+5. Test in all languages
+6. Commit with message: `fix(i18n): Remove hardcoded strings from [component]`
+
+### 🎯 Why This Matters
+
+**User Experience:**
+- Users in all 7 languages get equal experience
+- No broken UI with mixed languages
+- Professional, polished appearance
+
+**Maintenance:**
+- Easy to update text (one place)
+- No hunting for strings in code
+- Consistent terminology
+
+**Scalability:**
+- Adding new languages is trivial
+- No refactoring needed later
+- Future-proof architecture
+
+### ⚠️ Consequences of Non-Compliance
+
+**Immediate:**
+- ❌ PR automatically rejected
+- ❌ CI/CD pipeline fails
+- ❌ Cannot merge to main
+
+**Long-term:**
+- ❌ Technical debt accumulates
+- ❌ Inconsistent user experience
+- ❌ Expensive refactoring later
+
+### 🔒 No Exceptions
+
+**This rule has NO exceptions.**
+
+Even for:
+- "Quick prototypes" → Must be localized
+- "Internal tools" → Must be localized
+- "Admin only" → Must be localized
+- "Temporary code" → Must be localized
+
+**If it's in the codebase, it MUST be localized.**
+
+---
+
 ## 🚫 Forbidden Practices
 
 ### ❌ NEVER Do This:
