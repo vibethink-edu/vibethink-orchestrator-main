@@ -26,6 +26,8 @@ import {
 } from "./components";
 
 import { ContextualPanelProvider, useContextualPanel, PanelContextData } from "./context/contextual-panel-context";
+import { ExtendedPanelContext } from "@/lib/types/ai-context";
+import { getUserPermissionsFromPlan } from "@/lib/types/ai-context";
 
 // Mock Data for Timeline - Uses i18n
 const getMockTimelineEvents = (t: any): TimelineEvent[] => [
@@ -66,11 +68,32 @@ const getMockTimelineEvents = (t: any): TimelineEvent[] => [
     }
 ];
 
-// Mock Context Data
-const MOCK_CONTEXT_DATA: PanelContextData = {
-    company: { id: "corp-1", name: "Acme Corp" },
+// Mock Context Data - Extended Enterprise Context
+const MOCK_CONTEXT_DATA: ExtendedPanelContext = {
+    company: {
+        id: "corp-1",
+        name: "Acme Corp",
+        plan: "enterprise" // Try: "free", "professional", "enterprise"
+    },
+    user: {
+        id: "user-123",
+        name: "Marcelo Escallón",
+        email: "marcelo@acmecorp.com",
+        department: "engineering", // Try: "sales", "support", "engineering", "marketing"
+        role: "admin",
+        permissions: getUserPermissionsFromPlan("enterprise")
+    },
     module: "Projects V2",
-    activeEntity: { id: "proj-123", type: "project", name: "Redesign 2024" }
+    activeEntity: {
+        id: "proj-123",
+        type: "project",
+        name: "Redesign 2024"
+    },
+    aiConfig: {
+        taskType: "deepThinking", // Try: "quickTasks", "deepThinking", "coding"
+        maxTokens: 2000,
+        temperature: 0.7
+    }
 };
 
 function PageContent() {

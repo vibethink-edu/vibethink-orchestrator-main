@@ -59,21 +59,21 @@
     "activities": "Activities"
   },
   "actions": {
-    "consult_ai": "Consult Agent",
+    "consult_ai": "Ask ViTo",
     "close_panel": "Close Side Panel",
     "open_panel": "Open Side Panel"
   },
   "sidepanel": {
-    "agent_title": "AI Assistant",
+    "agent_title": "ViTo AI Assistant",
     "history_title": "History",
     "verified": "Verified",
     "close": "Close Panel",
     "tabs": {
-      "agent": "AI Agent",
+      "agent": "ViTo",
       "timeline": "Timeline"
     },
     "context": "Context",
-    "input_placeholder": "Ask about this project or timeline..."
+    "input_placeholder": "Ask ViTo about this project or timeline..."
   },
   "timeline": {
     "events": {
