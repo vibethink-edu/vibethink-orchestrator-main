@@ -39,6 +39,7 @@ import {
 import { Progress } from "@vibethink/ui";
 import { Badge } from "@vibethink/ui";
 import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
+import { useTranslation } from "@/lib/i18n";
 
 const data: Project[] = [
     {
@@ -310,6 +311,7 @@ export const columns: ColumnDef<Project>[] = [
 ];
 
 export function TableRecentProjects() {
+    const { t } = useTranslation('projects');
     const [sorting, setSorting] = React.useState<SortingState>([]);
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
     const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
@@ -342,7 +344,7 @@ export function TableRecentProjects() {
     return (
         <Card className="mt-4">
             <CardHeader>
-                <CardTitle>Recent Projects</CardTitle>
+                <CardTitle>{t('v2.recentProjects')}</CardTitle>
             </CardHeader>
             <CardContent>
                 <div className="mb-4 flex items-center gap-4">
