@@ -168,7 +168,51 @@ indent_size = 2
 
 ---
 
-### 5. i18n Implementation
+### 5. Locale Configuration
+
+**REQUIRED for all locales:**
+
+```typescript
+// src/lib/i18n/locale-config.ts
+import { getLocaleConfig, formatCurrency, formatNumber, getVoiceLanguage } from '@/lib/i18n/locale-config';
+
+// Currency formatting
+const price = formatCurrency(1234.56, 'es');  // "1.234,56 $"
+const priceAr = formatCurrency(1234.56, 'ar'); // "1٬234٫56 ر.س"
+
+// Number formatting
+const number = formatNumber(1234567.89, 'fr', 2);  // "1 234 567,89"
+
+// Voice agent language
+const voiceLang = getVoiceLanguage('zh');  // "zh-CN"
+```
+
+**Locale-Specific Settings:**
+
+| Locale | Currency | Decimal | Thousands | Voice | Date Format |
+|--------|----------|---------|-----------|-------|-------------|
+| en | $ (USD) | . | , | en-US | MM/DD/YYYY |
+| es | $ (USD) | , | . | es-ES | DD/MM/YYYY |
+| ar | ر.س (SAR) | ٫ | ٬ | ar-SA | DD/MM/YYYY |
+| zh | ¥ (CNY) | . | , | zh-CN | YYYY/MM/DD |
+| fr | € (EUR) | , | (space) | fr-FR | DD/MM/YYYY |
+| pt | R$ (BRL) | , | . | pt-BR | DD/MM/YYYY |
+| de | € (EUR) | , | . | de-DE | DD.MM.YYYY |
+
+**Voice Agent Configuration:**
+
+```typescript
+// AI voice agents automatically use user's locale
+const userLocale = getClosestLocale(navigator.languages);
+const voiceConfig = {
+  language: getVoiceLanguage(userLocale),
+  voice: `${userLocale}-Neural`  // e.g., "es-ES-Neural"
+};
+```
+
+---
+
+### 6. i18n Implementation
 
 **REQUIRED structure:**
 
