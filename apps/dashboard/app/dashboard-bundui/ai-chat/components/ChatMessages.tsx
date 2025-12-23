@@ -175,7 +175,7 @@ export function ChatMessages({
                   }
                   const handleEdit = onMessageEdit ? (content: string) => onMessageEdit(message.id, content) : undefined
                   const handleDelete = onMessageDelete ? () => onMessageDelete(message.id) : undefined
-                  
+
                   return (
                     <MessageBubble
                       key={message.id}

@@ -20,14 +20,17 @@ import {
 } from "@vibethink/ui";
 import Image from "next/image";
 
+import { useTranslation } from "@/lib/i18n";
+
 export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
   const { showProfileSheet, toggleProfileSheet } = useChatStore();
+  const { t } = useTranslation("chat");
 
   return (
     <Sheet open={showProfileSheet} onOpenChange={toggleProfileSheet}>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle className="text-2xl">Profile</SheetTitle>
+          <SheetTitle className="text-2xl">{t("profile.title")}</SheetTitle>
         </SheetHeader>
         <div className="overflow-y-auto px-4">
           <div className="my-4 flex flex-col items-center justify-end">
@@ -37,36 +40,37 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
             </Avatar>
             <h4 className="mb-2 text-xl font-semibold">{user.name}</h4>
             <div className="text-xs">
-              Last seen:{" "}
-              {user.online_status == "success" ? (
-                <span className="text-green-500">Online</span>
+              {t("header.status.lastSeen", { time: user.online_status == "success" ? t("header.status.online") : user.last_seen }).replace(user.last_seen || "", "")}
+              {/* Simplified logic since we have mixed status logic above, let's keep it close to original but translated */}
+               {user.online_status == "success" ? (
+                <span className="text-green-500">{t("header.status.online")}</span>
               ) : (
-                <span className="text-muted-foreground">{user.last_seen}</span>
+                <span className="text-muted-foreground">{t("header.status.lastSeen", { time: user.last_seen })}</span>
               )}
             </div>
           </div>
           <div className="space-y-2 divide-y">
             {user.about ? (
               <div className="space-y-3 py-4">
-                <h5 className="text-xs font-semibold uppercase">About</h5>
+                <h5 className="text-xs font-semibold uppercase">{t("profile.sections.about")}</h5>
                 <div className="text-muted-foreground">{user.about}</div>
               </div>
             ) : null}
             {user.phone ? (
               <div className="space-y-3 py-4">
-                <h5 className="text-xs font-semibold uppercase">Phone</h5>
+                <h5 className="text-xs font-semibold uppercase">{t("profile.sections.phone")}</h5>
                 <div className="text-muted-foreground">{user.phone}</div>
               </div>
             ) : null}
             {user.country ? (
               <div className="space-y-3 py-4">
-                <h5 className="text-xs font-semibold uppercase">Country</h5>
+                <h5 className="text-xs font-semibold uppercase">{t("profile.sections.country")}</h5>
                 <div className="text-muted-foreground">{user.country}</div>
               </div>
             ) : null}
             {user.medias?.length ? (
               <div className="space-y-3 py-4">
-                <h5 className="text-xs font-semibold uppercase">Media</h5>
+                <h5 className="text-xs font-semibold uppercase">{t("profile.sections.media")}</h5>
                 <div>
                   <ScrollArea className="w-full">
                     <div className="flex gap-4 *:shrink-0">
@@ -121,7 +125,7 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
             ) : null}
             {user.website ? (
               <div className="space-y-3 py-4">
-                <h5 className="text-xs font-semibold uppercase">Website</h5>
+                <h5 className="text-xs font-semibold uppercase">{t("profile.sections.website")}</h5>
                 <div>
                   <a
                     href={user.website}
@@ -134,7 +138,7 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
             ) : null}
             {user.social_links?.length ? (
               <div className="space-y-3 py-4">
-                <h5 className="text-xs font-semibold uppercase">Social Links</h5>
+                <h5 className="text-xs font-semibold uppercase">{t("profile.sections.social")}</h5>
                 <div className="flex flex-wrap items-center gap-2 *:shrink-0">
                   {user.social_links.map((item, key) => (
                     <Button

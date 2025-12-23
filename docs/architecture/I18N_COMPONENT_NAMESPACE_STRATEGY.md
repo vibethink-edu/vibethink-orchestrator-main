@@ -403,6 +403,16 @@ node scripts/detect-missing-i18n-keys.js \
 - Crear namespace parcial
 - Agregar traducciones incrementalmente
 
+### Regla 4: Preloading de Namespaces Críticos (Initial View)
+
+**✅ CORRECTO:**
+- Agregar namespaces de componentes de "primera vista" (ej: Sidebar, Header, Dashboard Home) a `preloadNamespaces` en `I18nProvider`.
+- Garantiza carga instantánea sin "flash" de claves crudas.
+
+**❌ INCORRECTO:**
+- Dejar namespaces críticos como lazy-loading.
+- Usuario ve `projects.sections.projectsOverview` por milisegundos antes de cargar.
+
 ---
 
 ## 🎓 Ejemplos Prácticos

@@ -28,6 +28,11 @@ export function generateAvatarFallback(name: string): string {
 }
 
 /**
+ * Alias for generateAvatarFallback to match Bundui Premium imports
+ */
+export const getInitials = generateAvatarFallback;
+
+/**
  * Generates metadata for Next.js pages
  * @param options - Metadata options
  * @returns Next.js Metadata object

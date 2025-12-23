@@ -11,7 +11,11 @@ import {
   DropdownMenuTrigger
 } from "@vibethink/ui";
 
+import { useTranslation } from "@/lib/i18n";
+
 export function ActionDropdown() {
+  const { t } = useTranslation("chat");
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -21,9 +25,9 @@ export function ActionDropdown() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuGroup>
-          <DropdownMenuItem>New chat</DropdownMenuItem>
-          <DropdownMenuItem>Create group</DropdownMenuItem>
-          <DropdownMenuItem>Add contact</DropdownMenuItem>
+          <DropdownMenuItem>{t("sidebar.actions.newChat")}</DropdownMenuItem>
+          <DropdownMenuItem>{t("sidebar.actions.createGroup")}</DropdownMenuItem>
+          <DropdownMenuItem>{t("sidebar.actions.addContact")}</DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

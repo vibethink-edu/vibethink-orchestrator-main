@@ -55,7 +55,25 @@
     "overview": "Resumen",
     "projects": "Proyectos",
     "team": "Equipo",
-    "reports": "Reportes"
+    "reports": "Reportes",
+    "activities": "Actividades"
+  },
+  "actions": {
+    "consult_ai": "Consultar Agente",
+    "close_panel": "Cerrar Panel Lateral",
+    "open_panel": "Abrir Panel Lateral"
+  },
+  "sidepanel": {
+    "agent_title": "Asistente IA",
+    "history_title": "Historial",
+    "verified": "Verificado",
+    "close": "Cerrar Panel",
+    "tabs": {
+      "agent": "Agente IA",
+      "timeline": "Cronología"
+    },
+    "context": "Contexto",
+    "input_placeholder": "Pregunta sobre este proyecto o cronología..."
   },
   "summary": {
     "activeProjects": "Proyectos Activos",
@@ -76,6 +94,53 @@
   "sections": {
     "teamPerformance": "Rendimiento del Equipo",
     "teamPerformanceDesc": "Aquí se mostrarían métricas detalladas del rendimiento del equipo, incluyendo productividad individual, tasas de finalización de tareas y distribución de carga de trabajo.",
-    "loadingData": "Cargando datos del proyecto..."
+    "loadingData": "Cargando datos del proyecto...",
+    "recentProjects": "Proyectos Recientes",
+    "projectDistribution": "Distribución de Proyectos",
+    "upcomingDeadlines": "Próximos Vencimientos",
+    "projectsOverview": "Resumen de Proyectos"
+  },
+  "v2": {
+    "summaryCards": {
+      "totalRevenue": "Ingresos Totales",
+      "activeProjects": "Proyectos Activos",
+      "newLeads": "Nuevos Clientes",
+      "timeSpent": "Tiempo Dedicado"
+    },
+    "overview": {
+      "title": "Resumen de Proyectos",
+      "description": "Total últimos 3 meses",
+      "mobileDescription": "Últimos 3 meses",
+      "last3Months": "Últimos 3 meses",
+      "last30Days": "Últimos 30 días",
+      "last7Days": "Últimos 7 días"
+    },
+    "efficiency": {
+      "title": "Eficiencia del Proyecto",
+      "description": "Enero - Junio 2026",
+      "trending": "Tendencia al alza del 5.2% este mes"
+    },
+    "achievement": {
+      "title": "Logros por Año",
+      "description": "Completaste más proyectos por día en promedio este año que el anterior.",
+      "projects": "proyectos"
+    },
+    "reminders": {
+      "title": "Recordatorios",
+      "showOther": "Mostrar los otros 10 recordatorios"
+    },
+    "successMetrics": {
+      "title": "Métricas de Éxito",
+      "description": "Indicadores clave de rendimiento",
+      "successRate": "Tasa de Éxito",
+      "onTime": "Finalización a Tiempo",
+      "clientSat": "Satisfacción del Cliente",
+      "budget": "Cumplimiento Presupuestario"
+    },
+    "reports": {
+      "title": "Reportes de Proyectos",
+      "description": "Descargar reportes detallados",
+      "download": "Descargar Reporte"
+    }
   }
 }

@@ -1,6 +1,7 @@
 "use client";
 
-import { SidebarGroup,
+import {
+  SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
@@ -10,7 +11,8 @@ import { SidebarGroup,
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-  useSidebar } from '@vibethink/ui';
+  useSidebar
+} from '@vibethink/ui';
 import {
   ActivityIcon,
   ArchiveRestoreIcon,
@@ -56,11 +58,13 @@ import Link from "next/link";
 import { IconWrapper } from "./icon-wrapper";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@vibethink/ui';
 import { usePathname } from "next/navigation";
-import { DropdownMenu,
+import {
+  DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuTrigger } from '@vibethink/ui';
+  DropdownMenuTrigger
+} from '@vibethink/ui';
 
 type NavGroup = {
   title: string;
@@ -124,6 +128,12 @@ export const navItems: NavGroup[] = [
       {
         title: "Project Management",
         href: "/dashboard-bundui/projects",
+        icon: FolderDotIcon,
+        isNew: true
+      },
+      {
+        title: "Projects V12",
+        href: "/dashboard-bundui/projects-v2",
         icon: FolderDotIcon,
         isNew: true
       },

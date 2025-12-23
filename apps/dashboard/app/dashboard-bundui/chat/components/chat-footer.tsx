@@ -13,14 +13,18 @@ import {
   TooltipTrigger
 } from "@vibethink/ui";
 
+import { useTranslation } from "@/lib/i18n";
+
 export function ChatFooter() {
+  const { t } = useTranslation("chat");
+
   return (
     <div className="lg:px-4">
       <div className="bg-muted/50 dark:bg-muted/30 relative flex items-center rounded-xl border border-input focus-within:ring-2 focus-within:ring-ring focus-within:border-primary transition-all">
         <Input
           type="text"
           className="h-14 border-none bg-transparent pe-32 text-base shadow-none focus-visible:ring-0 placeholder:text-muted-foreground lg:pe-56"
-          placeholder="Enter message..."
+          placeholder={t("composer.placeholder")}
         />
         <div className="absolute end-4 flex items-center">
           <div className="block lg:hidden">

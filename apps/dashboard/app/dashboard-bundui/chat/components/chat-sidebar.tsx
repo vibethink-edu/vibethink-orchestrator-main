@@ -17,11 +17,12 @@ import {
 import { ChatListItem } from "./chat-list-item";
 import { ActionDropdown } from "./action-dropdown";
 
+import { useTranslation } from "@/lib/i18n";
+
 export function ChatSidebar({ chats }: { chats: ChatItemProps[] }) {
+  const { t } = useTranslation("chat");
   const { selectedChat, setSelectedChat } = useChatStore();
   const [filteredChats, setFilteredChats] = React.useState(chats);
-
-  // DEBUG: Auto-select first chat to verify UI - REMOVED
 
   const changeHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchTerm = e.target.value.trim();
@@ -35,7 +36,7 @@ export function ChatSidebar({ chats }: { chats: ChatItemProps[] }) {
   return (
     <Card className="flex w-full flex-col pb-0 lg:w-96 lg:h-full">
       <CardHeader>
-        <CardTitle className="font-display text-xl lg:text-2xl">Chats</CardTitle>
+        <CardTitle className="font-display text-xl lg:text-2xl">{t("sidebar.title")}</CardTitle>
         <CardAction>
           <ActionDropdown />
         </CardAction>
@@ -44,7 +45,7 @@ export function ChatSidebar({ chats }: { chats: ChatItemProps[] }) {
           <Input
             type="text"
             className="ps-10"
-            placeholder="Chats search..."
+            placeholder={t("sidebar.searchPlaceholder")}
             onChange={changeHandle}
           />
         </CardDescription>
@@ -61,7 +62,7 @@ export function ChatSidebar({ chats }: { chats: ChatItemProps[] }) {
               />
             ))
           ) : (
-            <div className="text-muted-foreground mt-4 text-center text-sm">No chat found</div>
+            <div className="text-muted-foreground mt-4 text-center text-sm">{t("sidebar.noResults")}</div>
           )}
         </div>
       </CardContent>

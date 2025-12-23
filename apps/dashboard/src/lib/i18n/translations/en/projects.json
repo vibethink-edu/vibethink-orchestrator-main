@@ -55,7 +55,25 @@
     "overview": "Overview",
     "projects": "Projects",
     "team": "Team",
-    "reports": "Reports"
+    "reports": "Reports",
+    "activities": "Activities"
+  },
+  "actions": {
+    "consult_ai": "Consult Agent",
+    "close_panel": "Close Side Panel",
+    "open_panel": "Open Side Panel"
+  },
+  "sidepanel": {
+    "agent_title": "AI Assistant",
+    "history_title": "History",
+    "verified": "Verified",
+    "close": "Close Panel",
+    "tabs": {
+      "agent": "AI Agent",
+      "timeline": "Timeline"
+    },
+    "context": "Context",
+    "input_placeholder": "Ask about this project or timeline..."
   },
   "summary": {
     "activeProjects": "Active Projects",
@@ -76,6 +94,54 @@
   "sections": {
     "teamPerformance": "Team Performance",
     "teamPerformanceDesc": "Detailed team performance metrics would be displayed here, including individual member productivity, task completion rates, and workload distribution.",
-    "loadingData": "Loading project data..."
+    "loadingData": "Loading project data...",
+    "recentProjects": "Recent Projects",
+    "projectDistribution": "Project Distribution",
+    "upcomingDeadlines": "Upcoming Deadlines",
+    "upcomingDeadlines": "Upcoming Deadlines",
+    "projectsOverview": "Projects Overview"
+  },
+  "v2": {
+    "summaryCards": {
+      "totalRevenue": "Total Revenue",
+      "activeProjects": "Active Projects",
+      "newLeads": "New Leads",
+      "timeSpent": "Time Spent"
+    },
+    "overview": {
+      "title": "Projects Overview",
+      "description": "Total for the last 3 months",
+      "mobileDescription": "Last 3 months",
+      "last3Months": "Last 3 months",
+      "last30Days": "Last 30 days",
+      "last7Days": "Last 7 days"
+    },
+    "efficiency": {
+      "title": "Project Efficiency",
+      "description": "January - June 2026",
+      "trending": "Trending up by 5.2% this month"
+    },
+    "achievement": {
+      "title": "Achievement by Year",
+      "description": "You completed more projects per day on average this year than last year.",
+      "projects": "projects"
+    },
+    "reminders": {
+      "title": "Reminder",
+      "showOther": "Show the other 10 reminders"
+    },
+    "successMetrics": {
+      "title": "Success Metrics",
+      "description": "Key performance indicators for project success",
+      "successRate": "Project Success Rate",
+      "onTime": "On-Time Completion",
+      "clientSat": "Client Satisfaction",
+      "budget": "Budget Adherence"
+    },
+    "reports": {
+      "title": "Projects Reports",
+      "description": "Download detailedreports for your projects",
+      "download": "Download Report"
+    }
   }
 }
