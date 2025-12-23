@@ -18,8 +18,10 @@ import { ChatListItem } from "./chat-list-item";
 import { ActionDropdown } from "./action-dropdown";
 
 export function ChatSidebar({ chats }: { chats: ChatItemProps[] }) {
-  const { selectedChat } = useChatStore();
+  const { selectedChat, setSelectedChat } = useChatStore();
   const [filteredChats, setFilteredChats] = React.useState(chats);
+
+  // DEBUG: Auto-select first chat to verify UI - REMOVED
 
   const changeHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchTerm = e.target.value.trim();
@@ -31,7 +33,7 @@ export function ChatSidebar({ chats }: { chats: ChatItemProps[] }) {
   };
 
   return (
-    <Card className="w-full pb-0 lg:w-96">
+    <Card className="flex w-full flex-col pb-0 lg:w-96 lg:h-full">
       <CardHeader>
         <CardTitle className="font-display text-xl lg:text-2xl">Chats</CardTitle>
         <CardAction>

@@ -16,10 +16,10 @@ import {
 export function ChatFooter() {
   return (
     <div className="lg:px-4">
-      <div className="bg-muted relative flex items-center rounded-md border">
+      <div className="bg-muted/50 dark:bg-muted/30 relative flex items-center rounded-xl border border-input focus-within:ring-2 focus-within:ring-ring focus-within:border-primary transition-all">
         <Input
           type="text"
-          className="h-14 border-transparent bg-white pe-32 text-base! shadow-transparent! ring-transparent! lg:pe-56"
+          className="h-14 border-none bg-transparent pe-32 text-base shadow-none focus-visible:ring-0 placeholder:text-muted-foreground lg:pe-56"
           placeholder="Enter message..."
         />
         <div className="absolute end-4 flex items-center">
