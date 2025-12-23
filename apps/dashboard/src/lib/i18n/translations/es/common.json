@@ -1,72 +1,34 @@
 {
-  "buttons": {
-    "save": "Guardar",
-    "cancel": "Cancelar",
-    "delete": "Eliminar",
-    "edit": "Editar",
-    "add": "Agregar",
-    "search": "Buscar",
-    "filter": "Filtrar",
-    "export": "Exportar",
-    "import": "Importar",
-    "download": "Descargar",
-    "upload": "Subir",
-    "close": "Cerrar",
-    "submit": "Enviar",
-    "reset": "Restablecer",
-    "apply": "Aplicar",
-    "clear": "Limpiar",
-    "back": "Atrás",
-    "next": "Siguiente",
-    "previous": "Anterior",
-    "confirm": "Confirmar",
-    "yes": "Sí",
-    "no": "No"
-  },
-  "labels": {
-    "name": "Nombre",
-    "email": "Correo electrónico",
-    "phone": "Teléfono",
-    "address": "Dirección",
-    "status": "Estado",
-    "date": "Fecha",
-    "time": "Hora",
-    "amount": "Cantidad",
-    "total": "Total",
-    "description": "Descripción",
-    "actions": "Acciones",
-    "loading": "Cargando...",
-    "noData": "No hay datos disponibles",
-    "error": "Error",
-    "success": "Éxito",
-    "warning": "Advertencia",
-    "info": "Información"
-  },
-  "messages": {
-    "saved": "Guardado exitosamente",
-    "deleted": "Eliminado exitosamente",
-    "updated": "Actualizado exitosamente",
-    "created": "Creado exitosamente",
-    "errorOccurred": "Ocurrió un error",
-    "confirmDelete": "¿Estás seguro de que deseas eliminar este elemento?",
-    "noResults": "No se encontraron resultados",
-    "selectOption": "Selecciona una opción"
-  },
-  "time": {
-    "today": "Hoy",
-    "yesterday": "Ayer",
-    "tomorrow": "Mañana",
-    "thisWeek": "Esta semana",
-    "lastWeek": "Semana pasada",
-    "thisMonth": "Este mes",
-    "lastMonth": "Mes pasado",
-    "thisYear": "Este año",
-    "lastYear": "Año pasado"
+  "table": {
+    "common": {
+      "search": "Buscar...",
+      "filter": "Filtrar",
+      "columns": "Columnas",
+      "actions": "Acciones",
+      "openMenu": "Abrir menú",
+      "selectAll": "Seleccionar todo",
+      "selectRow": "Seleccionar fila",
+      "noResults": "Sin resultados.",
+      "rowsSelected": "{{count}} de {{total}} fila(s) seleccionada(s).",
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "showing": "Mostrando {{from}} a {{to}} de {{total}} entradas"
+    },
+    "status": {
+      "active": "Activo",
+      "inactive": "Inactivo",
+      "pending": "Pendiente",
+      "completed": "Completado",
+      "cancelled": "Cancelado",
+      "cancel": "Cancelar",
+      "draft": "Borrador",
+      "published": "Publicado"
+    },
+    "priority": {
+      "low": "Baja",
+      "medium": "Media",
+      "high": "Alta",
+      "urgent": "Urgente"
+    }
   }
 }
-
-
-
-
-
-

@@ -41,6 +41,9 @@ import { Badge } from "@vibethink/ui";
 import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
 import { useTranslation } from "@/lib/i18n";
 
+// Generic i18n-enabled column definitions
+const createColumns = (t: (key: string) => string, tCommon: (key: string) => string): ColumnDef<Project>[] => [
+
 const data: Project[] = [
     {
         id: 1,
@@ -203,115 +206,119 @@ type Project = {
     progress?: number;
 };
 
-export const columns: ColumnDef<Project>[] = [
-    {
-        id: "select",
+{
+    id: "select",
         header: ({ table }) => (
             <Checkbox
                 checked={
                     table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")
                 }
                 onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-                aria-label="Select all"
+                aria-label={tCommon('table.common.selectAll')}
             />
         ),
-        cell: ({ row }) => (
-            <Checkbox
-                checked={row.getIsSelected()}
-                onCheckedChange={(value) => row.toggleSelected(!!value)}
-                aria-label="Select row"
-            />
-        ),
-        enableSorting: false,
-        enableHiding: false
-    },
-    {
-        accessorKey: "name",
-        header: "Project Name",
-        cell: ({ row }) => row.getValue("name")
-    },
-    {
-        accessorKey: "client",
-        header: "Client Name",
-        cell: ({ row }) => {
-            const client = row.getValue("client") as Client;
+            cell: ({ row }) => (
+                <Checkbox
+                    checked={row.getIsSelected()}
+                    onCheckedChange={(value) => row.toggleSelected(!!value)}
+                    aria-label={tCommon('table.common.selectRow')}
+                />
+            ),
+                enableSorting: false,
+                    enableHiding: false
+},
+{
+    accessorKey: "name",
+        header: t('v2.table.columns.projectName'),
+            cell: ({ row }) => row.getValue("name")
+},
+{
+    accessorKey: "client",
+        header: t('v2.table.columns.clientName'),
+            cell: ({ row }) => {
+                const client = row.getValue("client") as Client;
 
-            return (
-                <div className="flex items-center gap-4">
-                    <Avatar>
-                        <AvatarImage src={client.avatar} alt="shadcn ui kit" />
-                        <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
-                    {client.name}
+                return (
+                    <div className="flex items-center gap-4">
+                        <Avatar>
+                            <AvatarImage src={client.avatar} alt="shadcn ui kit" />
+                            <AvatarFallback>CN</AvatarFallback>
+                        </Avatar>
+                        {client.name}
+                    </div>
+                );
+            }
+},
+{
+    accessorKey: "date",
+        header: t('v2.table.columns.startDate'),
+            cell: ({ row }) => row.getValue("date")
+},
+{
+    accessorKey: "deadline",
+        header: t('v2.table.columns.deadline'),
+            cell: ({ row }) => row.getValue("deadline")
+},
+{
+    accessorKey: "status",
+        header: t('v2.table.columns.status'),
+            cell: ({ row }) => {
+                const status = row.getValue("status") as "pending" | "active" | "completed" | "cancel";
+
+                const statusClassMap: Record<typeof status, string> = {
+                    pending: "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200",
+                    active: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200",
+                    completed: "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200",
+                    cancel: "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200"
+                };
+
+                return <Badge className={`capitalize ${statusClassMap[status]}`}>{tCommon(`table.status.${status}`)}</Badge>;
+            }
+},
+{
+    accessorKey: "progress",
+        header: t('v2.table.columns.progress'),
+            cell: ({ row }) => (
+                <div className="flex flex-col lg:flex-row lg:items-center lg:gap-2">
+                    <Progress value={row.getValue("progress")} className="h-2" />
+                    <span className="text-muted-foreground text-sm">%{row.getValue("progress")}</span>
                 </div>
-            );
-        }
-    },
-    {
-        accessorKey: "date",
-        header: "Start Date",
-        cell: ({ row }) => row.getValue("date")
-    },
-    {
-        accessorKey: "deadline",
-        header: "Deadline",
-        cell: ({ row }) => row.getValue("deadline")
-    },
-    {
-        accessorKey: "status",
-        header: "Status",
-        cell: ({ row }) => {
-            const status = row.getValue("status") as "pending" | "active" | "completed" | "cancel";
-
-            const statusClassMap: Record<typeof status, string> = {
-                pending: "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200",
-                active: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200",
-                completed: "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200",
-                cancel: "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200"
-            };
-
-            return <Badge className={`capitalize ${statusClassMap[status]}`}>{status}</Badge>;
-        }
-    },
-    {
-        accessorKey: "progress",
-        header: "Progress",
-        cell: ({ row }) => (
-            <div className="flex flex-col lg:flex-row lg:items-center lg:gap-2">
-                <Progress value={row.getValue("progress")} className="h-2" />
-                <span className="text-muted-foreground text-sm">%{row.getValue("progress")}</span>
-            </div>
-        )
-    },
-    {
-        id: "actions",
+            )
+},
+{
+    id: "actions",
         enableHiding: false,
-        cell: ({ row }) => {
-            return (
-                <div className="text-end">
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" className="h-8 w-8 p-0">
-                                <span className="sr-only">Open menu</span>
-                                <Ellipsis className="h-4 w-4" />
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem>View Project</DropdownMenuItem>
-                            <DropdownMenuItem>Members</DropdownMenuItem>
-                            <DropdownMenuItem>Delete</DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
-                </div>
-            );
-        }
-    }
+            cell: ({ row }) => {
+                return (
+                    <div className="text-end">
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" className="h-8 w-8 p-0">
+                                    <span className="sr-only">{tCommon('table.common.openMenu')}</span>
+                                    <Ellipsis className="h-4 w-4" />
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                                <DropdownMenuLabel>{tCommon('table.common.actions')}</DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem>View Project</DropdownMenuItem>
+                                <DropdownMenuItem>Members</DropdownMenuItem>
+                                <DropdownMenuItem>Delete</DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    </div>
+                );
+            }
+}
 ];
 
 export function TableRecentProjects() {
     const { t } = useTranslation('projects');
+    const { t: tCommon } = useTranslation('common');
+
+    // Create columns with translations
+    const columns = React.useMemo(() => createColumns(t, tCommon), [t, tCommon]);
+
     const [sorting, setSorting] = React.useState<SortingState>([]);
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
     const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
@@ -349,7 +356,7 @@ export function TableRecentProjects() {
             <CardContent>
                 <div className="mb-4 flex items-center gap-4">
                     <Input
-                        placeholder="Filter projects..."
+                        placeholder={t('v2.table.placeholder.filterProjects')}
                         value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
                         onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)}
                         className="max-w-sm"
@@ -357,7 +364,7 @@ export function TableRecentProjects() {
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Button variant="outline" className="ml-auto">
-                                Columns <ChevronDownIcon className="ml-2 h-4 w-4" />
+                                {tCommon('table.common.columns')} <ChevronDownIcon className="ml-2 h-4 w-4" />
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
@@ -409,7 +416,7 @@ export function TableRecentProjects() {
                             ) : (
                                 <TableRow>
                                     <TableCell colSpan={columns.length} className="h-24 text-center">
-                                        No results.
+                                        {tCommon('table.common.noResults')}
                                     </TableCell>
                                 </TableRow>
                             )}
@@ -418,8 +425,10 @@ export function TableRecentProjects() {
                 </div>
                 <div className="flex items-center justify-end space-x-2 pt-4">
                     <div className="text-muted-foreground flex-1 text-sm">
-                        {table.getFilteredSelectedRowModel().rows.length} of{" "}
-                        {table.getFilteredRowModel().rows.length} row(s) selected.
+                        {tCommon('table.common.rowsSelected', {
+                            count: table.getFilteredSelectedRowModel().rows.length,
+                            total: table.getFilteredRowModel().rows.length
+                        })}
                     </div>
                     <div className="space-x-2">
                         <Button

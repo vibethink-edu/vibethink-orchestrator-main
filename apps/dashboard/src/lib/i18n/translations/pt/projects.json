@@ -162,6 +162,19 @@
       "title": "Relatórios de Projetos",
       "description": "Baixe relatórios detalhados para seus projetos",
       "download": "Baixar Relatório"
+    },
+    "table": {
+      "columns": {
+        "projectName": "Nome do Projeto",
+        "clientName": "Nome do Cliente",
+        "startDate": "Data de Início",
+        "deadline": "Prazo",
+        "status": "Status",
+        "progress": "Progresso"
+      },
+      "placeholder": {
+        "filterProjects": "Filtrar projetos..."
+      }
     }
   }
 }
