@@ -1,0 +1,168 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "update": "Update",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "export": "Export",
+    "import": "Import",
+    "download": "Download",
+    "upload": "Upload",
+    "close": "Close",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "reset": "Reset",
+    "clear": "Clear",
+    "apply": "Apply",
+    "select": "Select",
+    "view": "View",
+    "add": "Add",
+    "remove": "Remove"
+  },
+  "header": {
+    "title": "Project Management",
+    "subtitle": "Track projects, manage tasks, and monitor team performance",
+    "newProject": "New Project",
+    "newTask": "New Task",
+    "export": "Export",
+    "searchPlaceholder": "Search projects...",
+    "filters": "Filters",
+    "clearFilters": "Clear",
+    "status": "Status",
+    "priority": "Priority",
+    "teamLead": "Team Lead",
+    "allStatuses": "All Statuses",
+    "allPriorities": "All Priorities",
+    "allTeamLeads": "All Team Leads",
+    "activeFilters": "Active filters",
+    "quickFilters": "Quick Filters",
+    "activeProjectsOnly": "Active Projects Only",
+    "highPriorityProjects": "High Priority Projects",
+    "overdueProjects": "Overdue Projects"
+  },
+  "tabs": {
+    "overview": "Overview",
+    "projects": "Projects",
+    "team": "Team",
+    "reports": "Reports",
+    "activities": "Activities"
+  },
+  "actions": {
+    "consult_ai": "Ask ViTo",
+    "close_panel": "Close Side Panel",
+    "open_panel": "Open Side Panel"
+  },
+  "sidepanel": {
+    "agent_title": "ViTo AI Assistant",
+    "history_title": "History",
+    "verified": "Verified",
+    "close": "Close Panel",
+    "tabs": {
+      "agent": "ViTo",
+      "timeline": "Timeline"
+    },
+    "context": "Context",
+    "input_placeholder": "Ask ViTo about this project or timeline..."
+  },
+  "timeline": {
+    "events": {
+      "client_requirements": {
+        "title": "Client Requirements Received",
+        "description": "Scope document received via email.",
+        "from": "From",
+        "subject": "Subject",
+        "details": "Attached is the final scope document. Please review sections 3.1 and 4.2 specifically regarding the AI integration timelines."
+      },
+      "dependency_alert": {
+        "title": "Dependency Alert",
+        "description": "New potential conflict detected in package.json",
+        "details": "Version mismatch detected for @vibethink/ui. Recommended: Upgrade to v0.2.1"
+      },
+      "sprint_planning": {
+        "title": "Sprint Planning",
+        "description": "Weekly sync with engineering team.",
+        "details": "Key takeaways: Focus on Side Panel implementation this sprint. Timeline component needs to support collapsible items."
+      }
+    }
+  },
+  "summary": {
+    "activeProjects": "Active Projects",
+    "completed": "Completed",
+    "onHold": "On Hold",
+    "totalBudget": "Total Budget",
+    "teamMembers": "Team Members",
+    "activeTasks": "Active Tasks",
+    "completedTasks": "Completed Tasks",
+    "avgEfficiency": "Avg Efficiency",
+    "overdueTasks": "Overdue Tasks",
+    "fromLastMonth": "from last month",
+    "thisMonth": "this month",
+    "activeContributors": "active contributors",
+    "fromLastWeek": "from last week",
+    "failedToLoad": "Failed to load metrics"
+  },
+  "sections": {
+    "teamPerformance": "Team Performance",
+    "teamPerformanceDesc": "Detailed team performance metrics would be displayed here, including individual member productivity, task completion rates, and workload distribution.",
+    "loadingData": "Loading project data...",
+    "recentProjects": "Recent Projects",
+    "projectDistribution": "Project Distribution",
+    "upcomingDeadlines": "Upcoming Deadlines",
+    "upcomingDeadlines": "Upcoming Deadlines",
+    "projectsOverview": "Projects Overview"
+  },
+  "v2": {
+    "summaryCards": {
+      "totalRevenue": "Total Revenue",
+      "activeProjects": "Active Projects",
+      "newLeads": "New Leads",
+      "timeSpent": "Time Spent"
+    },
+    "overview": {
+      "title": "Projects Overview",
+      "description": "Total for the last 3 months",
+      "mobileDescription": "Last 3 months",
+      "last3Months": "Last 3 months",
+      "last30Days": "Last 30 days",
+      "last7Days": "Last 7 days"
+    },
+    "efficiency": {
+      "title": "Project Efficiency",
+      "description": "January - June 2026",
+      "trending": "Trending up by 5.2% this month"
+    },
+    "achievement": {
+      "title": "Achievement by Year",
+      "description": "You completed more projects per day on average this year than last year.",
+      "projects": "projects"
+    },
+    "reminders": {
+      "title": "Reminder",
+      "showOther": "Show the other 10 reminders"
+    },
+    "successMetrics": {
+      "title": "Success Metrics",
+      "description": "Key performance indicators for project success",
+      "successRate": "Project Success Rate",
+      "onTime": "On-Time Completion",
+      "clientSat": "Client Satisfaction",
+      "budget": "Budget Adherence"
+    },
+    "reports": {
+      "title": "Projects Reports",
+      "description": "Download detailedreports for your projects",
+      "download": "Download Report"
+    }
+  }
+}

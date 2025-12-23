@@ -1,0 +1,46 @@
+{
+  "header": {
+    "title": "CRM Dashboard",
+    "subtitle": "Manage your customers, leads, and sales pipeline"
+  },
+  "metrics": {
+    "totalCustomers": "Total Customers",
+    "revenue": "Revenue",
+    "activeDeals": "Active Deals",
+    "conversionRate": "Conversion Rate",
+    "fromLastMonth": "from last month",
+    "pipelineValue": "Pipeline value",
+    "avgDealSize": "Avg deal size"
+  },
+  "actions": {
+    "export": "Export",
+    "filter": "Filter",
+    "addCustomer": "Add Customer",
+    "searchPlaceholder": "Search customers, deals..."
+  },
+  "filters": {
+    "activeFilters": "Active filters"
+  },
+  "table": {
+    "customer": "Customer",
+    "value": "Value",
+    "status": "Status",
+    "lastContact": "Last Contact",
+    "actions": "Actions"
+  },
+  "status": {
+    "new": "New",
+    "contacted": "Contacted",
+    "qualified": "Qualified",
+    "proposal": "Proposal",
+    "negotiation": "Negotiation",
+    "won": "Won",
+    "lost": "Lost"
+  }
+}
+
+
+
+
+
+

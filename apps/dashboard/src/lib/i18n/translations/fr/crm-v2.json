@@ -1,0 +1,192 @@
+{
+  "title": "CRM V2 Dashboard",
+  "description": "Customer Relationship Management dashboard with AI-powered insights",
+  "loading": "Loading...",
+  "error": "Error",
+  "success": "Success",
+  "cancel": "Cancel",
+  "save": "Save",
+  "delete": "Delete",
+  "edit": "Edit",
+  "create": "Create",
+  "update": "Update",
+  "search": "Search",
+  "filter": "Filter",
+  "sort": "Sort",
+  "export": "Export",
+  "import": "Import",
+  "download": "Download",
+  "upload": "Upload",
+  "close": "Close",
+  "confirm": "Confirm",
+  "back": "Back",
+  "next": "Next",
+  "previous": "Previous",
+  "submit": "Submit",
+  "reset": "Reset",
+  "clear": "Clear",
+  "apply": "Apply",
+  "select": "Select",
+  "selectAll": "Select All",
+  "deselectAll": "Deselect All",
+  "noResults": "No results found",
+  "noData": "No data available",
+  "empty": "Empty",
+  "active": "Active",
+  "inactive": "Inactive",
+  "pending": "Pending",
+  "completed": "Completed",
+  "cancelled": "Cancelled",
+  "draft": "Draft",
+  "published": "Published",
+  "archived": "Archived",
+  "view": "View",
+  "viewDetails": "View Details",
+  "viewMore": "View More",
+  "add": "Add",
+  "addNew": "Add New",
+  "remove": "Remove",
+  "removeAll": "Remove All",
+  "today": "Today",
+  "yesterday": "Yesterday",
+  "tomorrow": "Tomorrow",
+  "thisWeek": "This Week",
+  "lastWeek": "Last Week",
+  "thisMonth": "This Month",
+  "lastMonth": "Last Month",
+  "thisYear": "This Year",
+  "lastYear": "Last Year",
+  "minutes": "Minutes",
+  "hours": "Hours",
+  "days": "Days",
+  "weeks": "Weeks",
+  "months": "Months",
+  "years": "Years",
+  "areYouSure": "Are you sure?",
+  "thisActionCannotBeUndone": "This action cannot be undone",
+  "pleaseWait": "Please wait...",
+  "operationSuccessful": "Operation successful",
+  "operationFailed": "Operation failed",
+  "showing": "Showing",
+  "of": "of",
+  "results": "results",
+  "rowsPerPage": "Rows per page",
+  "page": "Page",
+  "all": "All",
+  "none": "None",
+  "notification": "Notification",
+  "notifications": "Notifications",
+  "noNotifications": "No notifications",
+  "settings": "Settings",
+  "preferences": "Preferences",
+  "account": "Account",
+  "profile": "Profile",
+  "home": "Home",
+  "dashboard": "Dashboard",
+  "emptyState": {
+    "title": "No items found",
+    "description": "Get started by creating a new item",
+    "action": "Create New"
+  },
+  "cards": {
+    "target": {
+      "title": "Your target is incomplete",
+      "description": "Sales target",
+      "completed": "You have completed",
+      "ofTarget": "of the given target, you can also check your status"
+    },
+    "totalCustomers": {
+      "title": "Total Customers",
+      "description": "Total number of customers"
+    },
+    "totalDeals": {
+      "title": "Total Deals",
+      "description": "Total number of deals"
+    },
+    "totalRevenue": {
+      "title": "Total Revenue",
+      "description": "Total revenue generated"
+    },
+    "leadsBySource": {
+      "title": "Leads by Source",
+      "description": "Lead distribution by source"
+    },
+    "recentTasks": {
+      "title": "Recent Tasks",
+      "description": "Recently assigned tasks"
+    },
+    "salesPipeline": {
+      "title": "Sales Pipeline",
+      "description": "Current deals in your sales pipeline."
+    },
+    "fromLastMonth": "from last month"
+  },
+  "tasks": {
+    "addTask": "Add Task",
+    "due": "Due",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "priority": {
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "sample": {
+      "followUp": "Follow up with Acme Inc.",
+      "sendProposal": "Send proposal and schedule meeting",
+      "prepareReport": "Prepare quarterly report",
+      "compileData": "Compile sales data and forecasts",
+      "updateProfiles": "Update customer profiles",
+      "verifyContact": "Verify contact information and preferences",
+      "oct15": "Oct 15"
+    }
+  },
+  "table": {
+    "selectAll": "Select all",
+    "selectRow": "Select row",
+    "columns": "Columns",
+    "noResults": "No results.",
+    "rowsSelected": "row(s) selected"
+  },
+  "actions": {
+    "copyId": "Copy payment ID",
+    "viewCustomer": "View customer",
+    "viewDetails": "View payment details"
+  },
+  "leads": {
+    "title": "Leads",
+    "table": {
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "status": "Status",
+      "value": "Value",
+      "source": "Source",
+      "actions": "Actions"
+    },
+    "status": {
+      "new": "New",
+      "qualified": "Qualified",
+      "contacted": "Contacted",
+      "converted": "Converted",
+      "lost": "Lost"
+    },
+    "search": {
+      "placeholder": "Search leads..."
+    },
+    "filters": {
+      "allStatus": "All Status",
+      "allSources": "All Sources"
+    }
+  },
+  "pipeline": {
+    "stages": {
+      "prospecting": "Lead",
+      "qualification": "Qualified",
+      "proposal": "Proposal",
+      "negotiation": "Negotiation",
+      "closed": "Closed Won"
+    },
+    "deals": "deals"
+  }
+}

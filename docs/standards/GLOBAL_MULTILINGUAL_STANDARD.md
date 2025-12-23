@@ -395,3 +395,64 @@ npm run test:rtl
 ---
 
 **Questions or exceptions require CTO approval.**
+
+---
+
+## 🔒 Module Completion Rule
+
+### MANDATORY: 7-Language Implementation
+
+**RULE:** Every module mockup MUST be implemented in ALL 7 languages before being considered "complete".
+
+**Applies to:**
+- All new modules
+- All new features
+- All UI components
+- All user-facing text
+
+**Process:**
+1. **Create English base** (`en/*.json`)
+2. **Translate to Spanish** (`es/*.json`) - REQUIRED
+3. **Copy to remaining 5 languages** (`ar/`, `zh/`, `fr/`, `pt/`, `de/`) - Use English as placeholder
+4. **Mark for translation** - Add `// TODO: Translate` comments in non-EN/ES files
+5. **Validate** - Run `npm run validate:i18n`
+
+**Example Structure:**
+```
+translations/
+├── en/
+│   ├── module-name.json  ✅ English (base)
+│   └── ...
+├── es/
+│   ├── module-name.json  ✅ Spanish (translated)
+│   └── ...
+├── ar/
+│   ├── module-name.json  🔄 Arabic (English placeholder)
+│   └── ...
+├── zh/
+│   ├── module-name.json  🔄 Chinese (English placeholder)
+│   └── ...
+├── fr/
+│   ├── module-name.json  🔄 French (English placeholder)
+│   └── ...
+├── pt/
+│   ├── module-name.json  🔄 Portuguese (English placeholder)
+│   └── ...
+└── de/
+    ├── module-name.json  🔄 German (English placeholder)
+    └── ...
+```
+
+**Rationale:**
+- ✅ Prevents technical debt
+- ✅ Ensures global-ready infrastructure from day one
+- ✅ Avoids "we'll translate later" syndrome
+- ✅ Makes future translation easier (files already exist)
+- ✅ Testing works in all languages immediately
+
+**Non-Compliance:**
+- ❌ Module cannot be merged to main
+- ❌ Feature cannot be deployed
+- ❌ PR will be rejected
+
+**This rule is effective immediately for all development.**
