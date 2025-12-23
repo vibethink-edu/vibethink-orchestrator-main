@@ -75,6 +75,27 @@
     "context": "Contexto",
     "input_placeholder": "Pregunta sobre este proyecto o cronología..."
   },
+  "timeline": {
+    "events": {
+      "client_requirements": {
+        "title": "Requisitos del Cliente Recibidos",
+        "description": "Documento de alcance recibido por correo.",
+        "from": "De",
+        "subject": "Asunto",
+        "details": "Adjunto está el documento de alcance final. Por favor revisa las secciones 3.1 y 4.2 específicamente sobre los cronogramas de integración de IA."
+      },
+      "dependency_alert": {
+        "title": "Alerta de Dependencia",
+        "description": "Nuevo conflicto potencial detectado en package.json",
+        "details": "Desajuste de versión detectado para @vibethink/ui. Recomendado: Actualizar a v0.2.1"
+      },
+      "sprint_planning": {
+        "title": "Planificación de Sprint",
+        "description": "Sincronización semanal con el equipo de ingeniería.",
+        "details": "Conclusiones clave: Enfocarse en la implementación del Panel Lateral este sprint. El componente Timeline necesita soportar elementos colapsables."
+      }
+    }
+  },
   "summary": {
     "activeProjects": "Proyectos Activos",
     "completed": "Completados",

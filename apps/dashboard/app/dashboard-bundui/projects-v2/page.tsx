@@ -27,20 +27,20 @@ import {
 
 import { ContextualPanelProvider, useContextualPanel, PanelContextData } from "./context/contextual-panel-context";
 
-// Mock Data for Timeline
-const MOCK_TIMELINE_EVENTS: TimelineEvent[] = [
+// Mock Data for Timeline - Uses i18n
+const getMockTimelineEvents = (t: any): TimelineEvent[] => [
     {
         id: "evt-1",
         type: "email",
         status: "completed",
-        title: "Client Requirements Received",
-        description: "Scope document received via email.",
+        title: t('timeline.events.client_requirements.title'),
+        description: t('timeline.events.client_requirements.description'),
         timestamp: new Date(Date.now() - 1000 * 60 * 60 * 2), // 2 hours ago
         details: (
             <div className="space-y-2">
-                <p><strong>From:</strong> sarah.jones@client.com</p>
-                <p><strong>Subject:</strong> Re: Project Scope - v2</p>
-                <p className="text-muted-foreground">"Attached is the final scope document. Please review sections 3.1 and 4.2 specifically regarding the AI integration timelines."</p>
+                <p><strong>{t('timeline.events.client_requirements.from')}:</strong> sarah.jones@client.com</p>
+                <p><strong>{t('timeline.events.client_requirements.subject')}:</strong> Re: Project Scope - v2</p>
+                <p className="text-muted-foreground">"{t('timeline.events.client_requirements.details')}"</p>
             </div>
         ),
         user: { name: "Sarah Jones" }
@@ -49,19 +49,19 @@ const MOCK_TIMELINE_EVENTS: TimelineEvent[] = [
         id: "evt-2",
         type: "system",
         status: "warning",
-        title: "Dependency Alert",
-        description: "New potential conflict detected in package.json",
+        title: t('timeline.events.dependency_alert.title'),
+        description: t('timeline.events.dependency_alert.description'),
         timestamp: new Date(Date.now() - 1000 * 60 * 60 * 24), // 1 day ago
-        details: "Version mismatch detected for @vibethink/ui. Recommended: Upgrade to v0.2.1",
+        details: t('timeline.events.dependency_alert.details'),
     },
     {
         id: "evt-3",
         type: "meeting",
         status: "completed",
-        title: "Sprint Planning",
-        description: "Weekly sync with engineering team.",
+        title: t('timeline.events.sprint_planning.title'),
+        description: t('timeline.events.sprint_planning.description'),
         timestamp: new Date(Date.now() - 1000 * 60 * 60 * 48), // 2 days ago
-        details: "Key takeaways: Focus on Side Panel implementation this sprint. Timeline component needs to support collapsible items.",
+        details: t('timeline.events.sprint_planning.details'),
         user: { name: "Marcelo Escallón", avatar: "" }
     }
 ];
@@ -169,10 +169,12 @@ function PageContent() {
 }
 
 export default function Page() {
+    const { t } = useTranslation('projects');
+
     return (
         <ContextualPanelProvider
             initialContextData={MOCK_CONTEXT_DATA}
-            initialTimelineEvents={MOCK_TIMELINE_EVENTS}
+            initialTimelineEvents={getMockTimelineEvents(t)}
         >
             <PageContent />
         </ContextualPanelProvider>

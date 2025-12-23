@@ -75,6 +75,27 @@
     "context": "Context",
     "input_placeholder": "Ask about this project or timeline..."
   },
+  "timeline": {
+    "events": {
+      "client_requirements": {
+        "title": "Client Requirements Received",
+        "description": "Scope document received via email.",
+        "from": "From",
+        "subject": "Subject",
+        "details": "Attached is the final scope document. Please review sections 3.1 and 4.2 specifically regarding the AI integration timelines."
+      },
+      "dependency_alert": {
+        "title": "Dependency Alert",
+        "description": "New potential conflict detected in package.json",
+        "details": "Version mismatch detected for @vibethink/ui. Recommended: Upgrade to v0.2.1"
+      },
+      "sprint_planning": {
+        "title": "Sprint Planning",
+        "description": "Weekly sync with engineering team.",
+        "details": "Key takeaways: Focus on Side Panel implementation this sprint. Timeline component needs to support collapsible items."
+      }
+    }
+  },
   "summary": {
     "activeProjects": "Active Projects",
     "completed": "Completed",
