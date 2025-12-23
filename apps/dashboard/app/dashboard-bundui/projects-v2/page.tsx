@@ -86,13 +86,10 @@ function PageContent() {
     };
 
     return (
-        <ResizablePanelGroup
-            direction="horizontal"
-            className="min-h-[calc(100vh-12rem)] max-h-[calc(100vh-12rem)] rounded-none border-0 -m-4 w-[calc(100%+2rem)]"
-        >
+        <div className="flex gap-0 -m-4 w-[calc(100%+2rem)]">
             {/* Main Content Panel */}
-            <ResizablePanel defaultSize={100} minSize={30} className="transition-all duration-300 ease-in-out">
-                <div className="h-full overflow-y-auto px-6 py-6 scrollbar-hide">
+            <div className={`flex-1 transition-all duration-300 ease-in-out ${isPanelOpen ? 'mr-0' : ''}`}>
+                <div className="overflow-y-auto px-6 py-6">
                     <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                         <div className="flex items-center gap-2">
                             <h1 className="text-2xl font-bold tracking-tight">{t('header.title')}</h1>
@@ -151,20 +148,17 @@ function PageContent() {
                         </TabsContent>
                     </Tabs>
                 </div>
-            </ResizablePanel>
+            </div>
 
-            {/* Side Panel */}
+            {/* Side Panel - Fixed overlay */}
             {isPanelOpen && (
-                <>
-                    <ResizableHandle />
-                    <ResizablePanel defaultSize={25} minSize={20} maxSize={40} className="min-w-[320px] shadow-xl z-20 transition-all duration-300 ease-in-out">
-                        <ContextualSidePanel
-                            onClose={togglePanel}
-                        />
-                    </ResizablePanel>
-                </>
+                <div className="fixed top-0 right-0 h-screen w-[400px] shadow-xl z-50 transition-transform duration-300 ease-in-out">
+                    <ContextualSidePanel
+                        onClose={togglePanel}
+                    />
+                </div>
             )}
-        </ResizablePanelGroup>
+        </div>
     );
 }
 
