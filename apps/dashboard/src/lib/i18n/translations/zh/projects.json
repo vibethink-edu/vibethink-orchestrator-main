@@ -1,168 +1,167 @@
 {
   "common": {
-    "loading": "Loading...",
-    "error": "Error",
-    "success": "Success",
-    "cancel": "Cancel",
-    "save": "Save",
-    "delete": "Delete",
-    "edit": "Edit",
-    "create": "Create",
-    "update": "Update",
-    "search": "Search",
-    "filter": "Filter",
-    "sort": "Sort",
-    "export": "Export",
-    "import": "Import",
-    "download": "Download",
-    "upload": "Upload",
-    "close": "Close",
-    "confirm": "Confirm",
-    "back": "Back",
-    "next": "Next",
-    "previous": "Previous",
-    "submit": "Submit",
-    "reset": "Reset",
-    "clear": "Clear",
-    "apply": "Apply",
-    "select": "Select",
-    "view": "View",
-    "add": "Add",
-    "remove": "Remove"
+    "loading": "加载中...",
+    "error": "错误",
+    "success": "成功",
+    "cancel": "取消",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "create": "创建",
+    "update": "更新",
+    "search": "搜索",
+    "filter": "筛选",
+    "sort": "排序",
+    "export": "导出",
+    "import": "导入",
+    "download": "下载",
+    "upload": "上传",
+    "close": "关闭",
+    "confirm": "确认",
+    "back": "返回",
+    "next": "下一步",
+    "previous": "上一步",
+    "submit": "提交",
+    "reset": "重置",
+    "clear": "清除",
+    "apply": "应用",
+    "select": "选择",
+    "view": "查看",
+    "add": "添加",
+    "remove": "移除"
   },
   "header": {
-    "title": "Project Management",
-    "subtitle": "Track projects, manage tasks, and monitor team performance",
-    "newProject": "New Project",
-    "newTask": "New Task",
-    "export": "Export",
-    "searchPlaceholder": "Search projects...",
-    "filters": "Filters",
-    "clearFilters": "Clear",
-    "status": "Status",
-    "priority": "Priority",
-    "teamLead": "Team Lead",
-    "allStatuses": "All Statuses",
-    "allPriorities": "All Priorities",
-    "allTeamLeads": "All Team Leads",
-    "activeFilters": "Active filters",
-    "quickFilters": "Quick Filters",
-    "activeProjectsOnly": "Active Projects Only",
-    "highPriorityProjects": "High Priority Projects",
-    "overdueProjects": "Overdue Projects"
+    "title": "项目管理",
+    "subtitle": "跟踪项目、管理任务并监控团队绩效",
+    "newProject": "新项目",
+    "newTask": "新任务",
+    "export": "导出",
+    "searchPlaceholder": "搜索项目...",
+    "filters": "筛选器",
+    "clearFilters": "清除",
+    "status": "状态",
+    "priority": "优先级",
+    "teamLead": "团队负责人",
+    "allStatuses": "所有状态",
+    "allPriorities": "所有优先级",
+    "allTeamLeads": "所有团队负责人",
+    "activeFilters": "活动筛选器",
+    "quickFilters": "快速筛选",
+    "activeProjectsOnly": "仅活动项目",
+    "highPriorityProjects": "高优先级项目",
+    "overdueProjects": "逾期项目"
   },
   "tabs": {
-    "overview": "Overview",
-    "projects": "Projects",
-    "team": "Team",
-    "reports": "Reports",
-    "activities": "Activities"
+    "overview": "概览",
+    "projects": "项目",
+    "team": "团队",
+    "reports": "报告",
+    "activities": "活动"
   },
   "actions": {
-    "consult_ai": "Ask ViTo",
-    "close_panel": "Close Side Panel",
-    "open_panel": "Open Side Panel"
+    "consult_ai": "询问 ViTo",
+    "close_panel": "关闭侧面板",
+    "open_panel": "打开侧面板"
   },
   "sidepanel": {
-    "agent_title": "ViTo AI Assistant",
-    "history_title": "History",
-    "verified": "Verified",
-    "close": "Close Panel",
+    "agent_title": "ViTo AI 助手",
+    "history_title": "历史记录",
+    "verified": "已验证",
+    "close": "关闭面板",
     "tabs": {
       "agent": "ViTo",
-      "timeline": "Timeline"
+      "timeline": "时间线"
     },
-    "context": "Context",
-    "input_placeholder": "Ask ViTo about this project or timeline..."
+    "context": "上下文",
+    "input_placeholder": "向 ViTo 询问有关此项目或时间线的问题..."
   },
   "timeline": {
     "events": {
       "client_requirements": {
-        "title": "Client Requirements Received",
-        "description": "Scope document received via email.",
-        "from": "From",
-        "subject": "Subject",
-        "details": "Attached is the final scope document. Please review sections 3.1 and 4.2 specifically regarding the AI integration timelines."
+        "title": "已收到客户需求",
+        "description": "通过电子邮件收到范围文档。",
+        "from": "发件人",
+        "subject": "主题",
+        "details": "附件是最终范围文档。请特别查看第 3.1 和 4.2 节关于 AI 集成时间表的内容。"
       },
       "dependency_alert": {
-        "title": "Dependency Alert",
-        "description": "New potential conflict detected in package.json",
-        "details": "Version mismatch detected for @vibethink/ui. Recommended: Upgrade to v0.2.1"
+        "title": "依赖项警报",
+        "description": "在 package.json 中检测到新的潜在冲突",
+        "details": "检测到 @vibethink/ui 的版本不匹配。建议：升级到 v0.2.1"
       },
       "sprint_planning": {
-        "title": "Sprint Planning",
-        "description": "Weekly sync with engineering team.",
-        "details": "Key takeaways: Focus on Side Panel implementation this sprint. Timeline component needs to support collapsible items."
+        "title": "冲刺规划",
+        "description": "与工程团队的每周同步。",
+        "details": "关键要点：本次冲刺重点关注侧面板实现。时间线组件需要支持可折叠项。"
       }
     }
   },
   "summary": {
-    "activeProjects": "Active Projects",
-    "completed": "Completed",
-    "onHold": "On Hold",
-    "totalBudget": "Total Budget",
-    "teamMembers": "Team Members",
-    "activeTasks": "Active Tasks",
-    "completedTasks": "Completed Tasks",
-    "avgEfficiency": "Avg Efficiency",
-    "overdueTasks": "Overdue Tasks",
-    "fromLastMonth": "from last month",
-    "thisMonth": "this month",
-    "activeContributors": "active contributors",
-    "fromLastWeek": "from last week",
-    "failedToLoad": "Failed to load metrics"
+    "activeProjects": "活动项目",
+    "completed": "已完成",
+    "onHold": "暂停",
+    "totalBudget": "总预算",
+    "teamMembers": "团队成员",
+    "activeTasks": "活动任务",
+    "completedTasks": "已完成任务",
+    "avgEfficiency": "平均效率",
+    "overdueTasks": "逾期任务",
+    "fromLastMonth": "较上月",
+    "thisMonth": "本月",
+    "activeContributors": "活跃贡献者",
+    "fromLastWeek": "较上周",
+    "failedToLoad": "加载指标失败"
   },
   "sections": {
-    "teamPerformance": "Team Performance",
-    "teamPerformanceDesc": "Detailed team performance metrics would be displayed here, including individual member productivity, task completion rates, and workload distribution.",
-    "loadingData": "Loading project data...",
-    "recentProjects": "Recent Projects",
-    "projectDistribution": "Project Distribution",
-    "upcomingDeadlines": "Upcoming Deadlines",
-    "upcomingDeadlines": "Upcoming Deadlines",
-    "projectsOverview": "Projects Overview"
+    "teamPerformance": "团队绩效",
+    "teamPerformanceDesc": "此处将显示详细的团队绩效指标，包括个人成员生产力、任务完成率和工作负载分配。",
+    "loadingData": "正在加载项目数据...",
+    "recentProjects": "最近项目",
+    "projectDistribution": "项目分布",
+    "upcomingDeadlines": "即将到来的截止日期",
+    "projectsOverview": "项目概览"
   },
   "v2": {
     "summaryCards": {
-      "totalRevenue": "Total Revenue",
-      "activeProjects": "Active Projects",
-      "newLeads": "New Leads",
-      "timeSpent": "Time Spent"
+      "totalRevenue": "总收入",
+      "activeProjects": "活动项目",
+      "newLeads": "新线索",
+      "timeSpent": "花费时间"
     },
     "overview": {
-      "title": "Projects Overview",
-      "description": "Total for the last 3 months",
-      "mobileDescription": "Last 3 months",
-      "last3Months": "Last 3 months",
-      "last30Days": "Last 30 days",
-      "last7Days": "Last 7 days"
+      "title": "项目概览",
+      "description": "过去 3 个月的总计",
+      "mobileDescription": "过去 3 个月",
+      "last3Months": "过去 3 个月",
+      "last30Days": "过去 30 天",
+      "last7Days": "过去 7 天"
     },
     "efficiency": {
-      "title": "Project Efficiency",
-      "description": "January - June 2026",
-      "trending": "Trending up by 5.2% this month"
+      "title": "项目效率",
+      "description": "2026 年 1 月 - 6 月",
+      "trending": "本月上升 5.2%"
     },
     "achievement": {
-      "title": "Achievement by Year",
-      "description": "You completed more projects per day on average this year than last year.",
-      "projects": "projects"
+      "title": "年度成就",
+      "description": "今年您平均每天完成的项目比去年多。",
+      "projects": "项目"
     },
     "reminders": {
-      "title": "Reminder",
-      "showOther": "Show the other 10 reminders"
+      "title": "提醒",
+      "showOther": "显示其他 10 个提醒"
     },
     "successMetrics": {
-      "title": "Success Metrics",
-      "description": "Key performance indicators for project success",
-      "successRate": "Project Success Rate",
-      "onTime": "On-Time Completion",
-      "clientSat": "Client Satisfaction",
-      "budget": "Budget Adherence"
+      "title": "成功指标",
+      "description": "项目成功的关键绩效指标",
+      "successRate": "项目成功率",
+      "onTime": "按时完成",
+      "clientSat": "客户满意度",
+      "budget": "预算遵守"
     },
     "reports": {
-      "title": "Projects Reports",
-      "description": "Download detailedreports for your projects",
-      "download": "Download Report"
+      "title": "项目报告",
+      "description": "下载项目的详细报告",
+      "download": "下载报告"
     }
   }
 }

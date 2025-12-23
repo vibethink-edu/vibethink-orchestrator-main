@@ -1,168 +1,167 @@
 {
   "common": {
-    "loading": "Loading...",
-    "error": "Error",
-    "success": "Success",
-    "cancel": "Cancel",
-    "save": "Save",
-    "delete": "Delete",
-    "edit": "Edit",
-    "create": "Create",
-    "update": "Update",
-    "search": "Search",
-    "filter": "Filter",
-    "sort": "Sort",
-    "export": "Export",
-    "import": "Import",
-    "download": "Download",
-    "upload": "Upload",
-    "close": "Close",
-    "confirm": "Confirm",
-    "back": "Back",
-    "next": "Next",
-    "previous": "Previous",
-    "submit": "Submit",
-    "reset": "Reset",
-    "clear": "Clear",
-    "apply": "Apply",
-    "select": "Select",
-    "view": "View",
-    "add": "Add",
-    "remove": "Remove"
+    "loading": "Laden...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "create": "Erstellen",
+    "update": "Aktualisieren",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "sort": "Sortieren",
+    "export": "Exportieren",
+    "import": "Importieren",
+    "download": "Herunterladen",
+    "upload": "Hochladen",
+    "close": "Schließen",
+    "confirm": "Bestätigen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Vorherige",
+    "submit": "Absenden",
+    "reset": "Zurücksetzen",
+    "clear": "Löschen",
+    "apply": "Anwenden",
+    "select": "Auswählen",
+    "view": "Ansehen",
+    "add": "Hinzufügen",
+    "remove": "Entfernen"
   },
   "header": {
-    "title": "Project Management",
-    "subtitle": "Track projects, manage tasks, and monitor team performance",
-    "newProject": "New Project",
-    "newTask": "New Task",
-    "export": "Export",
-    "searchPlaceholder": "Search projects...",
-    "filters": "Filters",
-    "clearFilters": "Clear",
+    "title": "Projektverwaltung",
+    "subtitle": "Projekte verfolgen, Aufgaben verwalten und Teamleistung überwachen",
+    "newProject": "Neues Projekt",
+    "newTask": "Neue Aufgabe",
+    "export": "Exportieren",
+    "searchPlaceholder": "Projekte suchen...",
+    "filters": "Filter",
+    "clearFilters": "Löschen",
     "status": "Status",
-    "priority": "Priority",
-    "teamLead": "Team Lead",
-    "allStatuses": "All Statuses",
-    "allPriorities": "All Priorities",
-    "allTeamLeads": "All Team Leads",
-    "activeFilters": "Active filters",
-    "quickFilters": "Quick Filters",
-    "activeProjectsOnly": "Active Projects Only",
-    "highPriorityProjects": "High Priority Projects",
-    "overdueProjects": "Overdue Projects"
+    "priority": "Priorität",
+    "teamLead": "Teamleiter",
+    "allStatuses": "Alle Status",
+    "allPriorities": "Alle Prioritäten",
+    "allTeamLeads": "Alle Teamleiter",
+    "activeFilters": "Aktive Filter",
+    "quickFilters": "Schnellfilter",
+    "activeProjectsOnly": "Nur Aktive Projekte",
+    "highPriorityProjects": "Hochprioritätsprojekte",
+    "overdueProjects": "Überfällige Projekte"
   },
   "tabs": {
-    "overview": "Overview",
-    "projects": "Projects",
+    "overview": "Übersicht",
+    "projects": "Projekte",
     "team": "Team",
-    "reports": "Reports",
-    "activities": "Activities"
+    "reports": "Berichte",
+    "activities": "Aktivitäten"
   },
   "actions": {
-    "consult_ai": "Ask ViTo",
-    "close_panel": "Close Side Panel",
-    "open_panel": "Open Side Panel"
+    "consult_ai": "ViTo fragen",
+    "close_panel": "Seitenpanel schließen",
+    "open_panel": "Seitenpanel öffnen"
   },
   "sidepanel": {
-    "agent_title": "ViTo AI Assistant",
-    "history_title": "History",
-    "verified": "Verified",
-    "close": "Close Panel",
+    "agent_title": "ViTo KI-Assistent",
+    "history_title": "Verlauf",
+    "verified": "Verifiziert",
+    "close": "Panel schließen",
     "tabs": {
       "agent": "ViTo",
-      "timeline": "Timeline"
+      "timeline": "Zeitleiste"
     },
-    "context": "Context",
-    "input_placeholder": "Ask ViTo about this project or timeline..."
+    "context": "Kontext",
+    "input_placeholder": "Fragen Sie ViTo zu diesem Projekt oder der Zeitleiste..."
   },
   "timeline": {
     "events": {
       "client_requirements": {
-        "title": "Client Requirements Received",
-        "description": "Scope document received via email.",
-        "from": "From",
-        "subject": "Subject",
-        "details": "Attached is the final scope document. Please review sections 3.1 and 4.2 specifically regarding the AI integration timelines."
+        "title": "Kundenanforderungen Erhalten",
+        "description": "Umfangsdokument per E-Mail erhalten.",
+        "from": "Von",
+        "subject": "Betreff",
+        "details": "Das endgültige Umfangsdokument ist beigefügt. Bitte überprüfen Sie insbesondere die Abschnitte 3.1 und 4.2 bezüglich der KI-Integrationszeitpläne."
       },
       "dependency_alert": {
-        "title": "Dependency Alert",
-        "description": "New potential conflict detected in package.json",
-        "details": "Version mismatch detected for @vibethink/ui. Recommended: Upgrade to v0.2.1"
+        "title": "Abhängigkeitswarnung",
+        "description": "Neuer potenzieller Konflikt in package.json erkannt",
+        "details": "Versionsinkompatibilität für @vibethink/ui erkannt. Empfohlen: Upgrade auf v0.2.1"
       },
       "sprint_planning": {
-        "title": "Sprint Planning",
-        "description": "Weekly sync with engineering team.",
-        "details": "Key takeaways: Focus on Side Panel implementation this sprint. Timeline component needs to support collapsible items."
+        "title": "Sprint-Planung",
+        "description": "Wöchentliche Synchronisation mit dem Engineering-Team.",
+        "details": "Wichtige Erkenntnisse: Fokus auf Seitenpanel-Implementierung in diesem Sprint. Zeitleisten-Komponente muss zusammenklappbare Elemente unterstützen."
       }
     }
   },
   "summary": {
-    "activeProjects": "Active Projects",
-    "completed": "Completed",
-    "onHold": "On Hold",
-    "totalBudget": "Total Budget",
-    "teamMembers": "Team Members",
-    "activeTasks": "Active Tasks",
-    "completedTasks": "Completed Tasks",
-    "avgEfficiency": "Avg Efficiency",
-    "overdueTasks": "Overdue Tasks",
-    "fromLastMonth": "from last month",
-    "thisMonth": "this month",
-    "activeContributors": "active contributors",
-    "fromLastWeek": "from last week",
-    "failedToLoad": "Failed to load metrics"
+    "activeProjects": "Aktive Projekte",
+    "completed": "Abgeschlossen",
+    "onHold": "Wartend",
+    "totalBudget": "Gesamtbudget",
+    "teamMembers": "Teammitglieder",
+    "activeTasks": "Aktive Aufgaben",
+    "completedTasks": "Abgeschlossene Aufgaben",
+    "avgEfficiency": "Durchschn. Effizienz",
+    "overdueTasks": "Überfällige Aufgaben",
+    "fromLastMonth": "vom letzten Monat",
+    "thisMonth": "diesen Monat",
+    "activeContributors": "aktive Mitwirkende",
+    "fromLastWeek": "von letzter Woche",
+    "failedToLoad": "Metriken konnten nicht geladen werden"
   },
   "sections": {
-    "teamPerformance": "Team Performance",
-    "teamPerformanceDesc": "Detailed team performance metrics would be displayed here, including individual member productivity, task completion rates, and workload distribution.",
-    "loadingData": "Loading project data...",
-    "recentProjects": "Recent Projects",
-    "projectDistribution": "Project Distribution",
-    "upcomingDeadlines": "Upcoming Deadlines",
-    "upcomingDeadlines": "Upcoming Deadlines",
-    "projectsOverview": "Projects Overview"
+    "teamPerformance": "Teamleistung",
+    "teamPerformanceDesc": "Detaillierte Teamleistungsmetriken würden hier angezeigt, einschließlich individueller Mitgliederproduktivität, Aufgabenabschlussraten und Arbeitsbelastungsverteilung.",
+    "loadingData": "Projektdaten werden geladen...",
+    "recentProjects": "Aktuelle Projekte",
+    "projectDistribution": "Projektverteilung",
+    "upcomingDeadlines": "Bevorstehende Fristen",
+    "projectsOverview": "Projektübersicht"
   },
   "v2": {
     "summaryCards": {
-      "totalRevenue": "Total Revenue",
-      "activeProjects": "Active Projects",
-      "newLeads": "New Leads",
-      "timeSpent": "Time Spent"
+      "totalRevenue": "Gesamtumsatz",
+      "activeProjects": "Aktive Projekte",
+      "newLeads": "Neue Leads",
+      "timeSpent": "Aufgewendete Zeit"
     },
     "overview": {
-      "title": "Projects Overview",
-      "description": "Total for the last 3 months",
-      "mobileDescription": "Last 3 months",
-      "last3Months": "Last 3 months",
-      "last30Days": "Last 30 days",
-      "last7Days": "Last 7 days"
+      "title": "Projektübersicht",
+      "description": "Gesamt der letzten 3 Monate",
+      "mobileDescription": "Letzte 3 Monate",
+      "last3Months": "Letzte 3 Monate",
+      "last30Days": "Letzte 30 Tage",
+      "last7Days": "Letzte 7 Tage"
     },
     "efficiency": {
-      "title": "Project Efficiency",
-      "description": "January - June 2026",
-      "trending": "Trending up by 5.2% this month"
+      "title": "Projekteffizienz",
+      "description": "Januar - Juni 2026",
+      "trending": "Anstieg um 5,2% in diesem Monat"
     },
     "achievement": {
-      "title": "Achievement by Year",
-      "description": "You completed more projects per day on average this year than last year.",
-      "projects": "projects"
+      "title": "Leistung nach Jahr",
+      "description": "Sie haben dieses Jahr durchschnittlich mehr Projekte pro Tag abgeschlossen als letztes Jahr.",
+      "projects": "Projekte"
     },
     "reminders": {
-      "title": "Reminder",
-      "showOther": "Show the other 10 reminders"
+      "title": "Erinnerung",
+      "showOther": "Die anderen 10 Erinnerungen anzeigen"
     },
     "successMetrics": {
-      "title": "Success Metrics",
-      "description": "Key performance indicators for project success",
-      "successRate": "Project Success Rate",
-      "onTime": "On-Time Completion",
-      "clientSat": "Client Satisfaction",
-      "budget": "Budget Adherence"
+      "title": "Erfolgsmetriken",
+      "description": "Wichtige Leistungsindikatoren für Projekterfolg",
+      "successRate": "Projekterfolgsrate",
+      "onTime": "Pünktliche Fertigstellung",
+      "clientSat": "Kundenzufriedenheit",
+      "budget": "Budgeteinhaltung"
     },
     "reports": {
-      "title": "Projects Reports",
-      "description": "Download detailedreports for your projects",
-      "download": "Download Report"
+      "title": "Projektberichte",
+      "description": "Laden Sie detaillierte Berichte für Ihre Projekte herunter",
+      "download": "Bericht Herunterladen"
     }
   }
 }
