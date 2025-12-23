@@ -253,7 +253,55 @@ export function Component() {
 
 ---
 
-### 6. RTL Support
+### 7. English Fallback Rule
+
+**MANDATORY: Automatic fallback to English**
+
+**RULE:** If a translation key is not found in the current locale, the system MUST automatically fallback to English.
+
+**Implementation:**
+```typescript
+// ✅ AUTOMATIC in i18n system
+const text = t('projects.welcome.title');
+// 1. Try current locale (e.g., 'ar')
+// 2. If not found → Fallback to 'en'
+// 3. If still not found → Return key as-is
+```
+
+**Behavior:**
+- User in Arabic sees English text if Arabic translation missing
+- User in Chinese sees English text if Chinese translation missing
+- **NEVER** show raw keys like `projects.welcome.title` to users
+- **NEVER** show blank/empty strings
+
+**Example:**
+```typescript
+// User locale: 'zh' (Chinese)
+// Translation exists in EN but not in ZH
+
+t('projects.new_feature.title')
+// → Returns: "New Feature" (English fallback)
+// → NOT: "projects.new_feature.title" ❌
+// → NOT: "" ❌
+```
+
+**Console Output:**
+```
+[i18n] Translation not found for 'projects.new_feature.title' in 'zh', falling back to English
+[i18n] ✅ Fallback successful: Using English translation
+```
+
+**Rationale:**
+- ✅ Prevents broken UI with raw keys
+- ✅ English is universally understood as fallback
+- ✅ Allows gradual translation (start with EN/ES, add others later)
+- ✅ Better UX than showing nothing
+
+**This is implemented automatically in the i18n system.**
+
+---
+
+### 8. RTL Support
 
 **REQUIRED for Arabic (ar):**
 

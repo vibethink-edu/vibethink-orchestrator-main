@@ -181,12 +181,38 @@ export function I18nProvider({
       }
 
       // Get nested value
-      const translation = getNestedValue(namespaceTranslations, translationKey);
+      let translation = getNestedValue(namespaceTranslations, translationKey);
+
+      // ✅ FALLBACK TO ENGLISH if translation not found
+      if (!translation && locale !== 'en') {
+        console.warn(`[i18n] Translation not found for '${key}' in '${locale}', falling back to English`);
+
+        // Try to get English translation
+        if (!translationStore.has('en')) {
+          translationStore.set('en', new Map());
+        }
+        const enStore = translationStore.get('en')!;
+        const enNamespace = enStore.get(namespace);
+
+        if (enNamespace) {
+          translation = getNestedValue(enNamespace, translationKey);
+          if (translation) {
+            console.log(`[i18n] ✅ Fallback successful: Using English translation for '${key}'`);
+          }
+        } else {
+          // Load English namespace on demand
+          console.log(`[i18n] Loading English namespace '${namespace}' for fallback...`);
+          loadTranslation('en', namespace).then((enTranslation) => {
+            enStore.set(namespace, enTranslation);
+          }).catch((error) => {
+            console.error(`[i18n] Failed to load English fallback for '${namespace}':`, error);
+          });
+        }
+      }
+
+      // If still no translation found, return key
       if (!translation) {
-        console.warn(`[i18n] Translation not found: ${key}`);
-        console.warn(`[i18n]   Namespace: ${namespace}, Key: ${translationKey}`);
-        console.warn(`[i18n]   Available keys in namespace:`, Object.keys(namespaceTranslations || {}).slice(0, 10));
-        console.warn(`[i18n]   Full namespace object:`, namespaceTranslations);
+        console.warn(`[i18n] Translation not found even in English: ${key}`);
         return key;
       }
 
@@ -201,7 +227,7 @@ export function I18nProvider({
           // Fallback a replaceParams legacy
         }
       }
-      
+
       // Usar replaceParams (soporta legacy {{param}} y ICU básico)
       const result = replaceParams(translation, params, locale);
       if (result === key || (result.includes('{{') && params)) {
