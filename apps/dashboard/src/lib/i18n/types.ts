@@ -8,7 +8,7 @@
 /**
  * Supported locales
  */
-export type Locale = 'en' | 'es';
+export type Locale = 'en' | 'es' | 'ar' | 'zh' | 'fr' | 'pt' | 'de';
 
 /**
  * Default locale
@@ -18,7 +18,7 @@ export const DEFAULT_LOCALE: Locale = 'en';
 /**
  * Available locales array
  */
-export const AVAILABLE_LOCALES: Locale[] = ['en', 'es'];
+export const AVAILABLE_LOCALES: Locale[] = ['en', 'es', 'ar', 'zh', 'fr', 'pt', 'de'];
 
 /**
  * Locale metadata
