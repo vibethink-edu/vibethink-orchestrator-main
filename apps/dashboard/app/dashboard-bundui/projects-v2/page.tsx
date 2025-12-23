@@ -28,6 +28,7 @@ import {
 import { ContextualPanelProvider, useContextualPanel, PanelContextData } from "./context/contextual-panel-context";
 import { ExtendedPanelContext } from "@/lib/types/ai-context";
 import { getUserPermissionsFromPlan } from "@/lib/types/ai-context";
+import { LanguageSwitcher } from "./components/LanguageSwitcher";
 
 // Mock Data for Timeline - Uses i18n
 const getMockTimelineEvents = (t: any): TimelineEvent[] => [
@@ -116,17 +117,18 @@ function PageContent() {
                     <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                         <div className="flex items-center gap-2">
                             <h1 className="text-2xl font-bold tracking-tight">{t('header.title')}</h1>
-                            {!isPanelOpen && (
-                                <Button
-                                    variant="outline"
-                                    size="sm"
-                                    className="ml-2 gap-2 h-7 rounded-full border-dashed border-purple-300 text-purple-600 hover:bg-purple-50 hover:text-purple-700"
-                                    onClick={togglePanel}
-                                >
-                                    <Brain className="w-3.5 h-3.5" />
-                                    <span className="text-xs font-medium">{t('actions.consult_ai', 'Consultar Agente')}</span>
-                                </Button>
-                            )}
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <LanguageSwitcher />
+                            <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={togglePanel}
+                                className="gap-2"
+                            >
+                                <MessageSquare className="h-4 w-4" />
+                                <span className="hidden sm:inline">{t('actions.consult_ai')}</span>
+                            </Button>
                         </div>
                         <div className="flex items-center space-x-2">
                             <CalendarDateRangePicker />
