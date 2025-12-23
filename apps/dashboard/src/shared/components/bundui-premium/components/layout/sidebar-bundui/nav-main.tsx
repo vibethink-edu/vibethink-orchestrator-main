@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslation } from '@/lib/i18n';
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -132,7 +133,7 @@ export const navItems: NavGroup[] = [
         isNew: true
       },
       {
-        title: "Projects V12",
+        title: "Projects V2",
         href: "/dashboard-bundui/projects-v2",
         icon: FolderDotIcon,
         isNew: true
@@ -338,6 +339,7 @@ export const navItems: NavGroup[] = [
 export function NavMain() {
   const pathname = usePathname();
   const { isMobile } = useSidebar();
+  const { t } = useTranslation('navigation');
 
   return (
     <>
