@@ -556,11 +556,16 @@ node scripts/detect-hardcoded-strings-by-component.js \
 ### Fase 2: Expansión a Idiomas Adicionales
 
 **Idiomas Planificados:**
-- 🔄 **AR** (العربية - Arabic) - RTL support
-- 🔄 **ZH** (中文 - Chinese Simplified)
-- 🔄 **FR** (Français - French)
-- 🔄 **PT** (Português - Portuguese)
-- 🔄 **DE** (Deutsch - German)
+- 🔄 **ar** (العربية - Modern Standard Arabic) - RTL support, variante universal
+- 🔄 **zh** (中文 - Simplified Chinese) - Variante más usada globalmente
+- 🔄 **fr** (Français - French)
+- 🔄 **pt** (Português - Portuguese)
+- 🔄 **de** (Deutsch - German)
+
+**Nota sobre variantes:**
+- **Chino:** Usar solo `zh` (Simplified) como estándar. Evitar `zh-CN`, `zh-TW`, `zh-HK` para simplificar.
+- **Árabe:** Usar solo `ar` (Modern Standard Arabic). Evitar variantes regionales (`ar-SA`, `ar-EG`, etc.).
+- **Otros idiomas:** Una sola variante por idioma para evitar complejidad innecesaria.
 
 **Preparación para RTL (Right-to-Left):**
 
@@ -608,6 +613,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
    ```typescript
    // lib/i18n/config.ts
    export const SUPPORTED_LOCALES = ['en', 'es', 'ar', 'zh', 'fr', 'pt', 'de'] as const;
+   export type SupportedLocale = typeof SUPPORTED_LOCALES[number];
    ```
 
 5. **Validar:**
