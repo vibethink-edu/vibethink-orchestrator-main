@@ -537,5 +537,145 @@ node scripts/detect-hardcoded-strings-by-component.js \
 
 ---
 
-**Este protocolo establece la estrategia para organizar y validar traducciones por componente, facilitando la detección sistemática de strings hardcoded.**
+---
+
+## 🌍 Roadmap de Internacionalización
+
+### Estado Actual (Fase 1)
+**Idiomas Implementados:**
+- ✅ **EN** (English) - Idioma base
+- ✅ **ES** (Español) - Completamente traducido
+
+**Arquitectura:**
+- ✅ Sistema de namespaces por componente
+- ✅ Archivos JSON separados por idioma (`en/*.json`, `es/*.json`)
+- ✅ Hook `useTranslation()` en todos los componentes
+- ✅ Lazy loading de namespaces
+- ✅ Preloading de namespaces críticos
+
+### Fase 2: Expansión a Idiomas Adicionales
+
+**Idiomas Planificados:**
+- 🔄 **AR** (العربية - Arabic) - RTL support
+- 🔄 **ZH** (中文 - Chinese Simplified)
+- 🔄 **FR** (Français - French)
+- 🔄 **PT** (Português - Portuguese)
+- 🔄 **DE** (Deutsch - German)
+
+**Preparación para RTL (Right-to-Left):**
+
+```typescript
+// lib/i18n/config.ts
+export const RTL_LANGUAGES = ['ar', 'he', 'fa', 'ur'];
+
+export function isRTL(locale: string): boolean {
+  return RTL_LANGUAGES.includes(locale);
+}
+
+// Uso en layout
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const { locale } = useTranslation();
+  
+  return (
+    <html lang={locale} dir={isRTL(locale) ? 'rtl' : 'ltr'}>
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+**Proceso para Agregar Nuevo Idioma:**
+
+1. **Crear estructura de archivos:**
+   ```bash
+   mkdir apps/dashboard/src/lib/i18n/translations/ar
+   mkdir apps/dashboard/src/lib/i18n/translations/zh
+   ```
+
+2. **Copiar estructura de EN:**
+   ```bash
+   # Para cada namespace existente
+   cp src/lib/i18n/translations/en/projects.json src/lib/i18n/translations/ar/projects.json
+   cp src/lib/i18n/translations/en/ai-chat.json src/lib/i18n/translations/ar/ai-chat.json
+   ```
+
+3. **Traducir contenido:**
+   - Mantener la misma estructura JSON
+   - Traducir solo los valores, NO las claves
+   - Validar con hablantes nativos
+
+4. **Configurar locale:**
+   ```typescript
+   // lib/i18n/config.ts
+   export const SUPPORTED_LOCALES = ['en', 'es', 'ar', 'zh', 'fr', 'pt', 'de'] as const;
+   ```
+
+5. **Validar:**
+   ```bash
+   # Verificar que todas las claves existen
+   node scripts/validate-i18n-completeness.js --locale ar
+   ```
+
+**Consideraciones Especiales:**
+
+- **RTL (Arabic, Hebrew):**
+  - Aplicar `dir="rtl"` automáticamente
+  - Invertir iconos de navegación (flechas, etc.)
+  - Ajustar padding/margin según dirección
+  
+- **CJK (Chinese, Japanese, Korean):**
+  - Fuentes específicas para caracteres asiáticos
+  - Line-height ajustado para mejor legibilidad
+  - Truncamiento de texto adaptado
+
+- **Pluralización:**
+  - Usar `i18next` plural rules
+  - Ejemplo: `{{count}} message` vs `{{count}} messages`
+
+**Ejemplo de Archivo Multiidioma:**
+
+```json
+// en/projects.json
+{
+  "actions": {
+    "consult_ai": "Ask ViTo"
+  }
+}
+
+// es/projects.json
+{
+  "actions": {
+    "consult_ai": "Consultar a ViTo"
+  }
+}
+
+// ar/projects.json (RTL)
+{
+  "actions": {
+    "consult_ai": "اسأل ViTo"
+  }
+}
+
+// zh/projects.json
+{
+  "actions": {
+    "consult_ai": "询问 ViTo"
+  }
+}
+```
+
+---
+
+## ✅ Estado del Protocolo
+
+**Versión:** 1.1.0  
+**Fecha:** 2025-12-23  
+**Estado:** ✅ OBLIGATORIO  
+
+**Última actualización:** 2025-12-23 - Agregado roadmap de internacionalización  
+**Aplicable a:** Todos los módulos importados
+
+---
+
+**Este protocolo establece la estrategia para organizar y validar traducciones por componente, facilitando la detección sistemática de strings hardcoded y preparando el sistema para expansión multiidioma incluyendo RTL.**
 
