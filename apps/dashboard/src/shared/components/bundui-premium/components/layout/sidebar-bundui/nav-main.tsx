@@ -336,6 +336,93 @@ export const navItems: NavGroup[] = [
   }
 ];
 
+// Helper function to map English titles to translation keys
+const getTitleTranslationKey = (title: string): string => {
+  const keyMap: Record<string, string> = {
+    // Groups
+    'Dashboards': 'groups.dashboards',
+    'AI Apps': 'groups.ai_apps',
+    'Apps': 'groups.apps',
+    'Pages': 'groups.pages',
+    'Others': 'groups.others',
+    // Main items
+    'Default': 'items.default',
+    'E-commerce': 'items.ecommerce',
+    'Sales': 'items.sales',
+    'CRM': 'items.crm',
+    'CRM V2': 'items.crm_v2',
+    'CRM V2 + AI': 'items.crm_v2_ai',
+    'Website Analytics': 'items.website_analytics',
+    'Project Management': 'items.project_management',
+    'Projects V2': 'items.projects_v2',
+    'File Manager': 'items.file_manager',
+    'Crypto': 'items.crypto',
+    'Crypto V2': 'items.crypto_v2',
+    'Finance': 'items.finance',
+    'Finance V2': 'items.finance_v2',
+    'Academy/School': 'items.academy',
+    'Hospital Management': 'items.hospital',
+    'Hotel Dashboard': 'items.hotel',
+    'AI Chat': 'items.ai_chat',
+    'AI Chat V2': 'items.ai_chat_v2',
+    'Image Generator': 'items.image_generator',
+    'Text to Speech': 'items.text_to_speech',
+    'Kanban': 'items.kanban',
+    'Notes': 'items.notes',
+    'Chats': 'items.chats',
+    'Mail': 'items.mail',
+    'Todo List App': 'items.todo_list',
+    'Tasks': 'items.tasks',
+    'Calendar': 'items.calendar',
+    'Api Keys': 'items.api_keys',
+    'POS App': 'items.pos_app',
+    'Users List': 'items.users_list',
+    'Profile': 'items.profile',
+    'Onboarding Flow': 'items.onboarding',
+    'Empty States': 'items.empty_states',
+    'Settings': 'items.settings',
+    'Pricing': 'items.pricing',
+    'Authentication': 'items.authentication',
+    'Error Pages': 'items.error_pages',
+    'Download VibeThink Pro': 'items.download_pro',
+    'Components': 'items.components',
+    'Blocks': 'items.blocks',
+    'Templates': 'items.templates',
+    'Github': 'items.github',
+    // Subitems
+    'Dashboard': 'subitems.dashboard',
+    'Product List': 'subitems.product_list',
+    'Product Detail': 'subitems.product_detail',
+    'Add Product': 'subitems.add_product',
+    'Order List': 'subitems.order_list',
+    'Order Detail': 'subitems.order_detail',
+    'Bookings': 'subitems.bookings',
+    'Empty States 01': 'subitems.empty_states_01',
+    'Empty States 02': 'subitems.empty_states_02',
+    'Empty States 03': 'subitems.empty_states_03',
+    'Account': 'subitems.account',
+    'Appearance': 'subitems.appearance',
+    'Notifications': 'subitems.notifications',
+    'Display': 'subitems.display',
+    'Column Pricing': 'subitems.column_pricing',
+    'Table Pricing': 'subitems.table_pricing',
+    'Single Pricing': 'subitems.single_pricing',
+    'Login v1': 'subitems.login_v1',
+    'Login v2': 'subitems.login_v2',
+    'Register v1': 'subitems.register_v1',
+    'Register v2': 'subitems.register_v2',
+    'Forgot Password': 'subitems.forgot_password',
+    '404': 'subitems.error_404',
+    '500': 'subitems.error_500',
+    '403': 'subitems.error_403',
+    // Badges
+    'New': 'badges.new',
+    'Coming': 'badges.coming'
+  };
+
+  return keyMap[title] || title; // Fallback to original if not found
+};
+
 export function NavMain() {
   const pathname = usePathname();
   const { isMobile } = useSidebar();
@@ -345,7 +432,7 @@ export function NavMain() {
     <>
       {navItems.map((nav) => (
         <SidebarGroup key={nav.title}>
-          <SidebarGroupLabel>{nav.title}</SidebarGroupLabel>
+          <SidebarGroupLabel>{t(getTitleTranslationKey(nav.title))}</SidebarGroupLabel>
           <SidebarGroupContent className="flex flex-col gap-2">
             <SidebarMenu>
               {nav.items.map((item) => (
@@ -355,9 +442,9 @@ export function NavMain() {
                       <div className="hidden group-data-[collapsible=icon]:block">
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
-                            <SidebarMenuButton tooltip={item.title}>
+                            <SidebarMenuButton tooltip={t(getTitleTranslationKey(item.title))}>
                               {item.icon && <IconWrapper icon={item.icon} />}
-                              <span>{item.title}</span>
+                              <span>{t(getTitleTranslationKey(item.title))}</span>
                               <IconWrapper icon={ChevronRight} className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                             </SidebarMenuButton>
                           </DropdownMenuTrigger>
@@ -365,13 +452,13 @@ export function NavMain() {
                             side={isMobile ? "bottom" : "right"}
                             align={isMobile ? "end" : "start"}
                             className="min-w-48 rounded-lg z-[60]">
-                            <DropdownMenuLabel>{item.title}</DropdownMenuLabel>
+                            <DropdownMenuLabel>{t(getTitleTranslationKey(item.title))}</DropdownMenuLabel>
                             {item.items?.map((item) => (
                               <DropdownMenuItem
                                 className="hover:text-foreground active:text-foreground hover:bg-[var(--primary)]/10! active:bg-[var(--primary)]/10!"
                                 asChild
                                 key={item.title}>
-                                <a href={item.href}>{item.title}</a>
+                                <a href={item.href}>{t(getTitleTranslationKey(item.title))}</a>
                               </DropdownMenuItem>
                             ))}
                           </DropdownMenuContent>
@@ -381,9 +468,9 @@ export function NavMain() {
                         <CollapsibleTrigger asChild>
                           <SidebarMenuButton
                             className="hover:text-foreground active:text-foreground hover:bg-[var(--primary)]/10 active:bg-[var(--primary)]/10"
-                            tooltip={item.title}>
+                            tooltip={t(getTitleTranslationKey(item.title))}>
                             {item.icon && <IconWrapper icon={item.icon} />}
-                            <span>{item.title}</span>
+                            <span>{t(getTitleTranslationKey(item.title))}</span>
                             <IconWrapper icon={ChevronRight} className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                           </SidebarMenuButton>
                         </CollapsibleTrigger>
@@ -396,7 +483,7 @@ export function NavMain() {
                                   isActive={pathname === subItem.href}
                                   asChild>
                                   <Link href={subItem.href} target={subItem.newTab ? "_blank" : ""}>
-                                    <span>{subItem.title}</span>
+                                    <span>{t(getTitleTranslationKey(subItem.title))}</span>
                                   </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
@@ -409,22 +496,22 @@ export function NavMain() {
                     <SidebarMenuButton
                       className="hover:text-foreground active:text-foreground hover:bg-[var(--primary)]/10 active:bg-[var(--primary)]/10"
                       isActive={pathname === item.href}
-                      tooltip={item.title}
+                      tooltip={t(getTitleTranslationKey(item.title))}
                       asChild>
                       <Link href={item.href} target={item.newTab ? "_blank" : ""}>
                         {item.icon && <IconWrapper icon={item.icon} />}
-                        <span>{item.title}</span>
+                        <span>{t(getTitleTranslationKey(item.title))}</span>
                       </Link>
                     </SidebarMenuButton>
                   )}
                   {!!item.isComing && (
                     <SidebarMenuBadge className="peer-hover/menu-button:text-foreground opacity-50">
-                      Coming
+                      {t('badges.coming')}
                     </SidebarMenuBadge>
                   )}
                   {!!item.isNew && (
                     <SidebarMenuBadge className="border border-green-400 text-green-600 peer-hover/menu-button:text-green-600">
-                      New
+                      {t('badges.new')}
                     </SidebarMenuBadge>
                   )}
                   {!!item.isDataBadge && (
