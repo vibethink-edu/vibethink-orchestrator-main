@@ -301,7 +301,182 @@ t('projects.new_feature.title')
 
 ---
 
-### 8. RTL Support
+### 8. Automatic Translation Rule
+
+**MANDATORY: AI-Powered Translation for All UI Elements**
+
+**RULE:** When creating ANY new UI element (button, label, message, etc.), you MUST automatically generate translations in ALL 7 languages.
+
+**Applies to:**
+- All buttons and labels
+- All messages and notifications
+- All form fields and placeholders
+- All error and success messages
+- All tooltips and help text
+- All navigation items
+- All status indicators
+
+**Process:**
+
+1. **Create English base** (always first)
+   ```json
+   // en/module.json
+   {
+     "new_feature": {
+       "title": "New Feature",
+       "description": "This is a new feature"
+     }
+   }
+   ```
+
+2. **Generate Spanish translation** (manual or AI)
+   ```json
+   // es/module.json
+   {
+     "new_feature": {
+       "title": "Nueva Funcionalidad",
+       "description": "Esta es una nueva funcionalidad"
+     }
+   }
+   ```
+
+3. **Auto-generate remaining 5 languages** (AI-powered)
+   ```json
+   // ar/module.json (Arabic)
+   {
+     "new_feature": {
+       "title": "ميزة جديدة",
+       "description": "هذه ميزة جديدة"
+     }
+   }
+   
+   // zh/module.json (Chinese)
+   {
+     "new_feature": {
+       "title": "新功能",
+       "description": "这是一个新功能"
+     }
+   }
+   
+   // fr/module.json (French)
+   {
+     "new_feature": {
+       "title": "Nouvelle Fonctionnalité",
+       "description": "Ceci est une nouvelle fonctionnalité"
+     }
+   }
+   
+   // pt/module.json (Portuguese)
+   {
+     "new_feature": {
+       "title": "Nova Funcionalidade",
+       "description": "Esta é uma nova funcionalidade"
+     }
+   }
+   
+   // de/module.json (German)
+   {
+     "new_feature": {
+       "title": "Neue Funktion",
+       "description": "Dies ist eine neue Funktion"
+     }
+   }
+   ```
+
+**Translation Quality Guidelines:**
+
+**✅ AUTO-TRANSLATE (High confidence):**
+- Standard UI elements (Save, Cancel, Delete, Edit)
+- Technical terms (Status, Priority, Date, Time)
+- Common actions (Create, Update, Export, Import)
+- System messages (Loading, Success, Error)
+
+**⚠️ REVIEW REQUIRED (Medium confidence):**
+- Business-specific terminology
+- Domain-specific jargon
+- Cultural references
+- Idiomatic expressions
+
+**🚫 HUMAN TRANSLATION ONLY (Critical):**
+- Marketing copy and slogans
+- Legal terms and conditions
+- Privacy policies
+- Brand messaging
+- Customer-facing communications
+
+**AI Translation Prompt Template:**
+
+```
+Translate the following UI text to [LANGUAGE]:
+
+Context: [Module name and purpose]
+Text type: [Button/Label/Message/etc.]
+English text: "[text]"
+
+Requirements:
+- Keep it concise and natural
+- Use formal tone for business context
+- Maintain technical accuracy
+- Consider cultural appropriateness
+- Match the length of the original if possible
+
+Provide ONLY the translation, no explanations.
+```
+
+**Validation Checklist:**
+
+Before committing translations:
+- [ ] All 7 language files updated
+- [ ] Keys match exactly across all files
+- [ ] No English text in non-EN files (except proper nouns)
+- [ ] Translations are contextually appropriate
+- [ ] Special characters properly encoded (UTF-8)
+- [ ] Tested in UI (no overflow, truncation)
+
+**Example Workflow:**
+
+```typescript
+// 1. Add new UI element
+<Button>{t('actions.export_data')}</Button>
+
+// 2. Add to EN
+"actions": {
+  "export_data": "Export Data"
+}
+
+// 3. AI generates for all languages
+// es: "Exportar Datos"
+// ar: "تصدير البيانات"
+// zh: "导出数据"
+// fr: "Exporter les Données"
+// pt: "Exportar Dados"
+// de: "Daten Exportieren"
+
+// 4. Commit all 7 files together
+git add translations/*/module.json
+git commit -m "feat(i18n): Add export_data translations (7 languages)"
+```
+
+**Benefits:**
+
+- ✅ **Zero technical debt** - No "translate later" backlog
+- ✅ **Global from day one** - Every feature works in 7 languages
+- ✅ **Consistent experience** - All users get same quality
+- ✅ **Faster development** - No waiting for translators
+- ✅ **Cost effective** - AI translations are free/cheap
+- ✅ **Scalable** - Easy to add more languages
+
+**Non-Compliance:**
+
+- ❌ PR rejected if missing any language
+- ❌ Deployment blocked if translations incomplete
+- ❌ CI/CD checks fail if keys don't match
+
+**This rule is MANDATORY for all new UI development.**
+
+---
+
+### 9. RTL Support
 
 **REQUIRED for Arabic (ar):**
 
