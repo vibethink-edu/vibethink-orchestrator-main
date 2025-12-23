@@ -18,11 +18,20 @@
     "error": "Error al enviar mensaje:"
   },
   "messages": {
-    "aiGenerating": "La IA está generando una respuesta...",
-    "aiAssistant": "Asistente IA",
+    "aiGenerating": "ViTo está generando una respuesta...",
+    "aiAssistant": "ViTo AI Assistant",
     "copy": "Copiar mensaje",
     "copied": "¡Copiado!",
-    "copyError": "Error al copiar mensaje:"
+    "copyError": "Error al copiar mensaje:",
+    "empty_state_title": "Inicia la conversación",
+    "empty_state_description": "Envía un mensaje para comenzar a chatear con ViTo. Puedes hacer preguntas, solicitar ayuda o conversar sobre cualquier tema.",
+    "loading_conversation": "Cargando conversación...",
+    "loading_messages": "Cargando mensajes...",
+    "today": "Hoy",
+    "yesterday": "Ayer",
+    "message_count": "mensajes en esta conversación",
+    "tokens_used": "tokens usados",
+    "scroll_to_bottom": "Ir al final"
   },
   "settings": {
     "systemInstructions": "Ingresa instrucciones del sistema para la IA...",
@@ -73,7 +82,3 @@
   },
   "dateFormat": "d 'de' MMMM 'de' yyyy"
 }
-
-
-
-

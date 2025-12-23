@@ -31,6 +31,7 @@ import { ChatMessagesProps, ChatMessage } from '../types'
 import { MessageBubble } from './MessageBubble'
 import { TypingIndicator } from './TypingIndicator'
 import { format } from 'date-fns'
+import { useTranslation } from '@/lib/i18n'
 
 /**
  * Contenedor de mensajes de chat con scroll y optimizaciones
@@ -44,6 +45,7 @@ export function ChatMessages({
   onMessageDelete,
   onMessageCopy
 }: ChatMessagesProps) {
+  const { t } = useTranslation('ai-chat');
   const scrollAreaRef = useRef<React.ElementRef<typeof ScrollArea>>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const [showScrollButton, setShowScrollButton] = useState(false)
@@ -100,9 +102,9 @@ export function ChatMessages({
     yesterday.setDate(yesterday.getDate() - 1)
 
     if (format(date, 'yyyy-MM-dd') === format(today, 'yyyy-MM-dd')) {
-      return 'Today'
+      return t('messages.today')
     } else if (format(date, 'yyyy-MM-dd') === format(yesterday, 'yyyy-MM-dd')) {
-      return 'Yesterday'
+      return t('messages.yesterday')
     } else {
       return format(date, 'MMMM d, yyyy')
     }
@@ -119,7 +121,7 @@ export function ChatMessages({
       <div className="flex-1 flex items-center justify-center">
         <div className="text-center space-y-4">
           <RefreshCw className="w-8 h-8 animate-spin text-muted-foreground mx-auto" />
-          <p className="text-sm text-muted-foreground">Loading conversation...</p>
+          <p className="text-sm text-muted-foreground">{t('messages.loading_conversation')}</p>
         </div>
       </div>
     )
@@ -142,11 +144,10 @@ export function ChatMessages({
               </div>
               <div className="space-y-2">
                 <h3 className="text-lg font-medium text-foreground">
-                  Start the conversation
+                  {t('messages.empty_state_title')}
                 </h3>
                 <p className="text-sm text-muted-foreground max-w-md mx-auto">
-                  Send a message to begin chatting with AI. You can ask questions,
-                  request help, or have a conversation about any topic.
+                  {t('messages.empty_state_description')}
                 </p>
               </div>
             </div>
@@ -196,7 +197,7 @@ export function ChatMessages({
             <div className="mt-6">
               <TypingIndicator
                 variant="thinking"
-                message="AI is generating a response..."
+                message={t('messages.aiGenerating')}
               />
             </div>
           )}
@@ -206,7 +207,7 @@ export function ChatMessages({
             <div className="flex justify-center py-4">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <RefreshCw className="w-4 h-4 animate-spin" />
-                <span>Loading messages...</span>
+                <span>{t('messages.loading_messages')}</span>
               </div>
             </div>
           )}
@@ -226,7 +227,7 @@ export function ChatMessages({
             onClick={scrollToBottom}
           >
             <ArrowDown className="w-4 h-4" />
-            <span className="hidden sm:inline">Scroll to bottom</span>
+            <span className="hidden sm:inline">{t('messages.scroll_to_bottom')}</span>
           </Button>
         </div>
       )}
@@ -235,12 +236,12 @@ export function ChatMessages({
       {messages.length > 0 && (
         <div className="px-4 py-2 border-t bg-muted/20">
           <div className="flex items-center justify-between text-xs text-muted-foreground">
-            <span>{messages.length} messages in this conversation</span>
+            <span>{messages.length} {t('messages.message_count')}</span>
 
             {/* Token usage if available */}
             {messages.some(m => m.metadata?.tokens_used) && (
               <span>
-                {messages.reduce((total, m) => total + (m.metadata?.tokens_used || 0), 0)} tokens used
+                {messages.reduce((total, m) => total + (m.metadata?.tokens_used || 0), 0)} {t('messages.tokens_used')}
               </span>
             )}
           </div>
