@@ -344,7 +344,7 @@ export function TableRecentProjects() {
     return (
         <Card className="mt-4">
             <CardHeader>
-                <CardTitle>{t('v2.recentProjects')}</CardTitle>
+                <CardTitle>{t('sections.recentProjects')}</CardTitle>
             </CardHeader>
             <CardContent>
                 <div className="mb-4 flex items-center gap-4">
