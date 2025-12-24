@@ -50,7 +50,7 @@ export default async function RootLayout({
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange>
-          <I18nProvider initialLocale={initialLocale} preloadNamespaces={['common', 'navigation', 'theme', 'hotel', 'chat', 'projects', 'mail', 'calendar']}>
+          <I18nProvider initialLocale={initialLocale} preloadNamespaces={['common', 'navigation', 'theme', 'hotel', 'chat', 'projects', 'mail', 'calendar', 'dashboard-vibethink', 'dashboard-bundui']}>
             <AuthProvider>
               <NextTopLoader
                 color="hsl(var(--primary))"

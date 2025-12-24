@@ -149,20 +149,174 @@ Antes de crear un dashboard, pregunta:
 - **`/dashboard-bundui`**: ✅ **OBLIGATORIO usar i18n** - Aplicación de metodología AI-First con namespaces/sub-namespaces. Todas las nuevas plantillas y mejoras deben usar `useTranslation()` desde el primer commit.
 - **`/dashboard-vibethink`**: ✅ OBLIGATORIO usar i18n. Todas las nuevas plantillas y mejoras deben usar `useTranslation()` desde el primer commit.
 
+### 🚨 CRITICAL: Validación de 9 Idiomas con Fallback (OBLIGATORIO)
+
+**REGLA OBLIGATORIA:** Todos los módulos/componentes importados al stack DEBEN tener validación de los 9 idiomas con fallback.
+
+**Idiomas Soportados (English First):**
+1. 🇺🇸 **en** (English) ⭐ **OBLIGATORIO 100%** - Fallback universal (siempre disponible)
+2. 🇪🇸 **es** (Español) ⭐ **OBLIGATORIO 100%**
+3. 🇫🇷 **fr** (Français) - Estructura completa, fallback disponible
+4. 🇵🇹 **pt** (Português) - Estructura completa, fallback disponible
+5. 🇩🇪 **de** (Deutsch) - Estructura completa, fallback disponible
+6. 🇮🇹 **it** (Italiano) - Estructura completa, fallback disponible
+7. 🇰🇷 **ko** (한국어) - Estructura completa, fallback disponible
+8. 🇸🇦 **ar** (العربية) - Estructura completa, fallback disponible
+9. 🇨🇳 **zh** (中文) - Estructura completa, fallback disponible
+
+**Orden estándar:** `['en', 'es', 'fr', 'pt', 'de', 'it', 'ko', 'ar', 'zh']`
+
+**Sistema de Fallback:**
+- ✅ Si una key no existe en un idioma → Automáticamente usa inglés (fallback)
+- ✅ NUNCA mostrar keys sin traducir si existe fallback disponible
+- ✅ El sistema base (`context.tsx`) maneja fallback automáticamente
+
+**Validación Obligatoria Durante Importación:**
+
+```bash
+# Validar compliance de 9 idiomas (OBLIGATORIO)
+node scripts/validate-9-language-compliance.js --namespace [module-name]
+```
+
+**Criterios de Aprobación:**
+- ✅ **English (en):** 100% completo - OBLIGATORIO (fallback universal)
+- ✅ **Español (es):** 100% completo - OBLIGATORIO
+- ⚠️ **Otros 7 idiomas:** Estructura completa (mismas keys), traducciones opcionales (fallback a inglés)
+
+**Checklist Obligatorio:**
+
+**Al importar un módulo/componente:**
+- [ ] Crear archivos JSON para los 9 idiomas (en, es, fr, pt, de, it, ko, ar, zh)
+- [ ] English (en) 100% completo - OBLIGATORIO
+- [ ] Español (es) 100% completo - OBLIGATORIO
+- [ ] Otros 7 idiomas: Estructura completa (mismas keys que inglés)
+- [ ] Ejecutar `validate-9-language-compliance.js` antes de marcar como completo
+- [ ] Verificar que fallback funciona correctamente (muestra inglés si falta traducción)
+- [ ] Probar en todos los idiomas (o verificar fallback)
+
+**Al validar una pantalla:**
+- [ ] ¿Todos los textos usan `t('key')`? (NO hardcode)
+- [ ] ¿Existen archivos JSON en los 9 idiomas? (en, es, fr, pt, de, it, ko, ar, zh)
+- [ ] ¿Todas las keys existen en los 9 idiomas? (o tienen fallback)
+- [ ] ¿El namespace está en `types.ts`?
+- [ ] ¿El namespace está preload en `layout.tsx`?
+
+**Documentación completa:**
+- `docs/architecture/MODULE_IMPORT_DEPLOYMENT_PROTOCOL.md` ⭐ - Protocolo maestro (Fase 5: Validación i18n)
+- `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md` ⭐ - Protocolo de validación durante importación
+- `docs/architecture/I18N_FALLBACK_STRATEGY.md` ⭐ - Estrategia de fallback multi-nivel
+- `docs/architecture/I18N_7_LANGUAGE_COMPLIANCE_PROTOCOL.md` ⭐ - Protocolo de compliance (actualizado a 9 idiomas)
+
+**⚠️ NUNCA finalizar trabajo sin cumplir estos criterios.**
+
+### 🚨 CRITICAL: Cumplimiento de Idiomas (9-Language Compliance) - OBLIGATORIO
+
+**REGLA OBLIGATORIA PARA TODOS LOS AGENTES AI:**
+
+**ANTES de finalizar CUALQUIER trabajo (validar pantalla, ver proceso, importar componente), el agente DEBE verificar compliance de 9 idiomas.**
+
+**🚨 REGLA AUTOMÁTICA: Cuando se agrega un nuevo componente/módulo, automáticamente debe incluir traducciones para TODOS los 9 idiomas.**
+
+#### Los 9 idiomas requeridos (English First):
+
+**🚨 CRÍTICO: English (en) SIEMPRE primero en arrays, tipos y listas.**
+
+1. 🇺🇸 **en** (English) ⭐ **PRIMERO SIEMPRE**
+2. 🇪🇸 **es** (Español)
+3. 🇫🇷 **fr** (Français)
+4. 🇵🇹 **pt** (Português)
+5. 🇩🇪 **de** (Deutsch)
+6. 🇮🇹 **it** (Italiano) - **Automático en nuevos componentes**
+7. 🇰🇷 **ko** (한국어) - **Automático en nuevos componentes**
+8. 🇸🇦 **ar** (العربية)
+9. 🇨🇳 **zh** (中文)
+
+**Orden estándar:** `['en', 'es', 'fr', 'pt', 'de', 'it', 'ko', 'ar', 'zh']`
+
+#### Checklist Obligatorio:
+
+**Al validar una pantalla:**
+- [ ] ¿Todos los textos usan `t('key')`? (NO hardcode)
+- [ ] ¿Existen archivos JSON en los 9 idiomas? (en, es, fr, pt, de, it, ko, ar, zh)
+- [ ] ¿Todas las keys existen en los 9 idiomas?
+- [ ] ¿El namespace está en `types.ts`?
+- [ ] ¿El namespace está preload en `layout.tsx`?
+
+**Al ver un proceso:**
+- [ ] ¿Los mensajes visibles usan `t('key')`?
+- [ ] ¿Existen traducciones en los 9 idiomas? (en, es, fr, pt, de, it, ko, ar, zh)
+- [ ] ¿Mensajes de error/éxito están traducidos? (o tienen fallback)
+
+**Al importar componente:**
+- [ ] ¿El componente tiene i18n?
+- [ ] Si NO → Agregar traducciones en los 9 idiomas (en obligatorio 100%, es obligatorio 100%, otros con fallback)
+- [ ] Si SÍ → Verificar que todas las keys existan en los 9 idiomas (o tengan fallback)
+- [ ] Ejecutar `validate-9-language-compliance.js` antes de marcar como completo
+
+#### Scripts de Validación Obligatorios:
+
+```bash
+# 1. Validar compliance de 9 idiomas con fallback (OBLIGATORIO)
+node scripts/validate-9-language-compliance.js --namespace [module-name]
+
+# 2. Detectar hardcode
+node scripts/audit-hardcoded-text.js [ruta]
+
+# 3. Validar keys específicas
+node scripts/validate-i18n-keys.js [namespace]
+```
+
+#### Criterios de Aprobación:
+
+Un módulo es **9-Language Compliant** cuando:
+1. ✅ NO tiene texto hardcodeado
+2. ✅ Usa `useTranslation` para TODO texto visible
+3. ✅ Tiene archivos JSON en los 9 idiomas (en, es, fr, pt, de, it, ko, ar, zh)
+4. ✅ Todas las keys existen en los 9 idiomas
+5. ✅ Estructura JSON idéntica en todos los idiomas
+6. ✅ Namespace está en `types.ts`
+7. ✅ Namespace está preload en `layout.tsx`
+8. ✅ Scripts de validación pasan sin errores
+9. ✅ Cambio de idioma funciona correctamente
+10. ✅ No aparecen keys sin traducir en la UI
+
+**⚠️ NUNCA finalizar trabajo sin cumplir estos criterios.**
+
+**Documentación completa:**
+- `docs/architecture/I18N_7_LANGUAGE_COMPLIANCE_PROTOCOL.md` ⭐ - **LEER PRIMERO** (ahora 9 idiomas: en, es, fr, pt, de, it, ko, ar, zh)
+- `docs/architecture/I18N_ANTI_HARDCODE_STRATEGY.md` - Cómo evitar hardcode
+- `docs/architecture/I18N_BEST_PRACTICES_AGENTS.md` - Buenas prácticas
+
 **Buenas Prácticas i18n (OBLIGATORIO para AI Agents):**
-- **Validación de Keys:** SIEMPRE verificar que todas las keys usadas existan en ambos archivos (en/es) usando `grep`
+- **Validación de 9 Idiomas:** SIEMPRE validar los 9 idiomas (en, es, fr, pt, de, it, ko, ar, zh) con `validate-9-language-compliance.js`
+- **English First:** English (en) SIEMPRE 100% completo - OBLIGATORIO (fallback universal)
+- **Español Obligatorio:** Español (es) SIEMPRE 100% completo - OBLIGATORIO
+- **Fallback Automático:** Otros 7 idiomas pueden usar fallback a inglés si faltan traducciones
+- **Validación de Keys:** SIEMPRE verificar que todas las keys usadas existan en los 9 idiomas (o tengan fallback)
 - **Preload Anti-Blink:** SIEMPRE crear/actualizar `layout.tsx` con `I18nProvider` y `preloadNamespaces` incluyendo el módulo
 - **Nunca asumir:** NUNCA asumir que una key existe sin verificar
+- **Fallback Obligatorio:** SIEMPRE implementar fallback multi-nivel (contextual → base → inglés → key)
 - **Checklist completo:** Seguir el checklist completo de validación por módulo
 
 **Documentación completa:** 
 - `docs/architecture/I18N_BEST_PRACTICES_AGENTS.md` ⭐ - **LEER PRIMERO** - Buenas prácticas para AI Agents (validación keys + anti-blink)
+- `docs/architecture/MODULE_IMPORT_DEPLOYMENT_PROTOCOL.md` ⭐ - **PROTOCOLO MAESTRO** - Fase 5: Validación i18n de 9 idiomas con fallback
+- `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md` ⭐ - **PROTOCOLO OBLIGATORIO** - Validación de 9 idiomas durante importación
+- `docs/architecture/I18N_FALLBACK_STRATEGY.md` ⭐ - **REGLA OBLIGATORIA** - Estrategia de fallback multi-nivel (contextual → base → inglés)
+- `docs/architecture/I18N_GENERIC_MODULES_STRATEGY.md` ⭐ - **REGLA OBLIGATORIA** - Módulos genéricos multi-contexto con fallback
+- `docs/architecture/I18N_7_LANGUAGE_COMPLIANCE_PROTOCOL.md` ⭐ - **PROTOCOLO OBLIGATORIO** - Compliance de 9 idiomas (actualizado)
+- `docs/architecture/I18N_CONTEXT_AWARE_TRANSLATIONS.md` - Traducciones sensibles al contexto (módulos reutilizables)
 - `docs/architecture/I18N_VALIDATION_PROTOCOL.md` - Protocolo de validación de keys
 - `docs/architecture/I18N_NO_BLINK_STRATEGY.md` - Estrategia detallada anti-blink
 - `docs/architecture/I18N_STRATEGY.md` - Estrategia i18n
 - `docs/architecture/I18N_TEMPLATE_GUIDE.md` - Templates
 - `docs/architecture/BUNDUI_UPDATE_STRATEGY.md` - Manejo de actualizaciones sin i18n ⭐
 - `docs/architecture/APPLICATION_TERMINOLOGY.md` ⭐ - **Fuente única de verdad para nombres clave y convenciones**
+
+**Scripts de Validación Obligatorios:**
+- `scripts/validate-9-language-compliance.js` ⭐ - **OBLIGATORIO** - Validar compliance de 9 idiomas con fallback
+- `scripts/validate-i18n-keys.js` - Validar claves i18n
+- `scripts/detect-missing-i18n-keys.js` - Detectar claves faltantes
 
 ---
 
@@ -378,10 +532,11 @@ XYFlow Reference (puede cambiar)      ───►  apps/dashboard/... (nuestros
 
 ### **Documentación Completa:**
 
-- `docs/architecture/MODULE_IMPORT_DEPLOYMENT_PROTOCOL.md` - **⭐ PROTOCOLO MAESTRO (LEER PRIMERO)**
+- `docs/architecture/MODULE_IMPORT_DEPLOYMENT_PROTOCOL.md` - **⭐ PROTOCOLO MAESTRO (LEER PRIMERO)** - Incluye Fase 5: Validación i18n de 9 idiomas
 - `apps/dashboard/src/shared/data/module-registry.ts` - **Registro de módulos**
 - `docs/architecture/MODULE_REGISTRY_PROTOCOL.md` - **Protocolo de registro**
-- `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md` - **Protocolo i18n**
+- `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md` ⭐ - **Protocolo i18n** - Validación de 9 idiomas con fallback
+- `docs/architecture/I18N_FALLBACK_STRATEGY.md` ⭐ - **Estrategia de fallback** - Regla obligatoria
 - `docs/architecture/I18N_BEST_PRACTICES_AGENTS.md` ⭐ - **Buenas prácticas i18n (validación + anti-blink)**
 - `docs/architecture/I18N_VALIDATION_PROTOCOL.md` - **Validación sistemática de keys**
 - `docs/architecture/BUNDUI_MIGRATION_USE_CLIENT_PROTOCOL.md` - **Protocolo "use client"**
@@ -391,11 +546,13 @@ XYFlow Reference (puede cambiar)      ───►  apps/dashboard/... (nuestros
 ### **NUNCA:**
 
 - ❌ Importar módulos sin leer el protocolo maestro
-- ❌ Saltarse fases del protocolo
+- ❌ Saltarse fases del protocolo (especialmente Fase 5: Validación i18n)
+- ❌ Importar módulos sin validar los 9 idiomas con fallback
 - ❌ Asumir que un módulo no existe sin consultar el registro
 - ❌ Importar componentes sin registrarlos
 - ❌ Modificar módulos sin actualizar el registro
 - ❌ Confiar en memoria o documentación desactualizada
+- ❌ Marcar módulo como completo sin ejecutar `validate-9-language-compliance.js`
 
 ### **Fuentes Soportadas:**
 
@@ -720,6 +877,64 @@ docs/
 - **If not in allowed list:** Create in `docs/` with appropriate subfolder
 - **If consolidation is possible:** Merge into existing master docs
 - **Update references:** Always update `DOCS_INDEX.md` and `docs/README.md`
+
+## 🛑 Server Control Rules (CRITICAL)
+
+**NEVER** use `npm run dev` directly to start the dashboard if you want to be safe. Only use it for validation.
+**ALWAYS** use the official PowerShell scripts to ensure ports are cleared and dependencies checked.
+
+### Start Server
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/start-dashboard.ps1
+```
+*Why? It automatically kills processes on port 3001, installs deps if needed, and sets env vars.*
+
+### Stop Server
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/stop-dashboard.ps1
+```
+*Why? safely kills node processes and prevents zombie processes.*
+
+## 🧠 Protocolo de Sincronización Agent-Editor (Antigravity Secret)
+
+Para mantener la **sincronización perfecta** entre Agente y Editor que el usuario valora, sigue estas 3 reglas de oro:
+
+1.  **Artifacts as Truth**:
+    - Mantén `task.md` y `scaffold-log` (si aplica) siempre actualizados.
+    - El Editor "lee" lo que el Agente "escribe" en artifacts. Si no está escrito, no sucedió.
+
+2.  **Context Awareness**:
+    - **Antes de actuar**: Lee `AGENTS.md` y el estado actual (archivos abiertos).
+    - **Durante la acción**: Usa `task_boundary` para decir explícitamente qué estás haciendo.
+    - **Después de la acción**: Valida (e.g., `npm run dev --dry-run`).
+
+3.  **Strict Rule Adherence**:
+    - Si el usuario dice "Usa el script oficial", **DOCUMÉNTALO** y ÚSALO siempre.
+    - No asumas atajos. Si la regla dice `npm` only, es `npm` only.
+
+## 🛡️ Protocolo de Estabilidad (Lecciones Aprendidas 2025)
+
+Para evitar regresiones (como la crisis de los 9 idiomas o puertos fantasmas), todo Agente debe verificar esto antes de cerrar una tarea:
+
+1.  **Repo Hygiene**:
+    - Jamás generar miles de archivos de reporte. Si un script genera logs, DEBE estar en `.gitignore` (e.g., `quality-reports/`).
+
+2.  **Rutas & Marcas**:
+    - ❌ **Incorrecto**: `/dashboard/analytics` (Ruta genérica no existe).
+    - ✅ **Correcto**: `/dashboard-bundui/analytics` o `/dashboard-vibethink/analytics`.
+    - **Regla**: Siempre probar la ruta con *marca* en el navegador.
+
+3.  **Dependencias Fantasma**:
+    - Si agregas un componente (e.g., Lottie), **instala la dependencia** (`npm install lottie-react`).
+    - No asumas que "ya está ahí". Si el build falla con "Module not found", es tu culpa.
+
+4.  **Santidad del Puerto 3005**:
+    - El único script de verdad es `scripts/start-dashboard.ps1`.
+    - Puerto: **3005**.
+    - Si ves el puerto 3001, estás usando el script incorrecto (Legacy `.bat`). ¡Mátalo!
+
+
+
 
 ### 📝 When to Consolidate:
 - If creating a guide that overlaps with existing docs → Consolidate

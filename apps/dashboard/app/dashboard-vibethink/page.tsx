@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui';
 import Link from 'next/link';
+import { useTranslation } from '@/lib/i18n';
 import { 
   Users, 
   TrendingUp, 
@@ -24,127 +25,127 @@ import {
   Activity
 } from 'lucide-react';
 
-const orchestratorDashboards = [
+// Dashboard configuration with translation keys
+const orchestratorDashboardsConfig = [
   {
-    name: 'CRM',
+    key: 'crm',
     href: '/dashboard-vibethink/crm',
     icon: Users,
-    description: 'Customer relationship management - VibeThink adapted version ready for production',
-    category: 'Business'
+    category: 'business'
   },
   {
-    name: 'Sales',
+    key: 'sales',
     href: '/dashboard-vibethink/sales',
     icon: TrendingUp,
-    description: 'Sales dashboard - VibeThink adapted version ready for production',
-    category: 'Business'
+    category: 'business'
   },
   {
-    name: 'E-commerce',
+    key: 'ecommerce',
     href: '/dashboard-vibethink/ecommerce',
     icon: ShoppingCart,
-    description: 'E-commerce dashboard - VibeThink adapted version ready for production',
-    category: 'Business'
+    category: 'business'
   },
   {
-    name: 'Finance',
+    key: 'finance',
     href: '/dashboard-vibethink/finance',
     icon: DollarSign,
-    description: 'Financial dashboard with budgets, expenses, and financial planning',
-    category: 'Business'
+    category: 'business'
   },
   {
-    name: 'Project Management',
+    key: 'projectManagement',
     href: '/dashboard-vibethink/project-management',
     icon: Briefcase,
-    description: 'Project management with tasks, timelines, and team collaboration',
-    category: 'Productivity'
+    category: 'productivity'
   },
   {
-    name: 'Tasks',
+    key: 'tasks',
     href: '/dashboard-vibethink/tasks',
     icon: CheckSquare,
-    description: 'Task management with to-do lists, priorities, and deadlines',
-    category: 'Productivity'
+    category: 'productivity'
   },
   {
-    name: 'Calendar',
+    key: 'calendar',
     href: '/dashboard-vibethink/calendar',
     icon: Calendar,
-    description: 'Calendar application with events, scheduling, and reminders',
-    category: 'Productivity'
+    category: 'productivity'
   },
   {
-    name: 'Mail',
+    key: 'mail',
     href: '/dashboard-vibethink/mail',
     icon: Mail,
-    description: 'Email client with inbox, compose, and email management',
-    category: 'Productivity'
+    category: 'productivity'
   },
   {
-    name: 'Notes',
+    key: 'notes',
     href: '/dashboard-vibethink/notes',
     icon: StickyNote,
-    description: 'Note-taking application with rich text editing and organization',
-    category: 'Productivity'
+    category: 'productivity'
   },
   {
-    name: 'File Manager',
+    key: 'fileManager',
     href: '/dashboard-vibethink/file-manager',
     icon: FolderOpen,
-    description: 'File storage and management system with upload, organization, and sharing',
-    category: 'Productivity'
+    category: 'productivity'
   },
   {
-    name: 'Website Analytics',
+    key: 'websiteAnalytics',
     href: '/dashboard-vibethink/website-analytics',
     icon: BarChart3,
-    description: 'Website analytics dashboard with traffic data, user interactions, and performance metrics',
-    category: 'Analytics'
+    category: 'analytics'
   },
   {
-    name: 'AI Chat',
+    key: 'aiChat',
     href: '/dashboard-vibethink/ai-chat',
     icon: Activity,
-    description: 'AI-powered chat interface with multiple model support and conversation history',
-    category: 'AI'
+    category: 'ai'
   },
   {
-    name: 'POS System',
+    key: 'posSystem',
     href: '/dashboard-vibethink/pos-system',
     icon: ShoppingBag,
-    description: 'Point of sale system for retail and restaurant management',
-    category: 'Business'
+    category: 'business'
   },
   {
-    name: 'Crypto',
+    key: 'crypto',
     href: '/dashboard-vibethink/crypto',
     icon: Bitcoin,
-    description: 'Cryptocurrency portfolio tracker with trading, DeFi, and NFT management',
-    category: 'Finance'
+    category: 'finance'
   }
-];
+] as const;
 
-const categories = [
-  { name: 'Business', dashboards: orchestratorDashboards.filter(d => d.category === 'Business') },
-  { name: 'Productivity', dashboards: orchestratorDashboards.filter(d => d.category === 'Productivity') },
-  { name: 'Analytics', dashboards: orchestratorDashboards.filter(d => d.category === 'Analytics') },
-  { name: 'AI', dashboards: orchestratorDashboards.filter(d => d.category === 'AI') },
-  { name: 'Finance', dashboards: orchestratorDashboards.filter(d => d.category === 'Finance') }
-].filter(cat => cat.dashboards.length > 0);
+const categoryKeys = ['business', 'productivity', 'analytics', 'ai', 'finance'] as const;
 
 export default function DashboardVibeThinkIndex() {
+  const { t } = useTranslation('dashboard-vibethink');
+
+  // Build dashboards with translations
+  const orchestratorDashboards = orchestratorDashboardsConfig.map(config => ({
+    ...config,
+    name: t(`dashboards.${config.key}.name`),
+    description: t(`dashboards.${config.key}.description`),
+    categoryLabel: t(`categories.${config.category}`)
+  }));
+
+  // Build categories with translations
+  const categories = categoryKeys
+    .map(categoryKey => ({
+      key: categoryKey,
+      name: t(`categories.${categoryKey}`),
+      dashboards: orchestratorDashboards.filter(d => d.category === categoryKey)
+    }))
+    .filter(cat => cat.dashboards.length > 0);
+
   return (
     <div className="container mx-auto p-6 space-y-8">
       <div className="space-y-2">
-        <h1 className="text-4xl font-bold tracking-tight">VibeThink Orchestrator Mocks</h1>
+        <h1 className="text-4xl font-bold tracking-tight">{t('page.title')}</h1>
         <p className="text-muted-foreground">
-          Todos los mocks disponibles de VibeThink Orchestrator. Estos dashboards están adaptados al estilo VibeThink y listos para ser promovidos a módulos reales en la sección /dashboard.
+          {t('page.description')}
         </p>
       </div>
 
       {categories.map((category) => (
-        <div key={category.name} className="space-y-4">
+        <div key={category.key} className="space-y-4">
           <h2 className="text-2xl font-semibold tracking-tight">{category.name}</h2>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {category.dashboards.map((dashboard) => {
@@ -165,7 +166,7 @@ export default function DashboardVibeThinkIndex() {
                     </CardHeader>
                     <CardContent>
                       <div className="flex items-center justify-between text-sm text-muted-foreground">
-                        <span>View Dashboard</span>
+                        <span>{t('page.viewDashboard')}</span>
                         <span>→</span>
                       </div>
                     </CardContent>

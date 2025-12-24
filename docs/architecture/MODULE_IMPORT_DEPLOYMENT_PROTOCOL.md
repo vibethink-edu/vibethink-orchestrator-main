@@ -534,11 +534,26 @@ node scripts/audit-hardcoded-text.js \
 
 ### 5.2. Crear Namespace i18n
 
-**Crear archivos:**
+**🚨 REGLA OBLIGATORIA: 9 Idiomas con Fallback**
+
+**Crear archivos para TODOS los 9 idiomas:**
 ```
-apps/dashboard/src/lib/i18n/translations/en/[module-name].json
-apps/dashboard/src/lib/i18n/translations/es/[module-name].json
+apps/dashboard/src/lib/i18n/translations/en/[module-name].json   ⭐ OBLIGATORIO (fallback universal)
+apps/dashboard/src/lib/i18n/translations/es/[module-name].json   ⭐ OBLIGATORIO
+apps/dashboard/src/lib/i18n/translations/fr/[module-name].json
+apps/dashboard/src/lib/i18n/translations/pt/[module-name].json
+apps/dashboard/src/lib/i18n/translations/de/[module-name].json
+apps/dashboard/src/lib/i18n/translations/it/[module-name].json
+apps/dashboard/src/lib/i18n/translations/ko/[module-name].json
+apps/dashboard/src/lib/i18n/translations/ar/[module-name].json
+apps/dashboard/src/lib/i18n/translations/zh/[module-name].json
 ```
+
+**⚠️ IMPORTANTE:**
+- ✅ **English (en) es OBLIGATORIO** - Es el fallback universal (siempre disponible)
+- ✅ **Español (es) es OBLIGATORIO** - Idioma principal secundario
+- ⚠️ **Otros 7 idiomas:** Pueden tener fallback a inglés si no están completos
+- ✅ **Sistema de fallback:** Si una traducción no existe en un idioma, automáticamente usa inglés
 
 **Estructura obligatoria:**
 ```json
@@ -588,32 +603,55 @@ const { t } = useTranslation('hotel');
 - [ ] Modales y diálogos
 - [ ] **Sidebar** (títulos y opciones)
 
-### 5.4. Validar Existencia de Traducciones
+### 5.4. Validar Existencia de Traducciones (9 Idiomas con Fallback)
+
+**🚨 REGLA OBLIGATORIA: Validar los 9 idiomas con fallback**
 
 **Ejecutar scripts de validación (OBLIGATORIO):**
 
 ```bash
-# 1. Validar que todas las claves existen
-node scripts/validate-i18n-keys.js \
+# 1. Validar que todas las claves existen en los 9 idiomas (o tienen fallback)
+node scripts/validate-9-language-compliance.js \
   --module apps/dashboard/app/dashboard-bundui/[module-name] \
   --namespace [module-name]
 
-# 2. Detectar claves faltantes y valores en inglés
+# 2. Detectar claves faltantes y valores sin traducir
 node scripts/detect-missing-i18n-keys.js \
   --module apps/dashboard/app/dashboard-bundui/[module-name] \
-  --namespace [module-name]
+  --namespace [module-name] \
+  --all-locales
 ```
+
+**Validación de 9 Idiomas:**
+
+**Criterios de Aprobación:**
+- ✅ **English (en):** 100% completo - OBLIGATORIO (fallback universal)
+- ✅ **Español (es):** 100% completo - OBLIGATORIO
+- ⚠️ **Otros 7 idiomas (fr, pt, de, it, ko, ar, zh):**
+  - ✅ Si existe traducción → Usar traducción
+  - ✅ Si NO existe → Fallback automático a inglés (sistema base)
+  - ✅ Estructura JSON idéntica en todos los idiomas (mismas keys)
 
 **El script debe pasar sin errores:**
 ```
-✅ Validación exitosa: Todas las claves existen en ambos idiomas.
-✅ No se detectaron valores en inglés dentro de traducciones en español.
+✅ Validación exitosa: Todas las claves existen en los 9 idiomas o tienen fallback.
+✅ English (en): 100% completo (150/150 keys)
+✅ Español (es): 100% completo (150/150 keys)
+⚠️ Francés (fr): 120/150 keys (30 con fallback a inglés)
+⚠️ Portugués (pt): 110/150 keys (40 con fallback a inglés)
+...
+✅ Sistema de fallback funcionando correctamente
 ```
 
 **Si hay errores:**
-- Agregar claves faltantes a AMBOS JSON (EN/ES)
-- Traducir valores en inglés en ES
-- Ejecutar nuevamente hasta que pase
+- ✅ **English (en) faltante:** CRÍTICO - Agregar INMEDIATAMENTE (es fallback universal)
+- ✅ **Español (es) faltante:** CRÍTICO - Agregar INMEDIATAMENTE
+- ⚠️ **Otros idiomas faltantes:** Agregar cuando sea posible, pero el sistema usará fallback a inglés automáticamente
+
+**Regla de Fallback:**
+- ✅ Si una key no existe en un idioma → Sistema automáticamente usa inglés
+- ✅ Si una key existe en inglés pero no en otro idioma → Sistema muestra inglés (fallback)
+- ✅ NUNCA mostrar keys sin traducir si existe fallback disponible
 
 ### 5.5. Validar Sidebar Deployment
 
@@ -642,16 +680,30 @@ node scripts/detect-missing-i18n-keys.js \
 - [ ] Subopciones funcionan
 - [ ] Rutas correctas (NO apuntar a `dashboard-vibethink`)
 
-### 5.6. Probar en Ambos Idiomas
+### 5.6. Probar en los 9 Idiomas (con Fallback)
+
+**🚨 REGLA OBLIGATORIA: Validar los 9 idiomas con fallback**
 
 **Checklist de prueba:**
-- [ ] Cambiar idioma a inglés (EN) - todos los strings visibles
-- [ ] Cambiar idioma a español (ES) - todos los strings traducidos
-- [ ] Verificar sidebar en ambos idiomas
-- [ ] Verificar navegación en ambos idiomas
-- [ ] Verificar que NO aparecen claves visibles (ej: `module.key.path`)
-- [ ] Verificar que NO quedan strings en inglés cuando está en español
-- [ ] Verificar que NO quedan strings en español cuando está en inglés
+- [ ] **English (en):** Todos los strings visibles y correctos
+- [ ] **Español (es):** Todos los strings traducidos correctamente
+- [ ] **Francés (fr):** Strings traducidos o fallback a inglés funcionando
+- [ ] **Portugués (pt):** Strings traducidos o fallback a inglés funcionando
+- [ ] **Alemán (de):** Strings traducidos o fallback a inglés funcionando
+- [ ] **Italiano (it):** Strings traducidos o fallback a inglés funcionando
+- [ ] **Coreano (ko):** Strings traducidos o fallback a inglés funcionando
+- [ ] **Árabe (ar):** Strings traducidos o fallback a inglés funcionando (RTL)
+- [ ] **Chino (zh):** Strings traducidos o fallback a inglés funcionando
+- [ ] **Verificar sidebar** en todos los idiomas (o fallback)
+- [ ] **Verificar navegación** en todos los idiomas (o fallback)
+- [ ] **Verificar que NO aparecen claves visibles** (ej: `module.key.path`)
+- [ ] **Verificar fallback:** Si un idioma no tiene traducción, debe mostrar inglés (nunca keys)
+- [ ] **Verificar que NO quedan strings hardcoded** en ningún idioma
+
+**Regla de Fallback:**
+- ✅ Si un idioma no tiene traducción → Debe mostrar inglés (fallback automático)
+- ✅ NUNCA mostrar keys sin traducir si existe fallback disponible
+- ✅ El sistema base (`context.tsx`) maneja fallback automáticamente
 
 ---
 
@@ -708,7 +760,7 @@ node scripts/detect-missing-i18n-keys.js \
     }
   ],
   
-  // i18n
+  // i18n (9 idiomas con fallback)
   i18nNamespace: 'module-name',
   i18nCoverage: 100,  // 0-100
   i18nStatus: {
@@ -722,7 +774,20 @@ node scripts/detect-missing-i18n-keys.js \
       forms: 30,
       messages: 40,
       validation: 20
-    }
+    },
+    // Estado por idioma (9 idiomas)
+    locales: {
+      en: { total: 150, translated: 150, pending: 0 },  // ⭐ OBLIGATORIO 100%
+      es: { total: 150, translated: 150, pending: 0 },  // ⭐ OBLIGATORIO 100%
+      fr: { total: 150, translated: 120, pending: 30 }, // Fallback a inglés para 30 keys
+      pt: { total: 150, translated: 110, pending: 40 }, // Fallback a inglés para 40 keys
+      de: { total: 150, translated: 100, pending: 50 }, // Fallback a inglés para 50 keys
+      it: { total: 150, translated: 90, pending: 60 },  // Fallback a inglés para 60 keys
+      ko: { total: 150, translated: 80, pending: 70 },  // Fallback a inglés para 70 keys
+      ar: { total: 150, translated: 70, pending: 80 },  // Fallback a inglés para 80 keys
+      zh: { total: 150, translated: 60, pending: 90 }   // Fallback a inglés para 90 keys
+    },
+    fallbackEnabled: true  // Sistema de fallback activo
   },
   
   // Adaptaciones
@@ -820,20 +885,34 @@ node scripts/validate-assets-in-repo.js
 - ✅ Todos los assets están en repositorio central
 - ✅ Rutas de assets son absolutas (`/assets/...`)
 
-### 7.4. Validación i18n Final
+### 7.4. Validación i18n Final (9 Idiomas con Fallback)
+
+**🚨 REGLA OBLIGATORIA: Validar los 9 idiomas con fallback**
 
 **Ejecutar validaciones:**
 ```bash
-# Validar claves
-node scripts/validate-i18n-keys.js \
+# Validar compliance de 9 idiomas (OBLIGATORIO)
+node scripts/validate-9-language-compliance.js \
   --module apps/dashboard/app/dashboard-bundui/[module-name] \
   --namespace [module-name]
 
-# Detectar problemas
+# Detectar claves faltantes en todos los idiomas
 node scripts/detect-missing-i18n-keys.js \
+  --module apps/dashboard/app/dashboard-bundui/[module-name] \
+  --namespace [module-name] \
+  --all-locales
+
+# Validar que fallback funciona correctamente
+node scripts/validate-i18n-fallback.js \
   --module apps/dashboard/app/dashboard-bundui/[module-name] \
   --namespace [module-name]
 ```
+
+**Criterios de Aprobación:**
+- ✅ **English (en):** 100% completo - OBLIGATORIO
+- ✅ **Español (es):** 100% completo - OBLIGATORIO
+- ⚠️ **Otros 7 idiomas:** Estructura completa (mismas keys), traducciones opcionales (fallback a inglés)
+- ✅ **Sistema de fallback:** Funcionando correctamente (nunca muestra keys si existe fallback)
 
 **Ambos scripts deben pasar sin errores.**
 
