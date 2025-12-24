@@ -39,18 +39,29 @@
     "error": "Ocurrió un error",
     "noProjects": "No hay proyectos"
   },
+  "header": {
+    "title": "Proyectos",
+    "searchPlaceholder": "Buscar proyectos..."
+  },
+  "tabs": {
+    "overview": "Resumen",
+    "reports": "Reportes",
+    "activities": "Actividades"
+  },
+  "actions": {
+    "consult_ai": "Consultar IA",
+    "open_panel": "Abrir Panel Lateral",
+    "close_panel": "Cerrar Panel Lateral"
+  },
+  "summary": {
+    "fromLastMonth": "desde el mes pasado"
+  },
   "v2": {
     "summaryCards": {
-      "totalRevenue": {
-        "title": "Ingresos Totales",
-        "description": "Desde el mes pasado",
-        "trending": "Incremento del 12% este mes"
-      },
-      "activeProjects": {
-        "title": "Proyectos Activos",
-        "description": "Actualmente en progreso",
-        "update": "Actualizado hace 1 hora"
-      },
+      "totalRevenue": "Ingresos Totales",
+      "activeProjects": "Proyectos Activos",
+      "newLeads": "Nuevos Leads",
+      "timeSpent": "Tiempo Invertido",
       "teamSize": {
         "title": "Tamaño del Equipo",
         "description": "Miembros activos",
@@ -65,10 +76,14 @@
     "overview": {
       "title": "Resumen",
       "description": "Analiza el rendimiento de tus proyectos",
+      "mobileDescription": "Rendimiento de proyectos",
       "revenue": "Ingresos",
       "projects": "Proyectos",
       "tasks": "Tareas",
-      "team": "Equipo"
+      "team": "Equipo",
+      "last3Months": "Últimos 3 Meses",
+      "last30Days": "Últimos 30 Días",
+      "last7Days": "Últimos 7 Días"
     },
     "recentActivity": {
       "title": "Actividad Reciente",
@@ -124,6 +139,39 @@
       "placeholder": {
         "filterProjects": "Filtrar proyectos..."
       }
+    }
+  },
+  "timeline": {
+    "events": {
+      "client_requirements": {
+        "title": "Requisitos del Cliente Recibidos",
+        "description": "Nuevo documento de requisitos recibido del cliente",
+        "from": "De",
+        "subject": "Asunto",
+        "details": "Por favor revisa el documento de alcance actualizado adjunto. Necesitamos ajustar la línea de tiempo en consecuencia."
+      },
+      "dependency_alert": {
+        "title": "Alerta de Dependencia",
+        "description": "Una dependencia crítica ha sido retrasada",
+        "details": "La integración de la pasarela de pago se retrasó 2 días. Esto puede afectar la línea de tiempo del proyecto."
+      },
+      "sprint_planning": {
+        "title": "Reunión de Planificación de Sprint",
+        "description": "Sesión de planificación de sprint completada",
+        "details": "Planificación del Sprint 24 completada. 18 puntos de historia comprometidos. Velocidad del equipo: 85%."
+      }
+    }
+  },
+  "sidepanel": {
+    "agent_title": "Asistente IA",
+    "history_title": "Historial",
+    "verified": "Verificado",
+    "close": "Cerrar Panel",
+    "context": "Contexto",
+    "input_placeholder": "Pregunta sobre este proyecto o línea de tiempo...",
+    "tabs": {
+      "agent": "Asistente IA",
+      "timeline": "Línea de Tiempo"
     }
   }
 }

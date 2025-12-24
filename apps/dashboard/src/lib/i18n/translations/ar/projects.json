@@ -39,18 +39,29 @@
     "error": "حدث خطأ ما",
     "noProjects": "لا توجد مشاريع"
   },
+  "header": {
+    "title": "المشاريع",
+    "searchPlaceholder": "البحث عن المشاريع..."
+  },
+  "tabs": {
+    "overview": "نظرة عامة",
+    "reports": "التقارير",
+    "activities": "الأنشطة"
+  },
+  "actions": {
+    "consult_ai": "استشارة الذكاء الاصطناعي",
+    "open_panel": "فتح اللوحة الجانبية",
+    "close_panel": "إغلاق اللوحة الجانبية"
+  },
+  "summary": {
+    "fromLastMonth": "من الشهر الماضي"
+  },
   "v2": {
     "summaryCards": {
-      "totalRevenue": {
-        "title": "إجمالي الإيرادات",
-        "description": "من الشهر الماضي",
-        "trending": "ارتفعت بنسبة 12% هذا الشهر"
-      },
-      "activeProjects": {
-        "title": "المشاريع النشطة",
-        "description": "قيد التنفيذ حالياً",
-        "update": "آخر تحديث قبل ساعة"
-      },
+      "totalRevenue": "إجمالي الإيرادات",
+      "activeProjects": "المشاريع النشطة",
+      "newLeads": "العملاء المحتملون الجدد",
+      "timeSpent": "الوقت المستغرق",
       "teamSize": {
         "title": "حجم الفريق",
         "description": "أعضاء نشطون",
@@ -65,10 +76,14 @@
     "overview": {
       "title": "نظرة عامة",
       "description": "تحليل أداء مشاريعك",
+      "mobileDescription": "أداء المشروع",
       "revenue": "الإيرادات",
       "projects": "المشاريع",
       "tasks": "المهام",
-      "team": "الفريق"
+      "team": "الفريق",
+      "last3Months": "آخر 3 أشهر",
+      "last30Days": "آخر 30 يوماً",
+      "last7Days": "آخر 7 أيام"
     },
     "recentActivity": {
       "title": "النشاط الأخير",
@@ -124,6 +139,39 @@
       "placeholder": {
         "filterProjects": "تصفية المشاريع..."
       }
+    }
+  },
+  "timeline": {
+    "events": {
+      "client_requirements": {
+        "title": "تم استلام متطلبات العميل",
+        "description": "تم استلام مستند متطلبات جديد من العميل",
+        "from": "من",
+        "subject": "الموضوع",
+        "details": "يرجى مراجعة مستند النطاق المحدث المرفق. نحتاج إلى تعديل الجدول الزمني وفقاً لذلك."
+      },
+      "dependency_alert": {
+        "title": "تنبيه التبعية",
+        "description": "تم تأخير تبعية حرجة",
+        "details": "تأخر تكامل بوابة الدفع يومين. قد يؤثر هذا على الجدول الزمني للمشروع."
+      },
+      "sprint_planning": {
+        "title": "اجتماع تخطيط السبرنت",
+        "description": "اكتملت جلسة تخطيط السبرنت",
+        "details": "اكتمل تخطيط السبرنت 24. تم الالتزام بـ 18 نقطة قصة. سرعة الفريق: 85%."
+      }
+    }
+  },
+  "sidepanel": {
+    "agent_title": "مساعد الذكاء الاصطناعي",
+    "history_title": "السجل",
+    "verified": "تم التحقق",
+    "close": "إغلاق اللوحة",
+    "context": "السياق",
+    "input_placeholder": "اسأل عن هذا المشروع أو الجدول الزمني...",
+    "tabs": {
+      "agent": "مساعد الذكاء الاصطناعي",
+      "timeline": "الجدول الزمني"
     }
   }
 }

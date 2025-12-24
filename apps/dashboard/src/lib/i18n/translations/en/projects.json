@@ -39,18 +39,29 @@
     "error": "An error occurred",
     "noProjects": "No projects found"
   },
+  "header": {
+    "title": "Projects",
+    "searchPlaceholder": "Search projects..."
+  },
+  "tabs": {
+    "overview": "Overview",
+    "reports": "Reports",
+    "activities": "Activities"
+  },
+  "actions": {
+    "consult_ai": "Consult AI",
+    "open_panel": "Open Side Panel",
+    "close_panel": "Close Side Panel"
+  },
+  "summary": {
+    "fromLastMonth": "from last month"
+  },
   "v2": {
     "summaryCards": {
-      "totalRevenue": {
-        "title": "Total Revenue",
-        "description": "From last month",
-        "trending": "Up 12% from this month"
-      },
-      "activeProjects": {
-        "title": "Active Projects",
-        "description": "Currently in progress",
-        "update": "Updated 1 hour ago"
-      },
+      "totalRevenue": "Total Revenue",
+      "activeProjects": "Active Projects",
+      "newLeads": "New Leads",
+      "timeSpent": "Time Spent",
       "teamSize": {
         "title": "Team Size",
         "description": "Active members",
@@ -65,10 +76,14 @@
     "overview": {
       "title": "Overview",
       "description": "Analyze your projects performance.",
+      "mobileDescription": "Project performance",
       "revenue": "Revenue",
       "projects": "Projects",
       "tasks": "Tasks",
-      "team": "Team"
+      "team": "Team",
+      "last3Months": "Last 3 Months",
+      "last30Days": "Last 30 Days",
+      "last7Days": "Last 7 Days"
     },
     "recentActivity": {
       "title": "Recent Activity",
@@ -124,6 +139,39 @@
       "placeholder": {
         "filterProjects": "Filter projects..."
       }
+    }
+  },
+  "timeline": {
+    "events": {
+      "client_requirements": {
+        "title": "Client Requirements Received",
+        "description": "New requirements document received from client",
+        "from": "From",
+        "subject": "Subject",
+        "details": "Please review the updated scope document attached. We need to adjust the timeline accordingly."
+      },
+      "dependency_alert": {
+        "title": "Dependency Alert",
+        "description": "A critical dependency has been delayed",
+        "details": "The payment gateway integration is delayed by 2 days. This may impact the project timeline."
+      },
+      "sprint_planning": {
+        "title": "Sprint Planning Meeting",
+        "description": "Sprint planning session completed",
+        "details": "Sprint 24 planning completed. 18 story points committed. Team velocity: 85%."
+      }
+    }
+  },
+  "sidepanel": {
+    "agent_title": "AI Assistant",
+    "history_title": "History",
+    "verified": "Verified",
+    "close": "Close Panel",
+    "context": "Context",
+    "input_placeholder": "Ask about this project or timeline...",
+    "tabs": {
+      "agent": "AI Assistant",
+      "timeline": "Timeline"
     }
   }
 }

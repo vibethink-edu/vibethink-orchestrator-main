@@ -39,18 +39,29 @@
         "error": "Une erreur est survenue",
         "noProjects": "Aucun projet trouvé"
     },
+    "header": {
+        "title": "Projets",
+        "searchPlaceholder": "Rechercher des projets..."
+    },
+    "tabs": {
+        "overview": "Aperçu",
+        "reports": "Rapports",
+        "activities": "Activités"
+    },
+    "actions": {
+        "consult_ai": "Consulter l'IA",
+        "open_panel": "Ouvrir le Panneau Latéral",
+        "close_panel": "Fermer le Panneau Latéral"
+    },
+    "summary": {
+        "fromLastMonth": "depuis le mois dernier"
+    },
     "v2": {
         "summaryCards": {
-            "totalRevenue": {
-                "title": "Revenu Total",
-                "description": "Depuis le mois dernier",
-                "trending": "En hausse de 12% ce mois-ci"
-            },
-            "activeProjects": {
-                "title": "Projets Actifs",
-                "description": "Actuellement en cours",
-                "update": "Mis à jour il y a 1 heure"
-            },
+            "totalRevenue": "Revenu Total",
+            "activeProjects": "Projets Actifs",
+            "newLeads": "Nouveaux Prospects",
+            "timeSpent": "Temps Passé",
             "teamSize": {
                 "title": "Taille de l'Équipe",
                 "description": "Membres actifs",
@@ -65,10 +76,14 @@
         "overview": {
             "title": "Aperçu",
             "description": "Analysez la performance de vos projets",
+            "mobileDescription": "Performance des projets",
             "revenue": "Revenus",
             "projects": "Projets",
             "tasks": "Tâches",
-            "team": "Équipe"
+            "team": "Équipe",
+            "last3Months": "3 Derniers Mois",
+            "last30Days": "30 Derniers Jours",
+            "last7Days": "7 Derniers Jours"
         },
         "recentActivity": {
             "title": "Activité Récente",
@@ -124,6 +139,39 @@
             "placeholder": {
                 "filterProjects": "Filtrer les projets..."
             }
+        }
+    },
+    "timeline": {
+        "events": {
+            "client_requirements": {
+                "title": "Exigences Client Reçues",
+                "description": "Nouveau document d'exigences reçu du client",
+                "from": "De",
+                "subject": "Objet",
+                "details": "Veuillez examiner le document de portée mis à jour ci-joint. Nous devons ajuster le calendrier en conséquence."
+            },
+            "dependency_alert": {
+                "title": "Alerte de Dépendance",
+                "description": "Une dépendance critique a été retardée",
+                "details": "L'intégration de la passerelle de paiement est retardée de 2 jours. Cela peut affecter le calendrier du projet."
+            },
+            "sprint_planning": {
+                "title": "Réunion de Planification Sprint",
+                "description": "Session de planification de sprint terminée",
+                "details": "Planification du Sprint 24 terminée. 18 points d'histoire engagés. Vélocité de l'équipe : 85%."
+            }
+        }
+    },
+    "sidepanel": {
+        "agent_title": "Assistant IA",
+        "history_title": "Historique",
+        "verified": "Vérifié",
+        "close": "Fermer le Panneau",
+        "context": "Contexte",
+        "input_placeholder": "Posez des questions sur ce projet ou cette chronologie...",
+        "tabs": {
+            "agent": "Assistant IA",
+            "timeline": "Chronologie"
         }
     }
 }

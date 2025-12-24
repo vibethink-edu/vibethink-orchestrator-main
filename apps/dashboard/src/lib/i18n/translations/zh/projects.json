@@ -39,18 +39,29 @@
         "error": "发生错误",
         "noProjects": "未找到项目"
     },
+    "header": {
+        "title": "项目",
+        "searchPlaceholder": "搜索项目..."
+    },
+    "tabs": {
+        "overview": "概览",
+        "reports": "报告",
+        "activities": "活动"
+    },
+    "actions": {
+        "consult_ai": "咨询AI",
+        "open_panel": "打开侧边栏",
+        "close_panel": "关闭侧边栏"
+    },
+    "summary": {
+        "fromLastMonth": "从上个月起"
+    },
     "v2": {
         "summaryCards": {
-            "totalRevenue": {
-                "title": "总收入",
-                "description": "从上个月起",
-                "trending": "本月增长 12%"
-            },
-            "activeProjects": {
-                "title": "活跃项目",
-                "description": "当前进行中",
-                "update": "1 小时前更新"
-            },
+            "totalRevenue": "总收入",
+            "activeProjects": "活跃项目",
+            "newLeads": "新线索",
+            "timeSpent": "花费时间",
             "teamSize": {
                 "title": "团队规模",
                 "description": "活跃成员",
@@ -65,10 +76,14 @@
         "overview": {
             "title": "概览",
             "description": "分析项目绩效",
+            "mobileDescription": "项目绩效",
             "revenue": "收入",
             "projects": "项目",
             "tasks": "任务",
-            "team": "团队"
+            "team": "团队",
+            "last3Months": "最近3个月",
+            "last30Days": "最近30天",
+            "last7Days": "最近7天"
         },
         "recentActivity": {
             "title": "近期活动",
@@ -124,6 +139,39 @@
             "placeholder": {
                 "filterProjects": "筛选项目..."
             }
+        }
+    },
+    "timeline": {
+        "events": {
+            "client_requirements": {
+                "title": "收到客户需求",
+                "description": "收到客户的新需求文档",
+                "from": "来自",
+                "subject": "主题",
+                "details": "请查看附件的更新范围文档。我们需要相应调整时间表。"
+            },
+            "dependency_alert": {
+                "title": "依赖项警报",
+                "description": "关键依赖项已延迟",
+                "details": "支付网关集成延迟了2天。这可能会影响项目时间表。"
+            },
+            "sprint_planning": {
+                "title": "Sprint规划会议",
+                "description": "Sprint规划会议已完成",
+                "details": "Sprint 24规划完成。承诺18个故事点。团队速度：85%。"
+            }
+        }
+    },
+    "sidepanel": {
+        "agent_title": "AI助手",
+        "history_title": "历史记录",
+        "verified": "已验证",
+        "close": "关闭面板",
+        "context": "上下文",
+        "input_placeholder": "询问此项目或时间表...",
+        "tabs": {
+            "agent": "AI助手",
+            "timeline": "时间表"
         }
     }
 }

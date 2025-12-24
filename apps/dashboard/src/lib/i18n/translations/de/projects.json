@@ -39,18 +39,29 @@
         "error": "Ein Fehler ist aufgetreten",
         "noProjects": "Keine Projekte gefunden"
     },
+    "header": {
+        "title": "Projekte",
+        "searchPlaceholder": "Projekte suchen..."
+    },
+    "tabs": {
+        "overview": "Übersicht",
+        "reports": "Berichte",
+        "activities": "Aktivitäten"
+    },
+    "actions": {
+        "consult_ai": "KI konsultieren",
+        "open_panel": "Seitenpanel öffnen",
+        "close_panel": "Seitenpanel schließen"
+    },
+    "summary": {
+        "fromLastMonth": "vom letzten Monat"
+    },
     "v2": {
         "summaryCards": {
-            "totalRevenue": {
-                "title": "Gesamtumsatz",
-                "description": "Vom letzten Monat",
-                "trending": "Plus 12% diesen Monat"
-            },
-            "activeProjects": {
-                "title": "Aktive Projekte",
-                "description": "Derzeit in Arbeit",
-                "update": "Vor 1 Stunde aktualisiert"
-            },
+            "totalRevenue": "Gesamtumsatz",
+            "activeProjects": "Aktive Projekte",
+            "newLeads": "Neue Leads",
+            "timeSpent": "Verbrauchte Zeit",
             "teamSize": {
                 "title": "Teamgröße",
                 "description": "Aktive Mitglieder",
@@ -65,10 +76,14 @@
         "overview": {
             "title": "Übersicht",
             "description": "Analysieren Sie Ihre Projektleistung",
+            "mobileDescription": "Projektleistung",
             "revenue": "Umsatz",
             "projects": "Projekte",
             "tasks": "Aufgaben",
-            "team": "Team"
+            "team": "Team",
+            "last3Months": "Letzte 3 Monate",
+            "last30Days": "Letzte 30 Tage",
+            "last7Days": "Letzte 7 Tage"
         },
         "recentActivity": {
             "title": "Kürzliche Aktivität",
@@ -124,6 +139,39 @@
             "placeholder": {
                 "filterProjects": "Projekte filtern..."
             }
+        }
+    },
+    "timeline": {
+        "events": {
+            "client_requirements": {
+                "title": "Kundenanforderungen erhalten",
+                "description": "Neues Anforderungsdokument vom Kunden erhalten",
+                "from": "Von",
+                "subject": "Betreff",
+                "details": "Bitte überprüfen Sie das beigefügte aktualisierte Scope-Dokument. Wir müssen den Zeitplan entsprechend anpassen."
+            },
+            "dependency_alert": {
+                "title": "Abhängigkeitswarnung",
+                "description": "Eine kritische Abhängigkeit wurde verzögert",
+                "details": "Die Payment-Gateway-Integration ist um 2 Tage verzögert. Dies kann den Projektzeitplan beeinträchtigen."
+            },
+            "sprint_planning": {
+                "title": "Sprint-Planungssitzung",
+                "description": "Sprint-Planungssitzung abgeschlossen",
+                "details": "Sprint 24 Planung abgeschlossen. 18 Story Points verpflichtet. Teamgeschwindigkeit: 85%."
+            }
+        }
+    },
+    "sidepanel": {
+        "agent_title": "KI-Assistent",
+        "history_title": "Verlauf",
+        "verified": "Verifiziert",
+        "close": "Panel schließen",
+        "context": "Kontext",
+        "input_placeholder": "Fragen Sie zu diesem Projekt oder Zeitplan...",
+        "tabs": {
+            "agent": "KI-Assistent",
+            "timeline": "Zeitplan"
         }
     }
 }
