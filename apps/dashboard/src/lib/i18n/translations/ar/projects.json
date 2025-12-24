@@ -1,182 +1,129 @@
 {
   "common": {
-    "loading": "جارٍ التحميل...",
-    "error": "خطأ",
-    "success": "نجح",
-    "cancel": "إلغاء",
-    "save": "حفظ",
-    "delete": "حذف",
-    "edit": "تعديل",
-    "create": "إنشاء",
-    "update": "تحديث",
-    "search": "بحث",
-    "filter": "تصفية",
-    "sort": "ترتيب",
-    "export": "تصدير",
-    "import": "استيراد",
-    "download": "تنزيل",
-    "upload": "رفع",
-    "close": "إغلاق",
-    "confirm": "تأكيد",
-    "back": "رجوع",
-    "next": "التالي",
-    "previous": "السابق",
-    "submit": "إرسال",
-    "reset": "إعادة تعيين",
-    "clear": "مسح",
-    "apply": "تطبيق",
-    "select": "اختيار",
-    "view": "عرض",
-    "add": "إضافة",
-    "remove": "إزالة"
-  },
-  "header": {
-    "title": "إدارة المشاريع",
-    "subtitle": "تتبع المشاريع وإدارة المهام ومراقبة أداء الفريق",
-    "newProject": "مشروع جديد",
-    "newTask": "مهمة جديدة",
-    "export": "تصدير",
-    "searchPlaceholder": "البحث عن المشاريع...",
-    "filters": "التصفيات",
-    "clearFilters": "مسح",
-    "status": "الحالة",
-    "priority": "الأولوية",
-    "teamLead": "قائد الفريق",
-    "allStatuses": "جميع الحالات",
-    "allPriorities": "جميع الأولويات",
-    "allTeamLeads": "جميع قادة الفرق",
-    "activeFilters": "التصفيات النشطة",
-    "quickFilters": "تصفيات سريعة",
-    "activeProjectsOnly": "المشاريع النشطة فقط",
-    "highPriorityProjects": "المشاريع ذات الأولوية العالية",
-    "overdueProjects": "المشاريع المتأخرة"
-  },
-  "tabs": {
-    "overview": "نظرة عامة",
-    "projects": "المشاريع",
-    "team": "الفريق",
-    "reports": "التقارير",
-    "activities": "الأنشطة"
-  },
-  "actions": {
-    "consult_ai": "اسأل ViTo",
-    "close_panel": "إغلاق اللوحة الجانبية",
-    "open_panel": "فتح اللوحة الجانبية"
-  },
-  "sidepanel": {
-    "agent_title": "ViTo مساعد الذكاء الاصطناعي",
-    "history_title": "السجل",
-    "verified": "موثق",
-    "close": "إغلاق اللوحة",
-    "tabs": {
-      "agent": "ViTo",
-      "timeline": "الجدول الزمني"
+    "status": {
+      "active": "نشط",
+      "pending": "قيد الانتظار",
+      "completed": "مكتمل",
+      "archived": "مؤرشف"
     },
-    "context": "السياق",
-    "input_placeholder": "اسأل ViTo عن هذا المشروع أو الجدول الزمني..."
-  },
-  "timeline": {
-    "events": {
-      "client_requirements": {
-        "title": "تم استلام متطلبات العميل",
-        "description": "تم استلام وثيقة النطاق عبر البريد الإلكتروني.",
-        "from": "من",
-        "subject": "الموضوع",
-        "details": "مرفق وثيقة النطاق النهائية. يرجى مراجعة الأقسام 3.1 و 4.2 خاصة فيما يتعلق بجداول تكامل الذكاء الاصطناعي."
-      },
-      "dependency_alert": {
-        "title": "تنبيه التبعية",
-        "description": "تم اكتشاف تعارض محتمل جديد في package.json",
-        "details": "تم اكتشاف عدم تطابق في الإصدار لـ @vibethink/ui. موصى به: الترقية إلى v0.2.1"
-      },
-      "sprint_planning": {
-        "title": "تخطيط السبرينت",
-        "description": "مزامنة أسبوعية مع فريق الهندسة.",
-        "details": "النقاط الرئيسية: التركيز على تنفيذ اللوحة الجانبية في هذا السبرينت. يحتاج مكون الجدول الزمني إلى دعم العناصر القابلة للطي."
-      }
+    "actions": {
+      "edit": "تعديل",
+      "delete": "حذف",
+      "view": "عرض",
+      "create": "إنشاء",
+      "cancel": "إلغاء",
+      "save": "حفظ"
     }
   },
-  "summary": {
-    "activeProjects": "المشاريع النشطة",
-    "completed": "مكتمل",
-    "onHold": "معلق",
-    "totalBudget": "الميزانية الإجمالية",
-    "teamMembers": "أعضاء الفريق",
-    "activeTasks": "المهام النشطة",
-    "completedTasks": "المهام المكتملة",
-    "avgEfficiency": "متوسط الكفاءة",
-    "overdueTasks": "المهام المتأخرة",
-    "fromLastMonth": "من الشهر الماضي",
-    "thisMonth": "هذا الشهر",
-    "activeContributors": "المساهمون النشطون",
-    "fromLastWeek": "من الأسبوع الماضي",
-    "failedToLoad": "فشل تحميل المقاييس"
-  },
   "sections": {
-    "teamPerformance": "أداء الفريق",
-    "teamPerformanceDesc": "سيتم عرض مقاييس أداء الفريق التفصيلية هنا، بما في ذلك إنتاجية الأعضاء الفرديين ومعدلات إنجاز المهام وتوزيع عبء العمل.",
-    "loadingData": "جارٍ تحميل بيانات المشروع...",
     "recentProjects": "المشاريع الأخيرة",
-    "projectDistribution": "توزيع المشاريع",
-    "upcomingDeadlines": "المواعيد النهائية القادمة",
-    "projectsOverview": "نظرة عامة على المشاريع"
+    "allProjects": "كل المشاريع",
+    "projectDetails": "تفاصيل المشروع"
+  },
+  "fields": {
+    "name": "الاسم",
+    "description": "الوصف",
+    "startDate": "تاريخ البدء",
+    "endDate": "تاريخ الانتهاء",
+    "status": "الحالة",
+    "priority": "الأولوية",
+    "client": "العميل",
+    "budget": "الميزانية"
+  },
+  "messages": {
+    "createSuccess": "تم إنشاء المشروع بنجاح",
+    "updateSuccess": "تم تحديث المشروع بنجاح",
+    "deleteSuccess": "تم حذف المشروع بنجاح",
+    "deleteConfirm": "هل أنت متأكد أنك تريد حذف هذا المشروع؟",
+    "loading": "جاري التحميل...",
+    "error": "حدث خطأ ما",
+    "noProjects": "لا توجد مشاريع"
   },
   "v2": {
     "summaryCards": {
-      "totalRevenue": "إجمالي الإيرادات",
-      "activeProjects": "المشاريع النشطة",
-      "newLeads": "العملاء المحتملون الجدد",
-      "timeSpent": "الوقت المستغرق"
+      "totalRevenue": {
+        "title": "إجمالي الإيرادات",
+        "description": "من الشهر الماضي",
+        "trending": "ارتفعت بنسبة 12% هذا الشهر"
+      },
+      "activeProjects": {
+        "title": "المشاريع النشطة",
+        "description": "قيد التنفيذ حالياً",
+        "update": "آخر تحديث قبل ساعة"
+      },
+      "teamSize": {
+        "title": "حجم الفريق",
+        "description": "أعضاء نشطون",
+        "hiring": "جاري التوظيف (2 وظائف مفتوحة)"
+      },
+      "completionRate": {
+        "title": "معدل الإنجاز",
+        "description": "تم التسليم في الوقت المحدد",
+        "performance": "أفضل بنسبة 5% من الهدف"
+      }
     },
     "overview": {
-      "title": "نظرة عامة على المشاريع",
-      "description": "الإجمالي لآخر 3 أشهر",
-      "mobileDescription": "آخر 3 أشهر",
-      "last3Months": "آخر 3 أشهر",
-      "last30Days": "آخر 30 يومًا",
-      "last7Days": "آخر 7 أيام"
+      "title": "نظرة عامة",
+      "description": "تحليل أداء مشاريعك",
+      "revenue": "الإيرادات",
+      "projects": "المشاريع",
+      "tasks": "المهام",
+      "team": "الفريق"
+    },
+    "recentActivity": {
+      "title": "النشاط الأخير",
+      "description": "لديك 3 إشعارات جديدة اليوم",
+      "projectCreated": "تم إنشاء مشروع جديد",
+      "taskCompleted": "تم إكمال المهمة",
+      "commentAdded": "تمت إضافة تعليق",
+      "fileUploaded": "تم رفع ملف"
+    },
+    "metrics": {
+      "title": "مقاييس الأداء",
+      "description": "تتبع مؤشرات الأداء الرئيسية",
+      "onTime": "في الوقت المحدد",
+      "overBudget": "تجاوز الميزانية",
+      "clientSatisfaction": "رضا العملاء"
     },
     "efficiency": {
       "title": "كفاءة المشروع",
       "description": "يناير - يونيو 2026",
-      "trending": "ارتفاع بنسبة 5.2٪ هذا الشهر"
+      "trending": "اتجاه تصاعدي بنسبة 5.2% هذا الشهر"
     },
     "achievement": {
       "title": "الإنجاز حسب السنة",
-      "description": "لقد أكملت مشاريع أكثر يوميًا في المتوسط هذا العام مقارنة بالعام الماضي.",
-      "projects": "المشاريع"
+      "description": "لقد أكملت مشاريع أكثر يومياً في المتوسط هذا العام مقارنة بالعام الماضي.",
+      "projects": "مشاريع"
     },
     "reminders": {
       "title": "تذكير",
-      "showOther": "إظهار التذكيرات الـ 10 الأخرى"
+      "showOther": "عرض 10 تذكيرات أخرى"
     },
     "successMetrics": {
       "title": "مقاييس النجاح",
       "description": "مؤشرات الأداء الرئيسية لنجاح المشروع",
       "successRate": "معدل نجاح المشروع",
       "onTime": "الإنجاز في الوقت المحدد",
-      "clientSat": "رضا العميل",
+      "clientSat": "رضا العملاء",
       "budget": "الالتزام بالميزانية"
     },
     "reports": {
       "title": "تقارير المشاريع",
       "description": "تنزيل تقارير مفصلة لمشاريعك",
       "download": "تنزيل التقرير"
-    }
-  }
-},
-"v2": {
-  "table": {
-    "columns": {
-      "projectName": "اسم المشروع",
-      "clientName": "اسم العميل",
-      "startDate": "تاريخ البدء",
-      "deadline": "الموعد النهائي",
-      "status": "الحالة",
-      "progress": "التقدم"
     },
-    "placeholder": {
-      "filterProjects": "تصفية المشاريع..."
+    "table": {
+      "columns": {
+        "projectName": "اسم المشروع",
+        "clientName": "اسم العميل",
+        "startDate": "تاريخ البدء",
+        "deadline": "الموعد النهائي",
+        "status": "الحالة",
+        "progress": "التقدم"
+      },
+      "placeholder": {
+        "filterProjects": "تصفية المشاريع..."
+      }
     }
   }
 }
