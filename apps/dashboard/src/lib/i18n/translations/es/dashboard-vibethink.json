@@ -1,0 +1,73 @@
+{
+  "page": {
+    "title": "Mocks de VibeThink Orchestrator",
+    "description": "Todos los mocks disponibles de VibeThink Orchestrator. Estos dashboards están adaptados al estilo VibeThink y listos para ser promovidos a módulos reales en la sección /dashboard.",
+    "viewDashboard": "Ver Dashboard"
+  },
+  "categories": {
+    "business": "Negocios",
+    "productivity": "Productividad",
+    "analytics": "Analíticas",
+    "ai": "IA",
+    "finance": "Finanzas"
+  },
+  "dashboards": {
+    "crm": {
+      "name": "CRM",
+      "description": "Gestión de relaciones con clientes - Versión adaptada VibeThink lista para producción"
+    },
+    "sales": {
+      "name": "Ventas",
+      "description": "Dashboard de ventas - Versión adaptada VibeThink lista para producción"
+    },
+    "ecommerce": {
+      "name": "E-commerce",
+      "description": "Dashboard de comercio electrónico - Versión adaptada VibeThink lista para producción"
+    },
+    "finance": {
+      "name": "Finanzas",
+      "description": "Dashboard financiero con presupuestos, gastos y planificación financiera"
+    },
+    "projectManagement": {
+      "name": "Gestión de Proyectos",
+      "description": "Gestión de proyectos con tareas, cronogramas y colaboración en equipo"
+    },
+    "tasks": {
+      "name": "Tareas",
+      "description": "Gestión de tareas con listas de pendientes, prioridades y plazos"
+    },
+    "calendar": {
+      "name": "Calendario",
+      "description": "Aplicación de calendario con eventos, programación y recordatorios"
+    },
+    "mail": {
+      "name": "Correo",
+      "description": "Cliente de correo con bandeja de entrada, redacción y gestión de emails"
+    },
+    "notes": {
+      "name": "Notas",
+      "description": "Aplicación para tomar notas con edición de texto enriquecido y organización"
+    },
+    "fileManager": {
+      "name": "Gestor de Archivos",
+      "description": "Sistema de almacenamiento y gestión de archivos con carga, organización y compartir"
+    },
+    "websiteAnalytics": {
+      "name": "Analíticas Web",
+      "description": "Dashboard de analíticas web con datos de tráfico, interacciones de usuarios y métricas de rendimiento"
+    },
+    "aiChat": {
+      "name": "Chat IA",
+      "description": "Interfaz de chat con IA con soporte para múltiples modelos e historial de conversaciones"
+    },
+    "posSystem": {
+      "name": "Sistema POS",
+      "description": "Sistema de punto de venta para gestión de retail y restaurantes"
+    },
+    "crypto": {
+      "name": "Cripto",
+      "description": "Rastreador de cartera de criptomonedas con trading, DeFi y gestión de NFT"
+    }
+  }
+}
+

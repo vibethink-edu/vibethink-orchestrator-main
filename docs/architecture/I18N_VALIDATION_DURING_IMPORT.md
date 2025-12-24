@@ -14,9 +14,27 @@
 - ✅ Validar subcomponentes (footers, headers, bars, toolbars)
 - ✅ Identificar todos los strings hardcoded
 - ✅ Crear namespace i18n durante la importación
+- ✅ **Validar los 9 idiomas con fallback (OBLIGATORIO)**
 - ✅ Documentar strings pendientes de traducción
 
 **Hacer esto masivamente después es ineficiente y genera deuda técnica.**
+
+## 🌍 Regla de 9 Idiomas con Fallback
+
+**🚨 OBLIGATORIO:** Todos los módulos importados DEBEN tener:
+
+1. **English (en):** 100% completo - OBLIGATORIO (fallback universal)
+2. **Español (es):** 100% completo - OBLIGATORIO
+3. **Otros 7 idiomas (fr, pt, de, it, ko, ar, zh):**
+   - Estructura completa (mismas keys que inglés)
+   - Traducciones opcionales (sistema usa fallback a inglés si faltan)
+
+**Sistema de Fallback:**
+- ✅ Si una key no existe en un idioma → Automáticamente usa inglés
+- ✅ NUNCA mostrar keys sin traducir si existe fallback disponible
+- ✅ El sistema base (`context.tsx`) maneja fallback automáticamente
+
+**Documentación:** `docs/architecture/I18N_FALLBACK_STRATEGY.md` ⭐
 
 ## 📊 Niveles de Traducción (SIEMPRE VALIDAR)
 
@@ -415,18 +433,23 @@ hotel (namespace principal)
   - [ ] **Regla crítica:**
     - **TODAS las claves usadas en `t('...')` DEBEN existir en AMBOS JSON (EN/ES)**
     - **Ninguna clave puede estar faltante** - esto causa que las claves aparezcan visibles en la UI en lugar del texto traducido
-- [ ] **🚨 PROBAR EN AMBOS IDIOMAS (EN/ES):**
+- [ ] **🚨 PROBAR EN LOS 9 IDIOMAS (con Fallback):**
+  - [ ] **English (en):** Todos los strings visibles y correctos
+  - [ ] **Español (es):** Todos los strings traducidos correctamente
+  - [ ] **Otros 7 idiomas (fr, pt, de, it, ko, ar, zh):**
+    - [ ] Strings traducidos O fallback a inglés funcionando
+    - [ ] NUNCA aparecen keys sin traducir si existe fallback
   - [ ] Cambiar idioma en la UI (usar LocaleSelector)
   - [ ] Verificar que todos los strings cambian en la página principal
   - [ ] Verificar que todos los strings cambian en subcomponentes
   - [ ] **Verificar que NO aparecen claves de traducción** (ej: `hotel.components.statCards.titles.todayCheckIn` visible)
-  - [ ] **Verificar sidebar en ambos idiomas:**
-    - [ ] Título del módulo en sidebar cambia según idioma
-    - [ ] Subopciones del sidebar cambian según idioma
-    - [ ] Tooltips (si aplica) cambian según idioma
-  - [ ] Verificar navegación (breadcrumbs, tabs) en ambos idiomas
-  - [ ] Verificar que no quedan strings en inglés cuando está en español
-  - [ ] Verificar que no quedan strings en español cuando está en inglés
+  - [ ] **Verificar sidebar en todos los idiomas:**
+    - [ ] Título del módulo en sidebar cambia según idioma (o fallback)
+    - [ ] Subopciones del sidebar cambian según idioma (o fallback)
+    - [ ] Tooltips (si aplica) cambian según idioma (o fallback)
+  - [ ] Verificar navegación (breadcrumbs, tabs) en todos los idiomas (o fallback)
+  - [ ] **Verificar fallback:** Si un idioma no tiene traducción, debe mostrar inglés (nunca keys)
+  - [ ] Verificar que no quedan strings hardcoded en ningún idioma
 
 ---
 

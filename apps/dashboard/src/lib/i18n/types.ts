@@ -66,7 +66,9 @@ export type TranslationNamespace =
   | 'theme'             // Theme customization
   | 'concept'           // Concept terminology (IA First reusable components)
   | 'errors'            // Error messages
-  | 'validation';       // Form validation messages
+  | 'validation'        // Form validation messages
+  | 'dashboard-vibethink' // VibeThink Dashboard Index page
+  | 'dashboard-bundui';   // Bundui Dashboard Index page
 
 /**
  * Translation function type
