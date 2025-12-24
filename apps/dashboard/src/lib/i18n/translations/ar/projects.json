@@ -177,4 +177,20 @@
       }
     }
   }
+},
+"v2": {
+  "table": {
+    "columns": {
+      "projectName": "اسم المشروع",
+      "clientName": "اسم العميل",
+      "startDate": "تاريخ البدء",
+      "deadline": "الموعد النهائي",
+      "status": "الحالة",
+      "progress": "التقدم"
+    },
+    "placeholder": {
+      "filterProjects": "تصفية المشاريع..."
+    }
+  }
+}
 }

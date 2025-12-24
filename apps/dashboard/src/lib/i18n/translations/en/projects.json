@@ -160,10 +160,12 @@
       "budget": "Budget Adherence"
     },
     "reports": {
-      "title": "Project Reports",
+      "title": "Projects Reports",
       "description": "Download detailed reports for your projects",
       "download": "Download Report"
-    },
+    }
+  },
+  "v2": {
     "table": {
       "columns": {
         "projectName": "Project Name",

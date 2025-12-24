@@ -177,4 +177,20 @@
       }
     }
   }
+},
+"v2": {
+  "table": {
+    "columns": {
+      "projectName": "Nom du Projet",
+      "clientName": "Nom du Client",
+      "startDate": "Date de Début",
+      "deadline": "Date Limite",
+      "status": "Statut",
+      "progress": "Progrès"
+    },
+    "placeholder": {
+      "filterProjects": "Filtrer les projets..."
+    }
+  }
+}
 }
