@@ -349,4 +349,148 @@ npm run validate:all
 
 ---
 
+
 **🎯 REMEMBER: This is the SINGLE SOURCE OF TRUTH for all AI agents. NO isolated decisions allowed.**
+
+---
+
+## 🌍 **I18N (INTERNATIONALIZATION) - CRITICAL** 🔴
+
+### **ABSOLUTE RULE: Zero Hardcoded Strings**
+
+**READ FIRST - BEFORE ANY CODE CHANGE:**
+- `.agent/AI_MANDATORY_CHECKLIST.md` - Pre-code checklist ⭐
+- `docs/standards/ABSOLUTE_I18N_RULE.md` - The absolute rule ⭐
+- `AI_AGENT_I18N_GUIDE.md` - Complete implementation guide ⭐
+
+**THE RULE:**
+> **MINIMUM:** English (en) translation for EVERY string  
+> **NEVER:** Hardcoded strings in ANY component (own or third-party)
+
+**APPLIES TO:**
+- ✅ Own components
+- ✅ Third-party components (shadcn/ui, etc.)
+- ✅ Error messages, tooltips, placeholders
+- ✅ **EVERYTHING visible in UI**
+
+---
+
+### **📚 I18N Documentation (Priority Order)**
+
+#### **1. MANDATORY - Read Before ANY Code Change**
+| Document | Purpose | When to Read |
+|----------|---------|--------------|
+| `.agent/AI_MANDATORY_CHECKLIST.md` | Pre-code checklist | **BEFORE every code change** |
+| `docs/standards/ABSOLUTE_I18N_RULE.md` | Zero hardcoded strings rule | **BEFORE implementing features** |
+| `.agent/AI_MEMORY_CONFIG.md` | AI agent memory configuration | **On project start** |
+
+#### **2. Implementation Guides**
+| Document | Purpose | When to Read |
+|----------|---------|--------------|
+| `AI_AGENT_I18N_GUIDE.md` | Complete implementation guide | When implementing i18n |
+| `docs/guides/HOW_TO_VALIDATE_AND_FIX_I18N.md` | Validation & fixing guide | When fixing i18n issues |
+| `docs/guides/GENERIC_TABLE_I18N.md` | Table i18n pattern | When creating tables |
+
+#### **3. Standards & Quality**
+| Document | Purpose | When to Read |
+|----------|---------|--------------|
+| `docs/standards/GLOBAL_MULTILINGUAL_STANDARD.md` | Global i18n standard | Reference for standards |
+| `docs/standards/I18N_QUALITY_ASSURANCE.md` | Quality assurance rules | Before validation |
+| `docs/processes/LANG_QUALITY_VALIDATION.md` | Quality validation process | When running QA |
+
+---
+
+### **🔧 I18N Scripts & Tools**
+
+```bash
+# Detect hardcoded strings (CRITICAL)
+npm run i18n:detect-hardcoded
+npm run i18n:detect-hardcoded -- --strict  # CI/CD mode
+
+# Validate translations
+npm run i18n:validate
+npm run i18n:validate -- --module=projects
+npm run i18n:validate -- --strict
+
+# Quality check
+npm run lang-quality
+npm run lang-quality -- --module=projects
+
+# Combined check
+npm run i18n:check  # Runs all validations
+```
+
+**Script Locations:**
+- `scripts/i18n-validate.js` - Translation validation
+- `scripts/lang-quality.js` - Quality scoring
+- `scripts/detect-hardcoded-strings.js` - Hardcoded detection (TODO)
+
+---
+
+### **📋 I18N Workflow (MANDATORY)**
+
+**BEFORE writing ANY code with UI text:**
+
+```
+1. Read AI_MANDATORY_CHECKLIST.md
+   ↓
+2. Identify all UI-visible strings
+   ↓
+3. Add to en/*.json (minimum)
+   ↓
+4. Add AI context (if new module)
+   ↓
+5. Use t() function in code
+   ↓
+6. Validate: npm run i18n:detect-hardcoded
+   ↓
+7. Test in browser
+   ↓
+8. Commit
+```
+
+---
+
+### **🚨 I18N Red Flags - STOP and FIX**
+
+If you see ANY of these patterns, **STOP** and suggest translation:
+
+```tsx
+// 🚨 RED FLAG: Hardcoded text
+<button>Click me</button>
+<input placeholder="Enter name" />
+throw new Error("Something went wrong");
+<Button>Submit</Button>  // Third-party
+```
+
+**Action:** Immediately suggest adding to translation file and using `t()`
+
+---
+
+### **✅ I18N Correct Pattern**
+
+```tsx
+import { useTranslation } from '@/lib/i18n';
+
+export function MyComponent() {
+  const { t } = useTranslation('common');
+  return <button>{t('actions.save')}</button>;
+}
+```
+
+---
+
+### **🎯 I18N Quality Checklist**
+
+Before marking ANY feature as complete:
+
+- [ ] No hardcoded strings in JSX
+- [ ] All text uses `t()` function
+- [ ] `npm run i18n:detect-hardcoded` passes
+- [ ] `npm run i18n:validate` shows 100% for English
+- [ ] Tested in browser (minimum EN)
+
+---
+
+**Last Updated:** 2025-12-23  
+**Status:** 🔴 CRITICAL - MANDATORY FOR ALL CODE
