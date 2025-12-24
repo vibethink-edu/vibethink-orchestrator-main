@@ -161,8 +161,23 @@
     },
     "reports": {
       "title": "Projects Reports",
-      "description": "Download detailedreports for your projects",
+      "description": "Download detailed reports for your projects",
       "download": "Download Report"
+    }
+  },
+  "v2": {
+    "table": {
+      "columns": {
+        "projectName": "Project Name",
+        "clientName": "Client Name",
+        "startDate": "Start Date",
+        "deadline": "Deadline",
+        "status": "Status",
+        "progress": "Progress"
+      },
+      "placeholder": {
+        "filterProjects": "Filter projects..."
+      }
     }
   }
 }

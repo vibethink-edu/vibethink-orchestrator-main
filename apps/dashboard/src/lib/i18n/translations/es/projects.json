@@ -164,4 +164,20 @@
       "download": "Descargar Reporte"
     }
   }
+},
+"v2": {
+  "table": {
+    "columns": {
+      "projectName": "Nombre del Proyecto",
+      "clientName": "Nombre del Cliente",
+      "startDate": "Fecha de Inicio",
+      "deadline": "Fecha Límite",
+      "status": "Estado",
+      "progress": "Progreso"
+    },
+    "placeholder": {
+      "filterProjects": "Filtrar proyectos..."
+    }
+  }
+}
 }

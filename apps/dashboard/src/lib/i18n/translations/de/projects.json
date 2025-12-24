@@ -164,4 +164,20 @@
       "download": "Bericht Herunterladen"
     }
   }
+},
+"v2": {
+  "table": {
+    "columns": {
+      "projectName": "Projektname",
+      "clientName": "Kundenname",
+      "startDate": "Startdatum",
+      "deadline": "Frist",
+      "status": "Status",
+      "progress": "Fortschritt"
+    },
+    "placeholder": {
+      "filterProjects": "Projekte filtern..."
+    }
+  }
+}
 }
