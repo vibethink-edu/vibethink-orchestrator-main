@@ -278,6 +278,7 @@ Los componentes en `bundui-premium` siguen existiendo para compatibilidad, pero 
 - [x] Crear documentación de migración
 - [x] Crear protocolo para `"use client"` en migración
 - [ ] Validar que todo funciona correctamente
+- [ ] Validar ubicación de i18n (`apps/dashboard/src/lib/i18n/translations/...`) vs `src/locales`
 - [ ] Eliminar componentes legacy (después de validación)
 
 ## 📋 Protocolo: "use client" en page.tsx

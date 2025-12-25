@@ -1,4 +1,85 @@
 {
+  "tabs": {
+    "overview": "نظرة عامة",
+    "projects": "المشاريع",
+    "team": "الفريق",
+    "reports": "التقارير"
+  },
+  "summary": {
+    "activeProjects": "مشاريع نشطة",
+    "completed": "مكتملة",
+    "onHold": "في الانتظار",
+    "totalBudget": "الميزانية الإجمالية",
+    "teamMembers": "أعضاء الفريق",
+    "activeTasks": "مهام نشطة",
+    "completedTasks": "مهام مكتملة",
+    "avgEfficiency": "متوسط الكفاءة",
+    "activeContributors": "المساهمون النشطون",
+    "fromLastMonth": "من الشهر الماضي",
+    "thisMonth": "هذا الشهر",
+    "fromLastWeek": "من الأسبوع الماضي",
+    "overdueTasks": "مهام متأخرة",
+    "failedToLoad": "فشل تحميل الملخص",
+    "errorLoadingSuccessMetrics": "خطأ في تحميل المقاييس"
+  },
+  "sections": {
+    "teamPerformance": "أداء الفريق",
+    "teamPerformanceDesc": "مقاييس الكفاءة وعبء العمل لكل عضو",
+    "loadingData": "جاري تحميل البيانات...",
+    "recentProjects": "المشاريع الأخيرة",
+    "recentProjectsDesc": "عرض {{count}} مشاريع نشطة",
+    "noProjectsFound": "لم يتم العثور على مشاريع",
+    "allProjects": "كل المشاريع",
+    "projectDetails": "تفاصيل المشروع"
+  },
+  "header": {
+    "title": "المشاريع",
+    "subtitle": "إدارة المشاريع والمهام والموارد",
+    "export": "تصدير",
+    "newProject": "مشروع جديد",
+    "newTask": "مهمة جديدة",
+    "searchPlaceholder": "البحث في المشاريع أو المهام...",
+    "status": "الحالة",
+    "allStatuses": "جميع الحالات",
+    "priority": "الأولوية",
+    "allPriorities": "جميع الأولويات",
+    "teamLead": "قائد الفريق"
+  },
+  "status": {
+    "active": "نشط",
+    "completed": "مكتمل",
+    "on-hold": "في الانتظار",
+    "cancelled": "ملغي"
+  },
+  "priority": {
+    "low": "منخفضة",
+    "medium": "متوسطة",
+    "high": "عالية",
+    "urgent": "عاجلة"
+  },
+  "table": {
+    "project": "المشروع",
+    "status": "الحالة",
+    "priority": "الأولوية",
+    "progress": "التقدم",
+    "teamLead": "القائد",
+    "dueDate": "تاريخ الاستحقاق",
+    "budget": "الميزانية",
+    "actions": "إجراءات",
+    "complete": "مكتمل",
+    "inProgress": "قي التنفيد",
+    "overdue": "متأخر",
+    "daysLeft": "أيام متبقية",
+    "spent": "أنفق",
+    "tryAdjustingFilters": "حاول تعديل المرشحات أو مصطلحات البحث"
+  },
+  "actions": {
+    "viewDetails": "عرض التفاصيل",
+    "editProject": "تعديل المشروع",
+    "manageTeam": "إدارة الفريق",
+    "viewTimeline": "عرض الجدول الزمني",
+    "deleteProject": "حذف المشروع"
+  },
   "common": {
     "status": {
       "active": "نشط",
@@ -14,11 +95,6 @@
       "cancel": "إلغاء",
       "save": "حفظ"
     }
-  },
-  "sections": {
-    "recentProjects": "المشاريع الأخيرة",
-    "allProjects": "كل المشاريع",
-    "projectDetails": "تفاصيل المشروع"
   },
   "fields": {
     "name": "الاسم",
@@ -125,5 +201,41 @@
         "filterProjects": "تصفية المشاريع..."
       }
     }
+  },
+  "hardcoded": {
+    "task_or_project_deadline": "Task or الموعد النهائي للمشروع",
+    "deadline": "Deadline",
+    "team_meeting_or_call": "Team meeting or مكالمة",
+    "no_project_data_available": "No project data available",
+    "due_now": "Due now",
+    "comprehensive_overview_of_all_active_projects_and": "Comprehensive overview of all active projects and",
+    "detailed_analysis_of_team_productivity_and_efficie": "Detailed analysis of team productivity and efficie",
+    "financial_overview_showing_budget_allocation_and_s": "Financial overview showing budget allocation and s",
+    "project_success_rate": "Project Success Rate",
+    "percentage_of_projects_completed_successfully": "Percentage of projects completed successfully",
+    "ontime_delivery": "On-Time Delivery",
+    "migrate_legacy_database_to_cloud_infrastructure": "Migrate legacy database to cloud infrastructure",
+    "comprehensive_security_assessment_and_remediation": "Comprehensive security assessment and remediation",
+    "design_wireframes": "Design wireframes",
+    "website_redesign_review": "Website Redesign Review",
+    "review_the_latest_designs_and_provide_feedback": "Review the latest designs and provide feedback",
+    "mobile_app_sprint_planning": "التخطيط",
+    "export_project_data": "Export project data",
+    "steps": "Steps",
+    "steps_1": "Steps",
+    "steps_2": "Steps",
+    "enter_your_reminder": "Enter your reminder",
+    "enter_your_reminder_1": "Enter your reminder",
+    "select_a_category": "Select a category",
+    "visitors": "الزوار",
+    "desktop": "سطح المكتب",
+    "mobile": "جوال",
+    "visitors_1": "الزوار",
+    "desktop_1": "سطح المكتب",
+    "mobile_1": "جوال",
+    "toggle_details": "Toggle details",
+    "mobile_app_design": "جوال",
+    "select_all": "تحديد الكل",
+    "select_all_1": "تحديد الكل"
   }
 }

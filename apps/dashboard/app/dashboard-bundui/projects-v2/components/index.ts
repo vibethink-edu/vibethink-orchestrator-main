@@ -8,3 +8,4 @@ export * from "./success-metrics";
 export * from "./reports";
 export * from "./contextual-side-panel";
 export * from "./collapsible-timeline";
+export * from "./project-cards-grid";
