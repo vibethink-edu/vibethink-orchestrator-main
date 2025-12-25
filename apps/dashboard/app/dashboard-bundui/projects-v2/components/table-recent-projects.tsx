@@ -314,6 +314,7 @@ type Project = {
 
 export function TableRecentProjects() {
     const { t } = useTranslation('projects');
+<<<<<<< HEAD
     const { t: tCommon } = useTranslation('common');
 
     // Create columns with translations
