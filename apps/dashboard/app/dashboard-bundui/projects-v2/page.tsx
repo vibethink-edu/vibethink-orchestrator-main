@@ -10,7 +10,7 @@ import {
     ResizablePanelGroup,
 } from "@vibethink/ui/components/resizable";
 import { Button } from "@vibethink/ui/components/button";
-import { Brain, MessageSquare, PanelRightClose, PanelRightOpen } from "lucide-react";
+import { Brain, Sparkles, PanelRightClose, PanelRightOpen } from "lucide-react";
 
 import {
     SummaryCards,
@@ -22,13 +22,14 @@ import {
     SuccessMetrics,
     Reports,
     ContextualSidePanel,
-    TimelineEvent
+    TimelineEvent,
+    ProjectCardsGrid
 } from "./components";
 
 import { ContextualPanelProvider, useContextualPanel, PanelContextData } from "./context/contextual-panel-context";
 import { ExtendedPanelContext } from "@/lib/types/ai-context";
 import { getUserPermissionsFromPlan } from "@/lib/types/ai-context";
-import { LanguageSwitcher } from "./components/LanguageSwitcher";
+
 
 // Mock Data for Timeline - Uses i18n
 const getMockTimelineEvents = (t: any): TimelineEvent[] => [
@@ -119,15 +120,14 @@ function PageContent() {
                             <h1 className="text-2xl font-bold tracking-tight">{t('header.title')}</h1>
                         </div>
                         <div className="flex items-center gap-2">
-                            <LanguageSwitcher />
+
                             <Button
-                                variant="outline"
                                 size="sm"
                                 onClick={togglePanel}
-                                className="gap-2"
+                                className="group relative gap-2 border-0 bg-gradient-to-r from-violet-600 via-indigo-600 to-blue-600 text-white shadow-lg transition-all hover:scale-105 hover:shadow-indigo-500/25 ring-offset-2 focus:ring-2 focus:ring-indigo-500"
                             >
-                                <MessageSquare className="h-4 w-4" />
-                                <span className="hidden sm:inline">{t('actions.consult_ai')}</span>
+                                <Sparkles className="h-4 w-4 transition-transform group-hover:rotate-12" />
+                                <span className="font-semibold">ViTo Assistant</span>
                             </Button>
                         </div>
                         <div className="flex items-center space-x-2">
@@ -148,6 +148,7 @@ function PageContent() {
                     <Tabs defaultValue="overview" className="space-y-4">
                         <TabsList className="z-10 w-full justify-start border-b rounded-none p-0 h-auto bg-transparent">
                             <TabsTrigger value="overview" className="data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:shadow-none rounded-none px-4 py-2">{t('tabs.overview')}</TabsTrigger>
+                            <TabsTrigger value="projects" className="data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:shadow-none rounded-none px-4 py-2">{t('tabs.projects')}</TabsTrigger>
                             <TabsTrigger value="reports" className="data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:shadow-none rounded-none px-4 py-2">{t('tabs.reports')}</TabsTrigger>
                             <TabsTrigger value="activities" disabled className="data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:shadow-none rounded-none px-4 py-2">
                                 {t('tabs.activities', 'Activities')}
@@ -167,6 +168,9 @@ function PageContent() {
                                 <ChartProjectEfficiency />
                             </div>
                             <TableRecentProjects />
+                        </TabsContent>
+                        <TabsContent value="projects" className="pt-4">
+                            <ProjectCardsGrid />
                         </TabsContent>
                         <TabsContent value="reports" className="pt-4">
                             <Reports />

@@ -92,8 +92,9 @@ export const bunduiNavItems: NavGroup[] = [
         href: "/dashboard-bundui/project-management",
         icon: FolderDotIcon,
         items: [
-          { title: "Dashboard", href: "/dashboard-bundui/project-management" },
-          { title: "Project List", href: "/dashboard-bundui/project-list" }
+          { title: "Dashboard (Legacy)", href: "/dashboard-bundui/project-management" },
+          { title: "Project List (Legacy)", href: "/dashboard-bundui/project-list" },
+          { title: "Projects V2", href: "/dashboard-bundui/projects-v2", isNew: true }
         ]
       },
       { title: "Sales", href: "/dashboard-bundui/sales", icon: BadgeDollarSignIcon },

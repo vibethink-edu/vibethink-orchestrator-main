@@ -1,4 +1,85 @@
 {
+  "tabs": {
+    "overview": "Resumen",
+    "projects": "Proyectos",
+    "team": "Equipo",
+    "reports": "Reportes"
+  },
+  "summary": {
+    "activeProjects": "Proyectos Activos",
+    "completed": "Completados",
+    "onHold": "En Espera",
+    "totalBudget": "Presupuesto Total",
+    "teamMembers": "Miembros",
+    "activeTasks": "Tareas Activas",
+    "completedTasks": "Tareas Completadas",
+    "avgEfficiency": "Eficiencia Prom.",
+    "activeContributors": "Colaboradores activos",
+    "fromLastMonth": "desde el mes pasado",
+    "thisMonth": "este mes",
+    "fromLastWeek": "desde la semana pasada",
+    "overdueTasks": "Tareas Atrasadas",
+    "failedToLoad": "Error al cargar resumen",
+    "errorLoadingSuccessMetrics": "Error cargando métricas"
+  },
+  "sections": {
+    "teamPerformance": "Rendimiento de Equipo",
+    "teamPerformanceDesc": "Métricas de eficiencia y carga de trabajo por miembro",
+    "loadingData": "Cargando datos...",
+    "recentProjects": "Proyectos Recientes",
+    "recentProjectsDesc": "Mostrando {{count}} proyectos activos",
+    "noProjectsFound": "No se encontraron proyectos",
+    "allProjects": "Todos los Proyectos",
+    "projectDetails": "Detalles del Proyecto"
+  },
+  "header": {
+    "title": "Proyectos",
+    "subtitle": "Gestiona proyectos, tareas y recursos",
+    "export": "Exportar",
+    "newProject": "Nuevo Proyecto",
+    "newTask": "Nueva Tarea",
+    "searchPlaceholder": "Buscar proyectos o tareas...",
+    "status": "Estado",
+    "allStatuses": "Todos los Estados",
+    "priority": "Prioridad",
+    "allPriorities": "Todas las Prioridades",
+    "teamLead": "Líder de Equipo"
+  },
+  "status": {
+    "active": "Activo",
+    "completed": "Completado",
+    "on-hold": "En Espera",
+    "cancelled": "Cancelado"
+  },
+  "priority": {
+    "low": "Baja",
+    "medium": "Media",
+    "high": "Alta",
+    "urgent": "Urgente"
+  },
+  "table": {
+    "project": "Proyecto",
+    "status": "Estado",
+    "priority": "Prioridad",
+    "progress": "Progreso",
+    "teamLead": "Líder",
+    "dueDate": "Fecha Límite",
+    "budget": "Presupuesto",
+    "actions": "Acciones",
+    "complete": "Completado",
+    "inProgress": "En Progreso",
+    "overdue": "Atrasado",
+    "daysLeft": "días restantes",
+    "spent": "gastado",
+    "tryAdjustingFilters": "Intenta ajustar tus filtros o términos de búsqueda"
+  },
+  "actions": {
+    "viewDetails": "Ver Detalles",
+    "editProject": "Editar Proyecto",
+    "manageTeam": "Gestionar Equipo",
+    "viewTimeline": "Ver Cronograma",
+    "deleteProject": "Eliminar Proyecto"
+  },
   "common": {
     "status": {
       "active": "Activo",
@@ -14,11 +95,6 @@
       "cancel": "Cancelar",
       "save": "Guardar"
     }
-  },
-  "sections": {
-    "recentProjects": "Proyectos Recientes",
-    "allProjects": "Todos los Proyectos",
-    "projectDetails": "Detalles del Proyecto"
   },
   "fields": {
     "name": "Nombre",
@@ -125,5 +201,41 @@
         "filterProjects": "Filtrar proyectos..."
       }
     }
+  },
+  "hardcoded": {
+    "task_or_project_deadline": "Task or Fecha límite del proyecto",
+    "deadline": "Deadline",
+    "team_meeting_or_call": "Team meeting or Llamada",
+    "no_project_data_available": "No project data available",
+    "due_now": "Due now",
+    "comprehensive_overview_of_all_active_projects_and": "Comprehensive overview of all active projects and",
+    "detailed_analysis_of_team_productivity_and_efficie": "Detailed analysis of team productivity and efficie",
+    "financial_overview_showing_budget_allocation_and_s": "Financial overview showing budget allocation and s",
+    "project_success_rate": "Project Success Rate",
+    "percentage_of_projects_completed_successfully": "Percentage of projects completed successfully",
+    "ontime_delivery": "On-Time Delivery",
+    "migrate_legacy_database_to_cloud_infrastructure": "Migrate legacy database to cloud infrastructure",
+    "comprehensive_security_assessment_and_remediation": "Comprehensive security assessment and remediation",
+    "design_wireframes": "Design wireframes",
+    "website_redesign_review": "Website Redesign Review",
+    "review_the_latest_designs_and_provide_feedback": "Review the latest designs and provide feedback",
+    "mobile_app_sprint_planning": "Planificación",
+    "export_project_data": "Export project data",
+    "steps": "Steps",
+    "steps_1": "Steps",
+    "steps_2": "Steps",
+    "enter_your_reminder": "Enter your reminder",
+    "enter_your_reminder_1": "Enter your reminder",
+    "select_a_category": "Select a category",
+    "visitors": "Visitantes",
+    "desktop": "Escritorio",
+    "mobile": "Móvil",
+    "visitors_1": "Visitantes",
+    "desktop_1": "Escritorio",
+    "mobile_1": "Móvil",
+    "toggle_details": "Toggle details",
+    "mobile_app_design": "Móvil",
+    "select_all": "Seleccionar todo",
+    "select_all_1": "Seleccionar todo"
   }
 }

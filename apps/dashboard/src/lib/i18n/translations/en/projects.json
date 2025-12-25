@@ -1,4 +1,85 @@
 {
+  "tabs": {
+    "overview": "Overview",
+    "projects": "Projects",
+    "team": "Team",
+    "reports": "Reports"
+  },
+  "summary": {
+    "activeProjects": "Active Projects",
+    "completed": "Completed",
+    "onHold": "On Hold",
+    "totalBudget": "Total Budget",
+    "teamMembers": "Team Members",
+    "activeTasks": "Active Tasks",
+    "completedTasks": "Completed Tasks",
+    "avgEfficiency": "Avg. Efficiency",
+    "activeContributors": "Active contributors",
+    "fromLastMonth": "from last month",
+    "thisMonth": "this month",
+    "fromLastWeek": "from last week",
+    "overdueTasks": "Overdue Tasks",
+    "failedToLoad": "Failed to load summary",
+    "errorLoadingSuccessMetrics": "Error loading metrics"
+  },
+  "sections": {
+    "teamPerformance": "Team Performance",
+    "teamPerformanceDesc": "Efficiency and workload metrics per team member",
+    "loadingData": "Loading project data...",
+    "recentProjects": "Recent Projects",
+    "recentProjectsDesc": "Showing {{count}} active projects",
+    "noProjectsFound": "No projects found",
+    "allProjects": "All Projects",
+    "projectDetails": "Project Details"
+  },
+  "header": {
+    "title": "Projects",
+    "subtitle": "Manage projects, tasks, and team resources",
+    "export": "Export",
+    "newProject": "New Project",
+    "newTask": "New Task",
+    "searchPlaceholder": "Search projects or tasks...",
+    "status": "Status",
+    "allStatuses": "All Statuses",
+    "priority": "Priority",
+    "allPriorities": "All Priorities",
+    "teamLead": "Team Lead"
+  },
+  "status": {
+    "active": "Active",
+    "completed": "Completed",
+    "on-hold": "On Hold",
+    "cancelled": "Cancelled"
+  },
+  "priority": {
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High",
+    "urgent": "Urgent"
+  },
+  "table": {
+    "project": "Project",
+    "status": "Status",
+    "priority": "Priority",
+    "progress": "Progress",
+    "teamLead": "Team Lead",
+    "dueDate": "Due Date",
+    "budget": "Budget",
+    "actions": "Actions",
+    "complete": "Complete",
+    "inProgress": "In Progress",
+    "overdue": "Overdue",
+    "daysLeft": "days left",
+    "spent": "spent",
+    "tryAdjustingFilters": "Try adjusting your filters or search terms"
+  },
+  "actions": {
+    "viewDetails": "View Details",
+    "editProject": "Edit Project",
+    "manageTeam": "Manage Team",
+    "viewTimeline": "View Timeline",
+    "deleteProject": "Delete Project"
+  },
   "common": {
     "status": {
       "active": "Active",
@@ -14,11 +95,6 @@
       "cancel": "Cancel",
       "save": "Save"
     }
-  },
-  "sections": {
-    "recentProjects": "Recent Projects",
-    "allProjects": "All Projects",
-    "projectDetails": "Project Details"
   },
   "fields": {
     "name": "Name",
@@ -125,5 +201,41 @@
         "filterProjects": "Filter projects..."
       }
     }
+  },
+  "hardcoded": {
+    "task_or_project_deadline": "Task or project deadline",
+    "deadline": "Deadline",
+    "team_meeting_or_call": "Team meeting or call",
+    "no_project_data_available": "No project data available",
+    "due_now": "Due now",
+    "comprehensive_overview_of_all_active_projects_and": "Comprehensive overview of all active projects and",
+    "detailed_analysis_of_team_productivity_and_efficie": "Detailed analysis of team productivity and efficie",
+    "financial_overview_showing_budget_allocation_and_s": "Financial overview showing budget allocation and s",
+    "project_success_rate": "Project Success Rate",
+    "percentage_of_projects_completed_successfully": "Percentage of projects completed successfully",
+    "ontime_delivery": "On-Time Delivery",
+    "migrate_legacy_database_to_cloud_infrastructure": "Migrate legacy database to cloud infrastructure",
+    "comprehensive_security_assessment_and_remediation": "Comprehensive security assessment and remediation",
+    "design_wireframes": "Design wireframes",
+    "website_redesign_review": "Website Redesign Review",
+    "review_the_latest_designs_and_provide_feedback": "Review the latest designs and provide feedback",
+    "mobile_app_sprint_planning": "Mobile App Sprint Planning",
+    "export_project_data": "Export project data",
+    "steps": "Steps",
+    "steps_1": "Steps",
+    "steps_2": "Steps",
+    "enter_your_reminder": "Enter your reminder",
+    "enter_your_reminder_1": "Enter your reminder",
+    "select_a_category": "Select a category",
+    "visitors": "Visitors",
+    "desktop": "Desktop",
+    "mobile": "Mobile",
+    "visitors_1": "Visitors",
+    "desktop_1": "Desktop",
+    "mobile_1": "Mobile",
+    "toggle_details": "Toggle details",
+    "mobile_app_design": "Mobile app design",
+    "select_all": "Select all",
+    "select_all_1": "Select all"
   }
 }

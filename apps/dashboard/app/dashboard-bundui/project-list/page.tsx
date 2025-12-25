@@ -1,11 +1,7 @@
 "use client";
 
-import { Plus } from "lucide-react";
-
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Avatar, AvatarFallback, AvatarImage, Progress } from "@vibethink/ui";
-
-import projects from "./data.json";
-import Link from "next/link";
+import { ProjectCardsGrid } from "@/app/dashboard-bundui/projects-v2/components";
+import { useTranslation } from "@/lib/i18n";
 
 /**
  * Project List Dashboard Page
@@ -26,57 +22,19 @@ import Link from "next/link";
  */
 
 export default function ProjectListDashboardPage() {
+  const { t } = useTranslation('projects');
+
   return (
     <>
-      <div className="mb-4 flex flex-row items-center justify-between space-y-2">
+      <div className="mb-8 flex flex-row items-center justify-between space-y-2">
         <div className="space-y-1">
-          <h1 className="text-2xl font-bold tracking-tight">Projects</h1>
-          <p className="text-muted-foreground text-sm">List of your ongoing projects</p>
+          <h1 className="text-2xl font-bold tracking-tight">{t('header.title')}</h1>
+          <p className="text-muted-foreground text-sm">{t('header.subtitle', 'List of your ongoing projects')}</p>
         </div>
-        <Button>
-          <Plus />
-          New Project
-        </Button>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-4">
-        {projects.map((project) => (
-          <Link href="#" key={project.id}>
-            <Card className="transition-shadow hover:shadow-md">
-              <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
-                <CardDescription>{project.subtitle}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-muted-foreground mb-4 text-sm">{project.date}</div>
-
-                <div className="mb-6">
-                  <div className="mb-2 flex items-center justify-between">
-                    <span className="text-sm opacity-90">Progress</span>
-                    <span className="text-sm font-semibold">{project.progress}%</span>
-                  </div>
-                  <Progress value={project.progress} indicatorColor={project.progressColor} />
-                </div>
-
-                <div className="flex items-center justify-between">
-                  <div className="*:data-[slot=avatar]:ring-background flex -space-x-2 *:data-[slot=avatar]:ring-2">
-                    {project.team.map((member, i) => (
-                      <Avatar key={i}>
-                        <AvatarImage src={member.avatar} alt={`${member.id}`} />
-                        <AvatarFallback>CN</AvatarFallback>
-                      </Avatar>
-                    ))}
-                  </div>
-
-                  <Badge
-                    className={`${project.badgeColor} border-0 text-white hover:${project.badgeColor}`}>
-                    {project.timeLeft}
-                  </Badge>
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
-        ))}
+      <div className="space-y-4">
+        <ProjectCardsGrid />
       </div>
     </>
   );
