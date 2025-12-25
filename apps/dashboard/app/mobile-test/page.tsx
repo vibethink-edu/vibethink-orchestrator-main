@@ -1,6 +1,6 @@
 "use client";
 
-import { DashboardLayout } from '@vibethink/ui';
+import { DashboardLayout } from '@vibethink/ui/components/dashboard-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card';
 import { Badge } from '@/shared/components/ui/badge';
 import { Smartphone, Tablet, Monitor, Wifi } from 'lucide-react';
@@ -121,7 +121,7 @@ export default function MobileTestPage() {
                   <li>Confirm sub-options are visible even in icon mode</li>
                 </ol>
               </div>
-              
+
               <div>
                 <h4 className="font-semibold text-sm mb-2">Mobile Testing (&lt; 768px)</h4>
                 <ol className="text-sm text-muted-foreground space-y-1 list-decimal list-inside">

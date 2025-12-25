@@ -1,4 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle, Badge } from "@vibethink/ui";
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Badge } from "@vibethink/ui/components/badge";
 
 export function CardSkills() {
   return (
@@ -21,6 +22,10 @@ export function CardSkills() {
     </Card>
   );
 }
+
+
+
+
 
 
 

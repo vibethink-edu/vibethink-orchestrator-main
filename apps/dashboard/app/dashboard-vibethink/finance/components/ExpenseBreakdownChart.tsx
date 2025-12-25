@@ -1,9 +1,16 @@
-import { Card, CardContent, CardHeader, CardTitle, Skeleton, Badge } from '@vibethink/ui'
-import { 
-  PieChart, 
-  Pie, 
-  Cell, 
-  ResponsiveContainer, 
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle
+} from '@vibethink/ui/components/card'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
+import { Badge } from '@vibethink/ui/components/badge'
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
   Tooltip,
   BarChart,
   Bar,
@@ -11,7 +18,12 @@ import {
   YAxis,
   CartesianGrid
 } from 'recharts'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui'
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger
+} from '@vibethink/ui/components/tabs'
 import { useState } from 'react'
 import { ExpenseBreakdownChartProps, CategoryData } from '../types'
 import { PieChart as PieChartIcon, BarChart3, TrendingUp, TrendingDown, CreditCard } from 'lucide-react'
@@ -32,11 +44,11 @@ import { PieChart as PieChartIcon, BarChart3, TrendingUp, TrendingDown, CreditCa
  * - Loading states with skeletons
  * - HSL color variables for theme compatibility
  */
-export function ExpenseBreakdownChart({ 
-  data, 
-  title = "Expense Breakdown", 
-  className, 
-  height = 350 
+export function ExpenseBreakdownChart({
+  data,
+  title = "Expense Breakdown",
+  className,
+  height = 350
 }: ExpenseBreakdownChartProps) {
   const [viewType, setViewType] = useState<'pie' | 'bar' | 'details'>('pie')
 
@@ -137,7 +149,7 @@ export function ExpenseBreakdownChart({
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
-                <Tooltip 
+                <Tooltip
                   formatter={formatTooltip}
                   contentStyle={{
                     backgroundColor: 'hsl(var(--background))',
@@ -148,12 +160,12 @@ export function ExpenseBreakdownChart({
                 />
               </PieChart>
             </ResponsiveContainer>
-            
+
             {/* Pie Chart Legend */}
             <div className="grid grid-cols-2 gap-2">
               {chartData.slice(0, 6).map((item, index) => (
                 <div key={item.category} className="flex items-center gap-2">
-                  <div 
+                  <div
                     className="w-3 h-3 rounded-full"
                     style={{ backgroundColor: item.color }}
                   />
@@ -171,18 +183,18 @@ export function ExpenseBreakdownChart({
             <ResponsiveContainer width="100%" height={height}>
               <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                <XAxis 
-                  dataKey="category" 
+                <XAxis
+                  dataKey="category"
                   className="text-xs fill-muted-foreground"
                   angle={-45}
                   textAnchor="end"
                   height={60}
                 />
-                <YAxis 
+                <YAxis
                   className="text-xs fill-muted-foreground"
                   tickFormatter={formatCurrency}
                 />
-                <Tooltip 
+                <Tooltip
                   formatter={formatTooltip}
                   labelFormatter={(label) => `Category: ${label}`}
                   contentStyle={{
@@ -192,15 +204,15 @@ export function ExpenseBreakdownChart({
                     boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
                   }}
                 />
-                <Bar 
-                  dataKey="amount" 
+                <Bar
+                  dataKey="amount"
                   name="amount"
                   fill="hsl(var(--chart-2))"
                   radius={[4, 4, 0, 0]}
                 />
               </BarChart>
             </ResponsiveContainer>
-            
+
             {/* Bar Chart Summary */}
             <div className="grid grid-cols-3 gap-4 pt-4 border-t">
               <div className="text-center">
@@ -222,12 +234,12 @@ export function ExpenseBreakdownChart({
           <TabsContent value="details" className="space-y-4">
             <div className="space-y-3">
               {trendsData.map((item, index) => (
-                <div 
-                  key={item.category} 
+                <div
+                  key={item.category}
                   className="flex items-center justify-between p-3 rounded-lg border bg-card"
                 >
                   <div className="flex items-center gap-3">
-                    <div 
+                    <div
                       className="w-4 h-4 rounded-full"
                       style={{ backgroundColor: item.color }}
                     />
@@ -238,7 +250,7 @@ export function ExpenseBreakdownChart({
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="text-right">
                     <p className="font-semibold">
                       ${item.amount.toLocaleString()}
@@ -249,16 +261,15 @@ export function ExpenseBreakdownChart({
                       ) : (
                         <TrendingDown className="h-3 w-3 text-green-600" />
                       )}
-                      <span 
-                        className={`text-xs font-medium ${
-                          item.trend > 0 ? 'text-red-600' : 'text-green-600'
-                        }`}
+                      <span
+                        className={`text-xs font-medium ${item.trend > 0 ? 'text-red-600' : 'text-green-600'
+                          }`}
                       >
                         {item.trend > 0 ? '+' : ''}{item.trend.toFixed(1)}%
                       </span>
                     </div>
                   </div>
-                  
+
                   <div className="text-right">
                     <p className="text-sm font-medium">
                       {item.percentage.toFixed(1)}%
@@ -270,7 +281,7 @@ export function ExpenseBreakdownChart({
                 </div>
               ))}
             </div>
-            
+
             {/* Details Summary */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t">
               <div className="text-center">

@@ -14,7 +14,7 @@ export function Footer() {
 
   return (
     <footer className="border-t bg-background">
-      <div className="container flex flex-col items-center justify-between gap-4 py-6 md:flex-row md:py-4">
+      <div className="w-full px-6 flex flex-col items-center justify-between gap-4 py-6 md:flex-row md:py-4">
         <div className="flex flex-col items-center gap-2 text-center text-sm text-muted-foreground md:flex-row md:gap-4 md:text-left">
           <span>&copy; {currentYear} VibeThink Orchestrator</span>
           <span className="hidden md:inline">|</span>

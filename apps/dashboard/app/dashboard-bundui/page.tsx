@@ -1,158 +1,172 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import Link from 'next/link';
-import { 
-  GraduationCap, 
-  MessageSquare, 
-  BarChart3, 
-  Calendar, 
-  Users, 
-  Bitcoin, 
-  ShoppingCart, 
-  FolderOpen, 
-  DollarSign, 
-  Hospital, 
-  Building2, 
-  Mail, 
-  StickyNote, 
-  CreditCard, 
-  ShoppingBag, 
-  FolderKanban, 
-  Briefcase, 
-  TrendingUp, 
-  CheckSquare 
+import { useTranslation } from '@/lib/i18n';
+import {
+  GraduationCap,
+  MessageSquare,
+  BarChart3,
+  Calendar,
+  Users,
+  Bitcoin,
+  ShoppingCart,
+  FolderOpen,
+  DollarSign,
+  Hospital,
+  Building2,
+  Mail,
+  StickyNote,
+  CreditCard,
+  ShoppingBag,
+  FolderKanban,
+  Briefcase,
+  TrendingUp,
+  CheckSquare
 } from 'lucide-react';
 
-const dashboards = [
+// Dashboard configuration with translation keys
+const dashboardsConfig = [
   {
-    name: 'Default',
+    key: 'default',
     href: '/dashboard-bundui/default',
     icon: BarChart3,
-    description: 'Main landing dashboard with overview of key metrics, team members, and revenue tracking',
-    category: 'Dashboards'
+    category: 'dashboards'
   },
   {
-    name: 'Academy',
+    key: 'academy',
     href: '/dashboard-bundui/academy',
     icon: GraduationCap,
-    description: 'Learning management system with courses, progress tracking, and student analytics',
-    category: 'Dashboards'
+    category: 'dashboards'
   },
   {
-    name: 'Analytics',
+    key: 'analytics',
     href: '/dashboard-bundui/analytics',
     icon: BarChart3,
-    description: 'Comprehensive analytics dashboard with sales, earnings, and campaign metrics',
-    category: 'Dashboards'
+    category: 'dashboards'
   },
   {
-    name: 'CRM',
+    key: 'crm',
     href: '/dashboard-bundui/crm',
     icon: Users,
-    description: 'Customer relationship management with deals, customers, and sales pipeline',
-    category: 'Dashboards'
+    category: 'dashboards'
   },
   {
-    name: 'E-commerce',
+    key: 'ecommerce',
     href: '/dashboard-bundui/ecommerce',
     icon: ShoppingCart,
-    description: 'E-commerce dashboard with products, orders, and sales analytics',
-    category: 'Dashboards'
+    category: 'dashboards'
   },
   {
-    name: 'Hospital Management',
+    key: 'hospitalManagement',
     href: '/dashboard-bundui/hospital-management',
     icon: Hospital,
-    description: 'Hospital management system with patients, appointments, and medical records',
-    category: 'Dashboards'
+    category: 'dashboards'
   },
   {
-    name: 'Hotel',
+    key: 'hotel',
     href: '/dashboard-bundui/hotel',
     icon: Building2,
-    description: 'Hotel management dashboard with bookings, rooms, and guest management',
-    category: 'Dashboards'
+    category: 'dashboards'
   },
   {
-    name: 'Payment',
+    key: 'payment',
     href: '/dashboard-bundui/payment',
     icon: CreditCard,
-    description: 'Payment processing dashboard with transactions and payment methods',
-    category: 'Dashboards'
+    category: 'dashboards'
   },
   {
-    name: 'Projects',
+    key: 'projects',
     href: '/dashboard-bundui/projects',
     icon: Briefcase,
-    description: 'Project management with tasks, timelines, and team collaboration',
-    category: 'Dashboards'
+    category: 'dashboards'
   },
   {
-    name: 'Project List',
+    key: 'projectList',
     href: '/dashboard-bundui/project-list',
     icon: FolderKanban,
-    description: 'Project list view with kanban boards and project organization',
-    category: 'Dashboards'
+    category: 'dashboards'
   },
   {
-    name: 'Sales',
+    key: 'sales',
     href: '/dashboard-bundui/sales',
     icon: TrendingUp,
-    description: 'Sales dashboard with revenue tracking, deals, and performance metrics',
-    category: 'Dashboards'
+    category: 'dashboards'
   }
-];
+] as const;
 
-const apps = [
+const appsConfig = [
   {
-    name: 'AI Chat',
+    key: 'aiChat',
     href: '/dashboard-bundui/apps/chat',
     icon: MessageSquare,
-    description: 'AI-powered chat interface with multiple model support and conversation history',
-    category: 'AI Apps'
+    category: 'aiApps'
   }
-];
-
-const categories = [
-  { name: 'Dashboards', items: dashboards },
-  { name: 'AI Apps', items: apps.filter(app => app.category === 'AI Apps') }
-].filter(category => category.items.length > 0);
+] as const;
 
 export default function DashboardBunduiIndex() {
+  const { t } = useTranslation('dashboard-bundui');
+
+  // Build dashboards with translations
+  const dashboards = dashboardsConfig.map(config => ({
+    ...config,
+    name: t(`dashboards.${config.key}.name`),
+    description: t(`dashboards.${config.key}.description`)
+  }));
+
+  // Build apps with translations
+  const apps = appsConfig.map(config => ({
+    ...config,
+    name: t(`apps.${config.key}.name`),
+    description: t(`apps.${config.key}.description`)
+  }));
+
+  // Build categories with translations
+  const categories = [
+    { 
+      key: 'dashboards',
+      name: t('categories.dashboards'), 
+      items: dashboards 
+    },
+    { 
+      key: 'aiApps',
+      name: t('categories.aiApps'), 
+      items: apps 
+    }
+  ].filter(category => category.items.length > 0);
+
   return (
     <div className="container mx-auto p-6 space-y-8">
       <div className="space-y-2">
-        <h1 className="text-4xl font-bold tracking-tight">Bundui Premium Dashboards</h1>
+        <h1 className="text-4xl font-bold tracking-tight">{t('page.title')}</h1>
         <p className="text-muted-foreground">
-          Reference implementations mirroring the latest Bundui Premium version. 
-          These are demo/reference dashboards using our monorepo architecture and Shadcn UI.
+          {t('page.description')}
         </p>
       </div>
 
       {categories.map((category) => (
-        <div key={category.name} className="space-y-4">
+        <div key={category.key} className="space-y-4">
           <h2 className="text-2xl font-semibold tracking-tight">{category.name}</h2>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {category.items.map((dashboard) => {
-              const Icon = dashboard.icon;
+            {category.items.map((item) => {
+              const Icon = item.icon;
               return (
-                <Link key={dashboard.href} href={dashboard.href}>
+                <Link key={item.href} href={item.href}>
                   <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
                     <CardHeader>
                       <div className="flex items-center gap-3">
                         <div className="p-2 rounded-lg bg-primary/10">
                           <Icon className="h-5 w-5 text-primary" />
                         </div>
-                        <CardTitle className="text-lg">{dashboard.name}</CardTitle>
+                        <CardTitle className="text-lg">{item.name}</CardTitle>
                       </div>
                       <CardDescription className="mt-2">
-                        {dashboard.description}
+                        {item.description}
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="flex items-center justify-between text-sm text-muted-foreground">
-                        <span>View Dashboard</span>
+                        <span>{t('page.viewDashboard')}</span>
                         <span>→</span>
                       </div>
                     </CardContent>

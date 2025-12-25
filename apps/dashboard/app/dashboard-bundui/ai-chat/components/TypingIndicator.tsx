@@ -15,10 +15,10 @@
 // =============================================================================
 
 import React from 'react'
-import { Avatar, AvatarFallback } from '@vibethink/ui'
-import { Badge } from '@vibethink/ui'
+import { Avatar, AvatarFallback } from '@vibethink/ui/components/avatar'
+import { Badge } from '@vibethink/ui/components/badge'
 import { Bot, Sparkles, Zap } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 
 /**
  * Props para el indicador de escritura
@@ -34,44 +34,59 @@ interface TypingIndicatorProps {
  * Indicador de que la AI está escribiendo
  * Muestra animación de puntos y mensaje personalizable
  */
-export function TypingIndicator({ 
+export function TypingIndicator({
   message = "AI is thinking...",
   variant = 'default',
   showAvatar = true,
   className
 }: TypingIndicatorProps) {
-  
+
   // Obtener configuración según variante
   const getVariantConfig = () => {
     switch (variant) {
       case 'thinking':
         return {
-          icon: <Sparkles className="w-4 h-4" />,
           message: "AI is thinking...",
           bgColor: "bg-chart-3/10",
           textColor: "text-chart-3",
-          borderColor: "border-chart-3/20"
+          borderColor: "border-chart-3/20",
+          iconVariant: 'thinking' as const
         }
       case 'processing':
         return {
-          icon: <Zap className="w-4 h-4" />,
           message: "Processing your request...",
-          bgColor: "bg-chart-2/10", 
+          bgColor: "bg-chart-2/10",
           textColor: "text-chart-2",
-          borderColor: "border-chart-2/20"
+          borderColor: "border-chart-2/20",
+          iconVariant: 'processing' as const
         }
       default:
         return {
-          icon: <Bot className="w-4 h-4" />,
           message: "AI is typing...",
           bgColor: "bg-muted",
           textColor: "text-muted-foreground",
-          borderColor: "border-border"
+          borderColor: "border-border",
+          iconVariant: 'default' as const
         }
     }
   }
 
   const config = getVariantConfig()
+
+  // Get icon component (not JSX)
+  const getIconComponent = () => {
+    switch (config.iconVariant) {
+      case 'thinking':
+        return Sparkles
+      case 'processing':
+        return Zap
+      default:
+        return Bot
+    }
+  }
+
+  // Get icon component
+  const IconComponent = getIconComponent()
 
   return (
     <div className={cn("flex gap-3 animate-in fade-in-0 duration-300", className)}>
@@ -79,11 +94,11 @@ export function TypingIndicator({
       {showAvatar && (
         <Avatar className="h-8 w-8">
           <AvatarFallback className="bg-secondary text-secondary-foreground">
-            {config.icon}
+            <IconComponent className="w-4 h-4" />
           </AvatarFallback>
         </Avatar>
       )}
-      
+
       {/* Typing Bubble */}
       <div className={cn(
         "rounded-lg px-4 py-3 border",
@@ -111,7 +126,7 @@ export function TypingIndicator({
               config.textColor
             )} />
           </div>
-          
+
           {/* Message */}
           <span className={cn(
             "text-sm font-medium",
@@ -128,10 +143,10 @@ export function TypingIndicator({
 /**
  * Indicador compacto para usar en sidebars o headers
  */
-export function CompactTypingIndicator({ 
-  className 
-}: { 
-  className?: string 
+export function CompactTypingIndicator({
+  className
+}: {
+  className?: string
 }) {
   return (
     <div className={cn("flex items-center gap-2", className)}>
@@ -148,7 +163,7 @@ export function CompactTypingIndicator({
 /**
  * Indicador de estado de AI con badge
  */
-export function AIStatusIndicator({ 
+export function AIStatusIndicator({
   status = 'idle',
   className
 }: {
@@ -198,21 +213,21 @@ export function AIStatusIndicator({
   const config = getStatusConfig()
 
   return (
-    <Badge 
+    <Badge
       variant={config.variant}
       className={cn("gap-2 text-xs", className)}
     >
       {config.showDots && (
         <div className="flex items-center gap-0.5">
-          <div 
+          <div
             className="w-1 h-1 rounded-full animate-bounce [animation-delay:-0.3s]"
             style={{ backgroundColor: config.color }}
           />
-          <div 
+          <div
             className="w-1 h-1 rounded-full animate-bounce [animation-delay:-0.15s]"
             style={{ backgroundColor: config.color }}
           />
-          <div 
+          <div
             className="w-1 h-1 rounded-full animate-bounce"
             style={{ backgroundColor: config.color }}
           />

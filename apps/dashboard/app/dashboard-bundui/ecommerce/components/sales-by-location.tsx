@@ -1,9 +1,10 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
-import { Badge } from "@vibethink/ui";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Badge } from "@vibethink/ui/components/badge";
 import { ExportButton } from "@/shared/components/CardActionMenus";
-import { Progress } from "@vibethink/ui";
+import { Progress } from "@vibethink/ui/components/progress";
+import { useTranslation } from "@/lib/i18n";
 
 type SalesData = {
   country: string;
@@ -13,6 +14,8 @@ type SalesData = {
 };
 
 export function EcommerceSalesByLocationCard() {
+  const { t } = useTranslation('ecommerce');
+  
   const salesData: SalesData[] = [
     { country: "Canada", percentage: 85, value: 1275000, change: 5.2 },
     { country: "Greenland", percentage: 80, value: 1200000, change: 7.8 },
@@ -26,12 +29,12 @@ export function EcommerceSalesByLocationCard() {
     <Card className="lg:col-span-6 xl:col-span-4">
       <CardHeader>
         <CardTitle className="relative">
-          Sales by Location
+          {t('cards.salesByLocation.title')}
           <div className="absolute end-0 top-0">
             <ExportButton />
           </div>
         </CardTitle>
-        <CardDescription>Income in the last 28 days</CardDescription>
+        <CardDescription>{t('cards.totalRevenue.description')}</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="space-y-5">
@@ -60,6 +63,10 @@ export function EcommerceSalesByLocationCard() {
     </Card>
   );
 }
+
+
+
+
 
 
 

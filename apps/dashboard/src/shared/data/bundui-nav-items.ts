@@ -92,12 +92,26 @@ export const bunduiNavItems: NavGroup[] = [
         href: "/dashboard-bundui/project-management",
         icon: FolderDotIcon,
         items: [
-          { title: "Dashboard", href: "/dashboard-bundui/project-management" },
-          { title: "Project List", href: "/dashboard-bundui/project-list" }
+          { title: "Dashboard (Legacy)", href: "/dashboard-bundui/project-management" },
+          { title: "Project List (Legacy)", href: "/dashboard-bundui/project-list" },
+          { title: "Projects V2", href: "/dashboard-bundui/projects-v2", isNew: true }
         ]
       },
       { title: "Sales", href: "/dashboard-bundui/sales", icon: BadgeDollarSignIcon },
       { title: "CRM", href: "/dashboard-bundui/crm", icon: ChartBarDecreasingIcon },
+      {
+        title: "CRM V2",
+        href: "/dashboard-bundui/crm-v2",
+        icon: ChartBarDecreasingIcon,
+        isNew: true
+      },
+      {
+        title: "CRM V2 + AI",
+        href: "/dashboard-bundui/crm-v2-ai",
+        icon: BrainCircuitIcon,
+        isNew: true,
+        badge: "AI"
+      },
       {
         title: "Website Analytics",
         href: "/dashboard-bundui/analytics",
@@ -109,12 +123,24 @@ export const bunduiNavItems: NavGroup[] = [
         icon: FolderIcon
       },
       { title: "Crypto", href: "/dashboard-bundui/crypto", icon: WalletMinimalIcon },
+      {
+        title: "Crypto V2",
+        href: "/dashboard-bundui/crypto-v2",
+        icon: WalletMinimalIcon,
+        isNew: true
+      },
       { title: "Academy/School", href: "/dashboard-bundui/academy", icon: GraduationCapIcon },
       { title: "Hospital Management", href: "/dashboard-bundui/hospital-management", icon: ActivityIcon },
       {
         title: "Finance Dashboard",
         href: "/dashboard-bundui/finance",
         icon: WalletMinimalIcon
+      },
+      {
+        title: "Finance V2",
+        href: "/dashboard-bundui/finance-v2",
+        icon: WalletMinimalIcon,
+        isNew: true
       }
     ]
   },

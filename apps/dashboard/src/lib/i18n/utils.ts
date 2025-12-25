@@ -30,19 +30,57 @@ export function getNestedValue(
 }
 
 /**
+ * Detecta si un string usa sintaxis ICU
+ */
+function isICUMessage(message: string): boolean {
+  return /\{[^}]+,\s*(plural|select|selectordinal|number|date|time)/.test(message);
+}
+
+/**
  * Replace placeholders in translation string
- * Example: replaceParams('Hello {name}', { name: 'John' }) => 'Hello John'
+ * VERSIÓN CON SOPORTE DUAL:
+ * - ICU: {count, plural, one {1} other {#}} (prioridad)
+ * - Legacy: {{param}} (fallback)
+ * 
+ * @deprecated Legacy format {{param}} será removido en v2.0
  */
 export function replaceParams(
   template: string,
-  params?: Record<string, string | number | boolean>
+  params?: Record<string, string | number | boolean>,
+  locale: string = 'en'
 ): string {
   if (!params) return template;
 
-  return template.replace(/\{(\w+)\}/g, (match, key) => {
-    const value = params[key];
-    return value !== undefined ? String(value) : match;
-  });
+  // PASO 1: Detectar formato
+  const hasICU = isICUMessage(template);
+  const hasLegacy = template.includes('{{');
+
+  // PASO 2: Si tiene ICU, procesarlo primero
+  let result = template;
+  if (hasICU) {
+    try {
+      // Importar dinámicamente desde @vibethink/utils
+      const { formatMessage } = require('@vibethink/utils');
+      result = formatMessage(locale, template, params);
+    } catch (error) {
+      console.error('[i18n] ICU format error:', error);
+      // Fallback a legacy si ICU falla
+      result = template;
+    }
+  }
+
+  // PASO 3: Si tiene legacy (o ICU falló), procesarlo
+  if (hasLegacy) {
+    result = Object.entries(params).reduce(
+      (acc, [key, value]) => {
+        const regex = new RegExp(`\\{\\{${key}\\}\\}`, 'g');
+        return acc.replace(regex, String(value));
+      },
+      result
+    );
+  }
+
+  return result;
 }
 
 /**
@@ -161,5 +199,6 @@ export function parseTranslationKey(
 
   return { namespace, key };
 }
+
 
 

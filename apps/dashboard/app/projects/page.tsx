@@ -1,19 +1,22 @@
 'use client'
 
 import React from 'react';
-import { DashboardLayout, ProjectCard } from '@vibethink/ui';
-import { Button } from '@vibethink/ui';
-import { Input } from '@vibethink/ui';
-import { Badge } from '@vibethink/ui';
-import { DropdownMenu,
+import { DashboardLayout } from '@vibethink/ui/components/dashboard-layout';
+import { ProjectCard } from '@vibethink/ui/components/project-card';
+import { Button } from '@vibethink/ui/components/button';
+import { Input } from '@vibethink/ui/components/input';
+import { Badge } from '@vibethink/ui/components/badge';
+import {
+  DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger } from '@vibethink/ui';
-import { 
-  Plus, 
-  Search, 
-  Filter, 
-  Grid3X3, 
+  DropdownMenuTrigger
+} from '@vibethink/ui/components/dropdown-menu';
+import {
+  Plus,
+  Search,
+  Filter,
+  Grid3X3,
   List,
   Calendar,
   Users,
@@ -152,7 +155,7 @@ export default function ProjectsPage() {
               </div>
             </div>
           </div>
-          
+
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
             <div className="flex items-center space-x-2">
               <div className="p-2 bg-green-500/10 rounded-lg">
@@ -164,7 +167,7 @@ export default function ProjectsPage() {
               </div>
             </div>
           </div>
-          
+
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
             <div className="flex items-center space-x-2">
               <div className="p-2 bg-yellow-500/10 rounded-lg">
@@ -176,7 +179,7 @@ export default function ProjectsPage() {
               </div>
             </div>
           </div>
-          
+
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
             <div className="flex items-center space-x-2">
               <div className="p-2 bg-blue-500/10 rounded-lg">
@@ -202,7 +205,7 @@ export default function ProjectsPage() {
                 className="pl-9"
               />
             </div>
-            
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" className="gap-2">
@@ -219,7 +222,7 @@ export default function ProjectsPage() {
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-          
+
           <div className="flex items-center gap-2">
             <Button
               variant={viewMode === 'grid' ? 'default' : 'outline'}
@@ -239,11 +242,10 @@ export default function ProjectsPage() {
         </div>
 
         {/* Projects Grid */}
-        <div className={`grid gap-6 ${
-          viewMode === 'grid' 
-            ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' 
+        <div className={`grid gap-6 ${viewMode === 'grid'
+            ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
             : 'grid-cols-1'
-        }`}>
+          }`}>
           {filteredProjects.map((project, index) => (
             <ProjectCard
               key={index}

@@ -1,3 +1,5 @@
+"use client";
+
 import { ChevronRight, Star } from "lucide-react";
 import {
   Card,
@@ -6,8 +8,9 @@ import {
   CardDescription,
   CardHeader,
   CardTitle
-} from "@vibethink/ui";
-import { Button } from "@vibethink/ui";
+} from "@vibethink/ui/components/card";
+import { Button } from "@vibethink/ui/components/button";
+import { useTranslation } from "@/lib/i18n";
 
 interface ReviewStat {
   stars: number;
@@ -39,6 +42,8 @@ const recentReviews: Review[] = [
 ];
 
 export function EcommerceCustomerReviewsCard() {
+  const { t } = useTranslation('ecommerce');
+  
   const totalReviews = 5500;
   const averageRating = 4.5;
 
@@ -59,14 +64,14 @@ export function EcommerceCustomerReviewsCard() {
   return (
     <Card className="lg:col-span-12 xl:col-span-5">
       <CardHeader>
-        <CardTitle className="relative">Customer Reviews</CardTitle>
+        <CardTitle className="relative">{t('reviews.title')}</CardTitle>
         <CardDescription>
-          Based on {totalReviews.toLocaleString()} verified purchases
+          {t('reviews.description', { count: totalReviews.toLocaleString() })}
         </CardDescription>
         <CardAction className="relative">
           <div className="absolute end-0 top-0">
             <Button size="sm" variant="outline">
-              <span className="hidden md:inline">View All</span> <ChevronRight />
+              <span className="hidden md:inline">{t('reviews.viewAll')}</span> <ChevronRight />
             </Button>
           </div>
         </CardAction>
@@ -86,7 +91,7 @@ export function EcommerceCustomerReviewsCard() {
               />
             </div>
             <div className="text-3xl font-bold">{averageRating}</div>
-            <div className="text-sm text-gray-500">out of 5</div>
+            <div className="text-sm text-gray-500">{t('reviews.outOf5')}</div>
           </div>
 
           {/* Rating breakdown */}
@@ -130,7 +135,7 @@ export function EcommerceCustomerReviewsCard() {
                 <span className="font-medium">{review.author}</span>
                 {review.verified && (
                   <span className="ml-2 rounded bg-green-100 px-1.5 py-0.5 text-xs text-green-800 dark:bg-green-900 dark:text-white">
-                    Verified Purchase
+                    {t('reviews.verifiedPurchase')}
                   </span>
                 )}
               </div>
@@ -141,6 +146,10 @@ export function EcommerceCustomerReviewsCard() {
     </Card>
   );
 }
+
+
+
+
 
 
 

@@ -5,6 +5,135 @@ Todos los cambios notables de este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2025-12-21
+
+### Added
+- ✅ **Inventario Completo Bundui Premium vs Monorepo**
+  - Documento completo de comparación de módulos (`docs/reports/INVENTARIO_BUNDUI_PREMIUM_VS_MONOREPO.md`)
+  - Identificación de 34+ módulos migrados
+  - Estado de i18n por módulo documentado
+  - Módulos faltantes identificados (logistics, text-to-speech, courses)
+
+- ✅ **i18n Completado en Múltiples Módulos**
+  - `crm-v2` - Completo (9 componentes con `useTranslation()`)
+  - `calendar` - Completo (8 componentes con `useTranslation()`)
+  - `default` - Completo (8 componentes con `useTranslation()`)
+  - `ecommerce` - Completo (13 componentes con `useTranslation()`)
+  - Correcciones en traducciones de `crm-v2/recent-tasks.tsx`
+
+- ✅ **Consolidación de Documentación**
+  - Archivos de sesión consolidados y archivados
+  - Reportes completados movidos a `docs/sessions/archived/`
+  - Documentación de decisiones preservadas en `docs/DECISIONES_Y_REPORTES_CONSOLIDADOS.md`
+  - Scripts de archivado automatizados
+
+### Fixed
+- ✅ **Traducciones en CRM V2**
+  - Corregido "Update customer profiles" y otros strings hardcoded en `recent-tasks.tsx`
+  - Agregadas claves `tasks.today` y `tasks.tomorrow` en traducciones
+  - Datos de ejemplo ahora usan `useTranslation()` dinámicamente
+
+### Changed
+- ✅ **Estructura de Documentación**
+  - Limpieza de archivos temporales y reportes completados
+  - Organización mejorada de sesiones y reportes
+  - Documentación activa separada de archivos históricos
+
+### Technical
+- 📦 38 archivos de traducción generados (incluye 5 compartidos)
+- 📝 Inventario completo de módulos con estado de migración e i18n
+- 🔧 Scripts de consolidación y archivado automatizados
+
+## [0.4.0] - 2025-12-21
+
+### Added
+- ✅ **Sistema DateTime AI-First (ViTo Architecture Spec v3.0.0)**
+  - `CivilDate` vs `InstantISO` (dualidad de tipos)
+  - `NormalizedWindow` (discriminated union type-safe)
+  - `formatBookingRange()` unificado con timezone safety
+  - Safe Noon Trick (evita bugs de DST)
+  - `ResourceContext` para normalización externa
+  - Normalizers para Airbnb, Google Calendar, PMS
+
+- ✅ **Metodología AI-First Universal**
+  - `AI_FIRST_UNIVERSAL_METHODOLOGY.md` - Metodología aplicable a TODOS los módulos
+  - Visión: ViTo como Orchestrator multipropósito (no solo booking)
+  - Context-Aware Terminology para Hotel, Studio, CRM, Tareas, etc.
+
+- ✅ **Scripts de Validación AI-First**
+  - `validate-ai-first-compliance.js` - Valida compliance universal
+  - Integrado en `validate-all-migrated-modules.js` y `validate-i18n-imports-master.js`
+  - Valida NormalizedWindow, ResourceContext, CivilDate vs InstantISO
+
+- ✅ **Documentación Arquitectónica**
+  - `VITO_ARCHITECTURE_SPEC_UNIFIED.md` (v3.0.0) - Especificación maestra consolidada
+  - `SCRIPTS_COMPLIANCE_AUDIT.md` - Auditoría de alineación de scripts
+
+### Fixed
+- ✅ **Fechas Hardcoded en Hotel Module**
+  - Corregido "June 19, 2028" → `CivilDate` ('2028-06-19')
+  - Implementado `formatBookingRange()` con respeto a locale
+  - Ahora muestra "junio" en español, no "June"
+
+- ✅ **Compliance AI-First en Hotel**
+  - Módulo hotel ahora usa `NormalizedWindow`
+  - `ResourceContext` configurado (mock por ahora)
+  - Fechas respetan venueTimezone
+
+### Changed
+- ✅ **Scripts de Validación Mejorados**
+  - `validate-ai-first-compliance.js` ahora valida NormalizedWindow, ResourceContext
+  - `validate-all-migrated-modules.js` incluye validación AI-First
+  - `validate-i18n-imports-master.js` incluye validación AI-First
+
+### Technical
+- 📦 `packages/utils/src/datetime/` - Tipos, parsing, formateo
+- 📦 `packages/utils/src/context/` - ResourceContext types
+- 📦 `packages/integrations/` - Normalizers externos (Airbnb, PMS, Google Calendar)
+- 🔧 Build compila correctamente con nuevos imports
+- ✅ TypeScript estricto habilitado
+
+## [0.3.1] - 2025-12-20
+
+### Fixed
+- ✅ **Cirugía de Recuperación Completada**
+  - Recuperación exitosa desde estado problemático (14:14) a estado estable (06:32)
+  - Fixes críticos aplicados sin perder nuevas features
+  - Build compila exitosamente
+  - Servidor de desarrollo funcionando correctamente
+
+- ✅ **MinimalTiptapEditor Export**
+  - Export habilitado en `@vibethink/ui` barrel file
+  - "use client" agregado a hooks necesarios (`use-container-size`, `use-throttle`, `use-drag-resize`)
+  - Fix de errores de build relacionados con SSR
+
+- ✅ **React Version Consistency**
+  - React overrides agregados en `package.json` root
+  - Versión única forzada: React 19.0.0, @types/react 19.0.0
+  - Prevención de problema repetitivo React 18 vs 19
+
+- ✅ **Limpieza de Archivos Problemáticos**
+  - Eliminados `tsc_output*.txt` (79,248 líneas)
+  - Eliminado `packages/ui/node_modules_bak/` (100+ archivos)
+  - Archivos que no deberían estar en Git removidos
+
+### Added
+- ✅ **Documentación de Recuperación**
+  - `docs/sessions/CIRUGIA_RECUPERACION_2025-12-20.md` - Log completo de cirugía
+  - `docs/TROUBLESHOOTING.md` - Guía de troubleshooting actualizada
+  - `docs/sessions/GIT_HEALTH_REPORT_2025-12-20.md` - Reporte de salud de Git
+  - Scripts de validación: `scripts/validate-react-versions.js`
+
+### Technical
+- 📦 React 19.0.0 forzado en todo el monorepo (overrides)
+- 📦 @types/react 19.0.0 alineado
+- 📝 Validación automatizada de versiones de React
+- 🔧 Scripts de validación mejorados
+
+### Known Issues
+- ⚠️ Error React children en página `/404` (solo afecta prerendering, no desarrollo)
+- ⚠️ Error `ai-image-generator` - Class extends value undefined (requiere investigación)
+
 ## [0.3.0] - 2025-01-16
 
 ### Added

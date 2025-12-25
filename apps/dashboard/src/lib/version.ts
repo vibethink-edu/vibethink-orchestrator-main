@@ -16,13 +16,13 @@
  * - MINOR: New features (backward compatible)
  * - PATCH: Bug fixes (backward compatible)
  */
-export const APP_VERSION_NUMBER = '0.3.0';
+export const APP_VERSION_NUMBER = '0.5.0';
 
 /**
  * Short description of this version (3-5 words)
  * Used in APP_VERSION string
  */
-export const APP_VERSION_DESCRIPTOR = 'Bundui Modules Migration & Sidebar Sync';
+export const APP_VERSION_DESCRIPTOR = 'Bundui Inventory & i18n Progress';
 
 /**
  * Full version string
@@ -38,7 +38,7 @@ export const VERSION_INFO = {
   number: APP_VERSION_NUMBER,
   descriptor: APP_VERSION_DESCRIPTOR,
   full: APP_VERSION,
-  releaseDate: '2025-01-XX',
+  releaseDate: '2025-12-21',
 } as const;
 
 

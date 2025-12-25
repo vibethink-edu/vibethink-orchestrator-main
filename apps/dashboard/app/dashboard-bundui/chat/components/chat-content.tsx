@@ -4,12 +4,10 @@ import { useEffect, useRef } from "react";
 import useChatStore from "../useChatStore";
 import { ChatMessageProps } from "../types";
 
-import {
-  ChatHeader,
-  ChatBubble,
-  ChatFooter,
-  UserDetailSheet
-} from "./";
+import { ChatHeader } from "./chat-header";
+import { ChatBubble } from "./chat-bubbles";
+import { ChatFooter } from "./chat-footer";
+import { UserDetailSheet } from "./user-detail-sheet";
 import Image from "next/image";
 
 export function ChatContent() {
@@ -51,10 +49,11 @@ export function ChatContent() {
       <div className="flex-1 overflow-y-auto lg:px-4">
         <div ref={messagesContainerRef}>
           <div className="flex flex-col items-start space-y-10 py-8">
-            {selectedChat?.messages?.length &&
+            {selectedChat?.messages?.length ? (
               selectedChat.messages.map((item: ChatMessageProps, key) => (
                 <ChatBubble message={item} type={item.type} key={key} />
-              ))}
+              ))
+            ) : null}
           </div>
         </div>
       </div>
@@ -65,4 +64,3 @@ export function ChatContent() {
     </div>
   );
 }
-

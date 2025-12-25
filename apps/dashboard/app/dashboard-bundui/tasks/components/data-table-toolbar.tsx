@@ -15,6 +15,7 @@ interface DataTableToolbarProps<TData> {
 }
 
 export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>) {
+  const { t } = useTranslation('tasks');
   const isFiltered = table.getState().columnFilters.length > 0;
 
   return (
@@ -27,7 +28,7 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
         <h1 className="me-4 hidden text-xl font-bold tracking-tight lg:flex lg:text-2xl">Tasks</h1>
         <div className="flex flex-1 flex-wrap items-center gap-2">
           <Input
-            placeholder="Filter tasks..."
+            placeholder={t('toolbar.filterTasks')}
             value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
             onChange={(event) => table.getColumn("title")?.setFilterValue(event.target.value)}
             className="h-8 w-[150px] lg:w-[250px]"
@@ -35,14 +36,14 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
           {table.getColumn("status") && (
             <DataTableFacetedFilter
               column={table.getColumn("status")}
-              title="Status"
+              title={t('toolbar.status')}
               options={statuses}
             />
           )}
           {table.getColumn("priority") && (
             <DataTableFacetedFilter
               column={table.getColumn("priority")}
-              title="Priority"
+              title={t('toolbar.priority')}
               options={priorities}
             />
           )}

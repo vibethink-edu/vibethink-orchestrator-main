@@ -1,17 +1,29 @@
-import { Card, CardContent, CardHeader, CardTitle, Skeleton, Badge } from '@vibethink/ui'
-import { 
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle
+} from '@vibethink/ui/components/card'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
+import { Badge } from '@vibethink/ui/components/badge'
+import {
   BarChart,
   Bar,
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip, 
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
   ResponsiveContainer,
   ReferenceLine,
   ComposedChart,
   Line
 } from 'recharts'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui'
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger
+} from '@vibethink/ui/components/tabs'
 import { useState } from 'react'
 import { BudgetVsActualChartProps, BudgetComparison } from '../types'
 import { Target, TrendingUp, TrendingDown, AlertTriangle, CheckCircle, BarChart3, Activity } from 'lucide-react'
@@ -33,10 +45,10 @@ import { Target, TrendingUp, TrendingDown, AlertTriangle, CheckCircle, BarChart3
  * - Responsive design with loading states
  * - HSL color variables for theme compatibility
  */
-export function BudgetVsActualChart({ 
-  data, 
-  title = "Budget vs Actual", 
-  className, 
+export function BudgetVsActualChart({
+  data,
+  title = "Budget vs Actual",
+  className,
   height = 350,
   loading = false
 }: BudgetVsActualChartProps) {
@@ -128,7 +140,7 @@ export function BudgetVsActualChart({
   const totalActual = chartData.reduce((sum, item) => sum + item.actual, 0)
   const totalVariance = totalActual - totalBudgeted
   const totalVariancePercent = totalBudgeted > 0 ? (totalVariance / totalBudgeted) * 100 : 0
-  
+
   const overBudgetCategories = chartData.filter(item => item.status === 'over').length
   const underBudgetCategories = chartData.filter(item => item.status === 'under').length
   const onTrackCategories = chartData.filter(item => item.status === 'on_track').length
@@ -173,8 +185,8 @@ export function BudgetVsActualChart({
           {title}
         </CardTitle>
         <div className="flex items-center gap-2">
-          <Badge 
-            variant={totalVariancePercent > 5 ? "destructive" : totalVariancePercent < -5 ? "secondary" : "default"} 
+          <Badge
+            variant={totalVariancePercent > 5 ? "destructive" : totalVariancePercent < -5 ? "secondary" : "default"}
             className="text-xs"
           >
             {totalVariancePercent >= 0 ? '+' : ''}{totalVariancePercent.toFixed(1)}% overall
@@ -203,18 +215,18 @@ export function BudgetVsActualChart({
             <ResponsiveContainer width="100%" height={height}>
               <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                <XAxis 
-                  dataKey="category" 
+                <XAxis
+                  dataKey="category"
                   className="text-xs fill-muted-foreground"
                   angle={-45}
                   textAnchor="end"
                   height={60}
                 />
-                <YAxis 
+                <YAxis
                   className="text-xs fill-muted-foreground"
                   tickFormatter={formatCurrency}
                 />
-                <Tooltip 
+                <Tooltip
                   formatter={formatTooltip}
                   labelFormatter={(label) => `Category: ${label}`}
                   contentStyle={{
@@ -224,22 +236,22 @@ export function BudgetVsActualChart({
                     boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
                   }}
                 />
-                <Bar 
-                  dataKey="budgeted" 
+                <Bar
+                  dataKey="budgeted"
                   name="budgeted"
                   fill="hsl(var(--chart-4))"
                   radius={[2, 2, 0, 0]}
                   opacity={0.7}
                 />
-                <Bar 
-                  dataKey="actual" 
+                <Bar
+                  dataKey="actual"
                   name="actual"
                   fill="hsl(var(--chart-1))"
                   radius={[2, 2, 0, 0]}
                 />
               </BarChart>
             </ResponsiveContainer>
-            
+
             {/* Comparison Summary */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t">
               <div className="text-center">
@@ -270,18 +282,18 @@ export function BudgetVsActualChart({
             <ResponsiveContainer width="100%" height={height}>
               <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                <XAxis 
-                  dataKey="category" 
+                <XAxis
+                  dataKey="category"
                   className="text-xs fill-muted-foreground"
                   angle={-45}
                   textAnchor="end"
                   height={60}
                 />
-                <YAxis 
+                <YAxis
                   className="text-xs fill-muted-foreground"
                   tickFormatter={(value) => `${value}%`}
                 />
-                <Tooltip 
+                <Tooltip
                   formatter={formatTooltip}
                   labelFormatter={(label) => `Category: ${label}`}
                   contentStyle={{
@@ -292,20 +304,20 @@ export function BudgetVsActualChart({
                   }}
                 />
                 <ReferenceLine y={0} stroke="hsl(var(--muted-foreground))" strokeDasharray="2 2" />
-                <Bar 
-                  dataKey="variance_percentage" 
+                <Bar
+                  dataKey="variance_percentage"
                   name="variance_percentage"
                   fill="hsl(var(--chart-1))"
                   radius={[2, 2, 0, 0]}
                 />
               </BarChart>
             </ResponsiveContainer>
-            
+
             {/* Variance Analysis */}
             <div className="space-y-3">
               {chartData.map((item, index) => (
-                <div 
-                  key={item.category} 
+                <div
+                  key={item.category}
                   className="flex items-center justify-between p-3 rounded-lg border bg-card"
                 >
                   <div className="flex items-center gap-3">
@@ -317,7 +329,7 @@ export function BudgetVsActualChart({
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="text-right">
                     <p className={`font-semibold ${getStatusColor(item.status)}`}>
                       {formatCurrency(item.actual)}
@@ -328,16 +340,16 @@ export function BudgetVsActualChart({
                       ) : (
                         <TrendingDown className="h-3 w-3 text-blue-600" />
                       )}
-                      <span 
+                      <span
                         className={`text-xs font-medium ${getVarianceColor(item.variance)}`}
                       >
                         {item.variance >= 0 ? '+' : ''}{item.variance_percentage.toFixed(1)}%
                       </span>
                     </div>
                   </div>
-                  
+
                   <div className="text-right">
-                    <Badge 
+                    <Badge
                       variant={item.status === 'over' ? 'destructive' : item.status === 'under' ? 'secondary' : 'default'}
                       className="text-xs capitalize"
                     >

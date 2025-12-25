@@ -4,7 +4,8 @@ import Link from "next/link";
 import { PlusIcon } from "@radix-ui/react-icons";
 import path from "path";
 
-import { Button, Tabs, TabsList, TabsTrigger } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { Tabs, TabsList, TabsTrigger } from "@vibethink/ui/components/tabs";
 import OrdersDataTable from "./data-table";
 
 export const metadata: Metadata = {

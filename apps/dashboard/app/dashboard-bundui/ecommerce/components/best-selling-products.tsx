@@ -15,15 +15,15 @@ import {
 } from "@tanstack/react-table";
 import { ArrowUpDown, ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 
-import { Button } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger
-} from "@vibethink/ui";
-import { Input } from "@vibethink/ui";
+} from "@vibethink/ui/components/dropdown-menu";
+import { Input } from "@vibethink/ui/components/input";
 import {
   Table,
   TableBody,
@@ -31,10 +31,11 @@ import {
   TableHead,
   TableHeader,
   TableRow
-} from "@vibethink/ui";
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
+} from "@vibethink/ui/components/table";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { ExportButton } from "@/shared/components/CardActionMenus";
 import Image from "next/image";
+import { useTranslation } from "@/lib/i18n";
 
 export type Product = {
   id: number;
@@ -112,98 +113,101 @@ const data: Product[] = [
   }
 ];
 
-export const columns: ColumnDef<Product>[] = [
-  {
-    accessorKey: "name",
-    header: "Product",
-    cell: ({ row }) => (
-      <div className="flex items-center gap-4">
-        <Image
-          width={30}
-          height={30}
-          className="size-8"
-          src={row.original.image}
-          alt="..."
-          unoptimized
-        />
-        <div className="capitalize">{row.getValue("name")}</div>
-      </div>
-    )
-  },
-  {
-    accessorKey: "sold",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="p-0! hover:bg-transparent!">
-          Sold
-          <ArrowUpDown className="size-3" />
-        </Button>
-      );
-    },
-    cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("sold"));
-
-      // Format the amount as a dollar amount
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD"
-      }).format(amount);
-
-      return <div className="font-medium">{formatted}</div>;
-    }
-  },
-  {
-    accessorKey: "sales",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="p-0! hover:bg-transparent!">
-          Sales
-          <ArrowUpDown className="size-3" />
-        </Button>
-      );
-    },
-    cell: ({ row }) => <div>{row.getValue("sales")}</div>
-  },
-  {
-    id: "actions",
-    enableHiding: false,
-    cell: ({ row }) => {
-      const product = row.original;
-
-      return (
-        <div className="text-end">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-8 w-8 p-0">
-                <span className="sr-only">Open menu</span>
-                <MoreHorizontal className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => navigator.clipboard.writeText(String(product.id))}>
-                Copy product ID
-              </DropdownMenuItem>
-              <DropdownMenuItem>View customer</DropdownMenuItem>
-              <DropdownMenuItem>View payment details</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      );
-    }
-  }
-];
 
 export function EcommerceBestSellingProductsCard() {
+  const { t } = useTranslation('ecommerce');
+  
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+
+  const columns: ColumnDef<Product>[] = React.useMemo(() => [
+    {
+      accessorKey: "name",
+      header: t('products.columns.product'),
+      cell: ({ row }) => (
+        <div className="flex items-center gap-4">
+          <Image
+            width={30}
+            height={30}
+            className="size-8"
+            src={row.original.image}
+            alt="..."
+            unoptimized
+          />
+          <div className="capitalize">{row.getValue("name")}</div>
+        </div>
+      )
+    },
+    {
+      accessorKey: "sold",
+      header: ({ column }) => {
+        return (
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            className="p-0! hover:bg-transparent!">
+            {t('products.columns.sold')}
+            <ArrowUpDown className="size-3" />
+          </Button>
+        );
+      },
+      cell: ({ row }) => {
+        const amount = parseFloat(row.getValue("sold"));
+
+        // Format the amount as a dollar amount
+        const formatted = new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD"
+        }).format(amount);
+
+        return <div className="font-medium">{formatted}</div>;
+      }
+    },
+    {
+      accessorKey: "sales",
+      header: ({ column }) => {
+        return (
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            className="p-0! hover:bg-transparent!">
+            {t('products.columns.sales')}
+            <ArrowUpDown className="size-3" />
+          </Button>
+        );
+      },
+      cell: ({ row }) => <div>{row.getValue("sales")}</div>
+    },
+    {
+      id: "actions",
+      enableHiding: false,
+      cell: ({ row }) => {
+        const product = row.original;
+
+        return (
+          <div className="text-end">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="h-8 w-8 p-0">
+                  <span className="sr-only">{t('products.menu.openMenu')}</span>
+                  <MoreHorizontal className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => navigator.clipboard.writeText(String(product.id))}>
+                  {t('products.menu.copyProductId')}
+                </DropdownMenuItem>
+                <DropdownMenuItem>{t('products.menu.viewCustomer')}</DropdownMenuItem>
+                <DropdownMenuItem>{t('products.menu.viewPaymentDetails')}</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        );
+      }
+    }
+  ], [t]);
 
   const table = useReactTable({
     data,
@@ -232,14 +236,14 @@ export function EcommerceBestSellingProductsCard() {
   return (
     <Card className="lg:col-span-5">
       <CardHeader>
-        <CardTitle>Best Selling Products</CardTitle>
+        <CardTitle>{t('products.title')}</CardTitle>
         <CardAction className="relative">
           <ExportButton className="absolute end-0 top-0" />
         </CardAction>
       </CardHeader>
       <CardContent className="space-y-4">
         <Input
-          placeholder="Filter products..."
+          placeholder={t('products.filterPlaceholder')}
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)}
           className="max-w-xs"
@@ -275,7 +279,7 @@ export function EcommerceBestSellingProductsCard() {
               ) : (
                 <TableRow>
                   <TableCell colSpan={columns.length} className="h-24 text-center">
-                    No results.
+                    {t('products.noResults')}
                   </TableCell>
                 </TableRow>
               )}
@@ -284,8 +288,10 @@ export function EcommerceBestSellingProductsCard() {
         </div>
         <div className="flex items-center justify-end space-x-2">
           <div className="text-muted-foreground flex-1 text-sm">
-            {table.getFilteredSelectedRowModel().rows.length} of{" "}
-            {table.getFilteredRowModel().rows.length} row(s) selected.
+            {t('products.selected', {
+              selected: table.getFilteredSelectedRowModel().rows.length,
+              total: table.getFilteredRowModel().rows.length
+            })}
           </div>
           <div className="space-x-2">
             <Button

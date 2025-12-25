@@ -1,0 +1,176 @@
+{
+  "header": {
+    "title": "AI Chat Assistant",
+    "subtitle": "Intelligent conversations with multiple AI providers",
+    "selectConversation": "Select a conversation to start chatting",
+    "untitled": "Untitled Chat",
+    "active": "Active",
+    "messages": "messages",
+    "unknown": "Unknown"
+  },
+  "input": {
+    "placeholder": "Type your message... (Press Enter to send, Shift+Enter for new line)",
+    "send": "Send",
+    "sending": "Sending...",
+    "attach": "Attach files",
+    "voice": "Voice input",
+    "emoji": "Add emoji",
+    "prompts": "Quick prompts",
+    "dragDrop": "Drop files here to attach",
+    "fileTooLarge": "File {{fileName}} is too large (max 10MB)",
+    "pressEnter": "Press {{enter}} to send, {{shiftEnter}} for new line",
+    "files": "files",
+    "file": "file"
+  },
+  "messages": {
+    "loading": "Loading conversation...",
+    "loadingMore": "Loading messages...",
+    "generating": "ViTo is generating a response...",
+    "emptyTitle": "Welcome to AI Chat",
+    "emptyDescription": "Start a new conversation with AI or select an existing chat from the sidebar. You can chat with multiple AI providers and models.",
+    "startNewChat": "Start New Chat",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "scrollToBottom": "Scroll to bottom",
+    "count": "messages in this conversation",
+    "tokens": "tokens used"
+  },
+  "settings": {
+    "title": "Chat Settings",
+    "subtitle": "Configure AI behavior and model parameters",
+    "save": "Save Changes",
+    "revert": "Revert",
+    "reset": "Reset to Defaults",
+    "resetDescription": "Reset all settings to provider defaults",
+    "tabs": {
+      "model": "Model",
+      "parameters": "Parameters",
+      "advanced": "Advanced"
+    },
+    "model": {
+      "title": "AI Provider & Model",
+      "description": "Choose the AI provider and specific model for this conversation",
+      "currentInfo": "Current Model Info",
+      "provider": "Provider",
+      "maxTokens": "Max Tokens",
+      "contextLength": "Context Length"
+    },
+    "parameters": {
+      "title": "Generation Parameters",
+      "description": "Fine-tune how the AI generates responses",
+      "temperature": "Temperature",
+      "temperatureDesc": "Controls randomness. Higher values make output more random, lower values more focused.",
+      "maxTokens": "Max Tokens",
+      "maxTokensDesc": "Maximum number of tokens to generate in the response.",
+      "topP": "Top P",
+      "topPDesc": "Controls nucleus sampling. Lower values focus on more likely tokens."
+    },
+    "advanced": {
+      "title": "Advanced Settings",
+      "description": "Advanced parameters and system configuration",
+      "frequencyPenalty": "Frequency Penalty",
+      "frequencyPenaltyDesc": "Reduces repetition of tokens based on frequency.",
+      "presencePenalty": "Presence Penalty",
+      "presencePenaltyDesc": "Reduces repetition of tokens based on presence.",
+      "systemPrompt": "System Prompt",
+      "systemPromptDesc": "Instructions that define the AI's behavior and personality.",
+      "contextLength": "Context Length",
+      "contextLengthDesc": "Maximum context window for conversation history."
+    }
+  },
+  "actions": {
+    "share": "Share",
+    "export": "Export",
+    "settings": "Settings",
+    "dismiss": "Dismiss",
+    "copy": "Copy message",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "providers": {
+    "openai": "OpenAI",
+    "anthropic": "Anthropic",
+    "google": "Google",
+    "local": "Local Model",
+    "error": {
+      "openai": "Failed to get response from OpenAI",
+      "anthropic": "Failed to get response from Anthropic",
+      "google": "Failed to get response from Google",
+      "local": "Failed to get response from local model"
+    },
+    "mockResponse": "This is a simulated AI response for demo purposes."
+  },
+  "sidebar": {
+    "title": "Conversations",
+    "newChat": "New",
+    "searchPlaceholder": "Search chats...",
+    "all": "All",
+    "noChats": "No chats yet",
+    "startFirstChat": "Start your first chat",
+    "untitled": "Untitled Chat",
+    "export": "Export",
+    "archive": "Archive",
+    "delete": "Delete",
+    "totalChats": "Total chats",
+    "active": "Active",
+    "unknown": "Unknown"
+  },
+  "upload": {
+    "dropFiles": "Drop files here",
+    "clickToUpload": "Click to upload or drag and drop",
+    "filesType": "{{types}} up to {{size}}",
+    "chooseFiles": "Choose Files",
+    "uploading": "Uploading files...",
+    "selectedFiles": "Selected Files ({{current}}/{{max}})",
+    "clearAll": "Clear All",
+    "unknownType": "Unknown type",
+    "ready": "Ready",
+    "totalSize": "Total size: {{size}}",
+    "info": "These files will be attached to your message and processed by the AI.",
+    "errorTooLarge": "File \"{{fileName}}\" is too large. Maximum size is {{maxSize}}.",
+    "errorType": "File type \"{{fileType}}\" is not supported.",
+    "errorMaxFiles": "Cannot upload more than {{max}} files at once."
+  },
+  "bubble": {
+    "you": "You",
+    "aiAssistant": "AI Assistant",
+    "system": "System",
+    "copy": "Copy text",
+    "copied": "Copied!",
+    "downloadAttachments": "Download attachments",
+    "edit": "Edit message",
+    "delete": "Delete message",
+    "error": "Error: {{error}}",
+    "tokens": "{{count}} tokens",
+    "unknown": "Unknown"
+  },
+  "error": {
+    "loadMessages": "Failed to load messages. Please try again.",
+    "sendMessage": "Failed to send message. Please try again.",
+    "createChat": "Failed to create new chat. Please try again.",
+    "deleteChat": "Failed to delete chat. Please try again.",
+    "updateSettings": "Failed to update chat settings. Please try again."
+  },
+  "commands": {
+    "help": "Available commands: /help, /clear, /export, /settings",
+    "clear": "Conversation cleared",
+    "export": "Exporting conversation in {{format}} format",
+    "settings": "Opening settings panel",
+    "model": "Switching to model: {{model}}",
+    "temperature": "Setting temperature to: {{value}}",
+    "system": "Setting system prompt: {{prompt}}"
+  },
+  "validation": {
+    "empty": "Message cannot be empty",
+    "tooLong": "Message is too long (maximum 10,000 characters)",
+    "tooManyFiles": "Too many attachments (maximum 5 files)",
+    "temperature": "Temperature must be between 0 and 2",
+    "maxTokens": "Max tokens must be between 1 and 8192",
+    "topP": "Top P must be between 0 and 1"
+  },
+  "export": {
+    "created": "Created",
+    "provider": "AI Provider",
+    "attachments": "Attachments"
+  }
+}

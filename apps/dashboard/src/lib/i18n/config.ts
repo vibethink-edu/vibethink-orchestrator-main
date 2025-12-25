@@ -30,6 +30,56 @@ export const localeMetadata: Record<Locale, LocaleMetadata> = {
     currency: 'EUR',
     numberFormat: new Intl.Locale('es-ES'),
   },
+  ar: {
+    code: 'ar',
+    name: 'Arabic',
+    nativeName: 'العربية',
+    flag: '🇸🇦',
+    dateFormat: 'dd/MM/yyyy',
+    timeFormat: 'hh:mm a',
+    currency: 'SAR',
+    numberFormat: new Intl.Locale('ar-SA'),
+  },
+  zh: {
+    code: 'zh',
+    name: 'Chinese',
+    nativeName: '中文',
+    flag: '🇨🇳',
+    dateFormat: 'yyyy/MM/dd',
+    timeFormat: 'HH:mm',
+    currency: 'CNY',
+    numberFormat: new Intl.Locale('zh-CN'),
+  },
+  fr: {
+    code: 'fr',
+    name: 'French',
+    nativeName: 'Français',
+    flag: '🇫🇷',
+    dateFormat: 'dd/MM/yyyy',
+    timeFormat: 'HH:mm',
+    currency: 'EUR',
+    numberFormat: new Intl.Locale('fr-FR'),
+  },
+  pt: {
+    code: 'pt',
+    name: 'Portuguese',
+    nativeName: 'Português',
+    flag: '🇧🇷',
+    dateFormat: 'dd/MM/yyyy',
+    timeFormat: 'HH:mm',
+    currency: 'BRL',
+    numberFormat: new Intl.Locale('pt-BR'),
+  },
+  de: {
+    code: 'de',
+    name: 'German',
+    nativeName: 'Deutsch',
+    flag: '🇩🇪',
+    dateFormat: 'dd.MM.yyyy',
+    timeFormat: 'HH:mm',
+    currency: 'EUR',
+    numberFormat: new Intl.Locale('de-DE'),
+  },
 };
 
 /**
@@ -37,7 +87,7 @@ export const localeMetadata: Record<Locale, LocaleMetadata> = {
  */
 export const i18nConfig: I18nConfig = {
   defaultLocale: 'en',
-  locales: ['en', 'es'],
+  locales: ['en', 'es', 'ar', 'zh', 'fr', 'pt', 'de'],
   localeMetadata,
   storageKey: 'vibethink-locale',
   cookieName: 'NEXT_LOCALE',
@@ -68,5 +118,9 @@ export function getBrowserLocale(): Locale {
   const browserLang = navigator.language.split('-')[0];
   return isValidLocale(browserLang) ? browserLang : i18nConfig.defaultLocale;
 }
+
+
+
+
 
 

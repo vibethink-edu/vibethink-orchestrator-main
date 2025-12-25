@@ -1,31 +1,36 @@
 import React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 
-import { FilterTab, Todo, TodoStatus } from "./types";
+import { FilterTab, Todo, TodoStatus } from "../types";
 
-import { Button } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
 import { Plus, X, Search, SlidersHorizontal, GridIcon, ListIcon } from "lucide-react";
-import { Input } from "@vibethink/ui";
-import { Badge } from "@vibethink/ui";
-import { ToggleGroup, ToggleGroupItem } from "@vibethink/ui";
+import { Input } from "@vibethink/ui/components/input";
+import { Badge } from "@vibethink/ui/components/badge";
+import { ToggleGroup, ToggleGroupItem } from "@vibethink/ui/components/toggle-group";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger
-} from "@vibethink/ui";
-import { Toggle } from "@vibethink/ui";
+} from "@vibethink/ui/components/dropdown-menu";
+import { Toggle } from "@vibethink/ui/components/toggle";
 import TodoItem from "./todo-item";
 import { useTodoStore } from "../store";
 import StatusTabs from "./status-tabs";
-import { Checkbox } from "@vibethink/ui";
-import { Label } from "@vibethink/ui";
+import { Checkbox } from "@vibethink/ui/components/checkbox";
+import { Label } from "@vibethink/ui/components/label";
 import {
   priorityDotColors,
   EnumTodoPriority
 } from "../enum";
 import { toast } from "sonner";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from "@vibethink/ui/components/tooltip";
 import {
   DndContext,
   closestCenter,

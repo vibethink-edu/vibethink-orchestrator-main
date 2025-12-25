@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { usePathname } from "next/navigation";
 import {
   BellIcon,
@@ -12,7 +12,8 @@ import {
   UserIcon
 } from "lucide-react";
 
-import { Button, Card, CardContent } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { Card, CardContent } from "@vibethink/ui/components/card";
 
 const sidebarNavItems = [
   {
@@ -74,6 +75,10 @@ export function SidebarNav() {
     </Card>
   );
 }
+
+
+
+
 
 
 

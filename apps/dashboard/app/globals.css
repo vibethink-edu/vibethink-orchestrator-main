@@ -6,6 +6,77 @@
 
 @import "./themes.css";
 
+/* ============================================
+   UNIVERSAL I18N SUPPORT - Base CSS
+   Supports 90% of world languages with minimal effort
+   ============================================ */
+
+/* Base universal rules for all languages */
+* {
+  /* Word wrapping and breaking */
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  
+  /* Text rendering optimization */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   LANGUAGES WITHOUT SPACES
+   (Chinese, Japanese, Korean, Thai)
+   ============================================ */
+:lang(zh),
+:lang(ja),
+:lang(ko),
+:lang(th) {
+  /* Allow breaks at any character */
+  word-break: break-all;
+  
+  /* Strict line breaking */
+  line-break: strict;
+  
+  /* More vertical space for readability */
+  line-height: 1.8;
+  
+  /* Slightly increased letter spacing */
+  letter-spacing: 0.02em;
+}
+
+/* ============================================
+   RTL (RIGHT-TO-LEFT) LANGUAGES
+   (Arabic, Hebrew, Persian/Farsi, Urdu)
+   ============================================ */
+:lang(ar),
+:lang(he),
+:lang(fa),
+:lang(ur) {
+  direction: rtl;
+  text-align: right;
+}
+
+/* RTL: Auto-reverse flex direction */
+:lang(ar) .flex,
+:lang(he) .flex,
+:lang(fa) .flex,
+:lang(ur) .flex {
+  flex-direction: row-reverse;
+}
+
+/* ============================================
+   LANGUAGES WITH SPECIAL REQUIREMENTS
+   ============================================ */
+
+/* Hindi: Devanagari script support */
+:lang(hi) {
+  line-height: 1.7;
+}
+
+/* Russian: Thousand separator handled by Intl API */
+/* Note: Intl.NumberFormat automatically handles locale-specific formatting */
+
 :root {
   --base-50: oklch(0.985 0.0013 286.84);
   --base-100: oklch(0.967 0.0027 286.38);
@@ -30,8 +101,8 @@
   --primary-foreground: var(--color-white);
   --secondary: var(--base-300);
   --secondary-foreground: var(--base-800);
-  --muted: var(--color-neutral-100);
-  --muted-foreground: var(--color-neutral-500);
+  --muted: var(--base-100);
+  --muted-foreground: var(--base-500);
   --accent: var(--base-200);
   --accent-foreground: var(--base-800);
   --destructive: oklch(0.577 0.245 27.325);

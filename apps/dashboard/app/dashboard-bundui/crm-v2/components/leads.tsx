@@ -37,6 +37,8 @@ import {
   TableRow
 } from "@vibethink/ui/components/table";
 import { ChevronDownIcon, ChevronsUpDown, Ellipsis } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useTranslation } from "@/lib/i18n";
 
 const data: Payment[] = [
   {
@@ -78,7 +80,7 @@ export type Payment = {
   email: string;
 };
 
-export const columns: ColumnDef<Payment>[] = [
+const createColumns = (t: (key: string) => string): ColumnDef<Payment>[] => [
   {
     id: "select",
     header: ({ table }) => (
@@ -87,14 +89,14 @@ export const columns: ColumnDef<Payment>[] = [
           table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")
         }
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
+        aria-label={t('table.selectAll')}
       />
     ),
     cell: ({ row }) => (
       <Checkbox
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
+        aria-label={t('table.selectRow')}
       />
     ),
     enableSorting: false,
@@ -102,7 +104,7 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "status",
-    header: "Status",
+    header: t('leads.table.status'),
     cell: ({ row }) => <div className="capitalize">{row.getValue("status")}</div>
   },
   {
@@ -113,7 +115,7 @@ export const columns: ColumnDef<Payment>[] = [
           variant="ghost"
           className="p-0!"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
-          Email
+          {t('leads.table.email')}
           <ChevronsUpDown className="size-3!" />
         </Button>
       );
@@ -122,7 +124,7 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "amount",
-    header: () => <div className="text-right">Amount</div>,
+    header: () => <div className="text-right">{t('leads.table.value')}</div>,
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("amount"));
 
@@ -146,18 +148,18 @@ export const columns: ColumnDef<Payment>[] = [
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost">
-                <span className="sr-only">Open menu</span>
+                <span className="sr-only">{t('leads.table.actions')}</span>
                 <Ellipsis />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuLabel>{t('leads.table.actions')}</DropdownMenuLabel>
               <DropdownMenuItem onClick={() => navigator.clipboard.writeText(payment.id)}>
-                Copy payment ID
+                {t('actions.copyId')}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>View customer</DropdownMenuItem>
-              <DropdownMenuItem>View payment details</DropdownMenuItem>
+              <DropdownMenuItem>{t('actions.viewCustomer')}</DropdownMenuItem>
+              <DropdownMenuItem>{t('actions.viewDetails')}</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
@@ -167,10 +169,14 @@ export const columns: ColumnDef<Payment>[] = [
 ];
 
 export function LeadsCard() {
+  const { t } = useTranslation('crm-v2');
+  const router = useRouter();
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+
+  const columns = React.useMemo(() => createColumns(t), [t]);
 
   const table = useReactTable({
     data,
@@ -194,12 +200,12 @@ export function LeadsCard() {
   return (
     <Card className="col-span-2">
       <CardHeader className="flex flex-row justify-between">
-        <CardTitle>Leads</CardTitle>
+        <CardTitle>{t('leads.title')}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="mb-4 flex items-center gap-2">
           <Input
-            placeholder="Filter leads..."
+            placeholder={t('leads.search.placeholder')}
             value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
             onChange={(event) => table.getColumn("email")?.setFilterValue(event.target.value)}
             className="max-w-sm"
@@ -207,7 +213,7 @@ export function LeadsCard() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="ml-auto">
-                Columns <ChevronDownIcon className="ml-2 h-4 w-4" />
+                {t('table.columns')} <ChevronDownIcon className="ml-2 h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -248,7 +254,12 @@ export function LeadsCard() {
             <TableBody>
               {table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
-                  <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
+                  <TableRow 
+                    key={row.id} 
+                    data-state={row.getIsSelected() && "selected"}
+                    className="cursor-pointer hover:bg-muted/50"
+                    onClick={() => router.push(`/dashboard-bundui/crm-v2-ai/lead/${row.original.id}`)}
+                  >
                     {row.getVisibleCells().map((cell) => (
                       <TableCell key={cell.id} className="[&:has([role=checkbox])]:pl-3">
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -259,7 +270,7 @@ export function LeadsCard() {
               ) : (
                 <TableRow>
                   <TableCell colSpan={columns.length} className="h-24 text-center">
-                    No results.
+                    {t('table.noResults')}
                   </TableCell>
                 </TableRow>
               )}
@@ -268,8 +279,8 @@ export function LeadsCard() {
         </div>
         <div className="flex items-center justify-end space-x-2 pt-4">
           <div className="text-muted-foreground flex-1 text-sm">
-            {table.getFilteredSelectedRowModel().rows.length} of{" "}
-            {table.getFilteredRowModel().rows.length} row(s) selected.
+            {table.getFilteredSelectedRowModel().rows.length} {t('of')}{" "}
+            {table.getFilteredRowModel().rows.length} {t('table.rowsSelected')}
           </div>
           <div className="space-x-2">
             <Button
@@ -277,14 +288,14 @@ export function LeadsCard() {
               size="sm"
               onClick={() => table.previousPage()}
               disabled={!table.getCanPreviousPage()}>
-              Previous
+              {t('previous')}
             </Button>
             <Button
               variant="outline"
               size="sm"
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}>
-              Next
+              {t('next')}
             </Button>
           </div>
         </div>

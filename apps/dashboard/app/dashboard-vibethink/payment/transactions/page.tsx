@@ -2,9 +2,12 @@
 
 import { ChevronRightIcon, Download } from "lucide-react";
 
-import { Card, CardContent, Button, Tabs, TabsContent, TabsList, TabsTrigger, Table, TableBody, TableCell, TableRow } from "@vibethink/ui";
+import { Card, CardContent } from "@vibethink/ui/components/card";
+import { Button } from "@vibethink/ui/components/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@vibethink/ui/components/tabs";
+import { Table, TableBody, TableCell, TableRow } from "@vibethink/ui/components/table";
 import { cn } from "@vibethink/utils";
-import CustomDateRangePicker from "@/shared/components/custom-date-range-picker";
+import CustomDateRangePicker from "@/shared/components/bundui-premium/components/custom-date-range-picker";
 
 const transactions = [
   {

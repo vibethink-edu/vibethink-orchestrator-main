@@ -1,4 +1,4 @@
-import { generateMeta } from "@/lib/utils";
+import { generateMeta } from "@/shared/lib/utils";
 import { Download } from "lucide-react";
 
 import { Button } from "@vibethink/ui/components/button";

@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Separator } from "@/components/ui/separator";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
+import { Tabs, TabsList, TabsTrigger } from "@vibethink/ui";
+import { Separator } from "@vibethink/ui";
 import { Info } from "lucide-react";
+import { useTranslation } from "@/lib/i18n";
 
 const data = {
   daily: {
@@ -30,13 +31,14 @@ const data = {
 };
 
 export function BookingsCard() {
+  const { t } = useTranslation('hotel');
   const [period, setPeriod] = useState<"daily" | "weekly" | "monthly" | "yearly">("monthly");
 
   const periods = [
-    { value: "daily", label: "D" },
-    { value: "weekly", label: "W" },
-    { value: "monthly", label: "M" },
-    { value: "yearly", label: "Y" }
+    { value: "daily", label: t('components.bookingsCard.periods.daily') },
+    { value: "weekly", label: t('components.bookingsCard.periods.weekly') },
+    { value: "monthly", label: t('components.bookingsCard.periods.monthly') },
+    { value: "yearly", label: t('components.bookingsCard.periods.yearly') }
   ] as const;
 
   const currentData = data[period];
@@ -47,7 +49,7 @@ export function BookingsCard() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Bookings</CardTitle>
+        <CardTitle>{t('components.bookingsCard.title')}</CardTitle>
         <CardAction>
           <Tabs value={period} onValueChange={(value) => setPeriod(value as typeof period)}>
             <TabsList>
@@ -68,7 +70,7 @@ export function BookingsCard() {
               maximumFractionDigits: 2
             })}
           </span>
-          <span className="text-muted-foreground text-sm">Total Bookings</span>
+          <span className="text-muted-foreground text-sm">{t('components.bookingsCard.totalBookings')}</span>
         </div>
 
         <Separator />
@@ -86,11 +88,11 @@ export function BookingsCard() {
 
         <div className="flex justify-between">
           <div className="space-y-1">
-            <p className="text-muted-foreground text-sm">Online Booking</p>
+            <p className="text-muted-foreground text-sm">{t('components.bookingsCard.onlineBooking')}</p>
             <p className="font-semibold lg:text-xl">{currentData.onlineBooking.toLocaleString()}</p>
           </div>
           <div className="space-y-1 text-right">
-            <p className="text-muted-foreground text-sm">Offline Booking</p>
+            <p className="text-muted-foreground text-sm">{t('components.bookingsCard.offlineBooking')}</p>
             <p className="font-semibold lg:text-xl">
               {currentData.offlineBooking.toLocaleString()}
             </p>
@@ -100,10 +102,11 @@ export function BookingsCard() {
         <div className="flex items-center gap-2 rounded-lg border p-3">
           <Info className="text-muted-foreground h-4 w-4" />
           <span className="text-muted-foreground text-sm">
-            Unlock in-depth analysis with a premium subscription
+            {t('components.bookingsCard.premiumMessage')}
           </span>
         </div>
       </CardContent>
     </Card>
   );
 }
+

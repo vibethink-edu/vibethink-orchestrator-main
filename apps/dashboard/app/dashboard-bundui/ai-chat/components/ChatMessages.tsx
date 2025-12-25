@@ -15,22 +15,23 @@
 // =============================================================================
 
 import React, { useEffect, useRef, useState } from 'react'
-import { ScrollArea } from '@vibethink/ui'
-import { Button } from '@vibethink/ui'
-import { Separator } from '@vibethink/ui'
-import { Badge } from '@vibethink/ui'
-import { 
-  ArrowDown, 
-  MessageSquare, 
+import { ScrollArea } from '@vibethink/ui/components/scroll-area'
+import { Button } from '@vibethink/ui/components/button'
+import { Separator } from '@vibethink/ui/components/separator'
+import { Badge } from '@vibethink/ui/components/badge'
+import {
+  ArrowDown,
+  MessageSquare,
   Clock,
   RefreshCw,
   AlertTriangle
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 import { ChatMessagesProps, ChatMessage } from '../types'
 import { MessageBubble } from './MessageBubble'
 import { TypingIndicator } from './TypingIndicator'
 import { format } from 'date-fns'
+import { useTranslation } from '@/lib/i18n'
 
 /**
  * Contenedor de mensajes de chat con scroll y optimizaciones
@@ -44,7 +45,8 @@ export function ChatMessages({
   onMessageDelete,
   onMessageCopy
 }: ChatMessagesProps) {
-  const scrollAreaRef = useRef<HTMLDivElement>(null)
+  const { t } = useTranslation('ai-chat');
+  const scrollAreaRef = useRef<React.ElementRef<typeof ScrollArea>>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const [showScrollButton, setShowScrollButton] = useState(false)
   const [isNearBottom, setIsNearBottom] = useState(true)
@@ -52,7 +54,7 @@ export function ChatMessages({
   // Auto-scroll a nuevos mensajes
   useEffect(() => {
     if (isNearBottom && messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ 
+      messagesEndRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'end'
       })
@@ -62,7 +64,7 @@ export function ChatMessages({
   // Monitor scroll position
   const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
     const element = event.currentTarget
-    const isScrolledToBottom = 
+    const isScrolledToBottom =
       element.scrollHeight - element.scrollTop <= element.clientHeight + 100
 
     setIsNearBottom(isScrolledToBottom)
@@ -71,7 +73,7 @@ export function ChatMessages({
 
   // Scroll to bottom manually
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ 
+    messagesEndRef.current?.scrollIntoView({
       behavior: 'smooth',
       block: 'end'
     })
@@ -80,7 +82,7 @@ export function ChatMessages({
   // Agrupar mensajes por fecha
   const groupMessagesByDate = (messages: ChatMessage[]) => {
     const groups: { [key: string]: ChatMessage[] } = {}
-    
+
     messages.forEach(message => {
       const date = format(new Date(message.created_at), 'yyyy-MM-dd')
       if (!groups[date]) {
@@ -88,7 +90,7 @@ export function ChatMessages({
       }
       groups[date].push(message)
     })
-    
+
     return groups
   }
 
@@ -100,15 +102,18 @@ export function ChatMessages({
     yesterday.setDate(yesterday.getDate() - 1)
 
     if (format(date, 'yyyy-MM-dd') === format(today, 'yyyy-MM-dd')) {
-      return 'Today'
+      return t('messages.today')
     } else if (format(date, 'yyyy-MM-dd') === format(yesterday, 'yyyy-MM-dd')) {
-      return 'Yesterday'
+      return t('messages.yesterday')
     } else {
       return format(date, 'MMMM d, yyyy')
     }
   }
 
-  const messageGroups = groupMessagesByDate(messages)
+  // Agrupar mensajes por fecha
+  const messageGroups = React.useMemo(() => {
+    return groupMessagesByDate(messages)
+  }, [messages])
 
   // Estados de carga y error
   if (isLoading && messages.length === 0) {
@@ -116,7 +121,7 @@ export function ChatMessages({
       <div className="flex-1 flex items-center justify-center">
         <div className="text-center space-y-4">
           <RefreshCw className="w-8 h-8 animate-spin text-muted-foreground mx-auto" />
-          <p className="text-sm text-muted-foreground">Loading conversation...</p>
+          <p className="text-sm text-muted-foreground">{t('messages.loading_conversation')}</p>
         </div>
       </div>
     )
@@ -125,7 +130,7 @@ export function ChatMessages({
   return (
     <div className="flex-1 relative flex flex-col min-h-0">
       {/* Messages Area */}
-      <ScrollArea 
+      <ScrollArea
         ref={scrollAreaRef}
         className="flex-1 px-4"
         onScroll={handleScroll}
@@ -139,11 +144,10 @@ export function ChatMessages({
               </div>
               <div className="space-y-2">
                 <h3 className="text-lg font-medium text-foreground">
-                  Start the conversation
+                  {t('messages.empty_state_title')}
                 </h3>
                 <p className="text-sm text-muted-foreground max-w-md mx-auto">
-                  Send a message to begin chatting with AI. You can ask questions, 
-                  request help, or have a conversation about any topic.
+                  {t('messages.empty_state_description')}
                 </p>
               </div>
             </div>
@@ -157,23 +161,33 @@ export function ChatMessages({
                 <Separator className="flex-1" />
                 <Badge variant="outline" className="text-xs px-3 py-1">
                   <Clock className="w-3 h-3 mr-1" />
-                  {formatDateSeparator(date)}
+                  <span>{formatDateSeparator(date)}</span>
                 </Badge>
                 <Separator className="flex-1" />
               </div>
 
               {/* Messages for this date */}
               <div className="space-y-6">
-                {dateMessages.map((message, index) => (
-                  <MessageBubble
-                    key={message.id}
-                    message={message}
-                    isUser={message.role === 'user'}
-                    onEdit={onMessageEdit ? (content) => onMessageEdit(message.id, content) : undefined}
-                    onDelete={onMessageDelete ? () => onMessageDelete(message.id) : undefined}
-                    onCopy={() => onMessageCopy(message.content)}
-                  />
-                ))}
+                {dateMessages.map((message, index) => {
+                  const handleCopy = () => {
+                    if (onMessageCopy) {
+                      onMessageCopy(message.content)
+                    }
+                  }
+                  const handleEdit = onMessageEdit ? (content: string) => onMessageEdit(message.id, content) : undefined
+                  const handleDelete = onMessageDelete ? () => onMessageDelete(message.id) : undefined
+
+                  return (
+                    <MessageBubble
+                      key={message.id}
+                      message={message}
+                      isUser={message.role === 'user'}
+                      onEdit={handleEdit}
+                      onDelete={handleDelete}
+                      onCopy={handleCopy}
+                    />
+                  )
+                })}
               </div>
             </div>
           ))}
@@ -181,9 +195,9 @@ export function ChatMessages({
           {/* Typing Indicator */}
           {isTyping && (
             <div className="mt-6">
-              <TypingIndicator 
+              <TypingIndicator
                 variant="thinking"
-                message="AI is generating a response..."
+                message={t('messages.aiGenerating')}
               />
             </div>
           )}
@@ -193,7 +207,7 @@ export function ChatMessages({
             <div className="flex justify-center py-4">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <RefreshCw className="w-4 h-4 animate-spin" />
-                <span>Loading messages...</span>
+                <span>{t('messages.loading_messages')}</span>
               </div>
             </div>
           )}
@@ -213,7 +227,7 @@ export function ChatMessages({
             onClick={scrollToBottom}
           >
             <ArrowDown className="w-4 h-4" />
-            <span className="hidden sm:inline">Scroll to bottom</span>
+            <span className="hidden sm:inline">{t('messages.scroll_to_bottom')}</span>
           </Button>
         </div>
       )}
@@ -222,12 +236,12 @@ export function ChatMessages({
       {messages.length > 0 && (
         <div className="px-4 py-2 border-t bg-muted/20">
           <div className="flex items-center justify-between text-xs text-muted-foreground">
-            <span>{messages.length} messages in this conversation</span>
-            
+            <span>{messages.length} {t('messages.message_count')}</span>
+
             {/* Token usage if available */}
             {messages.some(m => m.metadata?.tokens_used) && (
               <span>
-                {messages.reduce((total, m) => total + (m.metadata?.tokens_used || 0), 0)} tokens used
+                {messages.reduce((total, m) => total + (m.metadata?.tokens_used || 0), 0)} {t('messages.tokens_used')}
               </span>
             )}
           </div>

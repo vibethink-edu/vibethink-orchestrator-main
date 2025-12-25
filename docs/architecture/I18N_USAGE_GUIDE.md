@@ -380,3 +380,7 @@ export function MetricsCard({ revenue, growth }: { revenue: number; growth: numb
 **Versión:** 1.0.0
 
 
+
+
+
+

@@ -41,27 +41,31 @@ El sistema tiene **3 dashboards principales** con propósitos específicos y cr�
   - ✅ **Multidioma**: Implementado
   - ✅ **Layout**: Minimalista (sin sidebar/header)
 - **Rutas**: `/dashboard/*`
-- **Flujo**: Recibe módulos probados desde `dashboard-vibethink`
+- **Flujo**: Recibe módulos estabilizados desde `dashboard-bundui`
 - **Estado**: ✅ Funcional (en desarrollo - meta final)
 
-#### 2. `/dashboard-bundui` - Referencia/Inspiración
-- **Propósito**: Espejo de Bundui Premium, nuestra inspiración (no monorepo, externo)
+#### 2. `/dashboard-bundui` - Desarrollo/Estabilización ⭐
+- **Propósito**: Donde se estabilizan módulos con metodología AI-First antes de producción
+- **Características**:
+  - ✅ **Desarrollo activo**: Trabajo de estabilización de módulos aquí
+  - ✅ **i18n implementado**: Aplicación de AI-First i18n/l10n en progreso
+  - ✅ **Sandbox de desarrollo**: Pruebas y estabilización antes de producción
+  - ✅ **Stack**: Shadcn UI + i18n + AI-First methodology
+  - ✅ **Modificación**: ✅ SÍ (trabajo activo aquí)
 - **Sidebar**: Propio e independiente (`AppSidebar` de Bundui)
 - **Rutas**: SIEMPRE `/dashboard-bundui/*`
-- **Modificación**: ❌ NO (o mínimo necesario - mucho trabajo mantenerlo)
-- **Stack**: Shadcn UI first, SIEMPRE
-- **i18n**: ❌ NO implementar (mantener inglés hardcoded como referencia)
-- **Actualización**: ✅ **SÍ, es viable descargar/actualizar Bundui Original** (ver `docs/architecture/BUNDUI_DOWNLOAD_UPDATE.md`)
-- **Bundui Original**: `C:\IA Marcelo Labs\bundui\shadcn-ui-kit-dashboard/` - Se puede actualizar/descargar nueva versión
-- **Estado**: ✅ Completo y estable (referencia actualizable)
+- **i18n**: ✅ **OBLIGATORIO** - Aplicación de metodología AI-First con namespaces/sub-namespaces
+- **Flujo**: Estabiliza módulos → Migra a `/dashboard` (producción)
+- **Estado**: ✅ Trabajo activo - Estabilización en progreso
+- **Nota**: Originalmente era referencia de Bundui Premium, pero ahora es donde se estabiliza todo el trabajo
 
-#### 3. `/dashboard-vibethink` - Mockup/Sandbox de Pruebas
-- **Propósito**: Mockup antes de implementar en producción - donde se prueban interfaces
+#### 3. `/dashboard-vibethink` - Experimentación/Prototipos (Opcional)
+- **Propósito**: Experimentos y prototipos avanzados antes de estabilizar
 - **Características**:
-  - ⚠️ **NO es producción**: Es sandbox de pruebas y mockups
-  - ✅ **Se nutre de**: Bundui, React Flow, AI Chat, y otros componentes
-  - ✅ **Pruebas**: Donde se prueba cómo luce todo antes de integrar con BD
-  - ✅ **Sin BD**: Solo mockups y pruebas
+  - ⚠️ **Experimentación**: Para prototipos que aún no están listos para estabilizar
+  - ⚠️ **Integraciones complejas**: React Flow, AI Chat avanzado, etc.
+  - ⚠️ **Pruebas de conceptos**: Validación de ideas antes de estabilizar
+  - ⚠️ **Opcional**: Solo si se necesita experimentar algo nuevo
 - **Sidebar**: Propio e independiente (`VibeThinkSidebar`)
 - **Rutas**: SIEMPRE `/dashboard-vibethink/*`
 - **Modificación**: ✅ SÍ (pero debe seguir TODAS las reglas del proyecto)
@@ -73,29 +77,21 @@ El sistema tiene **3 dashboards principales** con propósitos específicos y cr�
   - ✅ Monorepo compliance obligatorio
   - ✅ Changelog y versiones obligatorios
   - ✅ i18n obligatorio desde el inicio
-- **Flujo**: Prueba módulos antes de migrarlos a `/dashboard` (producción)
-- **Estado**: ✅ Funcional, sandbox activo para pruebas
+- **Flujo (Opcional)**: Experimenta → Si funciona, estabiliza en `dashboard-bundui` → Migra a `/dashboard` (producción)
+- **Estado**: ⚠️ Opcional - Solo para experimentación avanzada
 
-### 🔄 Flujo de Desarrollo
+### 🔄 Flujo de Desarrollo (Actualizado 2025-12-21)
 
 ```
 ┌─────────────────────────────────┐
 │  /dashboard-bundui              │
-│  (Referencia/Inspiración)       │
-│  - Bundui Premium externo       │
-│  - Solo inglés, sin i18n         │
+│  (Desarrollo/Estabilización) ⭐  │
+│  - Módulos con i18n             │
+│  - AI-First methodology         │
+│  - Sandbox de desarrollo        │
+│  - Trabajo activo aquí          │
 └────────────┬────────────────────┘
-             │ Inspiración
-             ↓
-┌─────────────────────────────────┐
-│  /dashboard-vibethink           │
-│  (Mockup/Sandbox)               │
-│  - Pruebas de interfaces        │
-│  - Multidioma (i18n)            │
-│  - React Flow, AI Chat, etc.    │
-│  - Sin BD (mockups)              │
-└────────────┬────────────────────┘
-             │ Migración probada
+             │ Módulos estabilizados
              ↓
 ┌─────────────────────────────────┐
 │  /dashboard                     │
@@ -105,6 +101,16 @@ El sistema tiene **3 dashboards principales** con propósitos específicos y cr�
 │  - Login, CRM, etc.              │
 │  - Multidioma                    │
 └─────────────────────────────────┘
+
+┌─────────────────────────────────┐
+│  /dashboard-vibethink           │
+│  (Experimentación - Opcional)    │
+│  - Prototipos avanzados         │
+│  - Integraciones complejas      │
+│  - Solo si se necesita          │
+└─────────────────────────────────┘
+     ↓ (si funciona)
+     └─→ dashboard-bundui (estabilización)
 ```
 
 ### Regla Fundamental: Independencia Total de Dashboards
@@ -119,35 +125,198 @@ El sistema tiene **3 dashboards principales** con propósitos específicos y cr�
 4. **Rutas Específicas**: Cada sistema usa su propio prefijo de ruta
 5. **Objetivos Claros**: 
    - `dashboard` = producción final (integración BD, módulos publicados) ⭐
-   - `bundui` = referencia/inspiración (externo, no monorepo)
-   - `vibethink` = mockup/sandbox (pruebas antes de producción)
+   - `bundui` = desarrollo/estabilización (trabajo activo, i18n, AI-First) ⭐
+   - `vibethink` = experimentación opcional (prototipos avanzados)
 
 ### 📋 Checklist para Nuevos Dashboards
 
 Antes de crear un dashboard, pregunta:
-- [ ] ¿Va en `/dashboard` (producción), `/dashboard-bundui` (referencia), o `/dashboard-vibethink` (mockup)?
-- [ ] Si es `/dashboard`: ¿Está listo para integración con BD? ¿Ya fue probado en vibethink?
-- [ ] Si es `/dashboard-vibethink`: ¿Usa i18n desde el inicio? (OBLIGATORIO)
-- [ ] Si es `/dashboard-bundui`: ¿Mantiene inglés hardcoded? (NO implementar i18n)
+- [ ] ¿Va en `/dashboard` (producción), `/dashboard-bundui` (desarrollo/estabilización), o `/dashboard-vibethink` (experimentación)?
+- [ ] Si es `/dashboard`: ¿Está listo para integración con BD? ¿Ya fue estabilizado en bundui?
+- [ ] Si es `/dashboard-bundui`: ¿Usa i18n desde el inicio? (OBLIGATORIO - AI-First methodology)
+- [ ] Si es `/dashboard-vibethink`: ¿Es un experimento/prototipo? ¿Usa i18n desde el inicio? (OBLIGATORIO)
 - [ ] ¿Usa el sidebar correcto para ese sistema?
 - [ ] ¿Todas las rutas usan el prefijo correcto?
 - [ ] ¿Está basado en Shadcn UI?
-- [ ] Si es `/dashboard-vibethink`: ¿Sigue todas las reglas del proyecto y vibethink-dev-kit?
+- [ ] Si es `/dashboard-bundui` o `/dashboard-vibethink`: ¿Sigue todas las reglas del proyecto y vibethink-dev-kit?
 
 **NUNCA intentes compartir componentes de navegación entre sistemas.**
 
-### 🌍 Regla i18n: Los Tres Dashboards
+### 🌍 Regla i18n: Los Tres Dashboards (Actualizado 2025-12-21)
 
 **Principio Fundamental:** 
 - **`/dashboard`**: ✅ Multidioma (producción final)
-- **`/dashboard-bundui`**: ❌ NO implementar i18n. Mantener inglés hardcoded como referencia.
+- **`/dashboard-bundui`**: ✅ **OBLIGATORIO usar i18n** - Aplicación de metodología AI-First con namespaces/sub-namespaces. Todas las nuevas plantillas y mejoras deben usar `useTranslation()` desde el primer commit.
 - **`/dashboard-vibethink`**: ✅ OBLIGATORIO usar i18n. Todas las nuevas plantillas y mejoras deben usar `useTranslation()` desde el primer commit.
 
+### 🚨 CRITICAL: Validación de 9 Idiomas con Fallback (OBLIGATORIO)
+
+**REGLA OBLIGATORIA:** Todos los módulos/componentes importados al stack DEBEN tener validación de los 9 idiomas con fallback.
+
+**Idiomas Soportados (English First):**
+1. 🇺🇸 **en** (English) ⭐ **OBLIGATORIO 100%** - Fallback universal (siempre disponible)
+2. 🇪🇸 **es** (Español) ⭐ **OBLIGATORIO 100%**
+3. 🇫🇷 **fr** (Français) - Estructura completa, fallback disponible
+4. 🇵🇹 **pt** (Português) - Estructura completa, fallback disponible
+5. 🇩🇪 **de** (Deutsch) - Estructura completa, fallback disponible
+6. 🇮🇹 **it** (Italiano) - Estructura completa, fallback disponible
+7. 🇰🇷 **ko** (한국어) - Estructura completa, fallback disponible
+8. 🇸🇦 **ar** (العربية) - Estructura completa, fallback disponible
+9. 🇨🇳 **zh** (中文) - Estructura completa, fallback disponible
+
+**Orden estándar:** `['en', 'es', 'fr', 'pt', 'de', 'it', 'ko', 'ar', 'zh']`
+
+**Sistema de Fallback:**
+- ✅ Si una key no existe en un idioma → Automáticamente usa inglés (fallback)
+- ✅ NUNCA mostrar keys sin traducir si existe fallback disponible
+- ✅ El sistema base (`context.tsx`) maneja fallback automáticamente
+
+**Validación Obligatoria Durante Importación:**
+
+```bash
+# Validar compliance de 9 idiomas (OBLIGATORIO)
+node scripts/validate-9-language-compliance.js --namespace [module-name]
+```
+
+**Criterios de Aprobación:**
+- ✅ **English (en):** 100% completo - OBLIGATORIO (fallback universal)
+- ✅ **Español (es):** 100% completo - OBLIGATORIO
+- ⚠️ **Otros 7 idiomas:** Estructura completa (mismas keys), traducciones opcionales (fallback a inglés)
+
+**Checklist Obligatorio:**
+
+**Al importar un módulo/componente:**
+- [ ] Crear archivos JSON para los 9 idiomas (en, es, fr, pt, de, it, ko, ar, zh)
+- [ ] English (en) 100% completo - OBLIGATORIO
+- [ ] Español (es) 100% completo - OBLIGATORIO
+- [ ] Otros 7 idiomas: Estructura completa (mismas keys que inglés)
+- [ ] Ejecutar `validate-9-language-compliance.js` antes de marcar como completo
+- [ ] Verificar que fallback funciona correctamente (muestra inglés si falta traducción)
+- [ ] Probar en todos los idiomas (o verificar fallback)
+
+**Al validar una pantalla:**
+- [ ] ¿Todos los textos usan `t('key')`? (NO hardcode)
+- [ ] ¿Existen archivos JSON en los 9 idiomas? (en, es, fr, pt, de, it, ko, ar, zh)
+- [ ] ¿Todas las keys existen en los 9 idiomas? (o tienen fallback)
+- [ ] ¿El namespace está en `types.ts`?
+- [ ] ¿El namespace está preload en `layout.tsx`?
+
+**Documentación completa:**
+- `docs/architecture/MODULE_IMPORT_DEPLOYMENT_PROTOCOL.md` ⭐ - Protocolo maestro (Fase 5: Validación i18n)
+- `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md` ⭐ - Protocolo de validación durante importación
+- `docs/architecture/I18N_FALLBACK_STRATEGY.md` ⭐ - Estrategia de fallback multi-nivel
+- `docs/architecture/I18N_7_LANGUAGE_COMPLIANCE_PROTOCOL.md` ⭐ - Protocolo de compliance (actualizado a 9 idiomas)
+
+**⚠️ NUNCA finalizar trabajo sin cumplir estos criterios.**
+
+### 🚨 CRITICAL: Cumplimiento de Idiomas (9-Language Compliance) - OBLIGATORIO
+
+**REGLA OBLIGATORIA PARA TODOS LOS AGENTES AI:**
+
+**ANTES de finalizar CUALQUIER trabajo (validar pantalla, ver proceso, importar componente), el agente DEBE verificar compliance de 9 idiomas.**
+
+**🚨 REGLA AUTOMÁTICA: Cuando se agrega un nuevo componente/módulo, automáticamente debe incluir traducciones para TODOS los 9 idiomas.**
+
+#### Los 9 idiomas requeridos (English First):
+
+**🚨 CRÍTICO: English (en) SIEMPRE primero en arrays, tipos y listas.**
+
+1. 🇺🇸 **en** (English) ⭐ **PRIMERO SIEMPRE**
+2. 🇪🇸 **es** (Español)
+3. 🇫🇷 **fr** (Français)
+4. 🇵🇹 **pt** (Português)
+5. 🇩🇪 **de** (Deutsch)
+6. 🇮🇹 **it** (Italiano) - **Automático en nuevos componentes**
+7. 🇰🇷 **ko** (한국어) - **Automático en nuevos componentes**
+8. 🇸🇦 **ar** (العربية)
+9. 🇨🇳 **zh** (中文)
+
+**Orden estándar:** `['en', 'es', 'fr', 'pt', 'de', 'it', 'ko', 'ar', 'zh']`
+
+#### Checklist Obligatorio:
+
+**Al validar una pantalla:**
+- [ ] ¿Todos los textos usan `t('key')`? (NO hardcode)
+- [ ] ¿Existen archivos JSON en los 9 idiomas? (en, es, fr, pt, de, it, ko, ar, zh)
+- [ ] ¿Todas las keys existen en los 9 idiomas?
+- [ ] ¿El namespace está en `types.ts`?
+- [ ] ¿El namespace está preload en `layout.tsx`?
+
+**Al ver un proceso:**
+- [ ] ¿Los mensajes visibles usan `t('key')`?
+- [ ] ¿Existen traducciones en los 9 idiomas? (en, es, fr, pt, de, it, ko, ar, zh)
+- [ ] ¿Mensajes de error/éxito están traducidos? (o tienen fallback)
+
+**Al importar componente:**
+- [ ] ¿El componente tiene i18n?
+- [ ] Si NO → Agregar traducciones en los 9 idiomas (en obligatorio 100%, es obligatorio 100%, otros con fallback)
+- [ ] Si SÍ → Verificar que todas las keys existan en los 9 idiomas (o tengan fallback)
+- [ ] Ejecutar `validate-9-language-compliance.js` antes de marcar como completo
+
+#### Scripts de Validación Obligatorios:
+
+```bash
+# 1. Validar compliance de 9 idiomas con fallback (OBLIGATORIO)
+node scripts/validate-9-language-compliance.js --namespace [module-name]
+
+# 2. Detectar hardcode
+node scripts/audit-hardcoded-text.js [ruta]
+
+# 3. Validar keys específicas
+node scripts/validate-i18n-keys.js [namespace]
+```
+
+#### Criterios de Aprobación:
+
+Un módulo es **9-Language Compliant** cuando:
+1. ✅ NO tiene texto hardcodeado
+2. ✅ Usa `useTranslation` para TODO texto visible
+3. ✅ Tiene archivos JSON en los 9 idiomas (en, es, fr, pt, de, it, ko, ar, zh)
+4. ✅ Todas las keys existen en los 9 idiomas
+5. ✅ Estructura JSON idéntica en todos los idiomas
+6. ✅ Namespace está en `types.ts`
+7. ✅ Namespace está preload en `layout.tsx`
+8. ✅ Scripts de validación pasan sin errores
+9. ✅ Cambio de idioma funciona correctamente
+10. ✅ No aparecen keys sin traducir en la UI
+
+**⚠️ NUNCA finalizar trabajo sin cumplir estos criterios.**
+
+**Documentación completa:**
+- `docs/architecture/I18N_7_LANGUAGE_COMPLIANCE_PROTOCOL.md` ⭐ - **LEER PRIMERO** (ahora 9 idiomas: en, es, fr, pt, de, it, ko, ar, zh)
+- `docs/architecture/I18N_ANTI_HARDCODE_STRATEGY.md` - Cómo evitar hardcode
+- `docs/architecture/I18N_BEST_PRACTICES_AGENTS.md` - Buenas prácticas
+
+**Buenas Prácticas i18n (OBLIGATORIO para AI Agents):**
+- **Validación de 9 Idiomas:** SIEMPRE validar los 9 idiomas (en, es, fr, pt, de, it, ko, ar, zh) con `validate-9-language-compliance.js`
+- **English First:** English (en) SIEMPRE 100% completo - OBLIGATORIO (fallback universal)
+- **Español Obligatorio:** Español (es) SIEMPRE 100% completo - OBLIGATORIO
+- **Fallback Automático:** Otros 7 idiomas pueden usar fallback a inglés si faltan traducciones
+- **Validación de Keys:** SIEMPRE verificar que todas las keys usadas existan en los 9 idiomas (o tengan fallback)
+- **Preload Anti-Blink:** SIEMPRE crear/actualizar `layout.tsx` con `I18nProvider` y `preloadNamespaces` incluyendo el módulo
+- **Nunca asumir:** NUNCA asumir que una key existe sin verificar
+- **Fallback Obligatorio:** SIEMPRE implementar fallback multi-nivel (contextual → base → inglés → key)
+- **Checklist completo:** Seguir el checklist completo de validación por módulo
+
 **Documentación completa:** 
+- `docs/architecture/I18N_BEST_PRACTICES_AGENTS.md` ⭐ - **LEER PRIMERO** - Buenas prácticas para AI Agents (validación keys + anti-blink)
+- `docs/architecture/MODULE_IMPORT_DEPLOYMENT_PROTOCOL.md` ⭐ - **PROTOCOLO MAESTRO** - Fase 5: Validación i18n de 9 idiomas con fallback
+- `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md` ⭐ - **PROTOCOLO OBLIGATORIO** - Validación de 9 idiomas durante importación
+- `docs/architecture/I18N_FALLBACK_STRATEGY.md` ⭐ - **REGLA OBLIGATORIA** - Estrategia de fallback multi-nivel (contextual → base → inglés)
+- `docs/architecture/I18N_GENERIC_MODULES_STRATEGY.md` ⭐ - **REGLA OBLIGATORIA** - Módulos genéricos multi-contexto con fallback
+- `docs/architecture/I18N_7_LANGUAGE_COMPLIANCE_PROTOCOL.md` ⭐ - **PROTOCOLO OBLIGATORIO** - Compliance de 9 idiomas (actualizado)
+- `docs/architecture/I18N_CONTEXT_AWARE_TRANSLATIONS.md` - Traducciones sensibles al contexto (módulos reutilizables)
+- `docs/architecture/I18N_VALIDATION_PROTOCOL.md` - Protocolo de validación de keys
+- `docs/architecture/I18N_NO_BLINK_STRATEGY.md` - Estrategia detallada anti-blink
 - `docs/architecture/I18N_STRATEGY.md` - Estrategia i18n
 - `docs/architecture/I18N_TEMPLATE_GUIDE.md` - Templates
 - `docs/architecture/BUNDUI_UPDATE_STRATEGY.md` - Manejo de actualizaciones sin i18n ⭐
 - `docs/architecture/APPLICATION_TERMINOLOGY.md` ⭐ - **Fuente única de verdad para nombres clave y convenciones**
+
+**Scripts de Validación Obligatorios:**
+- `scripts/validate-9-language-compliance.js` ⭐ - **OBLIGATORIO** - Validar compliance de 9 idiomas con fallback
+- `scripts/validate-i18n-keys.js` - Validar claves i18n
+- `scripts/detect-missing-i18n-keys.js` - Detectar claves faltantes
 
 ---
 
@@ -338,6 +507,205 @@ XYFlow Reference (puede cambiar)      ───►  apps/dashboard/... (nuestros
 - `docs/architecture/REFERENCE_RULES.md` - Reglas generales para TODAS las referencias
 - `docs/architecture/BUNDUI_REFERENCE_RULE.md` - Específico de Bundui
 
+## 🚨 CRITICAL: Module Import & Deployment Protocol - Única Fuente de Verdad
+
+**⚠️ REGLA OBLIGATORIA: El Protocolo de Importación es la ÚNICA FUENTE DE VERDAD para importar módulos/componentes**
+
+### **ANTES de importar cualquier módulo/componente:**
+
+1. **✅ SIEMPRE leer** `docs/architecture/MODULE_IMPORT_DEPLOYMENT_PROTOCOL.md` (PROTOCOLO MAESTRO)
+2. **✅ CONSULTAR** `apps/dashboard/src/shared/data/module-registry.ts` (verificar si ya existe)
+3. **✅ SEGUIR** todas las fases del protocolo en orden
+4. **✅ VALIDAR** cada fase antes de continuar
+
+### **El Protocolo Maestro consolida TODAS las lecciones aprendidas:**
+
+- ✅ Validación React 18 vs 19 (problema repetitivo)
+- ✅ Protocolo "use client" vs Server Component
+- ✅ Validación i18n durante importación (OBLIGATORIO)
+- ✅ Manejo de assets (repositorio central)
+- ✅ Registro de módulos
+- ✅ Validación de compatibilidad
+- ✅ Corrección de imports
+- ✅ Validación de sidebar
+- ✅ Y más...
+
+### **Documentación Completa:**
+
+- `docs/architecture/MODULE_IMPORT_DEPLOYMENT_PROTOCOL.md` - **⭐ PROTOCOLO MAESTRO (LEER PRIMERO)** - Incluye Fase 5: Validación i18n de 9 idiomas
+- `apps/dashboard/src/shared/data/module-registry.ts` - **Registro de módulos**
+- `docs/architecture/MODULE_REGISTRY_PROTOCOL.md` - **Protocolo de registro**
+- `docs/architecture/I18N_VALIDATION_DURING_IMPORT.md` ⭐ - **Protocolo i18n** - Validación de 9 idiomas con fallback
+- `docs/architecture/I18N_FALLBACK_STRATEGY.md` ⭐ - **Estrategia de fallback** - Regla obligatoria
+- `docs/architecture/I18N_BEST_PRACTICES_AGENTS.md` ⭐ - **Buenas prácticas i18n (validación + anti-blink)**
+- `docs/architecture/I18N_VALIDATION_PROTOCOL.md` - **Validación sistemática de keys**
+- `docs/architecture/BUNDUI_MIGRATION_USE_CLIENT_PROTOCOL.md` - **Protocolo "use client"**
+- `docs/architecture/ASSETS_REPOSITORY_POLICY.md` - **Política de assets**
+- `docs/TROUBLESHOOTING.md` - **Problemas comunes y soluciones**
+
+### **NUNCA:**
+
+- ❌ Importar módulos sin leer el protocolo maestro
+- ❌ Saltarse fases del protocolo (especialmente Fase 5: Validación i18n)
+- ❌ Importar módulos sin validar los 9 idiomas con fallback
+- ❌ Asumir que un módulo no existe sin consultar el registro
+- ❌ Importar componentes sin registrarlos
+- ❌ Modificar módulos sin actualizar el registro
+- ❌ Confiar en memoria o documentación desactualizada
+- ❌ Marcar módulo como completo sin ejecutar `validate-9-language-compliance.js`
+
+### **Fuentes Soportadas:**
+
+El protocolo soporta módulos de múltiples fuentes:
+- `bundui-premium` - Bundui Premium Dashboard Templates
+- `bundui-original` - Bundui Original Source Code
+- `shadcn-ui-kit` - shadcnuikit.com/components/
+- `react-flow` - reactflow.dev / @xyflow/react
+- `tiptap` - github.com/ueberdosis/tiptap
+- `shadcn-ui` - ui.shadcn.com (base components)
+- `custom` - Componentes desarrollados internamente
+- `other` - Otras fuentes externas
+
+### **Funciones Útiles:**
+
+```typescript
+import { 
+  getModuleById, 
+  getModuleByPath, 
+  getModulesBySource,
+  validateStackCompatibility 
+} from '@/shared/data/module-registry';
+
+// Verificar si un módulo existe
+const module = getModuleById('hotel-dashboard');
+
+// Validar compatibilidad
+if (module) {
+  const validation = validateStackCompatibility(module);
+  if (!validation.compatible) {
+    console.warn('Issues:', validation.issues);
+  }
+}
+```
+
+---
+
+## 🚨 CRITICAL: Componentes Reutilizables (Context-Aware Translations)
+
+**⚠️ REGLA FUNDAMENTAL:** Cuando un componente se usa en múltiples contextos (ej: Booking en Hotel y Studio, Calendar en diferentes módulos), usar **namespaces específicos por contexto**.
+
+### **Problema Común:**
+
+Un mismo componente (ej: `BookingForm`, `Calendar`) se usa en diferentes módulos con strings diferentes:
+- **Hotel:** "Reserva habitación", "Premium", "De Lujo", "Check-in", "Check-out"
+- **Studio:** "Reserva Sala", "Tipo A", "Tipo B", "Hora de inicio", "Hora de fin"
+
+### **Solución: Namespaces Específicos por Contexto**
+
+**Estrategia recomendada:**
+
+1. **Cada contexto tiene su propio namespace:**
+   ```json
+   // hotel.json
+   {
+     "hotel": {
+       "booking": {
+         "reserveLabel": "Reserva habitación",
+         "itemLabel": "Habitación",
+         "roomTypes": {
+           "premium": "Premium",
+           "deluxe": "De Lujo"
+         }
+       }
+     }
+   }
+   
+   // studio.json
+   {
+     "studio": {
+       "booking": {
+         "reserveLabel": "Reserva Sala",
+         "itemLabel": "Sala",
+         "roomTypes": {
+           "typeA": "Tipo A",
+           "typeB": "Tipo B"
+         }
+       }
+     }
+   }
+   ```
+
+2. **Componente recibe `context` como prop:**
+   ```typescript
+   interface BookingFormProps {
+     context: 'hotel' | 'studio';
+     // ... otros props
+   }
+   
+   export function BookingForm({ context, ...props }: BookingFormProps) {
+     // Usar namespace según contexto
+     const { t } = useTranslation(context); // 'hotel' o 'studio'
+     
+     return (
+       <div>
+         <h2>{t('booking.reserveLabel')}</h2>
+         <label>{t('booking.itemLabel')}</label>
+         {/* ... */}
+       </div>
+     );
+   }
+   ```
+
+3. **Uso en módulos:**
+   ```typescript
+   // En módulo Hotel
+   <BookingForm context="hotel" />
+   
+   // En módulo Studio
+   <BookingForm context="studio" />
+   ```
+
+### **Reglas Críticas:**
+
+- ✅ **SIEMPRE** usar namespaces específicos por contexto (`hotel.booking.*` vs `studio.booking.*`)
+- ✅ **SIEMPRE** pasar `context` como prop al componente reutilizable
+- ✅ **SIEMPRE** usar `useTranslation(context)` dinámicamente según contexto
+- ✅ **SIEMPRE** validar en todos los contextos soportados
+- ✅ **SIEMPRE** documentar contextos soportados en el componente
+- ❌ **NUNCA** hardcodear strings específicos del contexto en componentes compartidos
+- ❌ **NUNCA** asumir un contexto único
+- ❌ **NUNCA** mezclar contextos en un solo namespace
+
+### **Auto-detección de Contexto (Opcional):**
+
+Para componentes que pueden auto-detectar el contexto desde la ruta:
+
+```typescript
+import { useAutoDetectContext } from '@/hooks/use-auto-detect-context';
+
+export function BookingCard({ context: explicitContext, ...props }) {
+  // Auto-detectar si no se pasa explícitamente
+  const autoContext = useAutoDetectContext();
+  const finalContext = explicitContext || autoContext;
+  
+  const { t } = useTranslation(finalContext);
+  // ...
+}
+```
+
+### **Documentación Completa:**
+
+- `docs/architecture/I18N_CONTEXT_AWARE_TRANSLATIONS.md` ⭐ - **DOCUMENTO MAESTRO**
+- `docs/architecture/IA_FIRST_REUSABLE_COMPONENTS.md` - Componentes reutilizables IA-First
+- `docs/architecture/MODULE_IMPORT_DEPLOYMENT_PROTOCOL.md` - Lección 13: Módulos Reutilizables
+
+### **Ejemplo Real:**
+
+Ver implementación en:
+- `apps/dashboard/src/shared/components/booking/booking-card.tsx` - Componente reutilizable con auto-detección
+
+---
+
 ## 🚨 CRITICAL: Migración de bundui-premium a @vibethink/ui
 
 **⚠️ IMPORTANTE: Los componentes de layout de `bundui-premium` han sido migrados a `@vibethink/ui`**
@@ -510,11 +878,99 @@ docs/
 - **If consolidation is possible:** Merge into existing master docs
 - **Update references:** Always update `DOCS_INDEX.md` and `docs/README.md`
 
+## 🛑 Server Control Rules (CRITICAL)
+
+**NEVER** use `npm run dev` directly to start the dashboard if you want to be safe. Only use it for validation.
+**ALWAYS** use the official PowerShell scripts to ensure ports are cleared and dependencies checked.
+
+### Start Server
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/start-dashboard.ps1
+```
+*Why? It automatically kills processes on port 3001, installs deps if needed, and sets env vars.*
+
+### Stop Server
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/stop-dashboard.ps1
+```
+*Why? safely kills node processes and prevents zombie processes.*
+
+## 🧠 Protocolo de Sincronización Agent-Editor (Antigravity Secret)
+
+Para mantener la **sincronización perfecta** entre Agente y Editor que el usuario valora, sigue estas 3 reglas de oro:
+
+1.  **Artifacts as Truth**:
+    - Mantén `task.md` y `scaffold-log` (si aplica) siempre actualizados.
+    - El Editor "lee" lo que el Agente "escribe" en artifacts. Si no está escrito, no sucedió.
+
+2.  **Context Awareness**:
+    - **Antes de actuar**: Lee `AGENTS.md` y el estado actual (archivos abiertos).
+    - **Durante la acción**: Usa `task_boundary` para decir explícitamente qué estás haciendo.
+    - **Después de la acción**: Valida (e.g., `npm run dev --dry-run`).
+
+3.  **Strict Rule Adherence**:
+    - Si el usuario dice "Usa el script oficial", **DOCUMÉNTALO** y ÚSALO siempre.
+    - No asumas atajos. Si la regla dice `npm` only, es `npm` only.
+
+## 🛡️ Protocolo de Estabilidad (Lecciones Aprendidas 2025)
+
+Para evitar regresiones (como la crisis de los 9 idiomas o puertos fantasmas), todo Agente debe verificar esto antes de cerrar una tarea:
+
+1.  **Repo Hygiene**:
+    - Jamás generar miles de archivos de reporte. Si un script genera logs, DEBE estar en `.gitignore` (e.g., `quality-reports/`).
+
+2.  **Rutas & Marcas**:
+    - ❌ **Incorrecto**: `/dashboard/analytics` (Ruta genérica no existe).
+    - ✅ **Correcto**: `/dashboard-bundui/analytics` o `/dashboard-vibethink/analytics`.
+    - **Regla**: Siempre probar la ruta con *marca* en el navegador.
+
+3.  **Dependencias Fantasma**:
+    - Si agregas un componente (e.g., Lottie), **instala la dependencia** (`npm install lottie-react`).
+    - No asumas que "ya está ahí". Si el build falla con "Module not found", es tu culpa.
+
+4.  **Santidad del Puerto 3005**:
+    - El único script de verdad es `scripts/start-dashboard.ps1`.
+    - Puerto: **3005**.
+    - Si ves el puerto 3001, estás usando el script incorrecto (Legacy `.bat`). ¡Mátalo!
+
+
+
+
 ### 📝 When to Consolidate:
 - If creating a guide that overlaps with existing docs → Consolidate
 - If creating multiple related docs → Create one master doc
 - If doc is < 200 lines and related to existing doc → Merge
 - **Example:** Don't create `DEPLOYMENT_SECURITY.md` + `DEPLOYMENT_STEPS.md` → Use single `docs/DEPLOYMENT.md`
+
+### 📁 Document Organization Rules for AI Agents:
+
+**CRITICAL:** Always consolidate related documents. Never create duplicate documents.
+
+**Organization by Type:**
+- **`docs/sessions/`** - Session reports, validation reports, analysis reports (date-based)
+  - Format: `{TYPE}_{MODULE}_{DATE}.md` (e.g., `VALIDACION_HOTEL_COMPLETA_2025-12-20.md`)
+  - **NEVER create multiple documents for the same validation/analysis**
+  - **ALWAYS consolidate** related documents into one
+  - If updating a validation, update the existing document or consolidate into a new one
+  
+- **`docs/reports/`** - Consolidated reports, quality reports
+- **`docs/architecture/`** - Architecture decisions and protocols
+- **`docs/development/`** - Development guides
+- **`docs/operations/`** - Operations guides
+
+**Before Creating Any Document:**
+1. ✅ Check if similar document exists
+2. ✅ If exists, update/consolidate instead of creating new
+3. ✅ Use descriptive names that include date and purpose
+4. ✅ Update `DOCS_INDEX.md` if needed
+
+**Example of Bad Practice:**
+- ❌ `VALIDACION_HOTEL_2025-12-20.md`
+- ❌ `VALIDACION_HOTEL_I18N_2025-12-20.md`
+- ❌ `VALIDACION_HOTEL_I18N_COMPLETA_2025-12-20.md`
+
+**Example of Good Practice:**
+- ✅ `VALIDACION_HOTEL_COMPLETA_2025-12-20.md` (consolidated)
 
 ## Configuration & Security
 - **Credentials**: SENSITIVE KEYS (Gemini API, ElevenLabs) must be stored in `.env.local`.

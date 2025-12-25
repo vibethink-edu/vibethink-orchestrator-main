@@ -8,18 +8,18 @@ import {
   CardFooter,
   CardHeader,
   CardTitle
-} from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+} from "@vibethink/ui";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogDescription
-} from "@/components/ui/dialog";
+} from "@vibethink/ui";
 import { ChevronRight } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@vibethink/ui";
 
 interface ActivityItem {
   id: string;
@@ -149,3 +149,7 @@ export function RecentActivities() {
     </>
   );
 }
+
+
+
+

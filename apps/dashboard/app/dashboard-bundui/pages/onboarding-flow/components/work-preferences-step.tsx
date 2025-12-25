@@ -3,7 +3,9 @@
 import { Briefcase } from "lucide-react";
 import { useOnboardingStore } from "../store";
 
-import { Button, Label, RadioGroup, RadioGroupItem } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { Label } from "@vibethink/ui/components/label";
+import { RadioGroup, RadioGroupItem } from "@vibethink/ui/components/radio-group";
 
 export function WorkPreferencesStep() {
   const { data, updateWorkPreferences, nextStep, prevStep } = useOnboardingStore();
@@ -122,6 +124,10 @@ export function WorkPreferencesStep() {
     </div>
   );
 }
+
+
+
+
 
 
 

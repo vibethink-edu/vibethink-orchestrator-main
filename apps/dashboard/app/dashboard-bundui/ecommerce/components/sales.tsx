@@ -1,22 +1,25 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { Line, LineChart } from "recharts";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/chart";
+import { useTranslation } from "@/lib/i18n";
 
 export function EcommerceSalesCard() {
+  const { t } = useTranslation('ecommerce');
+  
   const chartConfig = {
     desktop: {
-      label: "Desktop",
+      label: t('cards.totalRevenue.desktop'),
       color: "var(--chart-3)"
     },
     mobile: {
-      label: "Mobile",
+      label: t('cards.totalRevenue.mobile'),
       color: "var(--chart-4)"
     }
   } satisfies ChartConfig;
@@ -33,9 +36,9 @@ export function EcommerceSalesCard() {
   return (
     <Card className="md:col-span-6 xl:col-span-3">
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>Sales</CardTitle>
+        <CardTitle>{t('cards.sales.title')}</CardTitle>
         <CardDescription className="text-xs">
-          <span className="text-red-500">-1.7%</span> from last month
+          <span className="text-red-500">-1.7%</span> {t('cards.sales.fromLastMonth', { percentage: '-1.7' })}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -70,6 +73,9 @@ export function EcommerceSalesCard() {
     </Card>
   );
 }
+
+
+
 
 
 

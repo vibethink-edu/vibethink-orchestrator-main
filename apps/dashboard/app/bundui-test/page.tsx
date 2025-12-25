@@ -43,7 +43,7 @@ const roles = [
 const members = [
   {
     id: 1,
-    name: "Toby Belhome",
+    name: "Vito Escallón",
     email: "contact@vibethink.io",
     avatar: `https://bundui-images.netlify.app/avatars/01.png`,
     role_id: 1

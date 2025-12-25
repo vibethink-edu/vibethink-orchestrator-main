@@ -14,29 +14,33 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Card,
+import {
+  Card,
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle, } from '@vibethink/ui';
-import { Button } from '@vibethink/ui';
-import { Badge } from '@vibethink/ui';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui';
-import { Progress } from '@vibethink/ui';
-import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui';
-import { Input } from '@vibethink/ui';
-import { Separator } from '@vibethink/ui';
-import { Select,
+  CardTitle,
+} from '@vibethink/ui/components/card';
+import { Button } from '@vibethink/ui/components/button';
+import { Badge } from '@vibethink/ui/components/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui/components/tabs';
+import { Progress } from '@vibethink/ui/components/progress';
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui/components/avatar';
+import { Input } from '@vibethink/ui/components/input';
+import { Separator } from '@vibethink/ui/components/separator';
+import {
+  Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue, } from '@vibethink/ui';
+  SelectValue,
+} from '@vibethink/ui/components/select';
 
 // Icons
-import { 
-  BarChart3, 
-  TrendingUp, 
-  Users, 
+import {
+  BarChart3,
+  TrendingUp,
+  Users,
   CreditCard,
   DollarSign,
   Activity,
@@ -65,7 +69,7 @@ const enhancedMetrics = {
     color: "text-blue-600"
   },
   evidenceBasedDecisions: {
-    title: "Evidence-Based Decisions", 
+    title: "Evidence-Based Decisions",
     value: "87",
     change: "+23",
     description: "decisions made this week",
@@ -75,7 +79,7 @@ const enhancedMetrics = {
   conflictResolution: {
     title: "Conflict Resolution",
     value: "98.1%",
-    change: "+5.2%", 
+    change: "+5.2%",
     description: "conflicts resolved successfully",
     icon: CheckCircle,
     color: "text-purple-600"
@@ -126,7 +130,7 @@ const workflowStatus = [
     duration: "2h 15m"
   },
   {
-    stage: "Implementation Planning", 
+    stage: "Implementation Planning",
     aiLead: "GitHub Copilot",
     status: "active",
     progress: 75,
@@ -134,7 +138,7 @@ const workflowStatus = [
   },
   {
     stage: "Quality Validation",
-    aiLead: "Cursor", 
+    aiLead: "Cursor",
     status: "pending",
     progress: 25,
     duration: "45m"
@@ -200,7 +204,7 @@ const EnhancedDashboardContent: React.FC = () => {
               <SelectItem value="90d">Last 3 months</SelectItem>
             </SelectContent>
           </Select>
-          
+
           <Button
             variant="outline"
             size="sm"
@@ -210,7 +214,7 @@ const EnhancedDashboardContent: React.FC = () => {
             <RefreshCw className={`h-4 w-4 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
             Refresh
           </Button>
-          
+
           <Button variant="outline" size="sm">
             <Download className="h-4 w-4 mr-2" />
             Export

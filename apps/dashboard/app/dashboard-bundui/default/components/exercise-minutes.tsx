@@ -5,6 +5,7 @@ import { Line, LineChart, Tooltip } from "recharts";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
 import { ExportButton } from "@/shared/components/CardActionMenus";
 import { ChartConfig, ChartContainer } from "@vibethink/ui";
+import { useTranslation } from "@/lib/i18n";
 
 const chartData = [
   {
@@ -49,13 +50,15 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function ExerciseMinutes() {
+  const { t } = useTranslation('default');
+  
   return (
     <Card className="h-full">
       <CardHeader className="flex items-start justify-between">
         <div className="space-y-1.5">
-          <CardTitle>Exercise Minutes</CardTitle>
+          <CardTitle>{t('cards.exerciseMinutes.title')}</CardTitle>
           <CardDescription>
-            Your exercise minutes are ahead of where you normally are.
+            {t('cards.exerciseMinutes.description')}
           </CardDescription>
         </div>
         <ExportButton />
@@ -78,7 +81,7 @@ export function ExerciseMinutes() {
                       <div className="grid grid-cols-2 gap-2">
                         <div className="flex flex-col">
                           <span className="text-muted-foreground text-[0.70rem] uppercase">
-                            Average
+                            {t('cards.exerciseMinutes.average')}
                           </span>
                           <span className="text-muted-foreground font-bold">
                             {payload[0].value}
@@ -86,7 +89,7 @@ export function ExerciseMinutes() {
                         </div>
                         <div className="flex flex-col">
                           <span className="text-muted-foreground text-[0.70rem] uppercase">
-                            Today
+                            {t('cards.exerciseMinutes.today')}
                           </span>
                           <span className="font-bold">{payload[1].value}</span>
                         </div>

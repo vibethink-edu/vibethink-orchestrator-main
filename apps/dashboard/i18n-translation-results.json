@@ -1,0 +1,212 @@
+[
+  {
+    "namespace": "academy",
+    "processed": 7,
+    "errors": 0
+  },
+  {
+    "namespace": "ai-chat-v2",
+    "processed": 11,
+    "errors": 0
+  },
+  {
+    "namespace": "ai-chat",
+    "processed": 30,
+    "errors": 0
+  },
+  {
+    "namespace": "ai-image-generator",
+    "processed": 12,
+    "errors": 0
+  },
+  {
+    "namespace": "analytics",
+    "processed": 24,
+    "errors": 0
+  },
+  {
+    "namespace": "api-keys",
+    "processed": 10,
+    "errors": 0
+  },
+  {
+    "namespace": "calendar",
+    "processed": 22,
+    "errors": 0
+  },
+  {
+    "namespace": "chat",
+    "processed": 2,
+    "errors": 0
+  },
+  {
+    "namespace": "common",
+    "processed": 45,
+    "errors": 0
+  },
+  {
+    "namespace": "concept",
+    "processed": 0,
+    "errors": 0
+  },
+  {
+    "namespace": "crm-v2-ai",
+    "processed": 5,
+    "errors": 0
+  },
+  {
+    "namespace": "crm-v2",
+    "processed": 6,
+    "errors": 0
+  },
+  {
+    "namespace": "crm",
+    "processed": 12,
+    "errors": 0
+  },
+  {
+    "namespace": "crypto-v2",
+    "processed": 5,
+    "errors": 0
+  },
+  {
+    "namespace": "crypto",
+    "processed": 38,
+    "errors": 0
+  },
+  {
+    "namespace": "dashboard-bundui",
+    "processed": 0,
+    "errors": 0
+  },
+  {
+    "namespace": "dashboard-vibethink",
+    "processed": 0,
+    "errors": 0
+  },
+  {
+    "namespace": "default",
+    "processed": 106,
+    "errors": 0
+  },
+  {
+    "namespace": "ecommerce",
+    "processed": 22,
+    "errors": 0
+  },
+  {
+    "namespace": "errors",
+    "processed": 0,
+    "errors": 0
+  },
+  {
+    "namespace": "file-manager",
+    "processed": 24,
+    "errors": 0
+  },
+  {
+    "namespace": "finance-v2",
+    "processed": 6,
+    "errors": 0
+  },
+  {
+    "namespace": "finance",
+    "processed": 18,
+    "errors": 0
+  },
+  {
+    "namespace": "hospital-management",
+    "processed": 13,
+    "errors": 0
+  },
+  {
+    "namespace": "hotel",
+    "processed": 12,
+    "errors": 0
+  },
+  {
+    "namespace": "kanban",
+    "processed": 5,
+    "errors": 0
+  },
+  {
+    "namespace": "mail",
+    "processed": 18,
+    "errors": 0
+  },
+  {
+    "namespace": "navigation",
+    "processed": 0,
+    "errors": 0
+  },
+  {
+    "namespace": "notes",
+    "processed": 31,
+    "errors": 0
+  },
+  {
+    "namespace": "payment",
+    "processed": 5,
+    "errors": 0
+  },
+  {
+    "namespace": "pos-system",
+    "processed": 66,
+    "errors": 0
+  },
+  {
+    "namespace": "project-list",
+    "processed": 1,
+    "errors": 0
+  },
+  {
+    "namespace": "project-management",
+    "processed": 35,
+    "errors": 0
+  },
+  {
+    "namespace": "projects.context",
+    "processed": 0,
+    "errors": 0
+  },
+  {
+    "namespace": "projects",
+    "processed": 34,
+    "errors": 0
+  },
+  {
+    "namespace": "sales",
+    "processed": 25,
+    "errors": 0
+  },
+  {
+    "namespace": "social-media",
+    "processed": 14,
+    "errors": 0
+  },
+  {
+    "namespace": "tasks",
+    "processed": 31,
+    "errors": 0
+  },
+  {
+    "namespace": "theme",
+    "processed": 0,
+    "errors": 0
+  },
+  {
+    "namespace": "todo-list-app",
+    "processed": 12,
+    "errors": 0
+  },
+  {
+    "namespace": "validation",
+    "processed": 0,
+    "errors": 0
+  },
+  {
+    "namespace": "widgets",
+    "processed": 25,
+    "errors": 0
+  }
+]

@@ -2,16 +2,19 @@
 
 import { Area, AreaChart, Line, LineChart, XAxis, YAxis, ResponsiveContainer } from 'recharts'
 import { TrendingUp, DollarSign, PieChart, BarChart3 } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui'
-import { 
-  ChartConfig, 
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui/components/card'
+import {
+  ChartConfig,
   ChartContainer,
   ChartLegend,
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent
-} from '@vibethink/ui'
-import { Badge, Tabs, TabsContent, TabsList, TabsTrigger, Skeleton } from '@vibethink/ui'
+} from '@vibethink/ui/components/chart'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui/components/tabs'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
+import { useTranslation } from '@/lib/i18n'
 import { useAnalyticsData } from '../hooks'
 import { AnalyticsCardProps } from '../types'
 
@@ -70,13 +73,14 @@ const quarterlyData = [
  * 
  * Features interactive tabs for different data views
  */
-export function EarningReportsCard({ 
+export function EarningReportsCard({
   className = '',
   isLoading: externalLoading = false,
   error: externalError = null
 }: AnalyticsCardProps) {
+  const { t } = useTranslation('analytics')
   const { earningReports, isLoading, error } = useAnalyticsData()
-  
+
   const loading = isLoading || externalLoading
   const errorState = error || externalError
 
@@ -120,9 +124,9 @@ export function EarningReportsCard({
     return (
       <Card className={`h-full ${className}`}>
         <CardHeader>
-          <CardTitle className="text-red-600">Error Loading Reports</CardTitle>
+          <CardTitle className="text-red-600">{t('cards.earningReports.errorLoadingReports')}</CardTitle>
           <CardDescription>
-            {errorState.message || 'Failed to load earning reports'}
+            {errorState.message || t('cards.earningReports.failedToLoadEarningReports')}
           </CardDescription>
         </CardHeader>
       </Card>
@@ -135,45 +139,45 @@ export function EarningReportsCard({
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-2">
             <BarChart3 className="h-5 w-5 text-chart-1" />
-            Earning Reports
+            {t('cards.earningReports.title')}
           </CardTitle>
           <div className="flex items-center gap-2">
             <Badge variant="outline" className="text-green-600">
               <TrendingUp className="mr-1 h-3 w-3" />
-              {formatPercentage(averageGrowthRate)} Avg Growth
+              {formatPercentage(averageGrowthRate)} {t('cards.earningReports.avgGrowth')}
             </Badge>
           </div>
         </div>
-        
+
         <CardDescription>
-          Detailed revenue analysis and profit trends
+          {t('cards.earningReports.description')}
         </CardDescription>
-        
+
         {/* Summary Metrics */}
         <div className="grid grid-cols-3 gap-4 pt-2">
           <div className="text-center">
             <div className="text-lg font-bold">{formatCurrency(totalRevenue)}</div>
-            <div className="text-xs text-muted-foreground">Total Revenue</div>
+            <div className="text-xs text-muted-foreground">{t('cards.earningReports.totalRevenue')}</div>
           </div>
           <div className="text-center">
             <div className="text-lg font-bold">{formatCurrency(totalProfit)}</div>
-            <div className="text-xs text-muted-foreground">Net Profit</div>
+            <div className="text-xs text-muted-foreground">{t('cards.earningReports.netProfit')}</div>
           </div>
           <div className="text-center">
             <div className="text-lg font-bold">{formatPercentage(profitMargin)}</div>
-            <div className="text-xs text-muted-foreground">Profit Margin</div>
+            <div className="text-xs text-muted-foreground">{t('cards.earningReports.profitMargin')}</div>
           </div>
         </div>
       </CardHeader>
-      
+
       <CardContent>
         <Tabs defaultValue="monthly" className="space-y-4">
           <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="monthly">Monthly View</TabsTrigger>
-            <TabsTrigger value="quarterly">Quarterly</TabsTrigger>
-            <TabsTrigger value="growth">Growth Rate</TabsTrigger>
+            <TabsTrigger value="monthly">{t('cards.earningReports.monthlyView')}</TabsTrigger>
+            <TabsTrigger value="quarterly">{t('cards.earningReports.quarterly')}</TabsTrigger>
+            <TabsTrigger value="growth">{t('cards.earningReports.growthRate')}</TabsTrigger>
           </TabsList>
-          
+
           {/* Monthly Revenue and Profit Chart */}
           <TabsContent value="monthly" className="space-y-4">
             <div className="h-64">
@@ -190,14 +194,14 @@ export function EarningReportsCard({
                         <stop offset="95%" stopColor="hsl(var(--chart-2))" stopOpacity={0.1} />
                       </linearGradient>
                     </defs>
-                    <XAxis 
-                      dataKey="month" 
+                    <XAxis
+                      dataKey="month"
                       tickLine={false}
                       axisLine={false}
                       tickMargin={8}
                       tick={{ fontSize: 12 }}
                     />
-                    <YAxis 
+                    <YAxis
                       tickLine={false}
                       axisLine={false}
                       tickMargin={8}
@@ -227,21 +231,21 @@ export function EarningReportsCard({
               </ChartContainer>
             </div>
           </TabsContent>
-          
+
           {/* Quarterly Comparison */}
           <TabsContent value="quarterly" className="space-y-4">
             <div className="h-64">
               <ChartContainer config={chartConfig} className="h-full w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={quarterlyData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
-                    <XAxis 
-                      dataKey="quarter" 
+                    <XAxis
+                      dataKey="quarter"
                       tickLine={false}
                       axisLine={false}
                       tickMargin={8}
                       tick={{ fontSize: 12 }}
                     />
-                    <YAxis 
+                    <YAxis
                       tickLine={false}
                       axisLine={false}
                       tickMargin={8}
@@ -269,21 +273,21 @@ export function EarningReportsCard({
               </ChartContainer>
             </div>
           </TabsContent>
-          
+
           {/* Growth Rate Analysis */}
           <TabsContent value="growth" className="space-y-4">
             <div className="h-64">
               <ChartContainer config={chartConfig} className="h-full w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={earningsData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
-                    <XAxis 
-                      dataKey="month" 
+                    <XAxis
+                      dataKey="month"
                       tickLine={false}
                       axisLine={false}
                       tickMargin={8}
                       tick={{ fontSize: 12 }}
                     />
-                    <YAxis 
+                    <YAxis
                       tickLine={false}
                       axisLine={false}
                       tickMargin={8}

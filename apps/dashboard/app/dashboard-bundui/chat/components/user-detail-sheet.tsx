@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { generateAvatarFallback } from "@/lib/utils";
+import { generateAvatarFallback } from "@/shared/lib/utils";
 import { Dribbble, Facebook, FileText, Instagram, Linkedin, SheetIcon, X } from "lucide-react";
 import useChatStore from "../useChatStore";
 import { UserPropsTypes } from "../types";
@@ -20,14 +20,17 @@ import {
 } from "@vibethink/ui";
 import Image from "next/image";
 
+import { useTranslation } from "@/lib/i18n";
+
 export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
   const { showProfileSheet, toggleProfileSheet } = useChatStore();
+  const { t } = useTranslation("chat");
 
   return (
     <Sheet open={showProfileSheet} onOpenChange={toggleProfileSheet}>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle className="text-2xl">Profile</SheetTitle>
+          <SheetTitle className="text-2xl">{t("profile.title")}</SheetTitle>
         </SheetHeader>
         <div className="overflow-y-auto px-4">
           <div className="my-4 flex flex-col items-center justify-end">
@@ -37,42 +40,43 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
             </Avatar>
             <h4 className="mb-2 text-xl font-semibold">{user.name}</h4>
             <div className="text-xs">
-              Last seen:{" "}
-              {user.online_status == "success" ? (
-                <span className="text-green-500">Online</span>
+              {t("header.status.lastSeen", { time: user.online_status == "success" ? t("header.status.online") : user.last_seen }).replace(user.last_seen || "", "")}
+              {/* Simplified logic since we have mixed status logic above, let's keep it close to original but translated */}
+               {user.online_status == "success" ? (
+                <span className="text-green-500">{t("header.status.online")}</span>
               ) : (
-                <span className="text-muted-foreground">{user.last_seen}</span>
+                <span className="text-muted-foreground">{t("header.status.lastSeen", { time: user.last_seen })}</span>
               )}
             </div>
           </div>
           <div className="space-y-2 divide-y">
-            {user.about && (
+            {user.about ? (
               <div className="space-y-3 py-4">
-                <h5 className="text-xs font-semibold uppercase">About</h5>
+                <h5 className="text-xs font-semibold uppercase">{t("profile.sections.about")}</h5>
                 <div className="text-muted-foreground">{user.about}</div>
               </div>
-            )}
-            {user.phone && (
+            ) : null}
+            {user.phone ? (
               <div className="space-y-3 py-4">
-                <h5 className="text-xs font-semibold uppercase">Phone</h5>
+                <h5 className="text-xs font-semibold uppercase">{t("profile.sections.phone")}</h5>
                 <div className="text-muted-foreground">{user.phone}</div>
               </div>
-            )}
-            {user.country && (
+            ) : null}
+            {user.country ? (
               <div className="space-y-3 py-4">
-                <h5 className="text-xs font-semibold uppercase">Country</h5>
+                <h5 className="text-xs font-semibold uppercase">{t("profile.sections.country")}</h5>
                 <div className="text-muted-foreground">{user.country}</div>
               </div>
-            )}
-            {user.medias?.length && (
+            ) : null}
+            {user.medias?.length ? (
               <div className="space-y-3 py-4">
-                <h5 className="text-xs font-semibold uppercase">Media</h5>
+                <h5 className="text-xs font-semibold uppercase">{t("profile.sections.media")}</h5>
                 <div>
                   <ScrollArea className="w-full">
                     <div className="flex gap-4 *:shrink-0">
                       {user.medias.map((item) => (
                         <>
-                          {item.type === "image" && (
+                          {item.type === "image" ? (
                             <div>
                               <Image
                                 width={40}
@@ -83,8 +87,8 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
                                 unoptimized
                               />
                             </div>
-                          )}
-                          {item.type === "pdf" && (
+                          ) : null}
+                          {item.type === "pdf" ? (
                             <div>
                               <Link
                                 href={item.path ?? "#"}
@@ -92,8 +96,8 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
                                 <SheetIcon className="h-8 w-8 text-green-500" />
                               </Link>
                             </div>
-                          )}
-                          {item.type === "file" && (
+                          ) : null}
+                          {item.type === "file" ? (
                             <div>
                               <a
                                 href="#"
@@ -101,8 +105,8 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
                                 <FileText className="h-8 w-8 text-orange-500" />
                               </a>
                             </div>
-                          )}
-                          {item.type === "excel" && (
+                          ) : null}
+                          {item.type === "excel" ? (
                             <div>
                               <a
                                 href="#"
@@ -110,7 +114,7 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
                                 <FileText className="h-8 w-8 text-orange-500" />
                               </a>
                             </div>
-                          )}
+                          ) : null}
                         </>
                       ))}
                     </div>
@@ -118,10 +122,10 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
                   </ScrollArea>
                 </div>
               </div>
-            )}
-            {user.website && (
+            ) : null}
+            {user.website ? (
               <div className="space-y-3 py-4">
-                <h5 className="text-xs font-semibold uppercase">Website</h5>
+                <h5 className="text-xs font-semibold uppercase">{t("profile.sections.website")}</h5>
                 <div>
                   <a
                     href={user.website}
@@ -131,10 +135,10 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
                   </a>
                 </div>
               </div>
-            )}
-            {user.social_links?.length && (
+            ) : null}
+            {user.social_links?.length ? (
               <div className="space-y-3 py-4">
-                <h5 className="text-xs font-semibold uppercase">Social Links</h5>
+                <h5 className="text-xs font-semibold uppercase">{t("profile.sections.social")}</h5>
                 <div className="flex flex-wrap items-center gap-2 *:shrink-0">
                   {user.social_links.map((item, key) => (
                     <Button
@@ -147,21 +151,20 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
                         href="#"
                         target="_blank"
                         className="flex items-center justify-center rounded-full *:h-5 *:w-5">
-                        {item.name === "Facebook" && <Facebook />}
-                        {item.name === "X" && <X />}
-                        {item.name === "Dribbble" && <Dribbble />}
-                        {item.name === "Linkedin" && <Linkedin />}
-                        {item.name === "Instagram" && <Instagram />}
+                        {item.name === "Facebook" ? <Facebook /> : null}
+                        {item.name === "X" ? <X /> : null}
+                        {item.name === "Dribbble" ? <Dribbble /> : null}
+                        {item.name === "Linkedin" ? <Linkedin /> : null}
+                        {item.name === "Instagram" ? <Instagram /> : null}
                       </Link>
                     </Button>
                   ))}
                 </div>
               </div>
-            )}
+            ) : null}
           </div>
         </div>
       </SheetContent>
     </Sheet>
   );
 }
-

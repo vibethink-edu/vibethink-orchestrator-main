@@ -1,4 +1,4 @@
-import { cn, generateAvatarFallback } from "@/lib/utils";
+import { cn, generateAvatarFallback } from "@/shared/lib/utils";
 import useChatStore from "../useChatStore";
 import { ChatItemProps } from "../types";
 import { Ellipsis } from "lucide-react";
@@ -44,11 +44,11 @@ export function ChatListItem({ chat, active }: { chat: ChatItemProps; active: bo
           <span className="text-muted-foreground truncate text-start text-sm">
             {chat.last_message}
           </span>
-          {unreadMessageCount.length > 0 && (
+          {unreadMessageCount.length > 0 ? (
             <div className="ms-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500 text-sm text-white">
               {unreadMessageCount.length}
             </div>
-          )}
+          ) : null}
         </div>
       </div>
       <div
@@ -66,4 +66,3 @@ export function ChatListItem({ chat, active }: { chat: ChatItemProps; active: bo
     </div>
   );
 }
-

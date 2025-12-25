@@ -5,7 +5,9 @@ import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 import { differenceInDays } from "date-fns";
 
-import { CalendarEvent, EventItem, useCalendarDnd } from "./";
+import type { CalendarEvent } from "../types";
+import { EventItem } from "./event-item";
+import { useCalendarDnd } from "./calendar-dnd-context";
 
 interface DraggableEventProps {
   event: CalendarEvent;
@@ -33,7 +35,7 @@ export function DraggableEvent({
   "aria-hidden": ariaHidden
 }: DraggableEventProps) {
   const { activeId } = useCalendarDnd();
-  const elementRef = useRef<HTMLDivElement>(null);
+  const elementRef = useRef<HTMLDivElement>(null) as React.MutableRefObject<HTMLDivElement | null>;
   const [dragHandlePosition, setDragHandlePosition] = useState<{
     x: number;
     y: number;
@@ -76,14 +78,14 @@ export function DraggableEvent({
 
   const style = transform
     ? {
-        transform: CSS.Translate.toString(transform),
-        height: height || "auto",
-        width: isMultiDayEvent && multiDayWidth ? `${multiDayWidth}%` : undefined
-      }
+      transform: CSS.Translate.toString(transform),
+      height: height || "auto",
+      width: isMultiDayEvent && multiDayWidth ? `${multiDayWidth}%` : undefined
+    }
     : {
-        height: height || "auto",
-        width: isMultiDayEvent && multiDayWidth ? `${multiDayWidth}%` : undefined
-      };
+      height: height || "auto",
+      width: isMultiDayEvent && multiDayWidth ? `${multiDayWidth}%` : undefined
+    };
 
   // Handle touch start to track where on the event the user touched
   const handleTouchStart = (e: React.TouchEvent) => {

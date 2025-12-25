@@ -13,4 +13,3 @@ export function MediaListItem({ type }: MediaListItemType) {
       break;
   }
 }
-

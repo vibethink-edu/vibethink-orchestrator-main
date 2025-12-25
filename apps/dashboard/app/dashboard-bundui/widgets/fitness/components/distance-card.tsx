@@ -1,8 +1,8 @@
 import { Navigation, ArrowRight } from "lucide-react";
 
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
-import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
-import { Badge } from "@vibethink/ui";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";
+import { Badge } from "@vibethink/ui/components/badge";
 
 export function DistanceCard() {
   return (

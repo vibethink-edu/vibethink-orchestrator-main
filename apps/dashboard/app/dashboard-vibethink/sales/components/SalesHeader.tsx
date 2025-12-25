@@ -1,15 +1,9 @@
-import { Button } from '@vibethink/ui'
-import { 
-  Input,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@vibethink/ui'
-import { Badge } from '@vibethink/ui'
+import { Button } from '@vibethink/ui/components/button'
+import { Input } from '@vibethink/ui/components/input'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@vibethink/ui/components/select'
+import { Badge } from '@vibethink/ui/components/badge'
 import { DashboardBadge } from '../../../../src/shared/components/dashboard-badge'
-import { 
+import {
   CalendarDays,
   Download,
   Filter,
@@ -26,12 +20,12 @@ interface SalesHeaderProps {
 }
 
 export function SalesHeader({ className }: SalesHeaderProps) {
-  const { 
-    filters, 
-    updateFilter, 
-    resetFilters, 
+  const {
+    filters,
+    updateFilter,
+    resetFilters,
     hasActiveFilters,
-    getFilterSummary 
+    getFilterSummary
   } = useSalesFilters()
 
   const handleExport = () => {
@@ -59,7 +53,7 @@ export function SalesHeader({ className }: SalesHeaderProps) {
             Track performance, manage pipeline, and analyze sales metrics
           </p>
         </div>
-        
+
         <div className="flex items-center gap-2">
           <Button variant="outline" onClick={handleExport}>
             <Download className="h-4 w-4 mr-2" />
@@ -88,8 +82,8 @@ export function SalesHeader({ className }: SalesHeaderProps) {
         {/* Filters */}
         <div className="flex flex-wrap gap-2">
           {/* Sales Rep Filter */}
-          <Select 
-            value={filters.salesRep} 
+          <Select
+            value={filters.salesRep}
             onValueChange={(value) => updateFilter('salesRep', value)}
           >
             <SelectTrigger className="w-[140px]">
@@ -106,8 +100,8 @@ export function SalesHeader({ className }: SalesHeaderProps) {
           </Select>
 
           {/* Stage Filter */}
-          <Select 
-            value={filters.stage} 
+          <Select
+            value={filters.stage}
             onValueChange={(value) => updateFilter('stage', value as any)}
           >
             <SelectTrigger className="w-[140px]">
@@ -125,8 +119,8 @@ export function SalesHeader({ className }: SalesHeaderProps) {
           </Select>
 
           {/* Date Range Filter */}
-          <Select 
-            value={filters.dateRange} 
+          <Select
+            value={filters.dateRange}
             onValueChange={(value) => updateFilter('dateRange', value as any)}
           >
             <SelectTrigger className="w-[120px]">
@@ -144,8 +138,8 @@ export function SalesHeader({ className }: SalesHeaderProps) {
           </Select>
 
           {/* Source Filter */}
-          <Select 
-            value={filters.source} 
+          <Select
+            value={filters.source}
             onValueChange={(value) => updateFilter('source', value as any)}
           >
             <SelectTrigger className="w-[140px]">
@@ -164,9 +158,9 @@ export function SalesHeader({ className }: SalesHeaderProps) {
 
           {/* Reset filters */}
           {hasActiveFilters && (
-            <Button 
-              variant="ghost" 
-              size="sm" 
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={resetFilters}
               className="h-10"
             >

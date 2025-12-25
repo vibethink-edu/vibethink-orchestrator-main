@@ -1,0 +1,258 @@
+{
+  "hotel": {
+    "title": "Hotel Management",
+    "description": "Manage your hotel operations, bookings, and guests",
+    "navigation": {
+      "dashboard": "Dashboard",
+      "bookings": "Bookings"
+    },
+    "sidebar": {
+      "title": "Hotel Dashboard",
+      "subOptions": {
+        "dashboard": "Dashboard",
+        "bookings": "Bookings"
+      }
+    },
+    "components": {
+      "header": {
+        "title": "Hotel Management",
+        "actions": {
+          "addNew": "Add New",
+          "reports": "Reports"
+        }
+      },
+      "statCards": {
+        "titles": {
+          "todayCheckIn": "Today's check-in",
+          "todayCheckOut": "Today check-out",
+          "totalGuests": "Total guests",
+          "totalAmount": "Total amount"
+        },
+        "unitNumber": "Unit Number: {{number}}",
+        "actions": {
+          "viewDetails": "View Details",
+          "export": "Export"
+        }
+      },
+      "bookingList": {
+        "title": "Bookings",
+        "search": {
+          "placeholder": "Search bookings..."
+        },
+        "filters": {
+          "allStatus": "All Status",
+          "pending": "Pending",
+          "checkedIn": "Checked-In"
+        },
+        "table": {
+          "headers": {
+            "bookingId": "Booking ID",
+            "guestName": "Guest Name",
+            "roomType": "Room Type",
+            "roomNumber": "Room Number",
+            "duration": "Duration",
+            "checkInOut": "Check-In & Check-Out",
+            "status": "Status",
+            "actions": "Actions"
+          },
+          "actions": {
+            "edit": "Edit",
+            "delete": "Delete",
+            "view": "View"
+          },
+          "empty": "No bookings found"
+        },
+        "pagination": {
+          "page": "Page {{current}} of {{total}}",
+          "previous": "Previous",
+          "next": "Next",
+          "first": "First",
+          "last": "Last"
+        }
+      },
+      "bookingsCard": {
+        "title": "Bookings",
+        "totalBookings": "Total Bookings",
+        "onlineBooking": "Online Booking",
+        "offlineBooking": "Offline Booking",
+        "premiumMessage": "Unlock in-depth analysis with a premium subscription",
+        "periods": {
+          "daily": "D",
+          "weekly": "W",
+          "monthly": "M",
+          "yearly": "Y"
+        }
+      },
+      "bookingForm": {
+        "title": "New Booking",
+        "description": "Fill out the form to create a new room booking.",
+        "trigger": "Booking Room",
+        "labels": {
+          "name": "Name",
+          "date": "Date",
+          "room": "Room",
+          "timeSlot": "Time Slot",
+          "startTime": "Start Time",
+          "endTime": "End Time",
+          "phone": "Phone",
+          "status": "Status"
+        },
+        "placeholders": {
+          "name": "Enter name",
+          "date": "Pick a date",
+          "room": "Select a room",
+          "timeSlot": "Select time slot",
+          "startTime": "Start",
+          "endTime": "End",
+          "phone": "0812 3290 0992",
+          "status": "Select status"
+        },
+        "validation": {
+          "nameMin": "Name must be at least 2 characters.",
+          "nameMax": "Name must be less than 50 characters.",
+          "roomRequired": "Please select a room.",
+          "dateRequired": "Please select a date.",
+          "timeSlotRequired": "Please select a time slot.",
+          "startTimeRequired": "Please select a start time.",
+          "endTimeRequired": "Please select an end time.",
+          "phoneMin": "Phone number must be at least 10 digits.",
+          "phoneMax": "Phone number must be less than 15 digits.",
+          "statusRequired": "Please select a status."
+        },
+        "actions": {
+          "cancel": "Cancel",
+          "save": "Save"
+        },
+        "messages": {
+          "success": {
+            "created": "Booking created",
+            "createdDescription": "Booking for {{name}} has been successfully added."
+          }
+        }
+      },
+      "campaignOverview": {
+        "title": "Campaign Overview",
+        "booked": "Booked",
+        "visited": "Visited",
+        "performance": "Performance",
+        "comparedToLastWeek": "Compared to last week",
+        "dateRanges": {
+          "thisWeek": "This Week",
+          "lastWeek": "Last Week",
+          "thisMonth": "This Month",
+          "lastMonth": "Last Month",
+          "last3Months": "Last 3 Months"
+        },
+        "chart": {
+          "booked": "Booked",
+          "visited": "Visited"
+        }
+      },
+      "reservationsCard": {
+        "title": "Reservations",
+        "totalLabel": "Reservations",
+        "totalSalesThisWeek": "Total Sales This Week",
+        "chart": {
+          "confirmed": "Confirmed",
+          "checkedIn": "Checked In",
+          "checkedOut": "Checked Out"
+        }
+      },
+      "revenueStat": {
+        "title": "Revenue Stat",
+        "fromLastMonth": "from last month",
+        "periods": {
+          "placeholder": "Select period",
+          "weekly": "Weekly",
+          "monthly": "Monthly",
+          "yearly": "Yearly"
+        },
+        "chart": {
+          "revenue": "Revenue",
+          "projected": "Projected"
+        }
+      },
+      "meetingRoomSchedule": {
+        "title": "Meeting Room Schedule",
+        "actions": {
+          "today": "Today",
+          "previousDay": "Previous Day",
+          "nextDay": "Next Day"
+        },
+        "viewMode": {
+          "grid": "Grid View",
+          "list": "List View"
+        },
+        "table": {
+          "headers": {
+            "name": "Name",
+            "room": "Room",
+            "time": "Time",
+            "phone": "Phone",
+            "status": "Status",
+            "actions": "Actions"
+          },
+          "actions": {
+            "delete": "Delete"
+          }
+        },
+        "status": {
+          "finished": "Finished",
+          "cancelled": "Cancelled",
+          "pending": "Pending",
+          "approved": "Approved"
+        },
+        "messages": {
+          "success": {
+            "deleted": "Booking deleted successfully"
+          }
+        }
+      }
+    },
+    "status": {
+      "checkedIn": "Checked-In",
+      "pending": "Pending",
+      "finished": "Finished",
+      "cancelled": "Cancelled",
+      "approved": "Approved",
+      "completed": "Completed",
+      "confirmed": "Confirmed",
+      "checkedOut": "Checked Out"
+    },
+    "roomTypes": {
+      "deluxe": "Deluxe",
+      "standard": "Standard",
+      "suite": "Suite"
+    },
+    "formatters": {
+      "roomNumber": "Room {{number}}",
+      "nights": "{{count}} night",
+      "nightsPlural": "{{count}} nights"
+    },
+    "messages": {
+      "error": {
+        "loading": "Error loading hotel data",
+        "save": "Error saving booking",
+        "delete": "Error deleting booking"
+      },
+      "success": {
+        "saved": "Booking saved successfully",
+        "deleted": "Booking deleted successfully"
+      }
+    }
+  },
+  "hardcoded": {
+    "booking_created": "예약 생성됨",
+    "booking_created_1": "예약 생성됨",
+    "enter_name": "이름 입력",
+    "finished": "완료",
+    "cancelled": "취소됨",
+    "pending": "대기 중",
+    "room_1": "객실 1",
+    "room_2": "객실 2",
+    "room_3": "객실 3",
+    "bookings": "예약",
+    "recent_activities": "최근 활동",
+    "guest_request_information": "고객 요청 정보"
+  }
+}

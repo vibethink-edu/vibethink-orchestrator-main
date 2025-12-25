@@ -1,0 +1,129 @@
+{
+    "common": {
+        "status": {
+            "active": "Ativo",
+            "pending": "Pendente",
+            "completed": "Concluído",
+            "archived": "Arquivado"
+        },
+        "actions": {
+            "edit": "Editar",
+            "delete": "Excluir",
+            "view": "Visualizar",
+            "create": "Criar",
+            "cancel": "Cancelar",
+            "save": "Salvar"
+        }
+    },
+    "sections": {
+        "recentProjects": "Projetos Recentes",
+        "allProjects": "Todos os Projetos",
+        "projectDetails": "Detalhes do Projeto"
+    },
+    "fields": {
+        "name": "Nome",
+        "description": "Descrição",
+        "startDate": "Data de Início",
+        "endDate": "Data de Término",
+        "status": "Status",
+        "priority": "Prioridade",
+        "client": "Cliente",
+        "budget": "Orçamento"
+    },
+    "messages": {
+        "createSuccess": "Projeto criado com sucesso",
+        "updateSuccess": "Projeto atualizado com sucesso",
+        "deleteSuccess": "Projeto excluído com sucesso",
+        "deleteConfirm": "Tem certeza que deseja excluir este projeto?",
+        "loading": "Carregando...",
+        "error": "Ocorreu um erro",
+        "noProjects": "Nenhum projeto encontrado"
+    },
+    "v2": {
+        "summaryCards": {
+            "totalRevenue": {
+                "title": "Receita Total",
+                "description": "Desde o mês passado",
+                "trending": "Aumento de 12% este mês"
+            },
+            "activeProjects": {
+                "title": "Projetos Ativos",
+                "description": "Atualmente em andamento",
+                "update": "Atualizado há 1 hora"
+            },
+            "teamSize": {
+                "title": "Tamanho da Equipe",
+                "description": "Membros ativos",
+                "hiring": "Contratando (2 vagas)"
+            },
+            "completionRate": {
+                "title": "Taxa de Conclusão",
+                "description": "Entregue no prazo",
+                "performance": "5% melhor que a meta"
+            }
+        },
+        "overview": {
+            "title": "Visão Geral",
+            "description": "Analise o desempenho dos seus projetos",
+            "revenue": "Receita",
+            "projects": "Projetos",
+            "tasks": "Tarefas",
+            "team": "Equipe"
+        },
+        "recentActivity": {
+            "title": "Atividade Recente",
+            "description": "Você tem 3 novas notificações hoje",
+            "projectCreated": "Projeto criado",
+            "taskCompleted": "Tarefa concluída",
+            "commentAdded": "Comentário adicionado",
+            "fileUploaded": "Arquivo enviado"
+        },
+        "metrics": {
+            "title": "Métricas de Desempenho",
+            "description": "Rastreamento de indicadores-chave",
+            "onTime": "No Prazo",
+            "overBudget": "Acima do Orçamento",
+            "clientSatisfaction": "Satisfação do Cliente"
+        },
+        "efficiency": {
+            "title": "Eficiência do Projeto",
+            "description": "Janeiro - Junho 2026",
+            "trending": "Tendência de alta de 5.2% este mês"
+        },
+        "achievement": {
+            "title": "Conquista por Ano",
+            "description": "Você completou mais projetos por dia em média este ano do que no ano passado.",
+            "projects": "projetos"
+        },
+        "reminders": {
+            "title": "Lembrete",
+            "showOther": "Mostrar os outros 10 lembretes"
+        },
+        "successMetrics": {
+            "title": "Métricas de Sucesso",
+            "description": "Indicadores-chave para o sucesso do projeto",
+            "successRate": "Taxa de Sucesso",
+            "onTime": "Conclusão no Prazo",
+            "clientSat": "Satisfação do Cliente",
+            "budget": "Adesão ao Orçamento"
+        },
+        "reports": {
+            "title": "Relatórios de Projetos",
+            "description": "Baixe relatórios detalhados para seus projetos",
+            "download": "Baixar Relatório"
+        },
+        "table": {
+            "columns": {
+                "projectName": "Nome do Projeto",
+                "clientName": "Nome do Cliente",
+                "startDate": "Data de Início",
+                "deadline": "Prazo",
+                "status": "Status",
+                "progress": "Progresso"
+            },
+            "placeholder": {
+                "filterProjects": "Filtrar projetos..."
+            }
+        }
+    }
+}

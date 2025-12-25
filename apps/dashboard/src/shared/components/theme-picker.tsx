@@ -3,12 +3,12 @@
 import * as React from "react";
 import { Check, Palette } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
-import { Button } from "@vibethink/ui";
+import { Button } from "@/components/ui/button";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@vibethink/ui";
+} from "@/components/ui/popover";
 import {
   Command,
   CommandEmpty,
@@ -16,16 +16,16 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@vibethink/ui";
+} from "@/components/ui/command";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@vibethink/ui";
+} from "@/components/ui/select";
 import { useThemePreset } from "@/shared/lib/use-theme-preset";
-import { THEME_PRESETS, type ThemePreset } from "@/shared/lib/themes";
+import { THEME_PRESETS, type ThemePreset } from "../lib/themes";
 import { useTranslation } from "@/lib/i18n";
 
 interface ThemePickerProps {
@@ -37,6 +37,10 @@ interface ThemePickerProps {
    * para evitar conflictos de accesibilidad con aria-hidden
    */
   useSelect?: boolean;
+  /**
+   * Prefijo para aislar cookies por dashboard (ej: "bundui", "vibethink")
+   */
+  dashboardPrefix?: string;
 }
 
 /**
@@ -50,15 +54,23 @@ interface ThemePickerProps {
  * <ThemePicker />
  * ```
  */
-export function ThemePicker({ 
-  className, 
+export function ThemePicker({
+  className,
   variant = "outline",
   size = "default",
-  useSelect = false
+  useSelect = false,
+  dashboardPrefix
 }: ThemePickerProps) {
   const [open, setOpen] = React.useState(false);
-  const { preset, setPreset, mounted, currentTheme } = useThemePreset();
+  const { preset, setPreset, mounted, currentTheme } = useThemePreset(dashboardPrefix);
   const { t } = useTranslation('theme');
+
+  React.useEffect(() => {
+    if (mounted) {
+      console.log("[ThemePicker] THEME_PRESETS:", THEME_PRESETS);
+      console.log("[ThemePicker] Current preset:", preset);
+    }
+  }, [mounted, preset]);
 
   if (!mounted) {
     return useSelect ? (
@@ -84,7 +96,7 @@ export function ThemePicker({
   if (useSelect) {
     // Asegurar que siempre tengamos un valor válido (evitar uncontrolled)
     const presetValue = preset || "default";
-    
+
     // Obtener nombre traducido del tema
     const getThemeName = (themeValue: ThemePreset) => {
       const translated = t(`themes.${themeValue}.name`);
@@ -94,11 +106,11 @@ export function ThemePicker({
       }
       return translated;
     };
-    
+
     const currentThemeName = getThemeName(presetValue);
 
     return (
-      <Select 
+      <Select
         value={presetValue}
         onValueChange={(value) => {
           const themePreset = value as ThemePreset;
@@ -115,15 +127,15 @@ export function ThemePicker({
           </div>
         </SelectTrigger>
         <SelectContent>
-          {THEME_PRESETS.map((theme) => {
+          {THEME_PRESETS?.map((theme) => {
             const themeName = getThemeName(theme.value);
-            const themeDescription = t(`themes.${theme.value}.description`, { 
-              fallback: theme.description || '' 
+            const themeDescription = t(`themes.${theme.value}.description`, {
+              fallback: theme.description || ''
             });
-            
+
             return (
-              <SelectItem 
-                key={theme.value} 
+              <SelectItem
+                key={theme.value}
                 value={theme.value}
                 className="cursor-pointer"
               >
@@ -155,7 +167,7 @@ export function ThemePicker({
     }
     return translated;
   };
-  
+
   const getThemeDescription = (themeValue: ThemePreset) => {
     const translated = t(`themes.${themeValue}.description`);
     if (translated === `themes.${themeValue}.description`) {
@@ -163,7 +175,7 @@ export function ThemePicker({
     }
     return translated;
   };
-  
+
   const currentThemeName = getThemeName(preset);
 
   return (
@@ -187,10 +199,10 @@ export function ThemePicker({
           <CommandList>
             <CommandEmpty>{t('customizer.theme.label')}</CommandEmpty>
             <CommandGroup heading={t('customizer.theme.label')}>
-              {THEME_PRESETS.map((theme) => {
+              {THEME_PRESETS?.map((theme) => {
                 const themeName = getThemeName(theme.value);
                 const themeDescription = getThemeDescription(theme.value);
-                
+
                 return (
                   <CommandItem
                     key={theme.value}
@@ -252,7 +264,7 @@ export function ThemePickerGrid({ className }: { className?: string }) {
 
   return (
     <div className={cn("grid grid-cols-2 gap-4", className)}>
-      {THEME_PRESETS.map((theme) => (
+      {THEME_PRESETS?.map((theme) => (
         <button
           key={theme.value}
           onClick={() => setPreset(theme.value)}
@@ -283,7 +295,7 @@ export function ThemePickerGrid({ className }: { className?: string }) {
               </div>
             </div>
           </div>
-          
+
           <div className="flex flex-col items-center gap-1">
             <span className="text-sm font-medium">{theme.name}</span>
             {preset === theme.value && (

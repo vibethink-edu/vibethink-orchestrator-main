@@ -1,6 +1,8 @@
 import { Link2Icon, Mail, MapPin, PhoneCall } from "lucide-react";
 
-import { Card, CardContent, Badge, Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
+import { Card, CardContent } from "@vibethink/ui/components/card";
+import { Badge } from "@vibethink/ui/components/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";
 
 export function ProfileCard() {
   return (
@@ -14,7 +16,7 @@ export function ProfileCard() {
             </Avatar>
             <div className="text-center">
               <h5 className="flex items-center gap-2 text-xl font-semibold">
-                Anshan Haso <Badge variant="info">Pro</Badge>
+                Anshan Haso <Badge variant="secondary">Pro</Badge>
               </h5>
               <div className="text-muted-foreground text-sm">Project Manager</div>
             </div>
@@ -35,7 +37,7 @@ export function ProfileCard() {
           </div>
           <div className="flex flex-col gap-y-4">
             <div className="flex items-center gap-3 text-sm">
-              <Mail className="text-muted-foreground size-4" /> hello@tobybelhome.com
+              <Mail className="text-muted-foreground size-4" /> vito@vibethink.ai
             </div>
             <div className="flex items-center gap-3 text-sm">
               <PhoneCall className="text-muted-foreground size-4" /> (+1-876) 8654 239 581
@@ -68,6 +70,7 @@ export function ProfileCard() {
     </Card>
   );
 }
+
 
 
 

@@ -1,0 +1,55 @@
+{
+  "title": "Dashboard Cripto",
+  "description": "El dashboard de administración de cripto es una plantilla para rastrear efectivamente los precios de criptomonedas, tendencias del mercado y rendimiento de portafolio. Construido con shadcn/ui.",
+  "actions": {
+    "download": "Descargar"
+  },
+  "overview": {
+    "title": "Resumen",
+    "balance": "Balance",
+    "totalValue": "Valor Total",
+    "change": "Cambio",
+    "profit": "Ganancia",
+    "loss": "Pérdida"
+  },
+  "wallets": {
+    "title": "Billeteras Digitales",
+    "total": "Total",
+    "available": "Disponible",
+    "inUse": "En Uso"
+  },
+  "trading": {
+    "title": "Trading",
+    "buy": "Comprar",
+    "sell": "Vender",
+    "amount": "Cantidad",
+    "price": "Precio",
+    "total": "Total"
+  },
+  "activities": {
+    "title": "Actividades Recientes",
+    "type": "Tipo",
+    "amount": "Cantidad",
+    "status": "Estado",
+    "date": "Fecha",
+    "viewAll": "Ver Todo"
+  },
+  "chart": {
+    "title": "Resumen de Balance",
+    "period": {
+      "7d": "7 Días",
+      "30d": "30 Días",
+      "90d": "90 Días",
+      "1y": "1 Año"
+    }
+  },
+  "status": {
+    "completed": "Completado",
+    "pending": "Pendiente",
+    "failed": "Fallido"
+  }
+}
+
+
+
+

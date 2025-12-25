@@ -11,13 +11,13 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/shared/lib/utils';
-import { Button } from '@vibethink/ui';
-import { Badge } from '@vibethink/ui';
-import { 
-  BarChart3, 
-  Brain, 
-  GitBranch, 
-  Target, 
+import { Button } from '@vibethink/ui/components/button';
+import { Badge } from '@vibethink/ui/components/badge';
+import {
+  BarChart3,
+  Brain,
+  GitBranch,
+  Target,
   Zap,
   Settings,
   Home,
@@ -48,14 +48,14 @@ const dashboardNavigation = [
     description: "Multi-AI collaboration metrics"
   },
   {
-    title: "Analytics", 
+    title: "Analytics",
     href: "/enhanced-dashboard/analytics",
     icon: BarChart3,
     description: "Performance analytics"
   },
   {
     title: "Workflow",
-    href: "/enhanced-dashboard/workflow", 
+    href: "/enhanced-dashboard/workflow",
     icon: GitBranch,
     description: "AI workflow management"
   },
@@ -98,7 +98,7 @@ const DashboardNavigation: React.FC = () => {
           {dashboardNavigation.map((item) => {
             const IconComponent = item.icon;
             const isActive = pathname === item.href;
-            
+
             return (
               <Link key={item.href} href={item.href}>
                 <Button

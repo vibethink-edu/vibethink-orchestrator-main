@@ -1,6 +1,9 @@
+"use client";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { Progress } from "@vibethink/ui/components/progress";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui/components/tooltip";
+import { useTranslation } from "@/lib/i18n";
 
 type PipelineStage = {
   id: string;
@@ -10,53 +13,55 @@ type PipelineStage = {
   color: string;
 };
 
-const pipelineData: PipelineStage[] = [
+const createPipelineData = (t: (key: string) => string): PipelineStage[] => [
   {
     id: "lead",
-    name: "Lead",
+    name: t('pipeline.stages.prospecting'),
     count: 235,
     value: 420500,
     color: "bg-[var(--chart-1)]"
   },
   {
     id: "qualified",
-    name: "Qualified",
+    name: t('pipeline.stages.qualification'),
     count: 146,
     value: 267800,
     color: "bg-[var(--chart-2)]"
   },
   {
     id: "proposal",
-    name: "Proposal",
+    name: t('pipeline.stages.proposal'),
     count: 84,
     value: 192400,
     color: "bg-[var(--chart-3)]"
   },
   {
     id: "negotiation",
-    name: "Negotiation",
+    name: t('pipeline.stages.negotiation'),
     count: 52,
     value: 129600,
     color: "bg-[var(--chart-4)]"
   },
   {
     id: "closed",
-    name: "Closed Won",
+    name: t('pipeline.stages.closed'),
     count: 36,
     value: 87200,
     color: "bg-[var(--chart-5)]"
   }
 ];
 
-const totalValue = pipelineData.reduce((sum, stage) => sum + stage.value, 0);
-const totalCount = pipelineData.reduce((sum, stage) => sum + stage.count, 0);
-
 export function SalesPipeline() {
+  const { t } = useTranslation('crm-v2');
+  const pipelineData = createPipelineData(t);
+  const totalValue = pipelineData.reduce((sum, stage) => sum + stage.value, 0);
+  const totalCount = pipelineData.reduce((sum, stage) => sum + stage.count, 0);
+
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Sales Pipeline</CardTitle>
-        <CardDescription>Current deals in your sales pipeline.</CardDescription>
+        <CardTitle>{t('cards.salesPipeline.title')}</CardTitle>
+        <CardDescription>{t('cards.salesPipeline.description')}</CardDescription>
       </CardHeader>
       <CardContent>
         <TooltipProvider>
@@ -71,7 +76,7 @@ export function SalesPipeline() {
                 <TooltipContent>
                   <div className="text-sm">
                     <p className="font-medium">{stage.name}</p>
-                    <p className="text-muted-foreground text-xs">{stage.count} deals</p>
+                    <p className="text-muted-foreground text-xs">{stage.count} {t('pipeline.deals')}</p>
                     <p className="text-muted-foreground text-xs">${stage.value.toLocaleString()}</p>
                   </div>
                 </TooltipContent>
@@ -88,7 +93,7 @@ export function SalesPipeline() {
                 <div>
                   <p className="text-sm font-medium">{stage.name}</p>
                   <p className="text-muted-foreground text-xs">
-                    {stage.count} deals · ${stage.value.toLocaleString()}
+                    {stage.count} {t('pipeline.deals')} · ${stage.value.toLocaleString()}
                   </p>
                 </div>
                 <div className="flex w-24 items-center gap-2">

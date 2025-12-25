@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import {
   ChartConfig,
   ChartContainer,
@@ -8,10 +8,13 @@ import {
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/chart";
 import { Label, Pie, PieChart } from "recharts";
+import { useTranslation } from "@/lib/i18n";
 
 export function EcommerceVisitBySourceCard() {
+  const { t } = useTranslation('ecommerce');
+  
   const chartData = [
     { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
     { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
@@ -49,7 +52,7 @@ export function EcommerceVisitBySourceCard() {
   return (
     <Card className="lg:col-span-6 xl:col-span-3">
       <CardHeader>
-        <CardTitle>Store Visits by Source</CardTitle>
+        <CardTitle>{t('cards.visitBySource.title')}</CardTitle>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[350px]">
@@ -95,6 +98,10 @@ export function EcommerceVisitBySourceCard() {
     </Card>
   );
 }
+
+
+
+
 
 
 

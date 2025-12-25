@@ -1,0 +1,72 @@
+{
+  "page": {
+    "title": "VibeThink Orchestrator Mocks",
+    "description": "All available mocks from VibeThink Orchestrator. These dashboards are adapted to the VibeThink style and ready to be promoted to real modules in the /dashboard section.",
+    "viewDashboard": "View Dashboard"
+  },
+  "categories": {
+    "business": "Business",
+    "productivity": "Productivity",
+    "analytics": "Analytics",
+    "ai": "AI",
+    "finance": "Finance"
+  },
+  "dashboards": {
+    "crm": {
+      "name": "CRM",
+      "description": "Customer relationship management - VibeThink adapted version ready for production"
+    },
+    "sales": {
+      "name": "Sales",
+      "description": "Sales dashboard - VibeThink adapted version ready for production"
+    },
+    "ecommerce": {
+      "name": "E-commerce",
+      "description": "E-commerce dashboard - VibeThink adapted version ready for production"
+    },
+    "finance": {
+      "name": "Finance",
+      "description": "Financial dashboard with budgets, expenses, and financial planning"
+    },
+    "projectManagement": {
+      "name": "Project Management",
+      "description": "Project management with tasks, timelines, and team collaboration"
+    },
+    "tasks": {
+      "name": "Tasks",
+      "description": "Task management with to-do lists, priorities, and deadlines"
+    },
+    "calendar": {
+      "name": "Calendar",
+      "description": "Calendar application with events, scheduling, and reminders"
+    },
+    "mail": {
+      "name": "Mail",
+      "description": "Email client with inbox, compose, and email management"
+    },
+    "notes": {
+      "name": "Notes",
+      "description": "Note-taking application with rich text editing and organization"
+    },
+    "fileManager": {
+      "name": "File Manager",
+      "description": "File storage and management system with upload, organization, and sharing"
+    },
+    "websiteAnalytics": {
+      "name": "Website Analytics",
+      "description": "Website analytics dashboard with traffic data, user interactions, and performance metrics"
+    },
+    "aiChat": {
+      "name": "AI Chat",
+      "description": "AI-powered chat interface with multiple model support and conversation history"
+    },
+    "posSystem": {
+      "name": "POS System",
+      "description": "Point of sale system for retail and restaurant management"
+    },
+    "crypto": {
+      "name": "Crypto",
+      "description": "Cryptocurrency portfolio tracker with trading, DeFi, and NFT management"
+    }
+  }
+}

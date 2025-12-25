@@ -1,0 +1,138 @@
+{
+  "module": "projects",
+  "version": "2.0.0",
+  "lastUpdated": "2025-12-24",
+  "description": "Projects module - Complete project management interface with table, filters, and analytics",
+  "uiComponents": [
+    "Project list table",
+    "Project efficiency chart",
+    "Project filters",
+    "Project actions dropdown",
+    "Project status badges"
+  ],
+  "strings": {
+    "v2.table.columns.projectName": {
+      "context": "Table column header for project name",
+      "uiLocation": "Projects V2 table > Column header (1st column)",
+      "characterLimit": 30,
+      "tone": "professional",
+      "examples": {
+        "en": "Project Name",
+        "es": "Nombre del Proyecto",
+        "ar": "اسم المشروع"
+      },
+      "notes": "Should be concise, fits in table header"
+    },
+    "v2.table.columns.clientName": {
+      "context": "Table column header for client/customer name",
+      "uiLocation": "Projects V2 table > Column header (2nd column)",
+      "characterLimit": 30,
+      "tone": "professional",
+      "examples": {
+        "en": "Client Name",
+        "es": "Nombre del Cliente",
+        "ar": "اسم العميل"
+      }
+    },
+    "v2.table.columns.startDate": {
+      "context": "Table column header for project start date",
+      "uiLocation": "Projects V2 table > Column header (3rd column)",
+      "characterLimit": 25,
+      "tone": "professional",
+      "examples": {
+        "en": "Start Date",
+        "es": "Fecha de Inicio",
+        "ar": "تاريخ البدء"
+      }
+    },
+    "v2.table.columns.deadline": {
+      "context": "Table column header for project deadline/due date",
+      "uiLocation": "Projects V2 table > Column header (4th column)",
+      "characterLimit": 25,
+      "tone": "professional",
+      "examples": {
+        "en": "Deadline",
+        "es": "Fecha Límite",
+        "ar": "الموعد النهائي"
+      }
+    },
+    "v2.table.columns.status": {
+      "context": "Table column header for project status",
+      "uiLocation": "Projects V2 table > Column header (5th column)",
+      "characterLimit": 20,
+      "tone": "professional",
+      "examples": {
+        "en": "Status",
+        "es": "Estado",
+        "ar": "الحالة"
+      }
+    },
+    "v2.table.columns.progress": {
+      "context": "Table column header for project completion progress",
+      "uiLocation": "Projects V2 table > Column header (6th column)",
+      "characterLimit": 20,
+      "tone": "professional",
+      "examples": {
+        "en": "Progress",
+        "es": "Progreso",
+        "ar": "التقدم"
+      }
+    },
+    "v2.table.placeholder.filterProjects": {
+      "context": "Placeholder text for project search/filter input",
+      "uiLocation": "Projects V2 table > Filter input placeholder",
+      "characterLimit": 40,
+      "tone": "helpful",
+      "examples": {
+        "en": "Filter projects...",
+        "es": "Filtrar proyectos...",
+        "ar": "تصفية المشاريع..."
+      },
+      "notes": "Should end with ellipsis (...) to indicate action"
+    },
+    "sections.recentProjects": {
+      "context": "Title for the recent projects section/card",
+      "uiLocation": "Projects V2 page > Card title",
+      "characterLimit": 35,
+      "tone": "professional",
+      "examples": {
+        "en": "Recent Projects",
+        "es": "Proyectos Recientes",
+        "ar": "المشاريع الأخيرة"
+      }
+    }
+  },
+  "validationRules": {
+    "requiredLanguages": [
+      "en",
+      "es",
+      "fr",
+      "pt",
+      "de",
+      "it",
+      "ko",
+      "ar",
+      "zh"
+    ],
+    "mustHaveContext": true,
+    "mustHaveExamples": true,
+    "characterLimits": "enforced",
+    "toneConsistency": "required"
+  },
+  "aiGuidelines": {
+    "whenTranslating": [
+      "Always maintain professional tone",
+      "Respect character limits for UI fit",
+      "Use natural, native expressions",
+      "Avoid literal word-for-word translation",
+      "Consider cultural context"
+    ],
+    "whenValidating": [
+      "Check all 9 languages have translations",
+      "Verify character limits are respected",
+      "Ensure tone consistency across languages",
+      "Validate UI context is clear",
+      "Confirm examples are provided"
+    ]
+  }
+}

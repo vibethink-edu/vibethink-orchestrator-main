@@ -1,4 +1,4 @@
-import { generateMeta } from "@/lib/utils";
+import { generateMeta } from "@/shared/lib/utils";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -17,6 +17,10 @@ export default function PricingLayout({
 }>) {
   return <>{children}</>;
 }
+
+
+
+
 
 
 

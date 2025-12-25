@@ -25,26 +25,27 @@ import {
   Tag,
   Trash2
 } from "lucide-react";
+import { Button } from "@vibethink/ui/components/button";
 import {
-  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuTrigger,
+  DropdownMenuTrigger
+} from "@vibethink/ui/components/dropdown-menu";
+import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
-  Badge,
-  Card,
-  CardContent,
-  Input,
-  Checkbox
-} from "@vibethink/ui";
+  TableRow
+} from "@vibethink/ui/components/table";
+import { Badge } from "@vibethink/ui/components/badge";
+import { Card, CardContent } from "@vibethink/ui/components/card";
+import { Input } from "@vibethink/ui/components/input";
+import { Checkbox } from "@vibethink/ui/components/checkbox";
 import { toast } from "sonner";
 import CreateApiKeyDialog from "./create-api-key-dialog";
 

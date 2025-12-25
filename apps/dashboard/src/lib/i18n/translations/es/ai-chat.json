@@ -1,0 +1,84 @@
+{
+  "title": "Chat IA",
+  "subtitle": "Chatea con Asistente IA",
+  "description": "El chatbot de IA es una plantilla de interfaz de aplicación que permite a los usuarios interactuar con una IA para mensajería y asistencia. Construido con shadcn/ui, Next.js y Tailwind CSS.",
+  "v2": {
+    "title": "Chat IA V2",
+    "description": "El chatbot de IA es una plantilla de interfaz de aplicación que permite a los usuarios interactuar con una IA para mensajería y asistencia. Construido con shadcn/ui, Next.js y Tailwind CSS."
+  },
+  "sidebar": {
+    "search": "Buscar chats...",
+    "newChat": "Nuevo Chat",
+    "untitledChat": "Chat Sin Título"
+  },
+  "input": {
+    "placeholder": "Escribe tu mensaje... (Presiona Enter para enviar, Shift+Enter para nueva línea)",
+    "send": "Enviar",
+    "sending": "Enviando...",
+    "error": "Error al enviar mensaje:"
+  },
+  "messages": {
+    "aiGenerating": "ViTo está generando una respuesta...",
+    "aiAssistant": "ViTo AI Assistant",
+    "copy": "Copiar mensaje",
+    "copied": "¡Copiado!",
+    "copyError": "Error al copiar mensaje:",
+    "empty_state_title": "Inicia la conversación",
+    "empty_state_description": "Envía un mensaje para comenzar a chatear con ViTo. Puedes hacer preguntas, solicitar ayuda o conversar sobre cualquier tema.",
+    "loading_conversation": "Cargando conversación...",
+    "loading_messages": "Cargando mensajes...",
+    "today": "Hoy",
+    "yesterday": "Ayer",
+    "message_count": "mensajes en esta conversación",
+    "tokens_used": "tokens usados",
+    "scroll_to_bottom": "Ir al final"
+  },
+  "settings": {
+    "systemInstructions": "Ingresa instrucciones del sistema para la IA...",
+    "selectModel": "Selecciona un modelo",
+    "localModel": "Modelo Local"
+  },
+  "upgrade": {
+    "title": "Actualizar a Pro",
+    "currentPlan": "Plan Actual",
+    "processing": "Procesando...",
+    "plans": {
+      "free": {
+        "title": "Gratis",
+        "description": "Perfecto para comenzar",
+        "features": [
+          "Modelos de IA básicos",
+          "Soporte estándar",
+          "Solo acceso web"
+        ]
+      },
+      "pro": {
+        "title": "Pro",
+        "description": "Para usuarios avanzados y profesionales",
+        "features": [
+          "Mensajes ilimitados",
+          "Modelos de IA avanzados (iBeeBot 4o)",
+          "Soporte prioritario",
+          "Acceso API",
+          "Integraciones personalizadas",
+          "Análisis avanzados"
+        ],
+        "button": "Actualizar a Pro"
+      },
+      "enterprise": {
+        "title": "Empresarial",
+        "description": "Para equipos y organizaciones",
+        "features": [
+          "Todo en Pro",
+          "Colaboración en equipo",
+          "SSO y seguridad avanzada",
+          "Soporte dedicado",
+          "Modelos personalizados",
+          "Implementación on-premise"
+        ],
+        "button": "Contactar Ventas"
+      }
+    }
+  },
+  "dateFormat": "d 'de' MMMM 'de' yyyy"
+}

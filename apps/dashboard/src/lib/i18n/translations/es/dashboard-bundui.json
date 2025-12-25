@@ -1,0 +1,64 @@
+{
+  "page": {
+    "title": "Dashboards Bundui Premium",
+    "description": "Implementaciones de referencia que reflejan la última versión de Bundui Premium. Estos son dashboards de demostración/referencia que utilizan nuestra arquitectura de monorepo y Shadcn UI.",
+    "viewDashboard": "Ver Dashboard"
+  },
+  "categories": {
+    "dashboards": "Dashboards",
+    "aiApps": "Aplicaciones IA"
+  },
+  "dashboards": {
+    "default": {
+      "name": "Por Defecto",
+      "description": "Dashboard principal con resumen de métricas clave, miembros del equipo y seguimiento de ingresos"
+    },
+    "academy": {
+      "name": "Academia",
+      "description": "Sistema de gestión de aprendizaje con cursos, seguimiento de progreso y analíticas de estudiantes"
+    },
+    "analytics": {
+      "name": "Analíticas",
+      "description": "Dashboard de analíticas completo con ventas, ganancias y métricas de campañas"
+    },
+    "crm": {
+      "name": "CRM",
+      "description": "Gestión de relaciones con clientes con negocios, clientes y pipeline de ventas"
+    },
+    "ecommerce": {
+      "name": "E-commerce",
+      "description": "Dashboard de comercio electrónico con productos, pedidos y analíticas de ventas"
+    },
+    "hospitalManagement": {
+      "name": "Gestión Hospitalaria",
+      "description": "Sistema de gestión hospitalaria con pacientes, citas y registros médicos"
+    },
+    "hotel": {
+      "name": "Hotel",
+      "description": "Dashboard de gestión hotelera con reservas, habitaciones y gestión de huéspedes"
+    },
+    "payment": {
+      "name": "Pagos",
+      "description": "Dashboard de procesamiento de pagos con transacciones y métodos de pago"
+    },
+    "projects": {
+      "name": "Proyectos",
+      "description": "Gestión de proyectos con tareas, cronogramas y colaboración en equipo"
+    },
+    "projectList": {
+      "name": "Lista de Proyectos",
+      "description": "Vista de lista de proyectos con tableros kanban y organización de proyectos"
+    },
+    "sales": {
+      "name": "Ventas",
+      "description": "Dashboard de ventas con seguimiento de ingresos, negocios y métricas de rendimiento"
+    }
+  },
+  "apps": {
+    "aiChat": {
+      "name": "Chat IA",
+      "description": "Interfaz de chat con IA con soporte para múltiples modelos e historial de conversaciones"
+    }
+  }
+}
+

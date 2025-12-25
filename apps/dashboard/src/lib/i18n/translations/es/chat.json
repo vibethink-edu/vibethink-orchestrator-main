@@ -1,0 +1,62 @@
+{
+  "chat": {
+    "sidebar": {
+      "title": "Chats",
+      "searchPlaceholder": "Buscar chats...",
+      "noResults": "No se encontraron chats",
+      "actions": {
+        "newChat": "Nuevo chat",
+        "createGroup": "Crear grupo",
+        "addContact": "Añadir contacto",
+        "menu": {
+          "emoji": "Emoji",
+          "addFile": "Adjuntar archivo",
+          "sendVoice": "Enviar nota de voz",
+          "forward": "Reenviar",
+          "star": "Destacar",
+          "edit": "Editar",
+          "delete": "Eliminar"
+        }
+      }
+    },
+    "header": {
+      "status": {
+        "online": "En línea",
+        "lastSeen": "Últ. vez: {{time}}"
+      },
+      "actions": {
+        "videoCall": "Iniciar videollamada",
+        "voiceCall": "Llamar"
+      }
+    },
+    "composer": {
+      "placeholder": "Escribe un mensaje...",
+      "send": "Enviar",
+      "tooltips": {
+        "emoji": "Emoji",
+        "selectFile": "Adjuntar archivo",
+        "sendVoice": "Enviar nota de voz"
+      }
+    },
+    "profile": {
+      "title": "Perfil",
+      "sections": {
+        "about": "Sobre mí",
+        "phone": "Teléfono",
+        "country": "País",
+        "media": "Multimedia",
+        "website": "Sitio web",
+        "social": "Redes Sociales"
+      }
+    },
+    "dialogs": {
+      "call": {
+        "calling": "Llamando...",
+        "hangup": "Colgar"
+      },
+      "video": {
+        "calling": "Video Llamada..."
+      }
+    }
+  }
+}

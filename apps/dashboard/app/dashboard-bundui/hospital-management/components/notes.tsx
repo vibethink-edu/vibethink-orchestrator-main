@@ -5,7 +5,13 @@ import { format } from "date-fns";
 import { Clock, PlusCircle } from "lucide-react";
 import Link from "next/link";
 
-import { Button, Input, Card, CardContent, CardFooter, CardHeader, CardTitle } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { Input } from "@vibethink/ui/components/input";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+
+interface NotesProps {
+  company_id: string | null;
+}
 
 interface Note {
   id: number;
@@ -13,7 +19,7 @@ interface Note {
   text: string;
 }
 
-export default function Notes() {
+export default function Notes({ company_id }: NotesProps) {
   const [notes, setNotes] = React.useState<Note[]>([
     { id: 1, date: new Date(2025, 10, 15), text: "Dr. Smith's surgery at 10 AM" },
     { id: 2, date: new Date(2025, 4, 15), text: "Staff meeting at 2 PM" },

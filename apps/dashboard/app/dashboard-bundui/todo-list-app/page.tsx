@@ -1,5 +1,5 @@
 import React from "react";
-import { generateMeta } from "@/lib/utils";
+import { generateMeta } from "@/shared/lib/utils";
 import { promises as fs } from "fs";
 import path from "path";
 

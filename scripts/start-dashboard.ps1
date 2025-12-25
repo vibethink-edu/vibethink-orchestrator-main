@@ -1,7 +1,7 @@
 # Start Dashboard Dev Server
 # Port: 3005 (consistent)
 
-Write-Host "🚀 Starting Pana Dashboard..." -ForegroundColor Cyan
+Write-Host "🚀 Starting ViTo Dashboard (VibeThink Orchestrator)..." -ForegroundColor Cyan
 
 $port = 3005
 
@@ -15,14 +15,28 @@ if ($connections) {
         Select-Object -ExpandProperty OwningProcess -Unique | 
         Where-Object { $_ -gt 0 }  # Filter out system processes (Idle = 0)
     
-    if ($uniqueProcessIds) {
+    # Filter out processes that no longer exist (TIME_WAIT connections)
+    $validProcessIds = @()
+    foreach ($processId in $uniqueProcessIds) {
+        try {
+            $proc = Get-Process -Id $processId -ErrorAction Stop
+            $validProcessIds += $processId
+        }
+        catch {
+            # Process doesn't exist, connection is likely in TIME_WAIT
+            Write-Host "⚠️  Port $port has connection from non-existent process $processId (TIME_WAIT state)" -ForegroundColor Yellow
+        }
+    }
+    
+    if ($validProcessIds.Count -gt 0) {
         # Get process info for better error message
         $processInfo = @()
-        foreach ($processId in $uniqueProcessIds) {
+        foreach ($processId in $validProcessIds) {
             try {
                 $proc = Get-Process -Id $processId -ErrorAction Stop
                 $processInfo += "$($proc.ProcessName) (PID: $processId)"
-            } catch {
+            }
+            catch {
                 $processInfo += "Unknown (PID: $processId)"
             }
         }
@@ -31,6 +45,37 @@ if ($connections) {
         $processInfo | ForEach-Object { Write-Host "   - $_" -ForegroundColor Yellow }
         Write-Host "Run .\scripts\stop-dashboard.ps1 first to stop existing server" -ForegroundColor Yellow
         exit 1
+    }
+    else {
+        # Only TIME_WAIT connections, wait a bit and retry
+        Write-Host "⚠️  Port $port has TIME_WAIT connections, waiting 3 seconds..." -ForegroundColor Yellow
+        Start-Sleep -Seconds 3
+        
+        # Re-check after wait
+        $connections = Get-NetTCPConnection -LocalPort $port -ErrorAction SilentlyContinue
+        if ($connections) {
+            $uniqueProcessIds = $connections | 
+                Select-Object -ExpandProperty OwningProcess -Unique | 
+                Where-Object { $_ -gt 0 }
+            
+            $stillValid = $false
+            foreach ($processId in $uniqueProcessIds) {
+                try {
+                    $proc = Get-Process -Id $processId -ErrorAction Stop
+                    $stillValid = $true
+                    Write-Host "⚠️  Port $port still in use by $($proc.ProcessName) (PID: $processId)" -ForegroundColor Yellow
+                    Write-Host "Run .\scripts\stop-dashboard.ps1 first to stop existing server" -ForegroundColor Yellow
+                    exit 1
+                }
+                catch {
+                    # Process doesn't exist, continue
+                }
+            }
+            
+            if (-not $stillValid) {
+                Write-Host "✅ Port $port cleared, proceeding..." -ForegroundColor Green
+            }
+        }
     }
 }
 
@@ -48,10 +93,12 @@ Write-Host "Starting Next.js dev server on port $port..." -ForegroundColor Green
 try {
     Push-Location $dashboardPath
     npm run dev -- -p $port
-} catch {
+}
+catch {
     Write-Host "❌ Error starting dev server: $($_.Exception.Message)" -ForegroundColor Red
     Pop-Location
     exit 1
-} finally {
+}
+finally {
     Pop-Location
 }

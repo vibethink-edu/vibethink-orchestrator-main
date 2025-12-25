@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import { 
+import {
   Button,
   Input,
   Label,
@@ -17,10 +17,10 @@ import {
   SelectTrigger,
   SelectValue
 } from '@vibethink/ui'
-import { 
-  Send, 
-  Paperclip, 
-  X, 
+import {
+  Send,
+  Paperclip,
+  X,
   Plus,
   Minimize2,
   Maximize2,
@@ -34,7 +34,7 @@ import {
   List
 } from 'lucide-react'
 import { ComposeEmailData, EmailPriority } from '../types'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 
 /**
  * Compose Email Component
@@ -59,6 +59,8 @@ interface ComposeEmailProps {
   isSending?: boolean
 }
 
+import { useTranslation } from '@/lib/i18n'
+
 export function ComposeEmail({
   isOpen,
   mode,
@@ -74,6 +76,7 @@ export function ComposeEmail({
   onRemoveAttachment,
   isSending = false
 }: ComposeEmailProps) {
+  const { t } = useTranslation('mail')
   const [showCc, setShowCc] = useState(false)
   const [showBcc, setShowBcc] = useState(false)
   const [isMinimized, setIsMinimized] = useState(false)
@@ -114,17 +117,17 @@ export function ComposeEmail({
   const getDialogTitle = () => {
     switch (mode) {
       case 'reply':
-        return 'Reply'
+        return t('common.reply')
       case 'forward':
-        return 'Forward'
+        return t('common.forward')
       default:
-        return 'Compose Email'
+        return t('compose.dialogTitle')
     }
   }
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent 
+      <DialogContent
         className={cn(
           "max-w-4xl h-[80vh] flex flex-col p-0",
           isMinimized && "h-16"
@@ -135,7 +138,7 @@ export function ComposeEmail({
           <DialogTitle className="text-lg font-semibold">
             {getDialogTitle()}
           </DialogTitle>
-          
+
           <div className="flex items-center gap-2">
             <Button
               variant="ghost"
@@ -162,7 +165,7 @@ export function ComposeEmail({
             <div className="space-y-3 p-4 border-b border-border">
               {/* To field */}
               <div className="flex items-center gap-2">
-                <Label className="w-12 text-sm font-medium">To:</Label>
+                <Label className="w-12 text-sm font-medium">{t('compose.to')}</Label>
                 <div className="flex-1 flex flex-wrap items-center gap-1 min-h-[32px]">
                   {draft.to.map((email, index) => (
                     <Badge key={index} variant="secondary" className="gap-1">
@@ -178,7 +181,7 @@ export function ComposeEmail({
                     </Badge>
                   ))}
                   <Input
-                    placeholder="Add recipients..."
+                    placeholder={t('compose.addRecipients')}
                     value={newRecipient.to}
                     onChange={(e) => setNewRecipient(prev => ({ ...prev, to: e.target.value }))}
                     onKeyDown={(e) => handleKeyPress(e, 'to')}
@@ -194,7 +197,7 @@ export function ComposeEmail({
                       onClick={() => setShowCc(true)}
                       className="text-xs h-6 px-2"
                     >
-                      Cc
+                      {t('compose.cc').replace(':', '')}
                     </Button>
                   )}
                   {!showBcc && (
@@ -204,7 +207,7 @@ export function ComposeEmail({
                       onClick={() => setShowBcc(true)}
                       className="text-xs h-6 px-2"
                     >
-                      Bcc
+                      {t('compose.bcc').replace(':', '')}
                     </Button>
                   )}
                 </div>
@@ -213,7 +216,7 @@ export function ComposeEmail({
               {/* CC field */}
               {showCc && (
                 <div className="flex items-center gap-2">
-                  <Label className="w-12 text-sm font-medium">Cc:</Label>
+                  <Label className="w-12 text-sm font-medium">{t('compose.cc')}</Label>
                   <div className="flex-1 flex flex-wrap items-center gap-1 min-h-[32px]">
                     {draft.cc?.map((email, index) => (
                       <Badge key={index} variant="secondary" className="gap-1">
@@ -229,7 +232,7 @@ export function ComposeEmail({
                       </Badge>
                     ))}
                     <Input
-                      placeholder="Add CC recipients..."
+                      placeholder={t('compose.addCc')}
                       value={newRecipient.cc}
                       onChange={(e) => setNewRecipient(prev => ({ ...prev, cc: e.target.value }))}
                       onKeyDown={(e) => handleKeyPress(e, 'cc')}
@@ -243,7 +246,7 @@ export function ComposeEmail({
               {/* BCC field */}
               {showBcc && (
                 <div className="flex items-center gap-2">
-                  <Label className="w-12 text-sm font-medium">Bcc:</Label>
+                  <Label className="w-12 text-sm font-medium">{t('compose.bcc')}</Label>
                   <div className="flex-1 flex flex-wrap items-center gap-1 min-h-[32px]">
                     {draft.bcc?.map((email, index) => (
                       <Badge key={index} variant="secondary" className="gap-1">
@@ -259,7 +262,7 @@ export function ComposeEmail({
                       </Badge>
                     ))}
                     <Input
-                      placeholder="Add BCC recipients..."
+                      placeholder={t('compose.addBcc')}
                       value={newRecipient.bcc}
                       onChange={(e) => setNewRecipient(prev => ({ ...prev, bcc: e.target.value }))}
                       onKeyDown={(e) => handleKeyPress(e, 'bcc')}
@@ -272,11 +275,11 @@ export function ComposeEmail({
 
               {/* Subject */}
               <div className="flex items-center gap-2">
-                <Label className="w-12 text-sm font-medium">Subject:</Label>
+                <Label className="w-12 text-sm font-medium">{t('compose.subject')}</Label>
                 <Input
                   value={draft.subject}
                   onChange={(e) => onUpdate({ subject: e.target.value })}
-                  placeholder="Email subject..."
+                  placeholder={t('compose.subjectPlaceholder')}
                   className="flex-1"
                 />
                 <Select
@@ -287,10 +290,10 @@ export function ComposeEmail({
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="low">Low</SelectItem>
-                    <SelectItem value="normal">Normal</SelectItem>
-                    <SelectItem value="high">High</SelectItem>
-                    <SelectItem value="urgent">Urgent</SelectItem>
+                    <SelectItem value="low">{t('compose.low')}</SelectItem>
+                    <SelectItem value="normal">{t('compose.normal')}</SelectItem>
+                    <SelectItem value="high">{t('compose.high')}</SelectItem>
+                    <SelectItem value="urgent">{t('compose.urgent')}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -339,13 +342,13 @@ export function ComposeEmail({
                 <div className="flex items-center gap-2 mb-2">
                   <Paperclip className="h-4 w-4" />
                   <span className="text-sm font-medium">
-                    {draft.attachments.length} attachment{draft.attachments.length > 1 ? 's' : ''}
+                    {draft.attachments.length} {draft.attachments.length > 1 ? t('view.attachments') : t('view.attachment')}
                   </span>
                 </div>
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {draft.attachments.map((file, index) => (
-                    <div 
+                    <div
                       key={index}
                       className="flex items-center justify-between p-2 border border-border rounded bg-muted/30"
                     >
@@ -360,7 +363,7 @@ export function ComposeEmail({
                           </p>
                         </div>
                       </div>
-                      
+
                       <Button
                         variant="ghost"
                         size="sm"
@@ -380,7 +383,7 @@ export function ComposeEmail({
               <Textarea
                 value={draft.body}
                 onChange={(e) => onUpdate({ body: e.target.value })}
-                placeholder="Write your message..."
+                placeholder={t('compose.messagePlaceholder')}
                 className="w-full h-full resize-none border-none shadow-none focus-visible:ring-0"
               />
             </div>
@@ -393,26 +396,26 @@ export function ComposeEmail({
                   disabled={isSending || !draft.to.length || !draft.subject.trim()}
                   className="min-w-[100px]"
                 >
-                  {isSending ? 'Sending...' : (
+                  {isSending ? t('compose.sending') : (
                     <>
                       <Send className="mr-2 h-4 w-4" />
-                      Send
+                      {t('compose.send')}
                     </>
                   )}
                 </Button>
-                
+
                 <Button variant="outline" onClick={onSaveDraft}>
-                  Save Draft
+                  {t('compose.saveDraft')}
                 </Button>
-                
+
                 <Button variant="ghost" size="sm">
                   <Calendar className="mr-2 h-4 w-4" />
-                  Schedule
+                  {t('compose.schedule')}
                 </Button>
               </div>
 
               <div className="text-xs text-muted-foreground">
-                Auto-saved 2 minutes ago
+                {t('compose.autoSaved', { time: '2m' })}
               </div>
             </div>
           </>

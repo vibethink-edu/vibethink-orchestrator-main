@@ -1,0 +1,2172 @@
+{
+  "generatedAt": "2025-12-24T11:39:23.913Z",
+  "stats": {
+    "total": 34,
+    "registered": 7,
+    "functional": 32,
+    "i18n": {
+      "complete": 33,
+      "partial": 0,
+      "none": 1
+    },
+    "totalComponents": 253
+  },
+  "modules": [
+    {
+      "name": "academy",
+      "path": "/dashboard-bundui/academy",
+      "registered": false,
+      "functional": true,
+      "componentCount": 9,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "academy",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 86,
+            "hasHardcoded": 7
+          },
+          {
+            "locale": "es",
+            "keys": 86,
+            "hasHardcoded": 7
+          },
+          {
+            "locale": "fr",
+            "keys": 86,
+            "hasHardcoded": 7
+          },
+          {
+            "locale": "pt",
+            "keys": 86,
+            "hasHardcoded": 7
+          },
+          {
+            "locale": "de",
+            "keys": 86,
+            "hasHardcoded": 7
+          },
+          {
+            "locale": "it",
+            "keys": 86,
+            "hasHardcoded": 7
+          },
+          {
+            "locale": "ko",
+            "keys": 86,
+            "hasHardcoded": 7
+          },
+          {
+            "locale": "ar",
+            "keys": 86,
+            "hasHardcoded": 7
+          },
+          {
+            "locale": "zh",
+            "keys": 86,
+            "hasHardcoded": 7
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 86,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "ai-chat",
+      "path": "/dashboard-bundui/ai-chat",
+      "registered": false,
+      "functional": true,
+      "componentCount": 9,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "ai-chat",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 11,
+            "hasHardcoded": 30
+          },
+          {
+            "locale": "es",
+            "keys": 11,
+            "hasHardcoded": 30
+          },
+          {
+            "locale": "fr",
+            "keys": 11,
+            "hasHardcoded": 30
+          },
+          {
+            "locale": "pt",
+            "keys": 11,
+            "hasHardcoded": 30
+          },
+          {
+            "locale": "de",
+            "keys": 11,
+            "hasHardcoded": 30
+          },
+          {
+            "locale": "it",
+            "keys": 11,
+            "hasHardcoded": 30
+          },
+          {
+            "locale": "ko",
+            "keys": 11,
+            "hasHardcoded": 30
+          },
+          {
+            "locale": "ar",
+            "keys": 11,
+            "hasHardcoded": 30
+          },
+          {
+            "locale": "zh",
+            "keys": 11,
+            "hasHardcoded": 30
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 11,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "ai-chat-v2",
+      "path": "/dashboard-bundui/ai-chat-v2",
+      "registered": true,
+      "functional": true,
+      "componentCount": 3,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "ai-chat",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 11,
+            "hasHardcoded": 30
+          },
+          {
+            "locale": "es",
+            "keys": 11,
+            "hasHardcoded": 30
+          },
+          {
+            "locale": "fr",
+            "keys": 11,
+            "hasHardcoded": 30
+          },
+          {
+            "locale": "pt",
+            "keys": 11,
+            "hasHardcoded": 30
+          },
+          {
+            "locale": "de",
+            "keys": 11,
+            "hasHardcoded": 30
+          },
+          {
+            "locale": "it",
+            "keys": 11,
+            "hasHardcoded": 30
+          },
+          {
+            "locale": "ko",
+            "keys": 11,
+            "hasHardcoded": 30
+          },
+          {
+            "locale": "ar",
+            "keys": 11,
+            "hasHardcoded": 30
+          },
+          {
+            "locale": "zh",
+            "keys": 11,
+            "hasHardcoded": 30
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 11,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": {
+        "id": "ai-chat-v2",
+        "coverage": 100,
+        "status": "registered"
+      }
+    },
+    {
+      "name": "ai-image-generator",
+      "path": "/dashboard-bundui/ai-image-generator",
+      "registered": false,
+      "functional": true,
+      "componentCount": 5,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "ai-image-generator",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 86,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "es",
+            "keys": 86,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "fr",
+            "keys": 86,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "pt",
+            "keys": 86,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "de",
+            "keys": 86,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "it",
+            "keys": 86,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "ko",
+            "keys": 86,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "ar",
+            "keys": 86,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "zh",
+            "keys": 86,
+            "hasHardcoded": 12
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 86,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "analytics",
+      "path": "/dashboard-bundui/analytics",
+      "registered": false,
+      "functional": true,
+      "componentCount": 11,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "analytics",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 91,
+            "hasHardcoded": 24
+          },
+          {
+            "locale": "es",
+            "keys": 91,
+            "hasHardcoded": 24
+          },
+          {
+            "locale": "fr",
+            "keys": 91,
+            "hasHardcoded": 24
+          },
+          {
+            "locale": "pt",
+            "keys": 91,
+            "hasHardcoded": 24
+          },
+          {
+            "locale": "de",
+            "keys": 91,
+            "hasHardcoded": 24
+          },
+          {
+            "locale": "it",
+            "keys": 91,
+            "hasHardcoded": 24
+          },
+          {
+            "locale": "ko",
+            "keys": 91,
+            "hasHardcoded": 24
+          },
+          {
+            "locale": "ar",
+            "keys": 91,
+            "hasHardcoded": 24
+          },
+          {
+            "locale": "zh",
+            "keys": 91,
+            "hasHardcoded": 24
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 91,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "api-keys",
+      "path": "/dashboard-bundui/api-keys",
+      "registered": false,
+      "functional": true,
+      "componentCount": 6,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "api-keys",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 87,
+            "hasHardcoded": 10
+          },
+          {
+            "locale": "es",
+            "keys": 87,
+            "hasHardcoded": 10
+          },
+          {
+            "locale": "fr",
+            "keys": 87,
+            "hasHardcoded": 10
+          },
+          {
+            "locale": "pt",
+            "keys": 87,
+            "hasHardcoded": 10
+          },
+          {
+            "locale": "de",
+            "keys": 87,
+            "hasHardcoded": 10
+          },
+          {
+            "locale": "it",
+            "keys": 87,
+            "hasHardcoded": 10
+          },
+          {
+            "locale": "ko",
+            "keys": 87,
+            "hasHardcoded": 10
+          },
+          {
+            "locale": "ar",
+            "keys": 87,
+            "hasHardcoded": 10
+          },
+          {
+            "locale": "zh",
+            "keys": 87,
+            "hasHardcoded": 10
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 87,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "calendar",
+      "path": "/dashboard-bundui/calendar",
+      "registered": false,
+      "functional": true,
+      "componentCount": 13,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "calendar",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 97,
+            "hasHardcoded": 22
+          },
+          {
+            "locale": "es",
+            "keys": 97,
+            "hasHardcoded": 22
+          },
+          {
+            "locale": "fr",
+            "keys": 97,
+            "hasHardcoded": 22
+          },
+          {
+            "locale": "pt",
+            "keys": 97,
+            "hasHardcoded": 22
+          },
+          {
+            "locale": "de",
+            "keys": 97,
+            "hasHardcoded": 22
+          },
+          {
+            "locale": "it",
+            "keys": 97,
+            "hasHardcoded": 22
+          },
+          {
+            "locale": "ko",
+            "keys": 97,
+            "hasHardcoded": 22
+          },
+          {
+            "locale": "ar",
+            "keys": 97,
+            "hasHardcoded": 22
+          },
+          {
+            "locale": "zh",
+            "keys": 97,
+            "hasHardcoded": 22
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 97,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "chat",
+      "path": "/dashboard-bundui/chat",
+      "registered": false,
+      "functional": true,
+      "componentCount": 14,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "chat",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 2,
+            "hasHardcoded": 2
+          },
+          {
+            "locale": "es",
+            "keys": 2,
+            "hasHardcoded": 2
+          },
+          {
+            "locale": "fr",
+            "keys": 2,
+            "hasHardcoded": 2
+          },
+          {
+            "locale": "pt",
+            "keys": 2,
+            "hasHardcoded": 2
+          },
+          {
+            "locale": "de",
+            "keys": 2,
+            "hasHardcoded": 2
+          },
+          {
+            "locale": "it",
+            "keys": 2,
+            "hasHardcoded": 2
+          },
+          {
+            "locale": "ko",
+            "keys": 2,
+            "hasHardcoded": 2
+          },
+          {
+            "locale": "ar",
+            "keys": 2,
+            "hasHardcoded": 2
+          },
+          {
+            "locale": "zh",
+            "keys": 2,
+            "hasHardcoded": 2
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 2,
+        "namespaceInTypes": false,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "crm",
+      "path": "/dashboard-bundui/crm",
+      "registered": false,
+      "functional": true,
+      "componentCount": 6,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "crm",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 7,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "es",
+            "keys": 7,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "fr",
+            "keys": 7,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "pt",
+            "keys": 7,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "de",
+            "keys": 7,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "it",
+            "keys": 7,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "ko",
+            "keys": 7,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "ar",
+            "keys": 7,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "zh",
+            "keys": 7,
+            "hasHardcoded": 12
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 7,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "crm-v2",
+      "path": "/dashboard-bundui/crm-v2",
+      "registered": true,
+      "functional": true,
+      "componentCount": 10,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "crm-v2",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 92,
+            "hasHardcoded": 6
+          },
+          {
+            "locale": "es",
+            "keys": 219,
+            "hasHardcoded": 6
+          },
+          {
+            "locale": "fr",
+            "keys": 92,
+            "hasHardcoded": 6
+          },
+          {
+            "locale": "pt",
+            "keys": 92,
+            "hasHardcoded": 6
+          },
+          {
+            "locale": "de",
+            "keys": 92,
+            "hasHardcoded": 6
+          },
+          {
+            "locale": "it",
+            "keys": 92,
+            "hasHardcoded": 6
+          },
+          {
+            "locale": "ko",
+            "keys": 92,
+            "hasHardcoded": 6
+          },
+          {
+            "locale": "ar",
+            "keys": 92,
+            "hasHardcoded": 6
+          },
+          {
+            "locale": "zh",
+            "keys": 92,
+            "hasHardcoded": 6
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 106,
+        "namespaceInTypes": false,
+        "status": "complete"
+      },
+      "registeredInfo": {
+        "id": "crm-v2",
+        "coverage": 0,
+        "status": "registered"
+      }
+    },
+    {
+      "name": "crm-v2-ai",
+      "path": "/dashboard-bundui/crm-v2-ai",
+      "registered": false,
+      "functional": true,
+      "componentCount": 2,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "crm-v2-ai",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "es",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "fr",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "pt",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "de",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "it",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "ko",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "ar",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "zh",
+            "keys": 86,
+            "hasHardcoded": 5
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 86,
+        "namespaceInTypes": false,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "crypto",
+      "path": "/dashboard-bundui/crypto",
+      "registered": false,
+      "functional": true,
+      "componentCount": 21,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "crypto",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 10,
+            "hasHardcoded": 38
+          },
+          {
+            "locale": "es",
+            "keys": 10,
+            "hasHardcoded": 38
+          },
+          {
+            "locale": "fr",
+            "keys": 10,
+            "hasHardcoded": 38
+          },
+          {
+            "locale": "pt",
+            "keys": 10,
+            "hasHardcoded": 38
+          },
+          {
+            "locale": "de",
+            "keys": 10,
+            "hasHardcoded": 38
+          },
+          {
+            "locale": "it",
+            "keys": 10,
+            "hasHardcoded": 38
+          },
+          {
+            "locale": "ko",
+            "keys": 10,
+            "hasHardcoded": 38
+          },
+          {
+            "locale": "ar",
+            "keys": 10,
+            "hasHardcoded": 38
+          },
+          {
+            "locale": "zh",
+            "keys": 10,
+            "hasHardcoded": 38
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 10,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "crypto-v2",
+      "path": "/dashboard-bundui/crypto-v2",
+      "registered": true,
+      "functional": true,
+      "componentCount": 6,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "crypto",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 10,
+            "hasHardcoded": 38
+          },
+          {
+            "locale": "es",
+            "keys": 10,
+            "hasHardcoded": 38
+          },
+          {
+            "locale": "fr",
+            "keys": 10,
+            "hasHardcoded": 38
+          },
+          {
+            "locale": "pt",
+            "keys": 10,
+            "hasHardcoded": 38
+          },
+          {
+            "locale": "de",
+            "keys": 10,
+            "hasHardcoded": 38
+          },
+          {
+            "locale": "it",
+            "keys": 10,
+            "hasHardcoded": 38
+          },
+          {
+            "locale": "ko",
+            "keys": 10,
+            "hasHardcoded": 38
+          },
+          {
+            "locale": "ar",
+            "keys": 10,
+            "hasHardcoded": 38
+          },
+          {
+            "locale": "zh",
+            "keys": 10,
+            "hasHardcoded": 38
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 10,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": {
+        "id": "crypto-v2",
+        "coverage": 100,
+        "status": "registered"
+      }
+    },
+    {
+      "name": "default",
+      "path": "/dashboard-bundui/default",
+      "registered": false,
+      "functional": true,
+      "componentCount": 8,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "default",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 93,
+            "hasHardcoded": 106
+          },
+          {
+            "locale": "es",
+            "keys": 93,
+            "hasHardcoded": 106
+          },
+          {
+            "locale": "fr",
+            "keys": 93,
+            "hasHardcoded": 106
+          },
+          {
+            "locale": "pt",
+            "keys": 93,
+            "hasHardcoded": 106
+          },
+          {
+            "locale": "de",
+            "keys": 93,
+            "hasHardcoded": 106
+          },
+          {
+            "locale": "it",
+            "keys": 93,
+            "hasHardcoded": 106
+          },
+          {
+            "locale": "ko",
+            "keys": 93,
+            "hasHardcoded": 106
+          },
+          {
+            "locale": "ar",
+            "keys": 93,
+            "hasHardcoded": 106
+          },
+          {
+            "locale": "zh",
+            "keys": 93,
+            "hasHardcoded": 106
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 93,
+        "namespaceInTypes": false,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "ecommerce",
+      "path": "/dashboard-bundui/ecommerce",
+      "registered": false,
+      "functional": true,
+      "componentCount": 12,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "ecommerce",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 11,
+            "hasHardcoded": 22
+          },
+          {
+            "locale": "es",
+            "keys": 11,
+            "hasHardcoded": 22
+          },
+          {
+            "locale": "fr",
+            "keys": 11,
+            "hasHardcoded": 22
+          },
+          {
+            "locale": "pt",
+            "keys": 11,
+            "hasHardcoded": 22
+          },
+          {
+            "locale": "de",
+            "keys": 11,
+            "hasHardcoded": 22
+          },
+          {
+            "locale": "it",
+            "keys": 11,
+            "hasHardcoded": 22
+          },
+          {
+            "locale": "ko",
+            "keys": 11,
+            "hasHardcoded": 22
+          },
+          {
+            "locale": "ar",
+            "keys": 11,
+            "hasHardcoded": 22
+          },
+          {
+            "locale": "zh",
+            "keys": 11,
+            "hasHardcoded": 22
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 11,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "file-manager",
+      "path": "/dashboard-bundui/file-manager",
+      "registered": true,
+      "functional": true,
+      "componentCount": 7,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "file-manager",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 16,
+            "hasHardcoded": 24
+          },
+          {
+            "locale": "es",
+            "keys": 16,
+            "hasHardcoded": 24
+          },
+          {
+            "locale": "fr",
+            "keys": 16,
+            "hasHardcoded": 24
+          },
+          {
+            "locale": "pt",
+            "keys": 16,
+            "hasHardcoded": 24
+          },
+          {
+            "locale": "de",
+            "keys": 16,
+            "hasHardcoded": 24
+          },
+          {
+            "locale": "it",
+            "keys": 16,
+            "hasHardcoded": 24
+          },
+          {
+            "locale": "ko",
+            "keys": 16,
+            "hasHardcoded": 24
+          },
+          {
+            "locale": "ar",
+            "keys": 16,
+            "hasHardcoded": 24
+          },
+          {
+            "locale": "zh",
+            "keys": 16,
+            "hasHardcoded": 24
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 16,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": {
+        "id": "file-manager",
+        "coverage": 100,
+        "status": "registered"
+      }
+    },
+    {
+      "name": "finance",
+      "path": "/dashboard-bundui/finance",
+      "registered": false,
+      "functional": true,
+      "componentCount": 11,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "finance",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 12,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "es",
+            "keys": 12,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "fr",
+            "keys": 12,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "pt",
+            "keys": 12,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "de",
+            "keys": 12,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "it",
+            "keys": 12,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "ko",
+            "keys": 12,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "ar",
+            "keys": 12,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "zh",
+            "keys": 12,
+            "hasHardcoded": 18
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 12,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "finance-v2",
+      "path": "/dashboard-bundui/finance-v2",
+      "registered": true,
+      "functional": true,
+      "componentCount": 7,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "finance",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 12,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "es",
+            "keys": 12,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "fr",
+            "keys": 12,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "pt",
+            "keys": 12,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "de",
+            "keys": 12,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "it",
+            "keys": 12,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "ko",
+            "keys": 12,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "ar",
+            "keys": 12,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "zh",
+            "keys": 12,
+            "hasHardcoded": 18
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 12,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": {
+        "id": "finance-v2",
+        "coverage": 100,
+        "status": "registered"
+      }
+    },
+    {
+      "name": "hospital-management",
+      "path": "/dashboard-bundui/hospital-management",
+      "registered": false,
+      "functional": true,
+      "componentCount": 10,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "hospital-management",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 86,
+            "hasHardcoded": 13
+          },
+          {
+            "locale": "es",
+            "keys": 86,
+            "hasHardcoded": 13
+          },
+          {
+            "locale": "fr",
+            "keys": 86,
+            "hasHardcoded": 13
+          },
+          {
+            "locale": "pt",
+            "keys": 86,
+            "hasHardcoded": 13
+          },
+          {
+            "locale": "de",
+            "keys": 86,
+            "hasHardcoded": 13
+          },
+          {
+            "locale": "it",
+            "keys": 86,
+            "hasHardcoded": 13
+          },
+          {
+            "locale": "ko",
+            "keys": 86,
+            "hasHardcoded": 13
+          },
+          {
+            "locale": "ar",
+            "keys": 86,
+            "hasHardcoded": 13
+          },
+          {
+            "locale": "zh",
+            "keys": 86,
+            "hasHardcoded": 13
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 86,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "hotel",
+      "path": "/dashboard-bundui/hotel",
+      "registered": true,
+      "functional": true,
+      "componentCount": 8,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "hotel",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 2,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "es",
+            "keys": 2,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "fr",
+            "keys": 2,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "pt",
+            "keys": 2,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "de",
+            "keys": 2,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "it",
+            "keys": 2,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "ko",
+            "keys": 2,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "ar",
+            "keys": 2,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "zh",
+            "keys": 2,
+            "hasHardcoded": 12
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 2,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": {
+        "id": "hotel-dashboard",
+        "coverage": 65,
+        "status": "registered"
+      }
+    },
+    {
+      "name": "kanban",
+      "path": "/dashboard-bundui/kanban",
+      "registered": false,
+      "functional": true,
+      "componentCount": 2,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "kanban",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "es",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "fr",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "pt",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "de",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "it",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "ko",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "ar",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "zh",
+            "keys": 86,
+            "hasHardcoded": 5
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 86,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "mail",
+      "path": "/dashboard-bundui/mail",
+      "registered": false,
+      "functional": true,
+      "componentCount": 6,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "mail",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 7,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "es",
+            "keys": 7,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "fr",
+            "keys": 7,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "pt",
+            "keys": 7,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "de",
+            "keys": 7,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "it",
+            "keys": 7,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "ko",
+            "keys": 7,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "ar",
+            "keys": 7,
+            "hasHardcoded": 18
+          },
+          {
+            "locale": "zh",
+            "keys": 7,
+            "hasHardcoded": 18
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 7,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "notes",
+      "path": "/dashboard-bundui/notes",
+      "registered": false,
+      "functional": true,
+      "componentCount": 0,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "notes",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 86,
+            "hasHardcoded": 31
+          },
+          {
+            "locale": "es",
+            "keys": 86,
+            "hasHardcoded": 31
+          },
+          {
+            "locale": "fr",
+            "keys": 86,
+            "hasHardcoded": 31
+          },
+          {
+            "locale": "pt",
+            "keys": 86,
+            "hasHardcoded": 31
+          },
+          {
+            "locale": "de",
+            "keys": 86,
+            "hasHardcoded": 31
+          },
+          {
+            "locale": "it",
+            "keys": 86,
+            "hasHardcoded": 31
+          },
+          {
+            "locale": "ko",
+            "keys": 86,
+            "hasHardcoded": 31
+          },
+          {
+            "locale": "ar",
+            "keys": 86,
+            "hasHardcoded": 31
+          },
+          {
+            "locale": "zh",
+            "keys": 86,
+            "hasHardcoded": 31
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 86,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "payment",
+      "path": "/dashboard-bundui/payment",
+      "registered": false,
+      "functional": true,
+      "componentCount": 5,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "payment",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "es",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "fr",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "pt",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "de",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "it",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "ko",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "ar",
+            "keys": 86,
+            "hasHardcoded": 5
+          },
+          {
+            "locale": "zh",
+            "keys": 86,
+            "hasHardcoded": 5
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 86,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "pos-system",
+      "path": "/dashboard-bundui/pos-system",
+      "registered": false,
+      "functional": true,
+      "componentCount": 7,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "pos-system",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 86,
+            "hasHardcoded": 66
+          },
+          {
+            "locale": "es",
+            "keys": 86,
+            "hasHardcoded": 66
+          },
+          {
+            "locale": "fr",
+            "keys": 86,
+            "hasHardcoded": 66
+          },
+          {
+            "locale": "pt",
+            "keys": 86,
+            "hasHardcoded": 66
+          },
+          {
+            "locale": "de",
+            "keys": 86,
+            "hasHardcoded": 66
+          },
+          {
+            "locale": "it",
+            "keys": 86,
+            "hasHardcoded": 66
+          },
+          {
+            "locale": "ko",
+            "keys": 86,
+            "hasHardcoded": 66
+          },
+          {
+            "locale": "ar",
+            "keys": 86,
+            "hasHardcoded": 66
+          },
+          {
+            "locale": "zh",
+            "keys": 86,
+            "hasHardcoded": 66
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 86,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "project-list",
+      "path": "/dashboard-bundui/project-list",
+      "registered": false,
+      "functional": true,
+      "componentCount": 0,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "project-list",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 86,
+            "hasHardcoded": 1
+          },
+          {
+            "locale": "es",
+            "keys": 86,
+            "hasHardcoded": 1
+          },
+          {
+            "locale": "fr",
+            "keys": 86,
+            "hasHardcoded": 1
+          },
+          {
+            "locale": "pt",
+            "keys": 86,
+            "hasHardcoded": 1
+          },
+          {
+            "locale": "de",
+            "keys": 86,
+            "hasHardcoded": 1
+          },
+          {
+            "locale": "it",
+            "keys": 86,
+            "hasHardcoded": 1
+          },
+          {
+            "locale": "ko",
+            "keys": 86,
+            "hasHardcoded": 1
+          },
+          {
+            "locale": "ar",
+            "keys": 86,
+            "hasHardcoded": 1
+          },
+          {
+            "locale": "zh",
+            "keys": 86,
+            "hasHardcoded": 1
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 86,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "project-management",
+      "path": "/dashboard-bundui/project-management",
+      "registered": false,
+      "functional": false,
+      "componentCount": 2,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "project-management",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 86,
+            "hasHardcoded": 35
+          },
+          {
+            "locale": "es",
+            "keys": 86,
+            "hasHardcoded": 35
+          },
+          {
+            "locale": "fr",
+            "keys": 86,
+            "hasHardcoded": 35
+          },
+          {
+            "locale": "pt",
+            "keys": 86,
+            "hasHardcoded": 35
+          },
+          {
+            "locale": "de",
+            "keys": 86,
+            "hasHardcoded": 35
+          },
+          {
+            "locale": "it",
+            "keys": 86,
+            "hasHardcoded": 35
+          },
+          {
+            "locale": "ko",
+            "keys": 86,
+            "hasHardcoded": 35
+          },
+          {
+            "locale": "ar",
+            "keys": 86,
+            "hasHardcoded": 35
+          },
+          {
+            "locale": "zh",
+            "keys": 86,
+            "hasHardcoded": 35
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 86,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "projects",
+      "path": "/dashboard-bundui/projects",
+      "registered": false,
+      "functional": true,
+      "componentCount": 11,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "projects",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 6,
+            "hasHardcoded": 34
+          },
+          {
+            "locale": "es",
+            "keys": 6,
+            "hasHardcoded": 34
+          },
+          {
+            "locale": "fr",
+            "keys": 6,
+            "hasHardcoded": 34
+          },
+          {
+            "locale": "pt",
+            "keys": 6,
+            "hasHardcoded": 34
+          },
+          {
+            "locale": "de",
+            "keys": 6,
+            "hasHardcoded": 34
+          },
+          {
+            "locale": "it",
+            "keys": 6,
+            "hasHardcoded": 34
+          },
+          {
+            "locale": "ko",
+            "keys": 6,
+            "hasHardcoded": 34
+          },
+          {
+            "locale": "ar",
+            "keys": 6,
+            "hasHardcoded": 34
+          },
+          {
+            "locale": "zh",
+            "keys": 6,
+            "hasHardcoded": 34
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 6,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "projects-v2",
+      "path": "/dashboard-bundui/projects-v2",
+      "registered": false,
+      "functional": true,
+      "componentCount": 15,
+      "i18n": {
+        "hasNamespace": false,
+        "hasTranslations": false,
+        "locales": [],
+        "coverage": 0,
+        "namespaceInTypes": false,
+        "status": "none"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "sales",
+      "path": "/dashboard-bundui/sales",
+      "registered": false,
+      "functional": true,
+      "componentCount": 8,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "sales",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 1,
+            "hasHardcoded": 25
+          },
+          {
+            "locale": "es",
+            "keys": 1,
+            "hasHardcoded": 25
+          },
+          {
+            "locale": "fr",
+            "keys": 1,
+            "hasHardcoded": 25
+          },
+          {
+            "locale": "pt",
+            "keys": 1,
+            "hasHardcoded": 25
+          },
+          {
+            "locale": "de",
+            "keys": 1,
+            "hasHardcoded": 25
+          },
+          {
+            "locale": "it",
+            "keys": 1,
+            "hasHardcoded": 25
+          },
+          {
+            "locale": "ko",
+            "keys": 1,
+            "hasHardcoded": 25
+          },
+          {
+            "locale": "ar",
+            "keys": 1,
+            "hasHardcoded": 25
+          },
+          {
+            "locale": "zh",
+            "keys": 1,
+            "hasHardcoded": 25
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 1,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "social-media",
+      "path": "/dashboard-bundui/social-media",
+      "registered": true,
+      "functional": true,
+      "componentCount": 5,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "social-media",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 86,
+            "hasHardcoded": 14
+          },
+          {
+            "locale": "es",
+            "keys": 86,
+            "hasHardcoded": 14
+          },
+          {
+            "locale": "fr",
+            "keys": 86,
+            "hasHardcoded": 14
+          },
+          {
+            "locale": "pt",
+            "keys": 86,
+            "hasHardcoded": 14
+          },
+          {
+            "locale": "de",
+            "keys": 86,
+            "hasHardcoded": 14
+          },
+          {
+            "locale": "it",
+            "keys": 86,
+            "hasHardcoded": 14
+          },
+          {
+            "locale": "ko",
+            "keys": 86,
+            "hasHardcoded": 14
+          },
+          {
+            "locale": "ar",
+            "keys": 86,
+            "hasHardcoded": 14
+          },
+          {
+            "locale": "zh",
+            "keys": 86,
+            "hasHardcoded": 14
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 86,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": {
+        "id": "social-media",
+        "coverage": 0,
+        "status": "registered"
+      }
+    },
+    {
+      "name": "tasks",
+      "path": "/dashboard-bundui/tasks",
+      "registered": false,
+      "functional": true,
+      "componentCount": 9,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "tasks",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 91,
+            "hasHardcoded": 31
+          },
+          {
+            "locale": "es",
+            "keys": 91,
+            "hasHardcoded": 31
+          },
+          {
+            "locale": "fr",
+            "keys": 91,
+            "hasHardcoded": 31
+          },
+          {
+            "locale": "pt",
+            "keys": 91,
+            "hasHardcoded": 31
+          },
+          {
+            "locale": "de",
+            "keys": 91,
+            "hasHardcoded": 31
+          },
+          {
+            "locale": "it",
+            "keys": 91,
+            "hasHardcoded": 31
+          },
+          {
+            "locale": "ko",
+            "keys": 91,
+            "hasHardcoded": 31
+          },
+          {
+            "locale": "ar",
+            "keys": 91,
+            "hasHardcoded": 31
+          },
+          {
+            "locale": "zh",
+            "keys": 91,
+            "hasHardcoded": 31
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 91,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "todo-list-app",
+      "path": "/dashboard-bundui/todo-list-app",
+      "registered": false,
+      "functional": true,
+      "componentCount": 5,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "todo-list-app",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 86,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "es",
+            "keys": 86,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "fr",
+            "keys": 86,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "pt",
+            "keys": 86,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "de",
+            "keys": 86,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "it",
+            "keys": 86,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "ko",
+            "keys": 86,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "ar",
+            "keys": 86,
+            "hasHardcoded": 12
+          },
+          {
+            "locale": "zh",
+            "keys": 86,
+            "hasHardcoded": 12
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 86,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    },
+    {
+      "name": "widgets",
+      "path": "/dashboard-bundui/widgets",
+      "registered": false,
+      "functional": false,
+      "componentCount": 0,
+      "i18n": {
+        "hasNamespace": true,
+        "namespace": "widgets",
+        "hasTranslations": true,
+        "locales": [
+          {
+            "locale": "en",
+            "keys": 86,
+            "hasHardcoded": 25
+          },
+          {
+            "locale": "es",
+            "keys": 86,
+            "hasHardcoded": 25
+          },
+          {
+            "locale": "fr",
+            "keys": 86,
+            "hasHardcoded": 25
+          },
+          {
+            "locale": "pt",
+            "keys": 86,
+            "hasHardcoded": 25
+          },
+          {
+            "locale": "de",
+            "keys": 86,
+            "hasHardcoded": 25
+          },
+          {
+            "locale": "it",
+            "keys": 86,
+            "hasHardcoded": 25
+          },
+          {
+            "locale": "ko",
+            "keys": 86,
+            "hasHardcoded": 25
+          },
+          {
+            "locale": "ar",
+            "keys": 86,
+            "hasHardcoded": 25
+          },
+          {
+            "locale": "zh",
+            "keys": 86,
+            "hasHardcoded": 25
+          }
+        ],
+        "coverage": 100,
+        "totalKeys": 86,
+        "namespaceInTypes": true,
+        "status": "complete"
+      },
+      "registeredInfo": null
+    }
+  ]
+}

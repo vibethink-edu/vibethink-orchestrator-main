@@ -1,7 +1,7 @@
 
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { Pause, Play } from "lucide-react";
-import { Button } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
 
 const history = [
   { label: "5d ago", distance: "10.37km" },
@@ -16,10 +16,10 @@ export function TrackingCard() {
         <CardTitle className="text-muted-foreground font-medium">Tracking Now</CardTitle>
         <CardAction>
           <div className="flex gap-2">
-            <Button variant="outline" size="icon-sm">
+            <Button variant="outline" size="icon">
               <Pause />
             </Button>
-            <Button variant="outline" size="icon-sm">
+            <Button variant="outline" size="icon">
               <Play />
             </Button>
           </div>

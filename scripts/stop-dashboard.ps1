@@ -1,7 +1,7 @@
 # Stop Dashboard Dev Server
 # Kills all Node processes on port 3005
 
-Write-Host "🛑 Stopping Pana Dashboard..." -ForegroundColor Cyan
+Write-Host "🛑 Stopping ViTo Dashboard (VibeThink Orchestrator)..." -ForegroundColor Cyan
 
 $port = 3005
 $processStopped = $false
@@ -26,15 +26,29 @@ if ($connections) {
             Stop-Process -Id $processId -Force -ErrorAction Stop
             Write-Host "✅ Stopped process $processId" -ForegroundColor Green
             $processStopped = $true
-        } catch {
-            Write-Host "⚠️  Could not stop process $processId : $($_.Exception.Message)" -ForegroundColor Yellow
+        }
+        catch {
+            # Process might already be gone, but port still in TIME_WAIT
+            Write-Host "⚠️  Process $processId not found (may have already terminated)" -ForegroundColor Yellow
+            # Try to force close the connection
+            try {
+                $connection = $connections | Where-Object { $_.OwningProcess -eq $processId } | Select-Object -First 1
+                if ($connection) {
+                    Write-Host "   Connection may be in TIME_WAIT state, will clear on next check" -ForegroundColor Gray
+                }
+            } catch {
+                # Ignore connection cleanup errors
+            }
         }
     }
     
     if (-not $processStopped) {
-        Write-Host "ℹ️  No valid processes found on port $port" -ForegroundColor Gray
+        Write-Host "ℹ️  No valid processes found on port $port (connections may be in TIME_WAIT)" -ForegroundColor Gray
+        Write-Host "   Waiting 2 seconds for connections to clear..." -ForegroundColor Gray
+        Start-Sleep -Seconds 2
     }
-} else {
+}
+else {
     Write-Host "ℹ️  No process found on port $port" -ForegroundColor Gray
 }
 
@@ -43,9 +57,9 @@ $projectPath = Split-Path -Parent $PSScriptRoot
 try {
     # Get node processes with their command line to filter by project path
     $nodeProcesses = Get-CimInstance Win32_Process -Filter "Name = 'node.exe'" -ErrorAction SilentlyContinue | 
-        Where-Object { 
-            $_.CommandLine -and $_.CommandLine -like "*$projectPath*" 
-        }
+    Where-Object { 
+        $_.CommandLine -and $_.CommandLine -like "*$projectPath*" 
+    }
     
     if ($nodeProcesses) {
         Write-Host "Cleaning up orphaned node processes..." -ForegroundColor Yellow
@@ -53,12 +67,14 @@ try {
             try {
                 Stop-Process -Id $proc.ProcessId -Force -ErrorAction Stop
                 Write-Host "✅ Stopped orphaned process $($proc.ProcessId)" -ForegroundColor Green
-            } catch {
+            }
+            catch {
                 Write-Host "⚠️  Could not stop orphaned process $($proc.ProcessId)" -ForegroundColor Yellow
             }
         }
     }
-} catch {
+}
+catch {
     # Fallback: try simple Get-Process if CIM fails
     $nodeProcesses = Get-Process node -ErrorAction SilentlyContinue
     if ($nodeProcesses) {

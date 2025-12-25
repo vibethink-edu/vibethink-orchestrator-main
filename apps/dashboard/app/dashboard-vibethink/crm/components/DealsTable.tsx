@@ -1,4 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle, Badge, Progress, Button, Skeleton } from '@vibethink/ui'
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui/components/card'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Progress } from '@vibethink/ui/components/progress'
+import { Button } from '@vibethink/ui/components/button'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
 import { MoreHorizontal, Calendar } from 'lucide-react'
 import { useCrmData } from '../hooks/useCrmData'
 import { useCrmFilters } from '../hooks/useCrmFilters'
@@ -20,7 +24,7 @@ interface DealsTableProps {
 export function DealsTable({ className }: DealsTableProps) {
   const { deals, loading, error } = useCrmData()
   const { filterDeals } = useCrmFilters()
-  
+
   const filteredDeals = filterDeals(deals)
   const activeDeals = filteredDeals.filter(deal => deal.stage !== 'closed' && deal.stage !== 'lost')
 
@@ -97,7 +101,7 @@ export function DealsTable({ className }: DealsTableProps) {
                       <p className="text-xs text-muted-foreground line-clamp-2">{deal.description}</p>
                     )}
                   </div>
-                  
+
                   <div className="flex items-center space-x-2">
                     <span className="font-bold text-lg">${deal.value.toLocaleString()}</span>
                     <Button variant="ghost" size="sm">
@@ -105,19 +109,19 @@ export function DealsTable({ className }: DealsTableProps) {
                     </Button>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     <Badge className={stageColors[deal.stage as keyof typeof stageColors]}>
                       {DEAL_STAGES[deal.stage]}
                     </Badge>
-                    
+
                     <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                       <Calendar className="h-4 w-4" />
                       <span>{new Date(deal.close_date).toLocaleDateString()}</span>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-2">
                     <span className="text-sm text-muted-foreground">{deal.probability}%</span>
                     <Progress value={deal.probability} className="w-16 h-2" />

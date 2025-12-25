@@ -4,7 +4,9 @@ import { useEffect, useMemo, useRef } from "react";
 import { format, isSameDay } from "date-fns";
 import { XIcon } from "lucide-react";
 
-import { EventItem, type CalendarEvent } from "./";
+import { EventItem } from "./event-item";
+import type { CalendarEvent } from "../types";
+import { useTranslation } from "@/lib/i18n";
 
 interface EventsPopupProps {
   date: Date;
@@ -15,6 +17,7 @@ interface EventsPopupProps {
 }
 
 export function EventsPopup({ date, events, position, onClose, onEventSelect }: EventsPopupProps) {
+  const { t } = useTranslation('calendar');
   const popupRef = useRef<HTMLDivElement>(null);
 
   // Handle click outside to close popup
@@ -84,14 +87,14 @@ export function EventsPopup({ date, events, position, onClose, onEventSelect }: 
       }}>
       <div className="bg-background sticky top-0 flex items-center justify-between border-b p-3">
         <h3 className="font-medium">{format(date, "d MMMM yyyy")}</h3>
-        <button onClick={onClose} className="hover:bg-muted rounded-full p-1" aria-label="Close">
+        <button onClick={onClose} className="hover:bg-muted rounded-full p-1" aria-label={t('close')}>
           <XIcon className="h-4 w-4" />
         </button>
       </div>
 
       <div className="space-y-2 p-3">
         {events.length === 0 ? (
-          <div className="text-muted-foreground py-2 text-sm">No events</div>
+          <div className="text-muted-foreground py-2 text-sm">{t('empty.noEvents')}</div>
         ) : (
           events.map((event) => {
             const eventStart = new Date(event.start);

@@ -1,13 +1,8 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { Line, LineChart } from "recharts";
-import {
-  ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent
-} from "@vibethink/ui";
+import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@vibethink/ui/components/chart";
 
 export function EcommerceRevenueCard() {
   const chartConfig = {

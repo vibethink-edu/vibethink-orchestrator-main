@@ -2,6 +2,7 @@ import React from "react";
 import { cookies } from "next/headers";
 import { cn } from "@/shared/lib/utils";
 import { ThemeProvider } from "next-themes";
+import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
 import { DEFAULT_THEME } from "@/shared/lib/themes";
 import { AuthProvider } from "@/providers/AuthProvider";
@@ -35,6 +36,11 @@ export default async function RootLayout({
 
   return (
     <html lang={initialLocale} suppressHydrationWarning>
+      <head>
+        {/* UTF-8 encoding - CRITICAL for universal i18n support */}
+        {/* Ensures proper rendering of all Unicode characters (Chinese, Arabic, etc.) */}
+        <meta charSet="UTF-8" />
+      </head>
       <body
         suppressHydrationWarning
         className={cn("bg-background group/layout font-sans")}
@@ -44,8 +50,20 @@ export default async function RootLayout({
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange>
-          <I18nProvider initialLocale={initialLocale}>
+          <I18nProvider initialLocale={initialLocale} preloadNamespaces={['common', 'navigation', 'theme', 'hotel', 'chat', 'projects', 'mail', 'calendar', 'dashboard-vibethink', 'dashboard-bundui']}>
             <AuthProvider>
+              <NextTopLoader
+                color="hsl(var(--primary))"
+                initialPosition={0.08}
+                crawlSpeed={200}
+                height={4}
+                crawl={true}
+                showSpinner={false}
+                easing="ease"
+                speed={200}
+                shadow="0 0 10px hsl(var(--primary)),0 0 5px hsl(var(--primary))"
+                zIndex={99999}
+              />
               {children}
               {/* <Toaster position="top-center" richColors /> */}
             </AuthProvider>

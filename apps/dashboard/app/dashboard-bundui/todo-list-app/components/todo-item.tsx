@@ -1,16 +1,21 @@
 import React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { format } from "date-fns";
 import { Calendar, FileIcon, Star, BellIcon } from "lucide-react";
 import { priorityClasses, statusClasses } from "../enum";
-import { Todo, TodoStatus } from "./types";
+import { Todo, TodoStatus } from "../types";
 import { CSS } from "@dnd-kit/utilities";
 import { useSortable } from "@dnd-kit/sortable";
 
-import { Card, CardContent, CardFooter } from "@vibethink/ui";
-import { Badge } from "@vibethink/ui";
-import { Checkbox } from "@vibethink/ui";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui";
+import { Card, CardContent, CardFooter } from "@vibethink/ui/components/card";
+import { Badge } from "@vibethink/ui/components/badge";
+import { Checkbox } from "@vibethink/ui/components/checkbox";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from "@vibethink/ui/components/tooltip";
 
 interface TodoItemProps {
   todo: Todo;
@@ -65,9 +70,9 @@ const TodoItem: React.FC<TodoItemProps> = ({
                   onCheckedChange={() =>
                     onStatusChange
                       ? onStatusChange(
-                          todo.id,
-                          todo.status === "completed" ? "pending" : "completed"
-                        )
+                        todo.id,
+                        todo.status === "completed" ? "pending" : "completed"
+                      )
                       : undefined
                   }
                   onClick={(e) => e.stopPropagation()}

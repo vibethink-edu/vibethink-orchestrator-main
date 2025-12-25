@@ -1,4 +1,6 @@
-import { Button, Card, CardContent, CardHeader, CardTitle, Progress } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Progress } from "@vibethink/ui/components/progress";
 
 export default function UpgradePlanCard() {
   return (
@@ -18,6 +20,10 @@ export default function UpgradePlanCard() {
     </Card>
   );
 }
+
+
+
+
 
 
 

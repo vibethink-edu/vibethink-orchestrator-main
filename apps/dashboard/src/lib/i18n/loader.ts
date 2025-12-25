@@ -35,6 +35,7 @@ export async function loadTranslation(
   }
 
   try {
+    console.log(`[i18n] Loading translation: ${locale}/${namespace}`);
     // Dynamic import with error handling
     const translation = await import(
       `./translations/${locale}/${namespace}.json`
@@ -42,12 +43,26 @@ export async function loadTranslation(
 
     const translations = translation.default || translation;
     
-    // Cache the translation
-    translationCache.set(cacheKey, translations);
+    // Extract namespace content if JSON has namespace as root key
+    // JSON structure: { "hotel": { ... } } -> extract { ... }
+    let namespaceContent: TranslationDictionary;
+    if (translations[namespace] && typeof translations[namespace] === 'object') {
+      namespaceContent = translations[namespace] as TranslationDictionary;
+      console.log(`[i18n] Successfully loaded ${locale}/${namespace}: extracted namespace content`);
+    } else {
+      // If no namespace wrapper, use translations directly
+      namespaceContent = translations as TranslationDictionary;
+      console.log(`[i18n] Successfully loaded ${locale}/${namespace}: using direct content`);
+    }
     
-    return translations;
+    console.log(`[i18n] Namespace keys:`, Object.keys(namespaceContent).slice(0, 5));
+    
+    // Cache the translation
+    translationCache.set(cacheKey, namespaceContent);
+    
+    return namespaceContent;
   } catch (error) {
-    console.warn(
+    console.error(
       `[i18n] Failed to load translation for ${locale}/${namespace}:`,
       error
     );

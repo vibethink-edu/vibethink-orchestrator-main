@@ -1,9 +1,10 @@
-import { generateMeta } from "@/lib/utils";
+import { generateMeta } from "@/shared/lib/utils";
 import path from "path";
 import { promises as fs } from "fs";
 import { ChatItemProps, UserPropsTypes } from "./types";
 
-import { ChatSidebar, ChatContent } from "./components";
+import { ChatSidebar } from "./components/chat-sidebar";
+import { ChatContent } from "./components/chat-content";
 
 export async function generateMetadata() {
   return generateMeta({
@@ -40,12 +41,11 @@ export default async function Page() {
   );
 
   return (
-    <div className="flex h-[calc(100vh-var(--header-height)-3rem)] w-full">
+    <div className="flex h-[calc(100vh-8rem)] w-full gap-4">
       <ChatSidebar chats={chats_with_user} />
-      <div className="grow">
+      <div className="grow h-full overflow-hidden">
         <ChatContent />
       </div>
     </div>
   );
 }
-

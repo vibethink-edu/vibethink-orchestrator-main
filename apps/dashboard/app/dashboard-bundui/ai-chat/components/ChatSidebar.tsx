@@ -15,24 +15,30 @@
 // =============================================================================
 
 import React, { useState } from 'react'
-import { Button } from '@vibethink/ui'
-import { Input } from '@vibethink/ui'
-import { ScrollArea } from '@vibethink/ui'
-import { Badge } from '@vibethink/ui'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@vibethink/ui'
-import { 
-  MessageSquarePlus, 
-  Search, 
-  MoreVertical, 
-  Trash2, 
-  Download, 
+import { Button } from '@vibethink/ui/components/button'
+import { Input } from '@vibethink/ui/components/input'
+import { ScrollArea } from '@vibethink/ui/components/scroll-area'
+import { Badge } from '@vibethink/ui/components/badge'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from '@vibethink/ui/components/dropdown-menu'
+import {
+  MessageSquarePlus,
+  Search,
+  MoreVertical,
+  Trash2,
+  Download,
   Archive,
   Calendar,
   Bot,
   User,
   Clock
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 import { ChatSidebarProps, ChatSession, AIProviderType } from '../types'
 import { formatDistanceToNow } from 'date-fns'
 
@@ -146,7 +152,7 @@ export function ChatSidebar({
             onClick={() => handleProviderFilter('openai')}
             className="text-xs gap-1"
           >
-            {getProviderIcon('openai')} GPT
+            <span>{getProviderIcon('openai')}</span> <span>GPT</span>
           </Button>
           <Button
             variant={filters.ai_provider === 'anthropic' ? "default" : "outline"}
@@ -154,7 +160,7 @@ export function ChatSidebar({
             onClick={() => handleProviderFilter('anthropic')}
             className="text-xs gap-1"
           >
-            {getProviderIcon('anthropic')} Claude
+            <span>{getProviderIcon('anthropic')}</span> <span>Claude</span>
           </Button>
         </div>
       </div>
@@ -171,7 +177,7 @@ export function ChatSidebar({
               <p className="text-sm text-muted-foreground mb-3">
                 No chats yet
               </p>
-              <Button 
+              <Button
                 onClick={onNewChat}
                 variant="outline"
                 size="sm"
@@ -262,7 +268,7 @@ function ChatSessionItem({
           )}>
             {session.title || 'Untitled Chat'}
           </h3>
-          
+
           {/* Actions Menu */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -288,7 +294,7 @@ function ChatSessionItem({
                 Archive
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem 
+              <DropdownMenuItem
                 className="gap-2 text-destructive"
                 onClick={(e) => {
                   e.stopPropagation()
@@ -304,17 +310,17 @@ function ChatSessionItem({
 
         {/* Provider and Model */}
         <div className="flex items-center gap-2">
-          <Badge 
-            variant="outline" 
+          <Badge
+            variant="outline"
             className="text-xs px-2 py-0.5"
-            style={{ 
+            style={{
               borderColor: getProviderColor(session.ai_provider),
               color: getProviderColor(session.ai_provider)
             }}
           >
-            {getProviderIcon(session.ai_provider)} {session.ai_provider}
+            <span>{getProviderIcon(session.ai_provider)}</span> <span>{session.ai_provider}</span>
           </Badge>
-          
+
           <span className="text-xs text-muted-foreground truncate">
             {session.ai_model}
           </span>

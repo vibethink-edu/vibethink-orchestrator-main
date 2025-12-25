@@ -1,0 +1,574 @@
+{
+    "analytics": {
+        "title": "Website Analytics",
+        "description": "Comprehensive analytics dashboard with real-time metrics and insights",
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success",
+        "cancel": "Cancel",
+        "save": "Save",
+        "delete": "Delete",
+        "edit": "Edit",
+        "create": "Create",
+        "update": "Update",
+        "search": "Search",
+        "filter": "Filter",
+        "sort": "Sort",
+        "export": "Export",
+        "import": "Import",
+        "download": "Download",
+        "upload": "Upload",
+        "close": "Close",
+        "confirm": "Confirm",
+        "back": "Back",
+        "next": "Next",
+        "previous": "Previous",
+        "submit": "Submit",
+        "reset": "Reset",
+        "clear": "Clear",
+        "apply": "Apply",
+        "select": "Select",
+        "selectAll": "Select All",
+        "deselectAll": "Deselect All",
+        "noResults": "No results found",
+        "noData": "No data available",
+        "empty": "Empty",
+        "active": "Active",
+        "inactive": "Inactive",
+        "pending": "Pending",
+        "completed": "Completed",
+        "cancelled": "Cancelled",
+        "draft": "Draft",
+        "published": "Published",
+        "archived": "Archived",
+        "view": "View",
+        "viewDetails": "View Details",
+        "viewMore": "View More",
+        "add": "Add",
+        "addNew": "Add New",
+        "remove": "Remove",
+        "removeAll": "Remove All",
+        "today": "Today",
+        "yesterday": "Yesterday",
+        "tomorrow": "Tomorrow",
+        "thisWeek": "This Week",
+        "lastWeek": "Last Week",
+        "thisMonth": "This Month",
+        "lastMonth": "Last Month",
+        "thisYear": "This Year",
+        "lastYear": "Last Year",
+        "minutes": "Minutes",
+        "hours": "Hours",
+        "days": "Days",
+        "weeks": "Weeks",
+        "months": "Months",
+        "years": "Years",
+        "areYouSure": "Are you sure?",
+        "thisActionCannotBeUndone": "This action cannot be undone",
+        "pleaseWait": "Please wait...",
+        "operationSuccessful": "Operation successful",
+        "operationFailed": "Operation failed",
+        "showing": "Showing",
+        "of": "of",
+        "results": "results",
+        "rowsPerPage": "Rows per page",
+        "page": "Page",
+        "all": "All",
+        "none": "None",
+        "notification": "Notification",
+        "notifications": "Notifications",
+        "noNotifications": "No notifications",
+        "settings": "Settings",
+        "preferences": "Preferences",
+        "account": "Account",
+        "profile": "Profile",
+        "home": "Home",
+        "dashboard": "Dashboard",
+        "emptyState": {
+            "title": "No items found",
+            "description": "Get started by creating a new item",
+            "action": "Create New"
+        },
+        "header": {
+            "title": "Website Analytics",
+            "dateRange": "Date Range",
+            "export": "Export",
+            "refresh": "Refresh",
+            "exportAsCsv": "تصدير كـ CSV",
+            "exportAsExcel": "تصدير كـ Excel",
+            "exportAsPdf": "تصدير كـ PDF"
+        },
+        "cards": {
+            "totalEarning": {
+                "title": "Total Earning",
+                "description": "Total revenue generated",
+                "profitMargin": "Profit Margin",
+                "totalEarningsThisPeriod": "total earnings this period",
+                "totalRevenue": "Total Revenue",
+                "clientPayments": "Client Payments",
+                "refundsReturns": "Refunds & Returns",
+                "customerReturns": "Customer Returns",
+                "revenueSources": "Revenue Sources",
+                "subscriptions": "Subscriptions",
+                "oneTimeSales": "One-time Sales",
+                "commissions": "Commissions",
+                "affiliate": "Affiliate"
+            },
+            "averageDailySales": {
+                "title": "Average Daily Sales",
+                "description": "Average sales per day"
+            },
+            "salesOverflow": {
+                "title": "Sales Performance",
+                "description": "Sales vs targets with overflow analysis",
+                "targetAchievement": "Target Achievement",
+                "totalSales": "Total Sales",
+                "target": "Target",
+                "salesOverflow": "Sales Overflow",
+                "weeklyPerformance": "Weekly Performance",
+                "excellent": "Excellent Performance",
+                "good": "Good Performance",
+                "warning": "Warning Performance",
+                "poor": "Poor Performance",
+                "excellentPerformance": "Outstanding performance! Sales significantly exceed targets.",
+                "goodPerformance": "Good performance! Sales are meeting or exceeding targets.",
+                "warningPerformance": "Caution: Sales are close to targets but need improvement.",
+                "poorPerformance": "Action needed: Sales are significantly below targets."
+            },
+            "websiteAnalytics": {
+                "title": "Website Analytics",
+                "description": "Traffic and engagement metrics",
+                "totalTrafficAndEngagement": "Total traffic and engagement metrics overview",
+                "conversion": "Conversion",
+                "pageViews": "Page Views",
+                "visitors": "Visitors",
+                "unique": "Unique",
+                "avgSession": "Avg. Session",
+                "duration": "Duration",
+                "bounceRate": "Bounce Rate",
+                "sessions": "Sessions",
+                "trafficSources": "Traffic Sources",
+                "direct": "Direct",
+                "organic": "Organic",
+                "referral": "Referral",
+                "social": "Social",
+                "conversionRate": "Conversion Rate",
+                "errorLoadingAnalytics": "Error Loading Analytics",
+                "failedToLoadWebsiteAnalytics": "Failed to load website analytics data",
+                "pleaseTryRefreshing": "Please try refreshing the page or contact support if the issue persists."
+            },
+            "earningReports": {
+                "title": "Earning Reports",
+                "description": "Detailed revenue analysis and profit trends",
+                "avgGrowth": "Avg Growth",
+                "totalRevenue": "Total Revenue",
+                "netProfit": "Net Profit",
+                "profitMargin": "Profit Margin",
+                "monthlyView": "Monthly View",
+                "quarterly": "Quarterly",
+                "growthRate": "Growth Rate",
+                "errorLoadingReports": "Error Loading Reports",
+                "failedToLoadEarningReports": "Failed to load earning reports"
+            },
+            "tickets": {
+                "title": "Support Tickets",
+                "description": "Support team performance and ticket analytics",
+                "avg": "avg",
+                "resolutionRate": "Resolution Rate",
+                "resolved": "resolved",
+                "satisfaction": "Satisfaction",
+                "customerRating": "Customer rating",
+                "ticketStatus": "Ticket Status",
+                "inProgress": "In Progress",
+                "open": "Open",
+                "priorityDistribution": "Priority Distribution",
+                "high": "High",
+                "medium": "Medium",
+                "low": "Low",
+                "topCategories": "Top Categories",
+                "supportPerformance": "Support Performance",
+                "ofTicketsResolved": "of tickets resolved successfully",
+                "averageResponseTime": "average response time",
+                "customerSatisfactionScore": "customer satisfaction score",
+                "ticketsCurrentlyPending": "tickets currently pending",
+                "responseTime": "Response Time",
+                "excellent": "Excellent",
+                "good": "Good",
+                "needsImprovement": "Needs Improvement",
+                "errorLoadingTicketsData": "Error Loading Tickets Data",
+                "failedToLoadSupportTicketsData": "Failed to load support tickets data"
+            },
+            "salesByCountries": {
+                "title": "Sales by Countries",
+                "description": "Geographic sales distribution"
+            },
+            "monthlyCampaign": {
+                "title": "Campaign Performance",
+                "description": "Monthly campaign metrics and ROI analysis",
+                "ctr": "CTR",
+                "clicks": "clicks",
+                "conversionRate": "Conversion Rate",
+                "conversions": "conversions",
+                "roiMetrics": "ROI Metrics",
+                "totalAdSpend": "Total Ad Spend",
+                "revenueGenerated": "Revenue Generated",
+                "returnOnAdSpend": "Return on Ad Spend (ROAS)",
+                "targetRoas": "Target ROAS: 3.0x • Current:",
+                "costAnalysis": "Cost Analysis",
+                "costPerClick": "Cost per Click",
+                "avgCpc": "Avg. CPC",
+                "costPerAcquisition": "Cost per Acquisition",
+                "avgCpa": "Avg. CPA",
+                "campaignInsights": "Campaign Insights",
+                "revenueGrowthMonthOverMonth": "revenue growth month-over-month",
+                "ctrAboveIndustryAverage": "CTR above industry average of 2.1%",
+                "strongRoasIndicates": "Strong ROAS indicates effective targeting",
+                "consistentConversionRate": "Consistent conversion rate across all campaigns",
+                "errorLoadingCampaignData": "Error Loading Campaign Data",
+                "failedToLoadCampaignMetrics": "Failed to load campaign metrics"
+            }
+        },
+        "metrics": {
+            "visitors": "Visitors",
+            "pageViews": "Page Views",
+            "bounceRate": "Bounce Rate",
+            "conversionRate": "Conversion Rate",
+            "revenue": "Revenue",
+            "sales": "Sales",
+            "orders": "Orders",
+            "customers": "Customers"
+        },
+        "periods": {
+            "today": "Today",
+            "yesterday": "Yesterday",
+            "last7Days": "Last 7 Days",
+            "last30Days": "Last 30 Days",
+            "last90Days": "آخر 90 يومًا",
+            "thisMonth": "This Month",
+            "lastMonth": "Last Month",
+            "thisYear": "This Year",
+            "lastYear": "Last Year"
+        },
+        "debug": {
+            "title": "معلومات التصحيح (التطوير فقط)",
+            "ready": "جاهز",
+            "loadingState": "حالة التحميل",
+            "errorState": "حالة الخطأ",
+            "filtersApplied": "الفلاتر المطبقة",
+            "dateRange": "نطاق التاريخ",
+            "countryFilter": "فلتر البلد",
+            "campaignFilter": "فلتر الحملة",
+            "allCountries": "جميع البلدان",
+            "allCampaigns": "جميع الحملات"
+        },
+        "hardcoded": {
+            "website_analytics": "Website Analytics",
+            "analytics": "Analytics",
+            "visitors": "الزوار",
+            "desktop": "سطح المكتب",
+            "mobile": "جوال",
+            "revenue": "الإيرادات",
+            "net_profit": "الربح",
+            "expenses": "المصروفات",
+            "impressions": "الانطباعات",
+            "clicks": "النقرات",
+            "conversions": "التحويلات",
+            "united_states": "الولايات المتحدة",
+            "canada": "كندا",
+            "united_kingdom": "المملكة المتحدة",
+            "sales": "المبيعات",
+            "target": "الهدف",
+            "overflow": "التجاوز",
+            "failed_to_load_earning_reports": "فشل في تحميل تقارير الأرباح",
+            "failed_to_load_support_tickets_data": "Failed to load support tickets data",
+            "revenue_1": "الإيرادات",
+            "profit": "الربح",
+            "failed_to_load_earning_data": "Failed to load earning data",
+            "failed_to_load_website_analytics_data": "فشل في تحميل بيانات تحليلات الموقع",
+            "website_analytics_1": "Website Analytics"
+        }
+    },
+    "ecommerce": {
+        "title": "E-Commerce Dashboard",
+        "description": "The e-commerce admin dashboard template is an admin template that you can use for your e-commerce website projects. Built with shadcn/ui, Tailwind CSS, Next.js.",
+        "header": {
+            "title": "E-Commerce Dashboard",
+            "download": "Download"
+        },
+        "welcome": {
+            "title": "Congratulations {name}! 🎉",
+            "description": "Best seller of the month",
+            "fromLastMonth": "+{percentage}% from last month",
+            "viewSales": "View Sales"
+        },
+        "cards": {
+            "revenue": {
+                "title": "Revenue",
+                "fromLastMonth": "+{percentage}% from last month"
+            },
+            "sales": {
+                "title": "Sales",
+                "fromLastMonth": "{percentage}% from last month"
+            },
+            "newCustomers": {
+                "title": "New Customers",
+                "fromLastMonth": "+{percentage}% from last month"
+            },
+            "totalRevenue": {
+                "title": "Total Revenue",
+                "description": "Income in the last 28 days",
+                "desktop": "Desktop",
+                "mobile": "Mobile"
+            },
+            "returnRate": {
+                "title": "Returning Rate"
+            },
+            "salesByLocation": {
+                "title": "Sales by Location"
+            },
+            "visitBySource": {
+                "title": "Store Visits by Source"
+            }
+        },
+        "orders": {
+            "title": "Recent Orders",
+            "filterPlaceholder": "Filter orders...",
+            "noResults": "No results.",
+            "showing": "Showing {from} to {to} of {total} entries",
+            "columns": {
+                "id": "ID",
+                "customer": "Customer",
+                "product": "Product",
+                "amount": "Amount",
+                "status": "Status"
+            },
+            "menu": {
+                "openMenu": "Open menu",
+                "copyOrderId": "Copy order ID",
+                "viewCustomer": "View customer",
+                "viewPaymentDetails": "View payment details"
+            }
+        },
+        "products": {
+            "title": "Best Selling Products",
+            "filterPlaceholder": "Filter products...",
+            "noResults": "No results.",
+            "selected": "{selected} of {total} row(s) selected.",
+            "columns": {
+                "product": "Product",
+                "sold": "Sold",
+                "sales": "Sales"
+            },
+            "menu": {
+                "openMenu": "Open menu",
+                "copyProductId": "Copy product ID",
+                "viewCustomer": "View customer",
+                "viewPaymentDetails": "View payment details"
+            }
+        },
+        "reviews": {
+            "title": "Customer Reviews",
+            "description": "Based on {count} verified purchases",
+            "viewAll": "View All",
+            "outOf5": "out of 5",
+            "verifiedPurchase": "Verified Purchase"
+        },
+        "status": {
+            "success": "success",
+            "processing": "processing",
+            "paid": "paid",
+            "failed": "failed"
+        },
+        "months": {
+            "January": "January",
+            "February": "February",
+            "March": "March",
+            "April": "April",
+            "May": "May",
+            "June": "June",
+            "July": "July",
+            "August": "August",
+            "September": "September",
+            "October": "October",
+            "November": "November",
+            "December": "December"
+        },
+        "hardcoded": {
+            "open_menu": "فتح القائمة",
+            "view_customer": "View customer",
+            "view_payment_details": "View payment details",
+            "exceeded_my_expectations": "تجاوز توقعاتي!",
+            "desktop": "سطح المكتب",
+            "mobile": "جوال",
+            "open_menu_1": "فتح القائمة",
+            "view_customer_1": "View customer",
+            "view_payment_details_1": "View payment details",
+            "desktop_1": "سطح المكتب",
+            "mobile_1": "جوال",
+            "desktop_2": "سطح المكتب",
+            "mobile_2": "جوال",
+            "desktop_3": "سطح المكتب",
+            "mobile_3": "جوال",
+            "desktop_4": "سطح المكتب",
+            "mobile_4": "جوال",
+            "visitors": "الزوار",
+            "direct": "مباشر",
+            "social": "اجتماعي",
+            "best_seller_of_the_month": "Best seller of the month",
+            "ecommerce_admin_dashboard_vibethink_orchestrator": "Ecommerce Admin Dashboard - VibeThink Orchestrator"
+        }
+    },
+    "dashboard-bundui": {
+        "page": {
+            "title": "Bundui Premium Dashboards",
+            "description": "Reference implementations mirroring the latest Bundui Premium version. These are demo/reference dashboards using our monorepo architecture and Shadcn UI.",
+            "viewDashboard": "View Dashboard"
+        },
+        "categories": {
+            "dashboards": "Dashboards",
+            "aiApps": "AI Apps"
+        },
+        "dashboards": {
+            "default": {
+                "name": "Default",
+                "description": "Main landing dashboard with overview of key metrics, team members, and revenue tracking"
+            },
+            "academy": {
+                "name": "Academy",
+                "description": "Learning management system with courses, progress tracking, and student analytics"
+            },
+            "analytics": {
+                "name": "Analytics",
+                "description": "Comprehensive analytics dashboard with sales, earnings, and campaign metrics"
+            },
+            "crm": {
+                "name": "CRM",
+                "description": "Customer relationship management with deals, customers, and sales pipeline"
+            },
+            "ecommerce": {
+                "name": "E-commerce",
+                "description": "E-commerce dashboard with products, orders, and sales analytics"
+            },
+            "hospitalManagement": {
+                "name": "Hospital Management",
+                "description": "Hospital management system with patients, appointments, and medical records"
+            },
+            "hotel": {
+                "name": "Hotel",
+                "description": "Hotel management dashboard with bookings, rooms, and guest management"
+            },
+            "payment": {
+                "name": "Payment",
+                "description": "Payment processing dashboard with transactions and payment methods"
+            },
+            "projects": {
+                "name": "Projects",
+                "description": "Project management with tasks, timelines, and team collaboration"
+            },
+            "projectList": {
+                "name": "Project List",
+                "description": "Project list view with kanban boards and project organization"
+            },
+            "sales": {
+                "name": "Sales",
+                "description": "Sales dashboard with revenue tracking, deals, and performance metrics"
+            }
+        },
+        "apps": {
+            "aiChat": {
+                "name": "AI Chat",
+                "description": "AI-powered chat interface with multiple model support and conversation history"
+            }
+        }
+    },
+    "projects": {
+        "tabs": {
+            "overview": "نظرة عامة",
+            "projects": "المشاريع",
+            "team": "الفريق",
+            "reports": "التقارير"
+        },
+        "summary": {
+            "activeProjects": "مشاريع نشطة",
+            "completed": "مكتملة",
+            "onHold": "في الانتظار",
+            "totalBudget": "الميزانية الإجمالية",
+            "teamMembers": "أعضاء الفريق",
+            "activeTasks": "مهام نشطة",
+            "completedTasks": "مهام مكتملة",
+            "avgEfficiency": "متوسط الكفاءة",
+            "activeContributors": "المساهمون النشطون",
+            "fromLastMonth": "من الشهر الماضي",
+            "thisMonth": "هذا الشهر",
+            "fromLastWeek": "من الأسبوع الماضي",
+            "overdueTasks": "مهام متأخرة",
+            "failedToLoad": "فشل تحميل الملخص",
+            "errorLoadingSuccessMetrics": "خطأ في تحميل المقاييس"
+        },
+        "sections": {
+            "teamPerformance": "أداء الفريق",
+            "teamPerformanceDesc": "مقاييس الكفاءة وعبء العمل لكل عضو",
+            "loadingData": "جاري تحميل البيانات...",
+            "recentProjects": "المشاريع الأخيرة",
+            "recentProjectsDesc": "عرض {{count}} مشاريع نشطة",
+            "noProjectsFound": "لم يتم العثور على مشاريع"
+        },
+        "header": {
+            "title": "المشاريع",
+            "subtitle": "إدارة المشاريع والمهام والموارد",
+            "export": "تصدير",
+            "newProject": "مشروع جديد",
+            "newTask": "مهمة جديدة",
+            "searchPlaceholder": "بحث في المشاريع أو المهام...",
+            "status": "الحالة",
+            "allStatuses": "كل الحالات",
+            "priority": "الأولوية",
+            "allPriorities": "كل الأولويات",
+            "teamLead": "قائد الفريق",
+            "allTeamLeads": "كل القادة",
+            "clearFilters": "مسح",
+            "filters": "فلاتر",
+            "quickFilters": "فلاتر سريعة",
+            "activeProjectsOnly": "المشاريع النشطة فقط",
+            "highPriorityProjects": "أولوية عالية",
+            "overdueProjects": "متأخرة",
+            "activeFilters": "الفلاتر النشطة"
+        },
+        "status": {
+            "active": "نشط",
+            "completed": "مكتمل",
+            "on-hold": "في الانتظار",
+            "cancelled": "ملغى"
+        },
+        "priority": {
+            "low": "منخفضة",
+            "medium": "متوسطة",
+            "high": "عالية",
+            "urgent": "عاجلة"
+        },
+        "table": {
+            "project": "المشروع",
+            "progress": "التقدم",
+            "dueDate": "تاريخ الاستحقاق",
+            "budget": "الميزانية",
+            "actions": "إجراءات",
+            "complete": "مكتمل",
+            "inProgress": "قيد التنفيذ",
+            "overdue": "متأخر",
+            "daysLeft": "أيام متبقية",
+            "spent": "مستنفد",
+            "tryAdjustingFilters": "حاول تعديل الفلاتر"
+        },
+        "actions": {
+            "viewDetails": "عرض التفاصيل",
+            "editProject": "تعديل المشروع",
+            "manageTeam": "إدارة الفريق",
+            "viewTimeline": "عرض الجدول الزمني",
+            "deleteProject": "حذف المشروع"
+        },
+        "common": {
+            "create": "إنشاء",
+            "loading": "جاري التحميل..."
+        }
+    }
+}

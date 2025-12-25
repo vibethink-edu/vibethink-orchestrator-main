@@ -6,13 +6,13 @@
 
 'use client';
 
-import { Button } from '@vibethink/ui';
+import { Button } from '@vibethink/ui/components/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@vibethink/ui';
+} from '@vibethink/ui/components/dropdown-menu';
 import { useI18n, localeMetadata, AVAILABLE_LOCALES } from '@/lib/i18n';
 import { Globe } from 'lucide-react';
 

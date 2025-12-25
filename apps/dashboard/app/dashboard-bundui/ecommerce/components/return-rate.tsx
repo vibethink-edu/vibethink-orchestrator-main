@@ -1,24 +1,27 @@
 "use client";
 
-import { Card, CardAction, CardContent, CardDescription, CardHeader } from "@vibethink/ui";
+import { Card, CardAction, CardContent, CardDescription, CardHeader } from "@vibethink/ui/components/card";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/chart";
 import { ExportButton } from "@/shared/components/CardActionMenus";
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
-import { Badge } from "@vibethink/ui";
+import { Badge } from "@vibethink/ui/components/badge";
+import { useTranslation } from "@/lib/i18n";
 
 export function EcommerceReturnRateCard() {
+  const { t } = useTranslation('ecommerce');
+  
   const chartConfig = {
     desktop: {
-      label: "Desktop",
+      label: t('cards.totalRevenue.desktop'),
       color: "var(--chart-1)"
     },
     mobile: {
-      label: "Mobile",
+      label: t('cards.totalRevenue.mobile'),
       color: "var(--chart-2)"
     }
   } satisfies ChartConfig;
@@ -41,7 +44,7 @@ export function EcommerceReturnRateCard() {
   return (
     <Card>
       <CardHeader>
-        <CardDescription className="relative">Returning Rate</CardDescription>
+        <CardDescription className="relative">{t('cards.returnRate.title')}</CardDescription>
         <CardAction className="relative">
           <ExportButton className="absolute end-0 top-0" />
         </CardAction>
@@ -88,6 +91,10 @@ export function EcommerceReturnRateCard() {
     </Card>
   );
 }
+
+
+
+
 
 
 

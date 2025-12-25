@@ -1,4 +1,5 @@
-import { Card, CardContent, CardDescription, CardHeader, Badge } from "@vibethink/ui";
+import { Card, CardContent, CardDescription, CardHeader } from "@vibethink/ui/components/card";
+import { Badge } from "@vibethink/ui/components/badge";
 import CountAnimation from "@/shared/components/ui/custom/count-animation";
 
 export default function FailedConversionsCard() {
@@ -17,6 +18,10 @@ export default function FailedConversionsCard() {
     </Card>
   );
 }
+
+
+
+
 
 
 

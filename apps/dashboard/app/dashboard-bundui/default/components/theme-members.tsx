@@ -16,34 +16,12 @@ import {
   CommandList
 } from "@vibethink/ui";
 import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui";
-
-const roles = [
-  {
-    id: 1,
-    name: "Viewer",
-    description: "Can view and comment."
-  },
-  {
-    id: 2,
-    name: "Developer",
-    description: "Can view, comment and edit."
-  },
-  {
-    id: 3,
-    name: "Billing",
-    description: "Can view, comment and manage billing."
-  },
-  {
-    id: 4,
-    name: "Owner",
-    description: "Admin-level access to all resources."
-  }
-];
+import { useTranslation } from "@/lib/i18n";
 
 const members = [
   {
     id: 1,
-    name: "Toby Belhome",
+    name: "Vito Escallón",
     email: "contact@bundui.io",
     avatar: `/assets/images/avatars/01.png`,
     role_id: 1
@@ -65,14 +43,38 @@ const members = [
 ];
 
 export function TeamMembersCard() {
+  const { t } = useTranslation('default');
   const [data, setData] = React.useState(members);
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
+
+  const roles = [
+    {
+      id: 1,
+      name: t('roles.viewer'),
+      description: t('roles.descriptions.viewer')
+    },
+    {
+      id: 2,
+      name: t('roles.developer'),
+      description: t('roles.descriptions.developer')
+    },
+    {
+      id: 3,
+      name: t('roles.billing'),
+      description: t('roles.descriptions.billing')
+    },
+    {
+      id: 4,
+      name: t('roles.owner'),
+      description: t('roles.descriptions.owner')
+    }
+  ];
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Team Members</CardTitle>
-        <CardDescription>Invite your team members to collaborate.</CardDescription>
+        <CardTitle>{t('cards.teamMembers.title')}</CardTitle>
+        <CardDescription>{t('cards.teamMembers.description')}</CardDescription>
       </CardHeader>
       <CardContent className="grid gap-6">
         {data.map((member, key) => (
@@ -98,9 +100,9 @@ export function TeamMembersCard() {
               </PopoverTrigger>
               <PopoverContent className="p-0" align="end">
                 <Command>
-                  <CommandInput placeholder="Select new role..." />
+                  <CommandInput placeholder={t('roles.selectPlaceholder')} />
                   <CommandList>
-                    <CommandEmpty>No roles found.</CommandEmpty>
+                    <CommandEmpty>{t('roles.noRolesFound')}</CommandEmpty>
                     <CommandGroup>
                       {roles.map((role, key) => (
                         <CommandItem

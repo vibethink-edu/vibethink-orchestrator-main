@@ -1,0 +1,260 @@
+{
+  "hotel": {
+    "title": "Gestión de Hotel",
+    "description": "Gestiona las operaciones de tu hotel, reservas y huéspedes",
+    
+    "navigation": {
+      "dashboard": "Panel",
+      "bookings": "Reservas"
+    },
+    
+    "sidebar": {
+      "title": "Hotel",
+      "subOptions": {
+        "dashboard": "Panel",
+        "bookings": "Reservas"
+      }
+    },
+    
+    "components": {
+      "header": {
+        "title": "Gestión de Hotel",
+        "actions": {
+          "addNew": "Agregar Nuevo",
+          "reports": "Reportes"
+        }
+      },
+      
+      "statCards": {
+        "titles": {
+          "todayCheckIn": "Registros de hoy",
+          "todayCheckOut": "Salidas de hoy",
+          "totalGuests": "Huéspedes totales",
+          "totalAmount": "Importe total"
+        },
+        "unitNumber": "Número de unidad: {{number}}",
+        "actions": {
+          "viewDetails": "Ver Detalles",
+          "export": "Exportar"
+        }
+      },
+      
+      "bookingList": {
+        "title": "Reservas",
+        "search": {
+          "placeholder": "Buscar reservas..."
+        },
+        "filters": {
+          "allStatus": "Todos los Estados",
+          "pending": "Pendiente",
+          "checkedIn": "Registrado"
+        },
+        "table": {
+          "headers": {
+            "bookingId": "ID de Reserva",
+            "guestName": "Nombre del Huésped",
+            "roomType": "Tipo de Habitación",
+            "roomNumber": "Número de Habitación",
+            "duration": "Duración",
+            "checkInOut": "Entrada y Salida",
+            "status": "Estado",
+            "actions": "Acciones"
+          },
+          "actions": {
+            "edit": "Editar",
+            "delete": "Eliminar",
+            "view": "Ver"
+          },
+          "empty": "No se encontraron reservas"
+        },
+        "pagination": {
+          "page": "Página {{current}} de {{total}}",
+          "previous": "Anterior",
+          "next": "Siguiente",
+          "first": "Primera",
+          "last": "Última"
+        }
+      },
+      
+      "bookingsCard": {
+        "title": "Reservas",
+        "totalBookings": "Reservas totales",
+        "onlineBooking": "Reserva en línea",
+        "offlineBooking": "Reserva fuera de línea",
+        "premiumMessage": "Desbloquea análisis detallado con una suscripción avanzada",
+        "periods": {
+          "daily": "D",
+          "weekly": "S",
+          "monthly": "M",
+          "yearly": "A"
+        }
+      },
+      
+      "bookingForm": {
+        "title": "Nueva Reserva",
+        "description": "Completa el formulario para crear una nueva reserva de habitación.",
+        "trigger": "Reservar Habitación",
+        "labels": {
+          "name": "Nombre",
+          "date": "Fecha",
+          "room": "Habitación",
+          "timeSlot": "Franja Horaria",
+          "startTime": "Hora de Inicio",
+          "endTime": "Hora de Fin",
+          "phone": "Teléfono",
+          "status": "Estado"
+        },
+        "placeholders": {
+          "name": "Ingresa el nombre",
+          "date": "Selecciona una fecha",
+          "room": "Selecciona una habitación",
+          "timeSlot": "Selecciona una franja horaria",
+          "startTime": "Inicio",
+          "endTime": "Fin",
+          "phone": "0812 3290 0992",
+          "status": "Selecciona un estado"
+        },
+        "validation": {
+          "nameMin": "El nombre debe tener al menos 2 caracteres.",
+          "nameMax": "El nombre debe tener menos de 50 caracteres.",
+          "roomRequired": "Por favor selecciona una habitación.",
+          "dateRequired": "Por favor selecciona una fecha.",
+          "timeSlotRequired": "Por favor selecciona una franja horaria.",
+          "startTimeRequired": "Por favor selecciona una hora de inicio.",
+          "endTimeRequired": "Por favor selecciona una hora de fin.",
+          "phoneMin": "El número de teléfono debe tener al menos 10 dígitos.",
+          "phoneMax": "El número de teléfono debe tener menos de 15 dígitos.",
+          "statusRequired": "Por favor selecciona un estado."
+        },
+        "actions": {
+          "cancel": "Cancelar",
+          "save": "Guardar"
+        },
+        "messages": {
+          "success": {
+            "created": "Reserva creada",
+            "createdDescription": "La reserva para {{name}} se ha agregado exitosamente."
+          }
+        }
+      },
+      
+      "campaignOverview": {
+        "title": "Resumen de Campaña",
+        "booked": "Reservado",
+        "visited": "Visitado",
+        "performance": "Rendimiento",
+        "comparedToLastWeek": "Comparado con la semana pasada",
+        "dateRanges": {
+          "thisWeek": "Esta Semana",
+          "lastWeek": "Semana Pasada",
+          "thisMonth": "Este Mes",
+          "lastMonth": "Mes Pasado",
+          "last3Months": "Últimos 3 Meses"
+        },
+        "chart": {
+          "booked": "Reservado",
+          "visited": "Visitado"
+        }
+      },
+      
+      "reservationsCard": {
+        "title": "Reservaciones",
+        "totalLabel": "Reservaciones",
+        "totalSalesThisWeek": "Ventas Totales Esta Semana",
+        "chart": {
+          "confirmed": "Confirmado",
+          "checkedIn": "Registrado",
+          "checkedOut": "Salida"
+        }
+      },
+      
+      "revenueStat": {
+        "title": "Estadísticas de Ingresos",
+        "fromLastMonth": "desde el mes pasado",
+        "periods": {
+          "placeholder": "Seleccionar período",
+          "weekly": "Semanal",
+          "monthly": "Mensual",
+          "yearly": "Anual"
+        },
+        "chart": {
+          "revenue": "Ingresos",
+          "projected": "Proyectado"
+        }
+      },
+      
+      "meetingRoomSchedule": {
+        "title": "Horario de Salas de Reuniones",
+        "actions": {
+          "today": "Hoy",
+          "previousDay": "Día Anterior",
+          "nextDay": "Día Siguiente"
+        },
+        "viewMode": {
+          "grid": "Vista de Cuadrícula",
+          "list": "Vista de Lista"
+        },
+        "table": {
+          "headers": {
+            "name": "Nombre",
+            "room": "Sala",
+            "time": "Hora",
+            "phone": "Teléfono",
+            "status": "Estado",
+            "actions": "Acciones"
+          },
+          "actions": {
+            "delete": "Eliminar"
+          }
+        },
+        "status": {
+          "finished": "Finalizado",
+          "cancelled": "Cancelado",
+          "pending": "Pendiente",
+          "approved": "Aprobado"
+        },
+        "messages": {
+          "success": {
+            "deleted": "Reserva eliminada exitosamente"
+          }
+        }
+      }
+    },
+    
+    "status": {
+      "checkedIn": "Registrado",
+      "pending": "Pendiente",
+      "finished": "Finalizado",
+      "cancelled": "Cancelado",
+      "approved": "Aprobado",
+      "completed": "Completado",
+      "confirmed": "Confirmado",
+      "checkedOut": "Salida"
+    },
+    
+    "roomTypes": {
+      "deluxe": "De lujo",
+      "standard": "Estándar",
+      "suite": "Suite"
+    },
+    
+    "formatters": {
+      "roomNumber": "Habitación {{number}}",
+      "nights": "{{count}} noche",
+      "nightsPlural": "{{count}} noches"
+    },
+    
+    "messages": {
+      "error": {
+        "loading": "Error al cargar datos del hotel",
+        "save": "Error al guardar la reserva",
+        "delete": "Error al eliminar la reserva"
+      },
+      "success": {
+        "saved": "Reserva guardada exitosamente",
+        "deleted": "Reserva eliminada exitosamente"
+      }
+    }
+  }
+}
+

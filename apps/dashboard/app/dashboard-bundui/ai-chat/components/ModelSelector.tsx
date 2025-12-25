@@ -15,13 +15,25 @@
 // =============================================================================
 
 import React, { useState } from 'react'
-import { Button } from '@vibethink/ui'
-import { Label } from '@vibethink/ui'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@vibethink/ui'
-import { Badge } from '@vibethink/ui'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui'
-import { Separator } from '@vibethink/ui'
-import { 
+import { Button } from '@vibethink/ui/components/button'
+import { Label } from '@vibethink/ui/components/label'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@vibethink/ui/components/select'
+import { Badge } from '@vibethink/ui/components/badge'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '@vibethink/ui/components/card'
+import { Separator } from '@vibethink/ui/components/separator'
+import {
   Bot,
   Zap,
   Eye,
@@ -31,7 +43,7 @@ import {
   AlertCircle,
   Info
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 import { ModelSelectorProps, AIProvider, AIModel, AIProviderType } from '../types'
 
 /**
@@ -59,7 +71,7 @@ export function ModelSelector({
   const handleProviderChange = (providerId: string) => {
     const newProviderId = providerId as AIProviderType
     setSelectedProviderId(newProviderId)
-    
+
     // Auto-select first available model
     const newProvider = providers.find(p => p.id === newProviderId)
     if (newProvider && newProvider.available_models.length > 0) {
@@ -67,7 +79,7 @@ export function ModelSelector({
       setSelectedModelId(firstModel.id)
       onModelChange(firstModel.id)
     }
-    
+
     onProviderChange(newProviderId)
   }
 
@@ -112,8 +124,8 @@ export function ModelSelector({
           <SelectTrigger id="provider-select">
             <SelectValue>
               <div className="flex items-center gap-2">
-                <span>{getProviderIcon(selectedProviderId)}</span>
-                <span>{selectedProvider?.name}</span>
+                <span>{String(getProviderIcon(selectedProviderId))}</span>
+                <span>{String(selectedProvider?.name || '')}</span>
                 {!selectedProvider?.enabled && (
                   <Badge variant="secondary" className="text-xs">
                     Disabled
@@ -124,14 +136,14 @@ export function ModelSelector({
           </SelectTrigger>
           <SelectContent>
             {providers.map((provider) => (
-              <SelectItem 
-                key={provider.id} 
+              <SelectItem
+                key={provider.id}
                 value={provider.id}
                 disabled={!provider.enabled}
               >
                 <div className="flex items-center gap-2">
-                  <span>{getProviderIcon(provider.id)}</span>
-                  <span>{provider.name}</span>
+                  <span>{String(getProviderIcon(provider.id))}</span>
+                  <span>{String(provider.name)}</span>
                   {!provider.enabled && (
                     <Badge variant="secondary" className="text-xs ml-auto">
                       Disabled
@@ -142,7 +154,7 @@ export function ModelSelector({
             ))}
           </SelectContent>
         </Select>
-        
+
         {/* Provider Description */}
         {selectedProvider && (
           <p className="text-sm text-muted-foreground">
@@ -199,7 +211,7 @@ export function ModelSelector({
                 <Zap className="w-4 h-4 text-muted-foreground" />
                 <span>Max Tokens:</span>
                 <Badge variant="outline" className="text-xs">
-                  {selectedModelData.max_tokens.toLocaleString()}
+                  <span>{selectedModelData.max_tokens.toLocaleString()}</span>
                 </Badge>
               </div>
 
@@ -222,7 +234,7 @@ export function ModelSelector({
                 <Info className="w-4 h-4" />
                 Features
               </h4>
-              
+
               <div className="grid grid-cols-1 gap-2">
                 <div className="flex items-center justify-between text-sm">
                   <div className="flex items-center gap-2">
@@ -268,7 +280,7 @@ export function ModelSelector({
                   )}
                 </div>
               </div>
-              
+
               {selectedProvider?.api_key_required && (
                 <p className="text-xs text-muted-foreground mt-1">
                   API key required for this provider

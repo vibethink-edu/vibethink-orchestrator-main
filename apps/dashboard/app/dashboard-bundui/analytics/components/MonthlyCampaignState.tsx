@@ -2,20 +2,23 @@
 
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts'
 import { Megaphone, Target, TrendingUp, Eye, MousePointer } from 'lucide-react'
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
   CardTitle,
-  ChartConfig, 
+} from '@vibethink/ui/components/card'
+import {
+  ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-  Badge,
-  Progress,
-  Skeleton
-} from '@vibethink/ui'
+} from '@vibethink/ui/components/chart'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Progress } from '@vibethink/ui/components/progress'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
+import { useTranslation } from '@/lib/i18n'
 import { useAnalyticsData } from '../hooks'
 import { AnalyticsCardProps } from '../types'
 
@@ -46,7 +49,7 @@ const campaignData = [
     revenue: 12400
   },
   {
-    month: 'Feb', 
+    month: 'Feb',
     impressions: 142000,
     clicks: 3800,
     conversions: 189,
@@ -98,13 +101,14 @@ const campaignData = [
  * 
  * Provides insights into marketing campaign effectiveness
  */
-export function MonthlyCampaignState({ 
+export function MonthlyCampaignState({
   className = '',
   isLoading: externalLoading = false,
   error: externalError = null
 }: AnalyticsCardProps) {
+  const { t } = useTranslation('analytics')
   const { campaignMetrics, isLoading, error } = useAnalyticsData()
-  
+
   const loading = isLoading || externalLoading
   const errorState = error || externalError
 
@@ -177,9 +181,9 @@ export function MonthlyCampaignState({
     return (
       <Card className={`h-full ${className}`}>
         <CardHeader>
-          <CardTitle className="text-red-600">Error Loading Campaign Data</CardTitle>
+          <CardTitle className="text-red-600">{t('cards.monthlyCampaign.errorLoadingCampaignData')}</CardTitle>
           <CardDescription>
-            {errorState.message || 'Failed to load campaign metrics'}
+            {errorState.message || t('cards.monthlyCampaign.failedToLoadCampaignMetrics')}
           </CardDescription>
         </CardHeader>
       </Card>
@@ -192,44 +196,44 @@ export function MonthlyCampaignState({
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-2">
             <Megaphone className="h-5 w-5 text-chart-1" />
-            Campaign Performance
+            {t('cards.monthlyCampaign.title')}
           </CardTitle>
-          <Badge 
-            variant="outline" 
+          <Badge
+            variant="outline"
             className={`gap-1 ${revenueGrowth > 0 ? 'text-green-600' : 'text-red-600'}`}
           >
             <TrendingUp className="h-3 w-3" />
             ROAS {roas.toFixed(1)}x
           </Badge>
         </div>
-        
+
         <CardDescription>
-          Monthly campaign metrics and ROI analysis
+          {t('cards.monthlyCampaign.description')}
         </CardDescription>
       </CardHeader>
-      
+
       <CardContent className="space-y-6">
         {/* Key Metrics Overview */}
         <div className="grid grid-cols-2 gap-4">
           <div className="rounded-lg bg-muted/50 p-3">
             <div className="flex items-center gap-2 mb-1">
               <Eye className="h-4 w-4 text-chart-1" />
-              <span className="text-xs font-medium">CTR</span>
+              <span className="text-xs font-medium">{t('cards.monthlyCampaign.ctr')}</span>
             </div>
             <div className="text-lg font-bold">{formatPercentage(ctr)}</div>
             <div className="text-xs text-muted-foreground">
-              {formatNumber(totalClicks)} clicks
+              {formatNumber(totalClicks)} {t('cards.monthlyCampaign.clicks')}
             </div>
           </div>
-          
+
           <div className="rounded-lg bg-muted/50 p-3">
             <div className="flex items-center gap-2 mb-1">
               <MousePointer className="h-4 w-4 text-chart-2" />
-              <span className="text-xs font-medium">Conversion Rate</span>
+              <span className="text-xs font-medium">{t('cards.monthlyCampaign.conversionRate')}</span>
             </div>
             <div className="text-lg font-bold">{formatPercentage(conversionRate)}</div>
             <div className="text-xs text-muted-foreground">
-              {totalConversions} conversions
+              {totalConversions} {t('cards.monthlyCampaign.conversions')}
             </div>
           </div>
         </div>
@@ -238,18 +242,18 @@ export function MonthlyCampaignState({
         <div className="h-32">
           <ChartContainer config={chartConfig} className="h-full w-full">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart 
-                data={campaignData} 
+              <BarChart
+                data={campaignData}
                 margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
               >
-                <XAxis 
-                  dataKey="month" 
+                <XAxis
+                  dataKey="month"
                   tickLine={false}
                   axisLine={false}
                   tickMargin={8}
                   tick={{ fontSize: 11 }}
                 />
-                <YAxis 
+                <YAxis
                   tickLine={false}
                   axisLine={false}
                   tickMargin={8}
@@ -277,26 +281,26 @@ export function MonthlyCampaignState({
 
         {/* ROI Metrics */}
         <div className="space-y-3">
-          <h4 className="text-sm font-medium text-muted-foreground">ROI Metrics</h4>
-          
+          <h4 className="text-sm font-medium text-muted-foreground">{t('cards.monthlyCampaign.roiMetrics')}</h4>
+
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
-              <span>Total Ad Spend</span>
+              <span>{t('cards.monthlyCampaign.totalAdSpend')}</span>
               <span className="font-medium">{formatCurrency(totalSpend)}</span>
             </div>
             <div className="flex items-center justify-between text-sm">
-              <span>Revenue Generated</span>
+              <span>{t('cards.monthlyCampaign.revenueGenerated')}</span>
               <span className="font-medium text-green-600">{formatCurrency(totalRevenue)}</span>
             </div>
             <div className="flex items-center justify-between text-sm">
-              <span>Return on Ad Spend (ROAS)</span>
+              <span>{t('cards.monthlyCampaign.returnOnAdSpend')}</span>
               <span className="font-bold">{roas.toFixed(1)}x</span>
             </div>
           </div>
-          
+
           <Progress value={Math.min((roas / 5) * 100, 100)} className="h-2" />
           <div className="text-xs text-muted-foreground">
-            Target ROAS: 3.0x • Current: {roas.toFixed(1)}x
+            {t('cards.monthlyCampaign.targetRoas')} {roas.toFixed(1)}x
           </div>
         </div>
 
@@ -305,22 +309,22 @@ export function MonthlyCampaignState({
           <div className="rounded-lg border p-3">
             <div className="flex items-center gap-2 mb-1">
               <Target className="h-4 w-4 text-chart-3" />
-              <span className="text-xs font-medium">Cost per Click</span>
+              <span className="text-xs font-medium">{t('cards.monthlyCampaign.costPerClick')}</span>
             </div>
             <div className="text-sm font-bold">{formatCurrency(cpc)}</div>
             <div className="text-xs text-muted-foreground">
-              Avg. CPC
+              {t('cards.monthlyCampaign.avgCpc')}
             </div>
           </div>
-          
+
           <div className="rounded-lg border p-3">
             <div className="flex items-center gap-2 mb-1">
               <Target className="h-4 w-4 text-chart-4" />
-              <span className="text-xs font-medium">Cost per Acquisition</span>
+              <span className="text-xs font-medium">{t('cards.monthlyCampaign.costPerAcquisition')}</span>
             </div>
             <div className="text-sm font-bold">{formatCurrency(cpa)}</div>
             <div className="text-xs text-muted-foreground">
-              Avg. CPA
+              {t('cards.monthlyCampaign.avgCpa')}
             </div>
           </div>
         </div>
@@ -329,13 +333,13 @@ export function MonthlyCampaignState({
         <div className="rounded-lg border p-3">
           <div className="flex items-center gap-2 mb-2">
             <TrendingUp className="h-4 w-4 text-green-600" />
-            <span className="text-sm font-medium">Campaign Insights</span>
+            <span className="text-sm font-medium">{t('cards.monthlyCampaign.campaignInsights')}</span>
           </div>
           <div className="space-y-1 text-xs text-muted-foreground">
-            <p>• {formatPercentage(revenueGrowth)} revenue growth month-over-month</p>
-            <p>• CTR above industry average of 2.1%</p>
-            <p>• Strong ROAS indicates effective targeting</p>
-            <p>• Consistent conversion rate across all campaigns</p>
+            <p>• {formatPercentage(revenueGrowth)} {t('cards.monthlyCampaign.revenueGrowthMonthOverMonth')}</p>
+            <p>• {t('cards.monthlyCampaign.ctrAboveIndustryAverage')}</p>
+            <p>• {t('cards.monthlyCampaign.strongRoasIndicates')}</p>
+            <p>• {t('cards.monthlyCampaign.consistentConversionRate')}</p>
           </div>
         </div>
       </CardContent>

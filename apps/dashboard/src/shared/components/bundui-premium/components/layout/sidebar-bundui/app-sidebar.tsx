@@ -7,32 +7,38 @@ import { PlusIcon } from "@radix-ui/react-icons";
 import { usePathname } from "next/navigation";
 import { useIsTablet } from "@/hooks/use-mobile";
 import Link from "next/link";
+import { useTranslation } from "@/lib/i18n";
 
-import { Sidebar,
+import {
+  Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar } from '@vibethink/ui';
+  useSidebar
+} from "@vibethink/ui/components/sidebar";
 import { NavMain } from "./nav-main";
 import { NavUser } from "./nav-user";
-import { ScrollArea } from '@vibethink/ui';
-import { Logo } from "@vibethink/ui";
-import { DropdownMenu,
+import { ScrollArea } from "@vibethink/ui/components/scroll-area";
+import { Logo } from "@vibethink/ui/components/logo";
+import {
+  DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger } from '@vibethink/ui';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui';
-import { Button } from '@vibethink/ui';
+  DropdownMenuTrigger
+} from "@vibethink/ui/components/dropdown-menu";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Button } from "@vibethink/ui/components/button";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();
   const { setOpen, setOpenMobile, isMobile } = useSidebar();
   const isTablet = useIsTablet();
+  const { t } = useTranslation('navigation');
 
   useEffect(() => {
     if (isMobile) setOpenMobile(false);
@@ -51,7 +57,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton className="hover:text-foreground h-10 group-data-[collapsible=icon]:px-0! hover:bg-[var(--primary)]/5">
                   <Logo />
-                  <span className="font-semibold">VibeThink Orchestrator</span>
+                  <span className="font-semibold">{t('header.orchestrator')}</span>
                   <ChevronsUpDown className="ml-auto group-data-[collapsible=icon]:hidden" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
@@ -60,7 +66,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 side={isMobile ? "bottom" : "right"}
                 align="end"
                 sideOffset={4}>
-                <DropdownMenuLabel>Projects</DropdownMenuLabel>
+                <DropdownMenuLabel>{t('header.projects')}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem className="flex items-center gap-3">
                   <ShoppingBagIcon className="text-muted-foreground size-4" />
@@ -80,7 +86,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <DropdownMenuItem asChild>
                   <Button className="w-full" variant="secondary">
                     <PlusIcon />
-                    Add New Project
+                    {t('header.add_new_project')}
                   </Button>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -96,15 +102,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarFooter>
         <Card className="gap-4 overflow-hidden py-4 group-data-[collapsible=icon]:hidden">
           <CardHeader className="px-3">
-            <CardTitle>Download</CardTitle>
+            <CardTitle>{t('footer.download')}</CardTitle>
             <CardDescription>
-              Unlock lifetime access to all dashboards, templates and components.
+              {t('footer.download_description')}
             </CardDescription>
           </CardHeader>
           <CardContent className="px-3">
             <Button className="w-full" asChild>
               <Link href="https://shadcnuikit.com/pricing" target="_blank">
-                Get VibeThink Pro
+                {t('footer.get_pro')}
               </Link>
             </Button>
           </CardContent>

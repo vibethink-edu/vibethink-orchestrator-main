@@ -1,33 +1,37 @@
-import { 
-  Card, 
-  CardContent, 
-  CardHeader, 
-  CardTitle,
-  Button,
-  Badge,
-  Skeleton,
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableHead, 
-  TableHeader, 
-  TableRow,
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle
+} from '@vibethink/ui/components/card'
+import { Button } from '@vibethink/ui/components/button'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
+} from '@vibethink/ui/components/table'
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger
-} from '@vibethink/ui'
+} from '@vibethink/ui/components/dropdown-menu'
 import { ExpenseTableProps, Expense } from '../types'
 import { format } from 'date-fns'
-import { 
-  MoreHorizontal, 
-  Edit, 
-  Trash2, 
-  Check, 
-  X, 
-  Eye, 
+import {
+  MoreHorizontal,
+  Edit,
+  Trash2,
+  Check,
+  X,
+  Eye,
   Download,
   Receipt,
   Filter,
@@ -57,14 +61,14 @@ import { useState } from 'react'
  * - Loading states with skeletons
  * - HSL color variables for theme compatibility
  */
-export function ExpenseTable({ 
-  data, 
-  loading = false, 
-  onRowClick, 
-  onEdit, 
-  onDelete, 
-  onApprove, 
-  className 
+export function ExpenseTable({
+  data,
+  loading = false,
+  onRowClick,
+  onEdit,
+  onDelete,
+  onApprove,
+  className
 }: ExpenseTableProps) {
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage] = useState(10)
@@ -183,17 +187,17 @@ export function ExpenseTable({
   const sortedData = [...data].sort((a, b) => {
     const aValue = a[sortField]
     const bValue = b[sortField]
-    
+
     if (typeof aValue === 'string' && typeof bValue === 'string') {
-      return sortDirection === 'asc' 
+      return sortDirection === 'asc'
         ? aValue.localeCompare(bValue)
         : bValue.localeCompare(aValue)
     }
-    
+
     if (typeof aValue === 'number' && typeof bValue === 'number') {
       return sortDirection === 'asc' ? aValue - bValue : bValue - aValue
     }
-    
+
     return 0
   })
 
@@ -255,7 +259,7 @@ export function ExpenseTable({
                     className="rounded border-gray-300"
                   />
                 </TableHead>
-                <TableHead 
+                <TableHead
                   className="cursor-pointer hover:bg-muted/50"
                   onClick={() => handleSort('date')}
                 >
@@ -269,7 +273,7 @@ export function ExpenseTable({
                 <TableHead>Category</TableHead>
                 <TableHead>Vendor</TableHead>
                 <TableHead>Description</TableHead>
-                <TableHead 
+                <TableHead
                   className="cursor-pointer hover:bg-muted/50 text-right"
                   onClick={() => handleSort('amount')}
                 >
@@ -287,7 +291,7 @@ export function ExpenseTable({
             </TableHeader>
             <TableBody>
               {paginatedData.map((expense) => (
-                <TableRow 
+                <TableRow
                   key={expense.id}
                   className="cursor-pointer hover:bg-muted/50"
                   onClick={() => handleRowClick(expense)}
@@ -304,8 +308,8 @@ export function ExpenseTable({
                     {formatDate(expense.date)}
                   </TableCell>
                   <TableCell>
-                    <Badge 
-                      variant="outline" 
+                    <Badge
+                      variant="outline"
                       className={`text-xs capitalize ${getCategoryColor(expense.category)}`}
                     >
                       {expense.category.replace('_', ' ')}
@@ -321,7 +325,7 @@ export function ExpenseTable({
                     {formatCurrency(expense.amount, expense.currency)}
                   </TableCell>
                   <TableCell>
-                    <Badge 
+                    <Badge
                       variant={getStatusBadgeVariant(expense.status)}
                       className={`text-xs capitalize ${getStatusColor(expense.status)}`}
                     >
@@ -362,7 +366,7 @@ export function ExpenseTable({
                           </DropdownMenuItem>
                         )}
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem 
+                        <DropdownMenuItem
                           onClick={() => handleDelete(expense)}
                           className="text-red-600"
                         >
@@ -396,9 +400,9 @@ export function ExpenseTable({
               </Button>
               <div className="flex items-center space-x-1">
                 {Array.from({ length: totalPages }, (_, i) => i + 1)
-                  .filter(page => 
-                    page === 1 || 
-                    page === totalPages || 
+                  .filter(page =>
+                    page === 1 ||
+                    page === totalPages ||
                     (page >= currentPage - 1 && page <= currentPage + 1)
                   )
                   .map((page, index, array) => (

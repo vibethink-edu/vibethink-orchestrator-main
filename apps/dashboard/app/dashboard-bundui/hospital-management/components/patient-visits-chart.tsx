@@ -1,7 +1,15 @@
 "use client";
 
-import { Card, CardAction, CardContent, CardHeader, CardTitle, ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@vibethink/ui";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@vibethink/ui/components/chart";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@vibethink/ui/components/select";
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
+import { Patient, HospitalStats } from "../types";
+
+interface PatientVisitsChartProps {
+  patients: Patient[];
+  stats: HospitalStats | null;
+}
 
 const chartData = [
   { month: "January", famale: 186, male: 140, child: 150 },
@@ -26,7 +34,7 @@ const chartConfig = {
   }
 } satisfies ChartConfig;
 
-export default function PatientVisitsChart() {
+export default function PatientVisitsChart({ patients, stats }: PatientVisitsChartProps) {
   return (
     <Card className="col-span-4">
       <CardHeader>

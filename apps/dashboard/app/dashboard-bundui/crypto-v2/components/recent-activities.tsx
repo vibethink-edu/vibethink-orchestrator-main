@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 
 import { Card, CardHeader, CardTitle, CardContent } from "@vibethink/ui/components/card";
 import { Badge } from "@vibethink/ui/components/badge";

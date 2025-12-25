@@ -23,7 +23,8 @@ import {
   type CalendarEvent
 } from "./";
 import { EndHour, StartHour } from "../constants";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
+import { useTranslation } from "@/lib/i18n";
 
 interface DayViewProps {
   currentDate: Date;
@@ -42,6 +43,7 @@ interface PositionedEvent {
 }
 
 export function DayView({ currentDate, events, onEventSelect, onEventCreate }: DayViewProps) {
+  const { t } = useTranslation('calendar');
   const hours = useMemo(() => {
     const dayStart = startOfDay(currentDate);
     return eachHourOfInterval({
@@ -180,7 +182,7 @@ export function DayView({ currentDate, events, onEventSelect, onEventCreate }: D
           <div className="grid grid-cols-[3rem_1fr] sm:grid-cols-[4rem_1fr]">
             <div className="relative">
               <span className="text-muted-foreground/70 absolute bottom-0 left-0 h-6 w-16 max-w-full pe-2 text-right text-[10px] sm:pe-4 sm:text-xs">
-                All day
+                {t('event.allDay')}
               </span>
             </div>
             <div className="border-border/70 relative border-r p-1 last:border-r-0">

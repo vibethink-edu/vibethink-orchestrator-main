@@ -1,5 +1,5 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Avatar, AvatarFallback, AvatarImage } from "../../avatar";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../../tooltip";
 import { cn } from "@/lib/utils";
 import { Markdown } from "./markdown";
 

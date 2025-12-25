@@ -5,11 +5,8 @@ import * as React from "react";
 import { Area, AreaChart } from "recharts";
 import { TrendingDown } from "lucide-react";
 
-import {
-  ChartConfig,
-  ChartContainer
-} from "@vibethink/ui";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
+import { ChartConfig, ChartContainer } from "@vibethink/ui/components/chart";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { AnalyticsCardProps } from '../types'
 
 const chartData = [
@@ -63,7 +60,7 @@ export function AverageDailySalesCard({
               <stop offset="95%" stopColor="var(--color-mobile)" stopOpacity={0.1} />
             </linearGradient>
           </defs>
-{/* ChartTooltip removed - causes Redux error */}
+          {/* ChartTooltip removed - causes Redux error */}
           <Area dataKey="mobile" fill="url(#fillMobile)" stroke="var(--color-mobile)" stackId="a" />
         </AreaChart>
       </ChartContainer>

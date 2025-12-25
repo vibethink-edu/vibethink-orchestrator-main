@@ -1,0 +1,85 @@
+{
+  "namespace": "hotel",
+  "locales": {
+    "en": {
+      "exists": true,
+      "totalKeys": 144,
+      "translatedKeys": 144,
+      "missingKeys": [],
+      "coverage": 100,
+      "status": "ok"
+    },
+    "es": {
+      "exists": true,
+      "totalKeys": 144,
+      "translatedKeys": 144,
+      "missingKeys": [],
+      "coverage": 100,
+      "status": "ok"
+    },
+    "fr": {
+      "exists": true,
+      "totalKeys": 144,
+      "translatedKeys": 144,
+      "missingKeys": [],
+      "coverage": 100,
+      "status": "ok"
+    },
+    "pt": {
+      "exists": true,
+      "totalKeys": 144,
+      "translatedKeys": 144,
+      "missingKeys": [],
+      "coverage": 100,
+      "status": "ok"
+    },
+    "de": {
+      "exists": true,
+      "totalKeys": 144,
+      "translatedKeys": 144,
+      "missingKeys": [],
+      "coverage": 100,
+      "status": "ok"
+    },
+    "it": {
+      "exists": true,
+      "totalKeys": 144,
+      "translatedKeys": 144,
+      "missingKeys": [],
+      "coverage": 100,
+      "status": "ok"
+    },
+    "ko": {
+      "exists": true,
+      "totalKeys": 144,
+      "translatedKeys": 144,
+      "missingKeys": [],
+      "coverage": 100,
+      "status": "ok"
+    },
+    "ar": {
+      "exists": true,
+      "totalKeys": 144,
+      "translatedKeys": 144,
+      "missingKeys": [],
+      "coverage": 100,
+      "status": "ok"
+    },
+    "zh": {
+      "exists": true,
+      "totalKeys": 144,
+      "translatedKeys": 144,
+      "missingKeys": [],
+      "coverage": 100,
+      "status": "ok"
+    }
+  },
+  "criticalErrors": [],
+  "warnings": [],
+  "summary": {
+    "totalKeys": 144,
+    "criticalComplete": 2,
+    "otherComplete": 7,
+    "fallbackEnabled": true
+  }
+}

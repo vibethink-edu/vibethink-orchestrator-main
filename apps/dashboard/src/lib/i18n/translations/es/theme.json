@@ -1,73 +1,72 @@
 {
   "customizer": {
-    "title": "Personalización",
     "aspect": {
-      "label": "Aspecto",
+      "label": "Apariencia",
       "light": "Claro",
       "dark": "Oscuro",
       "system": "Sistema"
     },
     "theme": {
-      "label": "Tema de Color",
-      "subtitle": "Principal",
-      "description": "Cambia los colores principales del tema (Sunset Glow, Ocean Breeze, etc.)"
+      "label": "Tema",
+      "subtitle": "Esquema de colores",
+      "description": "Elige un tema de color para tu dashboard"
     },
     "font": {
       "label": "Fuente",
-      "description": "Selecciona la fuente tipográfica de la aplicación"
+      "description": "Selecciona una familia de fuentes"
     },
     "advanced": {
-      "title": "Personalización Avanzada",
+      "title": "Avanzado",
       "baseColor": {
-        "label": "Base Color",
+        "label": "Color Base",
         "optional": "Opcional",
-        "description": "Paleta de colores base (neutral, slate, blue, etc.)"
+        "description": "Paleta de colores base"
       },
       "menu": {
-        "title": "Sidebar / Menú",
+        "title": "Menú",
         "color": {
-          "label": "Color del menú",
-          "default": "Default",
-          "muted": "Muted",
-          "accent": "Accent"
+          "label": "Color del Menú",
+          "default": "Por Defecto",
+          "muted": "Atenuado",
+          "accent": "Acento"
         },
         "accent": {
-          "label": "Acento del menú",
+          "label": "Acento del Menú",
           "subtle": "Sutil",
           "moderate": "Moderado",
-          "bold": "Fuerte",
-          "description": "Color y acento del menú lateral"
+          "bold": "Negrita",
+          "description": "Intensidad del acento del menú"
         }
       },
       "size": {
-        "title": "Tamaño y Forma",
+        "title": "Tamaño",
         "scale": {
           "label": "Escala",
-          "none": "—",
-          "sm": "XS",
-          "lg": "LG"
+          "none": "Ninguno",
+          "sm": "Pequeño",
+          "lg": "Grande"
         },
         "radius": {
           "label": "Radio",
-          "none": "—",
-          "sm": "SM",
-          "md": "MD",
-          "lg": "LG",
-          "xl": "XL"
+          "none": "Ninguno",
+          "sm": "Pequeño",
+          "md": "Mediano",
+          "lg": "Grande",
+          "xl": "Extra Grande"
         },
-        "description": "Escala de tamaño y radio de bordes"
+        "description": "Ajustar tamaños de componentes"
       },
       "layout": {
-        "title": "Layout",
+        "title": "Diseño",
         "content": {
-          "label": "Layout",
-          "full": "Full",
-          "centered": "Centered"
+          "label": "Diseño del Contenido",
+          "full": "Completo",
+          "centered": "Centrado"
         },
         "sidebar": {
-          "label": "Modo Sidebar",
-          "default": "Default",
-          "icon": "Icon"
+          "label": "Modo del Sidebar",
+          "default": "Por Defecto",
+          "icon": "Icono"
         }
       }
     }
@@ -75,7 +74,7 @@
   "themes": {
     "default": {
       "name": "Por Defecto",
-      "description": "Tema neutro por defecto"
+      "description": "Tema por defecto"
     },
     "underground": {
       "name": "Underground",
@@ -109,48 +108,46 @@
   "fonts": {
     "inter": {
       "name": "Inter",
-      "description": "Modern sans-serif"
+      "description": "Sans-serif moderno"
     },
     "noto-sans": {
       "name": "Noto Sans",
-      "description": "Clean and readable"
+      "description": "Limpio y legible"
     },
     "nunito-sans": {
       "name": "Nunito Sans",
-      "description": "Rounded and friendly"
+      "description": "Redondeado y amigable"
     },
     "figtree": {
       "name": "Figtree",
-      "description": "Geometric sans-serif"
+      "description": "Sans-serif geométrico"
     },
     "geist": {
       "name": "Geist",
-      "description": "Default font"
+      "description": "Fuente por defecto"
     },
     "roboto": {
       "name": "Roboto",
-      "description": "Google's signature font"
+      "description": "Fuente característica de Google"
     },
     "poppins": {
       "name": "Poppins",
-      "description": "Geometric and modern"
+      "description": "Geométrico y moderno"
     },
     "montserrat": {
       "name": "Montserrat",
-      "description": "Elegant and versatile"
+      "description": "Elegante y versátil"
     },
     "pt-sans": {
       "name": "PT Sans",
-      "description": "Humanist sans-serif"
+      "description": "Sans-serif humanista"
     },
     "system": {
-      "name": "System",
-      "description": "System default font"
+      "name": "Sistema",
+      "description": "Fuente por defecto del sistema"
     }
   }
 }
-
-
 
 
 

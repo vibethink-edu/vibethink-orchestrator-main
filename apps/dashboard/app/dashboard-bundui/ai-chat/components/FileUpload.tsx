@@ -15,11 +15,11 @@
 // =============================================================================
 
 import React, { useState, useRef, useCallback } from 'react'
-import { Button } from '@vibethink/ui'
-import { Progress } from '@vibethink/ui'
-import { Badge } from '@vibethink/ui'
-import { Alert, AlertDescription } from '@vibethink/ui'
-import { 
+import { Button } from '@vibethink/ui/components/button'
+import { Progress } from '@vibethink/ui/components/progress'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Alert, AlertDescription } from '@vibethink/ui/components/alert'
+import {
   Upload,
   File,
   FileText,
@@ -29,7 +29,7 @@ import {
   AlertCircle,
   Loader2
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 import { FileUploadProps } from '../types'
 
 /**
@@ -48,7 +48,7 @@ export function FileUpload({
   const [uploadProgress, setUploadProgress] = useState(0)
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])
   const [error, setError] = useState<string | null>(null)
-  
+
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   // Validar archivo
@@ -128,7 +128,7 @@ export function FileUpload({
   const handleDrag = (e: React.DragEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    
+
     if (disabled) return
 
     if (e.type === 'dragenter' || e.type === 'dragover') {
@@ -166,11 +166,10 @@ export function FileUpload({
   }
 
   // Obtener icono de archivo
+  // Get file icon component (not JSX)
   const getFileIcon = (file: File) => {
-    if (file.type.startsWith('image/')) {
-      return <Image className="w-4 h-4" />
-    }
-    return <FileText className="w-4 h-4" />
+    if (file.type.startsWith('image/')) return Image
+    return FileText
   }
 
   // Formatear tamaño de archivo
@@ -212,7 +211,7 @@ export function FileUpload({
           <div className="mx-auto w-12 h-12 bg-muted rounded-full flex items-center justify-center">
             <Upload className="w-6 h-6 text-muted-foreground" />
           </div>
-          
+
           <div className="space-y-1">
             <p className="text-sm font-medium">
               {dragActive ? 'Drop files here' : 'Click to upload or drag and drop'}
@@ -278,7 +277,10 @@ export function FileUpload({
               >
                 {/* File Icon */}
                 <div className="shrink-0">
-                  {getFileIcon(file)}
+                  {(() => {
+                    const FileIcon = getFileIcon(file)
+                    return <FileIcon className="w-4 h-4" />
+                  })()}
                 </div>
 
                 {/* File Info */}
@@ -294,7 +296,7 @@ export function FileUpload({
                   <Badge variant="outline" className="text-xs">
                     Ready
                   </Badge>
-                  
+
                   <Button
                     variant="ghost"
                     size="sm"

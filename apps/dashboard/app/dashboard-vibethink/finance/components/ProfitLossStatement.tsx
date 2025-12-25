@@ -1,4 +1,13 @@
-import { Card, CardContent, CardHeader, CardTitle, Skeleton, Badge, Button, Separator } from '@vibethink/ui'
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle
+} from '@vibethink/ui/components/card'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Button } from '@vibethink/ui/components/button'
+import { Separator } from '@vibethink/ui/components/separator'
 import { Revenue, Expense } from '../types'
 import { useState } from 'react'
 import { FileText, Download, TrendingUp, TrendingDown, Calculator, DollarSign } from 'lucide-react'
@@ -27,11 +36,11 @@ interface ProfitLossStatementProps {
  * - Professional P&L formatting
  * - HSL color variables for theme compatibility
  */
-export function ProfitLossStatement({ 
-  revenues, 
-  expenses, 
-  loading = false, 
-  className 
+export function ProfitLossStatement({
+  revenues,
+  expenses,
+  loading = false,
+  className
 }: ProfitLossStatementProps) {
   const [period, setPeriod] = useState('current_month')
 
@@ -85,24 +94,24 @@ export function ProfitLossStatement({
   // Calculate totals
   const totalRevenue = Object.values(revenueByCategory).reduce((sum, amount) => sum + amount, 0)
   const totalExpenses = Object.values(expensesByCategory).reduce((sum, amount) => sum + amount, 0)
-  
+
   // Cost of Goods Sold (COGS) - assume certain categories are COGS
   const cogsCategories = ['operations', 'supplies', 'equipment']
-  const totalCOGS = cogsCategories.reduce((sum, category) => 
+  const totalCOGS = cogsCategories.reduce((sum, category) =>
     sum + (expensesByCategory[category] || 0), 0)
-  
+
   const grossProfit = totalRevenue - totalCOGS
   const grossMargin = totalRevenue > 0 ? (grossProfit / totalRevenue) * 100 : 0
-  
+
   // Operating expenses (excluding COGS)
   const operatingExpenseCategories = Object.keys(expensesByCategory)
     .filter(category => !cogsCategories.includes(category))
-  const totalOperatingExpenses = operatingExpenseCategories.reduce((sum, category) => 
+  const totalOperatingExpenses = operatingExpenseCategories.reduce((sum, category) =>
     sum + expensesByCategory[category], 0)
-  
+
   const operatingProfit = grossProfit - totalOperatingExpenses
   const operatingMargin = totalRevenue > 0 ? (operatingProfit / totalRevenue) * 100 : 0
-  
+
   const netProfit = totalRevenue - totalExpenses
   const netMargin = totalRevenue > 0 ? (netProfit / totalRevenue) * 100 : 0
 
@@ -113,12 +122,12 @@ export function ProfitLossStatement({
     netProfit: netProfit * 0.85
   }
 
-  const revenueGrowth = previousPeriodData.totalRevenue > 0 
-    ? ((totalRevenue - previousPeriodData.totalRevenue) / previousPeriodData.totalRevenue) * 100 
+  const revenueGrowth = previousPeriodData.totalRevenue > 0
+    ? ((totalRevenue - previousPeriodData.totalRevenue) / previousPeriodData.totalRevenue) * 100
     : 0
 
-  const profitGrowth = previousPeriodData.netProfit > 0 
-    ? ((netProfit - previousPeriodData.netProfit) / Math.abs(previousPeriodData.netProfit)) * 100 
+  const profitGrowth = previousPeriodData.netProfit > 0
+    ? ((netProfit - previousPeriodData.netProfit) / Math.abs(previousPeriodData.netProfit)) * 100
     : 0
 
   const handleExport = () => {
@@ -168,10 +177,10 @@ export function ProfitLossStatement({
             <DollarSign className="h-4 w-4 text-green-600" />
             <h3 className="text-lg font-semibold text-foreground">Revenue</h3>
           </div>
-          
+
           <div className="space-y-2 ml-6">
             {Object.entries(revenueByCategory)
-              .sort(([,a], [,b]) => b - a)
+              .sort(([, a], [, b]) => b - a)
               .map(([category, amount]) => (
                 <div key={category} className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">
@@ -183,7 +192,7 @@ export function ProfitLossStatement({
                 </div>
               ))}
           </div>
-          
+
           <Separator />
           <div className="flex justify-between items-center font-semibold">
             <span>Total Revenue</span>
@@ -209,7 +218,7 @@ export function ProfitLossStatement({
         {totalCOGS > 0 && (
           <div className="space-y-3">
             <h3 className="text-lg font-semibold text-foreground">Cost of Goods Sold</h3>
-            
+
             <div className="space-y-2 ml-6">
               {cogsCategories
                 .filter(category => expensesByCategory[category] > 0)
@@ -224,13 +233,13 @@ export function ProfitLossStatement({
                   </div>
                 ))}
             </div>
-            
+
             <Separator />
             <div className="flex justify-between items-center font-semibold">
               <span>Total COGS</span>
               <span className="text-red-600">{formatCurrency(totalCOGS)}</span>
             </div>
-            
+
             <div className="flex justify-between items-center font-bold text-lg bg-muted/50 p-3 rounded-lg">
               <span>Gross Profit</span>
               <div className="text-right">
@@ -248,7 +257,7 @@ export function ProfitLossStatement({
         {/* Operating Expenses */}
         <div className="space-y-3">
           <h3 className="text-lg font-semibold text-foreground">Operating Expenses</h3>
-          
+
           <div className="space-y-2 ml-6">
             {operatingExpenseCategories
               .sort((a, b) => expensesByCategory[b] - expensesByCategory[a])
@@ -263,13 +272,13 @@ export function ProfitLossStatement({
                 </div>
               ))}
           </div>
-          
+
           <Separator />
           <div className="flex justify-between items-center font-semibold">
             <span>Total Operating Expenses</span>
             <span className="text-red-600">{formatCurrency(totalOperatingExpenses)}</span>
           </div>
-          
+
           {totalCOGS > 0 && (
             <div className="flex justify-between items-center font-bold text-lg bg-muted/50 p-3 rounded-lg">
               <span>Operating Profit</span>

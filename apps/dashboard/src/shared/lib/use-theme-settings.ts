@@ -36,8 +36,10 @@ const DEFAULT_SETTINGS: ThemeSettings = {
 /**
  * Hook para manejar todas las configuraciones de tema
  * (Scale, Radius, Content Layout, Sidebar Mode)
+ * 
+ * @param dashboardPrefix - Prefijo para aislar cookies por dashboard (ej: "bundui", "vibethink")
  */
-export function useThemeSettings() {
+export function useThemeSettings(dashboardPrefix?: string) {
   const [settings, setSettingsState] = useState<ThemeSettings>(DEFAULT_SETTINGS);
   const [mounted, setMounted] = useState(false);
 
@@ -45,11 +47,41 @@ export function useThemeSettings() {
   const getSavedSettings = useCallback((): ThemeSettings => {
     if (typeof window === "undefined") return DEFAULT_SETTINGS;
 
+    const prefix = dashboardPrefix ? `${dashboardPrefix}_` : '';
+
     const getCookie = (name: string): string | null => {
-      const value = document.cookie
+      const prefixedName = `${prefix}${name}`;
+      // Intentar cookie con prefijo primero
+      let value = document.cookie
         .split("; ")
-        .find((row) => row.startsWith(`${name}=`))
+        .find((row) => row.startsWith(`${prefixedName}=`))
         ?.split("=")[1];
+      
+      // Si no hay valor con prefijo y tenemos prefijo, intentar migrar desde cookie global
+      if (!value && dashboardPrefix) {
+        const globalValue = document.cookie
+          .split("; ")
+          .find((row) => row.startsWith(`${name}=`))
+          ?.split("=")[1];
+        
+        if (globalValue) {
+          // Migrar cookie global a prefijada
+          const expires = new Date();
+          expires.setFullYear(expires.getFullYear() + 1);
+          const encodedValue = encodeURIComponent(globalValue);
+          document.cookie = `${prefixedName}=${encodedValue}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
+          value = globalValue;
+        }
+      }
+      
+      // Fallback a cookie global (compatibilidad hacia atrás)
+      if (!value) {
+        value = document.cookie
+          .split("; ")
+          .find((row) => row.startsWith(`${name}=`))
+          ?.split("=")[1];
+      }
+      
       return value ? decodeURIComponent(value).trim() : null;
     };
 
@@ -121,13 +153,14 @@ export function useThemeSettings() {
 
     const expires = new Date();
     expires.setFullYear(expires.getFullYear() + 1);
+    const prefix = dashboardPrefix ? `${dashboardPrefix}_` : '';
 
     Object.entries(newSettings).forEach(([key, value]) => {
-      const cookieName = `theme_${key.replace(/([A-Z])/g, "_$1").toLowerCase()}`;
+      const cookieName = `${prefix}theme_${key.replace(/([A-Z])/g, "_$1").toLowerCase()}`;
       const encodedValue = encodeURIComponent(value);
       document.cookie = `${cookieName}=${encodedValue}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
     });
-  }, []);
+  }, [dashboardPrefix]);
 
   useEffect(() => {
     setMounted(true);

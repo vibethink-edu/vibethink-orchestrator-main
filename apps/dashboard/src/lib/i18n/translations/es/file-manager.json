@@ -1,0 +1,166 @@
+{
+  "title": "Gestor de Archivos",
+  "description": "Administra tus archivos, carpetas y almacenamiento en toda tu organización",
+  "header": {
+    "search": {
+      "placeholder": "Buscar archivos y carpetas..."
+    },
+    "viewMode": {
+      "grid": "Vista de Cuadrícula",
+      "list": "Vista de Lista"
+    },
+    "filters": {
+      "label": "Filtros",
+      "active": "Activo"
+    },
+    "upload": {
+      "label": "Subir Archivos",
+      "button": "Subir"
+    }
+  },
+  "summary": {
+    "totalFiles": "Total de Archivos",
+    "totalFolders": "Total de Carpetas",
+    "totalStorage": "Almacenamiento Total",
+    "usedStorage": "Almacenamiento Usado",
+    "availableStorage": "Almacenamiento Disponible"
+  },
+  "folders": {
+    "title": "Carpetas",
+    "empty": "No se encontraron carpetas",
+    "create": "Crear Carpeta",
+    "new": "Nueva Carpeta",
+    "edit": "Editar Carpeta",
+    "delete": "Eliminar Carpeta",
+    "deleteConfirm": "¿Estás seguro de que quieres eliminar esta carpeta?",
+    "name": "Nombre de la Carpeta",
+    "description": "Descripción de la Carpeta",
+    "created": "Creado",
+    "modified": "Modificado",
+    "items": "elementos"
+  },
+  "files": {
+    "title": "Archivos Recientes",
+    "empty": "No se encontraron archivos",
+    "name": "Nombre del Archivo",
+    "size": "Tamaño",
+    "type": "Tipo",
+    "modified": "Modificado",
+    "actions": {
+      "view": "Ver",
+      "download": "Descargar",
+      "share": "Compartir",
+      "delete": "Eliminar",
+      "rename": "Renombrar",
+      "move": "Mover",
+      "favorite": "Agregar a Favoritos",
+      "unfavorite": "Quitar de Favoritos"
+    },
+    "deleteConfirm": "¿Estás seguro de que quieres eliminar este archivo?",
+    "shareDialog": {
+      "title": "Compartir Archivo",
+      "link": "Enlace de Compartir",
+      "copy": "Copiar Enlace",
+      "copied": "¡Enlace copiado!",
+      "permissions": "Permisos",
+      "expires": "Expira",
+      "never": "Nunca"
+    }
+  },
+  "storage": {
+    "title": "Estado de Almacenamiento",
+    "used": "Usado",
+    "available": "Disponible",
+    "total": "Total",
+    "percentage": "{{value}}% usado",
+    "breakdown": {
+      "title": "Desglose de Almacenamiento",
+      "images": "Imágenes",
+      "documents": "Documentos",
+      "videos": "Videos",
+      "audio": "Audio",
+      "other": "Otros"
+    }
+  },
+  "upload": {
+    "title": "Subir Archivos",
+    "dialog": {
+      "title": "Subir Archivos",
+      "description": "Selecciona archivos para subir o arrástralos aquí",
+      "selectFiles": "Seleccionar Archivos",
+      "dragDrop": "Arrastra y suelta archivos aquí, o haz clic para seleccionar",
+      "uploading": "Subiendo...",
+      "uploaded": "Subido",
+      "failed": "Error al subir",
+      "cancel": "Cancelar",
+      "upload": "Subir",
+      "folder": "Subir a Carpeta",
+      "tags": "Etiquetas",
+      "addTag": "Agregar Etiqueta",
+      "tagPlaceholder": "Ingresa el nombre de la etiqueta"
+    },
+    "progress": "Subiendo {{current}} de {{total}} archivos...",
+    "success": "¡Archivos subidos exitosamente!",
+    "error": "Error al subir archivos"
+  },
+  "transfer": {
+    "title": "Transferencia de Archivos",
+    "uploaded": "Subidos",
+    "downloaded": "Descargados",
+    "period": "Últimos 7 días"
+  },
+  "actions": {
+    "bulk": {
+      "title": "Acciones Masivas",
+      "selectAll": "Seleccionar Todo",
+      "deselectAll": "Deseleccionar Todo",
+      "delete": "Eliminar Seleccionados",
+      "download": "Descargar Seleccionados",
+      "move": "Mover Seleccionados",
+      "share": "Compartir Seleccionados"
+    },
+    "createFolder": "Nueva Carpeta",
+    "bulkActions": "Acciones Masivas"
+  },
+  "stats": {
+    "files": "{{count}} archivos",
+    "folders": "{{count}} carpetas",
+    "storageUsed": "{{percentage}}% usado"
+  },
+  "errors": {
+    "loadError": "Error al Cargar el Gestor de Archivos",
+    "retry": "Reintentar",
+    "uploadError": "Error al subir archivo",
+    "deleteError": "Error al eliminar archivo",
+    "downloadError": "Error al descargar archivo",
+    "shareError": "Error al compartir archivo",
+    "folderError": "Error al crear carpeta",
+    "operationError": "Error en la operación"
+  },
+  "loading": {
+    "manager": "Cargando gestor de archivos...",
+    "operation": "Procesando operación de archivo...",
+    "upload": "Subiendo archivos...",
+    "delete": "Eliminando archivos...",
+    "download": "Descargando archivos..."
+  },
+  "types": {
+    "image": "Imagen",
+    "document": "Documento",
+    "video": "Video",
+    "audio": "Audio",
+    "archive": "Archivo",
+    "other": "Otro"
+  },
+  "units": {
+    "bytes": "B",
+    "kilobytes": "KB",
+    "megabytes": "MB",
+    "gigabytes": "GB",
+    "terabytes": "TB"
+  }
+}
+
+
+
+

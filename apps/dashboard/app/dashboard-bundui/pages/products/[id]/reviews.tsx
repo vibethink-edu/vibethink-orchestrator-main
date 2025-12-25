@@ -1,6 +1,8 @@
 import { StarIcon } from "lucide-react";
-import { Button, Badge, Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
-import { generateAvatarFallback } from "@/lib/utils";
+import { Button } from "@vibethink/ui/components/button";
+import { Badge } from "@vibethink/ui/components/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";
+import { generateAvatarFallback } from "@/shared/lib/utils";
 
 const reviews = [
   {

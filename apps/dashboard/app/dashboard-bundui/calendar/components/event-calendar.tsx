@@ -15,6 +15,7 @@ import {
 } from "date-fns";
 import { ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, PlusIcon } from "lucide-react";
 import { toast } from "sonner";
+import { useTranslation } from "@/lib/i18n";
 
 import {
   addHoursToDate,
@@ -31,7 +32,7 @@ import {
   WeekCellsHeight,
   WeekView
 } from "./";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { Button } from "@vibethink/ui";
 import {
   DropdownMenu,
@@ -58,6 +59,7 @@ export function EventCalendar({
   className,
   initialView = "month"
 }: EventCalendarProps) {
+  const { t } = useTranslation('calendar');
   const [currentDate, setCurrentDate] = useState(new Date());
   const [view, setView] = useState<CalendarView>(initialView);
   const [isEventDialogOpen, setIsEventDialogOpen] = useState(false);
@@ -169,7 +171,7 @@ export function EventCalendar({
     if (event.id) {
       onEventUpdate?.(event);
       // Show toast notification when an event is updated
-      toast(`Event "${event.title}" updated`, {
+      toast(t('toast.eventUpdated', { title: event.title }), {
         description: format(new Date(event.start), "MMM d, yyyy"),
         position: "bottom-left"
       });
@@ -179,7 +181,7 @@ export function EventCalendar({
         id: Math.random().toString(36).substring(2, 11)
       });
       // Show toast notification when an event is added
-      toast(`Event "${event.title}" added`, {
+      toast(t('toast.eventAdded', { title: event.title }), {
         description: format(new Date(event.start), "MMM d, yyyy"),
         position: "bottom-left"
       });
@@ -196,7 +198,7 @@ export function EventCalendar({
 
     // Show toast notification when an event is deleted
     if (deletedEvent) {
-      toast(`Event "${deletedEvent.title}" deleted`, {
+      toast(t('toast.eventDeleted', { title: deletedEvent.title }), {
         description: format(new Date(deletedEvent.start), "MMM d, yyyy"),
         position: "bottom-left"
       });
@@ -207,7 +209,7 @@ export function EventCalendar({
     onEventUpdate?.(updatedEvent);
 
     // Show toast notification when an event is updated via drag and drop
-    toast(`Event "${updatedEvent.title}" moved`, {
+    toast(t('toast.eventMoved', { title: updatedEvent.title }), {
       description: format(new Date(updatedEvent.start), "MMM d, yyyy"),
       position: "bottom-left"
     });
@@ -269,13 +271,13 @@ export function EventCalendar({
               className="max-[479px]:aspect-square max-[479px]:p-0!"
               onClick={handleToday}>
               <RiCalendarCheckLine className="min-[480px]:hidden" size={16} aria-hidden="true" />
-              <span className="max-[479px]:sr-only">Today</span>
+              <span className="max-[479px]:sr-only">{t('toolbar.today')}</span>
             </Button>
             <div className="flex items-center sm:gap-2">
-              <Button variant="ghost" size="icon" onClick={handlePrevious} aria-label="Previous">
+              <Button variant="ghost" size="icon" onClick={handlePrevious} aria-label={t('toolbar.previous')}>
                 <ChevronLeftIcon size={16} aria-hidden="true" />
               </Button>
-              <Button variant="ghost" size="icon" onClick={handleNext} aria-label="Next">
+              <Button variant="ghost" size="icon" onClick={handleNext} aria-label={t('toolbar.next')}>
                 <ChevronRightIcon size={16} aria-hidden="true" />
               </Button>
             </div>
@@ -298,16 +300,16 @@ export function EventCalendar({
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="min-w-32">
                 <DropdownMenuItem onClick={() => setView("month")}>
-                  Month <DropdownMenuShortcut>M</DropdownMenuShortcut>
+                  {t('views.month')} <DropdownMenuShortcut>M</DropdownMenuShortcut>
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setView("week")}>
-                  Week <DropdownMenuShortcut>W</DropdownMenuShortcut>
+                  {t('views.week')} <DropdownMenuShortcut>W</DropdownMenuShortcut>
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setView("day")}>
-                  Day <DropdownMenuShortcut>D</DropdownMenuShortcut>
+                  {t('views.day')} <DropdownMenuShortcut>D</DropdownMenuShortcut>
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setView("agenda")}>
-                  Agenda <DropdownMenuShortcut>A</DropdownMenuShortcut>
+                  {t('views.agenda')} <DropdownMenuShortcut>A</DropdownMenuShortcut>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -319,7 +321,7 @@ export function EventCalendar({
                 setIsEventDialogOpen(true);
               }}>
               <PlusIcon className="opacity-60 sm:-ms-1" size={16} aria-hidden="true" />
-              <span className="max-sm:sr-only">New event</span>
+              <span className="max-sm:sr-only">{t('toolbar.newEvent')}</span>
             </Button>
           </div>
         </div>

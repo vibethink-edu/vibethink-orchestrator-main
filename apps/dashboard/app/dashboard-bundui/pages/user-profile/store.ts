@@ -62,7 +62,7 @@ interface ProfileState {
 
 export const useProfileStore = create<ProfileState>(() => ({
   user: {
-    name: "Toby Belhome",
+    name: "Vito Escallón",
     verified: true,
     avatar: "/assets/images/avatars/01.png",
     role: "Developer",
@@ -81,6 +81,7 @@ export const useProfileStore = create<ProfileState>(() => ({
   teams: [],
   projects: []
 }));
+
 
 
 

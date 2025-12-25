@@ -1,19 +1,38 @@
-import { Card, CardContent, CardHeader, CardTitle, Skeleton, Badge } from '@vibethink/ui'
-import { 
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle
+} from '@vibethink/ui/components/card'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
+import { Badge } from '@vibethink/ui/components/badge'
+import {
   AreaChart,
   Area,
   BarChart,
   Bar,
   LineChart,
   Line,
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip, 
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
   ResponsiveContainer,
   ReferenceLine
 } from 'recharts'
-import { Tabs, TabsContent, TabsList, TabsTrigger, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@vibethink/ui'
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger
+} from '@vibethink/ui/components/tabs'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@vibethink/ui/components/select'
 import { useState } from 'react'
 import { CashFlowChartProps, CashFlowData } from '../types'
 import { TrendingUp, TrendingDown, Activity, BarChart3, LineChart as LineChartIcon, Wallet } from 'lucide-react'
@@ -34,11 +53,11 @@ import { TrendingUp, TrendingDown, Activity, BarChart3, LineChart as LineChartIc
  * - Responsive design with loading states
  * - HSL color variables for theme compatibility
  */
-export function CashFlowChart({ 
-  data, 
-  title = "Cash Flow Analysis", 
-  className, 
-  height = 350 
+export function CashFlowChart({
+  data,
+  title = "Cash Flow Analysis",
+  className,
+  height = 350
 }: CashFlowChartProps) {
   const [viewType, setViewType] = useState<'overview' | 'detailed' | 'trends'>('overview')
   const [period, setPeriod] = useState('monthly')
@@ -156,30 +175,30 @@ export function CashFlowChart({
               <AreaChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <defs>
                   <linearGradient id="netFlowGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="hsl(var(--chart-3))" stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor="hsl(var(--chart-3))" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="hsl(var(--chart-3))" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="hsl(var(--chart-3))" stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="balanceGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="hsl(var(--chart-1))" stopOpacity={0.2}/>
-                    <stop offset="95%" stopColor="hsl(var(--chart-1))" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="hsl(var(--chart-1))" stopOpacity={0.2} />
+                    <stop offset="95%" stopColor="hsl(var(--chart-1))" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                <XAxis 
-                  dataKey="period" 
-                  className="text-xs fill-muted-foreground" 
+                <XAxis
+                  dataKey="period"
+                  className="text-xs fill-muted-foreground"
                 />
-                <YAxis 
+                <YAxis
                   className="text-xs fill-muted-foreground"
                   tickFormatter={formatCurrency}
                 />
-                <YAxis 
+                <YAxis
                   yAxisId="balance"
                   orientation="right"
                   className="text-xs fill-muted-foreground"
                   tickFormatter={formatCurrency}
                 />
-                <Tooltip 
+                <Tooltip
                   formatter={formatTooltip}
                   labelFormatter={(label) => `Period: ${label}`}
                   contentStyle={{
@@ -209,7 +228,7 @@ export function CashFlowChart({
                 />
               </AreaChart>
             </ResponsiveContainer>
-            
+
             {/* Overview Summary */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t">
               <div className="text-center">
@@ -228,8 +247,8 @@ export function CashFlowChart({
               </div>
               <div className="text-center">
                 <div className="flex items-center justify-center gap-2">
-                  {isPositiveTrend ? 
-                    <TrendingUp className="h-4 w-4 text-green-600" /> : 
+                  {isPositiveTrend ?
+                    <TrendingUp className="h-4 w-4 text-green-600" /> :
                     <TrendingDown className="h-4 w-4 text-red-600" />
                   }
                   <p className={`text-lg font-bold ${isPositiveTrend ? 'text-green-600' : 'text-red-600'}`}>
@@ -252,15 +271,15 @@ export function CashFlowChart({
             <ResponsiveContainer width="100%" height={height}>
               <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                <XAxis 
-                  dataKey="period" 
-                  className="text-xs fill-muted-foreground" 
+                <XAxis
+                  dataKey="period"
+                  className="text-xs fill-muted-foreground"
                 />
-                <YAxis 
+                <YAxis
                   className="text-xs fill-muted-foreground"
                   tickFormatter={formatCurrency}
                 />
-                <Tooltip 
+                <Tooltip
                   formatter={formatTooltip}
                   labelFormatter={(label) => `Period: ${label}`}
                   contentStyle={{
@@ -270,21 +289,21 @@ export function CashFlowChart({
                     boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
                   }}
                 />
-                <Bar 
-                  dataKey="cash_in" 
+                <Bar
+                  dataKey="cash_in"
                   name="cash_in"
                   fill="hsl(var(--chart-1))"
                   radius={[2, 2, 0, 0]}
                 />
-                <Bar 
-                  dataKey="cash_out" 
+                <Bar
+                  dataKey="cash_out"
                   name="cash_out"
                   fill="hsl(var(--chart-2))"
                   radius={[2, 2, 0, 0]}
                 />
               </BarChart>
             </ResponsiveContainer>
-            
+
             {/* Detailed Legend and Summary */}
             <div className="space-y-4">
               <div className="flex justify-center gap-6">
@@ -297,7 +316,7 @@ export function CashFlowChart({
                   <span className="text-sm text-muted-foreground">Cash Out</span>
                 </div>
               </div>
-              
+
               <div className="grid grid-cols-3 gap-4 pt-4 border-t">
                 <div className="text-center">
                   <p className="text-lg font-bold text-green-600">{formatCurrency(totalCashIn)}</p>
@@ -322,15 +341,15 @@ export function CashFlowChart({
             <ResponsiveContainer width="100%" height={height}>
               <LineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                <XAxis 
-                  dataKey="period" 
-                  className="text-xs fill-muted-foreground" 
+                <XAxis
+                  dataKey="period"
+                  className="text-xs fill-muted-foreground"
                 />
-                <YAxis 
+                <YAxis
                   className="text-xs fill-muted-foreground"
                   tickFormatter={formatCurrency}
                 />
-                <Tooltip 
+                <Tooltip
                   formatter={formatTooltip}
                   labelFormatter={(label) => `Period: ${label}`}
                   contentStyle={{
@@ -358,7 +377,7 @@ export function CashFlowChart({
                 />
               </LineChart>
             </ResponsiveContainer>
-            
+
             {/* Trends Analysis */}
             <div className="space-y-4">
               <div className="flex justify-center gap-6">
@@ -371,7 +390,7 @@ export function CashFlowChart({
                   <span className="text-sm text-muted-foreground">Net Flow</span>
                 </div>
               </div>
-              
+
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t">
                 <div className="text-center">
                   <p className={`text-lg font-bold ${balanceChange >= 0 ? 'text-green-600' : 'text-red-600'}`}>
@@ -381,7 +400,7 @@ export function CashFlowChart({
                 </div>
                 <div className="text-center">
                   <p className="text-lg font-bold text-foreground">
-                    {chartData.length > 1 
+                    {chartData.length > 1
                       ? ((chartData[chartData.length - 1].net_flow - chartData[0].net_flow) / Math.abs(chartData[0].net_flow) * 100).toFixed(1)
                       : '0'
                     }%

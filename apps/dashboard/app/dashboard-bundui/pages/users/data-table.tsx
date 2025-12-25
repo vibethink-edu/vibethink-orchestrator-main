@@ -15,36 +15,16 @@ import {
 } from "@tanstack/react-table";
 import { ArrowUpDown, Columns, MoreHorizontal, PlusCircle } from "lucide-react";
 
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  Button,
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  Input,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-  Badge,
-  Checkbox
-} from "@vibethink/ui";
-import { generateAvatarFallback } from "@/lib/utils";
+import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui/components/popover";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@vibethink/ui/components/command";
+import { Button } from "@vibethink/ui/components/button";
+import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@vibethink/ui/components/dropdown-menu";
+import { Input } from "@vibethink/ui/components/input";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@vibethink/ui/components/table";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";
+import { Badge } from "@vibethink/ui/components/badge";
+import { Checkbox } from "@vibethink/ui/components/checkbox";
+import { generateAvatarFallback } from "@/shared/lib/utils";
 
 export type User = {
   id: number;
@@ -168,9 +148,9 @@ export const columns: ColumnDef<User>[] = [
       const status = row.original.status;
 
       const statusMap = {
-        active: "success",
+        active: "default",
         inactive: "destructive",
-        pending: "warning"
+        pending: "secondary"
       } as const;
 
       const statusClass = statusMap[status] ?? "outline";
@@ -484,6 +464,10 @@ export default function UsersDataTable({ data }: { data: User[] }) {
     </div>
   );
 }
+
+
+
+
 
 
 

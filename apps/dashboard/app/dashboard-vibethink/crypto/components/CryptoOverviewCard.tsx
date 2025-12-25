@@ -7,10 +7,12 @@
 'use client'
 
 import React from 'react'
-import { Card, CardContent, CardHeader, Button, Badge } from '@vibethink/ui'
-import { 
-  ArrowUpRight, 
-  ChevronRight, 
+import { Card, CardContent, CardHeader } from '@vibethink/ui/components/card'
+import { Button } from '@vibethink/ui/components/button'
+import { Badge } from '@vibethink/ui/components/badge'
+import {
+  ArrowUpRight,
+  ChevronRight,
   Wallet,
   TrendingUp,
   TrendingDown,
@@ -133,18 +135,16 @@ export const CryptoOverviewCard: React.FC<CryptoOverviewCardProps> = ({
             {metrics && (
               <div className="flex items-center gap-2 text-sm">
                 <span className="text-muted-foreground">P&L:</span>
-                <span className={`font-medium ${
-                  metrics.total_profit_loss >= 0 ? 'text-green-600' : 'text-red-600'
-                }`}>
+                <span className={`font-medium ${metrics.total_profit_loss >= 0 ? 'text-green-600' : 'text-red-600'
+                  }`}>
                   {metrics.total_profit_loss >= 0 ? '+' : ''}{formatCurrency(metrics.total_profit_loss)}
                 </span>
-                <Badge 
-                  variant="outline" 
-                  className={`${
-                    metrics.total_profit_loss >= 0 
-                      ? 'bg-green-100 text-green-700 border-green-200' 
+                <Badge
+                  variant="outline"
+                  className={`${metrics.total_profit_loss >= 0
+                      ? 'bg-green-100 text-green-700 border-green-200'
                       : 'bg-red-100 text-red-700 border-red-200'
-                  }`}
+                    }`}
                 >
                   {metrics.total_profit_loss >= 0 ? (
                     <TrendingUp className="h-3 w-3 mr-1" />
@@ -164,17 +164,16 @@ export const CryptoOverviewCard: React.FC<CryptoOverviewCardProps> = ({
                 {displayMetrics.primary_crypto_amount.toLocaleString()}
               </span>
               <span className="text-muted-foreground">{displayMetrics.primary_crypto_symbol}</span>
-              <Badge className={`${
-                displayMetrics.daily_change_percentage >= 0
+              <Badge className={`${displayMetrics.daily_change_percentage >= 0
                   ? 'bg-green-100 text-green-600 border-green-200'
                   : 'bg-red-100 text-red-600 border-red-200'
-              }`}>
+                }`}>
                 <ArrowUpRight className="mr-0.5 size-3" />
                 {Math.abs(displayMetrics.daily_change_percentage)}%
               </Badge>
             </div>
             <div className="flex items-center gap-2">
-              <Button 
+              <Button
                 onClick={onBuyClick}
                 className="bg-primary hover:bg-primary/90"
               >
@@ -201,9 +200,8 @@ export const CryptoOverviewCard: React.FC<CryptoOverviewCardProps> = ({
                   {formatPercentage(metrics.weekly_change_percentage, false)}
                 </div>
                 <div className="text-xs text-muted-foreground">7-Day Change</div>
-                <div className={`text-xs ${
-                  metrics.weekly_change >= 0 ? 'text-green-600' : 'text-red-600'
-                }`}>
+                <div className={`text-xs ${metrics.weekly_change >= 0 ? 'text-green-600' : 'text-red-600'
+                  }`}>
                   {formatCurrency(Math.abs(metrics.weekly_change))}
                 </div>
               </div>
@@ -212,8 +210,8 @@ export const CryptoOverviewCard: React.FC<CryptoOverviewCardProps> = ({
 
           {/* Quick Actions */}
           <div className="flex items-center justify-between pt-2">
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="sm"
               onClick={onViewDetails}
               className="flex items-center gap-2"
@@ -221,8 +219,8 @@ export const CryptoOverviewCard: React.FC<CryptoOverviewCardProps> = ({
               <Wallet className="h-4 w-4" />
               View Portfolio
             </Button>
-            <Button 
-              variant="ghost" 
+            <Button
+              variant="ghost"
               size="sm"
               className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
             >

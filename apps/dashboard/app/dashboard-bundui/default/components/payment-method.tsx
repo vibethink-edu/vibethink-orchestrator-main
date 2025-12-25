@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@vibethink/ui";
 import {
   Card,
@@ -17,18 +19,21 @@ import {
   SelectTrigger,
   SelectValue
 } from "@vibethink/ui";
+import { useTranslation } from "@/lib/i18n";
 
 export function PaymentMethodCard() {
+  const { t } = useTranslation('default');
+  
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Payment Method</CardTitle>
-        <CardDescription>Add a new payment method to your account.</CardDescription>
+        <CardTitle>{t('cards.paymentMethod.title')}</CardTitle>
+        <CardDescription>{t('cards.paymentMethod.description')}</CardDescription>
       </CardHeader>
       <CardContent className="grid gap-6">
         <RadioGroup defaultValue="card" className="grid grid-cols-3 gap-4">
           <div>
-            <RadioGroupItem value="card" id="card" className="peer sr-only" aria-label="Card" />
+            <RadioGroupItem value="card" id="card" className="peer sr-only" aria-label={t('paymentForm.methods.card')} />
             <Label
               htmlFor="card"
               className="border-muted hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary flex flex-col items-center justify-between rounded-md border-2 bg-transparent p-4">
@@ -44,7 +49,7 @@ export function PaymentMethodCard() {
                 <rect width="20" height="14" x="2" y="5" rx="2" />
                 <path d="M2 10h20" />
               </svg>
-              Card
+              {t('paymentForm.methods.card')}
             </Label>
           </div>
 
@@ -53,7 +58,7 @@ export function PaymentMethodCard() {
               value="paypal"
               id="paypal"
               className="peer sr-only"
-              aria-label="Paypal"
+              aria-label={t('paymentForm.methods.paypal')}
             />
             <Label
               htmlFor="paypal"
@@ -64,12 +69,12 @@ export function PaymentMethodCard() {
                   fill="currentColor"
                 />
               </svg>
-              Paypal
+              {t('paymentForm.methods.paypal')}
             </Label>
           </div>
 
           <div>
-            <RadioGroupItem value="apple" id="apple" className="peer sr-only" aria-label="Apple" />
+            <RadioGroupItem value="apple" id="apple" className="peer sr-only" aria-label={t('paymentForm.methods.apple')} />
             <Label
               htmlFor="apple"
               className="border-muted hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary flex flex-col items-center justify-between rounded-md border-2 bg-transparent p-4">
@@ -79,50 +84,43 @@ export function PaymentMethodCard() {
                   fill="currentColor"
                 />
               </svg>
-              Apple
+              {t('paymentForm.methods.apple')}
             </Label>
           </div>
         </RadioGroup>
         <div className="grid gap-2">
-          <Label htmlFor="name">Name on the card</Label>
+          <Label htmlFor="name">{t('paymentForm.fields.nameOnCard')}</Label>
           <Input id="name" />
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="city">City</Label>
+          <Label htmlFor="city">{t('paymentForm.fields.city')}</Label>
           <Input id="city" placeholder="" />
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="number">Card number</Label>
+          <Label htmlFor="number">{t('paymentForm.fields.cardNumber')}</Label>
           <Input id="number" placeholder="" />
         </div>
         <div className="grid grid-cols-3 gap-4">
           <div className="grid gap-2">
-            <Label htmlFor="month">Expires</Label>
+            <Label htmlFor="month">{t('paymentForm.fields.expires')}</Label>
             <Select>
-              <SelectTrigger className="w-full" id="month" aria-label="Month">
-                <SelectValue placeholder="Month" />
+              <SelectTrigger className="w-full" id="month" aria-label={t('paymentForm.fields.month')}>
+                <SelectValue placeholder={t('paymentForm.fields.month')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="1">January</SelectItem>
-                <SelectItem value="2">February</SelectItem>
-                <SelectItem value="3">March</SelectItem>
-                <SelectItem value="4">April</SelectItem>
-                <SelectItem value="5">May</SelectItem>
-                <SelectItem value="6">June</SelectItem>
-                <SelectItem value="7">July</SelectItem>
-                <SelectItem value="8">August</SelectItem>
-                <SelectItem value="9">September</SelectItem>
-                <SelectItem value="10">October</SelectItem>
-                <SelectItem value="11">November</SelectItem>
-                <SelectItem value="12">December</SelectItem>
+                {Array.from({ length: 12 }, (_, i) => (
+                  <SelectItem key={i + 1} value={`${i + 1}`}>
+                    {t(`paymentForm.months.${i + 1}`)}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="year">Year</Label>
+            <Label htmlFor="year">{t('paymentForm.fields.year')}</Label>
             <Select>
-              <SelectTrigger className="w-full" id="year" aria-label="Year">
-                <SelectValue placeholder="Year" />
+              <SelectTrigger className="w-full" id="year" aria-label={t('paymentForm.fields.year')}>
+                <SelectValue placeholder={t('paymentForm.fields.year')} />
               </SelectTrigger>
               <SelectContent>
                 {Array.from({ length: 10 }, (_, i) => (
@@ -134,13 +132,13 @@ export function PaymentMethodCard() {
             </Select>
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="cvc">CVC</Label>
-            <Input id="cvc" placeholder="CVC" />
+            <Label htmlFor="cvc">{t('paymentForm.fields.cvc')}</Label>
+            <Input id="cvc" placeholder={t('paymentForm.fields.cvc')} />
           </div>
         </div>
       </CardContent>
       <CardFooter>
-        <Button className="w-full">Continue</Button>
+        <Button className="w-full">{t('cards.paymentMethod.continue')}</Button>
       </CardFooter>
     </Card>
   );

@@ -16,8 +16,17 @@ import { CalendarIcon } from "lucide-react";
 import type { DateRange } from "react-day-picker";
 
 import { cn } from "@vibethink/utils";
-import { Button, Calendar, Popover, PopoverContent, PopoverTrigger, ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { Calendar } from "@vibethink/ui/components/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui/components/popover";
+import { ToggleGroup, ToggleGroupItem } from "@vibethink/ui/components/toggle-group";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui/components/tooltip";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@vibethink/ui/components/select";
 import { useIsMobile } from "@/hooks/use-mobile";
+
+interface CalendarDateRangePickerProps extends React.HTMLAttributes<HTMLDivElement> {
+  onDateChange?: (from: Date, to: Date) => void;
+}
 
 const dateFilterPresets = [
   { name: "Today", value: "today" },
@@ -31,8 +40,9 @@ const dateFilterPresets = [
 ];
 
 export default function CalendarDateRangePicker({
-  className
-}: React.HTMLAttributes<HTMLDivElement>) {
+  className,
+  onDateChange
+}: CalendarDateRangePickerProps) {
   const isMobile = useIsMobile();
   const today = new Date();
   const twentyEightDaysAgo = startOfDay(subDays(today, 27));
@@ -48,6 +58,9 @@ export default function CalendarDateRangePicker({
   const handleQuickSelect = (from: Date, to: Date) => {
     setDate({ from, to });
     setCurrentMonth(from);
+    if (onDateChange) {
+      onDateChange(from, to);
+    }
   };
 
   const changeHandle = (type: string) => {
@@ -166,7 +179,6 @@ export default function CalendarDateRangePicker({
               <Select defaultValue="last28Days" onValueChange={(value) => changeHandle(value)}>
                 <SelectTrigger
                   className="mb-4 flex w-full lg:hidden"
-                  size="sm"
                   aria-label="Select a value">
                   <SelectValue placeholder="Last 28 Days" />
                 </SelectTrigger>
@@ -188,6 +200,9 @@ export default function CalendarDateRangePicker({
                 setDate(newDate);
                 if (newDate?.from) {
                   setCurrentMonth(newDate.from);
+                  if (newDate.to && onDateChange) {
+                    onDateChange(newDate.from, newDate.to);
+                  }
                 }
               }}
               onMonthChange={setCurrentMonth}

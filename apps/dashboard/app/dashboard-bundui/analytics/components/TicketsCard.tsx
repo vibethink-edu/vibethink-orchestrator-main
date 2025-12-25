@@ -1,6 +1,10 @@
 'use client'
 import { Headphones, ClockIcon, CheckCircle, AlertTriangle, Star } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Progress, Skeleton } from '@vibethink/ui'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui/components/card'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Progress } from '@vibethink/ui/components/progress'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
+import { useTranslation } from '@/lib/i18n'
 import { useAnalyticsData } from '../hooks'
 import { AnalyticsCardProps } from '../types'
 
@@ -37,21 +41,22 @@ const ticketsData = {
  * 
  * Provides insights into support team performance and customer service quality
  */
-export function TicketsCard({ 
+export function TicketsCard({
   className = '',
   isLoading: externalLoading = false,
   error: externalError = null
 }: AnalyticsCardProps) {
+  const { t } = useTranslation('analytics')
   const { supportTickets, isLoading, error } = useAnalyticsData()
-  
+
   const loading = isLoading || externalLoading
   const errorState = error || externalError
 
   // Calculate metrics
   const resolutionRate = (ticketsData.resolved / ticketsData.total) * 100
   const pendingTickets = ticketsData.open + ticketsData.inProgress
-  const responseTimeStatus = ticketsData.averageResponseTime <= 4 ? 'excellent' : 
-                           ticketsData.averageResponseTime <= 8 ? 'good' : 'needs-improvement'
+  const responseTimeStatus = ticketsData.averageResponseTime <= 4 ? 'excellent' :
+    ticketsData.averageResponseTime <= 8 ? 'good' : 'needs-improvement'
 
   // Format time
   const formatTime = (hours: number): string => {
@@ -98,9 +103,9 @@ export function TicketsCard({
     return (
       <Card className={`h-full ${className}`}>
         <CardHeader>
-          <CardTitle className="text-red-600">Error Loading Tickets Data</CardTitle>
+          <CardTitle className="text-red-600">{t('cards.tickets.errorLoadingTicketsData')}</CardTitle>
           <CardDescription>
-            {errorState.message || 'Failed to load support tickets data'}
+            {errorState.message || t('cards.tickets.failedToLoadSupportTicketsData')}
           </CardDescription>
         </CardHeader>
       </Card>
@@ -113,79 +118,79 @@ export function TicketsCard({
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-2">
             <Headphones className="h-5 w-5 text-chart-1" />
-            Support Tickets
+            {t('cards.tickets.title')}
           </CardTitle>
-          <Badge 
-            variant="outline" 
+          <Badge
+            variant="outline"
             className={`gap-1 ${getStatusColor(responseTimeStatus)}`}
           >
             <ClockIcon className="h-3 w-3" />
-            {formatTime(ticketsData.averageResponseTime)} avg
+            {formatTime(ticketsData.averageResponseTime)} {t('cards.tickets.avg')}
           </Badge>
         </div>
-        
+
         <CardDescription>
-          Support team performance and ticket analytics
+          {t('cards.tickets.description')}
         </CardDescription>
       </CardHeader>
-      
+
       <CardContent className="space-y-6">
         {/* Key Metrics Overview */}
         <div className="grid grid-cols-2 gap-4">
           <div className="rounded-lg bg-blue-50 p-3 dark:bg-blue-950/20">
             <div className="flex items-center gap-2 mb-1">
               <CheckCircle className="h-4 w-4 text-green-600" />
-              <span className="text-xs font-medium">Resolution Rate</span>
+              <span className="text-xs font-medium">{t('cards.tickets.resolutionRate')}</span>
             </div>
             <div className="text-lg font-bold">{resolutionRate.toFixed(1)}%</div>
             <div className="text-xs text-muted-foreground">
-              {ticketsData.resolved} resolved
+              {ticketsData.resolved} {t('cards.tickets.resolved')}
             </div>
           </div>
-          
+
           <div className="rounded-lg bg-yellow-50 p-3 dark:bg-yellow-950/20">
             <div className="flex items-center gap-2 mb-1">
               <Star className="h-4 w-4 text-yellow-600" />
-              <span className="text-xs font-medium">Satisfaction</span>
+              <span className="text-xs font-medium">{t('cards.tickets.satisfaction')}</span>
             </div>
             <div className="text-lg font-bold">{ticketsData.satisfactionScore.toFixed(1)}/5</div>
             <div className="text-xs text-muted-foreground">
-              Customer rating
+              {t('cards.tickets.customerRating')}
             </div>
           </div>
         </div>
 
         {/* Ticket Status Breakdown */}
         <div className="space-y-3">
-          <h4 className="text-sm font-medium text-muted-foreground">Ticket Status</h4>
-          
+          <h4 className="text-sm font-medium text-muted-foreground">{t('cards.tickets.ticketStatus')}</h4>
+
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-green-500"></div>
-                <span>Resolved</span>
+                <span>{t('cards.tickets.resolved')}</span>
               </div>
               <span className="font-medium">{ticketsData.resolved}</span>
             </div>
             <Progress value={(ticketsData.resolved / ticketsData.total) * 100} className="h-1.5" />
           </div>
-          
+
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                <span>In Progress</span>
+                <span>{t('cards.tickets.inProgress')}</span>
               </div>
               <span className="font-medium">{ticketsData.inProgress}</span>
             </div>
             <Progress value={(ticketsData.inProgress / ticketsData.total) * 100} className="h-1.5" />
           </div>
-          
+
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-red-500"></div>
-                <span>Open</span>
+                <span>{t('cards.tickets.open')}</span>
               </div>
               <span className="font-medium">{ticketsData.open}</span>
             </div>
@@ -195,29 +200,29 @@ export function TicketsCard({
 
         {/* Priority Breakdown */}
         <div className="space-y-3">
-          <h4 className="text-sm font-medium text-muted-foreground">Priority Distribution</h4>
-          
+          <h4 className="text-sm font-medium text-muted-foreground">{t('cards.tickets.priorityDistribution')}</h4>
+
           <div className="grid grid-cols-3 gap-2 text-center">
             <div className="rounded-lg bg-red-50 p-2 dark:bg-red-950/20">
               <div className="flex items-center justify-center gap-1 mb-1">
                 <AlertTriangle className="h-3 w-3 text-red-600" />
-                <span className="text-xs font-medium">High</span>
+                <span className="text-xs font-medium">{t('cards.tickets.high')}</span>
               </div>
               <div className="text-sm font-bold">{ticketsData.priorityBreakdown.high}</div>
             </div>
-            
+
             <div className="rounded-lg bg-yellow-50 p-2 dark:bg-yellow-950/20">
               <div className="flex items-center justify-center gap-1 mb-1">
                 <ClockIcon className="h-3 w-3 text-yellow-600" />
-                <span className="text-xs font-medium">Medium</span>
+                <span className="text-xs font-medium">{t('cards.tickets.medium')}</span>
               </div>
               <div className="text-sm font-bold">{ticketsData.priorityBreakdown.medium}</div>
             </div>
-            
+
             <div className="rounded-lg bg-green-50 p-2 dark:bg-green-950/20">
               <div className="flex items-center justify-center gap-1 mb-1">
                 <CheckCircle className="h-3 w-3 text-green-600" />
-                <span className="text-xs font-medium">Low</span>
+                <span className="text-xs font-medium">{t('cards.tickets.low')}</span>
               </div>
               <div className="text-sm font-bold">{ticketsData.priorityBreakdown.low}</div>
             </div>
@@ -226,13 +231,13 @@ export function TicketsCard({
 
         {/* Category Breakdown */}
         <div className="space-y-3">
-          <h4 className="text-sm font-medium text-muted-foreground">Top Categories</h4>
-          
+          <h4 className="text-sm font-medium text-muted-foreground">{t('cards.tickets.topCategories')}</h4>
+
           <div className="space-y-2">
             {ticketsData.categoryBreakdown.slice(0, 4).map((category, index) => (
               <div key={category.category} className="flex items-center justify-between text-sm">
                 <div className="flex items-center gap-2">
-                  <div 
+                  <div
                     className="h-2 w-2 rounded-full"
                     style={{ backgroundColor: `hsl(var(--chart-${index + 1}))` }}
                   ></div>
@@ -253,13 +258,13 @@ export function TicketsCard({
         <div className="rounded-lg border p-3">
           <div className="flex items-center gap-2 mb-2">
             <CheckCircle className="h-4 w-4 text-green-600" />
-            <span className="text-sm font-medium">Support Performance</span>
+            <span className="text-sm font-medium">{t('cards.tickets.supportPerformance')}</span>
           </div>
           <div className="space-y-1 text-xs text-muted-foreground">
-            <p>• {resolutionRate.toFixed(1)}% of tickets resolved successfully</p>
-            <p>• {formatTime(ticketsData.averageResponseTime)} average response time</p>
-            <p>• {ticketsData.satisfactionScore}/5 customer satisfaction score</p>
-            <p>• {pendingTickets} tickets currently pending</p>
+            <p>• {resolutionRate.toFixed(1)}% {t('cards.tickets.ofTicketsResolved')}</p>
+            <p>• {formatTime(ticketsData.averageResponseTime)} {t('cards.tickets.averageResponseTime')}</p>
+            <p>• {ticketsData.satisfactionScore}/5 {t('cards.tickets.customerSatisfactionScore')}</p>
+            <p>• {pendingTickets} {t('cards.tickets.ticketsCurrentlyPending')}</p>
           </div>
         </div>
 
@@ -268,16 +273,16 @@ export function TicketsCard({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <ClockIcon className="h-4 w-4 text-chart-1" />
-              <span className="text-sm font-medium">Response Time</span>
+              <span className="text-sm font-medium">{t('cards.tickets.responseTime')}</span>
             </div>
             <div className="text-right">
               <div className="text-sm font-bold">
                 {formatTime(ticketsData.averageResponseTime)}
               </div>
               <div className={`text-xs ${getStatusColor(responseTimeStatus)}`}>
-                {responseTimeStatus === 'excellent' && 'Excellent'}
-                {responseTimeStatus === 'good' && 'Good'}
-                {responseTimeStatus === 'needs-improvement' && 'Needs Improvement'}
+                {responseTimeStatus === 'excellent' && t('cards.tickets.excellent')}
+                {responseTimeStatus === 'good' && t('cards.tickets.good')}
+                {responseTimeStatus === 'needs-improvement' && t('cards.tickets.needsImprovement')}
               </div>
             </div>
           </div>

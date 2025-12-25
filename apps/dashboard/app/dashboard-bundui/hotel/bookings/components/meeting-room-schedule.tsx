@@ -15,15 +15,15 @@ import {
   MoreHorizontal
 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@vibethink/ui";
+import { Badge } from "@vibethink/ui";
+import { Card, CardContent } from "@vibethink/ui";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
+} from "@vibethink/ui";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -33,7 +33,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle
-} from "@/components/ui/alert-dialog";
+} from "@vibethink/ui";
 import {
   Table,
   TableBody,
@@ -41,7 +41,7 @@ import {
   TableHead,
   TableHeader,
   TableRow
-} from "@/components/ui/table";
+} from "@vibethink/ui";
 import { toast } from "sonner";
 import {
   ColumnDef,
@@ -447,3 +447,7 @@ export function MeetingRoomSchedule() {
     </>
   );
 }
+
+
+
+

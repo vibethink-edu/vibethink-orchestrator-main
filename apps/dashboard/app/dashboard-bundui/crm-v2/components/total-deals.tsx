@@ -1,15 +1,20 @@
+"use client";
+
 import { BriefcaseBusiness } from "lucide-react";
 import { Card, CardAction, CardDescription, CardHeader } from "@vibethink/ui/components/card";
+import { useTranslation } from "@/lib/i18n";
 
 export function TotalDeals() {
+  const { t } = useTranslation('crm-v2');
+  
   return (
     <Card>
       <CardHeader>
-        <CardDescription>Total Deals</CardDescription>
+        <CardDescription>{t('cards.totalDeals.title')}</CardDescription>
         <div className="flex flex-col gap-2">
           <h4 className="font-display text-2xl lg:text-3xl">1,02,890</h4>
           <div className="text-muted-foreground text-sm">
-            <span className="text-red-600">-0.8%</span> from last month
+            <span className="text-red-600">-0.8%</span> {t('cards.fromLastMonth')}
           </div>
         </div>
         <CardAction>

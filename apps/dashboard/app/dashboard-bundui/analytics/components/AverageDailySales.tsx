@@ -8,8 +8,9 @@ import { TrendingDown } from "lucide-react";
 import {
   ChartConfig,
   ChartContainer
-} from "@vibethink/ui";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
+} from "@vibethink/ui/components/chart";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { useTranslation } from '@/lib/i18n'
 import { AnalyticsCardProps } from '../types'
 
 const chartData = [
@@ -40,10 +41,12 @@ export function AverageDailySalesCard({
   isLoading: externalLoading = false,
   error: externalError = null
 }: AnalyticsCardProps) {
+  const { t } = useTranslation('analytics')
+  
   return (
     <Card className={`h-full overflow-hidden pb-0 ${className}`}>
       <CardHeader>
-        <CardDescription>Average Daily Sales</CardDescription>
+        <CardDescription>{t('cards.averageDailySales.title')}</CardDescription>
         <div className="font-display mb-4 text-2xl lg:text-3xl">$28,450</div>
         <div className="flex items-center gap-2">
           <TrendingDown className="size-4 text-red-600" />
@@ -63,7 +66,7 @@ export function AverageDailySalesCard({
               <stop offset="95%" stopColor="var(--color-mobile)" stopOpacity={0.1} />
             </linearGradient>
           </defs>
-{/* ChartTooltip removed - causes Redux error */}
+          {/* ChartTooltip removed - causes Redux error */}
           <Area dataKey="mobile" fill="url(#fillMobile)" stroke="var(--color-mobile)" stackId="a" />
         </AreaChart>
       </ChartContainer>

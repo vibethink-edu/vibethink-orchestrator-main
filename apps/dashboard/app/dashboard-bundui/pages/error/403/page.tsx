@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Button } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -35,6 +35,10 @@ export default function Page() {
     </div>
   );
 }
+
+
+
+
 
 
 

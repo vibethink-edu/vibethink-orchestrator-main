@@ -89,11 +89,11 @@ export function SocialMediaSidebar() {
         <CardHeader className="flex items-center gap-3 px-4">
           <Avatar>
             <AvatarImage src="https://i.pravatar.cc/150?img=19" />
-            <AvatarFallback>TB</AvatarFallback>
+            <AvatarFallback>VE</AvatarFallback>
           </Avatar>
           <div>
-            <div className="text-sm">Toby Belhome</div>
-            <div className="text-muted-foreground text-xs">@toby</div>
+            <div className="text-sm">Vito Escallón</div>
+            <div className="text-muted-foreground text-xs">@vito</div>
           </div>
           <div className="ms-auto flex">
             <Button size="icon" variant="ghost">
@@ -124,11 +124,11 @@ export function SocialMediaSidebar() {
         <CardHeader className="flex items-center gap-3">
           <Avatar className="size-10">
             <AvatarImage src="https://i.pravatar.cc/150?img=19" />
-            <AvatarFallback>TB</AvatarFallback>
+            <AvatarFallback>VE</AvatarFallback>
           </Avatar>
           <div>
-            <div className="text-sm">Toby Belhome</div>
-            <div className="text-muted-foreground text-xs">@toby</div>
+            <div className="text-sm">Vito Escallón</div>
+            <div className="text-muted-foreground text-xs">@vito</div>
           </div>
           <Button size="icon" variant="ghost" className="ms-auto">
             <SettingsIcon />
@@ -180,5 +180,6 @@ const ProBanner = () => {
     )
   );
 };
+
 
 

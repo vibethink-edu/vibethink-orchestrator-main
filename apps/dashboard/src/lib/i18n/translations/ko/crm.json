@@ -1,0 +1,54 @@
+{
+  "header": {
+    "title": "CRM Dashboard",
+    "subtitle": "Manage your customers, leads, and sales pipeline"
+  },
+  "metrics": {
+    "totalCustomers": "Total Customers",
+    "revenue": "Revenue",
+    "activeDeals": "Active Deals",
+    "conversionRate": "Conversion Rate",
+    "fromLastMonth": "from last month",
+    "pipelineValue": "Pipeline value",
+    "avgDealSize": "Avg deal size"
+  },
+  "actions": {
+    "export": "Export",
+    "filter": "Filter",
+    "addCustomer": "Add Customer",
+    "searchPlaceholder": "Search customers, deals..."
+  },
+  "filters": {
+    "activeFilters": "Active filters"
+  },
+  "table": {
+    "customer": "Customer",
+    "value": "Value",
+    "status": "Status",
+    "lastContact": "Last Contact",
+    "actions": "Actions"
+  },
+  "status": {
+    "new": "New",
+    "contacted": "Contacted",
+    "qualified": "Qualified",
+    "proposal": "Proposal",
+    "negotiation": "Negotiation",
+    "won": "Won",
+    "lost": "Lost"
+  },
+  "hardcoded": {
+    "customers": "고객",
+    "value": "가치",
+    "revenue": "수익",
+    "search_customers_deals": "고객, 거래 검색...",
+    "error_loading_metrics": "메트릭 로드 오류",
+    "no_customers_found": "고객을 찾을 수 없습니다",
+    "no_active_deals_found": "활성 거래를 찾을 수 없습니다",
+    "add_new_customer": "새 고객 추가",
+    "create_a_new_customer_profile": "새 고객 프로필 만들기",
+    "create_deal": "거래 만들기",
+    "enterprise_software_license": "Enterprise Software License",
+    "website_redesign_project": "Website Redesign Project"
+  }
+}

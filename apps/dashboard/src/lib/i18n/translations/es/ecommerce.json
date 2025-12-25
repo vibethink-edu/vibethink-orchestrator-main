@@ -1,3 +1,106 @@
-{}
-
-
+{
+  "title": "Panel de E-Commerce",
+  "description": "La plantilla de panel de administración de e-commerce es una plantilla de administración que puedes usar para tus proyectos de sitios web de e-commerce. Construida con shadcn/ui, Tailwind CSS, Next.js.",
+  "header": {
+    "title": "Panel de E-Commerce",
+    "download": "Descargar"
+  },
+  "welcome": {
+    "title": "¡Felicitaciones {name}! 🎉",
+    "description": "Mejor vendedor del mes",
+    "fromLastMonth": "+{percentage}% desde el mes pasado",
+    "viewSales": "Ver Ventas"
+  },
+  "cards": {
+    "revenue": {
+      "title": "Ingresos",
+      "fromLastMonth": "+{percentage}% desde el mes pasado"
+    },
+    "sales": {
+      "title": "Ventas",
+      "fromLastMonth": "{percentage}% desde el mes pasado"
+    },
+    "newCustomers": {
+      "title": "Nuevos Clientes",
+      "fromLastMonth": "+{percentage}% desde el mes pasado"
+    },
+    "totalRevenue": {
+      "title": "Ingresos Totales",
+      "description": "Ingresos en los últimos 28 días",
+      "desktop": "Escritorio",
+      "mobile": "Móvil"
+    },
+    "returnRate": {
+      "title": "Tasa de Retorno"
+    },
+    "salesByLocation": {
+      "title": "Ventas por Ubicación"
+    },
+    "visitBySource": {
+      "title": "Visitas a la Tienda por Fuente"
+    }
+  },
+  "orders": {
+    "title": "Órdenes Recientes",
+    "filterPlaceholder": "Filtrar órdenes...",
+    "noResults": "Sin resultados.",
+    "showing": "Mostrando {from} a {to} de {total} entradas",
+    "columns": {
+      "id": "ID",
+      "customer": "Cliente",
+      "product": "Producto",
+      "amount": "Monto",
+      "status": "Estado"
+    },
+    "menu": {
+      "openMenu": "Abrir menú",
+      "copyOrderId": "Copiar ID de orden",
+      "viewCustomer": "Ver cliente",
+      "viewPaymentDetails": "Ver detalles de pago"
+    }
+  },
+  "products": {
+    "title": "Productos Más Vendidos",
+    "filterPlaceholder": "Filtrar productos...",
+    "noResults": "Sin resultados.",
+    "selected": "{selected} de {total} fila(s) seleccionada(s).",
+    "columns": {
+      "product": "Producto",
+      "sold": "Vendido",
+      "sales": "Ventas"
+    },
+    "menu": {
+      "openMenu": "Abrir menú",
+      "copyProductId": "Copiar ID de producto",
+      "viewCustomer": "Ver cliente",
+      "viewPaymentDetails": "Ver detalles de pago"
+    }
+  },
+  "reviews": {
+    "title": "Reseñas de Clientes",
+    "description": "Basado en {count} compras verificadas",
+    "viewAll": "Ver Todo",
+    "outOf5": "de 5",
+    "verifiedPurchase": "Compra Verificada"
+  },
+  "status": {
+    "success": "éxito",
+    "processing": "procesando",
+    "paid": "pagado",
+    "failed": "fallido"
+  },
+  "months": {
+    "January": "Enero",
+    "February": "Febrero",
+    "March": "Marzo",
+    "April": "Abril",
+    "May": "Mayo",
+    "June": "Junio",
+    "July": "Julio",
+    "August": "Agosto",
+    "September": "Septiembre",
+    "October": "Octubre",
+    "November": "Noviembre",
+    "December": "Diciembre"
+  }
+}

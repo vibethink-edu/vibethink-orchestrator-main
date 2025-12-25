@@ -10,33 +10,39 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
-  CardTitle,
-  Tabs, 
-  TabsContent, 
-  TabsList, 
-  TabsTrigger,
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '@vibethink/ui/components/card'
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger
+} from '@vibethink/ui/components/tabs'
+import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
+  SelectValue
+} from '@vibethink/ui/components/select'
+import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-  FormDescription,
-  Input,
-  Button,
-  Badge
-} from '@vibethink/ui'
-import { 
+  FormDescription
+} from '@vibethink/ui/components/form'
+import { Input } from '@vibethink/ui/components/input'
+import { Button } from '@vibethink/ui/components/button'
+import { Badge } from '@vibethink/ui/components/badge'
+import {
   ArrowUpDown,
   TrendingUp,
   TrendingDown,
@@ -232,20 +238,20 @@ export const TradingCard: React.FC<TradingCardProps> = ({
         <div className="text-xs text-muted-foreground">Available Balance</div>
       </CardHeader>
       <CardContent>
-        <Tabs 
-          value={activeTab} 
+        <Tabs
+          value={activeTab}
           onValueChange={(value) => setActiveTab(value as 'buy' | 'sell')}
         >
           <TabsList className="mb-4 w-full">
-            <TabsTrigger 
-              className="w-full flex items-center gap-2" 
+            <TabsTrigger
+              className="w-full flex items-center gap-2"
               value="buy"
             >
               <TrendingUp className="h-4 w-4" />
               Buy
             </TabsTrigger>
-            <TabsTrigger 
-              className="w-full flex items-center gap-2" 
+            <TabsTrigger
+              className="w-full flex items-center gap-2"
               value="sell"
             >
               <TrendingDown className="h-4 w-4" />
@@ -264,8 +270,8 @@ export const TradingCard: React.FC<TradingCardProps> = ({
                     <FormItem>
                       <FormLabel>Cryptocurrency</FormLabel>
                       <FormControl>
-                        <Select 
-                          value={selectedCrypto} 
+                        <Select
+                          value={selectedCrypto}
                           onValueChange={(value) => {
                             setSelectedCrypto(value)
                             field.onChange(value)
@@ -278,13 +284,12 @@ export const TradingCard: React.FC<TradingCardProps> = ({
                                   <span className="text-lg">{selectedCryptoData.icon}</span>
                                   <span>{selectedCryptoData.name}</span>
                                   <span className="text-muted-foreground">({selectedCryptoData.symbol})</span>
-                                  <Badge 
-                                    variant="outline" 
-                                    className={`ml-auto ${
-                                      selectedCryptoData.price_change_percentage_24h >= 0 
-                                        ? 'text-green-600 border-green-200' 
-                                        : 'text-red-600 border-red-200'
-                                    }`}
+                                  <Badge
+                                    variant="outline"
+                                    className={`ml-auto ${selectedCryptoData.price_change_percentage_24h >= 0
+                                      ? 'text-green-600 border-green-200'
+                                      : 'text-red-600 border-red-200'
+                                      }`}
                                   >
                                     {selectedCryptoData.price_change_percentage_24h >= 0 ? '+' : ''}
                                     {selectedCryptoData.price_change_percentage_24h.toFixed(2)}%
@@ -307,13 +312,12 @@ export const TradingCard: React.FC<TradingCardProps> = ({
                                       {formatPrice(crypto.current_price)}
                                     </div>
                                   </div>
-                                  <Badge 
-                                    variant="outline" 
-                                    className={`text-xs ${
-                                      crypto.price_change_percentage_24h >= 0 
-                                        ? 'text-green-600 border-green-200' 
-                                        : 'text-red-600 border-red-200'
-                                    }`}
+                                  <Badge
+                                    variant="outline"
+                                    className={`text-xs ${crypto.price_change_percentage_24h >= 0
+                                      ? 'text-green-600 border-green-200'
+                                      : 'text-red-600 border-red-200'
+                                      }`}
                                   >
                                     {crypto.price_change_percentage_24h >= 0 ? '+' : ''}
                                     {crypto.price_change_percentage_24h.toFixed(2)}%
@@ -424,9 +428,9 @@ export const TradingCard: React.FC<TradingCardProps> = ({
                   </div>
                 )}
 
-                <Button 
-                  type="submit" 
-                  className="w-full" 
+                <Button
+                  type="submit"
+                  className="w-full"
                   disabled={form.formState.isSubmitting}
                 >
                   {form.formState.isSubmitting ? 'Processing...' : `Buy ${selectedCryptoData?.symbol || 'Crypto'}`}
@@ -446,8 +450,8 @@ export const TradingCard: React.FC<TradingCardProps> = ({
                     <FormItem>
                       <FormLabel>Cryptocurrency</FormLabel>
                       <FormControl>
-                        <Select 
-                          value={selectedCrypto} 
+                        <Select
+                          value={selectedCrypto}
                           onValueChange={(value) => {
                             setSelectedCrypto(value)
                             field.onChange(value)
@@ -512,9 +516,9 @@ export const TradingCard: React.FC<TradingCardProps> = ({
                   />
                 </div>
 
-                <Button 
-                  type="submit" 
-                  className="w-full" 
+                <Button
+                  type="submit"
+                  className="w-full"
                   variant="destructive"
                   disabled={form.formState.isSubmitting}
                 >

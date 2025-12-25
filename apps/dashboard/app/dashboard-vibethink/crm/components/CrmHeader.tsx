@@ -1,4 +1,6 @@
-import { Button, Input, Badge } from '@vibethink/ui'
+import { Button } from '@vibethink/ui/components/button'
+import { Input } from '@vibethink/ui/components/input'
+import { Badge } from '@vibethink/ui/components/badge'
 import { Search, Plus, Filter, Download, X } from 'lucide-react'
 import { useCrmFilters } from '../hooks/useCrmFilters'
 
@@ -22,7 +24,7 @@ export function CrmHeader({ className }: CrmHeaderProps) {
             Manage your customers, leads, and sales pipeline
           </p>
         </div>
-        
+
         <div className="flex items-center gap-2">
           <Button variant="outline" size="sm">
             <Download className="h-4 w-4 mr-2" />
@@ -38,18 +40,18 @@ export function CrmHeader({ className }: CrmHeaderProps) {
           </Button>
         </div>
       </div>
-      
+
       <div className="flex items-center gap-4">
         <div className="relative flex-1 max-w-sm">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <Input 
-            placeholder="Search customers, deals..." 
+          <Input
+            placeholder="Search customers, deals..."
             className="pl-10"
             value={filters.searchQuery}
             onChange={handleSearchChange}
           />
         </div>
-        
+
         {hasActiveFilters && (
           <div className="flex items-center gap-2">
             <span className="text-sm text-muted-foreground">Active filters:</span>
@@ -58,9 +60,9 @@ export function CrmHeader({ className }: CrmHeaderProps) {
                 {filter}
               </Badge>
             ))}
-            <Button 
-              variant="ghost" 
-              size="sm" 
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={resetFilters}
               className="h-6 w-6 p-0"
             >

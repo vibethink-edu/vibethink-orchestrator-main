@@ -1,7 +1,14 @@
 "use client";
 
 import { Pie, PieChart } from "recharts";
-import { Card, CardContent, CardHeader, CardTitle, ChartConfig, ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from "@vibethink/ui";
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { ChartConfig, ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from "@vibethink/ui/components/chart";
+import { Patient, HospitalStats } from "../types";
+
+interface PatientsByDepartmentChartProps {
+  patients: Patient[];
+  stats: HospitalStats | null;
+}
 
 const chartData = [
   { department: "cardiology", visitors: 275, fill: "var(--color-cardiology)" },
@@ -32,7 +39,7 @@ const chartConfig = {
   }
 } satisfies ChartConfig;
 
-export default function PatientsByDepartmentChart() {
+export default function PatientsByDepartmentChart({ patients, stats }: PatientsByDepartmentChartProps) {
   return (
     <Card className="col-span-3">
       <CardHeader>

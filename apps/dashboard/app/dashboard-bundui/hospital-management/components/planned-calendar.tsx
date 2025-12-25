@@ -2,7 +2,15 @@
 
 import * as React from "react";
 
-import { Calendar, Card, CardContent, Avatar, AvatarFallback, AvatarImage, Badge } from "@vibethink/ui";
+import { Calendar } from "@vibethink/ui/components/calendar";
+import { Card, CardContent } from "@vibethink/ui/components/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";
+import { Badge } from "@vibethink/ui/components/badge";
+import { Appointment } from "../types";
+
+interface PlannedCalendarProps {
+  appointments: Appointment[];
+}
 
 type AppointmentData = {
   avatar: string;
@@ -32,7 +40,7 @@ const data: AppointmentData[] = [
   }
 ];
 
-export default function PlannedCalendar() {
+export default function PlannedCalendar({ appointments }: PlannedCalendarProps) {
   const [date, setDate] = React.useState<Date | undefined>(new Date());
 
   return (
@@ -45,31 +53,24 @@ export default function PlannedCalendar() {
           today={new Date()}
           defaultMonth={new Date()}
           className="w-full!"
-          monthsClassName="w-full"
-          monthClassName="space-y-4 w-full flex flex-col"
-          weekdayClassName="w-full!"
-          weekClassName="w-full!"
-          monthGridClassName="m-0"
-          dayClassName="md:size-10"
-          dayButtonClassName="md:size-12"
         />
       </CardContent>
       <div className="flex flex-col divide-y border-t px-0">
-        {data.map((item, i) => (
-          <div className="w-full" key={i}>
+        {appointments.slice(0, 5).map((appointment, i) => (
+          <div className="w-full" key={appointment.id}>
             <div className="flex items-center p-4">
               <Avatar>
-                <AvatarImage src={item.avatar} />
-                <AvatarFallback>AC</AvatarFallback>
+                <AvatarImage src={`/assets/images/avatars/${(i % 5 + 1).toString().padStart(2, '0')}.png`} />
+                <AvatarFallback>{appointment.patient_name[0]}</AvatarFallback>
               </Avatar>
               <div className="ms-4 space-y-1">
-                <p className="leading-none font-medium">{item.title}</p>
+                <p className="leading-none font-medium">{appointment.type}</p>
                 <p className="text-muted-foreground text-sm">
-                  {item.description} at {item.hour}
+                  {appointment.patient_name} at {appointment.time}
                 </p>
               </div>
-              <Badge variant={item.statusColor} className="ms-auto capitalize">
-                {item.status}
+              <Badge variant={appointment.status === 'completed' ? 'default' : 'secondary'} className="ms-auto capitalize">
+                {appointment.status}
               </Badge>
             </div>
           </div>

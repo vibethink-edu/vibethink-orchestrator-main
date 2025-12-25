@@ -2,20 +2,22 @@
 
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts'
 import { Megaphone, Target, TrendingUp, Eye, MousePointer } from 'lucide-react'
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
-  CardTitle,
-  ChartConfig, 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '@vibethink/ui/components/card'
+import {
+  ChartConfig,
   ChartContainer,
   ChartTooltip,
-  ChartTooltipContent,
-  Badge,
-  Progress,
-  Skeleton
-} from '@vibethink/ui'
+  ChartTooltipContent
+} from '@vibethink/ui/components/chart'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Progress } from '@vibethink/ui/components/progress'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
 import { useAnalyticsData } from '../hooks'
 import { AnalyticsCardProps } from '../types'
 
@@ -46,7 +48,7 @@ const campaignData = [
     revenue: 12400
   },
   {
-    month: 'Feb', 
+    month: 'Feb',
     impressions: 142000,
     clicks: 3800,
     conversions: 189,
@@ -98,13 +100,13 @@ const campaignData = [
  * 
  * Provides insights into marketing campaign effectiveness
  */
-export function MonthlyCampaignState({ 
+export function MonthlyCampaignState({
   className = '',
   isLoading: externalLoading = false,
   error: externalError = null
 }: AnalyticsCardProps) {
   const { campaignMetrics, isLoading, error } = useAnalyticsData()
-  
+
   const loading = isLoading || externalLoading
   const errorState = error || externalError
 
@@ -194,20 +196,20 @@ export function MonthlyCampaignState({
             <Megaphone className="h-5 w-5 text-chart-1" />
             Campaign Performance
           </CardTitle>
-          <Badge 
-            variant="outline" 
+          <Badge
+            variant="outline"
             className={`gap-1 ${revenueGrowth > 0 ? 'text-green-600' : 'text-red-600'}`}
           >
             <TrendingUp className="h-3 w-3" />
             ROAS {roas.toFixed(1)}x
           </Badge>
         </div>
-        
+
         <CardDescription>
           Monthly campaign metrics and ROI analysis
         </CardDescription>
       </CardHeader>
-      
+
       <CardContent className="space-y-6">
         {/* Key Metrics Overview */}
         <div className="grid grid-cols-2 gap-4">
@@ -221,7 +223,7 @@ export function MonthlyCampaignState({
               {formatNumber(totalClicks)} clicks
             </div>
           </div>
-          
+
           <div className="rounded-lg bg-muted/50 p-3">
             <div className="flex items-center gap-2 mb-1">
               <MousePointer className="h-4 w-4 text-chart-2" />
@@ -238,18 +240,18 @@ export function MonthlyCampaignState({
         <div className="h-32">
           <ChartContainer config={chartConfig} className="h-full w-full">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart 
-                data={campaignData} 
+              <BarChart
+                data={campaignData}
                 margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
               >
-                <XAxis 
-                  dataKey="month" 
+                <XAxis
+                  dataKey="month"
                   tickLine={false}
                   axisLine={false}
                   tickMargin={8}
                   tick={{ fontSize: 11 }}
                 />
-                <YAxis 
+                <YAxis
                   tickLine={false}
                   axisLine={false}
                   tickMargin={8}
@@ -278,7 +280,7 @@ export function MonthlyCampaignState({
         {/* ROI Metrics */}
         <div className="space-y-3">
           <h4 className="text-sm font-medium text-muted-foreground">ROI Metrics</h4>
-          
+
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
               <span>Total Ad Spend</span>
@@ -293,7 +295,7 @@ export function MonthlyCampaignState({
               <span className="font-bold">{roas.toFixed(1)}x</span>
             </div>
           </div>
-          
+
           <Progress value={Math.min((roas / 5) * 100, 100)} className="h-2" />
           <div className="text-xs text-muted-foreground">
             Target ROAS: 3.0x • Current: {roas.toFixed(1)}x
@@ -312,7 +314,7 @@ export function MonthlyCampaignState({
               Avg. CPC
             </div>
           </div>
-          
+
           <div className="rounded-lg border p-3">
             <div className="flex items-center gap-2 mb-1">
               <Target className="h-4 w-4 text-chart-4" />

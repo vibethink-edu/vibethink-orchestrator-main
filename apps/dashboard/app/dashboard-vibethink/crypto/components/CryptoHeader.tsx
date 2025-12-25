@@ -4,26 +4,27 @@
  */
 
 import React, { useState } from 'react'
-import { 
-  Button,
-  Input,
-  Card,
-  CardContent,
+import { Button } from '@vibethink/ui/components/button'
+import { Input } from '@vibethink/ui/components/input'
+import { Card, CardContent } from '@vibethink/ui/components/card'
+import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-  DropdownMenu,  
+  SelectValue
+} from '@vibethink/ui/components/select'
+import {
+  DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger
-} from '@vibethink/ui'
-import { 
-  Download, 
-  Plus, 
-  Bell, 
-  RefreshCw, 
+} from '@vibethink/ui/components/dropdown-menu'
+import {
+  Download,
+  Plus,
+  Bell,
+  RefreshCw,
   Filter,
   Search,
   Calendar,
@@ -77,7 +78,7 @@ export const CryptoHeader: React.FC<CryptoHeaderProps> = ({
             Track your cryptocurrency portfolio and manage your investments
           </p>
         </div>
-        
+
         <div className="flex items-center gap-2">
           {quickActions.map((action, index) => (
             <Button

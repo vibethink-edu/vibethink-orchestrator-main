@@ -2,29 +2,22 @@
 
 import React from "react";
 import { ArrowLeft, Ellipsis } from "lucide-react";
-import {
-  Button,
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-  AvatarIndicator
-} from "@vibethink/ui";
-import { generateAvatarFallback } from "@/lib/utils";
+import { Button } from "@vibethink/ui";
+import { generateAvatarFallback } from "@/shared/lib/utils";
 import useChatStore from "../useChatStore";
 
-import {
-  CallDialog,
-  ChatUserDropdown,
-  VideoCallDialog
-} from "./";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui";
+import { CallDialog } from "./call-dialog";
+import { ChatUserDropdown } from "./chat-list-item-dropdown";
+import { VideoCallDialog } from "./video-call-dialog";
+import { Avatar, AvatarFallback, AvatarImage, AvatarIndicator } from "@vibethink/ui";
 import { UserPropsTypes } from "../types";
+
+import { useTranslation } from "@/lib/i18n";
 
 export function ChatHeader({ user }: { user: UserPropsTypes }) {
   const { setSelectedChat } = useChatStore();
+  const { t } = useTranslation("chat");
 
   return (
     <div className="flex justify-between gap-4 lg:px-4">
@@ -44,7 +37,7 @@ export function ChatHeader({ user }: { user: UserPropsTypes }) {
         <div className="flex flex-col gap-1">
           <span className="text-sm font-semibold">{user.name}</span>
           {user.online_status == "success" ? (
-            <span className="text-xs text-green-500">Online</span>
+            <span className="text-xs text-green-500">{t("header.status.online")}</span>
           ) : (
             <span className="text-muted-foreground text-xs">{user.last_seen}</span>
           )}
@@ -59,7 +52,7 @@ export function ChatHeader({ user }: { user: UserPropsTypes }) {
                   <VideoCallDialog />
                 </div>
               </TooltipTrigger>
-              <TooltipContent side="bottom">Start Video Chat</TooltipContent>
+              <TooltipContent side="bottom">{t("header.actions.videoCall")}</TooltipContent>
             </Tooltip>
             <Tooltip>
               <TooltipTrigger asChild>
@@ -67,7 +60,7 @@ export function ChatHeader({ user }: { user: UserPropsTypes }) {
                   <CallDialog />
                 </div>
               </TooltipTrigger>
-              <TooltipContent side="bottom">Start Call</TooltipContent>
+              <TooltipContent side="bottom">{t("header.actions.voiceCall")}</TooltipContent>
             </Tooltip>
           </TooltipProvider>
         </div>
@@ -80,4 +73,3 @@ export function ChatHeader({ user }: { user: UserPropsTypes }) {
     </div>
   );
 }
-

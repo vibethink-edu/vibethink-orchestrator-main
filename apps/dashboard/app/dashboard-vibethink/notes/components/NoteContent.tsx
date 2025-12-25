@@ -45,7 +45,7 @@ import {
   Star,
   Users
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/shared/lib/utils';
 import { Note, NoteFolder, NoteLabel, NoteType } from '../types';
 import { useNoteEditor } from '../hooks/useNoteEditor';
 import { NoteEditor } from './NoteEditor';

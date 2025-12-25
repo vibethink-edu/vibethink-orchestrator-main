@@ -1,4 +1,13 @@
-import { Card, CardContent, CardHeader, CardTitle, Button, Badge, Progress, Skeleton } from '@vibethink/ui'
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle
+} from '@vibethink/ui/components/card'
+import { Button } from '@vibethink/ui/components/button'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Progress } from '@vibethink/ui/components/progress'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
 import { BudgetOverviewProps, Budget } from '../types'
 import { Target, TrendingUp, TrendingDown, AlertTriangle, CheckCircle, Plus, Edit } from 'lucide-react'
 
@@ -20,10 +29,10 @@ import { Target, TrendingUp, TrendingDown, AlertTriangle, CheckCircle, Plus, Edi
  * - Loading states with skeletons
  * - HSL color variables for theme compatibility
  */
-export function BudgetOverview({ 
-  budgets, 
-  loading = false, 
-  className 
+export function BudgetOverview({
+  budgets,
+  loading = false,
+  className
 }: BudgetOverviewProps) {
   if (loading) {
     return (
@@ -60,8 +69,8 @@ export function BudgetOverview({
   }
 
   const getBudgetStatus = (budget: Budget) => {
-    const utilization = budget.budgeted_amount > 0 
-      ? (budget.actual_amount / budget.budgeted_amount) * 100 
+    const utilization = budget.budgeted_amount > 0
+      ? (budget.actual_amount / budget.budgeted_amount) * 100
       : 0
 
     if (utilization >= 100) return 'over'
@@ -71,8 +80,8 @@ export function BudgetOverview({
   }
 
   const getBudgetUtilization = (budget: Budget) => {
-    return budget.budgeted_amount > 0 
-      ? (budget.actual_amount / budget.budgeted_amount) * 100 
+    return budget.budgeted_amount > 0
+      ? (budget.actual_amount / budget.budgeted_amount) * 100
       : 0
   }
 
@@ -177,8 +186,8 @@ export function BudgetOverview({
           Budget Overview
         </CardTitle>
         <div className="flex items-center gap-2">
-          <Badge 
-            variant={overallUtilization > 100 ? "destructive" : overallUtilization > 90 ? "secondary" : "default"} 
+          <Badge
+            variant={overallUtilization > 100 ? "destructive" : overallUtilization > 90 ? "secondary" : "default"}
             className="text-xs"
           >
             {overallUtilization.toFixed(0)}% utilized
@@ -254,8 +263,8 @@ export function BudgetOverview({
             const isOver = utilization > 100
 
             return (
-              <div 
-                key={budget.id} 
+              <div
+                key={budget.id}
                 className="p-4 border rounded-lg space-y-3 hover:bg-muted/20 transition-colors"
               >
                 {/* Budget Header */}
@@ -276,9 +285,9 @@ export function BudgetOverview({
                     <Badge variant={getStatusBadgeVariant(status)} className="text-xs capitalize">
                       {status === 'on_track' ? 'On Track' : status}
                     </Badge>
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
+                    <Button
+                      variant="ghost"
+                      size="sm"
                       onClick={() => handleEditBudget(budget)}
                       className="h-8 w-8 p-0"
                     >
@@ -297,8 +306,8 @@ export function BudgetOverview({
                       {utilization.toFixed(1)}%
                     </span>
                   </div>
-                  <Progress 
-                    value={Math.min(utilization, 100)} 
+                  <Progress
+                    value={Math.min(utilization, 100)}
                     className="h-2"
                   />
                   {isOver && (
@@ -349,7 +358,7 @@ export function BudgetOverview({
         <div className="space-y-3 pt-4 border-t">
           <div className="flex justify-between items-center">
             <h4 className="font-medium text-foreground">Overall Budget Progress</h4>
-            <Badge 
+            <Badge
               variant={overallUtilization > 100 ? "destructive" : overallUtilization > 90 ? "secondary" : "default"}
               className="text-xs"
             >
@@ -376,7 +385,7 @@ export function BudgetOverview({
             </div>
             <div className="text-center">
               <p className={`text-lg font-bold ${overallUtilization > 100 ? 'text-red-600' : 'text-green-600'}`}>
-                {overallUtilization > 100 
+                {overallUtilization > 100
                   ? formatCurrency(totalActual - totalBudgeted) + ' over'
                   : formatCurrency(totalRemaining) + ' left'
                 }

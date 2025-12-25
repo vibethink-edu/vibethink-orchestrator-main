@@ -2,8 +2,8 @@
 
 import { Label, PolarGrid, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
-import { ChartConfig, ChartContainer } from "@vibethink/ui";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { ChartConfig, ChartContainer } from "@vibethink/ui/components/chart";
 
 const macros = [
   { label: "Carbs", amount: "178g", color: "bg-red-400" },

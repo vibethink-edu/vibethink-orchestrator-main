@@ -8,6 +8,7 @@ import {
   ChartTooltip,
   ChartTooltipContent
 } from "@vibethink/ui";
+import { useTranslation } from "@/lib/i18n";
 
 const chartData = [
   {
@@ -44,23 +45,25 @@ const chartData = [
   }
 ];
 
-const chartConfig = {
-  desktop: {
-    label: "Subscription",
-    color: "var(--primary)"
-  }
-} satisfies ChartConfig;
-
 export function SubscriptionsCard() {
+  const { t } = useTranslation('default');
+  
+  const chartConfig = {
+    desktop: {
+      label: t('cards.subscriptions.title'),
+      color: "var(--primary)"
+    }
+  } satisfies ChartConfig;
+
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Subscriptions</CardTitle>
+        <CardTitle>{t('cards.subscriptions.title')}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="font-display text-3xl leading-6">+4850</div>
         <p className="text-muted-foreground mt-1.5 text-xs">
-          <span className="text-green-500">+180.1%</span> from last month
+          <span className="text-green-500">+180.1%</span> {t('cards.subscriptions.fromLastMonth', { percentage: '180.1' })}
         </p>
         <ChartContainer className="mt-6 h-[100px] w-full" config={chartConfig}>
           <BarChart

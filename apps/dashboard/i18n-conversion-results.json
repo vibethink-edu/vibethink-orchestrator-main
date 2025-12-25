@@ -1,0 +1,287 @@
+[
+  {
+    "module": "dashboard-bundui/pages",
+    "namespace": "default",
+    "newKeys": 95
+  },
+  {
+    "module": "dashboard-vibethink/pos-system",
+    "namespace": "pos-system",
+    "newKeys": 52
+  },
+  {
+    "module": "dashboard-vibethink/project-management",
+    "namespace": "project-management",
+    "newKeys": 32
+  },
+  {
+    "module": "dashboard-vibethink/calendar",
+    "namespace": "calendar",
+    "newKeys": 15
+  },
+  {
+    "module": "dashboard-bundui/finance",
+    "namespace": "finance",
+    "newKeys": 18
+  },
+  {
+    "module": "dashboard-vibethink/finance",
+    "namespace": "finance",
+    "newKeys": 18
+  },
+  {
+    "module": "dashboard-vibethink/tasks",
+    "namespace": "tasks",
+    "newKeys": 21
+  },
+  {
+    "module": "dashboard-bundui/crypto",
+    "namespace": "crypto",
+    "newKeys": 38
+  },
+  {
+    "module": "dashboard-vibethink/crypto",
+    "namespace": "crypto",
+    "newKeys": 38
+  },
+  {
+    "module": "dashboard-bundui/projects",
+    "namespace": "projects",
+    "newKeys": 18
+  },
+  {
+    "module": "dashboard-bundui/ai-chat-v2",
+    "namespace": "ai-chat-v2",
+    "newKeys": 11
+  },
+  {
+    "module": "dashboard-bundui/file-manager",
+    "namespace": "file-manager",
+    "newKeys": 24
+  },
+  {
+    "module": "dashboard-vibethink/file-manager",
+    "namespace": "file-manager",
+    "newKeys": 24
+  },
+  {
+    "module": "dashboard-vibethink/sales",
+    "namespace": "sales",
+    "newKeys": 16
+  },
+  {
+    "module": "dashboard-vibethink/notes",
+    "namespace": "notes",
+    "newKeys": 19
+  },
+  {
+    "module": "dashboard-bundui/projects-v2",
+    "namespace": "projects",
+    "newKeys": 16
+  },
+  {
+    "module": "dashboard-vibethink/ai-chat",
+    "namespace": "ai-chat",
+    "newKeys": 29
+  },
+  {
+    "module": "dashboard-vibethink/default",
+    "namespace": "default",
+    "newKeys": 14
+  },
+  {
+    "module": "dashboard-bundui/notes",
+    "namespace": "notes",
+    "newKeys": 13
+  },
+  {
+    "module": "dashboard-vibethink/notes-v2",
+    "namespace": "common",
+    "newKeys": 13
+  },
+  {
+    "module": "dashboard-bundui/ai-chat",
+    "namespace": "ai-chat",
+    "newKeys": 26
+  },
+  {
+    "module": "dashboard-bundui/hotel",
+    "namespace": "hotel",
+    "newKeys": 12
+  },
+  {
+    "module": "dashboard-bundui/calendar",
+    "namespace": "calendar",
+    "newKeys": 7
+  },
+  {
+    "module": "dashboard-vibethink/analytics",
+    "namespace": "analytics",
+    "newKeys": 24
+  },
+  {
+    "module": "dashboard-vibethink/website-analytics",
+    "namespace": "common",
+    "newKeys": 24
+  },
+  {
+    "module": "dashboard-bundui/ai-image-generator",
+    "namespace": "ai-image-generator",
+    "newKeys": 12
+  },
+  {
+    "module": "dashboard-vibethink/ai-image-generator",
+    "namespace": "ai-image-generator",
+    "newKeys": 12
+  },
+  {
+    "module": "dashboard-bundui/todo-list-app",
+    "namespace": "todo-list-app",
+    "newKeys": 12
+  },
+  {
+    "module": "dashboard-bundui/widgets",
+    "namespace": "widgets",
+    "newKeys": 25
+  },
+  {
+    "module": "dashboard-vibethink/mail",
+    "namespace": "mail",
+    "newKeys": 18
+  },
+  {
+    "module": "dashboard-vibethink/ecommerce",
+    "namespace": "ecommerce",
+    "newKeys": 22
+  },
+  {
+    "module": "dashboard-bundui/crm",
+    "namespace": "crm",
+    "newKeys": 12
+  },
+  {
+    "module": "dashboard-bundui/social-media",
+    "namespace": "social-media",
+    "newKeys": 14
+  },
+  {
+    "module": "dashboard-vibethink/crm",
+    "namespace": "crm",
+    "newKeys": 12
+  },
+  {
+    "module": "dashboard-bundui/analytics",
+    "namespace": "analytics",
+    "newKeys": 19
+  },
+  {
+    "module": "dashboard-bundui/pos-system",
+    "namespace": "pos-system",
+    "newKeys": 14
+  },
+  {
+    "module": "dashboard-bundui/kanban",
+    "namespace": "kanban",
+    "newKeys": 5
+  },
+  {
+    "module": "dashboard-vibethink/kanban",
+    "namespace": "kanban",
+    "newKeys": 5
+  },
+  {
+    "module": "dashboard-bundui/crm-v2-ai",
+    "namespace": "crm-v2-ai",
+    "newKeys": 5
+  },
+  {
+    "module": "dashboard-bundui/tasks",
+    "namespace": "tasks",
+    "newKeys": 10
+  },
+  {
+    "module": "dashboard-bundui/hospital-management",
+    "namespace": "hospital-management",
+    "newKeys": 13
+  },
+  {
+    "module": "dashboard-bundui/sales",
+    "namespace": "sales",
+    "newKeys": 12
+  },
+  {
+    "module": "dashboard-bundui/api-keys",
+    "namespace": "api-keys",
+    "newKeys": 10
+  },
+  {
+    "module": "dashboard-vibethink/workflow",
+    "namespace": "common",
+    "newKeys": 8
+  },
+  {
+    "module": "dashboard-bundui/finance-v2",
+    "namespace": "finance-v2",
+    "newKeys": 6
+  },
+  {
+    "module": "dashboard-bundui/project-management",
+    "namespace": "project-management",
+    "newKeys": 3
+  },
+  {
+    "module": "dashboard-bundui/mail",
+    "namespace": "mail",
+    "newKeys": 5
+  },
+  {
+    "module": "dashboard-bundui/academy",
+    "namespace": "academy",
+    "newKeys": 7
+  },
+  {
+    "module": "dashboard-bundui/crm-v2",
+    "namespace": "crm-v2",
+    "newKeys": 6
+  },
+  {
+    "module": "dashboard-bundui/ecommerce",
+    "namespace": "ecommerce",
+    "newKeys": 4
+  },
+  {
+    "module": "dashboard-vibethink/academy",
+    "namespace": "academy",
+    "newKeys": 7
+  },
+  {
+    "module": "dashboard-bundui/payment",
+    "namespace": "payment",
+    "newKeys": 5
+  },
+  {
+    "module": "dashboard-vibethink/payment",
+    "namespace": "payment",
+    "newKeys": 5
+  },
+  {
+    "module": "dashboard-bundui/crypto-v2",
+    "namespace": "crypto-v2",
+    "newKeys": 5
+  },
+  {
+    "module": "dashboard-bundui/default",
+    "namespace": "default",
+    "newKeys": 3
+  },
+  {
+    "module": "dashboard-bundui/chat",
+    "namespace": "chat",
+    "newKeys": 2
+  },
+  {
+    "module": "dashboard-bundui/project-list",
+    "namespace": "project-list",
+    "newKeys": 1
+  }
+]

@@ -1,6 +1,6 @@
 import React from "react";
-import { Tabs, TabsList, TabsTrigger } from "@vibethink/ui";
-import { FilterTab } from "./types";
+import { Tabs, TabsList, TabsTrigger } from "@vibethink/ui/components/tabs";
+import { FilterTab } from "../types";
 import { EnumTodoStatus, todoStatusNamed } from "../enum";
 
 interface StatusTabsProps {

@@ -1,0 +1,201 @@
+[34m
+­ƒîì VALIDACI├ôN DE CUMPLIMIENTO DE IDIOMAS (9 idiomas)
+[0m
+[34m============================================================[0m
+[36mÔä╣´©Å  
+­ƒôé Validando ruta: apps/dashboard/app[0m
+[36mÔä╣´©Å  Namespaces encontrados: ai-chat, analytics, api-keys, calendar, chat, crm-v2, crm, default, ecommerce, hotel, mail, dashboard-bundui, projects, tasks, dashboard-vibethink[0m
+[36mÔä╣´©Å  
+­ƒôï Validando namespace: ai-chat[0m
+[32mÔ£à   en: Archivo existe y es v├ílido[0m
+[32mÔ£à   es: Archivo existe y es v├ílido[0m
+[32mÔ£à   fr: Archivo existe y es v├ílido[0m
+[32mÔ£à   pt: Archivo existe y es v├ílido[0m
+[32mÔ£à   de: Archivo existe y es v├ílido[0m
+[32mÔ£à   it: Archivo existe y es v├ílido[0m
+[32mÔ£à   ko: Archivo existe y es v├ílido[0m
+[32mÔ£à   ar: Archivo existe y es v├ílido[0m
+[32mÔ£à   zh: Archivo existe y es v├ílido[0m
+[36mÔä╣´©Å  
+­ƒôï Validando namespace: analytics[0m
+[32mÔ£à   en: Archivo existe y es v├ílido[0m
+[32mÔ£à   es: Archivo existe y es v├ílido[0m
+[32mÔ£à   fr: Archivo existe y es v├ílido[0m
+[32mÔ£à   pt: Archivo existe y es v├ílido[0m
+[32mÔ£à   de: Archivo existe y es v├ílido[0m
+[32mÔ£à   it: Archivo existe y es v├ílido[0m
+[32mÔ£à   ko: Archivo existe y es v├ílido[0m
+[32mÔ£à   ar: Archivo existe y es v├ílido[0m
+[32mÔ£à   zh: Archivo existe y es v├ílido[0m
+[36mÔä╣´©Å  
+­ƒôï Validando namespace: api-keys[0m
+[32mÔ£à   en: Archivo existe y es v├ílido[0m
+[32mÔ£à   es: Archivo existe y es v├ílido[0m
+[32mÔ£à   fr: Archivo existe y es v├ílido[0m
+[32mÔ£à   pt: Archivo existe y es v├ílido[0m
+[32mÔ£à   de: Archivo existe y es v├ílido[0m
+[32mÔ£à   it: Archivo existe y es v├ílido[0m
+[32mÔ£à   ko: Archivo existe y es v├ílido[0m
+[32mÔ£à   ar: Archivo existe y es v├ílido[0m
+[32mÔ£à   zh: Archivo existe y es v├ílido[0m
+[36mÔä╣´©Å  
+­ƒôï Validando namespace: calendar[0m
+[32mÔ£à   en: Archivo existe y es v├ílido[0m
+[32mÔ£à   es: Archivo existe y es v├ílido[0m
+[32mÔ£à   fr: Archivo existe y es v├ílido[0m
+[32mÔ£à   pt: Archivo existe y es v├ílido[0m
+[32mÔ£à   de: Archivo existe y es v├ílido[0m
+[32mÔ£à   it: Archivo existe y es v├ílido[0m
+[32mÔ£à   ko: Archivo existe y es v├ílido[0m
+[32mÔ£à   ar: Archivo existe y es v├ílido[0m
+[32mÔ£à   zh: Archivo existe y es v├ílido[0m
+[36mÔä╣´©Å  
+­ƒôï Validando namespace: chat[0m
+[32mÔ£à   en: Archivo existe y es v├ílido[0m
+[32mÔ£à   es: Archivo existe y es v├ílido[0m
+[32mÔ£à   fr: Archivo existe y es v├ílido[0m
+[32mÔ£à   pt: Archivo existe y es v├ílido[0m
+[32mÔ£à   de: Archivo existe y es v├ílido[0m
+[32mÔ£à   it: Archivo existe y es v├ílido[0m
+[32mÔ£à   ko: Archivo existe y es v├ílido[0m
+[32mÔ£à   ar: Archivo existe y es v├ílido[0m
+[32mÔ£à   zh: Archivo existe y es v├ílido[0m
+[36mÔä╣´©Å  
+­ƒôï Validando namespace: crm-v2[0m
+[32mÔ£à   en: Archivo existe y es v├ílido[0m
+[32mÔ£à   es: Archivo existe y es v├ílido[0m
+[32mÔ£à   fr: Archivo existe y es v├ílido[0m
+[32mÔ£à   pt: Archivo existe y es v├ílido[0m
+[32mÔ£à   de: Archivo existe y es v├ílido[0m
+[32mÔ£à   it: Archivo existe y es v├ílido[0m
+[32mÔ£à   ko: Archivo existe y es v├ílido[0m
+[32mÔ£à   ar: Archivo existe y es v├ílido[0m
+[32mÔ£à   zh: Archivo existe y es v├ílido[0m
+[33mÔÜá´©Å    es: Keys adicionales: 3u1reuv4, 5kma53ae, abe45gmailcom, absolute_end0_top0, bgamber100_textamber700, bggreen100_textgreen700, bgmuted50, bgmuted_flex_size12_itemscenter_justifycenter_roun, bgred100_textred700, bgvarchart1, bgvarchart2, bgvarchart3, bgvarchart4, bgvarchart5, bhqecj4p, block_size2_roundedfull, call, carmellahotmailcom, closed_won, colspan2, compile_sales_data_and_forecasts, crm_admin_dashboard, crm_admin_dashboard_template_offers_a_streamlined_, cursorpointer_hoverbgmuted50, derv1ws0, email, enus, fillforeground_fontbold, fillforeground_fontdisplay_text3xl, fillmutedforeground, filter_leads, flex1, flex_flex1_itemscenter_justifybetween, flex_flexcol, flex_flexcol_gap2, flex_flexrow_itemscenter_justifybetween, flex_flexrow_justifybetween, flex_gap4, flex_itemscenter_gap2, flex_itemscenter_gap4, flex_itemscenter_justifyend_spacex2_pt4, flex_itemscenter_pt1, flex_itemscenter_spacex2, flex_itemsstart_spacex3_roundedmd_border_p3_transi, flex_justifyaround, flex_w24_itemscenter_gap2, follow_up_with_acme_inc, fontdisplay_text2xl_lgtext3xl, fontdisplay_textxl, fontmedium, gap2, grid_gap4_mdgridcols2_xlgridcols4, grid_gap4_xlgridcols3, h2, h24_textcenter, hasrolecheckboxpl3, hfull, ken99yahoocom, lead, linethrough, lucidereact, m5gr84i9, maxwsm, mb1_flex_itemscenter_gap2, mb4_flex_itemscenter_gap2, mb6_flex_h4_wfull_overflowhidden_roundedfull, ml2_h4_w4, mlauto, monserrat44gmailcom, mr2_roundedfull_px2_py05_textxs_fontmedium, ms35_textlg_fontsemibold, mt1, mxauto_aspectsquare_h60px, mxauto_aspectsquare_maxh250px, negotiation, nextnavigation, oct_15, others, p0, prepare_quarterly_report, proposal, qualified, roundedmd_border, safari, select_all, select_row, send_proposal_and_schedule_meeting, silas22gmailcom, size3, size5, social, spacex2, spacey1, spacey3, spacey4, sronly, status, textend, textgreen600, textmutedforeground_flex1_textsm, textmutedforeground_linethrough, textmutedforeground_textsm, textmutedforeground_textxs, textmutedforeground_w10_textright_textxs, textorange500, textred600, textright, textright_fontmedium, textsm, textsm_fontmedium, textsm_leadingnone_fontmedium, textxl_fontbold_trackingtight_lgtext2xl, textxs_trackingwide_uppercase, update_customer_profiles, usd, varchart1, varchart2, varchart3, varchart4, varcolorcall, varcoloremail, varcolorothers, varcolorsafari, varcolorsocial, varprimary, verify_contact_information_and_preferences, visitors[0m
+[36mÔä╣´©Å  
+­ƒôï Validando namespace: crm[0m
+[32mÔ£à   en: Archivo existe y es v├ílido[0m
+[32mÔ£à   es: Archivo existe y es v├ílido[0m
+[32mÔ£à   fr: Archivo existe y es v├ílido[0m
+[32mÔ£à   pt: Archivo existe y es v├ílido[0m
+[32mÔ£à   de: Archivo existe y es v├ílido[0m
+[32mÔ£à   it: Archivo existe y es v├ílido[0m
+[32mÔ£à   ko: Archivo existe y es v├ílido[0m
+[32mÔ£à   ar: Archivo existe y es v├ílido[0m
+[32mÔ£à   zh: Archivo existe y es v├ílido[0m
+[36mÔä╣´©Å  
+­ƒôï Validando namespace: default[0m
+[32mÔ£à   en: Archivo existe y es v├ílido[0m
+[32mÔ£à   es: Archivo existe y es v├ílido[0m
+[32mÔ£à   fr: Archivo existe y es v├ílido[0m
+[32mÔ£à   pt: Archivo existe y es v├ílido[0m
+[32mÔ£à   de: Archivo existe y es v├ílido[0m
+[32mÔ£à   it: Archivo existe y es v├ílido[0m
+[32mÔ£à   ko: Archivo existe y es v├ílido[0m
+[32mÔ£à   ar: Archivo existe y es v├ílido[0m
+[32mÔ£à   zh: Archivo existe y es v├ílido[0m
+[36mÔä╣´©Å  
+­ƒôï Validando namespace: ecommerce[0m
+[32mÔ£à   en: Archivo existe y es v├ílido[0m
+[32mÔ£à   es: Archivo existe y es v├ílido[0m
+[32mÔ£à   fr: Archivo existe y es v├ílido[0m
+[32mÔ£à   pt: Archivo existe y es v├ílido[0m
+[32mÔ£à   de: Archivo existe y es v├ílido[0m
+[32mÔ£à   it: Archivo existe y es v├ílido[0m
+[32mÔ£à   ko: Archivo existe y es v├ílido[0m
+[32mÔ£à   ar: Archivo existe y es v├ílido[0m
+[32mÔ£à   zh: Archivo existe y es v├ílido[0m
+[36mÔä╣´©Å  
+­ƒôï Validando namespace: hotel[0m
+[32mÔ£à   en: Archivo existe y es v├ílido[0m
+[32mÔ£à   es: Archivo existe y es v├ílido[0m
+[32mÔ£à   fr: Archivo existe y es v├ílido[0m
+[32mÔ£à   pt: Archivo existe y es v├ílido[0m
+[32mÔ£à   de: Archivo existe y es v├ílido[0m
+[32mÔ£à   it: Archivo existe y es v├ílido[0m
+[32mÔ£à   ko: Archivo existe y es v├ílido[0m
+[32mÔ£à   ar: Archivo existe y es v├ílido[0m
+[32mÔ£à   zh: Archivo existe y es v├ílido[0m
+[36mÔä╣´©Å  
+­ƒôï Validando namespace: mail[0m
+[32mÔ£à   en: Archivo existe y es v├ílido[0m
+[32mÔ£à   es: Archivo existe y es v├ílido[0m
+[32mÔ£à   fr: Archivo existe y es v├ílido[0m
+[32mÔ£à   pt: Archivo existe y es v├ílido[0m
+[32mÔ£à   de: Archivo existe y es v├ílido[0m
+[32mÔ£à   it: Archivo existe y es v├ílido[0m
+[32mÔ£à   ko: Archivo existe y es v├ílido[0m
+[32mÔ£à   ar: Archivo existe y es v├ílido[0m
+[32mÔ£à   zh: Archivo existe y es v├ílido[0m
+[36mÔä╣´©Å  
+­ƒôï Validando namespace: dashboard-bundui[0m
+[32mÔ£à   en: Archivo existe y es v├ílido[0m
+[32mÔ£à   es: Archivo existe y es v├ílido[0m
+[32mÔ£à   fr: Archivo existe y es v├ílido[0m
+[32mÔ£à   pt: Archivo existe y es v├ílido[0m
+[32mÔ£à   de: Archivo existe y es v├ílido[0m
+[32mÔ£à   it: Archivo existe y es v├ílido[0m
+[32mÔ£à   ko: Archivo existe y es v├ílido[0m
+[32mÔ£à   ar: Archivo existe y es v├ílido[0m
+[32mÔ£à   zh: Archivo existe y es v├ílido[0m
+[36mÔä╣´©Å  
+­ƒôï Validando namespace: projects[0m
+[32mÔ£à   en: Archivo existe y es v├ílido[0m
+[32mÔ£à   es: Archivo existe y es v├ílido[0m
+[32mÔ£à   fr: Archivo existe y es v├ílido[0m
+[32mÔ£à   pt: Archivo existe y es v├ílido[0m
+[32mÔ£à   de: Archivo existe y es v├ílido[0m
+[32mÔ£à   it: Archivo existe y es v├ílido[0m
+[32mÔ£à   ko: Archivo existe y es v├ílido[0m
+[32mÔ£à   ar: Archivo existe y es v├ílido[0m
+[32mÔ£à   zh: Archivo existe y es v├ílido[0m
+[36mÔä╣´©Å  
+­ƒôï Validando namespace: tasks[0m
+[32mÔ£à   en: Archivo existe y es v├ílido[0m
+[32mÔ£à   es: Archivo existe y es v├ílido[0m
+[32mÔ£à   fr: Archivo existe y es v├ílido[0m
+[32mÔ£à   pt: Archivo existe y es v├ílido[0m
+[32mÔ£à   de: Archivo existe y es v├ílido[0m
+[32mÔ£à   it: Archivo existe y es v├ílido[0m
+[32mÔ£à   ko: Archivo existe y es v├ílido[0m
+[32mÔ£à   ar: Archivo existe y es v├ílido[0m
+[32mÔ£à   zh: Archivo existe y es v├ílido[0m
+[36mÔä╣´©Å  
+­ƒôï Validando namespace: dashboard-vibethink[0m
+[32mÔ£à   en: Archivo existe y es v├ílido[0m
+[32mÔ£à   es: Archivo existe y es v├ílido[0m
+[32mÔ£à   fr: Archivo existe y es v├ílido[0m
+[32mÔ£à   pt: Archivo existe y es v├ílido[0m
+[32mÔ£à   de: Archivo existe y es v├ílido[0m
+[32mÔ£à   it: Archivo existe y es v├ílido[0m
+[32mÔ£à   ko: Archivo existe y es v├ílido[0m
+[32mÔ£à   ar: Archivo existe y es v├ílido[0m
+[32mÔ£à   zh: Archivo existe y es v├ílido[0m
+[34m
+============================================================[0m
+[34m
+­ƒôè RESUMEN
+[0m
+[32mÔ£à Ô£à ai-chat: CUMPLE con 9 idiomas[0m
+[32mÔ£à Ô£à analytics: CUMPLE con 9 idiomas[0m
+[32mÔ£à Ô£à api-keys: CUMPLE con 9 idiomas[0m
+[32mÔ£à Ô£à calendar: CUMPLE con 9 idiomas[0m
+[32mÔ£à Ô£à chat: CUMPLE con 9 idiomas[0m
+[32mÔ£à Ô£à crm-v2: CUMPLE con 9 idiomas[0m
+[33m
+Advertencias:[0m
+[33mÔÜá´©Å    - es: Keys adicionales: 3u1reuv4, 5kma53ae, abe45gmailcom, absolute_end0_top0, bgamber100_textamber700, bggreen100_textgreen700, bgmuted50, bgmuted_flex_size12_itemscenter_justifycenter_roun, bgred100_textred700, bgvarchart1, bgvarchart2, bgvarchart3, bgvarchart4, bgvarchart5, bhqecj4p, block_size2_roundedfull, call, carmellahotmailcom, closed_won, colspan2, compile_sales_data_and_forecasts, crm_admin_dashboard, crm_admin_dashboard_template_offers_a_streamlined_, cursorpointer_hoverbgmuted50, derv1ws0, email, enus, fillforeground_fontbold, fillforeground_fontdisplay_text3xl, fillmutedforeground, filter_leads, flex1, flex_flex1_itemscenter_justifybetween, flex_flexcol, flex_flexcol_gap2, flex_flexrow_itemscenter_justifybetween, flex_flexrow_justifybetween, flex_gap4, flex_itemscenter_gap2, flex_itemscenter_gap4, flex_itemscenter_justifyend_spacex2_pt4, flex_itemscenter_pt1, flex_itemscenter_spacex2, flex_itemsstart_spacex3_roundedmd_border_p3_transi, flex_justifyaround, flex_w24_itemscenter_gap2, follow_up_with_acme_inc, fontdisplay_text2xl_lgtext3xl, fontdisplay_textxl, fontmedium, gap2, grid_gap4_mdgridcols2_xlgridcols4, grid_gap4_xlgridcols3, h2, h24_textcenter, hasrolecheckboxpl3, hfull, ken99yahoocom, lead, linethrough, lucidereact, m5gr84i9, maxwsm, mb1_flex_itemscenter_gap2, mb4_flex_itemscenter_gap2, mb6_flex_h4_wfull_overflowhidden_roundedfull, ml2_h4_w4, mlauto, monserrat44gmailcom, mr2_roundedfull_px2_py05_textxs_fontmedium, ms35_textlg_fontsemibold, mt1, mxauto_aspectsquare_h60px, mxauto_aspectsquare_maxh250px, negotiation, nextnavigation, oct_15, others, p0, prepare_quarterly_report, proposal, qualified, roundedmd_border, safari, select_all, select_row, send_proposal_and_schedule_meeting, silas22gmailcom, size3, size5, social, spacex2, spacey1, spacey3, spacey4, sronly, status, textend, textgreen600, textmutedforeground_flex1_textsm, textmutedforeground_linethrough, textmutedforeground_textsm, textmutedforeground_textxs, textmutedforeground_w10_textright_textxs, textorange500, textred600, textright, textright_fontmedium, textsm, textsm_fontmedium, textsm_leadingnone_fontmedium, textxl_fontbold_trackingtight_lgtext2xl, textxs_trackingwide_uppercase, update_customer_profiles, usd, varchart1, varchart2, varchart3, varchart4, varcolorcall, varcoloremail, varcolorothers, varcolorsafari, varcolorsocial, varprimary, verify_contact_information_and_preferences, visitors[0m
+[32mÔ£à Ô£à crm: CUMPLE con 9 idiomas[0m
+[32mÔ£à Ô£à default: CUMPLE con 9 idiomas[0m
+[32mÔ£à Ô£à ecommerce: CUMPLE con 9 idiomas[0m
+[32mÔ£à Ô£à hotel: CUMPLE con 9 idiomas[0m
+[32mÔ£à Ô£à mail: CUMPLE con 9 idiomas[0m
+[32mÔ£à Ô£à dashboard-bundui: CUMPLE con 9 idiomas[0m
+[32mÔ£à Ô£à projects: CUMPLE con 9 idiomas[0m
+[32mÔ£à Ô£à tasks: CUMPLE con 9 idiomas[0m
+[32mÔ£à Ô£à dashboard-vibethink: CUMPLE con 9 idiomas[0m
+[34m
+============================================================[0m
+[32mÔ£à 
+­ƒÄë TODOS LOS NAMESPACES CUMPLEN CON 9 IDIOMAS
+[0m

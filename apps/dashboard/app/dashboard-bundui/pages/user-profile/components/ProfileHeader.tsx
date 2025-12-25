@@ -1,7 +1,8 @@
 "use client";
 
 import { Calendar, MapPin, TrendingUp, PencilIcon } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage, Button } from "@vibethink/ui";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";
+import { Button } from "@vibethink/ui/components/button";
 import { useProfileStore } from "../store";
 
 export function ProfileHeader() {
@@ -11,7 +12,7 @@ export function ProfileHeader() {
     <div className="relative">
       <div className="relative aspect-video w-full rounded-t-md bg-gradient-to-br from-blue-500 to-purple-600 bg-cover bg-center md:max-h-[240px]">
         <div className="absolute end-4 top-4">
-          <Button size="icon-sm" className="bg-background/50 rounded-full" variant="ghost">
+          <Button size="icon" className="bg-background/50 rounded-full" variant="ghost">
             <PencilIcon />
           </Button>
         </div>
@@ -44,6 +45,10 @@ export function ProfileHeader() {
     </div>
   );
 }
+
+
+
+
 
 
 

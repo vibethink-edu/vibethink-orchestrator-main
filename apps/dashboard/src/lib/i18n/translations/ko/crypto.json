@@ -1,0 +1,91 @@
+{
+  "title": "Crypto Dashboard",
+  "description": "The crypto admin dashboard is a template for effectively tracking cryptocurrency prices, market trends and portfolio performance. Built with shadcn/ui.",
+  "actions": {
+    "download": "Download"
+  },
+  "overview": {
+    "title": "Overview",
+    "balance": "Balance",
+    "totalValue": "Total Value",
+    "change": "Change",
+    "profit": "Profit",
+    "loss": "Loss"
+  },
+  "wallets": {
+    "title": "Digital Wallets",
+    "total": "Total",
+    "available": "Available",
+    "inUse": "In Use"
+  },
+  "trading": {
+    "title": "Trading",
+    "buy": "Buy",
+    "sell": "Sell",
+    "amount": "Amount",
+    "price": "Price",
+    "total": "Total"
+  },
+  "activities": {
+    "title": "Recent Activities",
+    "type": "Type",
+    "amount": "Amount",
+    "status": "Status",
+    "date": "Date",
+    "viewAll": "View All"
+  },
+  "chart": {
+    "title": "Balance Summary",
+    "period": {
+      "7d": "7 Days",
+      "30d": "30 Days",
+      "90d": "90 Days",
+      "1y": "1 Year"
+    }
+  },
+  "status": {
+    "completed": "Completed",
+    "pending": "Pending",
+    "failed": "Failed"
+  },
+  "hardcoded": {
+    "download_crypto_data": "암호화폐 데이터 다운로드",
+    "buy_crypto_clicked": "암호화폐 구매 clicked",
+    "add_wallet_clicked": "지갑 추가",
+    "price_alerts_management_interface": "가격 알림 관리 인터페이스",
+    "portfolio_allocation": "포트폴리오 배분",
+    "no_allocation_data_available": "배분 데이터를 사용할 수 없습니다",
+    "total_received": "총 수신",
+    "total_send": "총 전송",
+    "total_withdraw": "총 인출",
+    "buy_crypto": "암호화폐 구매",
+    "set_alert": "알림 설정",
+    "export_data": "데이터 내보내기",
+    "current_portfolio_value": "가치",
+    "start_by_adding_your_first_cryptocurrency_holding": "첫 암호화폐 보유량을 추가하여 시작하세요",
+    "no_wallets_found": "지갑을 찾을 수 없습니다",
+    "just_now": "방금",
+    "no_portfolio_data_available": "포트폴리오 데이터를 사용할 수 없습니다",
+    "no_recent_activities": "최근 활동 없음",
+    "portfolio_risk_analysis_and_metrics": "포트폴리오 위험 분석 및 메트릭",
+    "please_select_a_cryptocurrency": "암호화폐를 선택하세요",
+    "amount_is_required": "금액이 필요합니다",
+    "000": "0.00",
+    "trading_strategies_and_automation_interface": "거래 전략 및 자동화 인터페이스",
+    "cryptocurrency_transaction_history_and_records": "암호화폐 거래 내역 및 기록",
+    "no_cryptocurrencies_in_watchlist": "관심 목록에 암호화폐가 없습니다",
+    "failed_to_fetch_holdings_data": "보유 데이터를 가져오지 못했습니다",
+    "failed_to_fetch_transaction_data": "거래 데이터를 가져오지 못했습니다",
+    "failed_to_fetch_wallet_data": "지갑 데이터를 가져오지 못했습니다",
+    "no_filters_applied": "적용된 필터 없음",
+    "bitcoin_etfs_see_record_inflows_as_institutional_a": "Bitcoin ETFs See Record Inflows as Institutional A",
+    "ethereum_network_upgrade_promises_lower_gas_fees": "Ethereum Network Upgrade Promises Lower Gas Fees",
+    "regulatory_clarity_expected_as_congress_discusses": "Regulatory Clarity Expected as Congress Discusses",
+    "momentum_trading_strategy_for_selected_altcoins": "Momentum trading strategy for selected altcoins",
+    "failed_to_fetch_trading_strategies": "Failed to fetch trading strategies",
+    "failed_to_create_trading_strategy": "Failed to create trading strategy",
+    "export_crypto_data": "암호화폐 데이터 내보내기",
+    "add_new_transaction": "새 거래 추가",
+    "add_new_price_alert": "새 가격 알림 추가"
+  }
+}

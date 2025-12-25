@@ -13,22 +13,24 @@ import {
 } from "lucide-react";
 import { Metadata } from "next";
 
+import { Button } from "@vibethink/ui/components/button";
 import {
-  Button,
   Card,
   CardContent,
   CardHeader,
-  CardTitle,
+  CardTitle
+} from "@vibethink/ui/components/card";
+import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
-  Badge,
-  Separator,
-  Progress
-} from "@vibethink/ui";
+  TableRow
+} from "@vibethink/ui/components/table";
+import { Badge } from "@vibethink/ui/components/badge";
+import { Separator } from "@vibethink/ui/components/separator";
+import { Progress } from "@vibethink/ui/components/progress";
 
 export const metadata: Metadata = {
   title: "Order Detail Page - VibeThink Orchestrator",
@@ -182,11 +184,10 @@ export default function Page() {
               {Object.keys(statusSteps).map((step, index) => (
                 <div key={index} className="text-center">
                   <div
-                    className={`mx-auto flex size-10 items-center justify-center rounded-full text-lg lg:size-12 ${
-                      index <= currentStepIndex
+                    className={`mx-auto flex size-10 items-center justify-center rounded-full text-lg lg:size-12 ${index <= currentStepIndex
                         ? "bg-green-500 text-white dark:bg-green-900"
                         : "bg-muted border"
-                    } `}>
+                      } `}>
                     {index < currentStepIndex ? (
                       <CheckCircle className="size-4 lg:size-5" />
                     ) : (
@@ -262,6 +263,10 @@ export default function Page() {
     </div>
   );
 }
+
+
+
+
 
 
 

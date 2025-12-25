@@ -8,7 +8,7 @@
 /**
  * Supported locales
  */
-export type Locale = 'en' | 'es';
+export type Locale = 'en' | 'es' | 'ar' | 'zh' | 'fr' | 'pt' | 'de';
 
 /**
  * Default locale
@@ -18,7 +18,7 @@ export const DEFAULT_LOCALE: Locale = 'en';
 /**
  * Available locales array
  */
-export const AVAILABLE_LOCALES: Locale[] = ['en', 'es'];
+export const AVAILABLE_LOCALES: Locale[] = ['en', 'es', 'ar', 'zh', 'fr', 'pt', 'de'];
 
 /**
  * Locale metadata
@@ -53,6 +53,7 @@ export type TranslationNamespace =
   | 'notes'             // Notes module
   | 'payment'           // Payment module
   | 'pos-system'        // POS System module
+  | 'projects'          // Projects module
   | 'project-management' // Project Management module
   | 'tasks'             // Tasks module
   | 'website-analytics' // Website Analytics module
@@ -61,8 +62,13 @@ export type TranslationNamespace =
   | 'ai-chat'           // AI Chat module
   | 'ai-image-generator' // AI Image Generator module
   | 'academy'           // Academy module
+  | 'hotel'             // Hotel module
+  | 'theme'             // Theme customization
+  | 'concept'           // Concept terminology (IA First reusable components)
   | 'errors'            // Error messages
-  | 'validation';       // Form validation messages
+  | 'validation'        // Form validation messages
+  | 'dashboard-vibethink' // VibeThink Dashboard Index page
+  | 'dashboard-bundui';   // Bundui Dashboard Index page
 
 /**
  * Translation function type

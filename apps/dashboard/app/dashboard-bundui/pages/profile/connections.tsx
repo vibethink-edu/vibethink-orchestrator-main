@@ -2,9 +2,17 @@
 
 import * as React from "react";
 import { ChevronRight } from "lucide-react";
-import { generateAvatarFallback } from "@/lib/utils";
+import { generateAvatarFallback } from "@/shared/lib/utils";
 
-import { Card, CardAction, CardContent, CardHeader, CardTitle, Avatar, AvatarFallback, AvatarImage, Button, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";
+import { Button } from "@vibethink/ui/components/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from "@vibethink/ui/components/tooltip";
 
 const connections = [
   {
@@ -87,6 +95,10 @@ export function Connections() {
     </Card>
   );
 }
+
+
+
+
 
 
 

@@ -1,0 +1,180 @@
+npm warn Unknown project config "package-manager-strict". This will stop working in the next major version of npm.
+
+> vibethink-orchestrator@1.0.0 build:dashboard
+> cd apps/dashboard && npx --no-install next build
+
+npm warn Unknown env config "package-manager-strict". This will stop working in the next major version of npm.
+npm warn Unknown project config "package-manager-strict". This will stop working in the next major version of npm.
+   Ôû▓ Next.js 15.3.4
+   - Environments: .env
+
+   Creating an optimized production build ...
+ ÔÜá Compiled with warnings in 55s
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'Reel' is not exported from '@vibethink/ui' (imported as 'Reel').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelProgress' is not exported from '@vibethink/ui' (imported as 'ReelProgress').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelContent' is not exported from '@vibethink/ui' (imported as 'ReelContent').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelItem' is not exported from '@vibethink/ui' (imported as 'ReelItem').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelVideo' is not exported from '@vibethink/ui' (imported as 'ReelVideo').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelImage' is not exported from '@vibethink/ui' (imported as 'ReelImage').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelFooter' is not exported from '@vibethink/ui' (imported as 'ReelFooter').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelNavigation' is not exported from '@vibethink/ui' (imported as 'ReelNavigation').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelControls' is not exported from '@vibethink/ui' (imported as 'ReelControls').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelPlayButton' is not exported from '@vibethink/ui' (imported as 'ReelPlayButton').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelMuteButton' is not exported from '@vibethink/ui' (imported as 'ReelMuteButton').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'Reel' is not exported from '@vibethink/ui' (imported as 'Reel').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelProgress' is not exported from '@vibethink/ui' (imported as 'ReelProgress').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelContent' is not exported from '@vibethink/ui' (imported as 'ReelContent').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelItem' is not exported from '@vibethink/ui' (imported as 'ReelItem').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelVideo' is not exported from '@vibethink/ui' (imported as 'ReelVideo').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelImage' is not exported from '@vibethink/ui' (imported as 'ReelImage').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelFooter' is not exported from '@vibethink/ui' (imported as 'ReelFooter').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelNavigation' is not exported from '@vibethink/ui' (imported as 'ReelNavigation').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelControls' is not exported from '@vibethink/ui' (imported as 'ReelControls').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelPlayButton' is not exported from '@vibethink/ui' (imported as 'ReelPlayButton').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+Attempted import error: 'ReelMuteButton' is not exported from '@vibethink/ui' (imported as 'ReelMuteButton').
+
+Import trace for requested module:
+./app/dashboard-bundui/social-media/components/social-media-stories.tsx
+
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+[Error [PageNotFoundError]: Cannot find module for page: /dashboard/pages/pricing/single] {
+  code: 'ENOENT'
+}
+[Error [PageNotFoundError]: Cannot find module for page: /dashboard/pages/error/403] {
+  code: 'ENOENT'
+}
+[Error [PageNotFoundError]: Cannot find module for page: /apps/tasks] {
+  code: 'ENOENT'
+}
+[Error [PageNotFoundError]: Cannot find module for page: /dashboard/pages/empty-states/01] {
+  code: 'ENOENT'
+}
+[Error [PageNotFoundError]: Cannot find module for page: /apps/calendar] {
+  code: 'ENOENT'
+}
+[Error [PageNotFoundError]: Cannot find module for page: /dashboard/pages/orders] {
+  code: 'ENOENT'
+}
+[Error [PageNotFoundError]: Cannot find module for page: /apps/ai-chat] {
+  code: 'ENOENT'
+}
+[Error [PageNotFoundError]: Cannot find module for page: /manifest.json] {
+  code: 'ENOENT'
+}
+[Error [PageNotFoundError]: Cannot find module for page: /dashboard/pages/empty-states/03] {
+  code: 'ENOENT'
+}
+
+> Build error occurred
+[Error: Failed to collect page data for /dashboard/pages/pricing/single] {
+  type: 'Error'
+}

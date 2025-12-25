@@ -27,13 +27,18 @@ import {
 
 import { DataTablePagination } from "./data-table-pagination";
 import { DataTableToolbar } from "./data-table-toolbar";
+import { useTaskColumns } from "./columns";
+import { Task } from "../data/schema";
 
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
+  columns?: ColumnDef<TData, TValue>[];
   data: TData[];
 }
 
-export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
+export function DataTable<TData, TValue>({ columns: providedColumns, data }: DataTableProps<TData, TValue>) {
+  // Usar columnas traducidas si no se proporcionan
+  const defaultColumns = useTaskColumns() as ColumnDef<TData, TValue>[];
+  const columns = providedColumns || defaultColumns;
   const [rowSelection, setRowSelection] = React.useState({});
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);

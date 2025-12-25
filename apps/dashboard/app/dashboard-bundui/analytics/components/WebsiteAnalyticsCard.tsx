@@ -1,7 +1,10 @@
 'use client'
 
 import { TrendingUp, TrendingDown, Eye, Users, Clock, MousePointer } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Skeleton } from '@vibethink/ui'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui/components/card'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Skeleton } from '@vibethink/ui/components/skeleton'
+import { useTranslation } from '@/lib/i18n'
 import { useAnalyticsData } from '../hooks'
 import { AnalyticsCardProps } from '../types'
 
@@ -15,13 +18,14 @@ import { AnalyticsCardProps } from '../types'
  * 
  * Follows Bundui Premium design with VThink 1.0 patterns
  */
-export function WebsiteAnalyticsCard({ 
+export function WebsiteAnalyticsCard({
   className = '',
   isLoading: externalLoading = false,
   error: externalError = null
 }: AnalyticsCardProps) {
+  const { t } = useTranslation('analytics')
   const { websiteMetrics, isLoading, error } = useAnalyticsData()
-  
+
   const loading = isLoading || externalLoading
   const errorState = error || externalError
 
@@ -40,7 +44,7 @@ export function WebsiteAnalyticsCard({
 
   // Calculate percentage changes (mock for development)
   const previousMetrics = websiteMetrics[1] || null
-  const pageViewsChange = previousMetrics 
+  const pageViewsChange = previousMetrics
     ? ((latestMetrics.page_views - previousMetrics.page_views) / previousMetrics.page_views) * 100
     : 12.5
 
@@ -135,20 +139,20 @@ export function WebsiteAnalyticsCard({
           Total traffic and engagement metrics overview
         </CardDescription>
       </CardHeader>
-      
+
       <CardContent className="space-y-6">
         {/* Main Metrics Grid */}
         <div className="grid grid-cols-2 gap-4">
           {/* Page Views */}
           <div className="flex items-center gap-3">
-            <Badge 
-              variant="secondary" 
+            <Badge
+              variant="secondary"
               className="flex h-10 w-14 items-center justify-center border border-border font-mono text-xs"
             >
               {formatNumber(latestMetrics.page_views)}
             </Badge>
             <div className="flex flex-col">
-              <span className="text-sm font-medium">Page Views</span>
+              <span className="text-sm font-medium">{t('cards.websiteAnalytics.pageViews')}</span>
               <div className="flex items-center gap-1">
                 {getTrendIcon(pageViewsChange)}
                 <span className={`text-xs ${getTrendColor(pageViewsChange)}`}>
@@ -160,55 +164,55 @@ export function WebsiteAnalyticsCard({
 
           {/* Unique Visitors */}
           <div className="flex items-center gap-3">
-            <Badge 
-              variant="secondary" 
+            <Badge
+              variant="secondary"
               className="flex h-10 w-14 items-center justify-center border border-border font-mono text-xs"
             >
               {formatNumber(latestMetrics.unique_visitors)}
             </Badge>
             <div className="flex flex-col">
-              <span className="text-sm font-medium">Visitors</span>
-              <span className="text-xs text-muted-foreground">Unique</span>
+              <span className="text-sm font-medium">{t('cards.websiteAnalytics.visitors')}</span>
+              <span className="text-xs text-muted-foreground">{t('cards.websiteAnalytics.unique')}</span>
             </div>
           </div>
 
           {/* Session Duration */}
           <div className="flex items-center gap-3">
-            <Badge 
-              variant="secondary" 
+            <Badge
+              variant="secondary"
               className="flex h-10 w-14 items-center justify-center border border-border font-mono text-xs"
             >
               {formatDuration(latestMetrics.session_duration)}
             </Badge>
             <div className="flex flex-col">
-              <span className="text-sm font-medium">Avg. Session</span>
-              <span className="text-xs text-muted-foreground">Duration</span>
+              <span className="text-sm font-medium">{t('cards.websiteAnalytics.avgSession')}</span>
+              <span className="text-xs text-muted-foreground">{t('cards.websiteAnalytics.duration')}</span>
             </div>
           </div>
 
           {/* Bounce Rate */}
           <div className="flex items-center gap-3">
-            <Badge 
-              variant="secondary" 
+            <Badge
+              variant="secondary"
               className="flex h-10 w-14 items-center justify-center border border-border font-mono text-xs"
             >
               {formatPercentage(latestMetrics.bounce_rate)}
             </Badge>
             <div className="flex flex-col">
-              <span className="text-sm font-medium">Bounce Rate</span>
-              <span className="text-xs text-muted-foreground">Sessions</span>
+              <span className="text-sm font-medium">{t('cards.websiteAnalytics.bounceRate')}</span>
+              <span className="text-xs text-muted-foreground">{t('cards.websiteAnalytics.sessions')}</span>
             </div>
           </div>
         </div>
 
         {/* Traffic Sources */}
         <div className="space-y-3">
-          <h4 className="text-sm font-medium text-muted-foreground">Traffic Sources</h4>
+          <h4 className="text-sm font-medium text-muted-foreground">{t('cards.websiteAnalytics.trafficSources')}</h4>
           <div className="grid grid-cols-2 gap-3">
             {/* Direct Traffic */}
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-chart-1"></div>
-              <span className="text-sm">Direct</span>
+              <span className="text-sm">{t('cards.websiteAnalytics.direct')}</span>
               <span className="ml-auto text-sm font-medium">
                 {formatNumber(latestMetrics.direct_traffic)}
               </span>
@@ -217,7 +221,7 @@ export function WebsiteAnalyticsCard({
             {/* Organic Traffic */}
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-chart-2"></div>
-              <span className="text-sm">Organic</span>
+              <span className="text-sm">{t('cards.websiteAnalytics.organic')}</span>
               <span className="ml-auto text-sm font-medium">
                 {formatNumber(latestMetrics.organic_traffic)}
               </span>
@@ -226,7 +230,7 @@ export function WebsiteAnalyticsCard({
             {/* Referral Traffic */}
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-chart-3"></div>
-              <span className="text-sm">Referral</span>
+              <span className="text-sm">{t('cards.websiteAnalytics.referral')}</span>
               <span className="ml-auto text-sm font-medium">
                 {formatNumber(latestMetrics.referral_traffic || 89)}
               </span>
@@ -235,7 +239,7 @@ export function WebsiteAnalyticsCard({
             {/* Social Traffic */}
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-chart-4"></div>
-              <span className="text-sm">Social</span>
+              <span className="text-sm">{t('cards.websiteAnalytics.social')}</span>
               <span className="ml-auto text-sm font-medium">
                 {formatNumber(latestMetrics.social_traffic || 43)}
               </span>
@@ -247,7 +251,7 @@ export function WebsiteAnalyticsCard({
         <div className="flex items-center justify-between rounded-lg bg-muted/50 p-3">
           <div className="flex items-center gap-2">
             <MousePointer className="h-4 w-4 text-chart-5" />
-            <span className="text-sm font-medium">Conversion Rate</span>
+            <span className="text-sm font-medium">{t('cards.websiteAnalytics.conversionRate')}</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-lg font-bold">

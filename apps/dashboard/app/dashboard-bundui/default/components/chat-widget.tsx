@@ -25,6 +25,7 @@ import {
 } from "@vibethink/ui";
 import { Input } from "@vibethink/ui";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui";
+import { useTranslation } from "@/lib/i18n";
 
 const users = [
   {
@@ -57,6 +58,7 @@ const users = [
 type User = (typeof users)[number];
 
 export function ChatWidget() {
+  const { t } = useTranslation('default');
   const [open, setOpen] = React.useState(false);
   const [selectedUsers, setSelectedUsers] = React.useState<User[]>([]);
 
@@ -104,10 +106,10 @@ export function ChatWidget() {
                   className="ml-auto rounded-full"
                   onClick={() => setOpen(true)}>
                   <Plus />
-                  <span className="sr-only">New message</span>
+                  <span className="sr-only">{t('chat.newMessage')}</span>
                 </Button>
               </TooltipTrigger>
-              <TooltipContent sideOffset={10}>New message</TooltipContent>
+              <TooltipContent sideOffset={10}>{t('chat.newMessage')}</TooltipContent>
             </Tooltip>
           </TooltipProvider>
         </CardHeader>
@@ -144,7 +146,7 @@ export function ChatWidget() {
             className="flex w-full items-center space-x-2">
             <Input
               id="message"
-              placeholder="Type your message..."
+              placeholder={t('chat.typePlaceholder')}
               className="flex-1"
               autoComplete="off"
               value={input}
@@ -152,7 +154,7 @@ export function ChatWidget() {
             />
             <Button type="submit" size="icon" disabled={inputLength === 0}>
               <Send className="h-4 w-4" />
-              <span className="sr-only">Send</span>
+              <span className="sr-only">{t('chat.send')}</span>
             </Button>
           </form>
         </CardFooter>
@@ -160,15 +162,15 @@ export function ChatWidget() {
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="gap-0 p-0 outline-hidden">
           <DialogHeader className="px-4 pt-5 pb-4">
-            <DialogTitle>New message</DialogTitle>
+            <DialogTitle>{t('chat.dialog.title')}</DialogTitle>
             <DialogDescription>
-              Invite a user to this thread. This will create a new group message.
+              {t('chat.dialog.description')}
             </DialogDescription>
           </DialogHeader>
           <Command className="overflow-hidden rounded-t-none border-t">
-            <CommandInput placeholder="Search user..." />
+            <CommandInput placeholder={t('chat.dialog.searchPlaceholder')} />
             <CommandList>
-              <CommandEmpty>No users found.</CommandEmpty>
+              <CommandEmpty>{t('chat.dialog.noUsersFound')}</CommandEmpty>
               <CommandGroup className="p-2">
                 {users.map((user) => (
                   <CommandItem
@@ -212,14 +214,14 @@ export function ChatWidget() {
                 ))}
               </div>
             ) : (
-              <p className="text-muted-foreground text-sm">Select users to add to this thread.</p>
+              <p className="text-muted-foreground text-sm">{t('chat.dialog.selectUsers')}</p>
             )}
             <Button
               disabled={selectedUsers.length < 2}
               onClick={() => {
                 setOpen(false);
               }}>
-              Continue
+              {t('chat.dialog.continue')}
             </Button>
           </DialogFooter>
         </DialogContent>

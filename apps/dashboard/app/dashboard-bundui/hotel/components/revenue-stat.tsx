@@ -1,22 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@/components/ui/select";
+} from "@vibethink/ui";
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig
-} from "@/components/ui/chart";
+} from "@vibethink/ui";
 import { Bar, BarChart, XAxis, YAxis, ReferenceLine } from "recharts";
 import { Calendar, TrendingUp } from "lucide-react";
+import { useTranslation } from "@/lib/i18n";
 
 interface RevenueDataItem {
   day: string;
@@ -75,16 +76,7 @@ const items = {
   selectedPeriod: "weekly"
 };
 
-const chartConfig = {
-  revenue: {
-    label: "Revenue",
-    color: "var(--color-chart-1)"
-  },
-  projected: {
-    label: "Projected",
-    color: "#d1d5db"
-  }
-} satisfies ChartConfig;
+// chartConfig moved inside component to use i18n
 
 const formatYAxisTick = (value: number) => {
   if (value === 0) return "0";
@@ -125,7 +117,19 @@ const getYAxisConfig = (period: string) => {
 };
 
 export function RevenueStat() {
+  const { t } = useTranslation('hotel');
   const [selectedPeriod, setSelectedPeriod] = useState(items.selectedPeriod);
+
+  const chartConfig = {
+    revenue: {
+      label: t('components.revenueStat.chart.revenue'),
+      color: "var(--color-chart-1)"
+    },
+    projected: {
+      label: t('components.revenueStat.chart.projected'),
+      color: "#d1d5db"
+    }
+  } satisfies ChartConfig;
 
   const currentData = items[selectedPeriod as keyof typeof items] as PeriodData;
   const { data, total, percentageChange } = currentData;
@@ -134,17 +138,17 @@ export function RevenueStat() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Revenue Stat</CardTitle>
+        <CardTitle>{t('components.revenueStat.title')}</CardTitle>
         <CardAction>
           <Select value={selectedPeriod} onValueChange={setSelectedPeriod}>
             <SelectTrigger>
               <Calendar />
-              <SelectValue placeholder="Select period" />
+              <SelectValue placeholder={t('components.revenueStat.periods.placeholder')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="weekly">Weekly</SelectItem>
-              <SelectItem value="monthly">Monthly</SelectItem>
-              <SelectItem value="yearly">Yearly</SelectItem>
+              <SelectItem value="weekly">{t('components.revenueStat.periods.weekly')}</SelectItem>
+              <SelectItem value="monthly">{t('components.revenueStat.periods.monthly')}</SelectItem>
+              <SelectItem value="yearly">{t('components.revenueStat.periods.yearly')}</SelectItem>
             </SelectContent>
           </Select>
         </CardAction>
@@ -157,7 +161,7 @@ export function RevenueStat() {
           <div className="flex items-center gap-1 text-sm">
             <TrendingUp className="size-4 text-green-600" />
             <span className="text-success font-medium">{percentageChange}%</span>
-            <span className="text-muted-foreground">from last month</span>
+            <span className="text-muted-foreground">{t('components.revenueStat.fromLastMonth')}</span>
           </div>
         </div>
 
@@ -194,7 +198,9 @@ export function RevenueStat() {
                         }}
                       />
                       <span className="text-muted-foreground capitalize">
-                        {name === "revenue" ? "Revenue" : "Projected"}:
+                        {name === "revenue" 
+                          ? t('components.revenueStat.chart.revenue') 
+                          : t('components.revenueStat.chart.projected')}:
                       </span>
                       <span className="font-medium">{formatCurrency(Number(value))}</span>
                     </div>
@@ -220,3 +226,4 @@ export function RevenueStat() {
     </Card>
   );
 }
+

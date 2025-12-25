@@ -1,4 +1,11 @@
-import { Progress, Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
+import { Progress } from "@vibethink/ui/components/progress";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@vibethink/ui/components/card";
 
 export function CompleteYourProfileCard() {
   const progressValue = 66;
@@ -16,6 +23,10 @@ export function CompleteYourProfileCard() {
     </Card>
   );
 }
+
+
+
+
 
 
 

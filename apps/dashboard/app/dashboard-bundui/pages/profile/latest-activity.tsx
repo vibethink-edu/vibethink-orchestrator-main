@@ -5,7 +5,15 @@ import Link from "next/link";
 import { BadgeCheckIcon, BriefcaseBusinessIcon, ClockIcon } from "lucide-react";
 import { DownloadIcon } from "@radix-ui/react-icons";
 
-import { Card, CardAction, CardContent, CardHeader, CardTitle, Badge, Button } from "@vibethink/ui";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardHeader,
+  CardTitle
+} from "@vibethink/ui/components/card";
+import { Badge } from "@vibethink/ui/components/badge";
+import { Button } from "@vibethink/ui/components/button";
 
 export function LatestActivity() {
   return (
@@ -76,6 +84,10 @@ export function LatestActivity() {
     </Card>
   );
 }
+
+
+
+
 
 
 

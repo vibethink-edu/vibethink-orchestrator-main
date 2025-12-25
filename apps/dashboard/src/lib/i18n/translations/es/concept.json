@@ -1,0 +1,177 @@
+{
+  "concept.common.entity": {
+    "label": "Entidad",
+    "plural": "Entidades",
+    "gender": "f",
+    "synonyms": ["Entity", "Element"],
+    "description": "Entidad genérica en el sistema"
+  },
+  "concept.common.status.active": {
+    "label": "Activo",
+    "plural": "Activos",
+    "gender": "m",
+    "synonyms": ["Active", "Activo"],
+    "description": "La entidad está actualmente activa"
+  },
+  "concept.common.status.inactive": {
+    "label": "Inactivo",
+    "plural": "Inactivos",
+    "gender": "m",
+    "synonyms": ["Inactive", "Inactivo"],
+    "description": "La entidad está actualmente inactiva"
+  },
+  "concept.common.status.pending": {
+    "label": "Pendiente",
+    "plural": "Pendientes",
+    "gender": "m",
+    "synonyms": ["Pending", "Pendiente"],
+    "description": "La entidad está pendiente de acción"
+  },
+  "concept.common.status.completed": {
+    "label": "Completado",
+    "plural": "Completados",
+    "gender": "m",
+    "synonyms": ["Completed", "Finalizado"],
+    "description": "La entidad ha sido completada"
+  },
+  "concept.crm.entity.deal": {
+    "label": "Oportunidad",
+    "plural": "Oportunidades",
+    "gender": "f",
+    "synonyms": ["Deal", "Negocio", "Trato"],
+    "description": "Oportunidad de venta o venta potencial"
+  },
+  "concept.crm.entity.lead": {
+    "label": "Prospecto",
+    "plural": "Prospectos",
+    "gender": "m",
+    "synonyms": ["Lead", "Cliente Potencial"],
+    "description": "Cliente potencial que aún no ha comprado"
+  },
+  "concept.crm.entity.contact": {
+    "label": "Contacto",
+    "plural": "Contactos",
+    "gender": "m",
+    "synonyms": ["Contact", "Persona de Contacto"],
+    "description": "Persona individual en el sistema CRM"
+  },
+  "concept.crm.entity.account": {
+    "label": "Cuenta",
+    "plural": "Cuentas",
+    "gender": "f",
+    "synonyms": ["Account", "Cliente", "Empresa"],
+    "description": "Cuenta de empresa u organización"
+  },
+  "concept.crm.status.qualified": {
+    "label": "Calificado",
+    "plural": "Calificados",
+    "gender": "m",
+    "synonyms": ["Qualified", "Aprobado"],
+    "description": "Prospecto que cumple criterios de calificación"
+  },
+  "concept.crm.status.open": {
+    "label": "Abierto",
+    "plural": "Abiertos",
+    "gender": "m",
+    "synonyms": ["Open", "En Proceso"],
+    "description": "La oportunidad está abierta"
+  },
+  "concept.crm.status.closed": {
+    "label": "Cerrado",
+    "plural": "Cerrados",
+    "gender": "m",
+    "synonyms": ["Closed", "Finalizado"],
+    "description": "La oportunidad está cerrada"
+  },
+  "concept.operations.task.entity": {
+    "label": "Tarea",
+    "plural": "Tareas",
+    "gender": "f",
+    "synonyms": ["Task", "Actividad", "Trabajo"],
+    "description": "Unidad de trabajo asignada a un usuario"
+  },
+  "concept.operations.task.status.backlog": {
+    "label": "Pendiente",
+    "plural": "Pendientes",
+    "gender": "m",
+    "synonyms": ["Backlog", "Cola"],
+    "description": "La tarea está en pendiente"
+  },
+  "concept.operations.task.status.todo": {
+    "label": "Por Hacer",
+    "plural": "Por Hacer",
+    "gender": "m",
+    "synonyms": ["Todo", "Pendiente"],
+    "description": "Tarea por hacer"
+  },
+  "concept.operations.task.status.in_progress": {
+    "label": "En Progreso",
+    "plural": "En Progreso",
+    "gender": "m",
+    "synonyms": ["In Progress", "En Curso"],
+    "description": "La tarea está siendo trabajada actualmente"
+  },
+  "concept.operations.task.status.done": {
+    "label": "Completado",
+    "plural": "Completados",
+    "gender": "m",
+    "synonyms": ["Done", "Finalizado"],
+    "description": "La tarea ha sido completada"
+  },
+  "concept.operations.task.priority.low": {
+    "label": "Baja",
+    "plural": "Bajas",
+    "gender": "f",
+    "synonyms": ["Low", "Bajo"],
+    "description": "Tarea de baja prioridad"
+  },
+  "concept.operations.task.priority.medium": {
+    "label": "Media",
+    "plural": "Medias",
+    "gender": "f",
+    "synonyms": ["Medium", "Medio"],
+    "description": "Tarea de prioridad media"
+  },
+  "concept.operations.task.priority.high": {
+    "label": "Alta",
+    "plural": "Altas",
+    "gender": "f",
+    "synonyms": ["High", "Alto"],
+    "description": "Tarea de alta prioridad"
+  },
+  "concept.hotel.booking.entity": {
+    "label": "Reserva",
+    "plural": "Reservas",
+    "gender": "f",
+    "synonyms": ["Booking", "Reservación"],
+    "description": "Reserva de habitación de hotel"
+  },
+  "concept.hotel.booking.unit.night": {
+    "label": "Noche",
+    "plural": "Noches",
+    "gender": "f",
+    "synonyms": ["Night", "Estadía"],
+    "description": "Unidad de tiempo para reservas de hotel"
+  },
+  "concept.hotel.booking.status.checked_in": {
+    "label": "Registrado",
+    "plural": "Registrados",
+    "gender": "m",
+    "synonyms": ["Checked In", "Check-in Realizado"],
+    "description": "El huésped se ha registrado"
+  },
+  "concept.hotel.booking.status.checked_out": {
+    "label": "Salida",
+    "plural": "Salidas",
+    "gender": "f",
+    "synonyms": ["Checked Out", "Check-out Realizado"],
+    "description": "El huésped ha salido"
+  },
+  "concept.hotel.booking.status.pending": {
+    "label": "Pendiente",
+    "plural": "Pendientes",
+    "gender": "m",
+    "synonyms": ["Pending", "En Espera"],
+    "description": "La reserva está pendiente de confirmación"
+  }
+}

@@ -8,16 +8,16 @@ import {
   CardDescription,
   CardHeader,
   CardTitle
-} from "@vibethink/ui";
-import { Button } from "@vibethink/ui";
-import { Progress } from "@vibethink/ui";
+} from "@vibethink/ui/components/card";
+import { Button } from "@vibethink/ui/components/button";
+import { Progress } from "@vibethink/ui/components/progress";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/dropdown-menu";
 
 const days = [
   { day: "Mon", date: "17", active: true },
@@ -83,7 +83,7 @@ export function DailyActivityCard() {
         <CardAction>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon-sm">
+              <Button variant="ghost" size="icon">
                 <MoreHorizontal />
               </Button>
             </DropdownMenuTrigger>
@@ -100,9 +100,8 @@ export function DailyActivityCard() {
           {days.map((day) => (
             <button
               key={day.date}
-              className={`flex flex-1 flex-col items-center gap-1 rounded-xl px-2 py-3 transition-colors ${
-                day.active ? "bg-primary text-primary-foreground" : "bg-muted hover:bg-secondary/80"
-              }`}>
+              className={`flex flex-1 flex-col items-center gap-1 rounded-xl px-2 py-3 transition-colors ${day.active ? "bg-primary text-primary-foreground" : "bg-muted hover:bg-secondary/80"
+                }`}>
               <span className="text-xs font-medium">{day.day}</span>
               <span className="text-sm font-semibold">{day.date}</span>
             </button>

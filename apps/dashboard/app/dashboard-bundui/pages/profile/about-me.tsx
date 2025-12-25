@@ -1,6 +1,15 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, Badge } from "@vibethink/ui";
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
+} from "@vibethink/ui/components/table";
+import { Badge } from "@vibethink/ui/components/badge";
 
 type TransactionStatus = "pending" | "failed" | "paid";
 
@@ -76,10 +85,10 @@ export function AboutMe() {
           <TableBody>
             {transactions.map((transaction) => {
               const statusMap = {
-                pending: "warning",
-                failed: "destructive",
-                paid: "success"
-              } as const;
+                pending: "secondary" as const,
+                failed: "destructive" as const,
+                paid: "default" as const
+              };
 
               const statusClass = statusMap[transaction.status] ?? "secondary";
 
@@ -100,6 +109,10 @@ export function AboutMe() {
     </Card>
   );
 }
+
+
+
+
 
 
 

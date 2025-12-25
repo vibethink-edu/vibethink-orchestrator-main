@@ -2,15 +2,15 @@
 
 import { useState } from 'react'
 import { CalendarDays, Download, Filter, RefreshCw } from 'lucide-react'
-import { 
-  Button,
-  DropdownMenu, 
-  DropdownMenuContent, 
-  DropdownMenuItem, 
+import { Button } from '@vibethink/ui/components/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuSeparator,
-  Badge
-} from '@vibethink/ui'
+  DropdownMenuSeparator
+} from '@vibethink/ui/components/dropdown-menu'
+import { Badge } from '@vibethink/ui/components/badge'
 import { DatePickerWithRange } from '@/shared/components/ui/date-range-picker'
 import { useAnalyticsFilters } from '../hooks'
 import { AnalyticsCardProps } from '../types'
@@ -32,17 +32,17 @@ interface AnalyticsHeaderProps extends AnalyticsCardProps {
  * 
  * Follows VThink 1.0 patterns with proper theming
  */
-export function AnalyticsHeader({ 
+export function AnalyticsHeader({
   title = 'Website Analytics',
   onRefresh,
   onExport,
   isLoading = false,
   className = ''
 }: AnalyticsHeaderProps) {
-  const { 
-    filters, 
-    applyDateRange, 
-    applyPresetRange, 
+  const {
+    filters,
+    applyDateRange,
+    applyPresetRange,
     resetFilters,
     getDateRangeLabel,
     isDefaultFilters
@@ -199,7 +199,7 @@ export function AnalyticsHeader({
 /**
  * Simplified Analytics Header for smaller screens
  */
-export function AnalyticsHeaderCompact({ 
+export function AnalyticsHeaderCompact({
   title = 'Analytics',
   onRefresh,
   onExport,
@@ -216,18 +216,18 @@ export function AnalyticsHeaderCompact({
           <RefreshCw className="h-4 w-4 animate-spin text-muted-foreground" />
         )}
       </div>
-      
+
       <div className="flex items-center gap-2">
         <Badge variant="outline" className="text-xs">
           {getDateRangeLabel()}
         </Badge>
-        
+
         {onRefresh && (
           <Button variant="ghost" size="sm" onClick={onRefresh}>
             <RefreshCw className="h-4 w-4" />
           </Button>
         )}
-        
+
         {onExport && (
           <Button variant="ghost" size="sm" onClick={() => onExport('csv')}>
             <Download className="h-4 w-4" />

@@ -8,7 +8,8 @@
 'use client'
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle, Badge } from '@vibethink/ui'
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui/components/card'
+import { Badge } from '@vibethink/ui/components/badge'
 import {
   BarChart,
   Bar,
@@ -113,8 +114,8 @@ export default function TaskPriorityChart() {
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={priorityData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
               <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-              <XAxis 
-                dataKey="priority" 
+              <XAxis
+                dataKey="priority"
                 className="text-xs fill-muted-foreground"
               />
               <YAxis className="text-xs fill-muted-foreground" />

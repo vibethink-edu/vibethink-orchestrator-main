@@ -17,26 +17,14 @@ import {
 import { ArrowUpDown, ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 import Link from "next/link";
 
-import { Button } from "@vibethink/ui";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger
-} from "@vibethink/ui";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow
-} from "@vibethink/ui";
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
-import { Avatar, AvatarImage } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@vibethink/ui/components/dropdown-menu";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@vibethink/ui/components/table";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Avatar, AvatarImage } from "@vibethink/ui/components/avatar";
 import { ExportButton } from "@/shared/components/CardActionMenus";
-import { Input } from "@vibethink/ui";
-import { Badge } from "@vibethink/ui";
+import { Input } from "@vibethink/ui/components/input";
+import { Badge } from "@vibethink/ui/components/badge";
 
 export type Order = {
   id: number;
@@ -308,9 +296,9 @@ const columns: ColumnDef<Order>[] = [
       const status = row.original.status;
 
       const statusMap = {
-        success: "success",
-        processing: "info",
-        paid: "warning",
+        success: "default",
+        processing: "secondary",
+        paid: "secondary",
         failed: "destructive"
       } as const;
 

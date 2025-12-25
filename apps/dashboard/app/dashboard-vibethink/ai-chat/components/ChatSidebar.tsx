@@ -32,7 +32,7 @@ import {
   User,
   Clock
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 import { ChatSidebarProps, ChatSession, AIProviderType } from '../types'
 import { formatDistanceToNow } from 'date-fns'
 

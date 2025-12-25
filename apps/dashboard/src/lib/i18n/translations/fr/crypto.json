@@ -1,0 +1,55 @@
+{
+  "title": "Crypto Dashboard",
+  "description": "The crypto admin dashboard is a template for effectively tracking cryptocurrency prices, market trends and portfolio performance. Built with shadcn/ui.",
+  "actions": {
+    "download": "Download"
+  },
+  "overview": {
+    "title": "Overview",
+    "balance": "Balance",
+    "totalValue": "Total Value",
+    "change": "Change",
+    "profit": "Profit",
+    "loss": "Loss"
+  },
+  "wallets": {
+    "title": "Digital Wallets",
+    "total": "Total",
+    "available": "Available",
+    "inUse": "In Use"
+  },
+  "trading": {
+    "title": "Trading",
+    "buy": "Buy",
+    "sell": "Sell",
+    "amount": "Amount",
+    "price": "Price",
+    "total": "Total"
+  },
+  "activities": {
+    "title": "Recent Activities",
+    "type": "Type",
+    "amount": "Amount",
+    "status": "Status",
+    "date": "Date",
+    "viewAll": "View All"
+  },
+  "chart": {
+    "title": "Balance Summary",
+    "period": {
+      "7d": "7 Days",
+      "30d": "30 Days",
+      "90d": "90 Days",
+      "1y": "1 Year"
+    }
+  },
+  "status": {
+    "completed": "Completed",
+    "pending": "Pending",
+    "failed": "Failed"
+  }
+}
+
+
+
+

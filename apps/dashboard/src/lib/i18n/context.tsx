@@ -10,6 +10,7 @@ import React, { createContext, useContext, useEffect, useState, useCallback } fr
 import { Locale, TranslationNamespace, TranslationDictionary, I18nContextValue } from './types';
 import { i18nConfig, getBrowserLocale, isValidLocale } from './config';
 import { loadTranslation, preloadTranslations } from './loader';
+import { registerDashboardTranslationLoader } from './loader-impl';
 import {
   getNestedValue,
   replaceParams,
@@ -20,6 +21,7 @@ import {
   formatPercentage as formatPercentageUtil,
   parseTranslationKey,
 } from './utils';
+import { formatMessage, isICUMessage } from '@vibethink/utils';
 
 /**
  * i18n Context
@@ -81,27 +83,43 @@ export function I18nProvider({
   const [locale, setLocaleState] = useState<Locale>(getInitialLocale);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Registrar TranslationLoader al montar
+  useEffect(() => {
+    registerDashboardTranslationLoader();
+  }, []);
+
+  // Initialize locale store immediately to prevent "Locale store not found" warnings
+  useEffect(() => {
+    if (!translationStore.has(locale)) {
+      translationStore.set(locale, new Map());
+      console.log(`[i18n] Initialized locale store for: ${locale}`);
+    }
+  }, [locale]);
+
   /**
    * Load translation for a namespace
    */
   const loadNamespace = useCallback(
     async (namespace: TranslationNamespace) => {
-      // Check if already loaded
-      if (translationStore.has(locale)) {
-        const localeStore = translationStore.get(locale)!;
-        if (localeStore.has(namespace)) {
-          return localeStore.get(namespace)!;
-        }
+      // Ensure locale store exists
+      if (!translationStore.has(locale)) {
+        translationStore.set(locale, new Map());
       }
 
+      // Check if already loaded
+      const localeStore = translationStore.get(locale)!;
+      if (localeStore.has(namespace)) {
+        console.log(`[i18n] Namespace '${namespace}' already loaded for locale '${locale}'`);
+        return localeStore.get(namespace)!;
+      }
+
+      console.log(`[i18n] Loading namespace '${namespace}' for locale '${locale}'...`);
       // Load translation
       const translation = await loadTranslation(locale, namespace);
 
       // Store in cache
-      if (!translationStore.has(locale)) {
-        translationStore.set(locale, new Map());
-      }
-      translationStore.get(locale)!.set(namespace, translation);
+      localeStore.set(namespace, translation);
+      console.log(`[i18n] Namespace '${namespace}' stored for locale '${locale}'`);
 
       return translation;
     },
@@ -115,8 +133,12 @@ export function I18nProvider({
     const init = async () => {
       setIsLoading(true);
       try {
-        // Preload common namespaces
-        await preloadTranslations(locale, preloadNamespaces);
+        console.log(`[i18n] Preloading namespaces for locale '${locale}':`, preloadNamespaces);
+        // Preload common namespaces and store them
+        for (const namespace of preloadNamespaces) {
+          await loadNamespace(namespace);
+        }
+        console.log(`[i18n] Preload complete. Store contents:`, Array.from(translationStore.get(locale)?.keys() || []));
       } catch (error) {
         console.error('[i18n] Failed to initialize translations:', error);
       } finally {
@@ -125,10 +147,11 @@ export function I18nProvider({
     };
 
     init();
-  }, [locale, preloadNamespaces]);
+  }, [locale, preloadNamespaces, loadNamespace]);
 
   /**
    * Translation function
+   * Soporta ICU Message Format y legacy {{param}}
    */
   const t = useCallback(
     (key: string, params?: Record<string, string | number | boolean>): string => {
@@ -141,30 +164,79 @@ export function I18nProvider({
 
       const { namespace, key: translationKey } = parsed;
 
-      // Get translation from store
-      const localeStore = translationStore.get(locale);
-      if (!localeStore) {
-        return key;
+      // Get translation from store (ensure it exists)
+      if (!translationStore.has(locale)) {
+        translationStore.set(locale, new Map());
       }
+      const localeStore = translationStore.get(locale)!;
 
       const namespaceTranslations = localeStore.get(namespace);
       if (!namespaceTranslations) {
         // Try to load on demand
-        loadNamespace(namespace).catch(() => {
-          console.warn(`[i18n] Failed to load namespace: ${namespace}`);
+        console.log(`[i18n] Namespace '${namespace}' not loaded, loading on demand...`);
+        loadNamespace(namespace).catch((error) => {
+          console.error(`[i18n] Failed to load namespace '${namespace}':`, error);
         });
         return key;
       }
 
       // Get nested value
-      const translation = getNestedValue(namespaceTranslations, translationKey);
+      let translation = getNestedValue(namespaceTranslations, translationKey);
+
+      // ✅ FALLBACK TO ENGLISH if translation not found
+      if (!translation && locale !== 'en') {
+        console.warn(`[i18n] Translation not found for '${key}' in '${locale}', falling back to English`);
+
+        // Try to get English translation
+        if (!translationStore.has('en')) {
+          translationStore.set('en', new Map());
+        }
+        const enStore = translationStore.get('en')!;
+        const enNamespace = enStore.get(namespace);
+
+        if (enNamespace) {
+          translation = getNestedValue(enNamespace, translationKey);
+          if (translation) {
+            console.log(`[i18n] ✅ Fallback successful: Using English translation for '${key}'`);
+          }
+        } else {
+          // Load English namespace on demand
+          console.log(`[i18n] Loading English namespace '${namespace}' for fallback...`);
+          loadTranslation('en', namespace).then((enTranslation) => {
+            enStore.set(namespace, enTranslation);
+          }).catch((error) => {
+            console.error(`[i18n] Failed to load English fallback for '${namespace}':`, error);
+          });
+        }
+      }
+
+      // If still no translation found, return key
       if (!translation) {
-        console.warn(`[i18n] Translation not found: ${key}`);
+        console.warn(`[i18n] Translation not found even in English: ${key}`);
         return key;
       }
 
-      // Replace parameters
-      return replaceParams(translation, params);
+      // Replace parameters (con soporte ICU + legacy)
+      // Detectar si es ICU y usar formatMessage directamente
+      if (isICUMessage(translation)) {
+        try {
+          const result = formatMessage(locale, translation, params);
+          return result;
+        } catch (error) {
+          console.error(`[i18n] ICU format error for key '${key}':`, error);
+          // Fallback a replaceParams legacy
+        }
+      }
+
+      // Usar replaceParams (soporta legacy {{param}} y ICU básico)
+      const result = replaceParams(translation, params, locale);
+      if (result === key || (result.includes('{{') && params)) {
+        console.warn(`[i18n] Parameters not replaced in: ${key}`);
+        console.warn(`[i18n]   Translation: ${translation}`);
+        console.warn(`[i18n]   Params:`, params);
+        console.warn(`[i18n]   Result: ${result}`);
+      }
+      return result;
     },
     [locale, loadNamespace]
   );

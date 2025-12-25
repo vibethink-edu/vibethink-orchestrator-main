@@ -43,7 +43,7 @@ const roles = [
 const members = [
   {
     id: 1,
-    name: "Toby Belhome",
+    name: "Vito Escallón",
     email: "contact@bundui.io",
     avatar: `/assets/images/avatars/01.png`,
     role_id: 1

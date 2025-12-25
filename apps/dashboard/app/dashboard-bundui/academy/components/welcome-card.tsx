@@ -1,6 +1,7 @@
 import Image from "next/image";
 
-import { Card, CardContent, Button } from "@vibethink/ui";
+import { Card, CardContent } from "@vibethink/ui/components/card";
+import { Button } from "@vibethink/ui/components/button";
 
 export function WelcomeCard() {
   return (

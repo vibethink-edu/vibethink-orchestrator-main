@@ -9,18 +9,18 @@
 'use client'
 
 import React, { useMemo } from 'react'
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
   CardTitle,
   Button,
   Badge,
   Progress
 } from '@vibethink/ui'
-import { 
-  TrendingUp, 
+import {
+  TrendingUp,
   TrendingDown,
   Target,
   Clock,
@@ -31,7 +31,9 @@ import {
   Info
 } from 'lucide-react'
 import { useProjectSummary } from '../hooks/useProjectData'
+
 import { SuccessMetrics as SuccessMetricsType } from '../types'
+import { useTranslation } from '@/lib/i18n'
 
 interface SuccessMetricsProps {
   className?: string
@@ -111,7 +113,7 @@ const MetricItem: React.FC<MetricItemProps> = ({
           </div>
         )}
       </div>
-      
+
       <div className="space-y-2">
         <div className="flex items-baseline justify-between">
           <span className="text-2xl font-bold">{formatValue(value, format)}</span>
@@ -121,7 +123,7 @@ const MetricItem: React.FC<MetricItemProps> = ({
             </span>
           )}
         </div>
-        
+
         {target && (
           <div className="space-y-1">
             <Progress value={getProgressValue()} className="h-2" />
@@ -133,7 +135,7 @@ const MetricItem: React.FC<MetricItemProps> = ({
             </div>
           </div>
         )}
-        
+
         {description && (
           <p className="text-xs text-muted-foreground">{description}</p>
         )}
@@ -163,6 +165,7 @@ const SuccessMetricsSkeleton = () => (
 )
 
 export const SuccessMetrics: React.FC<SuccessMetricsProps> = ({ className }) => {
+  const { t } = useTranslation('projects')
   const { data: summary, isLoading, error } = useProjectSummary()
 
   const metrics: SuccessMetricsType = useMemo(() => {
@@ -200,13 +203,13 @@ export const SuccessMetrics: React.FC<SuccessMetricsProps> = ({ className }) => 
     return (
       <Card className={className}>
         <CardHeader>
-          <CardTitle>Success Metrics</CardTitle>
-          <CardDescription>Failed to load metrics</CardDescription>
+          <CardTitle>{t('sections.successMetrics')}</CardTitle>
+          <CardDescription>{t('summary.failedToLoad')}</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="text-center py-8">
             <Info className="h-8 w-8 mx-auto mb-2 text-muted-foreground opacity-50" />
-            <p className="text-muted-foreground">Error loading success metrics</p>
+            <p className="text-muted-foreground">{t('summary.errorLoadingSuccessMetrics')}</p>
           </div>
         </CardContent>
       </Card>
@@ -220,20 +223,20 @@ export const SuccessMetrics: React.FC<SuccessMetricsProps> = ({ className }) => 
           <div>
             <CardTitle className="flex items-center space-x-2">
               <Award className="h-5 w-5" />
-              <span>Success Metrics</span>
+              <span>{t('sections.successMetrics')}</span>
             </CardTitle>
             <CardDescription>
-              Key performance indicators and project success rates
+              {t('sections.successMetricsDesc')}
             </CardDescription>
           </div>
-          
+
           <Button variant="outline" size="sm">
-            View Details
+            {t('common.viewDetails')}
             <ChevronRight className="h-4 w-4 ml-1" />
           </Button>
         </div>
       </CardHeader>
-      
+
       <CardContent>
         <div className="space-y-6">
           {/* Primary Success Metrics */}
@@ -248,7 +251,7 @@ export const SuccessMetrics: React.FC<SuccessMetricsProps> = ({ className }) => 
               icon={<Target className="h-4 w-4" />}
               description="Percentage of projects completed successfully"
             />
-            
+
             <MetricItem
               title="On-Time Delivery"
               value={metrics.on_time_delivery}
@@ -259,7 +262,7 @@ export const SuccessMetrics: React.FC<SuccessMetricsProps> = ({ className }) => 
               icon={<Clock className="h-4 w-4" />}
               description="Projects delivered by scheduled deadline"
             />
-            
+
             <MetricItem
               title="Budget Adherence"
               value={metrics.budget_adherence}
@@ -270,7 +273,7 @@ export const SuccessMetrics: React.FC<SuccessMetricsProps> = ({ className }) => 
               icon={<DollarSign className="h-4 w-4" />}
               description="Projects completed within approved budget"
             />
-            
+
             <MetricItem
               title="Team Efficiency"
               value={metrics.team_efficiency}
@@ -294,7 +297,7 @@ export const SuccessMetrics: React.FC<SuccessMetricsProps> = ({ className }) => 
                 </div>
                 <Progress value={metrics.client_satisfaction} className="h-1" />
               </div>
-              
+
               <div className="space-y-1">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Milestone Rate</span>
@@ -302,7 +305,7 @@ export const SuccessMetrics: React.FC<SuccessMetricsProps> = ({ className }) => 
                 </div>
                 <Progress value={metrics.milestone_completion_rate} className="h-1" />
               </div>
-              
+
               <div className="space-y-1">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Resource Utilization</span>
@@ -310,15 +313,15 @@ export const SuccessMetrics: React.FC<SuccessMetricsProps> = ({ className }) => 
                 </div>
                 <Progress value={metrics.resource_utilization} className="h-1" />
               </div>
-              
+
               <div className="space-y-1">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Avg Duration</span>
                   <span className="font-medium">{metrics.average_project_duration} days</span>
                 </div>
                 <div className="text-xs text-muted-foreground">
-                  {metrics.average_project_duration <= 30 ? 'Excellent' : 
-                   metrics.average_project_duration <= 60 ? 'Good' : 'Needs Improvement'}
+                  {metrics.average_project_duration <= 30 ? 'Excellent' :
+                    metrics.average_project_duration <= 60 ? 'Good' : 'Needs Improvement'}
                 </div>
               </div>
             </div>

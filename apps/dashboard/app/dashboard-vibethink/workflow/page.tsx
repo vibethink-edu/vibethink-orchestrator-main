@@ -19,7 +19,7 @@
  * - Datos mock para desarrollo inicial
  */
 
-import { generateMeta } from '@/lib/utils';
+import { generateMeta } from '@/shared/lib/utils';
 import { WorkflowPageContent } from './components/workflow-page-content';
 
 export async function generateMetadata() {

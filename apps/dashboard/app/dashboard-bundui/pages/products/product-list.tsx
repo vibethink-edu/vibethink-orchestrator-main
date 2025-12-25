@@ -26,36 +26,44 @@ import Image from "next/image";
 import {
   Popover,
   PopoverContent,
-  PopoverTrigger,
+  PopoverTrigger
+} from "@vibethink/ui/components/popover";
+import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-  CommandList,
-  Button,
+  CommandList
+} from "@vibethink/ui/components/command";
+import { Button } from "@vibethink/ui/components/button";
+import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
-  Input,
+  DropdownMenuTrigger
+} from "@vibethink/ui/components/dropdown-menu";
+import { Input } from "@vibethink/ui/components/input";
+import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
-  Badge,
-  Checkbox,
+  TableRow
+} from "@vibethink/ui/components/table";
+import { Badge } from "@vibethink/ui/components/badge";
+import { Checkbox } from "@vibethink/ui/components/checkbox";
+import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/select";
 
 export type Product = {
   id: number;
@@ -510,6 +518,10 @@ export default function ProductList({ data }: { data: Product[] }) {
     </div>
   );
 }
+
+
+
+
 
 
 

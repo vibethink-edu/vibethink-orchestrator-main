@@ -1,7 +1,8 @@
 "use client";
 
 import { Mail, Phone, Briefcase, TrendingUp, Users, FolderKanban } from "lucide-react";
-import { Progress, Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
+import { Progress } from "@vibethink/ui/components/progress";
+import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { useProfileStore } from "../store";
 
 export function ProfileSidebar() {
@@ -77,6 +78,10 @@ export function ProfileSidebar() {
     </div>
   );
 }
+
+
+
+
 
 
 

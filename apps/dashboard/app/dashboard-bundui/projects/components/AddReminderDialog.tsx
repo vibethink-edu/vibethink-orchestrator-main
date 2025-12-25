@@ -27,7 +27,7 @@ import {
   SelectValue,
   Badge
 } from '@vibethink/ui'
-import { 
+import {
   Calendar,
   Clock,
   Bell,
@@ -40,7 +40,9 @@ import {
 } from 'lucide-react'
 import { useCreateReminder } from '../hooks/useTeamData'
 import { useProjectData } from '../hooks/useProjectData'
+
 import { CreateReminderForm, Reminder } from '../types'
+import { useTranslation } from '@/lib/i18n'
 
 interface AddReminderDialogProps {
   open: boolean
@@ -78,6 +80,7 @@ export const AddReminderDialog: React.FC<AddReminderDialogProps> = ({
   onOpenChange,
   editingReminder
 }) => {
+  const { t } = useTranslation('projects')
   const [formData, setFormData] = useState<CreateReminderForm>(initialFormData)
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -107,24 +110,24 @@ export const AddReminderDialog: React.FC<AddReminderDialogProps> = ({
     const newErrors: Record<string, string> = {}
 
     if (!formData.title.trim()) {
-      newErrors.title = 'Title is required'
+      newErrors.title = t('reminders.titleRequired')
     }
 
     if (!formData.due_date) {
-      newErrors.due_date = 'Due date is required'
+      newErrors.due_date = t('reminders.dueDateRequired')
     } else {
       const dueDate = new Date(formData.due_date)
       if (dueDate < new Date()) {
-        newErrors.due_date = 'Due date cannot be in the past'
+        newErrors.due_date = t('reminders.dueDatePast')
       }
     }
 
     if (!formData.type) {
-      newErrors.type = 'Type is required'
+      newErrors.type = t('reminders.typeRequired')
     }
 
     if (!formData.priority) {
-      newErrors.priority = 'Priority is required'
+      newErrors.priority = t('reminders.priorityRequired')
     }
 
     setErrors(newErrors)
@@ -133,20 +136,20 @@ export const AddReminderDialog: React.FC<AddReminderDialogProps> = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!validateForm()) {
       return
     }
 
     setIsSubmitting(true)
-    
+
     try {
       await createReminder.mutateAsync(formData)
       onOpenChange(false)
       setFormData(initialFormData)
     } catch (error) {
       console.error('Failed to create reminder:', error)
-      setErrors({ submit: 'Failed to create reminder. Please try again.' })
+      setErrors({ submit: t('reminders.failedToCreate') })
     } finally {
       setIsSubmitting(false)
     }
@@ -182,12 +185,12 @@ export const AddReminderDialog: React.FC<AddReminderDialogProps> = ({
         <DialogHeader>
           <DialogTitle className="flex items-center space-x-2">
             <Bell className="h-5 w-5" />
-            <span>{editingReminder ? 'Edit Reminder' : 'Add New Reminder'}</span>
+            <span>{editingReminder ? t('reminders.editReminder') : t('reminders.addNewReminder')}</span>
           </DialogTitle>
           <DialogDescription>
-            {editingReminder 
-              ? 'Update the reminder details below'
-              : 'Create a new reminder to help you stay on track with important tasks and deadlines'
+            {editingReminder
+              ? t('reminders.updateDetails')
+              : t('reminders.createNewDesc')
             }
           </DialogDescription>
         </DialogHeader>
@@ -195,10 +198,10 @@ export const AddReminderDialog: React.FC<AddReminderDialogProps> = ({
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Title */}
           <div className="space-y-2">
-            <Label htmlFor="title">Title *</Label>
+            <Label htmlFor="title">{t('reminders.title')} *</Label>
             <Input
               id="title"
-              placeholder="Enter reminder title"
+              placeholder={t('reminders.enterTitle')}
               value={formData.title}
               onChange={(e) => updateFormData('title', e.target.value)}
               className={errors.title ? 'border-red-500' : ''}
@@ -213,10 +216,10 @@ export const AddReminderDialog: React.FC<AddReminderDialogProps> = ({
 
           {/* Description */}
           <div className="space-y-2">
-            <Label htmlFor="description">Description</Label>
+            <Label htmlFor="description">{t('reminders.description')}</Label>
             <Textarea
               id="description"
-              placeholder="Add additional details (optional)"
+              placeholder={t('reminders.addDetails')}
               value={formData.description}
               onChange={(e) => updateFormData('description', e.target.value)}
               rows={3}
@@ -226,13 +229,13 @@ export const AddReminderDialog: React.FC<AddReminderDialogProps> = ({
           {/* Type and Priority Row */}
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="type">Type *</Label>
-              <Select 
-                value={formData.type} 
+              <Label htmlFor="type">{t('reminders.type')} *</Label>
+              <Select
+                value={formData.type}
                 onValueChange={(value: any) => updateFormData('type', value)}
               >
                 <SelectTrigger className={errors.type ? 'border-red-500' : ''}>
-                  <SelectValue placeholder="Select type" />
+                  <SelectValue placeholder={t('reminders.selectType')} />
                 </SelectTrigger>
                 <SelectContent>
                   {reminderTypes.map((type) => (
@@ -251,13 +254,13 @@ export const AddReminderDialog: React.FC<AddReminderDialogProps> = ({
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="priority">Priority *</Label>
-              <Select 
-                value={formData.priority} 
+              <Label htmlFor="priority">{t('reminders.priority')} *</Label>
+              <Select
+                value={formData.priority}
                 onValueChange={(value: any) => updateFormData('priority', value)}
               >
                 <SelectTrigger className={errors.priority ? 'border-red-500' : ''}>
-                  <SelectValue placeholder="Select priority" />
+                  <SelectValue placeholder={t('reminders.selectPriority')} />
                 </SelectTrigger>
                 <SelectContent>
                   {priorityLevels.map((priority) => (
@@ -278,7 +281,7 @@ export const AddReminderDialog: React.FC<AddReminderDialogProps> = ({
 
           {/* Due Date */}
           <div className="space-y-2">
-            <Label htmlFor="due_date">Due Date & Time *</Label>
+            <Label htmlFor="due_date">{t('reminders.dueDate')} *</Label>
             <div className="relative">
               <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
@@ -300,16 +303,16 @@ export const AddReminderDialog: React.FC<AddReminderDialogProps> = ({
 
           {/* Project Association */}
           <div className="space-y-2">
-            <Label htmlFor="project">Associate with Project (Optional)</Label>
-            <Select 
-              value={formData.project_id || ''} 
+            <Label htmlFor="project">{t('reminders.associateProject')}</Label>
+            <Select
+              value={formData.project_id || ''}
               onValueChange={(value) => updateFormData('project_id', value === 'none' ? undefined : value)}
             >
               <SelectTrigger>
-                <SelectValue placeholder="Select project" />
+                <SelectValue placeholder={t('reminders.selectProject')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="none">No project</SelectItem>
+                <SelectItem value="none">{t('reminders.noProject')}</SelectItem>
                 {projects?.map((project) => (
                   <SelectItem key={project.id} value={project.id}>
                     {project.name}
@@ -322,16 +325,16 @@ export const AddReminderDialog: React.FC<AddReminderDialogProps> = ({
           {/* Task Association (if project selected) */}
           {formData.project_id && (
             <div className="space-y-2">
-              <Label htmlFor="task">Associate with Task (Optional)</Label>
-              <Select 
-                value={formData.task_id || ''} 
+              <Label htmlFor="task">{t('reminders.associateTask')}</Label>
+              <Select
+                value={formData.task_id || ''}
                 onValueChange={(value) => updateFormData('task_id', value === 'none' ? undefined : value)}
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="Select task" />
+                  <SelectValue placeholder={t('reminders.selectTask')} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="none">No task</SelectItem>
+                  <SelectItem value="none">{t('reminders.noTask')}</SelectItem>
                   {tasks?.filter(task => task.project_id === formData.project_id).map((task) => (
                     <SelectItem key={task.id} value={task.id}>
                       {task.title}
@@ -345,7 +348,7 @@ export const AddReminderDialog: React.FC<AddReminderDialogProps> = ({
           {/* Preview */}
           {formData.title && formData.type && formData.priority && (
             <div className="p-3 bg-muted/50 rounded-lg">
-              <h4 className="text-sm font-medium mb-2">Preview</h4>
+              <h4 className="text-sm font-medium mb-2">{t('reminders.preview')}</h4>
               <div className="space-y-2">
                 <div className="flex items-center space-x-2">
                   {selectedType && <selectedType.icon className="h-4 w-4" />}
@@ -358,22 +361,22 @@ export const AddReminderDialog: React.FC<AddReminderDialogProps> = ({
                   <Badge variant="outline" className="text-xs">
                     {selectedType?.label}
                   </Badge>
-                  <Badge 
-                    variant={formData.priority === 'urgent' ? 'destructive' : 'secondary'} 
+                  <Badge
+                    variant={formData.priority === 'urgent' ? 'destructive' : 'secondary'}
                     className="text-xs"
                   >
                     {selectedPriority?.label}
                   </Badge>
                   {formData.due_date && (
                     <Badge variant="outline" className="text-xs">
-                      {new Date(formData.due_date).toLocaleDateString('en-US', { 
-                        month: 'short', 
-                        day: '2-digit', 
-                        year: 'numeric' 
-                      })} {new Date(formData.due_date).toLocaleTimeString('en-US', { 
-                        hour: '2-digit', 
-                        minute: '2-digit', 
-                        hour12: false 
+                      {new Date(formData.due_date).toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: '2-digit',
+                        year: 'numeric'
+                      })} {new Date(formData.due_date).toLocaleTimeString('en-US', {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: false
                       })}
                     </Badge>
                   )}
@@ -396,22 +399,22 @@ export const AddReminderDialog: React.FC<AddReminderDialogProps> = ({
         <DialogFooter>
           <Button variant="outline" onClick={handleClose} disabled={isSubmitting}>
             <X className="h-4 w-4 mr-1" />
-            Cancel
+            {t('common.cancel')}
           </Button>
-          <Button 
-            onClick={handleSubmit} 
+          <Button
+            onClick={handleSubmit}
             disabled={isSubmitting}
             className="min-w-24"
           >
             {isSubmitting ? (
               <>
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
-                Saving...
+                {t('common.saving')}
               </>
             ) : (
               <>
                 <Save className="h-4 w-4 mr-1" />
-                {editingReminder ? 'Update' : 'Create'} Reminder
+                {editingReminder ? t('common.update') : t('common.create')} {t('reports.reminder')}
               </>
             )}
           </Button>

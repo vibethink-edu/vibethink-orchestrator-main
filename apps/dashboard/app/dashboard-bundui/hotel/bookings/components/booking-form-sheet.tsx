@@ -12,11 +12,11 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger
-} from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+} from "@vibethink/ui";
+import { Button } from "@vibethink/ui";
+import { Input } from "@vibethink/ui";
+import { Calendar } from "@vibethink/ui";
+import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui";
 import {
   Form,
   FormControl,
@@ -24,16 +24,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from "@/components/ui/form";
+} from "@vibethink/ui";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@/components/ui/select";
-import { toast } from "@/hooks/use-toast";
-import { cn } from "@/lib/utils";
+} from "@vibethink/ui";
+import { toast } from "sonner";
+import { cn } from "@/shared/lib/utils";
 import { timeSlots, rooms, statuses } from "../data";
 
 const formSchema = z.object({
@@ -318,3 +318,7 @@ export function BookingFormSheet() {
     </Sheet>
   );
 }
+
+
+
+

@@ -1,5 +1,5 @@
 import { FolderPlus, Plus } from "lucide-react";
-import { Button } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -25,6 +25,10 @@ export default function Page() {
     </div>
   );
 }
+
+
+
+
 
 
 

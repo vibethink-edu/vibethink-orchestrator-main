@@ -8,31 +8,14 @@
 'use client'
 
 import React, { useState } from 'react'
-import { 
-  Card, 
-  CardContent, 
-  CardHeader, 
-  CardTitle, 
-  Button, 
-  Badge, 
-  Avatar, 
-  AvatarFallback, 
-  AvatarImage, 
-  Progress,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger
-} from '@vibethink/ui'
-import { 
+import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui/components/card'
+import { Button } from '@vibethink/ui/components/button'
+import { Badge } from '@vibethink/ui/components/badge'
+import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui/components/avatar'
+import { Progress } from '@vibethink/ui/components/progress'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@vibethink/ui/components/table'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@vibethink/ui/components/dropdown-menu'
+import {
   MoreHorizontal,
   Edit,
   Trash2,
@@ -239,9 +222,9 @@ export default function RecentTasksTable({
                       {task.tags.length > 0 && (
                         <div className="flex flex-wrap gap-1">
                           {task.tags.slice(0, 2).map((tag, index) => (
-                            <Badge 
-                              key={index} 
-                              variant="outline" 
+                            <Badge
+                              key={index}
+                              variant="outline"
                               className="text-xs px-1 py-0"
                             >
                               {tag}
@@ -256,7 +239,7 @@ export default function RecentTasksTable({
                       )}
                     </div>
                   </TableCell>
-                  
+
                   <TableCell>
                     <div className="flex items-center space-x-2">
                       <Avatar className="h-8 w-8">
@@ -277,25 +260,25 @@ export default function RecentTasksTable({
                       </div>
                     </div>
                   </TableCell>
-                  
+
                   <TableCell>
-                    <Badge 
-                      variant="secondary" 
+                    <Badge
+                      variant="secondary"
                       className={getStatusColor(task.status)}
                     >
                       {task.status.replace('-', ' ')}
                     </Badge>
                   </TableCell>
-                  
+
                   <TableCell>
-                    <Badge 
-                      variant="secondary" 
+                    <Badge
+                      variant="secondary"
                       className={getPriorityColor(task.priority)}
                     >
                       {task.priority}
                     </Badge>
                   </TableCell>
-                  
+
                   <TableCell>
                     <div className="space-y-1">
                       <div className="flex items-center justify-between text-sm">
@@ -307,22 +290,20 @@ export default function RecentTasksTable({
                       <Progress value={task.progress} className="h-2" />
                     </div>
                   </TableCell>
-                  
+
                   <TableCell>
                     <div className="space-y-1">
-                      <p className={`text-sm font-medium ${
-                        isOverdue(task) ? 'text-red-600' : 'text-foreground'
-                      }`}>
+                      <p className={`text-sm font-medium ${isOverdue(task) ? 'text-red-600' : 'text-foreground'
+                        }`}>
                         {new Date(task.due_date).toLocaleDateString()}
                       </p>
-                      <p className={`text-xs ${
-                        isOverdue(task) ? 'text-red-500' : 'text-muted-foreground'
-                      }`}>
+                      <p className={`text-xs ${isOverdue(task) ? 'text-red-500' : 'text-muted-foreground'
+                        }`}>
                         {formatDueDate(task.due_date)}
                       </p>
                     </div>
                   </TableCell>
-                  
+
                   <TableCell>
                     <div className="flex items-center space-x-2">
                       {getCategoryIcon(task.category)}
@@ -331,7 +312,7 @@ export default function RecentTasksTable({
                       </span>
                     </div>
                   </TableCell>
-                  
+
                   <TableCell className="text-right">
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
@@ -357,7 +338,7 @@ export default function RecentTasksTable({
                           </DropdownMenuItem>
                         )}
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem 
+                        <DropdownMenuItem
                           onClick={() => onDeleteTask(task.id)}
                           className="text-red-600"
                         >

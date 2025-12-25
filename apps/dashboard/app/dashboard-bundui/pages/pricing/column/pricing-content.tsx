@@ -1,7 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Switch, Accordion, AccordionContent, AccordionItem, AccordionTrigger, Badge } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from "@vibethink/ui/components/card";
+import { Switch } from "@vibethink/ui/components/switch";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@vibethink/ui/components/accordion";
+import { Badge } from "@vibethink/ui/components/badge";
 import { Check } from "lucide-react";
 
 export function PricingContent() {
@@ -109,7 +125,7 @@ export function PricingContent() {
                   <span className="text-sm font-normal">/{isYearly ? "year" : "month"}</span>
                 </p>
                 {isYearly && (
-                  <Badge variant="success" className="absolute end-4 top-4">
+                  <Badge variant="secondary" className="absolute end-4 top-4">
                     Save {calculateYearlySavings(tier.monthlyPrice, tier.yearlyPrice)}%
                   </Badge>
                 )}
@@ -184,6 +200,10 @@ export function PricingContent() {
     </div>
   );
 }
+
+
+
+
 
 
 

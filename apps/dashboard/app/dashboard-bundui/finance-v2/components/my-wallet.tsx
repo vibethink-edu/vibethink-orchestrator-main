@@ -2,7 +2,7 @@
 
 import React from "react";
 import { PlusIcon } from "@radix-ui/react-icons";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 
 import {
   Card,

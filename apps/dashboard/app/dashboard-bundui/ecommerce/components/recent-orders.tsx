@@ -17,13 +17,13 @@ import {
 import { ArrowUpDown, ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 import Link from "next/link";
 
-import { Button } from "@vibethink/ui";
+import { Button } from "@vibethink/ui/components/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger
-} from "@vibethink/ui";
+} from "@vibethink/ui/components/dropdown-menu";
 import {
   Table,
   TableBody,
@@ -31,12 +31,14 @@ import {
   TableHead,
   TableHeader,
   TableRow
-} from "@vibethink/ui";
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
-import { Avatar, AvatarImage } from "@vibethink/ui";
+} from "@vibethink/ui/components/table";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
+import { Avatar, AvatarImage } from "@vibethink/ui/components/avatar";
 import { ExportButton } from "@/shared/components/CardActionMenus";
-import { Input } from "@vibethink/ui";
-import { Badge } from "@vibethink/ui";
+import { Input } from "@vibethink/ui/components/input";
+import { Badge } from "@vibethink/ui/components/badge";
+import { cn } from "@/shared/lib/utils";
+import { useTranslation } from "@/lib/i18n";
 
 export type Order = {
   id: number;
@@ -246,113 +248,10 @@ const orders: Order[] = [
   }
 ];
 
-const columns: ColumnDef<Order>[] = [
-  {
-    accessorKey: "id",
-    header: "ID",
-    cell: ({ row }) => (
-      <Button variant="link" className="text-muted-foreground hover:text-primary h-auto p-0">
-        <Link href="#">#{row.getValue("id")}</Link>
-      </Button>
-    )
-  },
-  {
-    accessorKey: "customer",
-    header: "Customer",
-    cell: ({ row }) => (
-      <div className="flex items-center gap-4">
-        <Avatar>
-          <AvatarImage src={row.original.customer.image} />
-        </Avatar>
-        <div className="capitalize">{row.original.customer.name}</div>
-      </div>
-    ),
-    filterFn: (row, columnId, filterValue) => {
-      return row.original.customer.name.toLowerCase().includes(filterValue.toLowerCase());
-    }
-  },
-  {
-    accessorKey: "product",
-    header: "Product",
-    cell: ({ row }) => <div className="capitalize">{row.original.product.name}</div>
-  },
-  {
-    accessorKey: "amount",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="p-0! hover:bg-transparent!">
-          Amount
-          <ArrowUpDown className="size-3" />
-        </Button>
-      );
-    },
-    cell: ({ row }) => {
-      const amount = Number.parseFloat(row.getValue("amount"));
-
-      // Format the amount as a dollar amount
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD"
-      }).format(amount);
-
-      return <div className="font-medium">{formatted}</div>;
-    }
-  },
-  {
-    accessorKey: "status",
-    header: "Status",
-    cell: ({ row }) => {
-      const status = row.original.status;
-
-      const statusMap = {
-        success: "success",
-        processing: "info",
-        paid: "warning",
-        failed: "destructive"
-      } as const;
-
-      const statusClass = statusMap[status] ?? "default";
-
-      return (
-        <Badge variant={statusClass} className="capitalize">
-          {status.replace("-", " ")}
-        </Badge>
-      );
-    }
-  },
-  {
-    id: "actions",
-    enableHiding: false,
-    cell: ({ row }) => {
-      const order = row.original;
-
-      return (
-        <div className="text-end">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-8 w-8 p-0">
-                <span className="sr-only">Open menu</span>
-                <MoreHorizontal className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => navigator.clipboard.writeText(String(order.id))}>
-                Copy order ID
-              </DropdownMenuItem>
-              <DropdownMenuItem>View customer</DropdownMenuItem>
-              <DropdownMenuItem>View payment details</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      );
-    }
-  }
-];
 
 export function EcommerceRecentOrdersCard() {
+  const { t } = useTranslation('ecommerce');
+  
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
@@ -369,6 +268,112 @@ export function EcommerceRecentOrdersCard() {
     }),
     [pageIndex, pageSize]
   );
+
+  const columns: ColumnDef<Order>[] = React.useMemo(() => [
+    {
+      accessorKey: "id",
+      header: t('orders.columns.id'),
+      cell: ({ row }) => (
+        <Button variant="link" className="text-muted-foreground hover:text-primary h-auto p-0">
+          <Link href="#">#{row.getValue("id")}</Link>
+        </Button>
+      )
+    },
+    {
+      accessorKey: "customer",
+      header: t('orders.columns.customer'),
+      cell: ({ row }) => (
+        <div className="flex items-center gap-4">
+          <Avatar>
+            <AvatarImage src={row.original.customer.image} />
+          </Avatar>
+          <div className="capitalize">{row.original.customer.name}</div>
+        </div>
+      ),
+      filterFn: (row, columnId, filterValue) => {
+        return row.original.customer.name.toLowerCase().includes(filterValue.toLowerCase());
+      }
+    },
+    {
+      accessorKey: "product",
+      header: t('orders.columns.product'),
+      cell: ({ row }) => <div className="capitalize">{row.original.product.name}</div>
+    },
+    {
+      accessorKey: "amount",
+      header: ({ column }) => {
+        return (
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            className="p-0! hover:bg-transparent!">
+            {t('orders.columns.amount')}
+            <ArrowUpDown className="size-3" />
+          </Button>
+        );
+      },
+      cell: ({ row }) => {
+        const amount = Number.parseFloat(row.getValue("amount"));
+
+        // Format the amount as a dollar amount
+        const formatted = new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD"
+        }).format(amount);
+
+        return <div className="font-medium">{formatted}</div>;
+      }
+    },
+    {
+      accessorKey: "status",
+      header: t('orders.columns.status'),
+      cell: ({ row }) => {
+        const status = row.original.status;
+
+        const statusMap = {
+          success: { variant: "default", className: "bg-green-500 hover:bg-green-600 border-transparent text-white" },
+          processing: { variant: "secondary", className: "bg-blue-500 hover:bg-blue-600 border-transparent text-white" },
+          paid: { variant: "secondary", className: "bg-yellow-500 hover:bg-yellow-600 border-transparent text-black" },
+          failed: { variant: "destructive", className: "" }
+        } as const;
+
+        const statusConfig = statusMap[status] ?? { variant: "default", className: "" };
+
+        return (
+          <Badge variant={statusConfig.variant} className={cn("capitalize", statusConfig.className)}>
+            {t(`status.${status}`)}
+          </Badge>
+        );
+      }
+    },
+    {
+      id: "actions",
+      enableHiding: false,
+      cell: ({ row }) => {
+        const order = row.original;
+
+        return (
+          <div className="text-end">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="h-8 w-8 p-0">
+                  <span className="sr-only">{t('orders.menu.openMenu')}</span>
+                  <MoreHorizontal className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => navigator.clipboard.writeText(String(order.id))}>
+                  {t('orders.menu.copyOrderId')}
+                </DropdownMenuItem>
+                <DropdownMenuItem>{t('orders.menu.viewCustomer')}</DropdownMenuItem>
+                <DropdownMenuItem>{t('orders.menu.viewPaymentDetails')}</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        );
+      }
+    }
+  ], [t]);
 
   const table = useReactTable({
     data: orders,
@@ -395,14 +400,14 @@ export function EcommerceRecentOrdersCard() {
   return (
     <Card className="lg:col-span-7">
       <CardHeader>
-        <CardTitle>Recent Orders</CardTitle>
+        <CardTitle>{t('orders.title')}</CardTitle>
         <CardAction className="relative">
           <ExportButton className="absolute end-0 top-0" />
         </CardAction>
       </CardHeader>
       <CardContent className="space-y-4">
         <Input
-          placeholder="Filter orders..."
+          placeholder={t('orders.filterPlaceholder')}
           value={(table.getColumn("customer")?.getFilterValue() as string) ?? ""}
           onChange={(event) => table.getColumn("customer")?.setFilterValue(event.target.value)}
           className="max-w-xs"
@@ -438,7 +443,7 @@ export function EcommerceRecentOrdersCard() {
               ) : (
                 <TableRow>
                   <TableCell colSpan={columns.length} className="h-24 text-center">
-                    No results.
+                    {t('orders.noResults')}
                   </TableCell>
                 </TableRow>
               )}
@@ -447,8 +452,11 @@ export function EcommerceRecentOrdersCard() {
         </div>
         <div className="flex items-center justify-between">
           <p className="text-muted-foreground text-sm">
-            Showing {pageIndex * pageSize + 1} to{" "}
-            {Math.min((pageIndex + 1) * pageSize, orders.length)} of {orders.length} entries
+            {t('orders.showing', {
+              from: pageIndex * pageSize + 1,
+              to: Math.min((pageIndex + 1) * pageSize, orders.length),
+              total: orders.length
+            })}
           </p>
           <div className="space-x-2">
             <Button

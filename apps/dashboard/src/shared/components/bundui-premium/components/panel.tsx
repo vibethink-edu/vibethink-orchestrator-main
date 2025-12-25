@@ -1,12 +1,31 @@
 "use client";
 
+import * as React from "react";
 import { Settings } from "lucide-react";
-import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, Label, ToggleGroup, ToggleGroupItem, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@vibethink/ui";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu";
+import { Label } from "@/components/ui/label";
+import {
+  ToggleGroup,
+  ToggleGroupItem
+} from "@/components/ui/toggle-group";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from "@/components/ui/select";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useTheme } from "next-themes";
-import { ThemePicker } from "@/shared/components/theme-picker";
-import { FontSelector } from "@/shared/components/font-selector";
-import { useThemeSettings } from "@/shared/lib/use-theme-settings";
+import { usePathname } from "next/navigation";
+import { ThemePicker } from "../../theme-picker";
+import { FontSelector } from "../../font-selector";
+import { useThemeSettings } from "../../../lib/use-theme-settings";
 import { useTranslation } from "@/lib/i18n";
 
 // ColorModeSelector - Funcional con next-themes
@@ -36,8 +55,8 @@ function ColorModeSelector() {
 }
 
 // ScaleSelector - Tamaño de escala del tema
-function ScaleSelector() {
-  const { settings, setScale, mounted } = useThemeSettings();
+function ScaleSelector({ dashboardPrefix }: { dashboardPrefix?: string }) {
+  const { settings, setScale, mounted } = useThemeSettings(dashboardPrefix);
   const { t } = useTranslation('theme');
 
   if (!mounted) return null;
@@ -66,8 +85,8 @@ function ScaleSelector() {
 }
 
 // RadiusSelector - Radio de bordes
-function RadiusSelector() {
-  const { settings, setRadius, mounted } = useThemeSettings();
+function RadiusSelector({ dashboardPrefix }: { dashboardPrefix?: string }) {
+  const { settings, setRadius, mounted } = useThemeSettings(dashboardPrefix);
   const { t } = useTranslation('theme');
 
   if (!mounted) return null;
@@ -79,7 +98,7 @@ function RadiusSelector() {
         value={settings.radius}
         type="single"
         onValueChange={(value) => value && setRadius(value as "none" | "sm" | "md" | "lg" | "xl")}
-        className="w-full gap-1">
+        className="w-full gap-1 min-w-0">
         <ToggleGroupItem variant="outline" value="none" className="flex-1 text-xs h-8">
           <span className="sr-only">{t('customizer.advanced.size.radius.none')}</span>
           <span aria-hidden="true">{t('customizer.advanced.size.radius.none')}</span>
@@ -102,8 +121,8 @@ function RadiusSelector() {
 }
 
 // ContentLayoutSelector - Layout del contenido
-function ContentLayoutSelector() {
-  const { settings, setContentLayout, mounted } = useThemeSettings();
+function ContentLayoutSelector({ dashboardPrefix }: { dashboardPrefix?: string }) {
+  const { settings, setContentLayout, mounted } = useThemeSettings(dashboardPrefix);
   const { t } = useTranslation('theme');
 
   if (!mounted) return null;
@@ -128,8 +147,8 @@ function ContentLayoutSelector() {
 }
 
 // SidebarModeSelector - Modo del sidebar
-function SidebarModeSelector() {
-  const { settings, setSidebarMode, mounted } = useThemeSettings();
+function SidebarModeSelector({ dashboardPrefix }: { dashboardPrefix?: string }) {
+  const { settings, setSidebarMode, mounted } = useThemeSettings(dashboardPrefix);
   const { t } = useTranslation('theme');
 
   if (!mounted) return null;
@@ -154,17 +173,17 @@ function SidebarModeSelector() {
 }
 
 // BaseColorSelector - Color base del tema (nuevo en shadcn/ui)
-function BaseColorSelector() {
-  const { settings, setBaseColor, mounted } = useThemeSettings();
+function BaseColorSelector({ dashboardPrefix }: { dashboardPrefix?: string }) {
+  const { settings, setBaseColor, mounted } = useThemeSettings(dashboardPrefix);
   const { t } = useTranslation('theme');
 
   if (!mounted) return null;
 
   const baseColors = [
-    "neutral", "slate", "gray", "zinc", "stone", 
-    "red", "orange", "amber", "yellow", "lime", 
-    "green", "emerald", "teal", "cyan", "sky", 
-    "blue", "indigo", "violet", "purple", "fuchsia", 
+    "neutral", "slate", "gray", "zinc", "stone",
+    "red", "orange", "amber", "yellow", "lime",
+    "green", "emerald", "teal", "cyan", "sky",
+    "blue", "indigo", "violet", "purple", "fuchsia",
     "pink", "rose"
   ] as const;
 
@@ -185,8 +204,8 @@ function BaseColorSelector() {
 }
 
 // MenuColorSelector - Color del menú (nuevo en shadcn/ui)
-function MenuColorSelector() {
-  const { settings, setMenuColor, mounted } = useThemeSettings();
+function MenuColorSelector({ dashboardPrefix }: { dashboardPrefix?: string }) {
+  const { settings, setMenuColor, mounted } = useThemeSettings(dashboardPrefix);
   const { t } = useTranslation('theme');
 
   if (!mounted) return null;
@@ -206,8 +225,8 @@ function MenuColorSelector() {
 }
 
 // MenuAccentSelector - Acento del menú (nuevo en shadcn/ui)
-function MenuAccentSelector() {
-  const { settings, setMenuAccent, mounted } = useThemeSettings();
+function MenuAccentSelector({ dashboardPrefix }: { dashboardPrefix?: string }) {
+  const { settings, setMenuAccent, mounted } = useThemeSettings(dashboardPrefix);
   const { t } = useTranslation('theme');
 
   if (!mounted) return null;
@@ -228,7 +247,21 @@ function MenuAccentSelector() {
 
 export function ThemeCustomizerPanel() {
   const isMobile = useIsMobile();
-  const { t } = useTranslation('theme');
+  const { t, locale } = useTranslation('theme');
+  const pathname = usePathname();
+  
+  // Detectar dashboard actual basado en la ruta
+  const dashboardPrefix = pathname?.startsWith('/dashboard-bundui') 
+    ? 'bundui' 
+    : pathname?.startsWith('/dashboard-vibethink') 
+    ? 'vibethink' 
+    : undefined;
+
+  // Debug: Verificar que las traducciones se están cargando
+  React.useEffect(() => {
+    console.log('[ThemeCustomizerPanel] Locale:', locale);
+    console.log('[ThemeCustomizerPanel] Test translation:', t('customizer.aspect.label'));
+  }, [locale, t]);
 
   return (
     <DropdownMenu>
@@ -238,9 +271,9 @@ export function ThemeCustomizerPanel() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="me-4 w-80 p-4 shadow-xl lg:me-0"
+        className="me-4 w-80 max-h-[85vh] overflow-x-hidden overflow-y-auto p-4 shadow-xl lg:me-0"
         align={isMobile ? "center" : "end"}>
-        <div className="grid space-y-4">
+        <div className="grid space-y-4 min-w-0">
           {/* Sección 1: Modo de Color (Light/Dark) */}
           <div className="space-y-2">
             <Label className="text-sm font-semibold">{t('customizer.aspect.label')}</Label>
@@ -253,7 +286,7 @@ export function ThemeCustomizerPanel() {
               <Label htmlFor="themePreset" className="text-sm font-semibold">{t('customizer.theme.label')}</Label>
               <span className="text-xs text-muted-foreground">{t('customizer.theme.subtitle')}</span>
             </div>
-            <ThemePicker variant="outline" size="sm" className="w-full" useSelect={true} />
+            <ThemePicker variant="outline" size="sm" className="w-full" useSelect={true} dashboardPrefix={dashboardPrefix} />
             <p className="text-xs text-muted-foreground">
               {t('customizer.theme.description')}
             </p>
@@ -264,25 +297,25 @@ export function ThemeCustomizerPanel() {
             <div className="flex items-center justify-between">
               <Label htmlFor="font" className="text-sm font-semibold">{t('customizer.font.label')}</Label>
             </div>
-            <FontSelector useSelect={true} className="w-full" />
+            <FontSelector useSelect={true} className="w-full" dashboardPrefix={dashboardPrefix} />
             <p className="text-xs text-muted-foreground">
               {t('customizer.font.description')}
             </p>
           </div>
 
           {/* Sección 4: Personalización Avanzada (Colapsable) */}
-          <details className="space-y-2 pt-2 border-t">
+          <details className="space-y-2 pt-2 border-t min-w-0">
             <summary className="cursor-pointer text-sm font-semibold hover:text-foreground">
               {t('customizer.advanced.title')}
             </summary>
-            <div className="pt-2 space-y-4">
+            <div className="pt-2 space-y-4 min-w-0">
               {/* Base Color - Solo si no hay preset activo */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <Label htmlFor="baseColor" className="text-xs">{t('customizer.advanced.baseColor.label')}</Label>
                   <span className="text-xs text-muted-foreground">{t('customizer.advanced.baseColor.optional')}</span>
                 </div>
-                <BaseColorSelector />
+                <BaseColorSelector dashboardPrefix={dashboardPrefix} />
                 <p className="text-xs text-muted-foreground">
                   {t('customizer.advanced.baseColor.description')}
                 </p>
@@ -291,8 +324,8 @@ export function ThemeCustomizerPanel() {
               {/* Menu Color y Accent - Agrupados */}
               <div className="space-y-2">
                 <Label className="text-xs font-semibold">{t('customizer.advanced.menu.title')}</Label>
-                <MenuColorSelector />
-                <MenuAccentSelector />
+                <MenuColorSelector dashboardPrefix={dashboardPrefix} />
+                <MenuAccentSelector dashboardPrefix={dashboardPrefix} />
                 <p className="text-xs text-muted-foreground">
                   {t('customizer.advanced.menu.accent.description')}
                 </p>
@@ -301,8 +334,8 @@ export function ThemeCustomizerPanel() {
               {/* Scale y Radius - Agrupados */}
               <div className="space-y-2">
                 <Label className="text-xs font-semibold">{t('customizer.advanced.size.title')}</Label>
-                <ScaleSelector />
-                <RadiusSelector />
+                <ScaleSelector dashboardPrefix={dashboardPrefix} />
+                <RadiusSelector dashboardPrefix={dashboardPrefix} />
                 <p className="text-xs text-muted-foreground">
                   {t('customizer.advanced.size.description')}
                 </p>
@@ -311,8 +344,8 @@ export function ThemeCustomizerPanel() {
               {/* Layout y Sidebar Mode */}
               <div className="space-y-2">
                 <Label className="text-xs font-semibold">{t('customizer.advanced.layout.title')}</Label>
-                <ContentLayoutSelector />
-                <SidebarModeSelector />
+                <ContentLayoutSelector dashboardPrefix={dashboardPrefix} />
+                <SidebarModeSelector dashboardPrefix={dashboardPrefix} />
               </div>
             </div>
           </details>

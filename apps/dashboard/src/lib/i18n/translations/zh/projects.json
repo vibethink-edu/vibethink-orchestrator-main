@@ -1,0 +1,129 @@
+{
+    "common": {
+        "status": {
+            "active": "活跃",
+            "pending": "待定",
+            "completed": "已完成",
+            "archived": "已存档"
+        },
+        "actions": {
+            "edit": "编辑",
+            "delete": "删除",
+            "view": "查看",
+            "create": "创建",
+            "cancel": "取消",
+            "save": "保存"
+        }
+    },
+    "sections": {
+        "recentProjects": "近期项目",
+        "allProjects": "所有项目",
+        "projectDetails": "项目详情"
+    },
+    "fields": {
+        "name": "名称",
+        "description": "描述",
+        "startDate": "开始日期",
+        "endDate": "结束日期",
+        "status": "状态",
+        "priority": "优先级",
+        "client": "客户",
+        "budget": "预算"
+    },
+    "messages": {
+        "createSuccess": "项目创建成功",
+        "updateSuccess": "项目更新成功",
+        "deleteSuccess": "项目删除成功",
+        "deleteConfirm": "确定要删除此项目吗？",
+        "loading": "加载中...",
+        "error": "发生错误",
+        "noProjects": "未找到项目"
+    },
+    "v2": {
+        "summaryCards": {
+            "totalRevenue": {
+                "title": "总收入",
+                "description": "从上个月起",
+                "trending": "本月增长 12%"
+            },
+            "activeProjects": {
+                "title": "活跃项目",
+                "description": "当前进行中",
+                "update": "1 小时前更新"
+            },
+            "teamSize": {
+                "title": "团队规模",
+                "description": "活跃成员",
+                "hiring": "招聘中 (2 个职位)"
+            },
+            "completionRate": {
+                "title": "完成率",
+                "description": "按时交付",
+                "performance": "比目标高 5%"
+            }
+        },
+        "overview": {
+            "title": "概览",
+            "description": "分析项目绩效",
+            "revenue": "收入",
+            "projects": "项目",
+            "tasks": "任务",
+            "team": "团队"
+        },
+        "recentActivity": {
+            "title": "近期活动",
+            "description": "今天有 3 条新通知",
+            "projectCreated": "项目已创建",
+            "taskCompleted": "任务已完成",
+            "commentAdded": "评论已添加",
+            "fileUploaded": "文件已上传"
+        },
+        "metrics": {
+            "title": "绩效指标",
+            "description": "关键绩效指标追踪",
+            "onTime": "准时",
+            "overBudget": "超出预算",
+            "clientSatisfaction": "客户满意度"
+        },
+        "efficiency": {
+            "title": "项目效率",
+            "description": "2026年1月 - 6月",
+            "trending": "本月上升 5.2%"
+        },
+        "achievement": {
+            "title": "年度成就",
+            "description": "今年您的日均项目完成量高于去年。",
+            "projects": "个项目"
+        },
+        "reminders": {
+            "title": "提醒",
+            "showOther": "显示其他 10 条提醒"
+        },
+        "successMetrics": {
+            "title": "成功指标",
+            "description": "项目成功的关键绩效指标",
+            "successRate": "项目成功率",
+            "onTime": "准时完工",
+            "clientSat": "客户满意度",
+            "budget": "预算遵守"
+        },
+        "reports": {
+            "title": "项目报告",
+            "description": "下载项目的详细报告",
+            "download": "下载报告"
+        },
+        "table": {
+            "columns": {
+                "projectName": "项目名称",
+                "clientName": "客户名称",
+                "startDate": "开始日期",
+                "deadline": "截止日期",
+                "status": "状态",
+                "progress": "进度"
+            },
+            "placeholder": {
+                "filterProjects": "筛选项目..."
+            }
+        }
+    }
+}
