@@ -681,3 +681,87 @@ node scripts/audit-assets.js
 - `docs/architecture/MIGRACION_DASHBOARDS_COMPLETA.md` - Documentación de migración completa
 - `scripts/README.md` - Documentación de todos los scripts
 
+---
+
+## Git & Version Control
+
+### Incident: Stuck Interactive Rebase with Untracked Files "Safety First Recovery"
+
+**Date:** 2025-12-25
+**Affected Scope:** Repository Management (Git)
+**Severity:** High (Risk of data loss if mishandled)
+
+#### Context
+A developer was performing an interactive rebase on `main-developer` to clean up commits before pushing. However, the process was interrupted, leaving the repository in a "detached HEAD" state or mid-rebase limbo. Crucially, there were **many untracked files** (newly created files not yet added to git) in the workspace.
+
+The goal was to:
+1.  Cancel the stuck rebase.
+2.  **NOT lose the untracked files.**
+3.  Safely merge the `main-developer` code into `main`.
+4.  Push to GitHub.
+
+#### Symptoms
+- `git status` shows:
+    - `interactive rebase in progress; onto ...`
+    - `HEAD detached at ...`
+- `git branch` shows `* (no branch, rebasing ...)`
+- Many files listed as `Untracked files:` (red in terminal).
+
+#### The Myth vs. Reality
+**Myth:** "If I run `git rebase --abort`, I will lose my new (untracked) files."
+**Reality:** `git rebase --abort` only affects *tracked* files involved in the rebase. **It does NOT touch untracked files.** Your new work is safe.
+
+#### Solution: "Safety First" Recovery Protocol
+
+If you find yourself in this situation, follow this exact sequence to recover and merge without data loss.
+
+**1. Safety Abort (Exit the trap)**
+```bash
+git rebase --abort
+```
+*Effect:* Cancels the rebase process and returns `HEAD` to the original branch tip. Untracked files remain untouched.
+
+**2. Create a Backup (Insurance)**
+```bash
+# Verify you are back on your branch
+git checkout main-developer
+# Create a timestamped backup branch
+git branch backup-safe-state-YYYYMMDD
+```
+*Effect:* Creates a permanent pointer to your current committed code. If the next steps fail, you can always go back here.
+
+**3. Update Target Branch (Production)**
+```bash
+git checkout main
+git pull origin main
+```
+*Effect:* Ensures you are merging into the absolute latest version of the production code.
+
+**4. Merge Developer Branch**
+```bash
+git merge main-developer
+```
+*Effect:* Attempts to combine your work into main.
+
+**5. Handle Conflicts ("Theirs" Strategy)**
+If you get conflicts and you are **sure** that `main-developer` contains the correct, most recent version of the code (overwriting what is in `main`):
+```bash
+# Select 'theirs' (incoming changes from main-developer) for all conflicts
+git checkout --theirs .
+git add .
+git commit -m "Merge branch 'main-developer' into main"
+```
+*Note:* In a merge context:
+- `--ours`: The branch you are on (`main`).
+- `--theirs`: The branch you are merging in (`main-developer`).
+
+**6. Push and Return**
+```bash
+git push origin main
+git checkout main-developer
+```
+
+#### Preventative Measures
+1.  **Commit before Rebase:** Never start a rebase with a dirty working tree (uncommitted changes). Stash them (`git stash`) or commit them purely.
+2.  **Backups:** Before a complex rebase, rename your current branch to `feature-backup` and create a new `feature` branch to play with.
+
