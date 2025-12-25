@@ -55,14 +55,19 @@ Refactor imports to use **Direct Subpath Imports**. Bypass the barrel file entir
 #### Long-Term Fix
 Ensure strict dependency alignment across the monorepo.
 
+
+**Immediate Resolution:**
+See `docs/architecture/REACT_VERSION_STRATEGY.md` for the official resolution protocol via overrides.
+
 **1. Agregar overrides en root `package.json`:**
+(Ya implementado en raíz del proyecto)
 ```json
 {
   "overrides": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6"
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0"
   }
 }
 ```
