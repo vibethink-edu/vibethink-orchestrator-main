@@ -154,8 +154,15 @@ export {
 } from './cache';
 
 // ============================================================================
+// CAPA 3: Terminology Provider & Hydration Components
+// ============================================================================
+export * from './TerminologyProvider';
+export * from './TerminologyHydration';
+
+// ============================================================================
 // Metadata del módulo (documentación)
 // ============================================================================
+
 
 /**
  * Metadata del módulo de terminology
