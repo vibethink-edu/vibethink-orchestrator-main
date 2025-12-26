@@ -9,89 +9,29 @@ import { AuthProvider } from "@/providers/AuthProvider";
 import { I18nProvider } from "@/lib/i18n";
 
 /**
- * CAPA 2 & CAPA 3: Integración de Terminology (3 capas)
+ * CAPA 2 & CAPA 3: Integración de Terminología (3 capas)
  * 
- * Este layout bootstrap:
- * - CAPA 2: Preload conceptos de terminology
- * - CAPA 3A: UI Strings (via I18nProvider existente)
- * - CAPA 3B: Terminology Hydration (para futura implementación completa)
- * 
- * Nota: Mantenemos compatibilidad con el sistema actual de i18n.
- * La terminología se pre-load y está disponible, pero no rompemos
- * la funcionalidad existente.
+ * IMPORTANTE: Usar la implementación de CAPA 1 desde @vibethink/utils
+ * que incluye los 9 idiomas oficiales (en, es, fr, pt, de, it, ko, ar, zh)
+ * y los concept IDs canónicos inmutables.
  */
 
 /**
- * Imports del nuevo sistema de terminología (CAPA 2)
+ * Importar isValidLocale desde la implementación CAPA 1 (terminology)
  * 
- * Estos imports están disponibles pero actualmente mantenemos compatibilidad
- * con el sistema actual. Los conceptos se precargan para uso futuro.
+ * NOTA: Usar @vibethink/utils/i18n/terminology en lugar de @/lib/i18n/config
+ * porque terminology/types.ts tiene la implementación completa con:
+ * - 9 idiomas oficiales (en, es, fr, pt, de, it, ko, ar, zh)
+ * - Concept IDs canónicos inmutables
+ * - Contextos multi-nivel
+ * - Validadores robustos
  */
-// import {
-//   preloadTerminology,
-//   ConceptID,
-//   createUIContext
-// } from "@vibethink/utils/i18n/terminology";
-
-/**
- * Conceptos base para preloading (CAPA 2)
- * 
- * Estos son los concept IDs más usados que pre-loadamos
- * para asegurar que estén en cache cuando se necesiten.
- */
-const BASE_CONCEPTS_TO_PRELOAD = [
-  // Booking concepts
-  'concept.booking.resource.room',
-  'concept.booking.action.reserve',
-  'concept.booking.action.cancel',
-  'concept.booking.time.checkin',
-  'concept.booking.time.checkout',
-  'concept.booking.unit.hour',
-  'concept.booking.unit.day',
-  'concept.booking.unit.night',
-  'concept.booking.status.confirmed',
-  'concept.booking.status.pending',
-  
-  // CRM concepts
-  'concept.crm.entity.deal',
-  'concept.crm.entity.lead',
-  'concept.crm.action.create',
-  'concept.crm.action.update',
-  
-  // Common concepts (pueden expandirse)
-  'concept.common.action.save',
-  'concept.common.action.cancel',
-] as const;
-
-/**
- * Hook para preloading de terminology en el layout bootstrap
- * 
- * Esta función se ejecuta solo una vez durante el bootstrap del layout
- * para cargar los conceptos más usados en cache.
- * 
- * @param locale - El idioma detectado
- */
-async function preloadConcepts(locale: string): Promise<void> {
-  // Nota: Mantenemos compatibilidad por ahora
-  // En el futuro, cuando todo el código use el nuevo sistema,
-  // podemos activar el preload real:
-  //
-  // import { preloadTerminology, createUIContext } from "@vibethink/utils/i18n/terminology";
-  // 
-  // const context = createUIContext({
-  //   locale,
-  //   productContext: 'hotel', // Determinar desde ruta
-  // });
-  // 
-  // await preloadTerminology(
-  //   context,
-  //   BASE_CONCEPTS_TO_PRELOAD
-  // );
-  //
-  // console.log(`[Terminology] Preloaded ${BASE_CONCEPTS_TO_PRELOAD.length} concepts for locale: ${locale}`);
-  
-  console.log(`[Terminology] Preloading disabled for compatibility (future: preloadTerminology())`);
-}
+import {
+  isValidLocale,
+  Locale,
+  SUPPORTED_LOCALES,
+  DEFAULT_LOCALE,
+} from "@vibethink/utils/i18n/terminology/types";
 
 export default async function RootLayout({
   children
@@ -107,16 +47,36 @@ export default async function RootLayout({
       DEFAULT_THEME.contentLayout) as any
   };
 
-  // Get locale from cookie or header
+  // Get locale from cookie or header with proper validation
   const localeCookie = cookieStore.get("NEXT_LOCALE")?.value;
-  const initialLocale = localeCookie && isValidLocale(localeCookie) ? localeCookie : 'en';
+  const initialLocale: Locale = localeCookie && isValidLocale(localeCookie) ? localeCookie : DEFAULT_LOCALE;
 
   /**
-   * Preload conceptos de terminology (CAPA 2)
+   * CAPA 2: Preload conceptos de terminology (CAPA 2)
    * 
-   * NOTA: Mantenemos compatibilidad por ahora. El preload real
-   * se activará cuando todo el código migre al nuevo sistema.
+   * Preload de conceptos base para uso en UI components.
+   * NOTA: En esta fase, mantenemos compatibilidad con el sistema existente
+   * y NO rompemos nada. El preload real se activará cuando todo el código use
+   * el sistema de 3 capas completo.
+   * 
+   * Futuro: Activar `preloadTerminology()` cuando estemos listos.
    */
+  async function preloadConcepts(locale: Locale): Promise<void> {
+    // NOTA: Mantenemos compatibilidad por ahora.
+    // En el futuro, podemos activar el preload real desde @vibethink/utils
+    // 
+    // import { preloadTerminology } from "@vibethink/utils/i18n/terminology/engine";
+    // const context = createUIContext({ locale, productContext: 'hotel' });
+    // await preloadTerminology(context, [
+    //   'concept.booking.resource.room',
+    //   'concept.booking.action.reserve',
+    //   // ... más conceptos
+    // ]);
+    //
+    console.log(`[Terminology] Preload disabled for compatibility (future: enable full preload)`);
+  }
+
+  // Preload conceptos para el idioma actual
   await preloadConcepts(initialLocale);
 
   const bodyAttributes = Object.fromEntries(
@@ -148,19 +108,21 @@ export default async function RootLayout({
               'theme', 
               'hotel', 
               'studio', 
+              'cowork', 
+              'coliving', 
               'chat', 
               'projects', 
               'mail', 
               'calendar', 
               'dashboard-vibethink', 
               'dashboard-bundui', 
+              'crm',
+              'ai-chat',
               'concept',
               'concept-hotel',
               'concept-studio',
               'concept-cowork',
-              'concept-coliving',
-              'crm',
-              'ai-chat'
+              'concept-coliving'
             ]}>
             <AuthProvider>
               <NextTopLoader
@@ -172,7 +134,7 @@ export default async function RootLayout({
                 showSpinner={false}
                 easing="ease"
                 speed={200}
-                shadow="0 0.10px hsl(var(--primary)),0 0.5px hsl(var(--primary))"
+                shadow="0 0 10px hsl(var(--primary)),0 0 5px hsl(var(--primary))"
                 zIndex={99999}
               />
               {children}
