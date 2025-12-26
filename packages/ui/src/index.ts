@@ -66,6 +66,7 @@ export * from './components/tooltip';
 export * from './components/extensions/kanban';
 export * from './components/extensions/timeline';
 export * from './components/extensions/minimal-tiptap';
+export * from './components/extensions/reel';
 
 // Layout components (migrated from bundui-premium)
 export * from './components/layout';

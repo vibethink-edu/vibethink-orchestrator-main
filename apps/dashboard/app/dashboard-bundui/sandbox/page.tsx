@@ -2,9 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { TableRecentProjects } from '../projects-v2/components/table-recent-projects';
-import { useTranslation } from 'react-i18next';
-import i18n from '@/lib/i18n';
-import { I18nextProvider } from 'react-i18next';
+import { useTranslation } from '@/lib/i18n';
 
 function SandboxContent() {
     const { t, i18n } = useTranslation();
@@ -49,9 +47,5 @@ function SandboxContent() {
 }
 
 export default function SandboxPage() {
-    return (
-        <I18nextProvider i18n={i18n}>
-            <SandboxContent />
-        </I18nextProvider>
-    );
+    return <SandboxContent />;
 }
