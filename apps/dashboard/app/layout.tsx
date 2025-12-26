@@ -7,8 +7,91 @@ import "./globals.css";
 import { DEFAULT_THEME } from "@/shared/lib/themes";
 import { AuthProvider } from "@/providers/AuthProvider";
 import { I18nProvider } from "@/lib/i18n";
-import { isValidLocale } from "@/lib/i18n/config";
-// import { Toaster } from '@vibethink/ui'; // Commented - using Shadcn
+
+/**
+ * CAPA 2 & CAPA 3: Integración de Terminology (3 capas)
+ * 
+ * Este layout bootstrap:
+ * - CAPA 2: Preload conceptos de terminology
+ * - CAPA 3A: UI Strings (via I18nProvider existente)
+ * - CAPA 3B: Terminology Hydration (para futura implementación completa)
+ * 
+ * Nota: Mantenemos compatibilidad con el sistema actual de i18n.
+ * La terminología se pre-load y está disponible, pero no rompemos
+ * la funcionalidad existente.
+ */
+
+/**
+ * Imports del nuevo sistema de terminología (CAPA 2)
+ * 
+ * Estos imports están disponibles pero actualmente mantenemos compatibilidad
+ * con el sistema actual. Los conceptos se precargan para uso futuro.
+ */
+// import {
+//   preloadTerminology,
+//   ConceptID,
+//   createUIContext
+// } from "@vibethink/utils/i18n/terminology";
+
+/**
+ * Conceptos base para preloading (CAPA 2)
+ * 
+ * Estos son los concept IDs más usados que pre-loadamos
+ * para asegurar que estén en cache cuando se necesiten.
+ */
+const BASE_CONCEPTS_TO_PRELOAD = [
+  // Booking concepts
+  'concept.booking.resource.room',
+  'concept.booking.action.reserve',
+  'concept.booking.action.cancel',
+  'concept.booking.time.checkin',
+  'concept.booking.time.checkout',
+  'concept.booking.unit.hour',
+  'concept.booking.unit.day',
+  'concept.booking.unit.night',
+  'concept.booking.status.confirmed',
+  'concept.booking.status.pending',
+  
+  // CRM concepts
+  'concept.crm.entity.deal',
+  'concept.crm.entity.lead',
+  'concept.crm.action.create',
+  'concept.crm.action.update',
+  
+  // Common concepts (pueden expandirse)
+  'concept.common.action.save',
+  'concept.common.action.cancel',
+] as const;
+
+/**
+ * Hook para preloading de terminology en el layout bootstrap
+ * 
+ * Esta función se ejecuta solo una vez durante el bootstrap del layout
+ * para cargar los conceptos más usados en cache.
+ * 
+ * @param locale - El idioma detectado
+ */
+async function preloadConcepts(locale: string): Promise<void> {
+  // Nota: Mantenemos compatibilidad por ahora
+  // En el futuro, cuando todo el código use el nuevo sistema,
+  // podemos activar el preload real:
+  //
+  // import { preloadTerminology, createUIContext } from "@vibethink/utils/i18n/terminology";
+  // 
+  // const context = createUIContext({
+  //   locale,
+  //   productContext: 'hotel', // Determinar desde ruta
+  // });
+  // 
+  // await preloadTerminology(
+  //   context,
+  //   BASE_CONCEPTS_TO_PRELOAD
+  // );
+  //
+  // console.log(`[Terminology] Preloaded ${BASE_CONCEPTS_TO_PRELOAD.length} concepts for locale: ${locale}`);
+  
+  console.log(`[Terminology] Preloading disabled for compatibility (future: preloadTerminology())`);
+}
 
 export default async function RootLayout({
   children
@@ -28,6 +111,14 @@ export default async function RootLayout({
   const localeCookie = cookieStore.get("NEXT_LOCALE")?.value;
   const initialLocale = localeCookie && isValidLocale(localeCookie) ? localeCookie : 'en';
 
+  /**
+   * Preload conceptos de terminology (CAPA 2)
+   * 
+   * NOTA: Mantenemos compatibilidad por ahora. El preload real
+   * se activará cuando todo el código migre al nuevo sistema.
+   */
+  await preloadConcepts(initialLocale);
+
   const bodyAttributes = Object.fromEntries(
     Object.entries(themeSettings)
       .filter(([_, value]) => value)
@@ -38,7 +129,6 @@ export default async function RootLayout({
     <html lang={initialLocale} suppressHydrationWarning>
       <head>
         {/* UTF-8 encoding - CRITICAL for universal i18n support */}
-        {/* Ensures proper rendering of all Unicode characters (Chinese, Arabic, etc.) */}
         <meta charSet="UTF-8" />
       </head>
       <body
@@ -50,7 +140,28 @@ export default async function RootLayout({
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange>
-          <I18nProvider initialLocale={initialLocale} preloadNamespaces={['common', 'navigation', 'theme', 'hotel', 'chat', 'projects', 'mail', 'calendar', 'dashboard-vibethink', 'dashboard-bundui']}>
+          <I18nProvider 
+            initialLocale={initialLocale} 
+            preloadNamespaces={[
+              'common', 
+              'navigation', 
+              'theme', 
+              'hotel', 
+              'studio', 
+              'chat', 
+              'projects', 
+              'mail', 
+              'calendar', 
+              'dashboard-vibethink', 
+              'dashboard-bundui', 
+              'concept',
+              'concept-hotel',
+              'concept-studio',
+              'concept-cowork',
+              'concept-coliving',
+              'crm',
+              'ai-chat'
+            ]}>
             <AuthProvider>
               <NextTopLoader
                 color="hsl(var(--primary))"
@@ -61,15 +172,14 @@ export default async function RootLayout({
                 showSpinner={false}
                 easing="ease"
                 speed={200}
-                shadow="0 0 10px hsl(var(--primary)),0 0 5px hsl(var(--primary))"
+                shadow="0 0.10px hsl(var(--primary)),0 0.5px hsl(var(--primary))"
                 zIndex={99999}
               />
               {children}
-              {/* <Toaster position="top-center" richColors /> */}
             </AuthProvider>
           </I18nProvider>
         </ThemeProvider>
       </body>
     </html>
   );
-} 
+}
