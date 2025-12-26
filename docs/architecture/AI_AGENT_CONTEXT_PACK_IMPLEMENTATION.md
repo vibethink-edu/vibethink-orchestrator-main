@@ -367,6 +367,334 @@ npm test -- --coverage agent-context-pack.test.ts
 
 ---
 
+## 🌟 Modelo de Propósito General
+
+### Filosofía de Diseño
+
+El Agent Context Pack fue diseñado como un **modelo de propósito general** que se adapta automáticamente a cualquier contexto de negocio sin modificar código.
+
+**Principio clave:** Un solo código, múltiples contextos, comportamiento adaptativo.
+
+### Cómo Logra Propósito General
+
+#### 1. **Detección Automática de Contexto**
+
+```typescript
+// NO necesitas código diferente por contexto
+// El mismo executeAgent() funciona para TODOS los casos:
+
+// Hotel
+await executeAgent({ route: '/hotel/bookings', ... })
+// → Automáticamente usa terminología de hotel
+
+// Studio
+await executeAgent({ route: '/studio/sessions', ... })
+// → Automáticamente usa terminología de studio
+
+// Cowork
+await executeAgent({ route: '/cowork/spaces', ... })
+// → Automáticamente usa terminología de cowork
+
+// Generic
+await executeAgent({ route: '/dashboard/analytics', ... })
+// → Usa terminología genérica común
+```
+
+#### 2. **Multi-Tenant Sin Código Adicional**
+
+```typescript
+// Tenant 1: Hotel Boutique
+await executeAgent({
+  tenantId: 'hotel-boutique-123',
+  route: '/hotel',
+  ...
+})
+// → Terms + formatos de hotel-boutique-123
+
+// Tenant 2: Studio de Grabación
+await executeAgent({
+  tenantId: 'studio-sound-lab-456',
+  route: '/studio',
+  ...
+})
+// → Terms + formatos de studio-sound-lab-456
+
+// ¡Mismo código, diferentes negocios!
+```
+
+#### 3. **Multi-Idioma Automático**
+
+```typescript
+// Español
+await executeAgent({ locale: 'es', ... })
+// → Términos en español + formatos españoles
+
+// English
+await executeAgent({ locale: 'en', ... })
+// → Terms in English + English formats
+
+// العربية
+await executeAgent({ locale: 'ar', ... })
+// → مصطلحات بالعربية + تنسيقات عربية + RTL
+
+// 9 idiomas soportados automáticamente
+```
+
+#### 4. **Adaptación a Registros Específicos**
+
+```typescript
+// Reserva de habitación
+await executeAgent({
+  route: '/hotel/bookings',
+  recordType: 'room',
+  recordId: 'room-101',
+  ...
+})
+// → Contexto: hotel + registro: room
+
+// Sesión de studio
+await executeAgent({
+  route: '/studio/sessions',
+  recordType: 'studio',
+  recordId: 'studio-a',
+  ...
+})
+// → Contexto: studio + registro: studio
+
+// Adaptación automática al tipo de registro
+```
+
+### Casos de Uso de Propósito General
+
+#### Caso 1: Dashboard Unificado
+
+```typescript
+// Un solo componente de chat funciona en TODOS los dashboards
+function UniversalChatWidget({ route, tenantId, userId, locale }) {
+  const handleMessage = async (message: string) => {
+    // Este código funciona en hotel, studio, cowork, etc.
+    const response = await executeAgent({
+      tenantId,
+      userId,
+      route,  // ← La ruta determina el contexto automáticamente
+      locale,
+      userMessage: message,
+      conceptIds: [
+        'concept.resource.room',     // Se adapta al contexto
+        'concept.status.available',
+        'concept.booking.reservation'
+      ]
+    });
+
+    return response.message;
+  };
+
+  return <ChatInterface onMessage={handleMessage} />;
+}
+
+// Usar en CUALQUIER dashboard:
+<UniversalChatWidget route="/hotel/bookings" />
+<UniversalChatWidget route="/studio/sessions" />
+<UniversalChatWidget route="/cowork/spaces" />
+// ¡Mismo componente, comportamiento diferente!
+```
+
+#### Caso 2: Notificaciones Contextuales
+
+```typescript
+// Una función de notificaciones que se adapta al contexto
+async function sendContextualNotification(
+  tenantId: string,
+  userId: string,
+  route: string,
+  locale: string,
+  templateId: string,
+  data: Record<string, any>
+) {
+  const pack = await getAgentContextPackCached({
+    tenantId,
+    userId,
+    route,
+    locale,
+    conceptIds: [
+      'concept.resource.room',
+      'concept.unit.time',
+      'concept.status.confirmed'
+    ]
+  });
+
+  // Construir mensaje usando términos del contexto
+  const roomTerm = getTerm('concept.resource.room', pack);
+  const timeTerm = getTerm('concept.unit.time', pack);
+  const price = formatCurrency(data.amount, pack);
+
+  return `Su ${roomTerm} está confirmada por ${data.duration} ${timeTerm}. Total: ${price}`;
+}
+
+// Hotel: "Su habitación está confirmada por 3 noches. Total: $450,00"
+// Studio: "Su sala está confirmada por 4 horas. Total: $120,00"
+// Cowork: "Su espacio está confirmado por 1 mes. Total: $800,00"
+```
+
+#### Caso 3: Reportes Multi-Contexto
+
+```typescript
+// Generador de reportes que funciona en cualquier contexto
+async function generateContextualReport(
+  tenantId: string,
+  route: string,
+  locale: string,
+  reportType: 'daily' | 'weekly' | 'monthly'
+) {
+  const pack = await getAgentContextPackCached({
+    tenantId,
+    userId: 'system',
+    route,
+    locale,
+    conceptIds: [
+      'concept.resource.room',
+      'concept.booking.reservation',
+      'concept.metrics.revenue'
+    ]
+  });
+
+  const roomTerm = getTerm('concept.resource.room', pack, 'resources');
+  const revenue = formatCurrency(12345.67, pack);
+
+  return {
+    title: `${reportType} Report - ${pack.context}`,
+    summary: `Total ${roomTerm} booked: 45`,
+    revenue: `Revenue: ${revenue}`,
+    locale: pack.locale,
+    formats: pack.formats
+  };
+}
+
+// Funciona para hotel, studio, cowork sin cambios
+```
+
+### Ventajas del Modelo de Propósito General
+
+#### ✅ **1. Código Único, Múltiples Casos de Uso**
+
+- Un solo `executeAgent()` sirve para TODO
+- No duplicar lógica por contexto
+- Mantenimiento centralizado
+
+#### ✅ **2. Escalabilidad Horizontal**
+
+- Agregar nuevo contexto (ej: "gym") → solo agregar rutas y conceptIds
+- No modificar código del agente
+- Extensible sin romper existente
+
+#### ✅ **3. Consistencia Garantizada**
+
+- Todos los contextos usan mismos formatters
+- Misma lógica de cache
+- Mismo enforcement protocol
+
+#### ✅ **4. Multi-Tenant Native**
+
+- Cada tenant puede tener overrides
+- Sin código adicional por tenant
+- Escalable a miles de tenants
+
+#### ✅ **5. i18n Nativo**
+
+- 9 idiomas listos
+- Formatos regionales automáticos
+- RTL support (árabe)
+
+### Limitaciones y Cuándo NO Es Suficiente
+
+#### ❌ **Contextos MUY Específicos con Lógica Compleja**
+
+Si necesitas lógica de negocio completamente diferente:
+
+```typescript
+// Ejemplo: Hotel con sistema de fidelización complejo
+// El context pack da terminología/formatos
+// Pero la lógica de puntos/rewards necesita código específico
+
+async function hotelLoyaltyAgent(message: string) {
+  const pack = await getAgentContextPackCached({ route: '/hotel', ... });
+
+  // Context pack: terminología/formatos ✅
+  // Lógica de loyalty: código específico ⚠️
+  const loyaltyPoints = calculateLoyaltyPoints(pack.tenantId, ...);
+
+  // Combinar ambos
+  return buildMessage(
+    'Tienes {{points}} puntos. Tu {{room}} cuesta {{price}}',
+    {
+      points: loyaltyPoints,
+      'concept.resource.room': null,  // Del pack
+      price: formatCurrency(amount, pack)
+    },
+    pack
+  );
+}
+```
+
+#### ❌ **Dominios Completamente Diferentes**
+
+Si sales del dominio de bookings/reservations:
+
+```typescript
+// E-commerce, Healthcare, Finance tienen necesidades MUY diferentes
+// El context pack aún sirve para terminología/formatos
+// Pero necesitas conceptIds específicos del dominio
+
+// E-commerce
+conceptIds: ['concept.product.sku', 'concept.cart.item', ...]
+
+// Healthcare
+conceptIds: ['concept.patient.record', 'concept.appointment.visit', ...]
+
+// Finance
+conceptIds: ['concept.transaction.payment', 'concept.account.balance', ...]
+```
+
+### Cómo Extender Para Nuevos Contextos
+
+#### Paso 1: Definir ConceptIDs
+
+```typescript
+// packages/terminology/concepts/{domain}/{locale}/concepts.json
+{
+  "concept.resource.gym-equipment": {
+    "label": "Equipment",
+    "plural": "Equipment",
+    "description": "Gym equipment available for use"
+  }
+}
+```
+
+#### Paso 2: Agregar Detección de Contexto
+
+```typescript
+// En agent-context-pack.ts
+function resolveContextFromRoute(route: string): string | null {
+  if (route.includes('/hotel')) return 'hotel';
+  if (route.includes('/studio')) return 'studio';
+  if (route.includes('/gym')) return 'gym';  // ← Nuevo
+  // ...
+}
+```
+
+#### Paso 3: ¡Listo! Ya Funciona
+
+```typescript
+// Usar inmediatamente sin más cambios
+await executeAgent({
+  route: '/gym/equipment',  // ← Detecta 'gym'
+  conceptIds: ['concept.resource.gym-equipment'],
+  ...
+})
+```
+
+---
+
 ## 🚨 Reglas de Uso
 
 ### ✅ HACER:
