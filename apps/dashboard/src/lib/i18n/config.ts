@@ -90,15 +90,15 @@ export const localeMetadata: Record<Locale, LocaleMetadata> = {
     currency: 'EUR',
     numberFormat: new Intl.Locale('it-IT'),
   },
-  ja: {
-    code: 'ja',
-    name: 'Japanese',
-    nativeName: '日本語',
-    flag: '🇯🇵',
-    dateFormat: 'yyyy/MM/dd',
+  ko: {
+    code: 'ko',
+    name: 'Korean',
+    nativeName: '한국어',
+    flag: '🇰🇷',
+    dateFormat: 'yyyy. MM. dd.',
     timeFormat: 'HH:mm',
-    currency: 'JPY',
-    numberFormat: new Intl.Locale('ja-JP'),
+    currency: 'KRW',
+    numberFormat: new Intl.Locale('ko-KR'),
   },
 };
 
@@ -107,7 +107,7 @@ export const localeMetadata: Record<Locale, LocaleMetadata> = {
  */
 export const i18nConfig: I18nConfig = {
   defaultLocale: 'en',
-  locales: ['en', 'es', 'ar', 'zh', 'fr', 'pt', 'de', 'it', 'ja'],
+  locales: ['en', 'es', 'ar', 'zh', 'fr', 'pt', 'de', 'it', 'ko'],
   localeMetadata,
   storageKey: 'vibethink-locale',
   cookieName: 'NEXT_LOCALE',

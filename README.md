@@ -10,11 +10,107 @@
 
 1. **FIRST:** Read `PROJECT_STATUS.md` - Complete project status and decisions
 2. **SECOND:** Read `CHANGELOG.md` - Especially [Unreleased] section
-3. **THIRD:** Continue with stability rules below
+3. **THIRD:** Read `SYSTEM_STATUS_2025-12-26.md` - Latest system state
+4. **FOURTH:** Continue with stability rules below
 
 **🚨 NEVER revert approved executive decisions** - Check PROJECT_STATUS.md before changing anything
 
-### 🎯 Quick AI Commands
+---
+
+## 🎯 LATEST UPDATE (2025-12-26): Sistema i18n 3 Capas
+
+### ✅ COMPLETADO HOY
+
+**Sistema de internacionalización (i18n) de 3 capas ahora 100% funcional:**
+
+- ✅ **CAPA 1:** Semantic IDs (types.ts) - IDs inmutables para conceptos
+- ✅ **CAPA 2:** Terminology Engine (engine.ts + cache.ts) - Resolución con cache
+- ⚠️ **CAPA 3:** UI Strings (pendiente) - React Provider/Hook
+
+**Archivos arreglados:**
+- `packages/utils/src/i18n/terminology/engine.ts` (antes .disabled)
+- `packages/utils/src/i18n/terminology/cache.ts` (antes .disabled)
+- `packages/utils/src/i18n/terminology/index.ts` (antes .disabled)
+
+**9 idiomas soportados:**
+- 🇺🇸 EN + 🇪🇸 ES → Production Ready (100% y 95%)
+- 🇫🇷 FR, 🇵🇹 PT, 🇩🇪 DE, 🇸🇦 AR, 🇨🇳 ZH → Beta (~90%)
+- 🇮🇹 IT, 🇰🇷 KO → Pendientes (50% - necesitan traducción)
+
+**Scripts creados:**
+- `scripts/validate-concepts-coherence.js` - Valida coherencia
+- `scripts/fix-concepts-coherence.js` - Arregla automáticamente
+- `scripts/copy-missing-translation-files.js` - Copia archivos faltantes
+- `scripts/sync-translations-structure.js` - Sincroniza estructura
+- `scripts/check-missing-files.js` - Detecta archivos faltantes
+
+**Documentación creada:**
+- `GUIA_MANTENIMIENTO_CONCEPTOS.md` - Cómo mantener conceptos
+- `ARCHIVOS_DISABLED_ARREGLADOS.md` - Detalles técnicos de fixes
+- `VALIDACION_FINAL_3_CAPAS.md` - Estado y próximos pasos
+- `REPORTE_PRODUCT_OWNER_2025-12-26.md` - Reporte ejecutivo
+- `EXPLICACION_PARA_ADOLESCENTE.md` - Versión simple
+- `INSTRUCCIONES_Z_AI.md` - Instrucciones para Z.Ai
+
+### 📁 Estructura de Traducciones
+
+```
+apps/dashboard/src/lib/i18n/translations/
+├── en/  (45 archivos) ✅ Master
+├── es/  (45 archivos) ✅ 95% completo
+├── fr/  (45 archivos) ⚠️ 90% completo
+├── pt/  (45 archivos) ⚠️ 90% completo
+├── de/  (45 archivos) ⚠️ 90% completo
+├── it/  (45 archivos) ⚠️ 50% completo (50 en inglés)
+├── ko/  (45 archivos) ⚠️ 50% completo (50 en inglés)
+├── ar/  (45 archivos) ⚠️ 90% completo
+└── zh/  (45 archivos) ⚠️ 90% completo
+
+Conceptos por idioma (5 archivos cada uno):
+- concept.json              (BASE - compartido)
+- concept-hotel.json        (Overrides Hotel)
+- concept-studio.json       (Overrides Studio)
+- concept-cowork.json       (Overrides Cowork)
+- concept-coliving.json     (Overrides Coliving)
+```
+
+### 🔧 Comandos de Validación i18n
+
+```bash
+# Validar coherencia de conceptos
+node scripts/validate-concepts-coherence.js
+
+# Arreglar coherencia automáticamente
+node scripts/fix-concepts-coherence.js
+
+# Verificar archivos faltantes
+node scripts/check-missing-files.js
+
+# Copiar archivos faltantes desde EN
+node scripts/copy-missing-translation-files.js
+
+# Sincronizar estructura de archivo
+node scripts/sync-translations-structure.js
+```
+
+### 📚 Documentación Sistema i18n
+
+**Para desarrolladores:**
+- `GUIA_MANTENIMIENTO_CONCEPTOS.md` - Workflow completo
+- `ARCHIVOS_DISABLED_ARREGLADOS.md` - Detalles técnicos
+
+**Para Product Owner:**
+- `REPORTE_PRODUCT_OWNER_2025-12-26.md` - Resumen ejecutivo
+
+**Para aprender:**
+- `EXPLICACION_PARA_ADOLESCENTE.md` - Explicación simple
+
+**Para Z.Ai:**
+- `INSTRUCCIONES_Z_AI.md` - Tareas y contexto
+
+---
+
+## 🎯 Quick AI Commands
 
 ```bash
 # ✅ BEFORE making any changes
@@ -34,6 +130,9 @@ npm run ai:recovery
 
 # ✅ Check stability
 npm run ai:stability-check
+
+# ✅ Validate i18n concepts coherence
+node scripts/validate-concepts-coherence.js
 ```
 
 ## 🛡️ AI STABILITY RULES - MANDATORY
@@ -84,12 +183,33 @@ export default function RootLayout({ children }) {
 }
 ```
 
-### 4. TESTING RULES
+### 4. i18n CONCEPTOS RULES (NEW)
+```bash
+# ✅ MANDATORY: Validate concepts before committing
+node scripts/validate-concepts-coherence.js
+
+# ✅ MANDATORY: Fix coherence if validation fails
+node scripts/fix-concepts-coherence.js
+
+# ✅ MANDATORY: Always use English (EN) as master
+# Other languages copy from EN and then translate
+
+# ❌ FORBIDDEN: Creating concept files in only some languages
+# ❌ FORBIDDEN: Different keys between languages
+# ❌ FORBIDDEN: Duplicating concepts between base and product files
+```
+
+### 5. TESTING RULES
 ```bash
 # ✅ MANDATORY: Always test after changes
 npm run dev  # ✅ MUST test server startup
 curl http://localhost:3001  # ✅ MUST test server response
 # ✅ MUST open browser and verify functionality
+
+# ✅ NEW: Test i18n changes
+# 1. Open http://localhost:3005/dashboard-bundui/projects-v2
+# 2. Test all 9 languages
+# 3. Verify no English text in other languages (except IT/KO)
 ```
 
 ## 🚨 AI COMPLIANCE VERIFICATION
@@ -98,8 +218,9 @@ curl http://localhost:3001  # ✅ MUST test server response
 1. ✅ Check if changes affect hydration-sensitive components
 2. ✅ Verify dependency versions are exact (no ^)
 3. ✅ Confirm VThinkThemeProvider is in layout
-4. ✅ Test server startup after changes
-5. ✅ Verify theme customizer functionality
+4. ✅ **NEW:** Validate i18n concepts coherence if touching translation files
+5. ✅ Test server startup after changes
+6. ✅ Verify theme customizer functionality
 
 ### IF ANY RULE IS VIOLATED:
 - ❌ **STOP IMMEDIATELY**
@@ -142,6 +263,18 @@ import { VThinkThemeProvider } from '@/shared/components/bundui-premium/componen
 </VThinkThemeProvider>
 ```
 
+### If i18n Concepts Break (NEW):
+```bash
+# ✅ IMMEDIATE FIX: Run coherence validator
+node scripts/validate-concepts-coherence.js
+
+# ✅ IMMEDIATE FIX: Auto-fix issues
+node scripts/fix-concepts-coherence.js
+
+# ✅ IMMEDIATE FIX: Validate again
+node scripts/validate-concepts-coherence.js
+```
+
 ## 📊 Stability Metrics
 
 ### ✅ Success Indicators:
@@ -150,6 +283,9 @@ import { VThinkThemeProvider } from '@/shared/components/bundui-premium/componen
 - Theme customizer opens and works
 - Server starts without errors
 - All dependencies use exact versions
+- **NEW:** i18n concepts validation passes
+- **NEW:** All 9 languages have all files
+- **NEW:** No duplicated concepts between base and product
 
 ### ❌ Failure Indicators:
 - Header loads slowly or with blur effect
@@ -157,6 +293,9 @@ import { VThinkThemeProvider } from '@/shared/components/bundui-premium/componen
 - Theme customizer doesn't open
 - Server fails to start
 - Dependencies use caret versions
+- **NEW:** i18n validation fails
+- **NEW:** Missing translation files
+- **NEW:** Different keys between languages
 
 ## 🚀 Getting Started
 
@@ -176,6 +315,9 @@ npm install
 # Validate stability rules
 npm run validate:stability
 
+# Validate i18n concepts (NEW)
+node scripts/validate-concepts-coherence.js
+
 # Start development server
 npm run dev
 ```
@@ -187,13 +329,16 @@ npm run ai:before-changes
 
 # 2. Make your changes
 
-# 3. After making changes
+# 3. If touching i18n files, validate
+node scripts/validate-concepts-coherence.js
+
+# 4. After making changes
 npm run ai:after-changes
 
-# 4. Test changes
+# 5. Test changes
 npm run ai:test-changes
 
-# 5. Safe commit
+# 6. Safe commit
 npm run ai:safe-commit "feat: your feature description"
 ```
 
@@ -202,14 +347,33 @@ npm run ai:safe-commit "feat: your feature description"
 ```
 vibethink-orchestrator-main/
 ├── apps/
-│   └── dashboard/          # Main dashboard application
-├── src/
-│   └── shared/            # Shared components and utilities
-├── AI_STABILITY_RULES.md  # ⚠️ CRITICAL: AI must read
-├── VTHINK_METHODOLOGY_LAW.md  # 🛡️ VThink Law (INQUEBRANTABLE)
-├── validate-stability-rules.js  # 🛡️ Stability validator
-├── validate-vthink-law.js  # 🛡️ VThink Law validator
-└── package.json           # AI-friendly scripts
+│   └── dashboard/                    # Main dashboard application
+│       └── src/lib/i18n/translations/ # 9 languages × 45 files
+├── packages/
+│   └── utils/
+│       └── src/i18n/terminology/     # 3-layer i18n system
+│           ├── types.ts              # CAPA 1: Semantic IDs
+│           ├── cache.ts              # CAPA 2: Cache
+│           ├── engine.ts             # CAPA 2: Resolution engine
+│           └── index.ts              # Barrel export
+├── scripts/
+│   ├── validate-concepts-coherence.js  # i18n validator
+│   ├── fix-concepts-coherence.js      # i18n auto-fixer
+│   ├── copy-missing-translation-files.js
+│   ├── sync-translations-structure.js
+│   └── check-missing-files.js
+├── docs/
+│   ├── architecture/                 # Architecture docs
+│   └── sessions/                     # Session logs
+├── AI_STABILITY_RULES.md            # ⚠️ CRITICAL: AI must read
+├── VTHINK_METHODOLOGY_LAW.md        # 🛡️ VThink Law
+├── GUIA_MANTENIMIENTO_CONCEPTOS.md  # NEW: i18n maintenance guide
+├── ARCHIVOS_DISABLED_ARREGLADOS.md  # NEW: Technical fixes report
+├── VALIDACION_FINAL_3_CAPAS.md      # NEW: Final validation
+├── REPORTE_PRODUCT_OWNER_2025-12-26.md  # NEW: PO report
+├── EXPLICACION_PARA_ADOLESCENTE.md  # NEW: Simple explanation
+├── INSTRUCCIONES_Z_AI.md            # NEW: Z.Ai instructions
+└── package.json                     # AI-friendly scripts
 ```
 
 ## 🛡️ VTHINK METHODOLOGY LAW - INQUEBRANTABLE
@@ -231,12 +395,14 @@ vibethink-orchestrator-main/
 - **Pre-commit hooks**: Automatically validate stability rules
 - **AI scripts**: Safe commands for AI development
 - **Recovery procedures**: Automatic recovery from issues
+- **NEW: i18n validation**: Automatic coherence checking
 
 ### Validation Commands
 ```bash
-npm run validate:stability  # Full stability check
-npm run validate:vtk        # VThink-specific validation
-npm run ai:stability-check  # Quick stability check
+npm run validate:stability         # Full stability check
+npm run validate:vtk               # VThink-specific validation
+npm run ai:stability-check         # Quick stability check
+node scripts/validate-concepts-coherence.js  # i18n concepts check
 ```
 
 ## 🚨 Emergency Contacts
@@ -275,11 +441,14 @@ npm run ai:stability-check  # Quick stability check
 # Validate dependency state
 npm run validate:npm-install
 
-# Fix duplications automatically  
+# Fix duplications automatically
 npm run fix:npm-duplications
 
 # Complete validation
 npm run validate:universal
+
+# NEW: Validate i18n concepts
+node scripts/validate-concepts-coherence.js
 ```
 
 ### **📊 Decision Table**
@@ -291,9 +460,10 @@ npm run validate:universal
 
 ### **🔴 CRITICAL RULES**
 1. **NEVER DUPLICATE**: Core dependencies must only exist in root
-2. **EXACT VERSIONS**: No caret (^) versions for core apps  
+2. **EXACT VERSIONS**: No caret (^) versions for core apps
 3. **MARKETING EXCEPTION**: Website can use React 19 and caret versions
 4. **VALIDATION REQUIRED**: Always run `validate:npm-install` before commits
+5. **NEW: i18n COHERENCE**: Always validate concepts before committing translation changes
 
 ### **❌ ANTI-PATTERNS**
 ```bash
@@ -301,10 +471,17 @@ npm run validate:universal
 cd apps/dashboard && npm install react typescript
 
 # ❌ FORBIDDEN: Using caret versions (except website)
-"react": "^18.3.1"  
+"react": "^18.3.1"
 
 # ❌ FORBIDDEN: Bypassing validation
 git commit -m "changes" # Without running validate:universal
+
+# ❌ FORBIDDEN: Creating concept files in some languages only
+touch apps/dashboard/src/lib/i18n/translations/es/concept-restaurant.json
+# (Must create in all 9 languages)
+
+# ❌ FORBIDDEN: Different keys between languages
+# EN has "concept.booking.action.reserve" but ES doesn't
 ```
 
 ### **✅ CORRECT PATTERNS**
@@ -317,18 +494,31 @@ cd apps/dashboard && npm install @fullcalendar/react
 
 # ✅ CORRECT: Validate before committing
 npm run validate:universal && git commit
+
+# ✅ CORRECT: Create concept file in all languages
+touch apps/dashboard/src/lib/i18n/translations/en/concept-restaurant.json
+for locale in es fr pt de it ko ar zh; do
+  cp apps/dashboard/src/lib/i18n/translations/en/concept-restaurant.json \
+     apps/dashboard/src/lib/i18n/translations/$locale/
+done
+node scripts/validate-concepts-coherence.js
 ```
 
 ### **🔧 ERROR CORRECTION**
 ```bash
 # 1. Detect issues
 npm run validate:npm-install
+node scripts/validate-concepts-coherence.js
 
 # 2. Fix automatically (recommended)
 npm run fix:npm-duplications
+node scripts/fix-concepts-coherence.js
 
 # 3. Verify fix
 npm run validate:npm-install
+node scripts/validate-concepts-coherence.js
 ```
 
-**📖 For complete rules, examples, and troubleshooting**: [NPM_MONOREPO_RULES.md](./NPM_MONOREPO_RULES.md)
+**📖 For complete rules, examples, and troubleshooting**:
+- [NPM_MONOREPO_RULES.md](./NPM_MONOREPO_RULES.md)
+- [GUIA_MANTENIMIENTO_CONCEPTOS.md](./GUIA_MANTENIMIENTO_CONCEPTOS.md) (NEW)

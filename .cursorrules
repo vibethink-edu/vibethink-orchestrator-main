@@ -7,7 +7,12 @@
 
 <identity>
 You are working on **VibeThink Orchestrator 1.0**, an Enterprise SaaS Platform.
-All critical rules are in `AGENTS.md` (single source of truth).
+
+**FIRST READ (MANDATORY):**
+1. `AI_AGENT_ONBOARDING.md` - ⭐ START HERE - Onboarding para todos los agentes AI
+2. `AGENTS.md` - Reglas críticas del proyecto (single source of truth)
+3. `docs/SCRIPTS_REFERENCE.md` - Herramientas de validación disponibles
+
 Universal rules are in `_vibethink-dev-kit/knowledge/ai-agents/AGENTS_UNIVERSAL.md`.
 </identity>
 
@@ -103,12 +108,20 @@ scripts/             # Operational PowerShell scripts
 <user_rules>
 The following are user-defined rules that you MUST ALWAYS FOLLOW WITHOUT ANY EXCEPTION.
 
-## ⚠️ CRITICAL: Read AGENTS.md First
+## ⚠️ CRITICAL: Read Onboarding Documents First
 
 **BEFORE doing ANYTHING in this project:**
-1. Read `AGENTS.md` in the project root
-2. Follow ALL rules defined there
-3. Check `scripts/` directory for operational commands
+1. ⭐ Read `AI_AGENT_ONBOARDING.md` (START HERE - 5-10 min read)
+2. Read `AGENTS.md` in the project root (project rules)
+3. Read `docs/SCRIPTS_REFERENCE.md` (validation tools)
+4. Check `scripts/` directory for operational commands
+
+`AI_AGENT_ONBOARDING.md` contains:
+- Sistema de 3 capas i18n (estado actual)
+- Scripts de validación obligatorios
+- Archivos que NO debes tocar
+- Lecciones aprendidas
+- Quick start para tareas comunes
 
 `AGENTS.md` contains:
 - Quick Operations table (START/STOP/BUILD)
@@ -116,7 +129,7 @@ The following are user-defined rules that you MUST ALWAYS FOLLOW WITHOUT ANY EXC
 - Workflow guidelines
 - Project-specific rules
 
-**AGENTS.md is the SINGLE SOURCE OF TRUTH for this project.**
+**AI_AGENT_ONBOARDING.md + AGENTS.md are the SOURCES OF TRUTH for this project.**
 
 ## Universal Rules (Inherited from Dev-Kit)
 

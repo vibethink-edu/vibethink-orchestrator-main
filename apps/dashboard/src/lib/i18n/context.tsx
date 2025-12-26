@@ -86,6 +86,14 @@ export function I18nProvider({
   // Registrar TranslationLoader al montar
   useEffect(() => {
     registerDashboardTranslationLoader();
+
+    // CAPA 2: Registrar el loader para el Terminology Engine
+    // Nota: En el cliente, esto solo loguea. El loader real se usa solo en RSC (servidor).
+    import('./translation-loader-client').then(({ registerDashboardTranslationLoaderForTerminology }) => {
+      registerDashboardTranslationLoaderForTerminology();
+    }).catch((error) => {
+      console.error('[I18nProvider] Failed to register terminology loader:', error);
+    });
   }, []);
 
   // Initialize locale store immediately to prevent "Locale store not found" warnings
@@ -109,17 +117,17 @@ export function I18nProvider({
       // Check if already loaded
       const localeStore = translationStore.get(locale)!;
       if (localeStore.has(namespace)) {
-        console.log(`[i18n] Namespace '${namespace}' already loaded for locale '${locale}'`);
+        // Cache hit - no log to avoid spam
         return localeStore.get(namespace)!;
       }
 
-      console.log(`[i18n] Loading namespace '${namespace}' for locale '${locale}'...`);
+      console.log(`[i18n] ⬇️ Loading namespace '${namespace}' for locale '${locale}'...`);
       // Load translation
       const translation = await loadTranslation(locale, namespace);
 
       // Store in cache
       localeStore.set(namespace, translation);
-      console.log(`[i18n] Namespace '${namespace}' stored for locale '${locale}'`);
+      console.log(`[i18n] ✅ Namespace '${namespace}' cached for locale '${locale}'`);
 
       return translation;
     },
@@ -147,7 +155,8 @@ export function I18nProvider({
     };
 
     init();
-  }, [locale, preloadNamespaces, loadNamespace]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [locale]); // Only re-run when locale changes, not when preloadNamespaces array reference changes
 
   /**
    * Translation function

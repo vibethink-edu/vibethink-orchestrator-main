@@ -38,24 +38,21 @@ export async function loadTranslation(
     console.log(`[i18n] Loading translation: ${locale}/${namespace}`);
     // Dynamic import with error handling
     const translation = await import(
+      /* webpackMode: "eager" */
       `./translations/${locale}/${namespace}.json`
     );
 
     const translations = translation.default || translation;
-    
+
     // Extract namespace content if JSON has namespace as root key
     // JSON structure: { "hotel": { ... } } -> extract { ... }
     let namespaceContent: TranslationDictionary;
     if (translations[namespace] && typeof translations[namespace] === 'object') {
       namespaceContent = translations[namespace] as TranslationDictionary;
-      console.log(`[i18n] Successfully loaded ${locale}/${namespace}: extracted namespace content`);
     } else {
       // If no namespace wrapper, use translations directly
       namespaceContent = translations as TranslationDictionary;
-      console.log(`[i18n] Successfully loaded ${locale}/${namespace}: using direct content`);
     }
-    
-    console.log(`[i18n] Namespace keys:`, Object.keys(namespaceContent).slice(0, 5));
     
     // Cache the translation
     translationCache.set(cacheKey, namespaceContent);
@@ -63,12 +60,14 @@ export async function loadTranslation(
     return namespaceContent;
   } catch (error) {
     console.error(
-      `[i18n] Failed to load translation for ${locale}/${namespace}:`,
-      error
+      `[i18n] ❌ Failed to load translation for ${locale}/${namespace}:`,
+      error instanceof Error ? error.message : error
     );
+    console.error(`[i18n] Attempted path: ./translations/${locale}/${namespace}.json`);
 
     // Fallback to English if available
     if (locale !== 'en') {
+      console.log(`[i18n] Attempting fallback to English for namespace: ${namespace}`);
       try {
         const fallback = await import(
           `./translations/en/${namespace}.json`
