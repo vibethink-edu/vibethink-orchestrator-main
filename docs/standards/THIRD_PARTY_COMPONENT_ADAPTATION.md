@@ -1,124 +1,105 @@
-# Third-Party Component Adaptation Protocol
+# Third-Party Component i18n Adaptation Guide
 
-**Version:** 1.0.0  
-**Status:** ✅ MANDATORY  
-**Effective Date:** 2025-12-23  
-**Authority:** CTO - Marcelo Escallón
+**Version:** 2.0.0  
+**Last Updated:** 2025-12-25  
+**Status:** ✅ ACTIVE - Part of Third-Party Component Management System
+
+---
+
+## 📌 Document Scope
+
+This document focuses **exclusively on i18n (internationalization) adaptation** of third-party components for VibeThink's 9-language support.
+
+**For complete third-party component management, see:**
+- `docs/architecture/THIRD_PARTY_COMPONENTS_POLICY.md` - Overall policy & workflow
+- `docs/architecture/THIRD_PARTY_ONBOARDING_QA.md` - Component validation checklist
+- `docs/architecture/REACT_VERSION_STRATEGY.md` - React version compatibility
 
 ---
 
 ## 🎯 Purpose
 
-This protocol defines the **mandatory process** for adapting third-party components (shadcn/ui, bundui, Radix UI, etc.) to our **multilingual stack** with 7-language support.
+Define the **mandatory i18n adaptation process** for third-party components to ensure they work seamlessly across all 9 VibeThink languages:
+- English (en)
+- Spanish (es)
+- Arabic (ar)
+- Chinese (zh)
+- French (fr)
+- Portuguese (pt)
+- German (de)
+- Japanese (ja)
+- Hindi (hi)
 
 ---
 
-## 📋 Scope
+## 🔄 i18n Adaptation Workflow
 
-**Applies to:**
-- All third-party UI components
-- All third-party libraries with user-facing text
-- All external templates and themes
-- All open-source components integrated into the codebase
+### Phase 1: Text Audit
 
-**Examples:**
-- shadcn/ui components
-- bundui premium components
-- Radix UI primitives
-- React Hook Form
-- Date pickers, calendars
-- Chart libraries
-- Table components
+**Identify all user-facing text:**
 
----
+```bash
+# Scan component for hardcoded strings
+grep -rn '"[A-Za-z]' component-directory/ | grep -v 'className\|import'
+```
 
-## 🔄 Adaptation Workflow
-
-### Phase 1: Assessment
-
-**Before integrating any third-party component:**
-
-1. **Identify all hardcoded strings**
-   ```bash
-   # Scan component for hardcoded text
-   grep -r "\"[A-Za-z]" component-directory/
-   ```
-
-2. **Document all text elements**
-   - Button labels
-   - Placeholder text
-   - Error messages
-   - Tooltips
-   - Aria labels
-   - Alt text
-
-3. **Check for locale dependencies**
-   - Date formatting
-   - Number formatting
-   - Currency display
-   - Time zones
-
-4. **Assess RTL compatibility**
-   - CSS properties (left/right vs inline-start/end)
-   - Layout direction
-   - Icon positioning
+**Document:**
+- Button labels
+- Placeholder text
+- Error/success messages
+- Tooltips & aria-labels
+- Alt text
+- Status messages
 
 ---
 
 ### Phase 2: Translation Extraction
 
-**Create translation keys for ALL text:**
+**Create namespace files for all 9 languages:**
 
-1. **Create namespace file**
-   ```
-   translations/
-   ├── en/
-   │   └── component-name.json
-   ├── es/
-   │   └── component-name.json
-   └── (ar, zh, fr, pt, de)/
-       └── component-name.json
-   ```
+```
+apps/dashboard/src/lib/i18n/translations/
+├── en/component-name.json
+├── es/component-name.json
+├── ar/component-name.json
+├── zh/component-name.json
+├── fr/component-name.json
+├── pt/component-name.json
+├── de/component-name.json
+├── ja/component-name.json
+└── hi/component-name.json
+```
 
-2. **Extract all strings**
-   ```json
-   // en/calendar.json
-   {
-     "months": {
-       "january": "January",
-       "february": "February",
-       // ... all months
-     },
-     "days": {
-       "monday": "Monday",
-       "tuesday": "Tuesday",
-       // ... all days
-     },
-     "actions": {
-       "today": "Today",
-       "clear": "Clear",
-       "cancel": "Cancel",
-       "apply": "Apply"
-     }
-   }
-   ```
-
-3. **Generate translations for all 7 languages**
-   - Use AI for initial translation
-   - Review for accuracy
-   - Test in UI
+**Example structure:**
+```json
+{
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+  "labels": {
+    "name": "Name",
+    "email": "Email"
+  },
+  "messages": {
+    "success": "Operation completed successfully",
+    "error": "An error occurred"
+  }
+}
+```
 
 ---
 
-### Phase 3: Component Wrapping
+### Phase 3: Component Wrapping (Preferred Method)
 
-**Create a multilingual wrapper:**
+**Create i18n wrapper:**
 
 ```typescript
 // components/ui/calendar-i18n.tsx
 'use client';
 
-import { Calendar as ShadcnCalendar } from '@/components/ui/calendar';
+import { Calendar as OriginalCalendar } from '@/components/ui/calendar';
 import { useTranslation } from '@/lib/i18n';
 import type { CalendarProps } from '@/components/ui/calendar';
 
@@ -126,13 +107,12 @@ export function Calendar(props: CalendarProps) {
   const { t } = useTranslation('calendar');
   
   return (
-    <ShadcnCalendar
+    <OriginalCalendar
       {...props}
-      locale={getLocaleForCalendar(locale)}
       labels={{
         today: t('actions.today'),
         clear: t('actions.clear'),
-        // ... all labels
+        apply: t('actions.apply')
       }}
     />
   );
@@ -143,311 +123,232 @@ export function Calendar(props: CalendarProps) {
 - ✅ Original component untouched (easy updates)
 - ✅ Centralized i18n logic
 - ✅ Type-safe
-- ✅ Reusable
+- ✅ Reusable across app
 
 ---
 
-### Phase 4: Patch Strategy
+### Phase 4: RTL Support (Arabic)
 
-**For components that can't be wrapped:**
+**Ensure RTL compatibility:**
 
-1. **Create patch file**
-   ```bash
-   # patches/shadcn-calendar+1.0.0.patch
-   diff --git a/node_modules/shadcn-calendar/index.tsx
-   --- a/node_modules/shadcn-calendar/index.tsx
-   +++ b/node_modules/shadcn-calendar/index.tsx
-   @@ -10,7 +10,7 @@
-   -  <button>Today</button>
-   +  <button>{props.labels?.today || 'Today'}</button>
-   ```
-
-2. **Use patch-package**
-   ```bash
-   npm install patch-package --save-dev
-   npx patch-package shadcn-calendar
-   ```
-
-3. **Add to package.json**
-   ```json
-   {
-     "scripts": {
-       "postinstall": "patch-package"
-     }
-   }
-   ```
-
----
-
-### Phase 5: Testing
-
-**Mandatory tests for each component:**
-
-1. **Visual test in all 7 languages**
-   ```typescript
-   // __tests__/calendar.i18n.test.tsx
-   describe('Calendar i18n', () => {
-     AVAILABLE_LOCALES.forEach(locale => {
-       it(`renders correctly in ${locale}`, () => {
-         render(<Calendar />, { locale });
-         expect(screen.getByText(translations[locale].today)).toBeInTheDocument();
-       });
-     });
-   });
-   ```
-
-2. **RTL layout test (Arabic)**
-   ```typescript
-   it('renders RTL correctly for Arabic', () => {
-     render(<Calendar />, { locale: 'ar' });
-     expect(document.documentElement).toHaveAttribute('dir', 'rtl');
-   });
-   ```
-
-3. **Locale formatting test**
-   ```typescript
-   it('formats dates according to locale', () => {
-     const { rerender } = render(<Calendar date={new Date('2025-12-23')} />, { locale: 'en' });
-     expect(screen.getByText('12/23/2025')).toBeInTheDocument();
-     
-     rerender(<Calendar date={new Date('2025-12-23')} />, { locale: 'es' });
-     expect(screen.getByText('23/12/2025')).toBeInTheDocument();
-   });
-   ```
-
----
-
-## 📝 Documentation Requirements
-
-**For each adapted component, create:**
-
-1. **Adaptation Guide**
-   ```markdown
-   # Calendar Component - i18n Adaptation
-   
-   ## Original Source
-   - Package: shadcn/ui
-   - Version: 1.0.0
-   - Original file: components/ui/calendar.tsx
-   
-   ## Changes Made
-   - Created wrapper: components/ui/calendar-i18n.tsx
-   - Added translations: translations/*/calendar.json
-   - Tested in: All 7 languages
-   
-   ## Usage
-   ```tsx
-   import { Calendar } from '@/components/ui/calendar-i18n';
-   ```
-   
-   ## Maintenance
-   - Update wrapper when upgrading shadcn/ui
-   - Re-test all languages after updates
-   ```
-
-2. **Migration Notes**
-   - Document breaking changes
-   - List deprecated props
-   - Provide migration examples
-
----
-
-## 🚫 Anti-Patterns to Avoid
-
-### ❌ DON'T: Modify third-party source directly
-
-```typescript
-// ❌ WRONG: Editing node_modules/component/index.tsx
-export function Component() {
-  return <button>Save</button>; // Hardcoded!
-}
-```
-
-### ✅ DO: Create wrapper or patch
-
-```typescript
-// ✅ CORRECT: Wrapper
-export function Component(props) {
-  const { t } = useTranslation('component');
-  return <OriginalComponent label={t('save')} {...props} />;
-}
-```
-
----
-
-### ❌ DON'T: Use component-specific i18n
-
-```typescript
-// ❌ WRONG: Component has its own i18n system
-import { useComponentI18n } from 'third-party-lib';
-
-export function Component() {
-  const t = useComponentI18n(); // Different from our system!
-  return <div>{t('label')}</div>;
-}
-```
-
-### ✅ DO: Integrate with our i18n system
-
-```typescript
-// ✅ CORRECT: Use our unified system
-import { useTranslation } from '@/lib/i18n';
-
-export function Component() {
-  const { t } = useTranslation('component');
-  return <div>{t('label')}</div>;
-}
-```
-
----
-
-## 📊 Adaptation Checklist
-
-**Before marking component as "adapted":**
-
-- [ ] All hardcoded strings identified
-- [ ] Translation files created for all 7 languages
-- [ ] Wrapper or patch implemented
-- [ ] Component tested in all 7 languages
-- [ ] RTL layout tested (Arabic)
-- [ ] Date/number formatting verified
-- [ ] Documentation created
-- [ ] Migration guide written
-- [ ] Tests passing
-- [ ] Code review completed
-
----
-
-## 🔧 Tools and Scripts
-
-### Detection Script
-
-```bash
-# scripts/detect-third-party-hardcoded.sh
-#!/bin/bash
-
-# Scan third-party components for hardcoded strings
-find node_modules/@shadcn -name "*.tsx" -o -name "*.ts" | \
-  xargs grep -n "\"[A-Z][a-z]" | \
-  grep -v "className" | \
-  grep -v "import"
-```
-
-### Wrapper Generator
-
-```bash
-# scripts/generate-i18n-wrapper.sh
-#!/bin/bash
-
-COMPONENT_NAME=$1
-NAMESPACE=$2
-
-cat > "components/ui/${COMPONENT_NAME}-i18n.tsx" << EOF
-'use client';
-
-import { ${COMPONENT_NAME} as Original${COMPONENT_NAME} } from '@/components/ui/${COMPONENT_NAME}';
-import { useTranslation } from '@/lib/i18n';
-
-export function ${COMPONENT_NAME}(props) {
-  const { t } = useTranslation('${NAMESPACE}');
-  
-  return (
-    <Original${COMPONENT_NAME}
-      {...props}
-      // Add i18n props here
-    />
-  );
-}
-EOF
-```
-
----
-
-## 🎯 Priority Components
-
-**High Priority (Adapt First):**
-1. Form components (inputs, selects, buttons)
-2. Date/time pickers
-3. Modals and dialogs
-4. Tables and data grids
-5. Navigation components
-
-**Medium Priority:**
-6. Charts and graphs
-7. File uploaders
-8. Rich text editors
-9. Search components
-10. Pagination
-
-**Low Priority:**
-11. Icons (usually no text)
-12. Layout components
-13. Utility components
-
----
-
-## 📚 Examples
-
-### Example 1: Button Component
-
-**Original (shadcn/ui):**
-```typescript
-// components/ui/button.tsx
-export function Button({ children, ...props }) {
-  return <button {...props}>{children}</button>;
-}
-```
-
-**Adapted:**
-```typescript
-// components/ui/button-i18n.tsx
-export function Button({ labelKey, children, ...props }) {
-  const { t } = useTranslation('common');
-  
-  return (
-    <OriginalButton {...props}>
-      {labelKey ? t(labelKey) : children}
-    </OriginalButton>
-  );
-}
-
-// Usage
-<Button labelKey="actions.save" />
-// Instead of: <Button>Save</Button>
-```
-
----
-
-### Example 2: Date Picker
-
-**Original (react-datepicker):**
-```typescript
-import DatePicker from 'react-datepicker';
-
-<DatePicker
-  selected={date}
-  onChange={setDate}
-  // Hardcoded locale!
-/>
-```
-
-**Adapted:**
 ```typescript
 import { useI18n } from '@/lib/i18n';
-import { getDatePickerLocale } from '@/lib/i18n/locale-config';
 
-export function DatePickerI18n(props) {
-  const { locale } = useI18n();
-  const { t } = useTranslation('datepicker');
+export function ComponentI18n(props) {
+  const { locale, dir } = useI18n();
+  const { t } = useTranslation('component');
   
   return (
-    <DatePicker
+    <div dir={dir} className={dir === 'rtl' ? 'rtl-specific-styles' : ''}>
+      <OriginalComponent
+        {...props}
+        labels={/* translated labels */}
+      />
+    </div>
+  );
+}
+```
+
+**CSS considerations:**
+```css
+/* Use logical properties for RTL */
+.component {
+  margin-inline-start: 1rem; /* Instead of margin-left */
+  padding-inline-end: 0.5rem; /* Instead of padding-right */
+}
+```
+
+---
+
+### Phase 5: Locale-Specific Formatting
+
+**Date/Time formatting:**
+```typescript
+import { format } from 'date-fns';
+import { getDateFnsLocale } from '@/lib/i18n/locale-config';
+
+export function DateDisplay({ date }: { date: Date }) {
+  const { locale } = useI18n();
+  
+  return (
+    <span>
+      {format(date, 'PPP', { locale: getDateFnsLocale(locale) })}
+    </span>
+  );
+}
+```
+
+**Number/Currency formatting:**
+```typescript
+export function PriceDisplay({ amount }: { amount: number }) {
+  const { locale } = useI18n();
+  
+  return (
+    <span>
+      {new Intl.NumberFormat(locale, {
+        style: 'currency',
+        currency: 'USD'
+      }).format(amount)}
+    </span>
+  );
+}
+```
+
+---
+
+## 🧪 Testing Requirements
+
+### Mandatory i18n Tests
+
+```typescript
+// __tests__/component.i18n.test.tsx
+import { render, screen } from '@testing-library/react';
+import { AVAILABLE_LOCALES } from '@/lib/i18n/config';
+
+describe('Component i18n', () => {
+  AVAILABLE_LOCALES.forEach(locale => {
+    it(`renders correctly in ${locale}`, () => {
+      render(<Component />, { wrapper: createI18nWrapper(locale) });
+      // Verify translated text appears
+    });
+  });
+  
+  it('renders RTL correctly for Arabic', () => {
+    render(<Component />, { wrapper: createI18nWrapper('ar') });
+    expect(document.documentElement).toHaveAttribute('dir', 'rtl');
+  });
+});
+```
+
+---
+
+## 📊 i18n Adaptation Checklist
+
+**Before marking component as i18n-ready:**
+
+- [ ] All hardcoded strings extracted
+- [ ] Translation files created for all 9 languages
+- [ ] Wrapper component created
+- [ ] Component tested in all 9 languages
+- [ ] RTL layout tested (Arabic)
+- [ ] Date/number formatting verified for all locales
+- [ ] Accessibility (aria-labels) translated
+- [ ] Documentation updated
+
+---
+
+## 🚫 Common i18n Anti-Patterns
+
+### ❌ DON'T: Hardcode text in components
+
+```typescript
+// ❌ WRONG
+export function Button() {
+  return <button>Save</button>;
+}
+```
+
+### ✅ DO: Use translation keys
+
+```typescript
+// ✅ CORRECT
+export function Button() {
+  const { t } = useTranslation('common');
+  return <button>{t('actions.save')}</button>;
+}
+```
+
+---
+
+### ❌ DON'T: Use component-specific i18n libraries
+
+```typescript
+// ❌ WRONG: Different i18n system
+import { useComponentI18n } from 'third-party-lib';
+```
+
+### ✅ DO: Use VibeThink's unified i18n
+
+```typescript
+// ✅ CORRECT: Our system
+import { useTranslation } from '@/lib/i18n';
+```
+
+---
+
+### ❌ DON'T: Concatenate translated strings
+
+```typescript
+// ❌ WRONG: Breaks in some languages
+const message = t('hello') + ' ' + userName + '!';
+```
+
+### ✅ DO: Use interpolation
+
+```typescript
+// ✅ CORRECT: Proper interpolation
+const message = t('greeting', { name: userName });
+// Translation: "Hello {{name}}!"
+```
+
+---
+
+## 🔧 i18n Tools & Scripts
+
+### Hardcoded Text Detector
+
+```bash
+# scripts/detect-hardcoded-text.sh
+#!/bin/bash
+find apps/dashboard -name "*.tsx" -o -name "*.ts" | \
+  xargs grep -n '"[A-Z][a-z]' | \
+  grep -v 'className\|import\|type\|interface' | \
+  grep -v 'node_modules'
+```
+
+### Translation Completeness Checker
+
+```bash
+# scripts/check-translation-completeness.sh
+#!/bin/bash
+# Verify all 9 languages have same keys
+node scripts/validate-9-language-compliance.js
+```
+
+---
+
+## 📚 Real-World Examples
+
+### Example: Form Component
+
+```typescript
+// components/forms/contact-form-i18n.tsx
+'use client';
+
+import { useTranslation } from '@/lib/i18n';
+import { ContactForm as OriginalForm } from './contact-form';
+
+export function ContactForm(props) {
+  const { t } = useTranslation('forms');
+  
+  return (
+    <OriginalForm
       {...props}
-      locale={getDatePickerLocale(locale)}
-      dateFormat={getDateFormat(locale)}
-      placeholderText={t('placeholder')}
-      todayButton={t('today')}
-      clearButtonTitle={t('clear')}
+      labels={{
+        name: t('fields.name'),
+        email: t('fields.email'),
+        message: t('fields.message'),
+        submit: t('actions.submit')
+      }}
+      placeholders={{
+        name: t('placeholders.name'),
+        email: t('placeholders.email'),
+        message: t('placeholders.message')
+      }}
+      validation={{
+        required: t('validation.required'),
+        invalidEmail: t('validation.invalidEmail')
+      }}
     />
   );
 }
@@ -457,25 +358,30 @@ export function DatePickerI18n(props) {
 
 ## ⚖️ Enforcement
 
-**This protocol is MANDATORY for:**
-- All new third-party integrations
-- All existing components (gradual migration)
-- All updates to third-party libraries
+**This i18n adaptation is MANDATORY for:**
+- All third-party components with user-facing text
+- All form components
+- All navigation components
+- All data display components
 
 **Non-Compliance:**
-- ❌ PR rejected
+- ❌ PR will be rejected
 - ❌ Component cannot be used in production
 - ❌ Must be refactored before merge
 
 ---
 
-## ✅ Approval
+## 📞 Questions?
 
-**Approved by:** Marcelo Escallón (CTO)  
-**Date:** 2025-12-23  
-**Status:** MANDATORY for all development  
-**Version:** 1.0.0
+**For i18n-specific questions:**
+- Review `docs/architecture/I18N_AI_FIRST_COMPLETE_GUIDE.md`
+- Check `docs/i18n-guide.md`
+
+**For general third-party component questions:**
+- Review `docs/architecture/THIRD_PARTY_COMPONENTS_POLICY.md`
 
 ---
 
-**Questions or exceptions require CTO approval.**
+**Last Updated:** 2025-12-25  
+**Maintained by:** VibeThink Architecture Team  
+**Version:** 2.0.0
