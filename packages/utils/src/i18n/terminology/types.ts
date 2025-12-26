@@ -105,6 +105,9 @@ export type TenantId = string;
  * - concept.crm.entity.deal (Oportunidad/Lead/Proyecto según producto)
  * - concept.booking.time.checkin (Check-in)
  * - concept.booking.time.checkout (Check-out)
+ * - concept.booking.unit.hour (hora/horas)
+ * - concept.booking.unit.day (día/días)
+ * - concept.booking.unit.night (noche/noches)
  */
 export type ConceptID = string;
 
@@ -116,13 +119,18 @@ export type BookingConcept =
   | 'concept.booking.resource.room'
   | 'concept.booking.resource.space'
   | 'concept.booking.resource.workstation'
+  | 'concept.booking.resource.area'
   // Acciones (verbos)
   | 'concept.booking.action.reserve'
   | 'concept.booking.action.cancel'
   | 'concept.booking.action.modify'
+  | 'concept.booking.action.confirm'
   // Tiempos
   | 'concept.booking.time.checkin'
   | 'concept.booking.time.checkout'
+  | 'concept.booking.time.duration'
+  | 'concept.booking.time.startTime'
+  | 'concept.booking.time.endTime'
   // Unidades (con soporte de plural)
   | 'concept.booking.unit.hour'
   | 'concept.booking.unit.day'
@@ -130,7 +138,8 @@ export type BookingConcept =
   // Estados
   | 'concept.booking.status.confirmed'
   | 'concept.booking.status.pending'
-  | 'concept.booking.status.cancelled';
+  | 'concept.booking.status.cancelled'
+  | 'concept.booking.status.completed';
 
 /**
  * Concept IDs específicos para dominio CRM
@@ -141,10 +150,17 @@ export type CRMConcept =
   | 'concept.crm.entity.lead'
   | 'concept.crm.entity.contact'
   | 'concept.crm.entity.company'
+  | 'concept.crm.entity.opportunity'
   // Acciones
   | 'concept.crm.action.create'
   | 'concept.crm.action.update'
-  | 'concept.crm.action.delete';
+  | 'concept.crm.action.delete'
+  | 'concept.crm.action.archive'
+  // Estados
+  | 'concept.crm.status.new'
+  | 'concept.crm.status.inProgress'
+  | 'concept.crm.status.won'
+  | 'concept.crm.status.lost';
 
 /**
  * Union de todos los concept IDs
@@ -180,10 +196,16 @@ export interface TerminologyContext {
   domainContext?: DomainContext;
 
   /**
-   * Contexto de workspace (opcional)
+   * Contexto de espacio de trabajo (opcional)
    * Para futuro multi-tenant avanzado con workspaces
    */
   workspaceContext?: WorkspaceContext;
+
+  /**
+   * Contexto de industria (opcional)
+   * Para futuro verticalización
+   */
+  industryContext?: IndustryContext;
 
   /**
    * ID de inquilino (opcional)
@@ -241,9 +263,14 @@ export interface AgentContext extends TerminologyContext {
   domainContext?: DomainContext;
 
   /**
-   * Contexto de workspace (opcional)
+   * Contexto de espacio de trabajo (opcional)
    */
   workspaceContext?: WorkspaceContext;
+
+  /**
+   * Contexto de industria (opcional)
+   */
+  industryContext?: IndustryContext;
 
   /**
    * Zona horaria (opcional para AI)
@@ -439,7 +466,7 @@ export function isValidTerminologyContext(context: TerminologyContext): boolean 
 }
 
 /**
- * Helpers de construcción de contextos
+ * Helpers de construcción de contexto
  */
 
 /**
@@ -458,7 +485,7 @@ export function createUIContext(
 /**
  * Crea un contexto de AI con valores por defecto
  * 
- * NOTA: locale, productContext y tenantId son OBLIGATORIOS
+ * NOTA: locale, productContext y tenantId son OBLIGATORIOS.
  * Esto lanza un error si no se proveen.
  */
 export function createAgentContext(
@@ -466,6 +493,16 @@ export function createAgentContext(
   productContext: ProductContext,
   tenantId: TenantId
 ): AgentContext {
+  if (!isValidLocale(locale)) {
+    throw new Error(`Invalid locale: ${locale}`);
+  }
+  if (!isValidProductContext(productContext)) {
+    throw new Error(`Invalid productContext: ${productContext}`);
+  }
+  if (!tenantId) {
+    throw new Error(`tenantId is required for AI agents`);
+  }
+  
   return {
     locale,
     productContext,
@@ -481,6 +518,7 @@ export function createAgentContext(
  * Obtiene el namespace base para un product context
  * 
  * Ejemplo: hotel → concept-hotel
+ * Ejemplo: studio → concept-studio
  */
 export function getNamespaceForProduct(
   productContext: ProductContext
@@ -509,7 +547,45 @@ export const CONCEPT_FILES_PATH = 'src/lib/i18n/translations';
  * Patrón de filenames para concept files
  * 
  * Formato: concept[-{product}].json
+ * Ejemplos:
+ * - concept.json (sin producto)
+ * - concept-hotel.json (con producto)
+ * - concept-studio.json (con producto)
  */
 export const CONCEPT_FILE_PATTERN = (productContext?: ProductContext) => 
   productContext ? `concept-${productContext}.json` : 'concept.json';
 
+/**
+ * Exporta la metadata del módulo como utilidad
+ */
+export const TERMINOLOGY_MODULE_INFO = {
+  name: '@vibethink/utils/i18n/terminology',
+  version: '2.0.0',
+  description: 'Sistema de 3 capas para i18n: Semantic IDs, Terminology Engine, UI Strings',
+  layers: {
+    'layer1': 'Semantic IDs (Conceptos inmutables)',
+    'layer2': 'Terminology Engine (Resolución de conceptos)',
+    'layer3': 'UI Strings (Traducciones de frases completas)',
+  },
+  features: [
+    'Context-aware overrides (producto, dominio, workspace, tenant)',
+    'Multi-locale support (9 idiomas oficiales)',
+    'Cache en memoria para performance',
+    'Snapshot/hydration pattern para Next.js App Router',
+    'Async para AI agents, Sync para UI components',
+    'Fallback automático a inglés',
+  ],
+  documentation: {
+    architecture: 'docs/architecture/I18N_3_LAYERS_ARCHITECTURE.md',
+    aiFirst: 'docs/architecture/I18N_AI_FIRST_COMPLETE_GUIDE.md',
+    bestPractices: 'docs/architecture/I18N_BEST_PRACTICES_AGENTS.md',
+    validation: 'docs/architecture/I18N_9_LANGUAGE_COMPLIANCE_PROTOCOL.md',
+  },
+} as const;
+
+/**
+ * Exporta la metadata como utilidad
+ */
+export function getTerminologyModuleInfo() {
+  return TERMINOLOGY_MODULE_INFO;
+}

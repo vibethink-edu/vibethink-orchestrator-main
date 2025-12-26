@@ -17,11 +17,11 @@ import {
   ConceptObject,
   TerminologyContext,
   AgentContext,
-  UIContext,
   ConceptNamespace,
   getNamespaceForProduct,
   isProductNamespace,
   isValidTerminologyContext,
+  buildCacheKey,
 } from './types';
 
 import { 
@@ -35,6 +35,7 @@ import {
   getFromCache,
   setInCache,
   clearTerminologyCache,
+  clearTerminologyCacheFor,
   getCacheStats,
 } from './cache';
 
@@ -88,15 +89,19 @@ async function resolveWithFallback(
  * 
  * Orden de precedencia de overrides:
  * 1. base (concept.json)
- * 2. productContext (concept-hotel.json, concept-studio.json, etc.)
+ * 2. productContext (concept-hotel.json, concept-studio.json)
  * 3. domainContext (futuro: concept-booking.json)
  * 4. tenantId (overrides en memoria, futura BD)
+ * 
+ * @param baseValue - El valor desde el archivo base
+ * @param context - El contexto de terminology
+ * @returns El valor final con overrides aplicados
  */
 function applyOverrides(
   baseValue: ConceptValue,
   context: TerminologyContext
 ): ConceptValue {
-  // Si no hay contexto, retornar valor base
+  // Si no hay contexto de producto, retornar valor base
   if (!context.productContext) {
     return baseValue;
   }
@@ -168,7 +173,7 @@ export async function term(
 /**
  * Resuelve un Concept ID de forma SÍNCRONA (para UI Components)
  * 
- * ⚠️ REQUISITO: El concepto DEBE estar precargado antes de llamar esta función
+ * ⚠️ REQUISITO: El concepto DEBE estar precargado antes de llamar esta función.
  * 
  * Esta función NO hace I/O de archivos JSON.
  * Solo lee del cache en memoria.
@@ -190,7 +195,7 @@ export async function term(
  * 
  * // ❌ SIN preload (lanzará error):
  * const label = termSync('concept.booking.resource.unknown', { locale: 'es' });
- * // → [Terminology] Concept not preloaded: concept.booking.resource.unknown
+ * // → [Terminology] termSync() called without preload for: concept.booking.resource.unknown
  * ```
  */
 export function termSync(
@@ -232,6 +237,10 @@ export function termSync(
  * 
  * Esta función se usa en Server Components para crear un snapshot
  * que se pasa a los Client Components vía Provider.
+ * 
+ * Esto evita:
+ * - Bundle bloat (no enviar 2MB de JSONs al cliente)
+ * - Hydration mismatch (server y cliente tienen misma data)
  * 
  * @param conceptIds - Array de Concept IDs a resolver
  * @param context - Contexto de terminología
@@ -457,7 +466,7 @@ export async function getConcept(
  * 
  * @example
  * "es:hotel:::concept.booking.resource.room"
- * "en:studio:booking::concept.crm.entity.deal"
+ * "en:studio:booking:::concept.crm.entity.deal"
  * "es::::concept.booking.time.checkin" (sin overrides)
  */
 function buildCacheKey(
@@ -482,4 +491,3 @@ export {
   clearTerminologyCache,
   getCacheStats,
 } from './cache';
-

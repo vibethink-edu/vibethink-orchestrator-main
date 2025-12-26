@@ -1,370 +1,479 @@
 /**
- * CAPA 2: Terminology Cache (Cache en Memoria para Terminología)
+ * CAPA 2: Cache en Memoria para Terminología
  * 
- * Este módulo implementa un sistema de cache en memoria para optimizar
- * la resolución de concept IDs. Es especialmente importante para termSync()
- * que debe funcionar de forma síncrona (sin I/O).
+ * Este módulo implementa un sistema de cache en memoria
+ * para optimizar la resolución de concept IDs.
+ * 
+ * Características:
+ * - TTL (Time-To-Live) de 30 minutos por defecto
+ * - Limpieza automática cada 5 minutos
+ * - Soporte para limpieza por contexto (idioma, producto, tenant)
+ * - Estadísticas de uso del cache
  * 
  * @package @vibethink/utils
  */
 
-import {
-  ConceptID,
-  TerminologyContext,
-} from './types';
-
 /**
- * Estructura del valor en cache
- * 
- * Almacena el valor resuelto (string o ConceptObject) junto con
- * metadata de cuándo fue cacheado.
+ * Entry de cache con timestamp
  */
-interface CacheEntry {
-  value: string | Record<string, unknown>;
-  timestamp: number;
-  ttl?: number; // Time-to-live en milisegundos
+interface CacheEntry<T = string> {
+  /**
+   * Valor cacheado
+   */
+  value: T;
+
+  /**
+   * Timestamp de creación del entry
+   */
+  createdAt: number;
+
+  /**
+   * TTL específico para este entry (opcional)
+   * Si no se especifica, usa DEFAULT_TTL
+   */
+  ttl?: number;
 }
 
 /**
- * Cache en memoria simple
- * 
- * Key: string (formato: locale:productContext:domainContext:tenantId:namespace:conceptId)
- * Value: CacheEntry
+ * Map global en memoria para cache
  */
-class TerminologyCache {
-  private cache = new Map<string, CacheEntry>();
+export const terminologyCache = new Map<string, CacheEntry<string>>();
+
+/**
+ * TTL por defecto (30 minutos en milisegundos)
+ */
+const DEFAULT_TTL = 30 * 60 * 1000; // 30 min
+
+/**
+ * Intervalo de limpieza automática (5 minutos en milisegundos)
+ */
+const CLEANUP_INTERVAL = 5 * 60 * 1000; // 5 min
+
+/**
+ * Última limpieza realizada (timestamp)
+ */
+let lastCleanup = Date.now();
+
+/**
+ * Estadísticas del cache
+ */
+interface CacheStats {
+  /**
+   * Número de entries en cache
+   */
+  size: number;
 
   /**
-   * Obtiene un valor del cache
+   * Tamaño aproximado del cache en bytes
    */
-  get(key: string): CacheEntry | undefined {
-    return this.cache.get(key);
+  memoryUsageBytes?: number;
+
+  /**
+   * Número de hits (lecturas exitosas)
+   */
+  hits?: number;
+
+  /**
+   * Número de misses (lecturas fallidas)
+   */
+  misses?: number;
+
+  /**
+   * Ratio de efectividad (hits / total)
+   */
+  hitRate?: number;
+}
+
+/**
+ * Estadísticas internas del cache
+ */
+const stats = {
+  hits: 0,
+  misses: 0,
+};
+
+/**
+ * Obtiene un valor del cache
+ * 
+ * @param key - La clave del cache
+ * @returns El valor cacheado o undefined si no existe o expiró
+ * 
+ * @example
+ * ```typescript
+ * const cached = getFromCache('es:hotel:::concept.booking.resource.room');
+ * if (cached) {
+ *   return cached; // "Habitación"
+ * }
+ * // ... cargar desde loader
+ * ```
+ */
+export function getFromCache(key: string): string | undefined {
+  const entry = terminologyCache.get(key);
+
+  // Si no existe en cache
+  if (!entry) {
+    stats.misses++;
+    return undefined;
   }
 
-  /**
-   * Establece un valor en cache
-   */
-  set(key: string, value: CacheEntry): void {
-    this.cache.set(key, {
-      ...value,
-      timestamp: Date.now(),
+  // Verificar TTL
+  const now = Date.now();
+  const ttl = entry.ttl || DEFAULT_TTL;
+  const isExpired = now - entry.createdAt > ttl;
+
+  if (isExpired) {
+    stats.misses++;
+    terminologyCache.delete(key);
+    console.debug(`[Terminology Cache] Cache entry expired: ${key}`);
+    return undefined;
+  }
+
+  stats.hits++;
+  return entry.value;
+}
+
+/**
+ * Guarda un valor en el cache
+ * 
+ * @param key - La clave del cache
+ * @param value - El valor a cachear
+ * @param ttl - TTL específico opcional (default: 30 min)
+ * 
+ * @example
+ * ```typescript
+ * setInCache('es:hotel:::concept.booking.resource.room', 'Habitación');
+ * setInCache('en:studio:::concept.booking.time.checkin', 'Check-in', 60000); // 1 min TTL
+ * ```
+ */
+export function setInCache(
+  key: string,
+  value: string,
+  ttl?: number
+): void {
+  const now = Date.now();
+  
+  terminologyCache.set(key, {
+    value,
+    createdAt: now,
+    ttl,
+  });
+  
+  console.debug(`[Terminology Cache] Cached: ${key}`);
+}
+
+/**
+ * Verifica si una clave existe en cache
+ * 
+ * @param key - La clave a verificar
+ * @returns true si existe y no expiró
+ * 
+ * @example
+ * ```typescript
+ * if (hasCache('es:hotel:::concept.booking.resource.room')) {
+ *   // Está en cache
+ * } else {
+ *   // No está en cache
+ * }
+ * ```
+ */
+export function hasCache(key: string): boolean {
+  const cached = getFromCache(key);
+  return cached !== undefined;
+}
+
+/**
+ * Elimina una entrada específica del cache
+ * 
+ * @param key - La clave a eliminar
+ * @returns true si existía, false si no
+ * 
+ * @example
+ * ```typescript
+ * // Eliminar un concepto específico
+ * deleteFromCache('es:hotel:::concept.booking.resource.room');
+ * ```
+ */
+export function deleteFromCache(key: string): boolean {
+  const existed = terminologyCache.has(key);
+  terminologyCache.delete(key);
+  
+  if (existed) {
+    console.debug(`[Terminology Cache] Deleted: ${key}`);
+  }
+  
+  return existed;
+}
+
+/**
+ * Limpia todo el cache de terminología
+ * 
+ * ⚠️ Esta operación es DESTRUCTIVA.
+ * Limpia todo el cache en memoria.
+ * 
+ * @example
+ * ```typescript
+ * // En cambio de idioma o producto:
+ * clearTerminologyCache();
+ * // Todo se recalculará en la próxima resolución
+ * ```
+ */
+export function clearTerminologyCache(): void {
+  const size = terminologyCache.size;
+  terminologyCache.clear();
+  
+  // Resetear estadísticas
+  stats.hits = 0;
+  stats.misses = 0;
+  lastCleanup = Date.now();
+  
+  console.log(`[Terminology Cache] Cache cleared. ${size} entries removed.`);
+}
+
+/**
+ * Limpia el cache para un contexto específico
+ * 
+ * Útil cuando cambia el idioma o producto.
+ * 
+ * @param options - Opciones de filtrado
+ * 
+ * @example
+ * ```typescript
+ * // Limpiar solo español:
+ * clearTerminologyCacheFor({ locale: 'es' });
+ * 
+ * // Limpiar solo hotel:
+ * clearTerminologyCacheFor({ productContext: 'hotel' });
+ * 
+ * // Limpiar español + hotel:
+ * clearTerminologyCacheFor({ locale: 'es', productContext: 'hotel' });
+ * ```
+ */
+export function clearTerminologyCacheFor(options: {
+  locale?: string;
+  productContext?: string;
+  domainContext?: string;
+  tenantId?: string;
+}): void {
+  const { locale, productContext, domainContext, tenantId } = options;
+  
+  let count = 0;
+
+  // Iterar sobre todas las claves y eliminar las que coinciden
+  for (const [key, _] of terminologyCache) {
+    const shouldDelete = shouldDeleteKey(key, {
+      locale,
+      productContext,
+      domainContext,
+      tenantId,
     });
-  }
 
-  /**
-   * Verifica si una key existe en cache
-   */
-  has(key: string): boolean {
-    return this.cache.has(key);
-  }
-
-  /**
-   * Elimina una key del cache
-   */
-  delete(key: string): boolean {
-    return this.cache.delete(key);
-  }
-
-  /**
-   * Obtiene todas las keys del cache
-   */
-  keys(): string[] {
-    return Array.from(this.cache.keys());
-  }
-
-  /**
-   * Limpia todo el cache
-   */
-  clear(): void {
-    this.cache.clear();
-  }
-
-  /**
-   * Obtiene el tamaño del cache
-   */
-  size(): number {
-    return this.cache.size;
-  }
-
-  /**
-   * Elimina entradas expiradas
-   */
-  prune(): void {
-    const now = Date.now();
-    
-    for (const [key, entry] of this.cache.entries()) {
-      // Verificar TTL si existe
-      if (entry.ttl && (now - entry.timestamp) > entry.ttl) {
-        this.delete(key);
-      }
+    if (shouldDelete) {
+      terminologyCache.delete(key);
+      count++;
     }
   }
+
+  console.log(
+    `[Terminology Cache] Cleared ${count} entries matching:`,
+    options
+  );
 }
 
 /**
- * Instancia única del cache
- */
-const terminologyCache = new TerminologyCache();
-
-/**
- * Configuración de cache
- */
-const CACHE_TTL = 30 * 60 * 1000; // 30 minutos en milisegundos
-const CACHE_PRUNE_INTERVAL = 5 * 60 * 1000; // Limpieza cada 5 minutos
-
-/**
- * Intervalo de limpieza automática
- */
-let pruneInterval: NodeJS.Timeout | null = null;
-
-/**
- * Inicia la limpieza automática del cache
- */
-function startPruning(): void {
-  if (pruneInterval) {
-    return; // Ya está corriendo
-  }
-
-  pruneInterval = setInterval(() => {
-    terminologyCache.prune();
-  }, CACHE_PRUNE_INTERVAL);
-
-  console.log(`[TerminologyCache] Auto-pruning started (interval: ${CACHE_PRUNE_INTERVAL}ms)`);
-}
-
-/**
- * Detiene la limpieza automática del cache
- */
-function stopPruning(): void {
-  if (pruneInterval) {
-    clearInterval(pruneInterval);
-    pruneInterval = null;
-    console.log('[TerminologyCache] Auto-pruning stopped');
-  }
-}
-
-/**
- * Constructor de cache key
+ * Construye un cache key a partir de contexto
  * 
- * Formato: locale:productContext:domainContext:tenantId:namespace:conceptId
+ * Formato: locale:productContext:domainContext:tenantId:conceptId
  * 
  * @param conceptId - El Concept ID
- * @param context - Contexto de terminología
- * @returns Cache key
+ * @param locale - El idioma
+ * @param context - El contexto de terminología
+ * @returns El cache key construido
+ * 
+ * @example
+ * ```typescript
+ * buildCacheKey('concept.booking.resource.room', 'es', { productContext: 'hotel' });
+ * // → "es:hotel:::concept.booking.resource.room"
+ * 
+ * buildCacheKey('concept.crm.entity.deal', 'en', {});
+ * // → "en:::concept.crm.entity.deal"
+ * 
+ * buildCacheKey('concept.booking.time.checkin', 'es', { 
+ *   productContext: 'hotel',
+ *   domainContext: 'booking',
+ *   tenantId: 'tenant-123'
+ * });
+ * // → "es:hotel:booking:tenant-123:concept.booking.time.checkin"
+ * ```
  */
 export function buildCacheKey(
-  conceptId: ConceptID,
-  context: TerminologyContext
+  conceptId: string,
+  locale: string,
+  context: {
+    productContext?: string;
+    domainContext?: string;
+    tenantId?: string;
+  }
 ): string {
   const parts = [
-    context.locale || 'en',
-    context.productContext || 'null',
-    context.domainContext || 'null',
-    context.tenantId || 'null',
+    locale,
+    context.productContext || '',
+    context.domainContext || '',
+    context.tenantId || '',
   ];
   
   return `${parts.join(':')}:${conceptId}`;
 }
 
 /**
- * Obtiene un valor del cache
+ * Ejecuta limpieza automática del cache
  * 
- * @param cacheKey - Key del cache
- * @returns Valor cacheado o undefined
+ * Elimina entries expirados.
+ * Se llama automáticamente antes de cada operación de cache.
  */
-export function getFromCache(cacheKey: string): CacheEntry | undefined {
-  return terminologyCache.get(cacheKey);
-}
+function autoCleanup(): void {
+  const now = Date.now();
+  const timeSinceLastCleanup = now - lastCleanup;
 
-/**
- * Establece un valor en cache
- * 
- * @param cacheKey - Key del cache
- * @param value - Valor a cachear
- * @param ttl - Time-to-live opcional en milisegundos (default: 30 minutos)
- */
-export function setInCache(
-  cacheKey: string,
-  value: CacheEntry,
-  ttl: number = CACHE_TTL
-): void {
-  terminologyCache.set(cacheKey, {
-    ...value,
-    ttl,
-  });
-  
-  console.log(`[TerminologyCache] Cached: ${cacheKey}`);
-}
-
-/**
- * Verifica si una key existe en cache
- * 
- * @param cacheKey - Key del cache
- * @returns true si existe
- */
-export function hasCache(cacheKey: string): boolean {
-  return terminologyCache.has(cacheKey);
-}
-
-/**
- * Elimina una key del cache
- * 
- * @param cacheKey - Key del cache
- * @returns true si se eliminó
- */
-export function deleteFromCache(cacheKey: string): boolean {
-  const deleted = terminologyCache.delete(cacheKey);
-  
-  if (deleted) {
-    console.log(`[TerminologyCache] Deleted: ${cacheKey}`);
+  // Ejecutar cleanup solo cada CLEANUP_INTERVAL (5 min)
+  if (timeSinceLastCleanup < CLEANUP_INTERVAL) {
+    return;
   }
-  
-  return deleted;
-}
 
-/**
- * Limpia TODO el cache de terminología
- * 
- * Útil cuando:
- * - Se cambia el idioma
- * - Se cambia el contexto de producto
- * - Se necesita refrescar la terminología
- */
-export function clearTerminologyCache(): void {
-  terminologyCache.clear();
-  console.log(`[TerminologyCache] Cache cleared (size: ${terminologyCache.size()})`);
-}
+  let count = 0;
 
-/**
- * Limpia el cache para un contexto específico
- * 
- * @param locale - Idioma a limpiar (opcional)
- * @param productContext - Contexto de producto a limpiar (opcional)
- * @param tenantId - ID de inquilino a limpiar (opcional)
- */
-export function clearTerminologyCacheFor(
-  locale?: string,
-  productContext?: string,
-  tenantId?: string
-): void {
-  const keysToDelete: string[] = [];
-  
-  for (const key of terminologyCache.keys()) {
-    // Parse key: locale:productContext:domainContext:tenantId:conceptId
-    const parts = key.split(':');
-    
-    if (parts.length < 6) {
-      continue; // Formato inválido, saltar
-    }
-    
-    const [keyLocale, keyProduct, _keyDomain, _keyTenant, _keyNamespace, _conceptId] = parts;
-    
-    // Verificar si coincide con filtros
-    let shouldDelete = false;
-    
-    if (locale && keyLocale !== locale) {
-      shouldDelete = true;
-    } else if (productContext && keyProduct !== productContext) {
-      shouldDelete = true;
-    } else if (tenantId && keyTenant !== tenantId) {
-      shouldDelete = true;
-    }
-    
-    if (shouldDelete) {
-      keysToDelete.push(key);
+  for (const [key, entry] of terminologyCache) {
+    const ttl = entry.ttl || DEFAULT_TTL;
+    const isExpired = now - entry.createdAt > ttl;
+
+    if (isExpired) {
+      terminologyCache.delete(key);
+      count++;
     }
   }
-  
-  // Eliminar keys seleccionadas
-  keysToDelete.forEach(key => terminologyCache.delete(key));
-  
-  if (keysToDelete.length > 0) {
-    console.log(`[TerminologyCache] Cleared ${keysToDelete.length} entries for context:`, {
-      locale,
-      productContext,
-      tenantId,
-    });
+
+  if (count > 0) {
+    console.log(`[Terminology Cache] Auto-cleanup: ${count} expired entries removed`);
+    lastCleanup = now;
   }
+}
+
+/**
+ * Determina si una clave debe eliminarse basado en filtros
+ * 
+ * @param key - La clave del cache
+ * @param filters - Filtros a aplicar
+ * @returns true si debe eliminarse
+ */
+function shouldDeleteKey(
+  key: string,
+  filters: {
+    locale?: string;
+    productContext?: string;
+    domainContext?: string;
+    tenantId?: string;
+  }
+): boolean {
+  const { locale, productContext, domainContext, tenantId } = filters;
+  
+  // Parsear la clave
+  const parts = key.split(':');
+  const keyLocale = parts[0];
+  const keyProductContext = parts[1];
+  const keyDomainContext = parts[2];
+  const keyTenantId = parts[3];
+
+  // Aplicar filtros (todos opcionales, todos AND)
+  let shouldDelete = false;
+
+  if (locale && keyLocale === locale) {
+    shouldDelete = true;
+  }
+  if (productContext && keyProductContext === productContext) {
+    shouldDelete = true;
+  }
+  if (domainContext && keyDomainContext === domainContext) {
+    shouldDelete = true;
+  }
+  if (tenantId && keyTenantId === tenantId) {
+    shouldDelete = true;
+  }
+
+  return shouldDelete;
 }
 
 /**
  * Obtiene estadísticas del cache
  * 
- * Útil para debugging y monitoring.
+ * Útil para monitoreo y debugging.
  * 
  * @returns Estadísticas del cache
+ * 
+ * @example
+ * ```typescript
+ * const stats = getCacheStats();
+ * console.log(`Cache size: ${stats.size}`);
+ * console.log(`Hit rate: ${stats.hitRate}%`);
+ * ```
  */
-export function getCacheStats(): {
-  size: number;
-  keys: string[];
-  entries: number;
-  hitRate: number;
-} {
-  const keys = terminologyCache.keys();
+export function getCacheStats(): CacheStats {
   const now = Date.now();
-  let activeEntries = 0;
-  
-  // Contar entradas activas (no expiradas)
-  for (const [key, entry] of terminologyCache.entries()) {
-    if (entry.ttl && (now - entry.timestamp) > entry.ttl) {
-      continue; // Expirada
-    }
-    activeEntries++;
-  }
-  
-  // Calcular hit rate (simulado)
-  // En una implementación real, se trackearían hits/misses
-  const hitRate = activeEntries > 0 ? 0.85 : 0; // Placeholder
-  
+  const total = stats.hits + stats.misses;
+  const hitRate = total > 0 ? (stats.hits / total) * 100 : 0;
+
+  // Estimación de memoria (aprox 50 bytes por entry)
+  const memoryUsageBytes = terminologyCache.size * 50;
+
   return {
-    size: terminologyCache.size(),
-    keys,
-    entries: activeEntries,
-    hitRate,
+    size: terminologyCache.size,
+    memoryUsageBytes,
+    hits: stats.hits,
+    misses: stats.misses,
+    hitRate: Math.round(hitRate * 100) / 100,
   };
 }
 
 /**
- * Inicializa el sistema de cache
+ * Inicializa el cache de terminología
  * 
- * Limpia entradas expiradas y arranca la limpieza automática.
+ * Se puede llamar en el bootstrap de la aplicación.
  */
 export function initTerminologyCache(): void {
-  console.log('[TerminologyCache] Initializing...');
+  console.log('[Terminology Cache] Initialized');
   
-  // Limpiar entradas expiradas
-  terminologyCache.prune();
-  
-  // Iniciar limpieza automática
-  startPruning();
-  
-  // Mostrar stats iniciales
-  const stats = getCacheStats();
-  console.log('[TerminologyCache] Initial stats:', stats);
+  // Resetear estadísticas
+  stats.hits = 0;
+  stats.misses = 0;
+  lastCleanup = Date.now();
 }
 
 /**
- * Finaliza el sistema de cache
+ * Destruye el cache de terminología
  * 
- * Limpia todo el cache y detiene la limpieza automática.
+ * Limpia todo y resetea estadísticas.
  */
 export function destroyTerminologyCache(): void {
-  console.log('[TerminologyCache] Destroying...');
+  const size = terminologyCache.size;
+  terminologyCache.clear();
   
-  stopPruning();
-  clearTerminologyCache();
+  // Resetear estadísticas
+  stats.hits = 0;
+  stats.misses = 0;
+  lastCleanup = Date.now();
+  
+  console.log(`[Terminology Cache] Destroyed. ${size} entries removed.`);
 }
 
-/**
- * Auto-inicialización
- */
-if (typeof window === 'undefined') {
-  // Solo inicializar en el server (Node.js)
-  initTerminologyCache();
-  
-  // Cleanup al terminar el proceso
-  process.on('exit', () => {
-    destroyTerminologyCache();
-  });
+// Ejecutar cleanup automático en cada operación de cache
+// Esto mantiene el cache limpio sin necesidad de scheduled tasks
+export function withAutoCleanup<T>(operation: () => T): T {
+  autoCleanup();
+  const result = operation();
+  autoCleanup();
+  return result;
 }
 
+// Auto-cleanup en exports
+export const getFromCacheAuto = (key: string) => withAutoCleanup(() => getFromCache(key));
+export const setInCacheAuto = (key: string, value: string, ttl?: number) => 
+  withAutoCleanup(() => setInCache(key, value, ttl));
+export const clearTerminologyCacheAuto = () => withAutoCleanup(() => clearTerminologyCache());
