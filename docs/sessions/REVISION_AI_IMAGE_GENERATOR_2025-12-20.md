@@ -392,3 +392,5 @@ El componente `ai-image-generator` est√° presente, completo y funcional. No est√
 
 
 
+
+

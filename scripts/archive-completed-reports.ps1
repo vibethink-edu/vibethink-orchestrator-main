@@ -73,3 +73,5 @@ Write-Host "📁 Reorganización 2025 en: $reorgArchivedPath" -ForegroundColor C
 
 
 
+
+
