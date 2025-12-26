@@ -1,0 +1,94 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "escritorio": "Escritorio",
+        "oficina": "Oficina",
+        "salaReuniones": "Sala de Reuniones",
+        "espacioEventos": "Espacio de Eventos",
+        "cabinaTelefónica": "Cabina Telefónica",
+        "salaTranquila": "Sala Tranquila"
+      },
+      "action": {
+        "reserve": "Reservar",
+        "book": "Reservar",
+        "checkIn": "Check In",
+        "checkOut": "Check Out",
+        "modify": "Modificar",
+        "cancel": "Cancelar",
+        "confirm": "Confirmar"
+      },
+      "time": {
+        "checkIn": "Check-in",
+        "checkOut": "Check-out",
+        "startTime": "Hora de inicio",
+        "endTime": "Hora de fin",
+        "duration": "Duración",
+        "porHora": "Por Hora",
+        "porDía": "Por Día",
+        "porSemana": "Por Semana",
+        "porMes": "Por Mes"
+      },
+      "unit": {
+        "hora": "{count, plural, one {hora} other {horas}}",
+        "día": "{count, plural, one {día} other {días}}",
+        "semana": "{count, plural, one {semana} other {semanas}}",
+        "mes": "{count, plural, one {mes} other {meses}}"
+      },
+      "status": {
+        "confirmed": "Confirmada",
+        "pending": "Pendiente",
+        "cancelled": "Cancelada",
+        "completed": "Completada"
+      }
+    },
+    "property": {
+      "type": {
+        "escritorioAbierto": "Escritorio Abierto",
+        "escritorioDedicado": "Escritorio Dedicado",
+        "escritorioCaliente": "Escritorio Caliente",
+        "oficinaPrivada": "Oficina Privada",
+        "espacioEventos": "Espacio de Eventos"
+      },
+      "amenity": {
+        "wifi": "WiFi",
+        "estacionamiento": "Estacionamiento",
+        "cocina": "Cocina",
+        "café": "Café",
+        "refrigerios": "Refrigerios",
+        "impresora": "Impresora",
+        "escáner": "Escáner"
+      },
+      "service": {
+        "recepción": "Recepción",
+        "soporteIT": "Soporte IT",
+        "servicioCorreo": "Servicio de Correo",
+        "impresiones": "Impresiones",
+        "manejoPaquetes": "Manejo de Paquetes"
+      },
+      "membership": {
+        "nivel": {
+          "paseDiario": "Pase Diario",
+          "mensual": "Mensual",
+          "anual": "Anual",
+          "ilimitado": "Ilimitado"
+        },
+        "beneficio": {
+          "descuento": "Descuento",
+          "crédito": "Crédito",
+          "accesoTemprano": "Acceso Temprano",
+          "accesoInvitados": "Acceso para Invitados"
+        }
+      },
+      "community": {
+        "característica": {
+          "networking": "Networking",
+          "eventos": "Eventos",
+          "talleres": "Talleres",
+          "mentoría": "Mentoría"
+        }
+      }
+    }
+  }
+}
+

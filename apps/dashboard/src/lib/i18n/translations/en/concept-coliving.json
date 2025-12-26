@@ -1,0 +1,106 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "room": "Private Room",
+        "ensuite": "Ensuite",
+        "suite": "Suite",
+        "sharedSpace": "Shared Space",
+        "kitchen": "Kitchen",
+        "bathroom": "Bathroom",
+        "bed": "Bed",
+        "bunkBed": "Bunk Bed",
+        "privateBathroom": "Private Bathroom",
+        "sharedBathroom": "Shared Bathroom"
+      },
+      "action": {
+        "reserve": "Reserve",
+        "book": "Book",
+        "checkIn": "Check In",
+        "checkOut": "Check Out",
+        "modify": "Modify",
+        "cancel": "Cancel",
+        "extend": "Extend",
+        "renew": "Renew"
+      },
+      "time": {
+        "checkIn": "Check-in",
+        "checkOut": "Check-out",
+        "duration": "Duration",
+        "minimumStay": "Minimum Stay",
+        "maximumStay": "Maximum Stay",
+        "nights": "Nights",
+        "checkInTime": "Check-in Time",
+        "checkOutTime": "Check-out Time"
+      },
+      "unit": {
+        "night": "{count, plural, one {night} other {nights}}"
+      },
+      "status": {
+        "confirmed": "Confirmed",
+        "pending": "Pending",
+        "cancelled": "Cancelled",
+        "completed": "Completed",
+        "checkedIn": "Checked In",
+        "checkedOut": "Checked Out"
+      }
+    },
+    "property": {
+      "type": {
+        "privateRoom": "Private Room",
+        "ensuite": "Ensuite",
+        "suite": "Suite",
+        "dormitory": "Dormitory",
+        "femaleOnly": "Female Only",
+        "maleOnly": "Male Only",
+        "coed": "Co-ed"
+        "studio": "Studio"
+      },
+      "amenity": {
+        "kitchen": "Kitchen",
+        "bathroom": "Bathroom",
+        "shower": "Shower",
+        "laundry": "Laundry",
+        "commonArea": "Common Area",
+        "livingRoom": "Living Room",
+        "tv": "TV",
+        "workspace": "Workspace",
+        "highSpeedInternet": "High Speed Internet"
+      },
+      "houseRules": {
+        "quietHours": "Quiet Hours",
+        "noSmoking": "No Smoking",
+        "noGuests": "No Guests",
+        "petsPolicy": "Pets Policy",
+        "cleaningSchedule": "Cleaning Schedule"
+      },
+      "service": {
+        "breakfast": "Breakfast",
+        "linens": "Linens",
+        "towels": "Towels",
+        "housekeeping": "Housekeeping",
+        "reception": "Reception",
+        "valet": "Valet",
+        "laundry": "Laundry",
+        "roomService": "Room Service"
+      },
+      "community": {
+        "commonArea": "Common Area",
+        "kitchen": "Kitchen",
+        "dining": "Dining",
+        "livingRoom": "Living Room",
+        "event": "Event",
+        "activity": "Activity",
+        "game": "Game",
+        "movie": "Movie",
+        "study": "Study"
+      },
+      "policy": {
+        "guestsPolicy": "Guests Policy",
+        "alcohol": "Alcohol",
+        "pets": "Pets",
+        "quietHours": "Quiet Hours"
+      }
+    }
+  }
+}

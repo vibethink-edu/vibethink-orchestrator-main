@@ -1,0 +1,81 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "room": "Habitación",
+        "suite": "Suite",
+        "habitación": "Habitación",
+        "bathroom": "Baño",
+        "cocina": "Cocina",
+        "salaDeEstar": "Sala de Estar",
+        "area": "Área"
+      },
+      "action": {
+        "reserve": "Reservar",
+        "book": "Reservar",
+        "checkIn": "Check-in",
+        "checkout": "Check-out",
+        "modify": "Modificar",
+        "cancel": "Cancelar",
+        "confirm": "Confirmar"
+      },
+      "time": {
+        "checkin": "Check-in",
+        "checkout": "Check-out",
+        "startTime": "Hora de inicio",
+        "endTime": "Hora de fin",
+        "duration": "Duración"
+      },
+      "unit": {
+        "hour": "{count, plural, one {hora} other {horas}}",
+        "day": "{count, plural, one {día} other {días}}",
+        "night": "{count, plural, one {noche} other {noches}}"
+      },
+      "status": {
+        "confirmed": "Confirmada",
+        "pending": "Pendiente",
+        "cancelled": "Cancelada",
+        "completed": "Completada"
+      }
+    },
+    "property": {
+      "type": {
+        "standard": "Estándar",
+        "deluxe": "Deluxe",
+        "suite": "Suite",
+        "presidencial": "Presidencial"
+      },
+      "amenity": {
+        "wifi": "WiFi",
+        "estacionamiento": "Estacionamiento",
+        "piscina": "Piscina",
+        "gimnasio": "Gimnasio",
+        "spa": "Spa",
+        "restaurante": "Restaurante",
+        "desayuno": "Desayuno",
+        "servicioHabitaciones": "Servicio de Habitaciones",
+        "lavanderia": "Lavandería",
+        "conserjería": "Conserjería",
+        "roomService": "Servicio de Habitaciones"
+      },
+      "view": {
+        "ciudad": "Vista a la ciudad",
+        "jardín": "Vista al jardín",
+        "océano": "Vista al océano",
+        "montaña": "Vista a la montaña"
+      },
+      "service": {
+        "limpieza": "Limpieza",
+        "conserjería": "Conserjería",
+        "recepción": "Recepción",
+        "camarero": "Camarero",
+        "valet": "Valet",
+        "botones": "Botones",
+        "lavandería": "Lavandería",
+        "roomService": "Servicio de Habitaciones",
+        "despertador": "Despertador"
+      }
+    }
+  }
+}
+

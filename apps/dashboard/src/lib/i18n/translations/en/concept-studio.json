@@ -1,0 +1,83 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "room": "Studio",
+        "space": "Studio Space",
+        "workstation": "Workstation",
+        "area": "Studio Area"
+      },
+      "action": {
+        "reserve": "Reserve",
+        "book": "Book",
+        "checkIn": "Check In",
+        "checkOut": "Check Out",
+        "modify": "Modify",
+        "cancel": "Cancel",
+        "confirm": "Confirm"
+      },
+      "time": {
+        "checkIn": "Check-in",
+        "checkOut": "Check-out",
+        "startTime": "Start Time",
+        "endTime": "End Time",
+        "duration": "Duration"
+      },
+      "unit": {
+        "hour": "{count, plural, one {hour} other {hours}}",
+        "day": "{count, plural, one {day} other {days}}",
+        "night": "{count, plural, one {night} other {nights}}"
+      },
+      "status": {
+        "confirmed": "Confirmed",
+        "pending": "Pending",
+        "cancelled": "Cancelled",
+        "completed": "Completed"
+      }
+    },
+    "crm": {
+      "entity": {
+        "project": "Project",
+        "client": "Client",
+        "campaign": "Campaign"
+      },
+      "action": {
+        "create": "Create",
+        "update": "Update",
+        "delete": "Delete",
+        "archive": "Archive"
+      },
+      "status": {
+        "active": "Active",
+        "inProgress": "In Progress",
+        "completed": "Completed",
+        "cancelled": "Cancelled"
+      }
+    },
+    "property": {
+      "type": {
+        "standard": "Standard",
+        "large": "Large",
+        "studio": "Studio Space"
+      },
+      "amenity": {
+        "microphone": "Microphone",
+        "camera": "Camera",
+        "lighting": "Lighting",
+        "backdrop": "Backdrop",
+        "speakers": "Speakers",
+        "greenScreen": "Green Screen",
+        "audioInterface": "Audio Interface"
+      },
+      "service": {
+        "recording": "Recording",
+        "editing": "Editing",
+        "production": "Production",
+        "mixing": "Mixing",
+        "mastering": "Mastering",
+        "colorGrading": "Color Grading"
+      }
+    }
+  }
+}
+

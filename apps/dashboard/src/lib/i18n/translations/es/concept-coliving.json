@@ -1,0 +1,124 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "habitaciónPrivada": "Habitación Privada",
+        "ensuite": "Suite",
+        "habitación": "Habitación",
+        "espacioCompartido": "Espacio Compartido",
+        "áreaComún": "Área Común",
+        "cocina": "Cocina",
+        "baño": "Baño",
+        "cama": "Cama",
+        "camaAlcada": "Cama Alzada",
+        "bañoPrivado": "Baño Privado",
+        "bañoCompartido": "Baño Compartido"
+      },
+      "action": {
+        "reservar": "Reservar",
+        "reservarReserva": "Reservar Reserva",
+        "checkIn": "Check-in",
+        "checkOut": "Check-out",
+        "modificar": "Modificar",
+        "cancelar": "Cancelar",
+        "confirmar": "Confirmar",
+        "extender": "Extender",
+        "renovar": "Renovar"
+      },
+      "time": {
+        "checkIn": "Check-in",
+        "checkOut": "Check-out",
+        "duracion": "Duración",
+        "estanciaMínima": "Estancia Mínima",
+        "estanciaMáxima": "Estancia Máxima",
+        "noches": "Noches",
+        "horaCheckIn": "Hora de Check-in",
+        "horaCheckOut": "Hora de Check-out"
+      },
+      "unit": {
+        "noche": "{count, plural, one {noche} other {noches}}"
+      },
+      "status": {
+        "confirmada": "Confirmada",
+        "pendiente": "Pendiente",
+        "cancelada": "Cancelada",
+        "completada": "Completada",
+        "checkedIn": "Checked In",
+        "checkedOut": "Checked Out"
+      }
+    },
+    "property": {
+      "type": {
+        "habitaciónPrivada": "Habitación Privada",
+        "suite": "Suite",
+        "habitaciónCompartida": "Habitación Compartida",
+        "dormitorio": "Dormitorio",
+        "soloMujeres": "Solo Mujeres",
+        "soloHombres": "Solo Hombres",
+        "mixto": "Mixto",
+        "estudio": "Estudio"
+      },
+      "amenity": {
+        "wifi": "WiFi",
+        "estacionamiento": "Estacionamiento",
+        "piscina": "Piscina",
+        "gimnasio": "Gimnasio",
+        "spa": "Spa",
+        "restaurante": "Restaurante",
+        "desayuno": "Desayuno",
+        "servicioHabitaciones": "Servicio de Habitaciones",
+        "lavandería": "Lavandería",
+        "conserjería": "Conserjería",
+        "baños": "Baños",
+        "áreaComún": "Área Común",
+        "salaDeEstar": "Sala de Estar",
+        "tv": "TV",
+        "espacioDeTrabajo": "Espacio de Trabajo",
+        "internetAltaVelocidad": "Internet de Alta Velocidad"
+      },
+      "houseRules": {
+        "horasTranquilidad": "Horas de Tranquilidad",
+        "sinFumar": "Sin Fumar",
+        "sinInvitados": "Sin Invitados",
+        "políticaMascotas": "Política de Mascotas",
+        "horarioLimpieza": "Horario de Limpieza"
+      },
+      "service": {
+        "limpieza": "Limpieza",
+        "conserjería": "Conserjería",
+        "recepción": "Recepción",
+        "camarero": "Camarero",
+        "valet": "Valet",
+        "botones": "Botones",
+        "lavandería": "Lavandería",
+        "servicioHabitaciones": "Servicio de Habitaciones",
+        "despertador": "Despertador"
+      },
+      "community": {
+        "feature": {
+          "networking": "Networking",
+          "eventos": "Eventos",
+          "talleres": "Talleres",
+          "mentoría": "Mentoría"
+        },
+        "commonArea": {
+          "áreaComún": "Área Común",
+          "cocina": "Cocina",
+          "comedor": "Comedor",
+          "salaDeEstar": "Sala de Estar",
+          "evento": "Evento",
+          "actividad": "Actividad",
+          "juego": "Juego",
+          "película": "Película",
+          "estudio": "Estudio"
+        }
+      },
+      "policy": {
+        "políticaInvitados": "Política de Invitados",
+        "alcohol": "Alcohol",
+        "mascotas": "Mascotas",
+        "horasTranquilidad": "Horas de Tranquilidad"
+      }
+    }
+  }
+}
