@@ -26,6 +26,60 @@
 
 ## 🚨 **MANDATORY RULES - PREVENT DEGRADATION**
 
+### **0. THIRD-PARTY LIBRARY MANAGEMENT (CRÍTICO)**
+
+#### **❌ ABSOLUTELY FORBIDDEN - Package Manager Mixing:**
+```json
+// NEVER use pnpm/yarn syntax in npm project:
+"@vibethink/ui": "workspace:*"        // ← BREAKS BUILD
+"@vibethink/utils": "workspace:*"     // ← CAUSES AUTOPREFIXER ERROR
+```
+
+#### **✅ ALWAYS USE NPM SYNTAX:**
+```json
+// Correct npm workspace syntax:
+"@vibethink/ui": "^0.1.0"            // ← Specific version
+"@vibethink/utils": "^0.1.0"         // ← Semantic versioning
+```
+
+#### **GOLDEN RULE:**
+```bash
+ONE PROJECT = ONE PACKAGE MANAGER
+
+✅ npm@10.2.4 ONLY
+❌ NEVER pnpm
+❌ NEVER yarn
+❌ NEVER mix syntaxes
+```
+
+#### **VALIDATION BEFORE ANY DEPENDENCY CHANGE:**
+```bash
+# 1. Check for forbidden syntax
+grep -r "workspace:" **/package.json
+
+# 2. Validate package.json syntax
+node scripts/validate-package-json-syntax.js
+
+# 3. Test installation
+npm install
+
+# 4. Verify build
+npm run build
+```
+
+#### **WHY THIS IS CRITICAL:**
+- `workspace:*` syntax from pnpm/yarn causes Autoprefixer errors in npm
+- Breaking build for ALL developers
+- 3+ hours debugging time per incident
+- Silent failures that only appear in production builds
+
+#### **REFERENCE DOCUMENTATION:**
+- `docs/architecture/PACKAGE_MANAGER_COMPATIBILITY.md`
+- `docs/architecture/NPM_WORKSPACES_QUICK_FIX.md`
+- `docs/architecture/AUTOPREFIXER_ERROR_EXPLAINED_SIMPLE.md`
+
+---
+
 ### **1. FILE CREATION RULES**
 
 #### **❌ ABSOLUTELY FORBIDDEN:**
