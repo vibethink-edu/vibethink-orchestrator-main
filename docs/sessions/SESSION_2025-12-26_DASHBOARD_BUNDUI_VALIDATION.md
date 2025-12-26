@@ -164,6 +164,33 @@ translations/
 
 ---
 
+## 🖥️ Estado del Servidor (Dev)
+
+### Compilación Exitosa
+- ✅ Next.js 15.3.4 iniciado en http://localhost:3006
+- ✅ Middleware compilado en 173ms (109 módulos)
+- ✅ /dashboard-bundui compilado en 14.3s (7503 módulos)
+- ✅ i18n on-demand loading funciona correctamente
+
+### Observaciones
+- El sistema carga namespaces bajo demanda (navigation, theme, etc.)
+- Cada namespace se carga solo cuando es necesario (optimización automática)
+- Los translations se cargan usando "direct content" (sin fallback a fetch)
+- Reducción significativa de bundle inicial gracias a lazy loading de traducciones
+
+### URLs Disponibles
+```
+Local:    http://localhost:3006
+Network:  http://192.168.0.7:3006
+```
+
+**Nota:** Para validar completamente el dashboard, es necesario:
+1. Abrir la URL en un navegador web
+2. Verificar que el redirect de /dashboard-bundui → /dashboard-bundui/default funciona
+3. Probar interacción con componentes (date picker, language switch, etc.)
+
+---
+
 ## 🧪 Testing Checklist
 
 ### Tests Manuales Necesarios
@@ -238,10 +265,11 @@ translations/
 
 ### Inmediato (Esta Sesión)
 1. ✅ Documentar estado actual
-2. ⏳ Verificar dashboard carga correctamente
-3. ⏳ Probar switch de idiomas
-4. ⏳ Validar componentes principales
-5. ⏳ Documentar hallazgos
+2. ✅ Iniciar dev server en puerto 3006
+3. ✅ Verificar compilación del dashboard
+4. ⏳ Validar visualmente en navegador
+5. ⏳ Probar switch de idiomas (requiere navegador)
+6. ⏳ Validar componentes principales (requiere navegador)
 
 ### Siguiente Sesión
 1. Fix /sales page metadata
@@ -257,6 +285,10 @@ translations/
 - ⚠️ **Compilación:** Con warnings pero funcional
 - ⚠️ **Producción:** Falla en /sales (pendiente fix)
 - ✅ **Dev server:** Funcional en puerto 3006
+  - URL: http://localhost:3006
+  - También disponible en red: http://192.168.0.7:3006
+  - Compilación exitosa: 7503 módulos en 14.3s
+  - i18n loading correctamente (on-demand namespace loading funciona)
 
 ### i18n
 - ✅ **Sistema:** Implementado y funcional
