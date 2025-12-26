@@ -202,3 +202,6 @@ Antes de considerar una migración completa:
 **Creado por:** Auto (Claude Sonnet 4.5)  
 **Motivo:** Identificar y corregir omisión de keys de traducción
 
+
+
+

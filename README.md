@@ -4,6 +4,16 @@
 
 **🚨 MANDATORY COMPLIANCE: This project has strict stability rules that AI MUST follow**
 
+### 📋 NEW AI/AGENTS: Start Here
+
+**If you are a new AI/agent working on this project:**
+
+1. **FIRST:** Read `PROJECT_STATUS.md` - Complete project status and decisions
+2. **SECOND:** Read `CHANGELOG.md` - Especially [Unreleased] section
+3. **THIRD:** Continue with stability rules below
+
+**🚨 NEVER revert approved executive decisions** - Check PROJECT_STATUS.md before changing anything
+
 ### 🎯 Quick AI Commands
 
 ```bash

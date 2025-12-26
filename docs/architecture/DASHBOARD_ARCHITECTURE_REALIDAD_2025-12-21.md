@@ -172,3 +172,6 @@ dashboard (producción final)
 **Estado:** ⚠️ **PENDIENTE DECISIÓN**
 
 
+
+
+

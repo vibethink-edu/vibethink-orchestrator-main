@@ -70,7 +70,11 @@
       "Bash(done)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(test:*)",
+      "Bash(Select-String -Pattern \"(Error|Failed|✓ Compiled|Route \\(app\\)|error)\")",
+      "Bash(Select-Object -Last 30)",
+      "Bash(npx next@15.3.4 dev:*)"
     ],
     "deny": []
   }

@@ -70,3 +70,6 @@ Write-Host "`n📁 Reportes archivados en: $archivedPath" -ForegroundColor Cyan
 Write-Host "📁 Reorganización 2025 en: $reorgArchivedPath" -ForegroundColor Cyan
 
 
+
+
+

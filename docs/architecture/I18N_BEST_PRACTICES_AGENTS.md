@@ -267,3 +267,6 @@ grep "ticketStatus" apps/dashboard/src/lib/i18n/translations/es/analytics.json
 **Para:** AI Agents  
 **Tipo:** Buenas Prácticas
 
+
+
+

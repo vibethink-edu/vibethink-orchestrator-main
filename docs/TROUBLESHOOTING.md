@@ -182,6 +182,148 @@ When updating the UI package:
 
 ---
 
+## Build & Dependencies
+
+### Incident: Cannot find module 'autoprefixer' (Build Error)
+
+**Date:** 2025-12-25
+**Affected Modules:** `apps/dashboard`, build process
+**Status:** ✅ **RESUELTO** - Solución documentada
+
+#### 🎯 Explicación Simple (TL;DR)
+
+**¿Qué pasó?**
+El servidor no arrancaba porque faltaba un programa llamado `autoprefixer` que hace que el CSS funcione bien.
+
+**¿Por qué faltaba?**
+Porque en un archivo de configuración (`package.json`) había una instrucción escrita en "idioma de pnpm/yarn", pero nuestro proyecto habla "idioma de npm". Es como si le pidieras pizza en francés a un mesero que solo habla español - no te entiende y no te trae nada.
+
+**¿Cómo se arregló?**
+Cambiamos la instrucción a "idioma de npm" que el proyecto sí entiende. Ahora cuando le pedimos que instale cosas, las instala correctamente.
+
+**Analogía:**
+- **Antes:** "workspace:*" = Pedir "une pizza s'il vous plaît" (francés)
+- **Después:** "^0.1.0" = Pedir "una pizza por favor" (español)
+- **Resultado:** ¡Pizza entregada! (autoprefixer instalado)
+
+---
+
+#### Symptoms
+- Build error: `Cannot find module 'autoprefixer'`
+- Error occurs during CSS processing with PostCSS
+- Error trace mentions:
+  ```
+  ./app/globals.css.webpack[javascript/auto]!=!../../node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js
+  ```
+- Build fails immediately on startup
+- Development server (`npm run dev`) fails to start
+
+#### Root Cause
+This issue is caused by **npm workspaces incompatibility with workspace: protocol**:
+
+1. **Workspace Protocol Incompatibility:**
+   - The file `packages/integrations/package.json` used `"@vibethink/utils": "workspace:*"`
+   - The `workspace:*` syntax is specific to **pnpm** and **yarn**
+   - **npm** doesn't support this syntax and throws `EUNSUPPORTEDPROTOCOL` error
+   - This prevented `npm install` from completing successfully
+
+2. **Missing Dependencies:**
+   - Because `npm install` failed, `autoprefixer` and other devDependencies weren't installed
+   - Next.js build process requires `autoprefixer` for PostCSS processing
+   - Without it, the CSS build pipeline fails
+
+3. **Package Manager Mismatch:**
+   - Project uses npm (`"packageManager": "npm@10.2.4"` in root package.json)
+   - But some package.json files had pnpm/yarn syntax
+   - This creates silent failures during installation
+
+#### Solution
+
+**Immediate Fix:**
+
+1. **Fix workspace dependency syntax in `packages/integrations/package.json`:**
+   ```json
+   // ❌ INCORRECTO (sintaxis de pnpm/yarn)
+   {
+     "dependencies": {
+       "@vibethink/utils": "workspace:*"
+     }
+   }
+
+   // ✅ CORRECTO (sintaxis compatible con npm)
+   {
+     "dependencies": {
+       "@vibethink/utils": "^0.1.0"
+     }
+   }
+   ```
+
+2. **Reinstall dependencies from root:**
+   ```bash
+   cd C:\IA Marcelo Labs\vibethink-orchestrator-main
+   npm install
+   ```
+
+3. **Verify autoprefixer is installed:**
+   ```bash
+   npm ls autoprefixer
+   # Should show: autoprefixer@10.4.23
+   ```
+
+4. **Start development server:**
+   ```bash
+   cd apps/dashboard
+   npm run dev
+   ```
+
+#### Prevention Strategy
+
+**To prevent this issue from recurring:**
+
+1. **Audit all package.json files for workspace: protocol:**
+   ```bash
+   # Search for workspace: references
+   grep -r "workspace:" packages/*/package.json apps/*/package.json
+   ```
+
+2. **Replace all workspace: references with version numbers:**
+   - Use specific versions (e.g., `^0.1.0`) instead of `workspace:*`
+   - Ensure versions match the actual package versions
+
+3. **Validate package manager consistency:**
+   - Check `packageManager` field in root package.json
+   - Ensure all documentation mentions correct package manager
+   - Don't mix pnpm/yarn syntax in npm projects
+
+4. **Add to pre-commit validation:**
+   ```bash
+   # Create script to detect workspace: protocol
+   node scripts/validate-package-json-syntax.js
+   ```
+
+#### Affected Files
+- `packages/integrations/package.json:12` - Fixed workspace dependency
+
+#### Related Issues
+- Port conflicts (EADDRINUSE) - Use different port if needed
+- npm warnings about deprecated packages - Can be ignored or fixed with `npm audit fix`
+
+#### Technical Notes
+- **autoprefixer** is required by Next.js for CSS processing
+- **postcss** is the CSS transformation pipeline
+- **tailwindcss** uses PostCSS and requires autoprefixer
+- All three must be installed for Next.js to build successfully
+
+#### Verification
+After applying the fix, verify:
+- [ ] `npm install` completes without errors
+- [ ] `npm ls autoprefixer` shows installed version
+- [ ] `npm run dev` starts without module errors
+- [ ] Build completes successfully
+- [ ] No `EUNSUPPORTEDPROTOCOL` errors in logs
+
+---
+
 ## Sidebar & UI Components
 
 ### Incident: Logo Colapsado Error en dashboard-vibethink (React Children Error)

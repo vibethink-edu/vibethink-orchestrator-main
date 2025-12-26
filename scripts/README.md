@@ -42,6 +42,54 @@
 
 ---
 
+### Validation Scripts
+
+#### `validate-package-json-syntax.js`
+**Purpose:** Validate package.json files for npm compatibility.
+
+**Usage:**
+```bash
+node scripts/validate-package-json-syntax.js
+```
+
+**Features:**
+- ✅ Detects `workspace:*` protocol usage (pnpm/yarn only)
+- ✅ Validates version format compatibility
+- ✅ Checks for missing required fields
+- ✅ Color-coded output for errors and warnings
+- ✅ Provides fix suggestions
+
+**Exit Codes:**
+- `0` - All package.json files are valid
+- `1` - Found errors that need to be fixed
+
+**Detects:**
+- ❌ `workspace:*` protocol (incompatible with npm)
+- ⚠️ Wildcard versions (`"*"`)
+- ⚠️ File protocol usage
+- ⚠️ Missing name or version fields
+
+**Example Output:**
+```
+🔍 Validating package.json files...
+
+Found 12 package.json files
+
+✅ All package.json files are valid!
+```
+
+**When to Use:**
+- Before committing changes to package.json
+- After copying package.json from other projects
+- When encountering `EUNSUPPORTEDPROTOCOL` errors
+- During migration from pnpm/yarn to npm
+
+**Related Documentation:**
+- [PACKAGE_MANAGER_COMPATIBILITY.md](../docs/architecture/PACKAGE_MANAGER_COMPATIBILITY.md)
+- [TROUBLESHOOTING.md](../docs/TROUBLESHOOTING.md#incident-cannot-find-module-autoprefixer-build-error)
+
+---
+
 ### UI Component Scripts
 
 #### `update-shadcn.js`
