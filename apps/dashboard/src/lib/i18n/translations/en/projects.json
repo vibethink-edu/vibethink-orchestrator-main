@@ -45,6 +45,27 @@
     "allPriorities": "All Priorities",
     "teamLead": "Team Lead"
   },
+  "timeline": {
+    "events": {
+      "client_requirements": {
+        "title": "Client Requirements",
+        "description": "New requirements received",
+        "from": "From",
+        "subject": "Subject",
+        "details": "Scope details..."
+      },
+      "dependency_alert": {
+        "title": "Dependency Alert",
+        "description": "Critical update required",
+        "details": "Review vulnerable dependencies"
+      },
+      "sprint_planning": {
+        "title": "Sprint Planning",
+        "description": "Sprint kickoff meeting",
+        "details": "Defining goals and tasks"
+      }
+    }
+  },
   "status": {
     "active": "Active",
     "completed": "Completed",

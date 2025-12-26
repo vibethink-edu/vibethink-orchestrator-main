@@ -45,6 +45,27 @@
     "allPriorities": "Todas las Prioridades",
     "teamLead": "Líder de Equipo"
   },
+  "timeline": {
+    "events": {
+      "client_requirements": {
+        "title": "Requisitos del Cliente",
+        "description": "Nuevos requisitos recibidos",
+        "from": "De",
+        "subject": "Asunto",
+        "details": "Detalles del alcance..."
+      },
+      "dependency_alert": {
+        "title": "Alerta de Dependencia",
+        "description": "Actualización crítica requerida",
+        "details": "Revisar dependencias vulnerables"
+      },
+      "sprint_planning": {
+        "title": "Planificación de Sprint",
+        "description": "Reunión de inicio de sprint",
+        "details": "Definición de objetivos y tareas"
+      }
+    }
+  },
   "status": {
     "active": "Activo",
     "completed": "Completado",
