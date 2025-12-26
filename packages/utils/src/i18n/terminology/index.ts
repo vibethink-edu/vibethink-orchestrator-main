@@ -17,6 +17,47 @@
 // CAPA 1: Semantic IDs (Types)
 // ============================================================================
 
+// Import para uso interno en este módulo
+import {
+  SUPPORTED_LOCALES as LOCALES_CONST,
+  DEFAULT_LOCALE as DEFAULT_LOCALE_CONST,
+  PRODUCT_CONTEXTS as PRODUCTS_CONST,
+  isValidLocale as validateLocale,
+  isValidProductContext as validateProductContext,
+  isValidConceptID as validateConceptID,
+  isValidTerminologyContext as validateTerminologyContext,
+  createUIContext as buildUIContext,
+  createAgentContext as buildAgentContext,
+  getNamespaceForProduct as getProductNamespace,
+  isProductNamespace as checkProductNamespace,
+} from './types';
+
+// Import de funciones de engine
+import {
+  term as resolveTerm,
+  termSync as resolveTermSync,
+  getSnapshot as createSnapshot,
+  getConcept as fetchConcept,
+  preloadTerminology as preload,
+} from './engine';
+
+// Import de funciones de cache
+import {
+  terminologyCache as cache,
+  getFromCache as getCached,
+  setInCache as setCached,
+  hasCache as hasCached,
+  deleteFromCache as deleteCached,
+  clearTerminologyCache as clearCache,
+  clearTerminologyCacheFor as clearCacheFor,
+  buildCacheKey as makeCacheKey,
+  getCacheStats as getStats,
+  initTerminologyCache as initCache,
+  destroyTerminologyCache as destroyCache,
+  withAutoCleanup as autoCleanup,
+} from './cache';
+
+// Re-export EVERYTHING
 export {
   // Constantes de idiomas (orden CRÍTICO: en primero)
   SUPPORTED_LOCALES,
@@ -47,7 +88,7 @@ export {
 
   // Namespaces de archivos JSON
   ConceptNamespace,
-  
+
   // Paths constantes
   CONCEPT_FILES_PATH,
   CONCEPT_FILE_PATTERN,
@@ -147,7 +188,7 @@ export const TERMINOLOGY_MODULE_INFO = {
     bestPractices: 'docs/architecture/I18N_BEST_PRACTICES_AGENTS.md',
     validation: 'docs/architecture/I18N_9_LANGUAGE_COMPLIANCE_PROTOCOL.md',
   },
-  supportedLocales: SUPPORTED_LOCALES,
+  supportedLocales: LOCALES_CONST,
   supportedProducts: ['hotel', 'studio', 'cowork', 'coliving'] as const,
 } as const;
 
@@ -176,61 +217,58 @@ export function getTerminologyModuleInfo() {
 // ============================================================================
 
 /**
- * Exporta todas las funciones y tipos como un único objeto
+ * Exporta todas las funciones y constantes como un único objeto
  * Útil para testing y debugging.
+ *
+ * NOTA: No incluimos TypeScript types aquí porque no existen en runtime.
  */
 export const TerminologySystem = {
-  // CAPA 1
-  types: {
-    SUPPORTED_LOCALES,
-    DEFAULT_LOCALE,
-    Locale,
-    ProductContext,
-    PRODUCT_CONTEXTS,
-    ConceptID,
-    BookingConcept,
-    CRMConcept,
-    AllConceptIDs,
-    ConceptValue,
-    ConceptObject,
-    TerminologyContext,
-    UIContext,
-    AgentContext,
-    TerminologySnapshot,
-    ConceptNamespace,
-    isValidLocale,
-    isValidProductContext,
-    isValidConceptID,
-    isValidTerminologyContext,
-    createUIContext,
-    createAgentContext,
-    getNamespaceForProduct,
-    isProductNamespace,
+  // CAPA 1: Constantes y funciones (NO types)
+  constants: {
+    SUPPORTED_LOCALES: LOCALES_CONST,
+    DEFAULT_LOCALE: DEFAULT_LOCALE_CONST,
+    PRODUCT_CONTEXTS: PRODUCTS_CONST,
+  },
+
+  // CAPA 1: Validadores y helpers
+  validators: {
+    isValidLocale: validateLocale,
+    isValidProductContext: validateProductContext,
+    isValidConceptID: validateConceptID,
+    isValidTerminologyContext: validateTerminologyContext,
+  },
+
+  // CAPA 1: Builders
+  builders: {
+    createUIContext: buildUIContext,
+    createAgentContext: buildAgentContext,
+    getNamespaceForProduct: getProductNamespace,
+    isProductNamespace: checkProductNamespace,
   },
 
   // CAPA 2: Engine
   engine: {
-    term,
-    termSync,
-    getSnapshot,
-    getConcept,
-    preloadTerminology,
+    term: resolveTerm,
+    termSync: resolveTermSync,
+    getSnapshot: createSnapshot,
+    getConcept: fetchConcept,
+    preloadTerminology: preload,
   },
 
   // CAPA 2: Cache
   cache: {
-    terminologyCache,
-    getFromCache,
-    setInCache,
-    hasCache,
-    deleteFromCache,
-    clearTerminologyCache,
-    clearTerminologyCacheFor,
-    buildCacheKey,
-    getCacheStats,
-    initTerminologyCache,
-    destroyTerminologyCache,
-    withAutoCleanup,
+    terminologyCache: cache,
+    getFromCache: getCached,
+    setInCache: setCached,
+    hasCache: hasCached,
+    deleteFromCache: deleteCached,
+    clearTerminologyCache: clearCache,
+    clearTerminologyCacheFor: clearCacheFor,
+    buildCacheKey: makeCacheKey,
+    getCacheStats: getStats,
+    initTerminologyCache: initCache,
+    destroyTerminologyCache: destroyCache,
+    withAutoCleanup: autoCleanup,
   },
 
   // Metadata

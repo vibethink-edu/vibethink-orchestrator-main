@@ -1,0 +1,51 @@
+{
+  "concept": {
+    "booking": {
+      "action": {
+        "book": "Buchen",
+        "checkIn": "Einchecken",
+        "checkOut": "Auschecken"
+      },
+      "time": {
+        "checkIn": "Einchecken",
+        "checkOut": "Auschecken"
+      }
+    },
+    "crm": {
+      "entity": {
+        "project": "Projekt",
+        "client": "Kunde",
+        "campaign": "Kampagne"
+      },
+      "status": {
+        "active": "Aktiv",
+        "completed": "Abgeschlossen",
+        "cancelled": "Storniert"
+      }
+    },
+    "property": {
+      "type": {
+        "standard": "Standard",
+        "large": "Groß",
+        "studio": "Studioraum"
+      },
+      "amenity": {
+        "microphone": "Mikrofon",
+        "camera": "Kamera",
+        "lighting": "Beleuchtung",
+        "backdrop": "Hintergrund",
+        "speakers": "Lautsprecher",
+        "greenScreen": "Grünschirm",
+        "audioInterface": "Audio-Schnittstelle"
+      },
+      "service": {
+        "recording": "Aufnahme",
+        "editing": "Schnitt",
+        "production": "Produktion",
+        "mixing": "Mischen",
+        "mastering": "Mastering",
+        "colorGrading": "Color Grading"
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "ensuite": "전용 욕실",
+        "suite": "스위트",
+        "sharedSpace": "공용 공간",
+        "kitchen": "주방",
+        "bathroom": "욕실",
+        "bed": "침대",
+        "bunkBed": "이층 침대",
+        "privateBathroom": "전용 욕실",
+        "sharedBathroom": "공용 욕실"
+      },
+      "action": {
+        "book": "예약",
+        "checkIn": "체크인",
+        "checkOut": "체크아웃",
+        "extend": "연장",
+        "renew": "갱신"
+      },
+      "time": {
+        "checkIn": "체크인",
+        "checkOut": "체크아웃",
+        "minimumStay": "최소 숙박일",
+        "maximumStay": "최대 숙박일",
+        "nights": "박",
+        "checkInTime": "체크인 시간",
+        "checkOutTime": "체크아웃 시간"
+      },
+      "status": {
+        "checkedIn": "체크인됨",
+        "checkedOut": "체크아웃됨"
+      }
+    },
+    "property": {
+      "type": {
+        "privateRoom": "개인룸",
+        "ensuite": "전용 욕실",
+        "suite": "스위트",
+        "dormitory": "도미토리",
+        "femaleOnly": "여성 전용",
+        "maleOnly": "남성 전용",
+        "coed": "남녀 혼용",
+        "studio": "스튜디오"
+      },
+      "amenity": {
+        "kitchen": "주방",
+        "bathroom": "욕실",
+        "shower": "샤워실",
+        "laundry": "세탁소",
+        "commonArea": "공용 공간",
+        "livingRoom": "거실",
+        "tv": "TV",
+        "workspace": "작업 공간",
+        "highSpeedInternet": "고속 인터넷"
+      },
+      "houseRules": {
+        "quietHours": "조용한 시간",
+        "noSmoking": "금연",
+        "noGuests": "게스트 금지",
+        "petsPolicy": "반려동물 정책",
+        "cleaningSchedule": "청소 일정"
+      },
+      "service": {
+        "breakfast": "조식",
+        "linens": "침구",
+        "towels": "수건",
+        "housekeeping": "하우스키핑",
+        "reception": "리셉션",
+        "valet": "발렛 파킹",
+        "laundry": "세탁소",
+        "roomService": "룸서비스"
+      },
+      "community": {
+        "commonArea": "공용 공간",
+        "kitchen": "주방",
+        "dining": "식당",
+        "livingRoom": "거실",
+        "event": "이벤트",
+        "activity": "활동",
+        "game": "게임",
+        "movie": "영화",
+        "study": "공부"
+      },
+      "policy": {
+        "guestsPolicy": "게스트 정책",
+        "alcohol": "주류",
+        "pets": "반려동물",
+        "quietHours": "조용한 시간"
+      }
+    }
+  }
+}

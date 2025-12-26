@@ -1,0 +1,78 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "desk": "Mesa",
+        "office": "Escritório",
+        "meetingRoom": "Sala de reunião",
+        "eventSpace": "Espaço de eventos",
+        "phoneBooth": "Cabine telefônica",
+        "quietRoom": "Sala silenciosa"
+      },
+      "action": {
+        "book": "Reservar",
+        "checkIn": "Check-in",
+        "checkOut": "Check-out"
+      },
+      "time": {
+        "checkIn": "Check-in",
+        "checkOut": "Check-out",
+        "hourly": "Por hora",
+        "daily": "Diário",
+        "weekly": "Semanal",
+        "monthly": "Mensal"
+      },
+      "unit": {
+        "week": "{count, plural, one {semana} other {semanas}}",
+        "month": "{count, plural, one {mês} other {meses}}"
+      }
+    },
+    "property": {
+      "type": {
+        "openDesk": "Mesa compartilhada",
+        "dedicatedDesk": "Mesa dedicada",
+        "hotDesk": "Mesa quente",
+        "privateOffice": "Escritório privado",
+        "eventSpace": "Espaço de eventos"
+      },
+      "amenity": {
+        "wifi": "WiFi",
+        "parking": "Estacionamento",
+        "kitchen": "Cozinha",
+        "coffee": "Café",
+        "snacks": "Lanches",
+        "printer": "Impressora",
+        "scanner": "Scanner"
+      },
+      "service": {
+        "reception": "Recepção",
+        "itSupport": "Suporte de TI",
+        "mailService": "Serviço de correio",
+        "printing": "Impressão",
+        "packageHandling": "Manuseio de pacotes"
+      }
+    },
+    "membership": {
+      "tier": {
+        "dayPass": "Passe diário",
+        "monthly": "Mensal",
+        "yearly": "Anual",
+        "unlimited": "Ilimitado"
+      },
+      "benefit": {
+        "discount": "Desconto",
+        "credit": "Crédito",
+        "earlyAccess": "Acesso antecipado",
+        "guestAccess": "Acesso de convidado"
+      }
+    },
+    "community": {
+      "feature": {
+        "networking": "Networking",
+        "events": "Eventos",
+        "workshops": "Workshops",
+        "mentorship": "Mentoria"
+      }
+    }
+  }
+}

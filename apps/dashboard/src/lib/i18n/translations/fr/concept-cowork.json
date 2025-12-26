@@ -1,0 +1,78 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "desk": "Bureau",
+        "office": "Bureau",
+        "meetingRoom": "Salle de réunion",
+        "eventSpace": "Espace événementiel",
+        "phoneBooth": "Cabine téléphonique",
+        "quietRoom": "Salle calme"
+      },
+      "action": {
+        "book": "Réserver",
+        "checkIn": "Enregistrement",
+        "checkOut": "Départ"
+      },
+      "time": {
+        "checkIn": "Enregistrement",
+        "checkOut": "Départ",
+        "hourly": "Horaire",
+        "daily": "Journalier",
+        "weekly": "Hebdomadaire",
+        "monthly": "Mensuel"
+      },
+      "unit": {
+        "week": "{count, plural, one {semaine} other {semaines}}",
+        "month": "{count, plural, one {mois} other {mois}}"
+      }
+    },
+    "property": {
+      "type": {
+        "openDesk": "Bureau partagé",
+        "dedicatedDesk": "Bureau dédié",
+        "hotDesk": "Bureau libre",
+        "privateOffice": "Bureau privé",
+        "eventSpace": "Espace événementiel"
+      },
+      "amenity": {
+        "wifi": "WiFi",
+        "parking": "Parking",
+        "kitchen": "Cuisine",
+        "coffee": "Café",
+        "snacks": "En-cas",
+        "printer": "Imprimante",
+        "scanner": "Scanneur"
+      },
+      "service": {
+        "reception": "Réception",
+        "itSupport": "Support informatique",
+        "mailService": "Service postal",
+        "printing": "Impression",
+        "packageHandling": "Gestion des colis"
+      }
+    },
+    "membership": {
+      "tier": {
+        "dayPass": "Pass journée",
+        "monthly": "Mensuel",
+        "yearly": "Annuel",
+        "unlimited": "Illimité"
+      },
+      "benefit": {
+        "discount": "Réduction",
+        "credit": "Crédit",
+        "earlyAccess": "Accès anticipé",
+        "guestAccess": "Accès invité"
+      }
+    },
+    "community": {
+      "feature": {
+        "networking": "Réseautage",
+        "events": "Événements",
+        "workshops": "Ateliers",
+        "mentorship": "Mentorat"
+      }
+    }
+  }
+}

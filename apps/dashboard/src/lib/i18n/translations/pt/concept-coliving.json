@@ -1,0 +1,94 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "ensuite": "Suíte",
+        "suite": "Suíte",
+        "sharedSpace": "Espaço compartilhado",
+        "kitchen": "Cozinha",
+        "bathroom": "Banheiro",
+        "bed": "Cama",
+        "bunkBed": "Beliche",
+        "privateBathroom": "Banheiro privado",
+        "sharedBathroom": "Banheiro compartilhado"
+      },
+      "action": {
+        "book": "Reservar",
+        "checkIn": "Check-in",
+        "checkOut": "Check-out",
+        "extend": "Estender",
+        "renew": "Renovar"
+      },
+      "time": {
+        "checkIn": "Check-in",
+        "checkOut": "Check-out",
+        "minimumStay": "Estadia mínima",
+        "maximumStay": "Estadia máxima",
+        "nights": "Noites",
+        "checkInTime": "Horário de check-in",
+        "checkOutTime": "Horário de check-out"
+      },
+      "status": {
+        "checkedIn": "Check-in feito",
+        "checkedOut": "Check-out feito"
+      }
+    },
+    "property": {
+      "type": {
+        "privateRoom": "Quarto privado",
+        "ensuite": "Suíte",
+        "suite": "Suíte",
+        "dormitory": "Dormitório",
+        "femaleOnly": "Apenas mulheres",
+        "maleOnly": "Apenas homens",
+        "coed": "Misto",
+        "studio": "Estúdio"
+      },
+      "amenity": {
+        "kitchen": "Cozinha",
+        "bathroom": "Banheiro",
+        "shower": "Chuveiro",
+        "laundry": "Lavanderia",
+        "commonArea": "Área comum",
+        "livingRoom": "Sala de estar",
+        "tv": "TV",
+        "workspace": "Espaço de trabalho",
+        "highSpeedInternet": "Internet de alta velocidade"
+      },
+      "houseRules": {
+        "quietHours": "Horas silenciosas",
+        "noSmoking": "Não fumantes",
+        "noGuests": "Sem convidados",
+        "petsPolicy": "Política de animais",
+        "cleaningSchedule": "Calendário de limpeza"
+      },
+      "service": {
+        "breakfast": "Café da manhã",
+        "linens": "Roupas de cama",
+        "towels": "Toalhas",
+        "housekeeping": "Arrumação",
+        "reception": "Recepção",
+        "valet": "Manobrista",
+        "laundry": "Lavanderia",
+        "roomService": "Serviço de quarto"
+      },
+      "community": {
+        "commonArea": "Área comum",
+        "kitchen": "Cozinha",
+        "dining": "Sala de jantar",
+        "livingRoom": "Sala de estar",
+        "event": "Evento",
+        "activity": "Atividade",
+        "game": "Jogo",
+        "movie": "Filme",
+        "study": "Estudo"
+      },
+      "policy": {
+        "guestsPolicy": "Política de convidados",
+        "alcohol": "Álcool",
+        "pets": "Animais",
+        "quietHours": "Horas silenciosas"
+      }
+    }
+  }
+}

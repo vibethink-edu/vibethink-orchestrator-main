@@ -1,58 +1,24 @@
 {
   "concept": {
     "booking": {
-      "resource": {
-        "room": "Estudio",
-        "space": "Espacio",
-        "workstation": "Puesto de trabajo",
-        "area": "Área"
-      },
       "action": {
-        "reserve": "Reservar",
         "book": "Reservar",
         "checkIn": "Check-in",
-        "checkOut": "Check-out",
-        "modify": "Modificar",
-        "cancel": "Cancelar",
-        "confirm": "Confirmar"
+        "checkOut": "Check-out"
       },
       "time": {
         "checkIn": "Check-in",
-        "checkOut": "Check-out",
-        "startTime": "Hora de inicio",
-        "endTime": "Hora de fin",
-        "duration": "Duración",
-        "hourly": "Por hora",
-        "daily": "Por día",
-        "weekly": "Por semana"
-      },
-      "unit": {
-        "hour": "{count, plural, one {hora} other {horas}}",
-        "day": "{count, plural, one {día} other {días}}",
-        "week": "{count, plural, one {semana} other {semanas}}"
-      },
-      "status": {
-        "confirmed": "Confirmada",
-        "pending": "Pendiente",
-        "cancelled": "Cancelada",
-        "completed": "Completada"
+        "checkOut": "Check-out"
       }
     },
     "crm": {
       "entity": {
         "project": "Proyecto",
-        "cliente": "Cliente",
-        "campaña": "Campaña"
-      },
-      "action": {
-        "create": "Crear",
-        "update": "Actualizar",
-        "delete": "Eliminar",
-        "archive": "Archivar"
+        "client": "Client",
+        "campaign": "Campaign"
       },
       "status": {
         "active": "Activo",
-        "inProgress": "En progreso",
         "completed": "Completado",
         "cancelled": "Cancelado"
       }
@@ -61,29 +27,25 @@
       "type": {
         "standard": "Estándar",
         "large": "Grande",
-        "studioSpace": "Espacio de Estudio",
-        "recordingRoom": "Sala de Grabación"
-        "mixingRoom": "Sala de Mezcla"
+        "studio": "Studio Space"
       },
       "amenity": {
-        "microfono": "Micrófono",
-        "cámara": "Cámara",
-        "iluminación": "Iluminación",
-        "fondo": "Fondo",
-        "pantallaVerde": "Pantalla Verde",
-        "altavoces": "Altavoces",
-        "interfazAudio": "Interfaz de Audio"
+        "microphone": "Microphone",
+        "camera": "Camera",
+        "lighting": "Lighting",
+        "backdrop": "Backdrop",
+        "speakers": "Speakers",
+        "greenScreen": "Green Screen",
+        "audioInterface": "Audio Interface"
       },
       "service": {
-        "grabación": "Grabación",
-        "edición": "Edición",
-        "producción": "Producción",
-        "mezcla": "Mezcla",
-        "masterización": "Masterización",
-        "correcciónColor": "Corrección de Color",
-        "producciónSonora": "Producción Sonora"
+        "recording": "Recording",
+        "editing": "Editing",
+        "production": "Production",
+        "mixing": "Mixing",
+        "mastering": "Mastering",
+        "colorGrading": "Color Grading"
       }
     }
   }
 }
-

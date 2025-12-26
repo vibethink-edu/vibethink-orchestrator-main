@@ -16,7 +16,7 @@
 /**
  * Entry de cache con timestamp
  */
-interface CacheEntry<T = string> {
+export interface CacheEntry<T = string> {
   /**
    * Valor cacheado
    */
@@ -281,23 +281,23 @@ export function clearTerminologyCacheFor(options: {
 
 /**
  * Construye un cache key a partir de contexto
- * 
+ *
  * Formato: locale:productContext:domainContext:tenantId:conceptId
- * 
+ *
  * @param conceptId - El Concept ID
  * @param locale - El idioma
  * @param context - El contexto de terminología
  * @returns El cache key construido
- * 
+ *
  * @example
  * ```typescript
  * buildCacheKey('concept.booking.resource.room', 'es', { productContext: 'hotel' });
  * // → "es:hotel:::concept.booking.resource.room"
- * 
+ *
  * buildCacheKey('concept.crm.entity.deal', 'en', {});
  * // → "en:::concept.crm.entity.deal"
- * 
- * buildCacheKey('concept.booking.time.checkin', 'es', { 
+ *
+ * buildCacheKey('concept.booking.time.checkin', 'es', {
  *   productContext: 'hotel',
  *   domainContext: 'booking',
  *   tenantId: 'tenant-123'
@@ -312,7 +312,9 @@ export function buildCacheKey(
     productContext?: string;
     domainContext?: string;
     tenantId?: string;
-  }
+    workspaceContext?: string;
+    industryContext?: string;
+  } = {}
 ): string {
   const parts = [
     locale,
@@ -320,7 +322,7 @@ export function buildCacheKey(
     context.domainContext || '',
     context.tenantId || '',
   ];
-  
+
   return `${parts.join(':')}:${conceptId}`;
 }
 

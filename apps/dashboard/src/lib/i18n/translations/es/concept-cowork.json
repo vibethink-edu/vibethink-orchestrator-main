@@ -2,93 +2,77 @@
   "concept": {
     "booking": {
       "resource": {
-        "escritorio": "Escritorio",
-        "oficina": "Oficina",
-        "salaReuniones": "Sala de Reuniones",
-        "espacioEventos": "Espacio de Eventos",
-        "cabinaTelefónica": "Cabina Telefónica",
-        "salaTranquila": "Sala Tranquila"
+        "desk": "Desk",
+        "office": "Office",
+        "meetingRoom": "Meeting Room",
+        "eventSpace": "Event Space",
+        "phoneBooth": "Phone Booth",
+        "quietRoom": "Quiet Room"
       },
       "action": {
-        "reserve": "Reservar",
         "book": "Reservar",
         "checkIn": "Check In",
-        "checkOut": "Check Out",
-        "modify": "Modificar",
-        "cancel": "Cancelar",
-        "confirm": "Confirmar"
+        "checkOut": "Check Out"
       },
       "time": {
         "checkIn": "Check-in",
         "checkOut": "Check-out",
-        "startTime": "Hora de inicio",
-        "endTime": "Hora de fin",
-        "duration": "Duración",
-        "porHora": "Por Hora",
-        "porDía": "Por Día",
-        "porSemana": "Por Semana",
-        "porMes": "Por Mes"
+        "hourly": "Hourly",
+        "daily": "Daily",
+        "weekly": "Weekly",
+        "monthly": "Monthly"
       },
       "unit": {
-        "hora": "{count, plural, one {hora} other {horas}}",
-        "día": "{count, plural, one {día} other {días}}",
-        "semana": "{count, plural, one {semana} other {semanas}}",
-        "mes": "{count, plural, one {mes} other {meses}}"
-      },
-      "status": {
-        "confirmed": "Confirmada",
-        "pending": "Pendiente",
-        "cancelled": "Cancelada",
-        "completed": "Completada"
+        "week": "{count, plural, one {week} other {weeks}}",
+        "month": "{count, plural, one {month} other {months}}"
       }
     },
     "property": {
       "type": {
-        "escritorioAbierto": "Escritorio Abierto",
-        "escritorioDedicado": "Escritorio Dedicado",
-        "escritorioCaliente": "Escritorio Caliente",
-        "oficinaPrivada": "Oficina Privada",
-        "espacioEventos": "Espacio de Eventos"
+        "openDesk": "Open Desk",
+        "dedicatedDesk": "Dedicated Desk",
+        "hotDesk": "Hot Desk",
+        "privateOffice": "Private Office",
+        "eventSpace": "Event Space"
       },
       "amenity": {
         "wifi": "WiFi",
-        "estacionamiento": "Estacionamiento",
-        "cocina": "Cocina",
-        "café": "Café",
-        "refrigerios": "Refrigerios",
-        "impresora": "Impresora",
-        "escáner": "Escáner"
+        "parking": "Parking",
+        "kitchen": "Kitchen",
+        "coffee": "Coffee",
+        "snacks": "Snacks",
+        "printer": "Printer",
+        "scanner": "Scanner"
       },
       "service": {
-        "recepción": "Recepción",
-        "soporteIT": "Soporte IT",
-        "servicioCorreo": "Servicio de Correo",
-        "impresiones": "Impresiones",
-        "manejoPaquetes": "Manejo de Paquetes"
+        "reception": "Reception",
+        "itSupport": "IT Support",
+        "mailService": "Mail Service",
+        "printing": "Printing",
+        "packageHandling": "Package Handling"
+      }
+    },
+    "membership": {
+      "tier": {
+        "dayPass": "Day Pass",
+        "monthly": "Monthly",
+        "yearly": "Yearly",
+        "unlimited": "Unlimited"
       },
-      "membership": {
-        "nivel": {
-          "paseDiario": "Pase Diario",
-          "mensual": "Mensual",
-          "anual": "Anual",
-          "ilimitado": "Ilimitado"
-        },
-        "beneficio": {
-          "descuento": "Descuento",
-          "crédito": "Crédito",
-          "accesoTemprano": "Acceso Temprano",
-          "accesoInvitados": "Acceso para Invitados"
-        }
-      },
-      "community": {
-        "característica": {
-          "networking": "Networking",
-          "eventos": "Eventos",
-          "talleres": "Talleres",
-          "mentoría": "Mentoría"
-        }
+      "benefit": {
+        "discount": "Discount",
+        "credit": "Credit",
+        "earlyAccess": "Early Access",
+        "guestAccess": "Guest Access"
+      }
+    },
+    "community": {
+      "feature": {
+        "networking": "Networking",
+        "events": "Events",
+        "workshops": "Workshops",
+        "mentorship": "Mentorship"
       }
     }
   }
 }
-

@@ -16,27 +16,24 @@ import {
   ConceptValue,
   ConceptObject,
   TerminologyContext,
-  AgentContext,
+  TerminologySnapshot,
   ConceptNamespace,
   getNamespaceForProduct,
   isProductNamespace,
   isValidTerminologyContext,
-  buildCacheKey,
 } from './types';
 
-import { 
-  getTranslationLoader, 
-  TranslationLoader 
+import {
+  getTranslationLoader
 } from '../translation-loader-registry';
 
 import {
-  terminologyCache,
-  cacheKey,
   getFromCache,
   setInCache,
   clearTerminologyCache,
   clearTerminologyCacheFor,
   getCacheStats,
+  buildCacheKey,
 } from './cache';
 
 /**
@@ -53,30 +50,44 @@ async function resolveWithFallback(
   context: TerminologyContext
 ): Promise<string> {
   const loader = getTranslationLoader();
-  const namespace = getNamespaceForProduct(context.productContext);
-  
+
+  // Determinar namespaces a buscar
+  const namespaces: string[] = [];
+
+  // Si hay productContext, buscar primero en concept-{product}.json
+  if (context.productContext) {
+    namespaces.push(getNamespaceForProduct(context.productContext));
+  }
+
+  // Siempre buscar en concept.json como fallback
+  namespaces.push('concept');
+
   // Intentar idioma objetivo
-  try {
-    const value = await loader.loadSync(locale, namespace);
-    if (value && value[conceptId]) {
-      return typeof value[conceptId] === 'string' 
-        ? value[conceptId] 
-        : value[conceptId].label || conceptId;
+  for (const namespace of namespaces) {
+    try {
+      const value = await loader.loadSync(locale, namespace);
+      if (value && value[conceptId]) {
+        return typeof value[conceptId] === 'string'
+          ? value[conceptId]
+          : value[conceptId].label || conceptId;
+      }
+    } catch (error) {
+      console.debug(`[Terminology] Failed to load ${locale}/${namespace}:`, error);
     }
-  } catch (error) {
-    console.warn(`[Terminology] Failed to load ${locale}/${namespace}:`, error);
   }
 
   // Fallback a inglés
-  try {
-    const value = await loader.loadSync('en', namespace);
-    if (value && value[conceptId]) {
-      return typeof value[conceptId] === 'string' 
-        ? value[conceptId] 
-        : value[conceptId].label || conceptId;
+  for (const namespace of namespaces) {
+    try {
+      const value = await loader.loadSync('en', namespace);
+      if (value && value[conceptId]) {
+        return typeof value[conceptId] === 'string'
+          ? value[conceptId]
+          : value[conceptId].label || conceptId;
+      }
+    } catch (error) {
+      console.debug(`[Terminology] Failed to load en/${namespace}:`, error);
     }
-  } catch (error) {
-    console.warn(`[Terminology] Failed to load en/${namespace}:`, error);
   }
 
   // Último recurso: retornar el Concept ID
@@ -281,8 +292,6 @@ export async function getSnapshot(
   }
 
   const locale = context.locale || 'en';
-  const loader = getTranslationLoader();
-  const namespace = getNamespaceForProduct(context.productContext);
 
   // Resolver todos los conceptos
   const concepts: Record<ConceptID, ConceptValue> = {};
@@ -351,7 +360,7 @@ export async function preloadTerminology(
   conceptIds: ConceptID[]
 ): Promise<void> {
   console.log(`[Terminology] Preloading ${conceptIds.length} concepts...`);
-  
+
   // Validar contexto
   if (!isValidTerminologyContext(context)) {
     console.warn(`[Terminology] Invalid context:`, context);
@@ -361,21 +370,19 @@ export async function preloadTerminology(
   const locale = context.locale || 'en';
   const loader = getTranslationLoader();
 
-  // Cargar namespace base
-  const namespace = getNamespaceForProduct(context.productContext);
-
+  // Cargar namespace base (siempre)
   try {
-    await loader.preload(locale, namespace);
-    console.log(`[Terminology] Preloaded namespace: ${namespace}`);
+    await loader.preload(locale, 'concept');
+    console.log(`[Terminology] Preloaded base namespace: concept`);
   } catch (error) {
-    console.warn(`[Terminology] Failed to preload namespace ${namespace}:`, error);
+    console.warn(`[Terminology] Failed to preload base namespace concept:`, error);
   }
 
   // Cargar namespace de producto si existe
   if (context.productContext) {
-    const productNamespace = `concept-${context.productContext}`;
+    const productNamespace = getNamespaceForProduct(context.productContext);
     try {
-      await loader.preload(locale, productNamespace as any);
+      await loader.preload(locale, productNamespace);
       console.log(`[Terminology] Preloaded product namespace: ${productNamespace}`);
     } catch (error) {
       console.warn(`[Terminology] Failed to preload product namespace ${productNamespace}:`, error);
@@ -384,7 +391,7 @@ export async function preloadTerminology(
 
   // Resolver conceptos para calentar cache
   await getSnapshot(conceptIds, context);
-  
+
   console.log(`[Terminology] Preload complete. Cache stats:`, getCacheStats());
 }
 
@@ -425,64 +432,55 @@ export async function getConcept(
 
   const locale = context.locale || 'en';
   const loader = getTranslationLoader();
-  const namespace = getNamespaceForProduct(context.productContext);
   const cacheKey = buildCacheKey(conceptId, locale, context);
 
   // Verificar cache
   const cached = getFromCache(cacheKey);
   if (cached && typeof cached === 'object') {
-    return cached;
+    return cached as ConceptObject;
   }
+
+  // Determinar namespaces a buscar
+  const namespaces: string[] = [];
+
+  // Si hay productContext, buscar primero en concept-{product}.json
+  if (context.productContext) {
+    namespaces.push(getNamespaceForProduct(context.productContext));
+  }
+
+  // Siempre buscar en concept.json como fallback
+  namespaces.push('concept');
 
   // Resolver desde loader
-  try {
-    const value = await loader.loadSync(locale, namespace);
-    
-    if (!value || !value[conceptId]) {
-      return null;
+  for (const namespace of namespaces) {
+    try {
+      const value = await loader.loadSync(locale, namespace);
+
+      if (!value || !value[conceptId]) {
+        continue;
+      }
+
+      const conceptValue = value[conceptId];
+
+      // Si es un string simple, no tiene metadata
+      if (typeof conceptValue === 'string') {
+        return {
+          label: conceptValue,
+        };
+      }
+
+      // Si es un objeto enriquecido
+      return conceptValue as ConceptObject;
+    } catch (error) {
+      console.debug(`[Terminology] Failed to load concept ${conceptId} from ${namespace}:`, error);
     }
-
-    const conceptValue = value[conceptId];
-
-    // Si es un string simple, no tiene metadata
-    if (typeof conceptValue === 'string') {
-      return {
-        label: conceptValue,
-      };
-    }
-
-    // Si es un objeto enriquecido
-    return conceptValue;
-  } catch (error) {
-    console.error(`[Terminology] Failed to load concept ${conceptId}:`, error);
-    return null;
   }
+
+  // No encontrado en ningún namespace
+  return null;
 }
 
-/**
- * Constructor de cache key
- * 
- * Formato: locale:productContext:domainContext:tenantId:conceptId
- * 
- * @example
- * "es:hotel:::concept.booking.resource.room"
- * "en:studio:booking:::concept.crm.entity.deal"
- * "es::::concept.booking.time.checkin" (sin overrides)
- */
-function buildCacheKey(
-  conceptId: ConceptID,
-  locale: string,
-  context: TerminologyContext
-): string {
-  const parts = [
-    locale,
-    context.productContext || 'null',
-    context.domainContext || 'null',
-    context.tenantId || 'null',
-  ];
-  
-  return `${parts.join(':')}:${conceptId}`;
-}
+// buildCacheKey is imported from './cache' - no need to redefine it here
 
 /**
  * Re-exportar cache utilities para conveniencia

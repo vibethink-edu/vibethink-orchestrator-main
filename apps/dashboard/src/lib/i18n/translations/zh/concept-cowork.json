@@ -1,0 +1,78 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "desk": "办公桌",
+        "office": "办公室",
+        "meetingRoom": "会议室",
+        "eventSpace": "活动空间",
+        "phoneBooth": "电话亭",
+        "quietRoom": "静音室"
+      },
+      "action": {
+        "book": "预订",
+        "checkIn": "办理入住",
+        "checkOut": "办理退房"
+      },
+      "time": {
+        "checkIn": "办理入住",
+        "checkOut": "办理退房",
+        "hourly": "按小时",
+        "daily": "按天",
+        "weekly": "按周",
+        "monthly": "按月"
+      },
+      "unit": {
+        "week": "{count, plural, other {周}}",
+        "month": "{count, plural, other {个月}}"
+      }
+    },
+    "property": {
+      "type": {
+        "openDesk": "开放办公桌",
+        "dedicatedDesk": "专用办公桌",
+        "hotDesk": "热桌",
+        "privateOffice": "私人办公室",
+        "eventSpace": "活动空间"
+      },
+      "amenity": {
+        "wifi": "WiFi",
+        "parking": "停车场",
+        "kitchen": "厨房",
+        "coffee": "咖啡",
+        "snacks": "零食",
+        "printer": "打印机",
+        "scanner": "扫描仪"
+      },
+      "service": {
+        "reception": "前台",
+        "itSupport": "IT支持",
+        "mailService": "邮件服务",
+        "printing": "打印",
+        "packageHandling": "包裹处理"
+      }
+    },
+    "membership": {
+      "tier": {
+        "dayPass": "日票",
+        "monthly": "月票",
+        "yearly": "年票",
+        "unlimited": "无限次"
+      },
+      "benefit": {
+        "discount": "折扣",
+        "credit": "积分",
+        "earlyAccess": "提前进入",
+        "guestAccess": "访客权限"
+      }
+    },
+    "community": {
+      "feature": {
+        "networking": "社交",
+        "events": "活动",
+        "workshops": "研讨会",
+        "mentorship": "导师指导"
+      }
+    }
+  }
+}

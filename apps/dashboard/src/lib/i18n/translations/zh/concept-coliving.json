@@ -1,0 +1,94 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "ensuite": "套间",
+        "suite": "套房",
+        "sharedSpace": "共享空间",
+        "kitchen": "厨房",
+        "bathroom": "浴室",
+        "bed": "床",
+        "bunkBed": "双层床",
+        "privateBathroom": "私人浴室",
+        "sharedBathroom": "共享浴室"
+      },
+      "action": {
+        "book": "预订",
+        "checkIn": "办理入住",
+        "checkOut": "办理退房",
+        "extend": "延长",
+        "renew": "续租"
+      },
+      "time": {
+        "checkIn": "办理入住",
+        "checkOut": "办理退房",
+        "minimumStay": "最短住宿",
+        "maximumStay": "最长住宿",
+        "nights": "晚数",
+        "checkInTime": "入住时闱",
+        "checkOutTime": "退房时闱"
+      },
+      "status": {
+        "checkedIn": "已入住",
+        "checkedOut": "已退房"
+      }
+    },
+    "property": {
+      "type": {
+        "privateRoom": "私人房间",
+        "ensuite": "套间",
+        "suite": "套房",
+        "dormitory": "宿舍",
+        "femaleOnly": "仅限女性",
+        "maleOnly": "仅限男性",
+        "coed": "男女混住",
+        "studio": "工作室"
+      },
+      "amenity": {
+        "kitchen": "厨房",
+        "bathroom": "浴室",
+        "shower": "淋浴",
+        "laundry": "洗衣",
+        "commonArea": "公共区域",
+        "livingRoom": "客厅",
+        "tv": "电视",
+        "workspace": "工作区",
+        "highSpeedInternet": "高速网络"
+      },
+      "houseRules": {
+        "quietHours": "安静时闱",
+        "noSmoking": "禁止吸烟",
+        "noGuests": "禁止访客",
+        "petsPolicy": "宠物政策",
+        "cleaningSchedule": "清洁计划"
+      },
+      "service": {
+        "breakfast": "早餐",
+        "linens": "床品",
+        "towels": "毛巾",
+        "housekeeping": "客房服务",
+        "reception": "前台",
+        "valet": "代客泊车",
+        "laundry": "洗衣服务",
+        "roomService": "客房服务"
+      },
+      "community": {
+        "commonArea": "公共区域",
+        "kitchen": "厨房",
+        "dining": "餐厅",
+        "livingRoom": "客厅",
+        "event": "活动",
+        "activity": "活动",
+        "game": "游戏",
+        "movie": "电影",
+        "study": "学习"
+      },
+      "policy": {
+        "guestsPolicy": "访客政策",
+        "alcohol": "酒类",
+        "pets": "宠物",
+        "quietHours": "安静时闱"
+      }
+    }
+  }
+}

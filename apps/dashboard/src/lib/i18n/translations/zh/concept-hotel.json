@@ -1,0 +1,51 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "suite": "套房",
+        "bedroom": "卧室",
+        "bathroom": "浴室",
+        "kitchen": "厨房",
+        "livingRoom": "客厅"
+      },
+      "action": {
+        "book": "预订",
+        "checkIn": "办理入住",
+        "checkOut": "办理退房"
+      }
+    },
+    "property": {
+      "type": {
+        "standard": "标准",
+        "deluxe": "豪华",
+        "suite": "套房",
+        "presidential": "总统套房"
+      },
+      "amenity": {
+        "wifi": "WiFi",
+        "parking": "停车场",
+        "pool": "游泳池",
+        "gym": "健身房",
+        "spa": "水疗中心",
+        "restaurant": "餐厅",
+        "breakfast": "早餐",
+        "roomService": "客房服务"
+      },
+      "view": {
+        "city": "城市景观",
+        "garden": "花园景观",
+        "ocean": "海洋景观",
+        "mountain": "山地景观"
+      }
+    },
+    "service": {
+      "housekeeping": "客房服务",
+      "concierge": "礼宾服务",
+      "reception": "前台",
+      "bellService": "行李服务",
+      "valet": "代客泊车",
+      "laundry": "洗衣服务",
+      "roomService": "客房服务"
+    }
+  }
+}

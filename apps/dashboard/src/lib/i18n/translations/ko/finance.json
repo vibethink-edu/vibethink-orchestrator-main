@@ -1,0 +1,73 @@
+{
+  "title": "Finance Dashboard",
+  "description": "A finance dashboard is an admin panel that visualizes key financial data such as income, expenses, cash flow, budget, and profit. Built with shadcn/ui, Tailwind CSS, Next.js.",
+  "actions": {
+    "download": "Download"
+  },
+  "kpi": {
+    "revenue": "Revenue",
+    "expenses": "Expenses",
+    "profit": "Profit",
+    "cashFlow": "Cash Flow",
+    "fromLastMonth": "from last month",
+    "increase": "Increase",
+    "decrease": "Decrease"
+  },
+  "revenue": {
+    "title": "Revenue",
+    "total": "Total Revenue",
+    "growth": "Growth",
+    "period": "Period"
+  },
+  "expenses": {
+    "title": "Monthly Expenses",
+    "total": "Total Expenses",
+    "byCategory": "By Category",
+    "other": "Other"
+  },
+  "summary": {
+    "title": "Summary",
+    "income": "Income",
+    "expenses": "Expenses",
+    "balance": "Balance"
+  },
+  "transactions": {
+    "title": "Recent Transactions",
+    "date": "Date",
+    "description": "Description",
+    "amount": "Amount",
+    "type": "Type",
+    "status": "Status",
+    "viewAll": "View All",
+    "income": "Income",
+    "expense": "Expense"
+  },
+  "saving": {
+    "title": "Saving Goal",
+    "target": "Target",
+    "current": "Current",
+    "remaining": "Remaining",
+    "progress": "Progress"
+  },
+  "wallet": {
+    "title": "My Wallet",
+    "cards": "Credit Cards",
+    "balance": "Balance",
+    "available": "Available Credit"
+  },
+  "status": {
+    "completed": "Completed",
+    "pending": "Pending",
+    "failed": "Failed"
+  }
+}
+
+
+
+
+
+
+
+
+
+

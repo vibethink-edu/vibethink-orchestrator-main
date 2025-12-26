@@ -1,0 +1,94 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "ensuite": "Mit eigenem Bad",
+        "suite": "Suite",
+        "sharedSpace": "Gemeinschaftsraum",
+        "kitchen": "Küche",
+        "bathroom": "Badezimmer",
+        "bed": "Bett",
+        "bunkBed": "Stockbett",
+        "privateBathroom": "Privates Bad",
+        "sharedBathroom": "Gemeinsames Bad"
+      },
+      "action": {
+        "book": "Buchen",
+        "checkIn": "Einchecken",
+        "checkOut": "Auschecken",
+        "extend": "Verlängern",
+        "renew": "Erneuern"
+      },
+      "time": {
+        "checkIn": "Einchecken",
+        "checkOut": "Auschecken",
+        "minimumStay": "Mindestaufenthalt",
+        "maximumStay": "Maximalaufenthalt",
+        "nights": "Nächte",
+        "checkInTime": "Eincheckzeit",
+        "checkOutTime": "Auscheckzeit"
+      },
+      "status": {
+        "checkedIn": "Eingecheckt",
+        "checkedOut": "Ausgecheckt"
+      }
+    },
+    "property": {
+      "type": {
+        "privateRoom": "Privatzimmer",
+        "ensuite": "Mit eigenem Bad",
+        "suite": "Suite",
+        "dormitory": "Schlafsaal",
+        "femaleOnly": "Nur Frauen",
+        "maleOnly": "Nur Männer",
+        "coed": "Gemischt",
+        "studio": "Studio"
+      },
+      "amenity": {
+        "kitchen": "Küche",
+        "bathroom": "Badezimmer",
+        "shower": "Dusche",
+        "laundry": "Wäscherei",
+        "commonArea": "Gemeinschaftsbereich",
+        "livingRoom": "Wohnzimmer",
+        "tv": "Fernseher",
+        "workspace": "Arbeitsplatz",
+        "highSpeedInternet": "Schnelles Internet"
+      },
+      "houseRules": {
+        "quietHours": "Ruhezeiten",
+        "noSmoking": "Nichtraucher",
+        "noGuests": "Keine Gäste",
+        "petsPolicy": "Haustierpolitik",
+        "cleaningSchedule": "Reinigungsplan"
+      },
+      "service": {
+        "breakfast": "Frühstück",
+        "linens": "Bettwäsche",
+        "towels": "Handtücher",
+        "housekeeping": "Zimmerservice",
+        "reception": "Empfang",
+        "valet": "Parkservice",
+        "laundry": "Wäscherei",
+        "roomService": "Zimmerservice"
+      },
+      "community": {
+        "commonArea": "Gemeinschaftsbereich",
+        "kitchen": "Küche",
+        "dining": "Essbereich",
+        "livingRoom": "Wohnzimmer",
+        "event": "Veranstaltung",
+        "activity": "Aktivität",
+        "game": "Spiel",
+        "movie": "Film",
+        "study": "Lernen"
+      },
+      "policy": {
+        "guestsPolicy": "Gästepolitik",
+        "alcohol": "Alkohol",
+        "pets": "Haustiere",
+        "quietHours": "Ruhezeiten"
+      }
+    }
+  }
+}

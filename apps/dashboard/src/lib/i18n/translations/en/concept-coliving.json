@@ -2,7 +2,6 @@
   "concept": {
     "booking": {
       "resource": {
-        "room": "Private Room",
         "ensuite": "Ensuite",
         "suite": "Suite",
         "sharedSpace": "Shared Space",
@@ -14,33 +13,22 @@
         "sharedBathroom": "Shared Bathroom"
       },
       "action": {
-        "reserve": "Reserve",
         "book": "Book",
         "checkIn": "Check In",
         "checkOut": "Check Out",
-        "modify": "Modify",
-        "cancel": "Cancel",
         "extend": "Extend",
         "renew": "Renew"
       },
       "time": {
         "checkIn": "Check-in",
         "checkOut": "Check-out",
-        "duration": "Duration",
         "minimumStay": "Minimum Stay",
         "maximumStay": "Maximum Stay",
         "nights": "Nights",
         "checkInTime": "Check-in Time",
         "checkOutTime": "Check-out Time"
       },
-      "unit": {
-        "night": "{count, plural, one {night} other {nights}}"
-      },
       "status": {
-        "confirmed": "Confirmed",
-        "pending": "Pending",
-        "cancelled": "Cancelled",
-        "completed": "Completed",
         "checkedIn": "Checked In",
         "checkedOut": "Checked Out"
       }

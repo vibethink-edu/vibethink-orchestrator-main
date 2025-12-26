@@ -1,0 +1,78 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "desk": "مكتب",
+        "office": "مكتب",
+        "meetingRoom": "قاعة اجتماعات",
+        "eventSpace": "مساحة فعاليات",
+        "phoneBooth": "كابينة هاتف",
+        "quietRoom": "غرفة هادئة"
+      },
+      "action": {
+        "book": "حجز",
+        "checkIn": "تسجيل دخول",
+        "checkOut": "تسجيل خروج"
+      },
+      "time": {
+        "checkIn": "تسجيل دخول",
+        "checkOut": "تسجيل خروج",
+        "hourly": "بالساعة",
+        "daily": "يومياً",
+        "weekly": "أسبوعياً",
+        "monthly": "شهرياً"
+      },
+      "unit": {
+        "week": "{count, plural, one {أسبوع} other {أسابيع}}",
+        "month": "{count, plural, one {شهر} other {أشهر}}"
+      }
+    },
+    "property": {
+      "type": {
+        "openDesk": "مكتب مفتوح",
+        "dedicatedDesk": "مكتب مخصص",
+        "hotDesk": "مكتب حر",
+        "privateOffice": "مكتب خاص",
+        "eventSpace": "مساحة فعاليات"
+      },
+      "amenity": {
+        "wifi": "واي فاي",
+        "parking": "مواقف",
+        "kitchen": "مطبخ",
+        "coffee": "قهوة",
+        "snacks": "وجبات خفيفة",
+        "printer": "طابعة",
+        "scanner": "ماسح"
+      },
+      "service": {
+        "reception": "الاستقبال",
+        "itSupport": "دعم تقني",
+        "mailService": "خدمة البريد",
+        "printing": "طباعة",
+        "packageHandling": "استلام الطرود"
+      }
+    },
+    "membership": {
+      "tier": {
+        "dayPass": "تصريح يومي",
+        "monthly": "شهري",
+        "yearly": "سنوي",
+        "unlimited": "غير محدود"
+      },
+      "benefit": {
+        "discount": "خصم",
+        "credit": "رصيد",
+        "earlyAccess": "وصول مبكر",
+        "guestAccess": "وصول الضيوف"
+      }
+    },
+    "community": {
+      "feature": {
+        "networking": "تواصل",
+        "events": "فعاليات",
+        "workshops": "ورش عمل",
+        "mentorship": "توجيه"
+      }
+    }
+  }
+}

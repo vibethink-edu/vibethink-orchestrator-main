@@ -1,0 +1,51 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "suite": "스위트",
+        "bedroom": "침실",
+        "bathroom": "욕실",
+        "kitchen": "부엌",
+        "livingRoom": "거실"
+      },
+      "action": {
+        "book": "예약",
+        "checkIn": "체크인",
+        "checkOut": "체크아웃"
+      }
+    },
+    "property": {
+      "type": {
+        "standard": "스탠다드",
+        "deluxe": "디럭스",
+        "suite": "스위트",
+        "presidential": "프레지던셜"
+      },
+      "amenity": {
+        "wifi": "와이파이",
+        "parking": "주차",
+        "pool": "수영장",
+        "gym": "헬스장",
+        "spa": "스파",
+        "restaurant": "레스토랑",
+        "breakfast": "조식",
+        "roomService": "룸서비스"
+      },
+      "view": {
+        "city": "도시 전망",
+        "garden": "정원 전망",
+        "ocean": "바다 전망",
+        "mountain": "산 전망"
+      }
+    },
+    "service": {
+      "housekeeping": "하우스키핑",
+      "concierge": "콘시어지",
+      "reception": "프론트 데스크",
+      "bellService": "벨 서비스",
+      "valet": "발렛 파킹",
+      "laundry": "세탁소",
+      "roomService": "룸서비스"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "concept": {
+    "booking": {
+      "action": {
+        "book": "예약",
+        "checkIn": "체크인",
+        "checkOut": "체크아웃"
+      },
+      "time": {
+        "checkIn": "체크인",
+        "checkOut": "체크아웃"
+      }
+    },
+    "crm": {
+      "entity": {
+        "project": "프로젝트",
+        "client": "클라이언트",
+        "campaign": "캠페인"
+      },
+      "status": {
+        "active": "활성",
+        "completed": "완료됨",
+        "cancelled": "취소됨"
+      }
+    },
+    "property": {
+      "type": {
+        "standard": "스탠다드",
+        "large": "대형",
+        "studio": "스튜디오 공간"
+      },
+      "amenity": {
+        "microphone": "마이크",
+        "camera": "카메라",
+        "lighting": "조명",
+        "backdrop": "배경",
+        "speakers": "스피커",
+        "greenScreen": "그린스크린",
+        "audioInterface": "오디오 인터페이스"
+      },
+      "service": {
+        "recording": "녹음",
+        "editing": "편집",
+        "production": "제작",
+        "mixing": "믹싱",
+        "mastering": "마스터링",
+        "colorGrading": "컬러 그레이딩"
+      }
+    }
+  }
+}

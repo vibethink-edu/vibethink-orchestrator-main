@@ -10,36 +10,21 @@
         "quietRoom": "Quiet Room"
       },
       "action": {
-        "reserve": "Reserve",
         "book": "Book",
         "checkIn": "Check In",
-        "checkOut": "Check Out",
-        "modify": "Modify",
-        "cancel": "Cancel",
-        "confirm": "Confirm"
+        "checkOut": "Check Out"
       },
       "time": {
         "checkIn": "Check-in",
         "checkOut": "Check-out",
-        "startTime": "Start Time",
-        "endTime": "End Time",
-        "duration": "Duration",
         "hourly": "Hourly",
         "daily": "Daily",
         "weekly": "Weekly",
         "monthly": "Monthly"
       },
       "unit": {
-        "hour": "{count, plural, one {hour} other {hours}}",
-        "day": "{count, plural, one {day} other {days}}",
         "week": "{count, plural, one {week} other {weeks}}",
         "month": "{count, plural, one {month} other {months}}"
-      },
-      "status": {
-        "confirmed": "Confirmed",
-        "pending": "Pending",
-        "cancelled": "Cancelled",
-        "completed": "Completed"
       }
     },
     "property": {
@@ -91,4 +76,3 @@
     }
   }
 }
-

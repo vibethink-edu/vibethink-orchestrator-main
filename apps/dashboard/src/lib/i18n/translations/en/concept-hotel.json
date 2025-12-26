@@ -2,7 +2,6 @@
   "concept": {
     "booking": {
       "resource": {
-        "room": "Room",
         "suite": "Suite",
         "bedroom": "Bedroom",
         "bathroom": "Bathroom",
@@ -10,24 +9,9 @@
         "livingRoom": "Living Room"
       },
       "action": {
-        "reserve": "Reserve",
         "book": "Book",
         "checkIn": "Check In",
-        "checkOut": "Check Out",
-        "modify": "Modify",
-        "cancel": "Cancel"
-      },
-      "time": {
-        "checkin": "Check-in",
-        "checkout": "Check-out",
-        "duration": "Duration",
-        "startTime": "Start Time",
-        "endTime": "End Time"
-      },
-      "unit": {
-        "hour": "{count, plural, one {hour} other {hours}}",
-        "day": "{count, plural, one {day} other {days}}",
-        "night": "{count, plural, one {night} other {nights}}"
+        "checkOut": "Check Out"
       }
     },
     "property": {
@@ -65,4 +49,3 @@
     }
   }
 }
-

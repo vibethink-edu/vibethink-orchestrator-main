@@ -9,19 +9,16 @@
       },
       "action": {
         "reserve": "Reservar",
-        "book": "Reservar",
-        "checkIn": "Check-in",
-        "checkout": "Check-out",
-        "modify": "Modificar",
         "cancel": "Cancelar",
+        "modify": "Modificar",
         "confirm": "Confirmar"
       },
       "time": {
         "checkin": "Check-in",
         "checkout": "Check-out",
+        "duration": "Duración",
         "startTime": "Hora de inicio",
-        "endTime": "Hora de fin",
-        "duration": "Duración"
+        "endTime": "Hora de fin"
       },
       "unit": {
         "hour": "{count, plural, one {hora} other {horas}}",

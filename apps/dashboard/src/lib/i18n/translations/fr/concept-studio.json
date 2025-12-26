@@ -1,0 +1,51 @@
+{
+  "concept": {
+    "booking": {
+      "action": {
+        "book": "Réserver",
+        "checkIn": "Enregistrement",
+        "checkOut": "Départ"
+      },
+      "time": {
+        "checkIn": "Enregistrement",
+        "checkOut": "Départ"
+      }
+    },
+    "crm": {
+      "entity": {
+        "project": "Projet",
+        "client": "Client",
+        "campaign": "Campagne"
+      },
+      "status": {
+        "active": "Actif",
+        "completed": "Terminé",
+        "cancelled": "Annulé"
+      }
+    },
+    "property": {
+      "type": {
+        "standard": "Standard",
+        "large": "Grand",
+        "studio": "Espace Studio"
+      },
+      "amenity": {
+        "microphone": "Microphone",
+        "camera": "Caméra",
+        "lighting": "Éclairage",
+        "backdrop": "Fond",
+        "speakers": "Haut-parleurs",
+        "greenScreen": "Écran vert",
+        "audioInterface": "Interface audio"
+      },
+      "service": {
+        "recording": "Enregistrement",
+        "editing": "Montage",
+        "production": "Production",
+        "mixing": "Mixage",
+        "mastering": "Mastering",
+        "colorGrading": "Étalonnage"
+      }
+    }
+  }
+}
