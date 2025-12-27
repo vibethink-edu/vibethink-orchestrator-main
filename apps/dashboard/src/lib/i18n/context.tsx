@@ -135,6 +135,17 @@ export function I18nProvider({
   );
 
   /**
+   * Sync HTML dir and lang attributes on locale change
+   */
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const isRTL = locale === 'ar' || locale === 'he' || locale === 'fa' || locale === 'ur';
+      document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+      document.documentElement.setAttribute('lang', locale);
+    }
+  }, [locale]);
+
+  /**
    * Initialize translations
    */
   useEffect(() => {
@@ -268,6 +279,13 @@ export function I18nProvider({
 
         // Set cookie for SSR
         document.cookie = `${i18nConfig.cookieName}=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
+
+        // Update HTML dir attribute for RTL support
+        const isRTL = newLocale === 'ar' || newLocale === 'he' || newLocale === 'fa' || newLocale === 'ur';
+        document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+        document.documentElement.setAttribute('lang', newLocale);
+
+        console.log(`[i18n] ✅ Locale changed to '${newLocale}' (dir: ${isRTL ? 'rtl' : 'ltr'})`);
       }
     },
     []
