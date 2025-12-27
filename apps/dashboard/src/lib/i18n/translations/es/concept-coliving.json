@@ -73,25 +73,15 @@
         "roomService": "Room Service"
       },
       "community": {
-        "commonArea": {
-          "áreaComún": "Área Común",
-          "cocina": "Cocina",
-          "comedor": "Comedor",
-          "salaDeEstar": "Sala de Estar",
-          "evento": "Evento",
-          "actividad": "Actividad",
-          "juego": "Juego",
-          "película": "Película",
-          "estudio": "Estudio"
-        },
-        "kitchen": "Kitchen",
-        "dining": "Dining",
-        "livingRoom": "Living Room",
-        "event": "Event",
-        "activity": "Activity",
-        "game": "Game",
-        "movie": "Movie",
-        "study": "Study"
+        "commonArea": "Área Común",
+        "kitchen": "Cocina",
+        "dining": "Comedor",
+        "livingRoom": "Sala de Estar",
+        "event": "Evento",
+        "activity": "Actividad",
+        "game": "Juego",
+        "movie": "Película",
+        "study": "Estudio"
       },
       "policy": {
         "guestsPolicy": "Guests Policy",
