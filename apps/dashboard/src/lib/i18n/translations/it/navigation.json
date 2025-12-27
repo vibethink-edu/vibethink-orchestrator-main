@@ -1,7 +1,7 @@
 {
   "groups": {
     "dashboards": "Dashboard",
-    "ai_apps": "App di intelligenza artificiale",
+    "ai_apps": "App di IA",
     "apps": "Applicazioni",
     "pages": "Pagine",
     "others": "Altri"
@@ -9,7 +9,7 @@
   "items": {
     "default": "Predefinito",
     "ecommerce": "E-commerce",
-    "sales": "Saldi",
+    "sales": "Vendite",
     "crm": "CRM",
     "crm_v2": "CRM V2",
     "crm_v2_ai": "CRM V2 + IA",
@@ -19,20 +19,20 @@
     "file_manager": "Gestore file",
     "crypto": "Criptovaluta",
     "crypto_v2": "Cripto V2",
-    "finance": "Finanza",
-    "finance_v2": "Finanza V2",
+    "finance": "Finanze",
+    "finance_v2": "Finanze V2",
     "academy": "Accademia/Scuola",
     "hospital": "Gestione ospedaliera",
     "hotel": "Pannello di controllo dell'hotel",
-    "ai_chat": "Chat AI",
-    "ai_chat_v2": "Chat AI V2",
+    "ai_chat": "Chat IA",
+    "ai_chat_v2": "Chat IA V2",
     "image_generator": "Generatore di immagini",
     "text_to_speech": "Testo in voce",
     "kanban": "Kanban",
     "notes": "Note",
     "chats": "Chat",
-    "mail": "Posta",
-    "todo_list": "App per la lista delle cose da fare",
+    "mail": "Email",
+    "todo_list": "App lista delle cose da fare",
     "tasks": "Compiti",
     "calendar": "Calendario",
     "api_keys": "Chiavi API",
@@ -49,7 +49,7 @@
     "components": "Componenti",
     "blocks": "Blocchi",
     "templates": "Modelli",
-    "github": "Github"
+    "github": "GitHub"
   },
   "subitems": {
     "dashboard": "Pannello di controllo",
@@ -71,9 +71,9 @@
     "single_pricing": "Prezzo unico",
     "login_v1": "Accesso v1",
     "login_v2": "Accesso v2",
-    "register_v1": "Registrati v1",
-    "register_v2": "Registrati v2",
-    "forgot_password": "Ha dimenticato la password",
+    "register_v1": "Registrazione v1",
+    "register_v2": "Registrazione v2",
+    "forgot_password": "Password dimenticata",
     "error_404": "404",
     "error_500": "500",
     "error_403": "403"
@@ -90,7 +90,7 @@
     "orchestrator": "Orchestratore VibeThink"
   },
   "footer": {
-    "download": "Scaricamento",
+    "download": "Scarica",
     "download_description": "Sblocca l'accesso a vita a tutti i dashboard, modelli e componenti.",
     "get_pro": "Ottieni VibeThink Pro"
   }

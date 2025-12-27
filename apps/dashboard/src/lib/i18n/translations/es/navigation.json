@@ -11,7 +11,7 @@
     "ecommerce": "Comercio electrónico",
     "sales": "Ventas",
     "crm": "CRM",
-    "crm_v2": "CRM versión 2",
+    "crm_v2": "CRM V2",
     "crm_v2_ai": "CRM V2 + IA",
     "website_analytics": "Análisis de sitios web",
     "project_management": "Gestión de proyectos",
@@ -49,7 +49,7 @@
     "components": "Componentes",
     "blocks": "Bloques",
     "templates": "Plantillas",
-    "github": "Github"
+    "github": "GitHub"
   },
   "subitems": {
     "dashboard": "Panel",
@@ -95,4 +95,3 @@
     "get_pro": "Obtenga VibeThink Pro"
   }
 }
-

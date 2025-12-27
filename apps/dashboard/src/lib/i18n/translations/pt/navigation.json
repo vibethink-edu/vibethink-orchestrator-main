@@ -19,7 +19,7 @@
     "file_manager": "Gerenciador de arquivos",
     "crypto": "Criptomoedas",
     "crypto_v2": "Cripto V2",
-    "finance": "Financiar",
+    "finance": "Finanças",
     "finance_v2": "Finanças V2",
     "academy": "Academia/Escola",
     "hospital": "Gestão Hospitalar",
@@ -40,16 +40,16 @@
     "users_list": "Lista de usuários",
     "profile": "Perfil",
     "onboarding": "Fluxo de integração",
-    "empty_states": "Estados vazios",
+    "empty_states": "Estados Vazios",
     "settings": "Configurações",
     "pricing": "Preços",
     "authentication": "Autenticação",
     "error_pages": "Páginas de erro",
-    "download_pro": "Baixe o VibeThink Pro",
+    "download_pro": "Baixar VibeThink Pro",
     "components": "Componentes",
     "blocks": "Blocos",
     "templates": "Modelos",
-    "github": "Github"
+    "github": "GitHub"
   },
   "subitems": {
     "dashboard": "Painel",
@@ -80,7 +80,7 @@
   },
   "badges": {
     "new": "Novo",
-    "coming": "Chegando",
+    "coming": "Em breve",
     "active": "Ativo",
     "inactive": "Inativo"
   },
@@ -90,7 +90,7 @@
     "orchestrator": "Orquestrador VibeThink"
   },
   "footer": {
-    "download": "Download",
+    "download": "Baixar",
     "download_description": "Desbloqueie o acesso vitalício a todos os painéis, modelos e componentes.",
     "get_pro": "Obtenha o VibeThink Pro"
   }
