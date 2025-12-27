@@ -85,8 +85,12 @@ export default async function RootLayout({
       .map(([key, value]) => [`data-theme-${key.replace(/([A-Z])/g, "-$1").toLowerCase()}`, value])
   );
 
+  // RTL support for Arabic
+  const isRTL = initialLocale === 'ar';
+  const direction = isRTL ? 'rtl' : 'ltr';
+
   return (
-    <html lang={initialLocale} suppressHydrationWarning>
+    <html lang={initialLocale} dir={direction} suppressHydrationWarning>
       <head>
         {/* UTF-8 encoding - CRITICAL for universal i18n support */}
         <meta charSet="UTF-8" />
