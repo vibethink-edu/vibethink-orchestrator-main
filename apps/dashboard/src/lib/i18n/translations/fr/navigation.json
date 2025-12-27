@@ -1,14 +1,14 @@
 {
   "groups": {
     "dashboards": "Tableaux de bord",
-    "ai_apps": "AI Apps",
+    "ai_apps": "Applications IA",
     "apps": "Applications",
     "pages": "Pages",
     "others": "Autres"
   },
   "items": {
     "default": "Défaut",
-    "ecommerce": "commerce électronique",
+    "ecommerce": "Commerce électronique",
     "sales": "Ventes",
     "crm": "CRM",
     "crm_v2": "CRM V2",
@@ -24,14 +24,14 @@
     "academy": "Académie/École",
     "hospital": "Gestion hospitalière",
     "hotel": "Tableau de bord de l'hôtel",
-    "ai_chat": "AI Chat",
+    "ai_chat": "Chat IA",
     "ai_chat_v2": "Chat IA V2",
     "image_generator": "Générateur d'images",
     "text_to_speech": "Synthèse vocale",
     "kanban": "Kanban",
     "notes": "Notes",
-    "chats": "Discussions",
-    "mail": "Mail",
+    "chats": "Chats",
+    "mail": "Courrier",
     "todo_list": "Application de liste de tâches",
     "tasks": "Tâches",
     "calendar": "Calendrier",
@@ -42,21 +42,21 @@
     "onboarding": "Flux d'intégration",
     "empty_states": "États vides",
     "settings": "Paramètres",
-    "pricing": "Tarification",
+    "pricing": "Tarifs",
     "authentication": "Authentification",
     "error_pages": "Pages d'erreur",
     "download_pro": "Télécharger VibeThink Pro",
     "components": "Composants",
     "blocks": "Blocs",
     "templates": "Modèles",
-    "github": "Github"
+    "github": "GitHub"
   },
   "subitems": {
     "dashboard": "Tableau de bord",
     "product_list": "Liste des produits",
     "product_detail": "Détails du produit",
     "add_product": "Ajouter un produit",
-    "order_list": "Liste de commandes",
+    "order_list": "Liste des commandes",
     "order_detail": "Détails de la commande",
     "bookings": "Réservations",
     "empty_states_01": "États vides 01",
@@ -65,14 +65,14 @@
     "account": "Compte",
     "appearance": "Apparence",
     "notifications": "Notifications",
-    "display": "Afficher",
+    "display": "Affichage",
     "column_pricing": "Tarification par colonne",
     "table_pricing": "Prix par tableau",
     "single_pricing": "Tarification unique",
     "login_v1": "Connexion v1",
     "login_v2": "Connexion v2",
-    "register_v1": "Registre v1",
-    "register_v2": "Registre v2",
+    "register_v1": "Enregistrement v1",
+    "register_v2": "Enregistrement v2",
     "forgot_password": "Mot de passe oublié",
     "error_404": "404",
     "error_500": "500",
@@ -92,6 +92,6 @@
   "footer": {
     "download": "Télécharger",
     "download_description": "Débloquez un accès à vie à tous les tableaux de bord, modèles et composants.",
-    "get_pro": "Obtenez VibeThink Pro"
+    "get_pro": "Obtenir VibeThink Pro"
   }
 }

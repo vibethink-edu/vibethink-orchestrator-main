@@ -1,4 +1,85 @@
 {
+  "tabs": {
+    "overview": "概览",
+    "projects": "项目",
+    "team": "团队",
+    "reports": "报告"
+  },
+  "summary": {
+    "activeProjects": "活跃项目",
+    "completed": "已完成",
+    "onHold": "暂停",
+    "totalBudget": "总预算",
+    "teamMembers": "团队成员",
+    "activeTasks": "活跃任务",
+    "completedTasks": "已完成任务",
+    "avgEfficiency": "平均效率",
+    "activeContributors": "活跃贡献者",
+    "fromLastMonth": "上个月",
+    "thisMonth": "这个月",
+    "fromLastWeek": "上周",
+    "overdueTasks": "逾期任务",
+    "failedToLoad": "加载摘要失败",
+    "errorLoadingSuccessMetrics": "加载指标时出错"
+  },
+  "sections": {
+    "teamPerformance": "团队绩效",
+    "teamPerformanceDesc": "每位团队成员的效率和工作量指标",
+    "loadingData": "正在加载项目数据...",
+    "recentProjects": "近期项目",
+    "recentProjectsDesc": "显示 {{count}} 个活跃项目",
+    "noProjectsFound": "未找到项目",
+    "allProjects": "所有项目",
+    "projectDetails": "项目详情"
+  },
+  "header": {
+    "title": "项目",
+    "subtitle": "管理项目、任务和团队资源",
+    "export": "导出",
+    "newProject": "新项目",
+    "newTask": "新任务",
+    "searchPlaceholder": "搜索项目或任务...",
+    "status": "状态",
+    "allStatuses": "所有状态",
+    "priority": "优先级",
+    "allPriorities": "所有优先级",
+    "teamLead": "团队负责人"
+  },
+  "status": {
+    "active": "活跃",
+    "completed": "已完成",
+    "on-hold": "暂停",
+    "cancelled": "已取消"
+  },
+  "priority": {
+    "low": "低",
+    "medium": "中",
+    "high": "高",
+    "urgent": "紧急"
+  },
+  "table": {
+    "project": "项目",
+    "status": "状态",
+    "priority": "优先级",
+    "progress": "进度",
+    "teamLead": "团队负责人",
+    "dueDate": "截止日期",
+    "budget": "预算",
+    "actions": "操作",
+    "complete": "完成",
+    "inProgress": "进行中",
+    "overdue": "逾期",
+    "daysLeft": "剩余天数",
+    "spent": "已花费",
+    "tryAdjustingFilters": "尝试调整筛选器或搜索条件"
+  },
+  "actions": {
+    "viewDetails": "查看详情",
+    "editProject": "编辑项目",
+    "manageTeam": "管理团队",
+    "viewTimeline": "查看时间线",
+    "deleteProject": "删除项目"
+  },
   "common": {
     "status": {
       "active": "活跃",
@@ -14,16 +95,6 @@
       "cancel": "取消",
       "save": "保存"
     }
-  },
-  "sections": {
-    "recentProjects": "近期项目",
-    "allProjects": "所有项目",
-    "projectDetails": "项目详情",
-    "teamPerformance": "Team Performance",
-    "teamPerformanceDesc": "Efficiency and workload metrics per team member",
-    "loadingData": "Loading project data...",
-    "recentProjectsDesc": "Showing {{count}} active projects",
-    "noProjectsFound": "No projects found"
   },
   "fields": {
     "name": "名称",
@@ -48,7 +119,7 @@
     "summaryCards": {
       "totalRevenue": {
         "title": "总收入",
-        "description": "从上个月起",
+        "description": "上个月起",
         "trending": "本月增长 12%"
       },
       "activeProjects": {
@@ -131,111 +202,40 @@
       }
     }
   },
-  "tabs": {
-    "overview": "Overview",
-    "projects": "Projects",
-    "team": "Team",
-    "reports": "Reports"
-  },
-  "summary": {
-    "activeProjects": "Active Projects",
-    "completed": "Completed",
-    "onHold": "On Hold",
-    "totalBudget": "Total Budget",
-    "teamMembers": "Team Members",
-    "activeTasks": "Active Tasks",
-    "completedTasks": "Completed Tasks",
-    "avgEfficiency": "Avg. Efficiency",
-    "activeContributors": "Active contributors",
-    "fromLastMonth": "from last month",
-    "thisMonth": "this month",
-    "fromLastWeek": "from last week",
-    "overdueTasks": "Overdue Tasks",
-    "failedToLoad": "Failed to load summary",
-    "errorLoadingSuccessMetrics": "Error loading metrics"
-  },
-  "header": {
-    "title": "Projects",
-    "subtitle": "Manage projects, tasks, and team resources",
-    "export": "Export",
-    "newProject": "New Project",
-    "newTask": "New Task",
-    "searchPlaceholder": "Search projects or tasks...",
-    "status": "Status",
-    "allStatuses": "All Statuses",
-    "priority": "Priority",
-    "allPriorities": "All Priorities",
-    "teamLead": "Team Lead"
-  },
-  "status": {
-    "active": "Active",
-    "completed": "Completed",
-    "on-hold": "On Hold",
-    "cancelled": "Cancelled"
-  },
-  "priority": {
-    "low": "Low",
-    "medium": "Medium",
-    "high": "High",
-    "urgent": "Urgent"
-  },
-  "table": {
-    "project": "Project",
-    "status": "Status",
-    "priority": "Priority",
-    "progress": "Progress",
-    "teamLead": "Team Lead",
-    "dueDate": "Due Date",
-    "budget": "Budget",
-    "actions": "Actions",
-    "complete": "Complete",
-    "inProgress": "In Progress",
-    "overdue": "Overdue",
-    "daysLeft": "days left",
-    "spent": "spent",
-    "tryAdjustingFilters": "Try adjusting your filters or search terms"
-  },
-  "actions": {
-    "viewDetails": "View Details",
-    "editProject": "Edit Project",
-    "manageTeam": "Manage Team",
-    "viewTimeline": "View Timeline",
-    "deleteProject": "Delete Project"
-  },
   "hardcoded": {
-    "task_or_project_deadline": "Task or project deadline",
-    "deadline": "Deadline",
-    "team_meeting_or_call": "Team meeting or call",
-    "no_project_data_available": "No project data available",
-    "due_now": "Due now",
-    "comprehensive_overview_of_all_active_projects_and": "Comprehensive overview of all active projects and",
-    "detailed_analysis_of_team_productivity_and_efficie": "Detailed analysis of team productivity and efficie",
-    "financial_overview_showing_budget_allocation_and_s": "Financial overview showing budget allocation and s",
-    "project_success_rate": "Project Success Rate",
-    "percentage_of_projects_completed_successfully": "Percentage of projects completed successfully",
-    "ontime_delivery": "On-Time Delivery",
-    "migrate_legacy_database_to_cloud_infrastructure": "Migrate legacy database to cloud infrastructure",
-    "comprehensive_security_assessment_and_remediation": "Comprehensive security assessment and remediation",
-    "design_wireframes": "Design wireframes",
-    "website_redesign_review": "Website Redesign Review",
-    "review_the_latest_designs_and_provide_feedback": "Review the latest designs and provide feedback",
-    "mobile_app_sprint_planning": "Mobile App Sprint Planning",
-    "export_project_data": "Export project data",
-    "steps": "Steps",
-    "steps_1": "Steps",
-    "steps_2": "Steps",
-    "enter_your_reminder": "Enter your reminder",
-    "enter_your_reminder_1": "Enter your reminder",
-    "select_a_category": "Select a category",
-    "visitors": "Visitors",
-    "desktop": "Desktop",
-    "mobile": "Mobile",
-    "visitors_1": "Visitors",
-    "desktop_1": "Desktop",
-    "mobile_1": "Mobile",
-    "toggle_details": "Toggle details",
-    "mobile_app_design": "Mobile app design",
-    "select_all": "Select all",
-    "select_all_1": "Select all"
+    "task_or_project_deadline": "任务或项目截止日期",
+    "deadline": "截止日期",
+    "team_meeting_or_call": "团队会议或通话",
+    "no_project_data_available": "没有项目数据可用",
+    "due_now": "现在到期",
+    "comprehensive_overview_of_all_active_projects_and": "所有活跃项目和",
+    "detailed_analysis_of_team_productivity_and_efficie": "团队生产力和效率的详细分析",
+    "financial_overview_showing_budget_allocation_and_s": "显示预算分配和财务概览",
+    "project_success_rate": "项目成功率",
+    "percentage_of_projects_completed_successfully": "成功完成项目的百分比",
+    "ontime_delivery": "准时交付",
+    "migrate_legacy_database_to_cloud_infrastructure": "将遗留数据库迁移到云基础设施",
+    "comprehensive_security_assessment_and_remediation": "全面安全评估和补救",
+    "design_wireframes": "设计线框图",
+    "website_redesign_review": "网站重新设计审查",
+    "review_the_latest_designs_and_provide_feedback": "审查最新设计并提供反馈",
+    "mobile_app_sprint_planning": "移动应用冲刺规划",
+    "export_project_data": "导出项目数据",
+    "steps": "步骤",
+    "steps_1": "步骤",
+    "steps_2": "步骤",
+    "enter_your_reminder": "输入您的提醒",
+    "enter_your_reminder_1": "输入您的提醒",
+    "select_a_category": "选择类别",
+    "visitors": "访客",
+    "desktop": "桌面",
+    "mobile": "移动端",
+    "visitors_1": "访客",
+    "desktop_1": "桌面",
+    "mobile_1": "移动端",
+    "toggle_details": "切换详情",
+    "mobile_app_design": "移动应用设计",
+    "select_all": "全选",
+    "select_all_1": "全选"
   }
 }
