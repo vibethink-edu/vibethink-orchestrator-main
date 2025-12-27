@@ -5,6 +5,43 @@ Todos los cambios notables de este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2025-12-26
+
+### Added
+- ✅ **i18n 77% Complete - Multi-Department Architecture**
+  - CAPA 1 (Semantic IDs): 100% ✅
+  - CAPA 2 (Terminology Engine): 100% ✅
+  - CAPA 3 (UI Strings): 60% (414 archivos, 9 idiomas, ~4,200 strings)
+  - Validaciones: 100% OK
+  - Total: 9 idiomas soportados (en, es, fr, pt, de, it, ko, ar, zh)
+
+- ✅ **Documentación Completa**
+  - `INFORME_ANALISIS_COMPLETO_I18N.md` (900+ líneas)
+  - `PLAN_EJECUTIVO_100_I18N.md` (800+ líneas)
+  - `docs/architecture/I18N_MULTI_DEPARTMENT_ARCHITECTURE.md` (900+ líneas)
+  - Arquitectura multi-departamento documentada
+
+- ✅ **Fixes Implementados**
+  - Arreglado error de syntax JSON en `concept-coliving.json` (ES)
+  - Solucionado problema crítico del sidebar KO (React Context re-render)
+  - Agregado `locale` como dependencia para forzar re-render del sidebar
+
+- ✅ **Validaciones Automáticas**
+  - `validate-concepts-coherence.js` - 100% OK
+  - Scripts de detección de errores técnicos implementados
+
+### Changed
+- **Apps Dashboard**: Versión actualizada de `0.5.0` → `0.6.0`
+- **Descriptor**: "Bundui Inventory & i18n Progress" → "i18n 77% Complete - Multi-Department Architecture"
+
+### Technical Details
+- Total de archivos JSON: 414 (9 idiomas × 46 archivos)
+- Total de strings traducidas: ~4,200
+- Idiomas soportados: en (100%), es (95%), fr (90%), pt (90%), de (90%), it (50%), ko (50%), ar (90%), zh (90%)
+- Commits: 4 (fixes y mejoras)
+
+---
+
 ## [Unreleased] - 2025-12-25
 
 ### 🎯 DECISIÓN EJECUTIVA APROBADA
