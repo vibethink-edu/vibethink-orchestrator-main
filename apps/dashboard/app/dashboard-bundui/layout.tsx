@@ -26,8 +26,27 @@ export default function DashboardBunduiLayout({
   const [isRTL, setIsRTL] = React.useState(false);
 
   React.useEffect(() => {
+    // Initial check
     const direction = document.documentElement.getAttribute('dir');
     setIsRTL(direction === 'rtl');
+
+    // Watch for dir attribute changes (when locale changes dynamically)
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'dir') {
+          const newDir = document.documentElement.getAttribute('dir');
+          setIsRTL(newDir === 'rtl');
+          console.log('[Layout] RTL direction changed:', newDir);
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['dir']
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   return (

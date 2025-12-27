@@ -59,22 +59,37 @@ export async function loadTranslation(
     
     return namespaceContent;
   } catch (error) {
-    console.error(
-      `[i18n] ❌ Failed to load translation for ${locale}/${namespace}:`,
-      error instanceof Error ? error.message : error
-    );
-    console.error(`[i18n] Attempted path: ./translations/${locale}/${namespace}.json`);
+    // Only log error if it's not a common missing namespace
+    const isCommonMissing = error instanceof Error &&
+      (error.message.includes('Cannot find module') || error.message.includes('ENOENT'));
+
+    if (!isCommonMissing) {
+      console.error(
+        `[i18n] ❌ Failed to load translation for ${locale}/${namespace}:`,
+        error instanceof Error ? error.message : error
+      );
+    } else {
+      console.warn(
+        `[i18n] ⚠️ Translation file not found: ${locale}/${namespace}.json - using fallback`
+      );
+    }
 
     // Fallback to English if available
     if (locale !== 'en') {
-      console.log(`[i18n] Attempting fallback to English for namespace: ${namespace}`);
       try {
         const fallback = await import(
           `./translations/en/${namespace}.json`
         );
         const fallbackTranslations = fallback.default || fallback;
+        console.log(`[i18n] ✅ Using English fallback for namespace: ${namespace}`);
+
+        // Cache the English fallback for this locale too
+        const cacheKey = getCacheKey(locale, namespace);
+        translationCache.set(cacheKey, fallbackTranslations);
+
         return fallbackTranslations;
       } catch {
+        console.warn(`[i18n] ⚠️ No English fallback available for: ${namespace}`);
         // If even English fails, return empty object
         return {};
       }
