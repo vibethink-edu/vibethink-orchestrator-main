@@ -1,0 +1,368 @@
+{
+  "timestamp": "2025-12-27T16:37:23.590Z",
+  "summary": {
+    "totalNamespaces": 4,
+    "totalLocales": 8,
+    "totalKeys": 479,
+    "completeLocales": 8,
+    "incompleteLocales": 24,
+    "missingFiles": 0,
+    "totalMissingKeys": 138
+  },
+  "details": [
+    {
+      "namespace": "projects",
+      "exists": true,
+      "total": 177,
+      "missing": {
+        "fr": {
+          "fileExists": true,
+          "missingKeys": [
+            "priority.urgent",
+            "table.budget",
+            "fields.description",
+            "fields.client",
+            "fields.budget",
+            "hardcoded.mobile",
+            "hardcoded.mobile_1"
+          ],
+          "count": 7,
+          "percentComplete": 96
+        },
+        "pt": {
+          "fileExists": true,
+          "missingKeys": [
+            "header.status",
+            "table.status",
+            "fields.status",
+            "v2.table.columns.status"
+          ],
+          "count": 4,
+          "percentComplete": 97.7
+        },
+        "de": {
+          "fileExists": true,
+          "missingKeys": [
+            "tabs.team",
+            "header.export",
+            "header.status",
+            "priority.medium",
+            "table.status",
+            "table.budget",
+            "fields.name",
+            "fields.status",
+            "fields.budget",
+            "v2.overview.team",
+            "v2.table.columns.status",
+            "hardcoded.desktop",
+            "hardcoded.mobile",
+            "hardcoded.desktop_1",
+            "hardcoded.mobile_1"
+          ],
+          "count": 15,
+          "percentComplete": 91.5
+        },
+        "it": {
+          "fileExists": true,
+          "missingKeys": [
+            "table.dueDate",
+            "hardcoded.mobile",
+            "hardcoded.mobile_1"
+          ],
+          "count": 3,
+          "percentComplete": 98.3
+        }
+      },
+      "summary": {
+        "total": 8,
+        "complete": 4,
+        "incomplete": 4
+      }
+    },
+    {
+      "namespace": "default",
+      "exists": true,
+      "total": 163,
+      "missing": {
+        "es": {
+          "fileExists": true,
+          "missingKeys": [
+            "error",
+            "paymentForm.fields.cvc"
+          ],
+          "count": 2,
+          "percentComplete": 98.8
+        },
+        "ar": {
+          "fileExists": true,
+          "missingKeys": [
+            "paymentForm.methods.apple"
+          ],
+          "count": 1,
+          "percentComplete": 99.4
+        },
+        "fr": {
+          "fileExists": true,
+          "missingKeys": [
+            "minutes",
+            "page",
+            "notification",
+            "notifications",
+            "paymentForm.fields.cvc"
+          ],
+          "count": 5,
+          "percentComplete": 96.9
+        },
+        "pt": {
+          "fileExists": true,
+          "missingKeys": [
+            "download",
+            "header.download",
+            "table.status",
+            "paymentForm.fields.cvc"
+          ],
+          "count": 4,
+          "percentComplete": 97.5
+        },
+        "de": {
+          "fileExists": true,
+          "missingKeys": [
+            "filter",
+            "export",
+            "import",
+            "table.status",
+            "paymentForm.months.4",
+            "paymentForm.months.8",
+            "paymentForm.months.9",
+            "paymentForm.months.11"
+          ],
+          "count": 8,
+          "percentComplete": 95.1
+        },
+        "it": {
+          "fileExists": true,
+          "missingKeys": [
+            "reset",
+            "account",
+            "paymentForm.fields.cvc"
+          ],
+          "count": 3,
+          "percentComplete": 98.2
+        },
+        "ko": {
+          "fileExists": true,
+          "missingKeys": [
+            "paymentForm.fields.cvc"
+          ],
+          "count": 1,
+          "percentComplete": 99.4
+        }
+      },
+      "summary": {
+        "total": 8,
+        "complete": 1,
+        "incomplete": 7
+      }
+    },
+    {
+      "namespace": "common",
+      "exists": true,
+      "total": 56,
+      "missing": {
+        "es": {
+          "fileExists": true,
+          "missingKeys": [
+            "buttons.no",
+            "labels.total",
+            "labels.error"
+          ],
+          "count": 3,
+          "percentComplete": 94.6
+        },
+        "fr": {
+          "fileExists": true,
+          "missingKeys": [
+            "labels.date",
+            "labels.total",
+            "labels.description",
+            "labels.info"
+          ],
+          "count": 4,
+          "percentComplete": 92.9
+        },
+        "pt": {
+          "fileExists": true,
+          "missingKeys": [
+            "buttons.download",
+            "labels.status",
+            "labels.total"
+          ],
+          "count": 3,
+          "percentComplete": 94.6
+        },
+        "de": {
+          "fileExists": true,
+          "missingKeys": [
+            "buttons.filter",
+            "buttons.export",
+            "buttons.import",
+            "labels.name",
+            "labels.status",
+            "labels.info"
+          ],
+          "count": 6,
+          "percentComplete": 89.3
+        },
+        "it": {
+          "fileExists": true,
+          "missingKeys": [
+            "buttons.reset",
+            "buttons.no"
+          ],
+          "count": 2,
+          "percentComplete": 96.4
+        }
+      },
+      "summary": {
+        "total": 8,
+        "complete": 3,
+        "incomplete": 5
+      }
+    },
+    {
+      "namespace": "navigation",
+      "exists": true,
+      "total": 83,
+      "missing": {
+        "es": {
+          "fileExists": true,
+          "missingKeys": [
+            "items.crm",
+            "items.crm_v2",
+            "items.kanban",
+            "items.chats",
+            "items.todo_list",
+            "subitems.error_404",
+            "subitems.error_500",
+            "subitems.error_403"
+          ],
+          "count": 8,
+          "percentComplete": 90.4
+        },
+        "ar": {
+          "fileExists": true,
+          "missingKeys": [
+            "items.crm_v2",
+            "items.crm_v2_ai",
+            "items.ai_chat_v2",
+            "subitems.error_404",
+            "subitems.error_500",
+            "subitems.error_403"
+          ],
+          "count": 6,
+          "percentComplete": 92.8
+        },
+        "zh": {
+          "fileExists": true,
+          "missingKeys": [
+            "items.crm_v2",
+            "items.crm_v2_ai",
+            "items.github",
+            "subitems.error_404",
+            "subitems.error_500",
+            "subitems.error_403",
+            "header.orchestrator"
+          ],
+          "count": 7,
+          "percentComplete": 91.6
+        },
+        "fr": {
+          "fileExists": true,
+          "missingKeys": [
+            "groups.pages",
+            "items.crm",
+            "items.crm_v2",
+            "items.crypto",
+            "items.crypto_v2",
+            "items.finance",
+            "items.finance_v2",
+            "items.kanban",
+            "items.notes",
+            "items.chats",
+            "subitems.notifications",
+            "subitems.error_404",
+            "subitems.error_500",
+            "subitems.error_403"
+          ],
+          "count": 14,
+          "percentComplete": 83.1
+        },
+        "pt": {
+          "fileExists": true,
+          "missingKeys": [
+            "items.crm",
+            "items.crm_v2",
+            "items.kanban",
+            "subitems.login_v1",
+            "subitems.login_v2",
+            "subitems.error_404",
+            "subitems.error_500",
+            "subitems.error_403"
+          ],
+          "count": 8,
+          "percentComplete": 90.4
+        },
+        "de": {
+          "fileExists": true,
+          "missingKeys": [
+            "items.crm",
+            "items.crm_v2",
+            "items.kanban",
+            "items.chats",
+            "subitems.error_404",
+            "subitems.error_500",
+            "subitems.error_403",
+            "header.orchestrator"
+          ],
+          "count": 8,
+          "percentComplete": 90.4
+        },
+        "it": {
+          "fileExists": true,
+          "missingKeys": [
+            "items.ecommerce",
+            "items.crm",
+            "items.crm_v2",
+            "items.kanban",
+            "subitems.account",
+            "subitems.display",
+            "subitems.error_404",
+            "subitems.error_500",
+            "subitems.error_403"
+          ],
+          "count": 9,
+          "percentComplete": 89.2
+        },
+        "ko": {
+          "fileExists": true,
+          "missingKeys": [
+            "items.crm",
+            "items.crm_v2",
+            "items.crm_v2_ai",
+            "subitems.error_404",
+            "subitems.error_500",
+            "subitems.error_403",
+            "header.orchestrator"
+          ],
+          "count": 7,
+          "percentComplete": 91.6
+        }
+      },
+      "summary": {
+        "total": 8,
+        "complete": 0,
+        "incomplete": 8
+      }
+    }
+  ]
+}

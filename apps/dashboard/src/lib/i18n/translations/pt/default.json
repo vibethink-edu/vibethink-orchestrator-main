@@ -10,12 +10,12 @@
   "edit": "Editar",
   "create": "Criar",
   "update": "Atualizar",
-  "search": "Procurar",
-  "filter": "Filtro",
-  "sort": "Organizar",
+  "search": "Pesquisar",
+  "filter": "Filtrar",
+  "sort": "Ordenar",
   "export": "Exportar",
   "import": "Importar",
-  "download": "Download",
+  "download": "Baixar",
   "upload": "Carregar",
   "close": "Fechar",
   "confirm": "Confirmar",
@@ -23,14 +23,14 @@
   "next": "Próximo",
   "previous": "Anterior",
   "submit": "Enviar",
-  "reset": "Reiniciar",
-  "clear": "Claro",
+  "reset": "Redefinir",
+  "clear": "Limpar",
   "apply": "Aplicar",
-  "select": "Selecione",
-  "selectAll": "Selecionar tudo",
-  "deselectAll": "Desmarcar tudo",
+  "select": "Selecionar",
+  "selectAll": "Selecionar todos",
+  "deselectAll": "Remover seleção de todos",
   "noResults": "Nenhum resultado encontrado",
-  "noData": "Não há dados disponíveis.",
+  "noData": "Nenhum dado disponível",
   "empty": "Vazio",
   "active": "Ativo",
   "inactive": "Inativo",
@@ -41,21 +41,21 @@
   "published": "Publicado",
   "archived": "Arquivado",
   "view": "Visualizar",
-  "viewDetails": "Ver detalhes",
-  "viewMore": "Ver mais",
+  "viewDetails": "Visualizar detalhes",
+  "viewMore": "Visualizar mais",
   "add": "Adicionar",
   "addNew": "Adicionar novo",
   "remove": "Remover",
-  "removeAll": "Remover tudo",
+  "removeAll": "Remover todos",
   "today": "Hoje",
   "yesterday": "Ontem",
   "tomorrow": "Amanhã",
-  "thisWeek": "Essa semana",
+  "thisWeek": "Esta semana",
   "lastWeek": "Semana passada",
   "thisMonth": "Este mês",
-  "lastMonth": "Mês passado",
+  "lastMonth": "Mês passada",
   "thisYear": "Este ano",
-  "lastYear": "Ano passado",
+  "lastYear": "Ano passad",
   "minutes": "Minutos",
   "hours": "Horas",
   "days": "Dias",
@@ -63,7 +63,7 @@
   "months": "Meses",
   "years": "Anos",
   "areYouSure": "Tem certeza?",
-  "thisActionCannotBeUndone": "Esta ação não pode ser desfeita.",
+  "thisActionCannotBeUndone": "Esta ação não pode ser desfeita",
   "pleaseWait": "Por favor, aguarde...",
   "operationSuccessful": "Operação bem-sucedida",
   "operationFailed": "Operação falhou",
@@ -81,68 +81,68 @@
   "preferences": "Preferências",
   "account": "Conta",
   "profile": "Perfil",
-  "home": "Lar",
+  "home": "Início",
   "dashboard": "Painel",
   "emptyState": {
     "title": "Nenhum item encontrado",
-    "description": "Comece criando um novo item.",
+    "description": "Comece criando um novo item",
     "action": "Criar novo"
   },
   "header": {
     "title": "Painel",
-    "download": "Download"
+    "download": "Baixar"
   },
   "cards": {
     "totalRevenue": {
-      "title": "Receita total",
+      "title": "Receita Total",
       "label": "Receita",
-      "fromLastMonth": "+{percentage}% em relação ao mês passado"
+      "fromLastMonth": "+{percentage}% desde o mês passad"
     },
     "subscriptions": {
       "title": "Assinaturas",
-      "fromLastMonth": "+{percentage}% em relação ao mês passado"
+      "fromLastMonth": "+{percentage}% desde o mês passad"
     },
     "teamMembers": {
-      "title": "Membros da equipe",
-      "description": "Convide os membros da sua equipe para colaborar."
+      "title": "Membros da Equipe",
+      "description": "Convide seus membros da equipe para colaborar."
     },
     "exerciseMinutes": {
-      "title": "Minutos de exercício",
-      "description": "Seu tempo de exercício está acima do normal.",
+      "title": "Minutos de Exercício",
+      "description": "Seus minutos de exercício estão à frente do que você normalmente está.",
       "average": "Média",
       "today": "Hoje"
     },
     "paymentMethod": {
-      "title": "Método de pagamento",
+      "title": "Método de Pagamento",
       "description": "Adicione um novo método de pagamento à sua conta.",
       "continue": "Continuar"
     }
   },
   "table": {
-    "selectAll": "Selecionar tudo",
-    "selectRow": "Selecione a linha",
+    "selectAll": "Selecionar todos",
+    "selectRow": "Selecionar linha",
     "noResults": "Nenhum resultado.",
     "customer": "Cliente",
     "email": "E-mail",
-    "amount": "Quantia",
+    "amount": "Quantidade",
     "status": "Status"
   },
   "payments": {
-    "title": "Últimos pagamentos",
+    "title": "Últimos Pagamentos",
     "filterPlaceholder": "Filtrar pagamentos...",
     "actions": "Ações",
     "selected": "selecionado",
     "rowsSelected": "{count} de {total} linha(s) selecionada(s).",
     "bulkActions": {
       "delete": "Excluir selecionados",
-      "export": "Exportar selecionado",
-      "email": "Enviar e-mail aos clientes",
-      "tag": "Pagamentos de etiquetas"
+      "export": "Exportar selecionados",
+      "email": "E-mail clientes",
+      "tag": "Marcar pagamentos"
     },
     "menu": {
-      "viewDetails": "Ver detalhes",
+      "viewDetails": "Visualizar detalhes",
       "downloadReceipt": "Baixar recibo",
-      "contactCustomer": "Contatar o cliente"
+      "contactCustomer": "Contatar cliente"
     }
   },
   "roles": {
@@ -151,13 +151,13 @@
     "billing": "Cobrança",
     "owner": "Proprietário",
     "descriptions": {
-      "viewer": "Pode ver e comentar.",
+      "viewer": "Pode visualizar e comentar.",
       "developer": "Pode visualizar, comentar e editar.",
-      "billing": "É possível visualizar, comentar e gerenciar a fatura.",
-      "owner": "Acesso de nível administrativo a todos os recursos."
+      "billing": "Pode visualizar, comentar e gerenciar cobranças.",
+      "owner": "Acesso de nível de administrador a todos os recursos."
     },
-    "selectPlaceholder": "Selecione uma nova função...",
-    "noRolesFound": "Nenhuma função encontrada."
+    "selectPlaceholder": "Selecione um novo papel...",
+    "noRolesFound": "Nenhum papel encontrado."
   },
   "chat": {
     "newMessage": "Nova mensagem",
@@ -165,10 +165,10 @@
     "send": "Enviar",
     "dialog": {
       "title": "Nova mensagem",
-      "description": "Convide um usuário para esta conversa. Isso criará uma nova mensagem em grupo.",
+      "description": "Convide um usuário para este tópico. Isso criará uma nova mensagem de grupo.",
       "searchPlaceholder": "Pesquisar usuário...",
       "noUsersFound": "Nenhum usuário encontrado.",
-      "selectUsers": "Selecione os usuários que deseja adicionar a esta discussão.",
+      "selectUsers": "Selecione usuários para adicionar a este tópico.",
       "continue": "Continuar"
     }
   },
@@ -176,7 +176,7 @@
     "methods": {
       "card": "Cartão",
       "paypal": "PayPal",
-      "apple": "Maçã"
+      "apple": "Apple"
     },
     "fields": {
       "nameOnCard": "Nome no cartão",
@@ -185,21 +185,249 @@
       "expires": "Expira",
       "month": "Mês",
       "year": "Ano",
-      "cvc": "CVC"
+      "cvc": "CVV"
     },
     "months": {
       "1": "Janeiro",
       "2": "Fevereiro",
-      "3": "Marchar",
-      "4": "abril",
-      "5": "Poderia",
+      "3": "Março",
+      "4": "Abril",
+      "5": "Maio",
       "6": "Junho",
       "7": "Julho",
       "8": "Agosto",
       "9": "Setembro",
-      "10": "outubro",
-      "11": "novembro",
-      "12": "dezembro"
+      "10": "Outubro",
+      "11": "Novembro",
+      "12": "Dezembro"
     }
+  },
+  "tabs": {
+    "overview": "Visão Geral",
+    "projects": "Projetos",
+    "team": "Equipe",
+    "reports": "Relatórios"
+  },
+  "summary": {
+    "activeProjects": "Projetos Ativos",
+    "completed": "Concluídos",
+    "onHold": "Em Espera",
+    "totalBudget": "Orçamento Total",
+    "teamMembers": "Membros da Equipe",
+    "activeTasks": "Tarefas Ativas",
+    "completedTasks": "Tarefas Concluídas",
+    "avgEfficiency": "Eficiência Média",
+    "activeContributors": "Contribuintes Ativos",
+    "fromLastMonth": "desde o mês passad",
+    "thisMonth": "este mês",
+    "fromLastWeek": "da semana passada",
+    "overdueTasks": "Tarefas Atrasadas",
+    "failedToLoad": "Falha ao carregar resumo",
+    "errorLoadingSuccessMetrics": "Erro ao carregar métricas"
+  },
+  "header": {
+    "title": "Projetos",
+    "subtitle": "Gerenciar projetos, tarefas e recursos da equipe",
+    "export": "Exportar",
+    "newProject": "Novo Projeto",
+    "newTask": "Nova Tarefa",
+    "searchPlaceholder": "Pesquisar projetos ou tarefas...",
+    "status": "Status",
+    "allStatuses": "Todos os Status",
+    "allPriorities": "Todas as Prioridades",
+    "teamLead": "Líder da Equipe"
+  },
+  "status": {
+    "active": "Ativo",
+    "completed": "Concluído",
+    "on-hold": "Em Espera",
+    "cancelled": "Cancelado"
+  },
+  "priority": {
+    "low": "Baixo",
+    "medium": "Médio",
+    "high": "Alto",
+    "urgent": "Urgente"
+  },
+  "table": {
+    "project": "Projeto",
+    "status": "Status",
+    "priority": "Prioridade",
+    "progress": "Progresso",
+    "teamLead": "Líder da Equipe",
+    "dueDate": "Data de Vencimento",
+    "budget": "Orçamento",
+    "actions": "Ações",
+    "complete": "Concluído",
+    "inProgress": "Em Progresso",
+    "overdue": "Atrasado",
+    "daysLeft": "dias restantes",
+    "spent": "gasto",
+    "tryAdjustingFilters": "Tente ajustar seus filtros ou termos de pesquisa."
+  },
+  "actions": {
+    "viewDetails": "Visualizar Detalhes",
+    "editProject": "Editar Projeto",
+    "manageTeam": "Gerenciar Equipe",
+    "viewTimeline": "Visualizar Linha do Tempo",
+    "deleteProject": "Excluir Projeto"
+  },
+  "common": {
+    "status": {
+      "active": "Ativo",
+      "pending": "Pendente",
+      "completed": "Concluído",
+      "archived": "Arquivado"
+    },
+    "actions": {
+      "edit": "Editar",
+      "delete": "Excluir",
+      "view": "Visualizar",
+      "create": "Criar",
+      "cancel": "Cancelar",
+      "save": "Salvar"
+    }
+  },
+  "fields": {
+    "name": "Nome",
+    "description": "Descrição",
+    "startDate": "Data de Início",
+    "endDate": "Data de Término",
+    "status": "Status",
+    "priority": "Prioridade",
+    "client": "Cliente",
+    "budget": "Orçamento"
+  },
+  "messages": {
+    "createSuccess": "Projeto criado com sucesso",
+    "updateSuccess": "Projeto atualizado com sucesso",
+    "deleteSuccess": "Projeto excluído com sucesso",
+    "deleteConfirm": "Tem certeza que deseja excluir este projeto?",
+    "loading": "Carregando...",
+    "error": "Ocorreu um erro",
+    "noProjects": "Nenhum projeto encontrado"
+  },
+  "v2": {
+    "summaryCards": {
+      "totalRevenue": {
+        "title": "Receita Total",
+        "description": "Desde o mês passad",
+        "trending": "Em alta 12% este mês"
+      },
+      "activeProjects": {
+        "title": "Projetos Ativos",
+        "description": "Atualmente em progresso",
+        "update": "Atualizado 1 hora atrás"
+      },
+      "teamSize": {
+        "title": "Tamanho da Equipe",
+        "description": "Membros ativos",
+        "hiring": "Recrutando (2 vagas abertas)"
+      },
+      "completionRate": {
+        "title": "Taxa de Conclusão",
+        "description": "Entregue no prazo",
+        "performance": "5% melhor que a meta"
+      }
+    },
+    "overview": {
+      "title": "Visão Geral",
+      "description": "Analise o desempenho dos seus projetos.",
+      "revenue": "Receita",
+      "projects": "Projetos",
+      "tasks": "Tarefas",
+      "team": "Equipe"
+    },
+    "recentActivity": {
+      "title": "Atividade Recente",
+      "description": "Você tem 3 novas notificações hoje.",
+      "projectCreated": "Projeto criado",
+      "taskCompleted": "Tarefa concluída",
+      "commentAdded": "Comentário adicionado",
+      "fileUploaded": "Arquivo enviado"
+    },
+    "metrics": {
+      "title": "Métricas de Desempenho",
+      "description": "Indicadores chave de desempenho de projetos sendo rastreados",
+      "onTime": "No Prazo",
+      "overBudget": "Acima do Orçamento",
+      "clientSatisfaction": "Satisfação do Cliente"
+    },
+    "efficiency": {
+      "title": "Eficiência dos Projetos",
+      "description": "Janeiro - Junho 2026",
+      "trending": "Em alta 5,2% este mês"
+    },
+    "achievement": {
+      "title": "Realizações por Ano",
+      "description": "Você concluiu mais projetos por dia em média este ano do que no ano passado.",
+      "projects": "projetos"
+    },
+    "reminders": {
+      "title": "Lembretes",
+      "showOther": "Exibir os outros 10 lembretes"
+    },
+    "successMetrics": {
+      "title": "Métricas de Sucesso",
+      "description": "Indicadores chave de sucesso de projetos sendo rastreados",
+      "successRate": "Taxa de Sucesso dos Projetos",
+      "onTime": "Entrega no Prazo",
+      "clientSat": "Satisfação do Cliente",
+      "budget": "Cumprimento do Orçamento"
+    },
+    "reports": {
+      "title": "Relatórios de Projetos",
+      "description": "Baixe relatórios detalhados para seus projetos",
+      "download": "Baixar Relatório"
+    },
+    "table": {
+      "columns": {
+        "projectName": "Nome do Projeto",
+        "clientName": "Nome do Cliente",
+        "startDate": "Data de Início",
+        "deadline": "Prazo",
+        "status": "Status",
+        "progress": "Progresso"
+      },
+      "placeholder": {
+        "filterProjects": "Filtrar projetos..."
+      }
+    }
+  },
+  "hardcoded": {
+    "task_or_project_deadline": "Prazo de tarefa ou projeto",
+    "deadline": "Prazo",
+    "team_meeting_or_call": "Reunião de equipe ou chamada telefônica",
+    "no_project_data_available": "Nenhum dado de projeto disponível",
+    "due_now": "Vence agora",
+    "comprehensive_overview_of_all_active_projects_and": "Visão abrangente de todos os projetos ativos e",
+    "detailed_analysis_of_team_productivity_and_efficie": "Análise detalhada da produtividade e eficiência da equipe",
+    "financial_overview_showing_budget_allocation_and_s": "Visão financeira mostrando alocação de orçamento e",
+    "project_success_rate": "Taxa de Sucesso dos Projetos",
+    "percentage_of_projects_completed_successfully": "Porcentagem de projetos concluídos com sucesso",
+    "ontime_delivery": "Entrega no Prazo",
+    "migrate_legacy_database_to_cloud_infrastructure": "Migrar banco de dados existente para infraestrutura de nuvem",
+    "comprehensive_security_assessment_and_remediation": "Avaliação de segurança abrangente e remediação",
+    "design_wireframes": "Criar wireframes",
+    "website_redesign_review": "Revisar Redesign do Site",
+    "review_the_latest_designs_and_provide_feedback": "Revisar os designs mais recentes e fornecer feedback",
+    "mobile_app_sprint_planning": "Planejamento de Sprint de Aplicativo Móvel",
+    "export_project_data": "Exportar dados do projeto",
+    "steps": "Etapas",
+    "steps_1": "Etapa",
+    "steps_2": "Etapas",
+    "enter_your_reminder": "Insira seu lembrete",
+    "enter_your_reminder_1": "Insira seu lembrete",
+    "select_a_category": "Selecione uma categoria",
+    "visitors": "Visitantes",
+    "desktop": "Desktop",
+    "mobile": "Mobile",
+    "visitors_1": "Visitantes",
+    "desktop_1": "Desktop",
+    "mobile_1": "Mobile",
+    "toggle_details": "Alternar detalhes",
+    "mobile_app_design": "Design de Aplicativo Móvel",
+    "select_all": "Selecionar todos",
+    "select_all_1": "Selecionar todos"
   }
 }

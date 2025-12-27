@@ -5,37 +5,37 @@
   "error": "Erreur",
   "success": "Succès",
   "cancel": "Annuler",
-  "save": "Sauvegarder",
+  "save": "Enregistrer",
   "delete": "Supprimer",
   "edit": "Modifier",
   "create": "Créer",
-  "update": "Mise à jour",
+  "update": "Mettre à jour",
   "search": "Recherche",
-  "filter": "Filtre",
+  "filter": "Filtrer",
   "sort": "Trier",
   "export": "Exporter",
   "import": "Importer",
   "download": "Télécharger",
-  "upload": "Télécharger",
+  "upload": "Téléverser",
   "close": "Fermer",
   "confirm": "Confirmer",
-  "back": "Dos",
+  "back": "Retour",
   "next": "Suivant",
   "previous": "Précédent",
   "submit": "Soumettre",
   "reset": "Réinitialiser",
-  "clear": "Clair",
+  "clear": "Effacer",
   "apply": "Appliquer",
   "select": "Sélectionner",
   "selectAll": "Tout sélectionner",
-  "deselectAll": "Désélectionnez tout",
+  "deselectAll": "Tout désélectionner",
   "noResults": "Aucun résultat trouvé",
   "noData": "Aucune donnée disponible",
   "empty": "Vide",
   "active": "Actif",
   "inactive": "Inactif",
   "pending": "En attente",
-  "completed": "Complété",
+  "completed": "Terminé",
   "cancelled": "Annulé",
   "draft": "Brouillon",
   "published": "Publié",
@@ -44,16 +44,16 @@
   "viewDetails": "Voir les détails",
   "viewMore": "Voir plus",
   "add": "Ajouter",
-  "addNew": "Ajouter un nouveau",
-  "remove": "Retirer",
-  "removeAll": "Supprimer tout",
+  "addNew": "Ajouter nouveau",
+  "remove": "Supprimer",
+  "removeAll": "Tout supprimer",
   "today": "Aujourd'hui",
   "yesterday": "Hier",
   "tomorrow": "Demain",
   "thisWeek": "Cette semaine",
   "lastWeek": "La semaine dernière",
-  "thisMonth": "Ce mois-ci",
-  "lastMonth": "Mois dernier",
+  "thisMonth": "Ce mois",
+  "lastMonth": "Le mois dernier",
   "thisYear": "Cette année",
   "lastYear": "L'année dernière",
   "minutes": "Minutes",
@@ -62,17 +62,17 @@
   "weeks": "Semaines",
   "months": "Mois",
   "years": "Années",
-  "areYouSure": "Es-tu sûr?",
-  "thisActionCannotBeUndone": "Cette action est irréversible.",
-  "pleaseWait": "S'il vous plaît, attendez...",
+  "areYouSure": "Êtes-vous sûr ?",
+  "thisActionCannotBeUndone": "Cette action ne peut pas être annulée",
+  "pleaseWait": "Veuillez patienter...",
   "operationSuccessful": "Opération réussie",
-  "operationFailed": "L'opération a échoué",
+  "operationFailed": "Opération échouée",
   "showing": "Affichage",
   "of": "de",
   "results": "résultats",
   "rowsPerPage": "Lignes par page",
   "page": "Page",
-  "all": "Tous",
+  "all": "Tout",
   "none": "Aucun",
   "notification": "Notification",
   "notifications": "Notifications",
@@ -81,12 +81,12 @@
   "preferences": "Préférences",
   "account": "Compte",
   "profile": "Profil",
-  "home": "Maison",
+  "home": "Accueil",
   "dashboard": "Tableau de bord",
   "emptyState": {
     "title": "Aucun article trouvé",
-    "description": "Commencez par créer un nouvel élément",
-    "action": "Créer un nouveau"
+    "description": "Commencez en créant un nouvel article",
+    "action": "Créer nouveau"
   },
   "header": {
     "title": "Tableau de bord",
@@ -94,21 +94,21 @@
   },
   "cards": {
     "totalRevenue": {
-      "title": "Revenu total",
-      "label": "Revenu",
-      "fromLastMonth": "+{pourcentage}% par rapport au mois dernier"
+      "title": "Chiffre d'affaires total",
+      "label": "Revenus",
+      "fromLastMonth": "+{percentage}% par rapport au mois dernier"
     },
     "subscriptions": {
       "title": "Abonnements",
-      "fromLastMonth": "+{pourcentage}% par rapport au mois dernier"
+      "fromLastMonth": "+{percentage}% par rapport au mois dernier"
     },
     "teamMembers": {
       "title": "Membres de l'équipe",
-      "description": "Invitez les membres de votre équipe à collaborer."
+      "description": "Invitez vos membres de l'équipe à collaborer."
     },
     "exerciseMinutes": {
       "title": "Minutes d'exercice",
-      "description": "Votre temps d'exercice est supérieur à la normale.",
+      "description": "Vos minutes d'exercice sont en avance par rapport à la normale.",
       "average": "Moyenne",
       "today": "Aujourd'hui"
     },
@@ -130,45 +130,45 @@
   "payments": {
     "title": "Derniers paiements",
     "filterPlaceholder": "Filtrer les paiements...",
-    "actions": "Actes",
-    "selected": "choisi",
-    "rowsSelected": "{count} de {total} ligne(s) sélectionnée(s).",
+    "actions": "Actions",
+    "selected": "sélectionné",
+    "rowsSelected": "{count} des {total} ligne(s) sélectionnée(s).",
     "bulkActions": {
       "delete": "Supprimer la sélection",
       "export": "Exporter la sélection",
-      "email": "Clients par e-mail",
-      "tag": "Paiements par étiquette"
+      "email": "E-mailer les clients",
+      "tag": "Marquer les paiements"
     },
     "menu": {
       "viewDetails": "Voir les détails",
-      "downloadReceipt": "Reçu de téléchargement",
+      "downloadReceipt": "Télécharger le reçu",
       "contactCustomer": "Contacter le client"
     }
   },
   "roles": {
-    "viewer": "Téléspectateur",
-    "developer": "Promoteur",
+    "viewer": "Visualiseur",
+    "developer": "Développeur",
     "billing": "Facturation",
     "owner": "Propriétaire",
     "descriptions": {
-      "viewer": "Vous pouvez consulter et commenter.",
-      "developer": "Peut consulter, commenter et modifier.",
-      "billing": "Vous pouvez consulter, commenter et gérer votre facturation.",
-      "owner": "Accès de niveau administrateur à toutes les ressources."
+      "viewer": "Peut voir et commenter.",
+      "developer": "Peut voir, commenter et modifier.",
+      "billing": "Peut voir les factures, commenter et gérer.",
+      "owner": "Accès administrateur à toutes les ressources."
     },
-    "selectPlaceholder": "Sélectionnez un nouveau rôle...",
+    "selectPlaceholder": "Sélectionner un nouveau rôle...",
     "noRolesFound": "Aucun rôle trouvé."
   },
   "chat": {
     "newMessage": "Nouveau message",
-    "typePlaceholder": "Saisissez votre message...",
+    "typePlaceholder": "Tapez votre message...",
     "send": "Envoyer",
     "dialog": {
       "title": "Nouveau message",
-      "description": "Invitez un utilisateur à rejoindre cette discussion. Cela créera un nouveau message de groupe.",
+      "description": "Invitez un utilisateur à ce fil. Cela créera un nouveau message de groupe.",
       "searchPlaceholder": "Rechercher un utilisateur...",
       "noUsersFound": "Aucun utilisateur trouvé.",
-      "selectUsers": "Sélectionnez les utilisateurs à ajouter à cette discussion.",
+      "selectUsers": "Sélectionnez les utilisateurs à ajouter à ce fil.",
       "continue": "Continuer"
     }
   },
@@ -176,7 +176,7 @@
     "methods": {
       "card": "Carte",
       "paypal": "PayPal",
-      "apple": "Pomme"
+      "apple": "Apple"
     },
     "fields": {
       "nameOnCard": "Nom sur la carte",
@@ -185,14 +185,14 @@
       "expires": "Expire",
       "month": "Mois",
       "year": "Année",
-      "cvc": "CVC"
+      "cvc": "CVV"
     },
     "months": {
       "1": "Janvier",
       "2": "Février",
       "3": "Mars",
       "4": "Avril",
-      "5": "Peut",
+      "5": "Mai",
       "6": "Juin",
       "7": "Juillet",
       "8": "Août",
@@ -201,5 +201,244 @@
       "11": "Novembre",
       "12": "Décembre"
     }
+  },
+  "tabs": {
+    "overview": "Aperçu",
+    "projects": "Projets",
+    "team": "Équipe",
+    "reports": "Rapports"
+  },
+  "summary": {
+    "activeProjects": "Projets actifs",
+    "completed": "Terminé",
+    "onHold": "En attente",
+    "totalBudget": "Budget total",
+    "teamMembers": "Membres de l'équipe",
+    "activeTasks": "Tâches actives",
+    "completedTasks": "Tâches terminées",
+    "avgEfficiency": "Efficacité moyenne",
+    "activeContributors": "Contributeurs actifs",
+    "fromLastMonth": "du mois dernier",
+    "thisMonth": "ce mois",
+    "fromLastWeek": "de la semaine dernière",
+    "overdueTasks": "Tâches en retard",
+    "failedToLoad": "Échec du chargement du résumé",
+    "errorLoadingSuccessMetrics": "Erreur lors du chargement des indicateurs de performance"
+  },
+  "sections": {
+    "teamPerformance": "Performance de l'équipe",
+    "teamPerformanceDesc": "Indicateurs de performance et de charge de travail par membre de l'équipe",
+    "loadingData": "Chargement des données du projet...",
+    "recentProjects": "Projets récents",
+    "recentProjectsDesc": "Affichage de {count} projets actifs",
+    "noProjectsFound": "Aucun projet trouvé",
+    "allProjects": "Tous les projets",
+    "projectDetails": "Détails du projet"
+  },
+  "header": {
+    "title": "Projets",
+    "subtitle": "Gérer les projets, les tâches et les ressources de l'équipe",
+    "export": "Exporter",
+    "newProject": "Nouveau projet",
+    "newTask": "Nouvelle tâche",
+    "searchPlaceholder": "Rechercher des projets ou des tâches...",
+    "status": "Statut",
+    "allStatuses": "Tous les statuts",
+    "allPriorities": "Toutes les priorités",
+    "priority": "Priorité",
+    "teamLead": "Responsable d'équipe"
+  },
+  "status": {
+    "active": "Actif",
+    "completed": "Terminé",
+    "on-hold": "En attente",
+    "cancelled": "Annulé"
+  },
+  "priority": {
+    "low": "Faible",
+    "medium": "Moyen",
+    "high": "Élevé",
+    "urgent": "Urgent"
+  },
+  "table": {
+    "project": "Projet",
+    "status": "Statut",
+    "priority": "Priorité",
+    "progress": "Progrès",
+    "teamLead": "Responsable d'équipe",
+    "dueDate": "Date d'échéance",
+    "budget": "Budget",
+    "actions": "Actions",
+    "complete": "Terminé",
+    "inProgress": "En cours",
+    "overdue": "En retard",
+    "daysLeft": "jours restants",
+    "spent": "Dépensé",
+    "tryAdjustingFilters": "Essayez d'ajuster vos filtres ou vos termes de recherche."
+  },
+  "actions": {
+    "viewDetails": "Voir les détails",
+    "editProject": "Modifier le projet",
+    "manageTeam": "Gérer l'équipe",
+    "viewTimeline": "Voir la chronologie",
+    "deleteProject": "Supprimer le projet"
+  },
+  "common": {
+    "status": {
+      "active": "Actif",
+      "pending": "En attente",
+      "completed": "Terminé",
+      "archived": "Archivé"
+    },
+    "actions": {
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "view": "Voir",
+      "create": "Créer",
+      "cancel": "Annuler",
+      "save": "Enregistrer"
+    }
+  },
+  "fields": {
+    "name": "Nom",
+    "description": "Description",
+    "startDate": "Date de début",
+    "endDate": "Date de fin",
+    "status": "Statut",
+    "priority": "Priorité",
+    "client": "Client",
+    "budget": "Budget"
+  },
+  "messages": {
+    "createSuccess": "Projet créé avec succès",
+    "updateSuccess": "Projet mis à jour avec succès",
+    "deleteSuccess": "Projet supprimé avec succès",
+    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer ce projet ?",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "noProjects": "Aucun projet trouvé"
+  },
+  "v2": {
+    "summaryCards": {
+      "totalRevenue": {
+        "title": "Chiffre d'affaires total",
+        "description": "Du mois dernier",
+        "trending": "En hausse de 12 % ce mois"
+      },
+      "activeProjects": {
+        "title": "Projets actifs",
+        "description": "En cours",
+        "update": "Mis à jour il y a 1 heure"
+      },
+      "teamSize": {
+        "title": "Taille de l'équipe",
+        "description": "Membres actifs",
+        "hiring": "Recrutement (2 postes ouverts)"
+      },
+      "completionRate": {
+        "title": "Taux d'achèvement",
+        "description": "Livré à temps",
+        "performance": "5 % mieux que l'objectif"
+      }
+    },
+    "overview": {
+      "title": "Aperçu",
+      "description": "Analyse de la performance de vos projets",
+      "revenue": "Revenus",
+      "projects": "Projets",
+      "tasks": "Tâches",
+      "team": "Équipe"
+    },
+    "recentActivity": {
+      "title": "Activité récente",
+      "description": "Vous avez 3 nouvelles notifications aujourd'hui.",
+      "projectCreated": "Projet créé",
+      "taskCompleted": "Tâche terminée",
+      "commentAdded": "Commentaire ajouté",
+      "fileUploaded": "Fichier téléversé"
+    },
+    "metrics": {
+      "title": "Indicateurs de performance",
+      "description": "Suivi des indicateurs de performance clés",
+      "onTime": "À temps",
+      "overBudget": "Dépassement budgétaire",
+      "clientSatisfaction": "Satisfaction client"
+    },
+    "efficiency": {
+      "title": "Efficacité des projets",
+      "description": "Janvier - Juin 2026",
+      "trending": "En hausse de 5,2 % ce mois"
+    },
+    "achievement": {
+      "title": "Réalisations par année",
+      "description": "Vous avez terminé plus de projets par jour cette année qu'en 2024.",
+      "projects": "projets"
+    },
+    "reminders": {
+      "title": "Rappels",
+      "showOther": "Afficher les 10 autres rappels"
+    },
+    "successMetrics": {
+      "title": "Indicateurs de réussite",
+      "description": "Indicateurs de performance clés pour la réussite des projets",
+      "successRate": "Taux de réussite des projets",
+      "onTime": "Livraison à temps",
+      "clientSat": "Satisfaction client",
+      "budget": "Respect du budget"
+    },
+    "reports": {
+      "title": "Rapports sur les projets",
+      "description": "Téléchargez des rapports détaillés pour vos projets",
+      "download": "Télécharger le rapport"
+    },
+    "table": {
+      "columns": {
+        "projectName": "Nom du projet",
+        "clientName": "Nom du client",
+        "startDate": "Date de début",
+        "deadline": "Date limite",
+        "status": "Statut",
+        "progress": "Progrès"
+      },
+      "placeholder": {
+        "filterProjects": "Filtrer les projets..."
+      }
+    }
+  },
+  "hardcoded": {
+    "task_or_project_deadline": "Date limite d'une tâche ou d'un projet",
+    "deadline": "Date limite",
+    "team_meeting_or_call": "Réunion d'équipe ou appel téléphonique",
+    "no_project_data_available": "Aucune donnée de projet disponible",
+    "due_now": "Échéance maintenant",
+    "comprehensive_overview_of_all_active_projects_and": "Aperçu complet de tous les projets actifs et",
+    "detailed_analysis_of_team_productivity_and_efficie": "Analyse détaillée de la productivité et de l'efficacité de l'équipe",
+    "financial_overview_showing_budget_allocation_and_s": "Aperçu financier montrant l'allocation du budget et",
+    "project_success_rate": "Taux de réussite des projets",
+    "percentage_of_projects_completed_successfully": "Pourcentage de projets terminés avec succès",
+    "ontime_delivery": "Livraison à temps",
+    "migrate_legacy_database_to_cloud_infrastructure": "Migration de la base de données existante vers l'infrastructure cloud",
+    "comprehensive_security_assessment_and_remediation": "Évaluation de sécurité exhaustive et remédiation",
+    "design_wireframes": "Maquettes de conception",
+    "website_redesign_review": "Examen de la refonte du site web",
+    "review_the_latest_designs_and_provide_feedback": "Examiner les dernières conceptions et fournir des commentaires",
+    "mobile_app_sprint_planning": "Planification des sprints d'application mobile",
+    "export_project_data": "Exporter les données du projet",
+    "steps": "Étapes",
+    "steps_1": "Étape",
+    "steps_2": "Étapes",
+    "enter_your_reminder": "Entrez votre rappel",
+    "enter_your_reminder_1": "Entrez votre rappel",
+    "select_a_category": "Sélectionner une catégorie",
+    "visitors": "Visiteurs",
+    "desktop": "Bureau",
+    "mobile": "Mobile",
+    "visitors_1": "Visiteurs",
+    "desktop_1": "Bureau",
+    "mobile_1": "Mobile",
+    "toggle_details": "Afficher les détails",
+    "mobile_app_design": "Conception d'application mobile",
+    "select_all": "Tout sélectionner",
+    "select_all_1": "Tout sélectionner"
   }
 }

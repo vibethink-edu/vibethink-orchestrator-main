@@ -96,11 +96,11 @@
     "totalRevenue": {
       "title": "Gesamtertrag",
       "label": "Einnahmen",
-      "fromLastMonth": "+{Prozentsatz}% gegenüber dem Vormonat"
+      "fromLastMonth": "+{percentage}% gegenüber dem Vormonat"
     },
     "subscriptions": {
       "title": "Abonnements",
-      "fromLastMonth": "+{Prozentsatz}% gegenüber dem Vormonat"
+      "fromLastMonth": "+{percentage}% gegenüber dem Vormonat"
     },
     "teamMembers": {
       "title": "Teammitglieder",
@@ -185,12 +185,12 @@
       "expires": "Läuft ab",
       "month": "Monat",
       "year": "Jahr",
-      "cvc": "ZVK"
+      "cvc": "ZVC"
     },
     "months": {
       "1": "Januar",
       "2": "Februar",
-      "3": "Marsch",
+      "3": "März",
       "4": "April",
       "5": "Mai",
       "6": "Juni",
