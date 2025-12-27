@@ -156,8 +156,10 @@ export {
 // ============================================================================
 // CAPA 3: Terminology Provider & Hydration Components
 // ============================================================================
-export * from './TerminologyProvider';
-export * from './TerminologyHydration';
+// NOTE: TerminologyProvider and TerminologyHydration are React components
+// and should be imported directly from the dashboard app, not from @vibethink/utils
+// export * from './TerminologyProvider';
+// export * from './TerminologyHydration';
 
 // ============================================================================
 // Metadata del módulo (documentación)

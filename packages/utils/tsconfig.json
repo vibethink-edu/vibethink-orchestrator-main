@@ -6,9 +6,15 @@
         "outDir": "./dist",
         "strict": true,
         "esModuleInterop": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "jsx": "react",
+        "lib": ["ES2020", "DOM"]
     },
     "include": [
         "src/**/*"
+    ],
+    "exclude": [
+        "src/i18n/terminology/TerminologyProvider.tsx",
+        "src/i18n/terminology/TerminologyHydration.tsx"
     ]
 }

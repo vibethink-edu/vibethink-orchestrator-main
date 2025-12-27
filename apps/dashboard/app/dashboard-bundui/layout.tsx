@@ -15,12 +15,21 @@ import { Footer } from "@/components/layout/footer";
  * - Header con controles y badge "Bundui Premium"
  * - Contenido 1:1 con Bundui Premium mocks
  * - Estructura idéntica a Bundui Premium original
+ * - RTL support: sidebar and layout adapt to RTL languages (Arabic, Hebrew, etc.)
  */
 export default function DashboardBunduiLayout({
   children
 }: {
   children: React.ReactNode;
 }) {
+  // Detect RTL from document direction
+  const [isRTL, setIsRTL] = React.useState(false);
+
+  React.useEffect(() => {
+    const direction = document.documentElement.getAttribute('dir');
+    setIsRTL(direction === 'rtl');
+  }, []);
+
   return (
     <SidebarProvider
       defaultOpen={true}
@@ -35,18 +44,18 @@ export default function DashboardBunduiLayout({
         } as React.CSSProperties
       }
     >
-      <AppSidebar variant="inset" />
+      <AppSidebar variant="inset" side={isRTL ? "right" : "left"} />
       <SidebarInset>
         <SiteHeader />
         <div className="flex items-center gap-2 px-4 pt-2 pb-1 border-b bg-background">
           <DashboardBadge />
         </div>
-        <div className="bg-muted/50 flex flex-1 flex-col">
-          <div className="@container/main p-[var(--content-padding)] xl:group-data-[theme-content-layout=centered]/layout:container xl:group-data-[theme-content-layout=centered]/layout:mx-auto">
+        <div className="bg-muted/50 flex flex-1 flex-col min-h-0">
+          <div className="@container/main p-[var(--content-padding)] xl:group-data-[theme-content-layout=centered]/layout:container xl:group-data-[theme-content-layout=centered]/layout:mx-auto flex-1">
             {children}
           </div>
+          <Footer />
         </div>
-        <Footer />
       </SidebarInset>
     </SidebarProvider>
   );
