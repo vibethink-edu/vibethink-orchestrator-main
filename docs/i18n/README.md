@@ -1,357 +1,355 @@
-# 🌍 i18n Multi-Industry System - Complete Documentation
+# VibeThink i18n Documentation
 
-**Multi-tenant, multi-language i18n system supporting 6 industries across 9 languages**
+## 🌍 Internationalization (i18n) Protocol
 
----
-
-## 📋 **TABLE OF CONTENTS**
-
-1. [Overview](#overview)
-2. [Architecture](#architecture)
-3. [Business Cases](#business-cases)
-4. [Translation Status](#translation-status)
-5. [No-Duplication Strategy](#no-duplication-strategy)
-6. [Usage Examples](#usage-examples)
-7. [Quick Start](#quick-start)
-8. [Documentation](#documentation)
+Welcome to the VibeThink internationalization documentation. This directory contains all the resources you need to ensure your modules comply with our i18n requirements.
 
 ---
 
-## 🎯 **OVERVIEW**
+## 📚 Documentation Index
 
-### **What is this?**
-A **DRY (Don't Repeat Yourself)** multi-tenant i18n system that supports:
-- ✅ **6 industries** (Restaurant, Legal, Healthcare, Radio, Cancer Care, Agency)
-- ✅ **9 languages** (EN, ES, AR, ZH, FR, PT, DE, IT, KO)
-- ✅ **108 translation files** (12 namespaces × 9 languages)
-- ✅ **Zero duplication** (40% fewer keys than before)
-- ✅ **Type-safe** with TypeScript
-- ✅ **AI-ready** with terminology resolver
+### 1. [**Module Requirements**](./I18N_MODULE_REQUIREMENTS.md) 🔴 **START HERE**
 
-### **Key Features:**
-- 🚫 **No duplications** - Generic terms in `common.json`, industry terms in `workspace-*.json`
-- 🌐 **Multi-language** - All 6 industries work in 9 languages
-- 🔧 **Modular** - Add new industries by creating 2 JSON files
-- 🤖 **AI-native** - Agents can resolve terminology by context
-- ⚡ **Performant** - Cache with TTL, parallel loading
+   **Required reading for ALL developers**
 
----
+   Complete protocol for i18n compliance. Covers:
+   - 9 mandatory languages
+   - Base languages (English & Spanish)
+   - Fallback system
+   - RTL support for Arabic
+   - File structure and naming
+   - Code examples
+   - Quality metrics
 
-## 🏗️ **ARCHITECTURE**
-
-### **3-Layer Strategy:**
-
-```
-┌─────────────────────────────────────────────────────┐
-│ LAYER 1: TRANSVERSAL (Common to all industries)    │
-│ Files: common.json, calendar.json, tasks.json      │
-│ Examples: "save", "cancel", "pending", "schedule"  │
-└─────────────────────────────────────────────────────┘
-                        ↓
-┌─────────────────────────────────────────────────────┐
-│ LAYER 2: CONCEPT (Industry terminology)            │
-│ Files: concept-restaurant.json, concept-legal.json │
-│ Examples: "appetizer", "subpoena", "chemotherapy"  │
-└─────────────────────────────────────────────────────┘
-                        ↓
-┌─────────────────────────────────────────────────────┐
-│ LAYER 3: WORKSPACE (Functionality specific)        │
-│ Files: workspace-restaurant.json, workspace-legal  │
-│ Examples: "fire order", "conflict check", "triage" │
-└─────────────────────────────────────────────────────┘
-```
-
-### **File Structure:**
-
-```
-src/lib/i18n/translations/
-├── en/ (English)
-│   ├── common.json                    ← Layer 1: Universal
-│   ├── calendar.json                  ← Layer 1: Appointments
-│   ├── tasks.json                     ← Layer 1: Tasks
-│   ├── concept-restaurant.json        ← Layer 2: Restaurant context
-│   ├── workspace-restaurant.json      ← Layer 3: POS functionality
-│   ├── concept-legal-firm.json        ← Layer 2: Legal context
-│   ├── workspace-legal.json           ← Layer 3: Case management
-│   ├── concept-healthcare.json        ← Layer 2: Medical context
-│   ├── workspace-healthcare.json      ← Layer 3: EMR functionality
-│   ├── concept-radio-station.json     ← Layer 2: Broadcasting context
-│   ├── workspace-radio-control.json   ← Layer 3: AI DJ control
-│   ├── concept-cancer-care.json       ← Layer 2: Oncology context
-│   ├── workspace-cancer-care.json     ← Layer 3: Patient journey
-│   ├── concept-agency.json            ← Layer 2: Agency context
-│   └── workspace-client-portal.json   ← Layer 3: Portal functionality
-│
-├── es/ (Spanish) - Same structure
-├── ar/ (Arabic) - Same structure
-├── zh/ (Chinese) - Same structure
-├── fr/ (French) - Same structure
-├── pt/ (Portuguese) - Same structure
-├── de/ (German) - Same structure
-├── it/ (Italian) - Same structure
-└── ko/ (Korean) - Same structure
-```
+   **Status**: ✅ Mandatory for all modules
 
 ---
 
-## 🏢 **BUSINESS CASES**
+### 2. [**Compliance Checklist**](./I18N_COMPLIANCE_CHECKLIST.md) ✅
 
-### **1. 🍽️ Restaurant**
-- **Concept:** Menu categories, dietary restrictions, guest types
-- **Workspace:** Kitchen stations, POS actions, inventory, service timing
-- **Files:** `concept-restaurant.json` (103 keys) + `workspace-restaurant.json` (67 keys)
-- **Unique Terms:** "Fire Order", "86 (Out of Stock)", "Turn Table"
+   **Use before submitting PRs**
 
-### **2. ⚖️ Legal Firm**
-- **Concept:** Case types, legal documents, court proceedings, billing
-- **Workspace:** Docket management, time tracking, discovery, compliance
-- **Files:** `concept-legal-firm.json` (63 keys) + `workspace-legal.json` (60 keys)
-- **Unique Terms:** "Statute of Limitations", "Billable Hours", "Deposition"
+   Step-by-step checklist to validate:
+   - Translation files exist
+   - Structure is correct
+   - Quality standards met
+   - RTL support implemented
+   - Testing completed
 
-### **3. 🏥 Healthcare**
-- **Concept:** Appointment types, patient types, medical specialties
-- **Workspace:** EMR charts, scheduling queues, billing codes, HIPAA
-- **Files:** `concept-healthcare.json` (89 keys) + `workspace-healthcare.json` (112 keys)
-- **Unique Terms:** "Oxygen Saturation", "ICD-10 Code", "Chief Complaint"
+   Includes scoring system (minimum 90/100 required)
 
-### **4. 📻 Radio Station**
-- **Concept:** Broadcast types, content genres, audience engagement
-- **Workspace:** AI host control, playout mixing, live monitoring
-- **Files:** `concept-radio-station.json` (78 keys) + `workspace-radio-control.json` (127 keys)
-- **Unique Terms:** "Crossfade", "Talkover", "Back Announce"
-
-### **5. 🎗️ Cancer Care**
-- **Concept:** Cancer types, treatments, stages, support services
-- **Workspace:** Patient journey, sponsor impact, AI companion, marketplace
-- **Files:** `concept-cancer-care.json` (74 keys) + `workspace-cancer-care.json` (263 keys)
-- **Unique Terms:** "Survivorship", "Memorial Donation", "Symptom Tracking Agent"
-
-### **6. 🏢 Agency (VibeThink)**
-- **Concept:** Service products, client types, deployment, engagement
-- **Workspace:** Subscription plans, integrations, support, analytics
-- **Files:** `concept-agency.json` (62 keys) + `workspace-client-portal.json` (107 keys)
-- **Unique Terms:** "SaaS", "API Requests", "Pending Authorization"
+   **Status**: ✅ Required before code review
 
 ---
 
-## 📊 **TRANSLATION STATUS**
+### 3. [**Integration Guide**](../../packages/utils/I18N_INTEGRATION_GUIDE.md) 🛠️
 
-| Language | Code | Status | Files | Completion |
-|----------|------|--------|-------|------------|
-| 🇺🇸 English | `en` | ✅ Complete | 12/12 | 100% |
-| 🇪🇸 Spanish | `es` | ✅ Complete | 12/12 | 100% |
-| 🇸🇦 Arabic | `ar` | ✅ Complete | 12/12 | 100% |
-| 🇨🇳 Chinese | `zh` | ✅ Complete | 12/12 | 100% |
-| 🇫🇷 French | `fr` | ✅ Complete | 12/12 | 100% |
-| 🇧🇷 Portuguese | `pt` | ✅ Complete | 12/12 | 100% |
-| 🇩🇪 German | `de` | ✅ Complete | 12/12 | 100% |
-| 🇮🇹 Italian | `it` | ✅ Complete | 12/12 | 100% |
-| 🇰🇷 Korean | `ko` | ✅ Complete | 12/12 | 100% |
+   **For third-party developers and external integrations**
 
-**Total:** 108 files (12 namespaces × 9 languages)
+   Detailed guide for:
+   - Integrating external libraries
+   - Creating i18n wrappers
+   - Validation scripts
+   - Testing procedures
+   - Submission process
+
+   **Status**: 📖 Reference for integrations
 
 ---
 
-## 🚫 **NO-DUPLICATION STRATEGY**
+### 4. [**Contributing Guide**](../../CONTRIBUTING.md#i18n-requirements-critical) 🤝
 
-### **Decision Tree: Where to Put a Term?**
+   **General contribution guidelines with i18n section**
 
-```
-Is the term used in 3+ industries?
-├─ YES → Put in common.json (Layer 1)
-│         Examples: "save", "cancel", "pending"
-│
-└─ NO → Is it appointment/scheduling related?
-    ├─ YES → Put in calendar.json (Layer 1)
-    │         Examples: "book", "reschedule"
-    │
-    └─ NO → Is it a payment/billing term?
-        ├─ YES → Put in payment.json (Layer 1)
-        │         Examples: "monthly", "recurring"
-        │
-        └─ NO → Is it industry-specific?
-            ├─ YES → Put in workspace-{industry}.json (Layer 3)
-            │         Examples: "Fire Order", "Deposition"
-            │
-            └─ Unclear? → Ask in #i18n channel
-```
+   Includes:
+   - Quick i18n summary
+   - Development workflow
+   - PR process
+   - Code standards
 
-### **What We DON'T Duplicate:**
-- ❌ Generic actions: save, cancel, delete, edit, add, update
-- ❌ Common statuses: pending, confirmed, completed, cancelled
-- ❌ Time terms: today, yesterday, tomorrow, this week
-- ❌ Priority levels: low, medium, high, urgent
-- ❌ Payment terms: monthly, yearly, recurring, one-time
-
-### **What We DO Include:**
-- ✅ Kitchen operations: "Fire Order", "86 (Out of Stock)"
-- ✅ Legal proceedings: "Statute of Limitations", "Deposition"
-- ✅ Medical terms: "Oxygen Saturation", "Chief Complaint"
-- ✅ Broadcasting: "Crossfade", "Talkover", "Back Announce"
-- ✅ Oncology: "Survivorship", "Palliative Care"
+   **Status**: 📖 General reference
 
 ---
 
-## 💻 **USAGE EXAMPLES**
+## 🚀 Quick Start
 
-### **Example 1: Restaurant POS**
+### For New Modules
 
-```typescript
-import { useTranslation } from '@/lib/i18n';
+1. **Read**: [Module Requirements](./I18N_MODULE_REQUIREMENTS.md)
+2. **Create**: Translation files for all 9 languages
+3. **Validate**: Use the [Compliance Checklist](./I18N_COMPLIANCE_CHECKLIST.md)
+4. **Submit**: Follow the PR process in [Contributing Guide](../../CONTRIBUTING.md)
 
-const KitchenDisplay = () => {
-  const { t: tCommon } = useTranslation('common');
-  const { t: tRestaurant } = useTranslation('workspace-restaurant');
+### For Third-Party Integrations
 
-  return (
-    <div>
-      <h1>{tRestaurant('kitchen.station.grill')}</h1>  {/* "Grill Station" */}
-
-      <Button onClick={fireOrder}>
-        {tRestaurant('kitchen.order.fire')}  {/* "Fire Order" */}
-      </Button>
-
-      <Button onClick={save}>
-        {tCommon('buttons.save')}  {/* "Save" - from common.json */}
-      </Button>
-    </div>
-  );
-};
-```
-
-### **Example 2: Legal Case Management**
-
-```typescript
-const CaseDashboard = () => {
-  const { t: tLegal } = useTranslation('workspace-legal');
-  const { t: tConcept } = useTranslation('concept-legal-firm');
-
-  return (
-    <div>
-      <Deadline>{tLegal('docket.deadline.statuteOfLimitations')}</Deadline>
-      {/* "Statute of Limitations" */}
-
-      <DocumentType>{tConcept('legalDocument.subpoena')}</DocumentType>
-      {/* "Subpoena" */}
-    </div>
-  );
-};
-```
-
-### **Example 3: Multi-Language Support**
-
-```typescript
-// User switches language
-const { locale, setLocale } = useI18n();
-
-setLocale('es');  // All namespaces reload in Spanish
-// t('kitchen.order.fire') → "Iniciar Pedido"
-
-setLocale('ar');  // All namespaces reload in Arabic
-// t('kitchen.order.fire') → "ابدأ الطلب"
-
-setLocale('zh');  // All namespaces reload in Chinese
-// t('kitchen.order.fire') → "开始订单"
-```
+1. **Read**: [Integration Guide](../../packages/utils/I18N_INTEGRATION_GUIDE.md)
+2. **Wrapper**: Create localized wrapper if needed
+3. **Translate**: Add all 9 language files
+4. **Test**: Validate RTL and language switching
+5. **Document**: Create I18N_MANIFEST.json
 
 ---
 
-## 🚀 **QUICK START**
+## 🌐 Supported Languages
 
-### **1. Install Dependencies**
+| # | Language | Code | Status | Coverage Requirement | Notes |
+|---|----------|------|--------|---------------------|-------|
+| 1 | English | `en` | **Base** | 100% | Fallback language |
+| 2 | Español | `es` | **Base** | 100% | Primary market |
+| 3 | Français | `fr` | Mandatory | 90%+ | |
+| 4 | Português | `pt` | Mandatory | 90%+ | |
+| 5 | Deutsch | `de` | Mandatory | 90%+ | |
+| 6 | Italiano | `it` | Mandatory | 90%+ | |
+| 7 | 한국어 | `ko` | Mandatory | 90%+ | |
+| 8 | العربية | `ar` | Mandatory | 90%+ | **RTL required** |
+| 9 | 中文 | `zh` | Mandatory | 90%+ | |
+
+---
+
+## 📋 Validation Commands
+
+Run these before submitting:
+
 ```bash
-npm install
+# Validate all languages exist
+npm run i18n:validate
+
+# Check for missing keys
+npm run i18n:missing-keys
+
+# Find hardcoded strings
+npm run i18n:find-hardcoded
+
+# Test RTL support
+npm run i18n:test-rtl
+
+# Generate coverage report
+npm run i18n:coverage
 ```
 
-### **2. Import Translation Hook**
+---
+
+## 🚨 Rejection Criteria
+
+Your module/PR will be **AUTOMATICALLY REJECTED** if:
+
+| # | Issue | Impact |
+|---|-------|--------|
+| 1 | Missing any of the 9 languages | 🔴 Critical |
+| 2 | English or Spanish incomplete | 🔴 Critical |
+| 3 | Hardcoded UI strings found | 🔴 Critical |
+| 4 | RTL broken for Arabic | 🔴 Critical |
+| 5 | Invalid JSON in translation files | 🔴 Critical |
+| 6 | Coverage below 90% for non-base languages | 🟡 Warning → Rejection |
+
+---
+
+## ✅ Examples
+
+### Good Examples
+
+See these implementations for reference:
+
+1. **Projects V2 Module**
+   - Path: `/apps/dashboard/app/dashboard-bundui/projects-v2/`
+   - Translations: `/apps/dashboard/src/lib/i18n/translations/*/projects.json`
+   - Status: ✅ Full compliance
+
+2. **Dashboard Bundui Layout**
+   - Path: `/apps/dashboard/app/dashboard-bundui/layout.tsx`
+   - RTL Detection: Lines 25-31
+   - Status: ✅ RTL compliant
+
+3. **Arabic Translations**
+   - Path: `/apps/dashboard/src/lib/i18n/translations/ar/projects.json`
+   - Coverage: 100%
+   - Status: ✅ Complete
+
+### Bad Examples (Don't do this)
+
+```tsx
+// ❌ BAD: Hardcoded string
+<button>Save</button>
+
+// ✅ GOOD: Translated
+<button>{t('actions.save')}</button>
+```
+
+```tsx
+// ❌ BAD: Fixed positioning (breaks RTL)
+<div style={{ left: 0 }}>Icon</div>
+
+// ✅ GOOD: Logical positioning
+<div className="inline-start-0">Icon</div>
+```
+
+```json
+// ❌ BAD: Flat structure
+{
+  "save_button": "Save",
+  "cancel_btn": "Cancel"
+}
+
+// ✅ GOOD: Semantic nesting
+{
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel"
+  }
+}
+```
+
+---
+
+## 🛠️ Tools and Utilities
+
+### Available in @vibethink/utils
+
 ```typescript
+// Translation functions
+import { term, termSync } from '@vibethink/utils';
+
+// Format functions
+import {
+  formatMessage,
+  isICUMessage,
+} from '@vibethink/utils';
+
+// Locale utilities
+import {
+  SUPPORTED_LOCALES,
+  DEFAULT_LOCALE,
+  isValidLocale,
+} from '@vibethink/utils';
+```
+
+### React Hooks
+
+```typescript
+// Main translation hook
 import { useTranslation } from '@/lib/i18n';
-```
 
-### **3. Use in Component**
-```typescript
-const MyComponent = () => {
-  const { t } = useTranslation('workspace-restaurant');
-
-  return <div>{t('kitchen.order.fire')}</div>;
-};
-```
-
-### **4. Switch Languages**
-```typescript
-const { setLocale } = useI18n();
-
-<button onClick={() => setLocale('es')}>Español</button>
-<button onClick={() => setLocale('ar')}>العربية</button>
-<button onClick={() => setLocale('zh')}>中文</button>
+// Locale context
+import { useLocale, useSetLocale } from '@/lib/i18n';
 ```
 
 ---
 
-## 📚 **DOCUMENTATION**
+## 📊 Metrics and Monitoring
 
-### **Core Documents:**
+### Coverage Requirements
 
-1. **`NAMESPACE_STATUS.md`** - Full inventory of all 108 files
-2. **`NO_DUPLICATION_EXAMPLES.md`** - How to avoid duplicating terms
-3. **`BUSINESS_CASE_EXAMPLES.md`** - Real-world code examples for each industry
-4. **`README.md`** (this file) - Overview and quick start
+| Metric | Minimum | Target |
+|--------|---------|--------|
+| Total languages | 9/9 (100%) | 9/9 (100%) |
+| English coverage | 100% | 100% |
+| Spanish coverage | 100% | 100% |
+| Other languages | 90% | 100% |
+| RTL support | Yes | Yes |
+| Hardcoded strings | 0 | 0 |
 
-### **Additional Resources:**
+### Quality Score
 
-- `src/lib/i18n/config.ts` - Locale configuration
-- `src/lib/i18n/translation-loader.ts` - File loading logic
-- `src/lib/i18n/ai-terminology-resolver.ts` - AI agent integration
+**Formula**:
+```
+Score = (languages_complete × 30) +
+        (en_coverage × 25) +
+        (es_coverage × 25) +
+        (no_hardcoded × 20)
+```
 
----
-
-## 📈 **METRICS**
-
-### **Before Refactor:**
-- Total keys: ~2,500
-- Duplications: ~40% (1,000 keys)
-- Namespaces: 50+ mixed
-- Translation cost: 22,500 (2,500 × 9 languages)
-
-### **After Refactor:**
-- Total keys: ~1,500
-- Duplications: ~0%
-- Namespaces: 12 industry-specific + existing transversal
-- Translation cost: 13,500 (1,500 × 9 languages)
-
-### **Savings:**
-- 🎯 **40% fewer keys** to maintain
-- 💰 **9,000 fewer translations** needed
-- ⚡ **Faster lookups** (fewer files)
-- 🧹 **Cleaner codebase** (no duplication)
+**Minimum passing score**: 90/100
 
 ---
 
-## 🎯 **NEXT STEPS**
+## 🔄 Update Process
 
-1. ✅ All 108 files created
-2. ✅ Documentation complete
-3. ⏳ Fix legacy namespace references (studio.json, coliving.json)
-4. ⏳ Add migration guide for existing code
-5. ⏳ Create validation script to prevent duplications
+### Adding New Translations
 
----
+1. Create feature branch
+2. Add new keys to `en/module.json`
+3. Copy structure to all 8 other languages
+4. Translate each language
+5. Validate with scripts
+6. Submit PR
 
-## 🆘 **SUPPORT**
+### Updating Existing Translations
 
-- **Documentation:** `/docs/i18n/`
-- **Examples:** `BUSINESS_CASE_EXAMPLES.md`
-- **Issues:** Create issue in GitHub
-- **Questions:** Ask in #i18n channel
-
----
-
-## 📝 **LICENSE**
-
-Proprietary - VibeThink™ 2025
+1. Update in English first
+2. Update in Spanish
+3. Update other languages
+4. Run validation
+5. Test in UI
+6. Submit PR
 
 ---
 
-**Generated:** 2025-12-27
-**Version:** 1.0.0
-**Author:** Claude Code i18n System
+## 🆘 Support and Resources
+
+### Documentation
+
+- **This Directory**: `/docs/i18n/`
+- **Utils Package**: `/packages/utils/I18N_INTEGRATION_GUIDE.md`
+- **Contributing**: `/CONTRIBUTING.md`
+
+### Getting Help
+
+- 💬 **Slack**: #i18n channel
+- 📧 **Email**: i18n-support@vibethink.com
+- 📖 **Examples**: See `/apps/dashboard/src/lib/i18n/translations/`
+- 🐛 **Issues**: GitHub issues with `i18n` label
+
+### Training
+
+- **i18n Onboarding**: Required for all new developers
+- **RTL Workshop**: For UI developers
+- **Translation Review**: For content contributors
+
+---
+
+## 📅 Version History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0.0 | 2025-12-27 | Initial protocol documentation |
+| | | - 9 mandatory languages defined |
+| | | - RTL support requirements added |
+| | | - Validation process established |
+
+---
+
+## 🎯 Goals
+
+### Current
+
+- ✅ 100% compliance for new modules
+- ✅ RTL support for all UI components
+- ✅ Automated validation in CI/CD
+
+### Future
+
+- 🔄 Automated translation suggestions
+- 🔄 Visual regression testing for RTL
+- 🔄 Translation management dashboard
+- 🔄 Community translation contributions
+
+---
+
+## 📜 License
+
+All i18n documentation and utilities are part of the VibeThink Orchestrator project and follow the same license.
+
+---
+
+**Maintained by**: VibeThink i18n Team
+**Last Updated**: 2025-12-27
+**Status**: ✅ Active and Enforced
+
+---
+
+## Quick Links
+
+- 🔴 [Module Requirements](./I18N_MODULE_REQUIREMENTS.md) - **Start here**
+- ✅ [Compliance Checklist](./I18N_COMPLIANCE_CHECKLIST.md) - Before PR
+- 🛠️ [Integration Guide](../../packages/utils/I18N_INTEGRATION_GUIDE.md) - For integrations
+- 🤝 [Contributing](../../CONTRIBUTING.md) - General guidelines

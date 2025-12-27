@@ -79,7 +79,34 @@ html[dir="rtl"] body {
   direction: rtl;
 }
 
-/* Sidebar positioning - move to right side */
+/* Sidebar positioning - Shadcn UI specific */
+html[dir="rtl"] [data-slot="sidebar-wrapper"] {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] [data-side="right"] {
+  order: -1;
+}
+
+/* Sidebar gap - position correctly for RTL */
+html[dir="rtl"] [data-slot="sidebar-gap"] {
+  left: auto;
+  right: 0;
+}
+
+/* Sidebar inset variant - adjust positioning */
+html[dir="rtl"] [data-variant="inset"] [data-slot="sidebar"] {
+  left: auto;
+  right: 0;
+}
+
+/* SidebarInset - adjust margins for RTL */
+html[dir="rtl"] [data-slot="sidebar-inset"] {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Generic sidebar positioning - move to right side */
 html[dir="rtl"] aside,
 html[dir="rtl"] [data-sidebar],
 html[dir="rtl"] .sidebar {
@@ -122,6 +149,15 @@ html[dir="rtl"] .ps-4 {
 html[dir="rtl"] .pe-4 {
   padding-right: 0;
   padding-left: 1rem;
+}
+
+/* Fix flex direction for RTL - override auto-reverse */
+html[dir="rtl"] .flex-col {
+  flex-direction: column !important;
+}
+
+html[dir="rtl"] .flex-row {
+  flex-direction: row-reverse !important;
 }
 
 /* ============================================

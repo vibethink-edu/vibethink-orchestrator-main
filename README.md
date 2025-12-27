@@ -17,6 +17,53 @@
 
 ---
 
+## 🌍 CRITICAL: i18n Protocol (MANDATORY)
+
+**⚠️ ALL modules, components, and third-party integrations MUST comply with VibeThink i18n requirements**
+
+### 📋 Quick Reference
+
+| Requirement | Status |
+|-------------|--------|
+| **Languages** | 9 mandatory: `en`, `es`, `fr`, `pt`, `de`, `it`, `ko`, `ar`, `zh` |
+| **Base** | English + Spanish MUST be 100% complete |
+| **Fallback** | Automatic fallback to English (`en`) |
+| **RTL** | Full support required for Arabic (`ar`) |
+| **Hardcoded Strings** | ❌ FORBIDDEN in UI |
+
+### 📚 Full Documentation
+
+- **🔴 Start Here**: [`/docs/i18n/I18N_MODULE_REQUIREMENTS.md`](./docs/i18n/I18N_MODULE_REQUIREMENTS.md)
+- **✅ Checklist**: [`/docs/i18n/I18N_COMPLIANCE_CHECKLIST.md`](./docs/i18n/I18N_COMPLIANCE_CHECKLIST.md)
+- **🛠️ Integration**: [`/packages/utils/I18N_INTEGRATION_GUIDE.md`](./packages/utils/I18N_INTEGRATION_GUIDE.md)
+- **🤝 Contributing**: [`/CONTRIBUTING.md`](./CONTRIBUTING.md)
+
+### ⚡ Validation
+
+```bash
+# Validate your module before PR
+npm run i18n:validate
+
+# Check for missing keys
+npm run i18n:missing-keys
+
+# Find hardcoded strings
+npm run i18n:find-hardcoded
+```
+
+### 🚫 Module Rejection
+
+Your PR will be **REJECTED** if:
+1. Missing any of the 9 languages
+2. English or Spanish incomplete
+3. Hardcoded UI strings found
+4. RTL broken for Arabic
+5. Invalid JSON in translations
+
+**No exceptions. This is enforced by CI/CD.**
+
+---
+
 ## 🎯 LATEST UPDATE (2025-12-26): Sistema i18n 3 Capas
 
 ### ✅ COMPLETADO HOY

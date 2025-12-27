@@ -20,7 +20,7 @@ import {
 import { Button } from "@vibethink/ui/components/button";
 import { Badge } from "@vibethink/ui/components/badge";
 import { Skeleton } from "@vibethink/ui/components/skeleton";
-import { cn } from "@vibethink/utils";
+import { cn } from "@/lib/utils";
 
 export type TimelineEventType = "email" | "maintenance" | "chat" | "meeting" | "document" | "system";
 export type TimelineEventStatus = "completed" | "pending" | "warning" | "error";
