@@ -105,6 +105,7 @@ export default async function RootLayout({
             preloadNamespaces={[
               'common',
               'navigation',
+              'default',
               'theme',
               'hotel',
               'studio',

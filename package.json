@@ -18,6 +18,9 @@
     "validate:i18n": "node scripts/lang-quality.js"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^0.71.2",
+    "@google-cloud/translate": "^9.3.0",
+    "dotenv": "^17.2.3",
     "turbo": "latest"
   },
   "engines": {

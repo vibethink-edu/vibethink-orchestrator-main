@@ -1,8 +1,8 @@
 {
   "buttons": {
-    "save": "Guardar",
+    "save": "Ahorrar",
     "cancel": "Cancelar",
-    "delete": "Eliminar",
+    "delete": "Borrar",
     "edit": "Editar",
     "add": "Agregar",
     "search": "Buscar",
@@ -11,13 +11,13 @@
     "import": "Importar",
     "download": "Descargar",
     "upload": "Subir",
-    "close": "Cerrar",
-    "submit": "Enviar",
-    "reset": "Restablecer",
+    "close": "Cerca",
+    "submit": "Entregar",
+    "reset": "Reiniciar",
     "apply": "Aplicar",
-    "clear": "Limpiar",
+    "clear": "Claro",
     "back": "Atrás",
-    "next": "Siguiente",
+    "next": "Próximo",
     "previous": "Anterior",
     "confirm": "Confirmar",
     "yes": "Sí",
@@ -27,14 +27,14 @@
     "name": "Nombre",
     "email": "Correo electrónico",
     "phone": "Teléfono",
-    "address": "Dirección",
+    "address": "DIRECCIÓN",
     "status": "Estado",
     "date": "Fecha",
-    "time": "Hora",
+    "time": "Tiempo",
     "amount": "Cantidad",
     "total": "Total",
     "description": "Descripción",
-    "actions": "Acciones",
+    "actions": "Comportamiento",
     "loading": "Cargando...",
     "noData": "No hay datos disponibles",
     "error": "Error",
@@ -47,32 +47,21 @@
     "deleted": "Eliminado exitosamente",
     "updated": "Actualizado exitosamente",
     "created": "Creado exitosamente",
-    "errorOccurred": "Ocurrió un error",
-    "confirmDelete": "¿Estás seguro de que deseas eliminar este elemento?",
+    "errorOccurred": "Se produjo un error",
+    "confirmDelete": "¿Está seguro que desea eliminar este elemento?",
     "noResults": "No se encontraron resultados",
-    "selectOption": "Selecciona una opción"
+    "selectOption": "Seleccione una opción"
   },
   "time": {
     "today": "Hoy",
     "yesterday": "Ayer",
     "tomorrow": "Mañana",
     "thisWeek": "Esta semana",
-    "lastWeek": "Semana pasada",
+    "lastWeek": "La semana pasada",
     "thisMonth": "Este mes",
     "lastMonth": "Mes pasado",
     "thisYear": "Este año",
-    "lastYear": "Año pasado"
+    "lastYear": "El año pasado"
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
