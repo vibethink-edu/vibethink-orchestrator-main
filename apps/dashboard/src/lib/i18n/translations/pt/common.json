@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "table": {
     "common": {
       "search": "Pesquisar...",
@@ -32,3 +33,70 @@
     }
   }
 }
+=======
+  "buttons": {
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "add": "Adicionar",
+    "search": "Procurar",
+    "filter": "Filtro",
+    "export": "Exportar",
+    "import": "Importar",
+    "download": "Download",
+    "upload": "Carregar",
+    "close": "Fechar",
+    "submit": "Enviar",
+    "reset": "Reiniciar",
+    "apply": "Aplicar",
+    "clear": "Claro",
+    "back": "Voltar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "confirm": "Confirmar",
+    "yes": "Sim",
+    "no": "Não"
+  },
+  "labels": {
+    "name": "Nome",
+    "email": "E-mail",
+    "phone": "Telefone",
+    "address": "Endereço",
+    "status": "Status",
+    "date": "Data",
+    "time": "Tempo",
+    "amount": "Quantia",
+    "total": "Total",
+    "description": "Descrição",
+    "actions": "Ações",
+    "loading": "Carregando...",
+    "noData": "Não há dados disponíveis.",
+    "error": "Erro",
+    "success": "Sucesso",
+    "warning": "Aviso",
+    "info": "Informação"
+  },
+  "messages": {
+    "saved": "Salvo com sucesso",
+    "deleted": "Excluído com sucesso",
+    "updated": "Atualizado com sucesso",
+    "created": "Criado com sucesso",
+    "errorOccurred": "Ocorreu um erro.",
+    "confirmDelete": "Tem certeza de que deseja excluir este item?",
+    "noResults": "Nenhum resultado encontrado",
+    "selectOption": "Selecione uma opção"
+  },
+  "time": {
+    "today": "Hoje",
+    "yesterday": "Ontem",
+    "tomorrow": "Amanhã",
+    "thisWeek": "Essa semana",
+    "lastWeek": "Semana passada",
+    "thisMonth": "Este mês",
+    "lastMonth": "Mês passado",
+    "thisYear": "Este ano",
+    "lastYear": "Ano passado"
+  }
+}
+>>>>>>> zealous-williams

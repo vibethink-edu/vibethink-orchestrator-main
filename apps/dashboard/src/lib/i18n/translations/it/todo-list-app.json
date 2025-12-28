@@ -87,6 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "enter_title": "Enter title",
@@ -103,3 +104,7 @@
     "at_least_one_assignee_is_required": "At least one assignee is required"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams

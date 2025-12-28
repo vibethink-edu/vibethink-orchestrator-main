@@ -118,6 +118,7 @@
     "low": "Low",
     "medium": "Medium",
     "high": "High"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "title_is_required": "Title is required",
@@ -151,5 +152,7 @@
     "documentation": "Documentation",
     "backlog": "Backlog",
     "tasks": "Tasks"
+=======
+>>>>>>> zealous-williams
   }
 }

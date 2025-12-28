@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "table": {
     "common": {
       "search": "Suchen...",
@@ -32,3 +33,70 @@
     }
   }
 }
+=======
+  "buttons": {
+    "save": "Speichern",
+    "cancel": "Stornieren",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "add": "Hinzufügen",
+    "search": "Suchen",
+    "filter": "Filter",
+    "export": "Export",
+    "import": "Import",
+    "download": "Herunterladen",
+    "upload": "Hochladen",
+    "close": "Schließen",
+    "submit": "Einreichen",
+    "reset": "Zurücksetzen",
+    "apply": "Anwenden",
+    "clear": "Klar",
+    "back": "Zurück",
+    "next": "Nächste",
+    "previous": "Vorherige",
+    "confirm": "Bestätigen",
+    "yes": "Ja",
+    "no": "NEIN"
+  },
+  "labels": {
+    "name": "Name",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "address": "Adresse",
+    "status": "Status",
+    "date": "Datum",
+    "time": "Zeit",
+    "amount": "Menge",
+    "total": "Gesamt",
+    "description": "Beschreibung",
+    "actions": "Aktionen",
+    "loading": "Laden...",
+    "noData": "Keine Daten verfügbar",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "warning": "Warnung",
+    "info": "Information"
+  },
+  "messages": {
+    "saved": "Erfolgreich gespeichert",
+    "deleted": "Erfolgreich gelöscht",
+    "updated": "Aktualisierung erfolgreich",
+    "created": "Erfolgreich erstellt",
+    "errorOccurred": "Es ist ein Fehler aufgetreten",
+    "confirmDelete": "Möchten Sie diesen Eintrag wirklich löschen?",
+    "noResults": "Keine Ergebnisse gefunden",
+    "selectOption": "Wählen Sie eine Option aus"
+  },
+  "time": {
+    "today": "Heute",
+    "yesterday": "Gestern",
+    "tomorrow": "Morgen",
+    "thisWeek": "Diese Woche",
+    "lastWeek": "Letzte Woche",
+    "thisMonth": "Diesen Monat",
+    "lastMonth": "Letzten Monat",
+    "thisYear": "Dieses Jahr",
+    "lastYear": "Letztes Jahr"
+  }
+}
+>>>>>>> zealous-williams

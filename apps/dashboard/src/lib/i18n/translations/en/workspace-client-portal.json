@@ -1,0 +1,107 @@
+{
+  "portal": {
+    "subscription": {
+      "plan": {
+        "starter": "Starter",
+        "professional": "Professional",
+        "business": "Business",
+        "enterprise": "Enterprise",
+        "custom": "Custom"
+      },
+      "billing": {
+        "monthly": "Monthly",
+        "yearly": "Yearly",
+        "usage": "Usage-Based",
+        "custom": "Custom Billing"
+      },
+      "status": {
+        "active": "Active",
+        "trial": "Trial",
+        "suspended": "Suspended",
+        "cancelled": "Cancelled",
+        "expired": "Expired"
+      }
+    },
+    "support": {
+      "ticket": {
+        "create": "Create Ticket",
+        "view": "View Ticket",
+        "update": "Update Ticket",
+        "close": "Close Ticket"
+      },
+      "priority": {
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "urgent": "Urgent",
+        "critical": "Critical"
+      },
+      "channel": {
+        "email": "Email",
+        "chat": "Live Chat",
+        "phone": "Phone",
+        "portal": "Portal"
+      },
+      "resource": {
+        "documentation": "Documentation",
+        "knowledgeBase": "Knowledge Base",
+        "tutorial": "Tutorial",
+        "faq": "FAQ",
+        "apiDocs": "API Documentation"
+      }
+    },
+    "integration": {
+      "status": {
+        "connected": "Connected",
+        "pending": "Pending Authorization",
+        "failed": "Connection Failed",
+        "disconnected": "Disconnected"
+      },
+      "action": {
+        "connect": "Connect",
+        "disconnect": "Disconnect",
+        "reconnect": "Reconnect",
+        "configure": "Configure",
+        "testConnection": "Test Connection"
+      },
+      "provider": {
+        "quickbooks": "QuickBooks",
+        "stripe": "Stripe",
+        "salesforce": "Salesforce",
+        "slack": "Slack",
+        "zapier": "Zapier"
+      }
+    },
+    "analytics": {
+      "metric": {
+        "usage": "Usage",
+        "performance": "Performance",
+        "uptime": "Uptime",
+        "requests": "API Requests",
+        "storage": "Storage Used"
+      },
+      "period": {
+        "today": "Today",
+        "week": "This Week",
+        "month": "This Month",
+        "quarter": "This Quarter",
+        "year": "This Year"
+      }
+    },
+    "account": {
+      "team": {
+        "members": "Team Members",
+        "invite": "Invite Member",
+        "remove": "Remove Member",
+        "role": "Role",
+        "permissions": "Permissions"
+      },
+      "security": {
+        "2fa": "Two-Factor Authentication",
+        "apiKeys": "API Keys",
+        "auditLog": "Audit Log",
+        "sessions": "Active Sessions"
+      }
+    }
+  }
+}

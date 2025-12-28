@@ -1,5 +1,6 @@
 {
   "buttons": {
+<<<<<<< HEAD
     "save": "Save",
     "cancel": "Cancel",
     "delete": "Delete",
@@ -109,5 +110,69 @@
     "punto_de_inicio_del_workflow": "Punto de inicio del workflow",
     "procesar_datos": "Procesar Datos",
     "workflow_editor": "Workflow Editor"
+=======
+    "save": "Salva",
+    "cancel": "Annulla",
+    "delete": "Elimina",
+    "edit": "Modifica",
+    "add": "Aggiungi",
+    "search": "Cerca",
+    "filter": "Filtra",
+    "export": "Esporta",
+    "import": "Importa",
+    "download": "Scarica",
+    "upload": "Carica",
+    "close": "Chiudi",
+    "submit": "Invia",
+    "reset": "Reset",
+    "apply": "Applica",
+    "clear": "Cancella",
+    "back": "Indietro",
+    "next": "Prossimo",
+    "previous": "Precedente",
+    "confirm": "Conferma",
+    "yes": "Sì",
+    "no": "No"
+  },
+  "labels": {
+    "name": "Nome",
+    "email": "E-mail",
+    "phone": "Telefono",
+    "address": "Indirizzo",
+    "status": "Stato",
+    "date": "Data",
+    "time": "Ora",
+    "amount": "Importo",
+    "total": "Totale",
+    "description": "Descrizione",
+    "actions": "Azioni",
+    "loading": "Caricamento...",
+    "noData": "Nessun dato disponibile",
+    "error": "Errore",
+    "success": "Successo",
+    "warning": "Avviso",
+    "info": "Informazioni"
+  },
+  "messages": {
+    "saved": "Salvato con successo",
+    "deleted": "Eliminato con successo",
+    "updated": "Aggiornato con successo",
+    "created": "Creato con successo",
+    "errorOccurred": "Si è verificato un errore",
+    "confirmDelete": "Sei sicuro di voler eliminare questo elemento?",
+    "noResults": "Nessun risultato trovato",
+    "selectOption": "Seleziona un'opzione"
+  },
+  "time": {
+    "today": "Oggi",
+    "yesterday": "Ieri",
+    "tomorrow": "Domani",
+    "thisWeek": "Questa settimana",
+    "lastWeek": "L'ultima settimana",
+    "thisMonth": "Questo mese",
+    "lastMonth": "Il mese scorso",
+    "thisYear": "Quest'anno",
+    "lastYear": "L'anno scorso"
+>>>>>>> zealous-williams
   }
 }

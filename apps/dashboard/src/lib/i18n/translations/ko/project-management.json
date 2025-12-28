@@ -87,6 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "task_or_project_deadline": "Task or 프로젝트 마감일",
@@ -126,3 +127,7 @@
     "select_all_1": "모두 선택"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams

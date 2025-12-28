@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "concept.booking.resource.room": "Cabina",
   "concept.booking.resource.studio_room": "Studio di registrazione",
   "concept.booking.resource.equipment": "Attrezzatura audio"
@@ -6,3 +7,56 @@
 
 
 
+=======
+  "concept": {
+    "booking": {
+      "action": {
+        "book": "Prenotare",
+        "checkIn": "Check-in",
+        "checkOut": "Check-out"
+      },
+      "time": {
+        "checkIn": "Check-in",
+        "checkOut": "Check-out"
+      }
+    },
+    "crm": {
+      "entity": {
+        "project": "Progetto",
+        "client": "Cliente",
+        "campaign": "Campagna"
+      },
+      "status": {
+        "active": "Attivo",
+        "completed": "Completato",
+        "cancelled": "Annullato"
+      }
+    },
+    "property": {
+      "type": {
+        "standard": "Standard",
+        "large": "Grande",
+        "studio": "Spazio Studio"
+      },
+      "amenity": {
+        "microphone": "Microfono",
+        "camera": "Camera",
+        "lighting": "Illuminazione",
+        "backdrop": "Sfondo",
+        "speakers": "Altoparlanti",
+        "greenScreen": "Schermo verde",
+        "audioInterface": "Interfaccia audio"
+      },
+      "service": {
+        "recording": "Registrazione",
+        "editing": "Montaggio",
+        "production": "Produzione",
+        "mixing": "Mixaggio",
+        "mastering": "Mastering",
+        "colorGrading": "Color Grading"
+      }
+    }
+  }
+}
+
+>>>>>>> zealous-williams

@@ -7,7 +7,7 @@
  * - Voice agent language settings
  */
 
-export type SupportedLocale = 'en' | 'es' | 'ar' | 'zh' | 'fr' | 'pt' | 'de';
+export type SupportedLocale = 'en' | 'es' | 'ar' | 'zh' | 'fr' | 'pt' | 'de' | 'it' | 'ja';
 
 export interface LocaleConfig {
     code: SupportedLocale;
@@ -191,6 +191,52 @@ export const LOCALE_CONFIGS: Record<SupportedLocale, LocaleConfig> = {
             region: 'DE'
         },
         dateFormat: 'DD.MM.YYYY',
+        timeFormat: '24h'
+    },
+
+    it: {
+        code: 'it',
+        name: 'Italian',
+        nativeName: 'Italiano',
+        direction: 'ltr',
+        currency: {
+            code: 'EUR',
+            symbol: '€',
+            position: 'after',
+            decimals: 2
+        },
+        numbers: {
+            decimalSeparator: ',',
+            thousandsSeparator: '.'
+        },
+        voice: {
+            language: 'it-IT',
+            region: 'IT'
+        },
+        dateFormat: 'DD/MM/YYYY',
+        timeFormat: '24h'
+    },
+
+    ja: {
+        code: 'ja',
+        name: 'Japanese',
+        nativeName: '日本語',
+        direction: 'ltr',
+        currency: {
+            code: 'JPY',
+            symbol: '¥',
+            position: 'before',
+            decimals: 0
+        },
+        numbers: {
+            decimalSeparator: '.',
+            thousandsSeparator: ','
+        },
+        voice: {
+            language: 'ja-JP',
+            region: 'JP'
+        },
+        dateFormat: 'YYYY/MM/DD',
         timeFormat: '24h'
     }
 };

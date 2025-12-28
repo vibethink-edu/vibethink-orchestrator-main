@@ -1,0 +1,263 @@
+{
+  "patient": {
+    "journey": {
+      "diagnosis": "诊断",
+      "treatment": "治疗",
+      "recovery": "康复",
+      "survivorship": "康复期",
+      "palliativeCare": "姑息治疗",
+      "endOfLife": "临终关怀",
+      "remission": "缓解期监测"
+    },
+    "case": {
+      "openCase": "建立档案",
+      "assignCareTeam": "分配护理团队",
+      "treatmentPlan": "治疗方案",
+      "caseNotes": "病例记录",
+      "followUp": "随访预约",
+      "updateStatus": "更新状态"
+    },
+    "portal": {
+      "myJourney": "我的历程",
+      "treatmentSchedule": "治疗日程",
+      "medicalRecords": "病历",
+      "requestSupport": "申请帮助",
+      "connectWithSurvivor": "联系康复者",
+      "symptomTracker": "症状追踪",
+      "medications": "我的用药"
+    }
+  },
+  "sponsor": {
+    "donation": {
+      "oneTime": "单次捐赠",
+      "recurring": "定期捐赠",
+      "monthly": "按月",
+      "quarterly": "按季度",
+      "yearly": "按年",
+      "memorial": "纪念捐赠",
+      "honor": "致敬捐赠",
+      "corporate": "企业赞助",
+      "matching": "配捐"
+    },
+    "impact": {
+      "patientsHelped": "帮助的患者",
+      "fundsRaised": "筹集的资金",
+      "programsSupported": "支持的项目",
+      "impactReport": "影响报告",
+      "yourImpact": "您的影响",
+      "donationHistory": "捐赠记录"
+    },
+    "engagement": {
+      "becomeSponsor": "成为赞助者",
+      "sponsorPatient": "资助患者",
+      "fundProgram": "资助项目",
+      "viewImpact": "查看影响",
+      "updatePayment": "更新付款方式",
+      "taxReceipt": "税务收据"
+    }
+  },
+  "provider": {
+    "network": {
+      "joinNetwork": "加入服务网络",
+      "referPatient": "转诊患者",
+      "acceptReferral": "接受转诊",
+      "collaborateOnCare": "协作护理",
+      "careCoordination": "护理协调"
+    },
+    "services": {
+      "oncology": "肿瘤服务",
+      "supportServices": "支持服务",
+      "homeHealth": "居家医疗",
+      "hospice": "临终关怀",
+      "rehabilitation": "康复",
+      "palliative": "姑息治疗",
+      "infusion": "输液中心"
+    },
+    "credentialing": {
+      "license": "医疗执照",
+      "certification": "专科认证",
+      "specialty": "专科",
+      "verification": "验证状态",
+      "insurance": "接受的保险"
+    }
+  },
+  "resource": {
+    "education": {
+      "patientEducation": "患者教育",
+      "caregiverResources": "护理人资源",
+      "treatmentGuides": "治疗指南",
+      "sideEffectManagement": "副作用管理",
+      "nutritionGuides": "营养指南",
+      "exercisePrograms": "运动计划",
+      "mindfulness": "正念与冥想"
+    },
+    "community": {
+      "supportGroup": "支持小组",
+      "forum": "社区论坛",
+      "events": "活动与讲座",
+      "webinar": "在线讲座",
+      "newsletter": "通讯",
+      "blog": "博客与故事"
+    }
+  },
+  "program": {
+    "type": {
+      "financialAid": "经济援助项目",
+      "transportation": "交通项目",
+      "housing": "住宿项目",
+      "counseling": "心理咨询项目",
+      "peerSupport": "同伴支持项目",
+      "nutrition": "营养项目",
+      "wellness": "健康项目"
+    },
+    "enrollment": {
+      "apply": "申请项目",
+      "eligibility": "检查资格",
+      "applicationStatus": "申请状态",
+      "renewEnrollment": "续期注册",
+      "documents": "所需文件"
+    }
+  },
+  "care": {
+    "team": {
+      "oncologist": "肿瘤医生",
+      "nurse": "肿瘤护士",
+      "socialWorker": "社会工作者",
+      "nutritionist": "营养师",
+      "counselor": "心理咨询师",
+      "patientNavigator": "患者导航员",
+      "careCoordinator": "护理协调员"
+    },
+    "appointment": {
+      "schedule": "安排预约",
+      "chemotherapy": "化疗预约",
+      "radiation": "放疗预约",
+      "followUp": "随访",
+      "imaging": "影像检查预约",
+      "labWork": "化验"
+    }
+  },
+  "contentManagement": {
+    "type": {
+      "article": "文章",
+      "video": "视频",
+      "infographic": "信息图",
+      "guide": "治疗指南",
+      "testimonial": "患者感言",
+      "story": "康复者故事"
+    },
+    "category": {
+      "education": "教育内容",
+      "awareness": "宣传活动",
+      "research": "研究更新",
+      "events": "活动与项目",
+      "news": "新闻与动态"
+    },
+    "action": {
+      "create": "创建内容",
+      "edit": "编辑内容",
+      "publish": "发布",
+      "schedule": "定时发布",
+      "archive": "归档"
+    },
+    "status": {
+      "draft": "草稿",
+      "review": "审核中",
+      "approved": "已批准",
+      "published": "已发布",
+      "scheduled": "已定时"
+    }
+  },
+  "marketing": {
+    "campaign": {
+      "awareness": "宣传活动",
+      "fundraising": "筹款活动",
+      "recruitment": "患者招募",
+      "volunteer": "志愿者招募",
+      "advocacy": "倡导活动"
+    },
+    "channel": {
+      "email": "电子邮件营销",
+      "social": "社交媒体",
+      "events": "活动",
+      "partnerships": "合作伙伴",
+      "community": "社区推广"
+    },
+    "metrics": {
+      "reach": "触及",
+      "engagement": "互动",
+      "conversions": "转化",
+      "donations": "产生的捐赠",
+      "signups": "新注册"
+    }
+  },
+  "aiAgent": {
+    "companion": {
+      "type": {
+        "emotional": "情感支持助手",
+        "educational": "教育助手",
+        "medication": "用药提醒助手",
+        "symptom": "症状追踪助手",
+        "navigation": "护理导航助手"
+      },
+      "interaction": {
+        "chat": "与助手聊天",
+        "voiceCall": "语音通话",
+        "videoCall": "视频通话",
+        "scheduledCheckIn": "定时关怀"
+      },
+      "capability": {
+        "answerQuestions": "回答问题",
+        "provideSuppport": "提供情感支持",
+        "trackSymptoms": "追踪症状",
+        "remindMedication": "用药提醒",
+        "connectToHuman": "连接人工支持"
+      }
+    }
+  },
+  "marketplace": {
+    "category": {
+      "medical": "医疗用品",
+      "wellness": "健康产品",
+      "nutrition": "营养补充",
+      "comfort": "舒适用品",
+      "books": "书籍资源",
+      "technology": "辅助技术"
+    },
+    "provider": {
+      "verified": "认证供应商",
+      "featured": "精选供应商",
+      "discount": "社区优惠可用",
+      "rating": "供应商评级"
+    },
+    "action": {
+      "browse": "浏览产品",
+      "requestQuote": "索取报价",
+      "connectProvider": "联系供应商",
+      "addToCart": "加入购物车",
+      "applyDiscount": "应用社区优惠"
+    }
+  },
+  "integration": {
+    "providerType": {
+      "medical": "医疗设备供应商",
+      "pharmacy": "药房",
+      "transportation": "交通服务",
+      "homecare": "居家护理服务",
+      "nutrition": "营养服务",
+      "wellness": "健康服务"
+    },
+    "status": {
+      "pending": "待批准",
+      "active": "活动集成",
+      "suspended": "已暂停",
+      "inactive": "未激活"
+    },
+    "action": {
+      "applyToJoin": "申请加入网络",
+      "updateCatalog": "更新产品目录",
+      "manageOrders": "管理订单",
+      "viewAnalytics": "查看分析"
+    }
+  }
+}

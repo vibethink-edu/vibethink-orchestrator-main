@@ -8,7 +8,7 @@
 /**
  * Supported locales
  */
-export type Locale = 'en' | 'es' | 'ar' | 'zh' | 'fr' | 'pt' | 'de';
+export type Locale = 'en' | 'es' | 'ar' | 'zh' | 'fr' | 'pt' | 'de' | 'it' | 'ko';
 
 /**
  * Default locale
@@ -18,7 +18,7 @@ export const DEFAULT_LOCALE: Locale = 'en';
 /**
  * Available locales array
  */
-export const AVAILABLE_LOCALES: Locale[] = ['en', 'es', 'ar', 'zh', 'fr', 'pt', 'de'];
+export const AVAILABLE_LOCALES: Locale[] = ['en', 'es', 'ar', 'zh', 'fr', 'pt', 'de', 'it', 'ko'];
 
 /**
  * Locale metadata
@@ -63,8 +63,16 @@ export type TranslationNamespace =
   | 'ai-image-generator' // AI Image Generator module
   | 'academy'           // Academy module
   | 'hotel'             // Hotel module
+  | 'studio'            // Studio module
+  | 'cowork'            // Coworking module
+  | 'coliving'          // Coliving module
+  | 'chat'              // Chat module
   | 'theme'             // Theme customization
   | 'concept'           // Concept terminology (IA First reusable components)
+  | 'concept-hotel'     // Hotel-specific concepts
+  | 'concept-studio'    // Studio-specific concepts
+  | 'concept-cowork'    // Coworking-specific concepts
+  | 'concept-coliving'  // Coliving-specific concepts
   | 'errors'            // Error messages
   | 'validation'        // Form validation messages
   | 'dashboard-vibethink' // VibeThink Dashboard Index page

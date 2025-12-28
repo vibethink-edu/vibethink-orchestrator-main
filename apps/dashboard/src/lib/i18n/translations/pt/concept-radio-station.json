@@ -1,0 +1,77 @@
+{
+  "concept": {
+    "broadcast": {
+      "type": {
+        "live": "Ao Vivo",
+        "recorded": "Gravado",
+        "automated": "Automatizado",
+        "syndicated": "Sindicado"
+      },
+      "content": {
+        "show": "Programa",
+        "segment": "Segmento",
+        "commercial": "Comercial",
+        "jingle": "Vinheta",
+        "promo": "Promoção",
+        "sweeper": "Sweeper",
+        "bumper": "Bumper"
+      },
+      "station": {
+        "format": {
+          "music": "Musical",
+          "talk": "Talk Show",
+          "news": "Notícias",
+          "sports": "Esportes",
+          "variety": "Variedades"
+        }
+      }
+    },
+    "content": {
+      "type": {
+        "music": "Música",
+        "talk": "Talk Show",
+        "news": "Notícias",
+        "podcast": "Podcast",
+        "interview": "Entrevista",
+        "commentary": "Comentário",
+        "report": "Reportagem"
+      },
+      "genre": {
+        "pop": "Pop",
+        "rock": "Rock",
+        "jazz": "Jazz",
+        "classical": "Clássica",
+        "electronic": "Eletrônica",
+        "country": "Country",
+        "hiphop": "Hip-Hop"
+      }
+    },
+    "audience": {
+      "type": {
+        "listener": "Ouvinte",
+        "caller": "Chamador",
+        "subscriber": "Assinante",
+        "follower": "Seguidor"
+      },
+      "engagement": {
+        "call": "Ligação ao Vivo",
+        "message": "Mensagem de Texto",
+        "social": "Redes Sociais",
+        "request": "Pedido Musical"
+      }
+    },
+    "advertising": {
+      "type": {
+        "commercial": "Comercial",
+        "sponsorship": "Patrocínio",
+        "underwriting": "Apoio",
+        "psa": "Anúncio de Serviço Público"
+      },
+      "duration": {
+        "15sec": "15 Segundos",
+        "30sec": "30 Segundos",
+        "60sec": "60 Segundos"
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "table": "Table",
+        "booth": "Box",
+        "barSeat": "Place au Bar",
+        "terrace": "Terrasse",
+        "privateRoom": "Salle Privée",
+        "patio": "Patio"
+      },
+      "action": {
+        "book": "Réserver une Table",
+        "reserve": "Réserver",
+        "checkIn": "Installer les Clients",
+        "checkOut": "Libérer la Table"
+      }
+    },
+    "menu": {
+      "category": {
+        "appetizer": "Entrée",
+        "soup": "Soupe",
+        "salad": "Salade",
+        "mainCourse": "Plat Principal",
+        "sideDish": "Accompagnement",
+        "dessert": "Dessert",
+        "beverage": "Boisson",
+        "alcoholic": "Boisson Alcoolisée",
+        "nonAlcoholic": "Boisson Sans Alcool"
+      },
+      "attribute": {
+        "spicy": "Épicé",
+        "mild": "Doux",
+        "hot": "Chaud",
+        "cold": "Froid",
+        "seasonal": "De Saison",
+        "chefSpecial": "Spécialité du Chef",
+        "signature": "Plat Signature"
+      }
+    },
+    "service": {
+      "type": {
+        "dineIn": "Sur Place",
+        "takeout": "À Emporter",
+        "delivery": "Livraison",
+        "curbside": "Retrait en Voiture",
+        "reservation": "Réservation",
+        "walkIn": "Sans Réservation"
+      },
+      "staff": {
+        "hostess": "Hôtesse",
+        "server": "Serveur",
+        "waiter": "Serveur",
+        "waitress": "Serveuse",
+        "busser": "Commis de Salle",
+        "bartender": "Barman",
+        "sommelier": "Sommelier"
+      }
+    },
+    "dietary": {
+      "restriction": {
+        "vegetarian": "Végétarien",
+        "vegan": "Végétalien",
+        "glutenFree": "Sans Gluten",
+        "dairyFree": "Sans Produits Laitiers",
+        "nutFree": "Sans Fruits à Coque",
+        "kosher": "Casher",
+        "halal": "Halal"
+      },
+      "allergen": {
+        "nuts": "Fruits à Coque",
+        "dairy": "Produits Laitiers",
+        "eggs": "Œufs",
+        "shellfish": "Crustacés",
+        "soy": "Soja",
+        "wheat": "Blé",
+        "fish": "Poisson"
+      }
+    },
+    "guest": {
+      "type": {
+        "regular": "Client Régulier",
+        "vip": "Client VIP",
+        "firstTime": "Nouveau Client",
+        "group": "Groupe",
+        "party": "Groupe"
+      },
+      "count": {
+        "partySize": "Taille du Groupe",
+        "covers": "Couverts",
+        "guests": "Convives"
+      }
+    }
+  }
+}

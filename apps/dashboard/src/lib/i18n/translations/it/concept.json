@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "concept.common.entity": {
     "label": "Entity",
     "plural": "Entities",
@@ -279,3 +280,62 @@
   "concept.crm.action.qualify": "Qualificare",
   "concept.crm.action.convert": "Convertire"
 }
+=======
+  "concept": {
+    "booking": {
+      "resource": {
+        "room": "Room",
+        "space": "Space",
+        "workstation": "Workstation",
+        "area": "Area"
+      },
+      "action": {
+        "reserve": "Reserve",
+        "cancel": "Cancel",
+        "modify": "Modify",
+        "confirm": "Confirm"
+      },
+      "time": {
+        "checkin": "Check-in",
+        "checkout": "Check-out",
+        "duration": "Duration",
+        "startTime": "Start Time",
+        "endTime": "End Time"
+      },
+      "unit": {
+        "hour": "{count, plural, one {hour} other {hours}}",
+        "day": "{count, plural, one {day} other {days}}",
+        "night": "{count, plural, one {night} other {nights}}"
+      },
+      "status": {
+        "confirmed": "Confirmed",
+        "pending": "Pending",
+        "cancelled": "Cancelled",
+        "completed": "Completed"
+      }
+    },
+    "crm": {
+      "entity": {
+        "deal": "Deal",
+        "lead": "Lead",
+        "contact": "Contact",
+        "company": "Company",
+        "opportunity": "Opportunity"
+      },
+      "action": {
+        "create": "Create",
+        "update": "Update",
+        "delete": "Delete",
+        "archive": "Archive"
+      },
+      "status": {
+        "new": "New",
+        "inProgress": "In Progress",
+        "won": "Won",
+        "lost": "Lost"
+      }
+    }
+  }
+}
+
+>>>>>>> zealous-williams

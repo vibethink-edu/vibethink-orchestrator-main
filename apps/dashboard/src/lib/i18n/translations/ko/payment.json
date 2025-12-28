@@ -87,6 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "page_views": "Page Views",
@@ -96,3 +97,7 @@
     "updated_every_several_minutes": "Updated every several minutes"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams

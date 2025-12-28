@@ -87,6 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "ask_me_anything": "무엇이든 물어보세요...",
@@ -102,3 +103,7 @@
     "ai_chat_v2_1": "AI 채팅 V2"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams

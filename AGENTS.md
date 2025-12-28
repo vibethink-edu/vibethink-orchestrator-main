@@ -1,6 +1,21 @@
 # Project Mission
 This project is a **VibeThink Orchestrator 1.0** (codename: **ViTo**) - an Enterprise SaaS Platform with AI Integration featuring multiple dashboard systems for different purposes.
 
+## 🚀 QUICK START FOR NEW AI AGENTS
+
+**If you're a new AI agent starting work on this project:**
+
+1. ⭐ **READ FIRST:** `AI_AGENT_ONBOARDING.md` (5-10 min) - Mandatory onboarding
+2. **READ SECOND:** This file (`AGENTS.md`) - Project rules
+3. **READ THIRD:** `docs/SCRIPTS_REFERENCE.md` - Validation tools
+4. **READ FOURTH:** `README.md` - Project introduction
+
+**DO NOT skip the onboarding document. It contains critical information about:**
+- Sistema i18n de 3 capas (estado actual)
+- Archivos que NO debes modificar
+- Scripts de validación obligatorios
+- Lecciones aprendidas (evitar errores pasados)
+
 ## 🎯 Project Name: ViTo
 
 **ViTo** is the internal codename and acronym for **VibeThink Orchestrator**.
@@ -25,6 +40,131 @@ This project is a **VibeThink Orchestrator 1.0** (codename: **ViTo**) - an Enter
 **Documentation:**
 - [PROJECT_NAME.md](docs/PROJECT_NAME.md) - Complete name documentation
 - [VITO_MANIFESTO.md](docs/VITO_MANIFESTO.md) - Official ViTo manifesto
+
+## 🚨 CRITICAL: Sistema i18n de 3 Capas (ACTIVO - 2025-12-26)
+
+### ⚠️ SUPER IMPORTANTE: Sistema de Internacionalización en Producción
+
+El sistema de i18n está **ACTIVO** y **FUNCIONAL** en el proyecto. Sigue una arquitectura de 3 capas.
+
+#### **Estado Actual (2025-12-26):**
+
+- ✅ **CAPA 1 (Semantic IDs):** 100% completa - 405 archivos (9 idiomas × 45 archivos)
+- ✅ **CAPA 2 (Terminology Engine):** 100% completa - Motor funcional con cache
+- ⚠️ **CAPA 3 (UI Strings):** 20% completa - React Provider/Hook pendiente
+
+#### **Idiomas Soportados (9 total):**
+
+1. 🇺🇸 **en** (English) - 100% completo ⭐ MASTER (fallback universal)
+2. 🇪🇸 **es** (Español) - 95% completo ⭐ OBLIGATORIO
+3. 🇫🇷 **fr** (Français) - 90% completo
+4. 🇵🇹 **pt** (Português) - 90% completo
+5. 🇩🇪 **de** (Deutsch) - 90% completo
+6. 🇮🇹 **it** (Italiano) - 50% completo (⚠️ PENDIENTE TRADUCCIÓN)
+7. 🇰🇷 **ko** (한국어) - 50% completo (⚠️ PENDIENTE TRADUCCIÓN)
+8. 🇸🇦 **ar** (العربية) - 90% completo
+9. 🇨🇳 **zh** (中文) - 90% completo
+
+#### **Archivos Críticos (NO MODIFICAR sin validación TypeScript):**
+
+```
+packages/utils/src/i18n/terminology/
+├── engine.ts  ✅ FUNCIONA - Motor de resolución
+├── cache.ts   ✅ FUNCIONA - Sistema de cache (TTL 30 min)
+├── index.ts   ✅ FUNCIONA - Barrel exports
+└── types.ts   ✅ FUNCIONA - TypeScript types
+```
+
+#### **Archivos de Traducciones (Ubicación):**
+
+```
+apps/dashboard/src/lib/i18n/translations/
+├── en/          # 45 archivos (100%) ⭐ MASTER
+├── es/          # 45 archivos (95%)
+├── fr/          # 45 archivos (90%)
+├── pt/          # 45 archivos (90%)
+├── de/          # 45 archivos (90%)
+├── it/          # 45 archivos (50%) ⚠️ PENDIENTE
+├── ko/          # 45 archivos (50%) ⚠️ PENDIENTE
+├── ar/          # 45 archivos (90%)
+└── zh/          # 45 archivos (90%)
+```
+
+**Total:** 405 archivos JSON
+
+**Tipos de archivos de conceptos:**
+- `concept.json` - Conceptos compartidos entre productos
+- `concept-hotel.json` - Específicos de Hotel
+- `concept-studio.json` - Específicos de Studio
+- `concept-cowork.json` - Específicos de Cowork
+- `concept-coliving.json` - Específicos de Coliving
+
+#### **Reglas OBLIGATORIAS para AI Agents:**
+
+1. **✅ SIEMPRE validar ANTES de commit:**
+   ```bash
+   node scripts/validate-concepts-coherence.js  # OBLIGATORIO
+   cd packages/utils && npx tsc --noEmit        # Si tocaste TypeScript
+   ```
+
+2. **✅ SIEMPRE usar inglés (EN) como master:**
+   - Crear/modificar conceptos en EN primero
+   - Luego copiar a otros 8 idiomas
+   - Validar coherencia
+
+3. **❌ NUNCA duplicar conceptos:**
+   - Conceptos compartidos → `concept.json`
+   - Conceptos únicos de producto → `concept-{product}.json`
+   - NUNCA el mismo concepto en ambos
+
+4. **❌ NUNCA modificar CAPA 2 sin validar:**
+   - Archivos en `packages/utils/src/i18n/terminology/`
+   - Requieren validación TypeScript OBLIGATORIA
+   - Build debe pasar sin errores
+
+5. **✅ SIEMPRE copiar a TODOS los idiomas:**
+   - Al agregar nuevo archivo de conceptos
+   - Al agregar nueva key en archivo existente
+   - Usar scripts de validación
+
+#### **Scripts de Validación (USAR SIEMPRE):**
+
+```bash
+# VALIDACIÓN PRINCIPAL (ejecutar ANTES de commit)
+node scripts/validate-concepts-coherence.js
+
+# ARREGLO AUTOMÁTICO (si hay errores)
+node scripts/fix-concepts-coherence.js
+
+# VERIFICAR ARCHIVOS FALTANTES
+node scripts/check-missing-files.js
+
+# COPIAR ARCHIVOS FALTANTES
+node scripts/copy-missing-translation-files.js
+
+# SINCRONIZAR ESTRUCTURA
+node scripts/sync-translations-structure.js
+```
+
+**Referencia completa:** `docs/SCRIPTS_REFERENCE.md`
+
+#### **Documentación Completa:**
+
+- `AI_AGENT_ONBOARDING.md` ⭐ - Onboarding obligatorio (leer primero)
+- `docs/architecture/I18N_3_LAYERS_ARCHITECTURE.md` ⭐ - Arquitectura completa (incluye estado ACTUAL vs PLANIFICADO)
+- `GUIA_MANTENIMIENTO_CONCEPTOS.md` - Workflow para agregar productos
+- `ARCHIVOS_DISABLED_ARREGLADOS.md` - Historial de fixes de CAPA 2
+- `docs/SCRIPTS_REFERENCE.md` ⭐ - Referencia completa de scripts
+
+#### **Tareas Pendientes (Conocimiento):**
+
+- ⚠️ **ALTA PRIORIDAD:** Traducir IT y KO (50 archivos cada uno, ~2,500 strings)
+- ⚠️ **MEDIA PRIORIDAD:** Implementar CAPA 3 (React Provider/Hook pattern)
+- ⚠️ **MEDIA PRIORIDAD:** Registrar TranslationLoader en layout.tsx
+
+**IMPORTANTE:** Si vas a trabajar con i18n, lee `AI_AGENT_ONBOARDING.md` primero.
+
+---
 
 ## 🚨 CRITICAL: Arquitectura de Dashboards (NUNCA VIOLAR)
 

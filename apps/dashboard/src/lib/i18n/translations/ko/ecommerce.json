@@ -102,6 +102,7 @@
     "October": "October",
     "November": "November",
     "December": "December"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "open_menu": "메뉴 열기",
@@ -126,5 +127,7 @@
     "social": "소셜",
     "best_seller_of_the_month": "Best seller of the month",
     "ecommerce_admin_dashboard_vibethink_orchestrator": "Ecommerce Admin Dashboard - VibeThink Orchestrator"
+=======
+>>>>>>> zealous-williams
   }
 }

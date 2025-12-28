@@ -47,6 +47,7 @@
     "completed": "Completed",
     "pending": "Pending",
     "failed": "Failed"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "download_crypto_data": "암호화폐 데이터 다운로드",
@@ -89,3 +90,17 @@
     "add_new_price_alert": "새 가격 알림 추가"
   }
 }
+=======
+  }
+}
+
+
+
+
+
+
+
+
+
+
+>>>>>>> zealous-williams

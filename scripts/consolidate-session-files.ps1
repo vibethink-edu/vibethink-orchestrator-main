@@ -84,3 +84,9 @@ Write-Host "   • Logs eliminados: $deletedCount" -ForegroundColor White
 Write-Host "`n📁 Archivos archivados en: $archivedPath" -ForegroundColor Cyan
 
 
+
+
+
+
+
+

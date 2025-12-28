@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "common": {
     "status": {
       "active": "Active",
@@ -38,10 +39,128 @@
     "loading": "Loading...",
     "error": "An error occurred",
     "noProjects": "No projects found"
+=======
+  "tabs": {
+    "overview": "개요",
+    "projects": "프로젝트",
+    "team": "팀",
+    "reports": "보고서"
+  },
+  "summary": {
+    "activeProjects": "진행 중인 프로젝트",
+    "completed": "완전한",
+    "onHold": "보류 중",
+    "totalBudget": "총 예산",
+    "teamMembers": "팀 구성원",
+    "activeTasks": "활성 작업",
+    "completedTasks": "완료된 작업",
+    "avgEfficiency": "평균 효율",
+    "activeContributors": "적극적인 기여자",
+    "fromLastMonth": "지난달부터",
+    "thisMonth": "이번 달",
+    "fromLastWeek": "지난주부터",
+    "overdueTasks": "기한이 지난 작업",
+    "failedToLoad": "요약 정보를 불러오는 데 실패했습니다.",
+    "errorLoadingSuccessMetrics": "메트릭 로딩 오류"
+  },
+  "sections": {
+    "teamPerformance": "팀 성과",
+    "teamPerformanceDesc": "팀원별 효율성 및 업무량 지표",
+    "loadingData": "프로젝트 데이터를 불러오는 중...",
+    "recentProjects": "최근 프로젝트",
+    "recentProjectsDesc": "현재 진행 중인 프로젝트 {{count}}개를 표시합니다.",
+    "noProjectsFound": "프로젝트를 찾을 수 없습니다.",
+    "allProjects": "모든 프로젝트",
+    "projectDetails": "프로젝트 세부 정보"
+  },
+  "header": {
+    "title": "프로젝트",
+    "subtitle": "프로젝트, 작업 및 팀 리소스를 관리합니다.",
+    "export": "내보내다",
+    "newProject": "새로운 프로젝트",
+    "newTask": "새로운 작업",
+    "searchPlaceholder": "프로젝트 또는 작업을 검색하세요...",
+    "status": "상태",
+    "allStatuses": "모든 상태",
+    "priority": "우선 사항",
+    "allPriorities": "모든 우선순위",
+    "teamLead": "팀 리더"
+  },
+  "status": {
+    "active": "활동적인",
+    "completed": "완전한",
+    "on-hold": "보류 중",
+    "cancelled": "취소"
+  },
+  "priority": {
+    "low": "낮은",
+    "medium": "중간",
+    "high": "높은",
+    "urgent": "긴급한"
+  },
+  "table": {
+    "project": "프로젝트",
+    "status": "상태",
+    "priority": "우선 사항",
+    "progress": "진전",
+    "teamLead": "팀 리더",
+    "dueDate": "두 번의 데이트",
+    "budget": "예산",
+    "actions": "행위",
+    "complete": "완벽한",
+    "inProgress": "진행 중",
+    "overdue": "기한 초과",
+    "daysLeft": "남은 일수",
+    "spent": "소비된",
+    "tryAdjustingFilters": "필터나 검색어를 조정해 보세요."
+  },
+  "actions": {
+    "viewDetails": "상세 정보 보기",
+    "editProject": "프로젝트 편집",
+    "manageTeam": "팀 관리",
+    "viewTimeline": "타임라인 보기",
+    "deleteProject": "프로젝트 삭제"
+  },
+  "common": {
+    "status": {
+      "active": "활동적인",
+      "pending": "보류 중",
+      "completed": "완전한",
+      "archived": "보관됨"
+    },
+    "actions": {
+      "edit": "편집하다",
+      "delete": "삭제",
+      "view": "보다",
+      "create": "만들다",
+      "cancel": "취소",
+      "save": "구하다"
+    }
+  },
+  "fields": {
+    "name": "이름",
+    "description": "설명",
+    "startDate": "시작일",
+    "endDate": "종료일",
+    "status": "상태",
+    "priority": "우선 사항",
+    "client": "고객",
+    "budget": "예산"
+  },
+  "messages": {
+    "createSuccess": "프로젝트가 성공적으로 생성되었습니다.",
+    "updateSuccess": "프로젝트가 성공적으로 업데이트되었습니다.",
+    "deleteSuccess": "프로젝트가 성공적으로 삭제되었습니다.",
+    "deleteConfirm": "이 프로젝트를 정말로 삭제하시겠습니까?",
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다",
+    "noProjects": "프로젝트를 찾을 수 없습니다."
+>>>>>>> zealous-williams
   },
   "v2": {
     "summaryCards": {
       "totalRevenue": {
+<<<<<<< HEAD
         "title": "Total Revenue",
         "description": "From last month",
         "trending": "Up 12% from this month"
@@ -123,10 +242,94 @@
       },
       "placeholder": {
         "filterProjects": "Filter projects..."
+=======
+        "title": "총 수익",
+        "description": "지난달부터",
+        "trending": "이번 달 대비 12% 상승"
+      },
+      "activeProjects": {
+        "title": "진행 중인 프로젝트",
+        "description": "현재 진행 중",
+        "update": "1시간 전에 업데이트됨"
+      },
+      "teamSize": {
+        "title": "팀 규모",
+        "description": "활동 회원",
+        "hiring": "채용 공고 (2개 직책)"
+      },
+      "completionRate": {
+        "title": "완료율",
+        "description": "제시간에 배송되었습니다",
+        "performance": "목표치보다 5% 더 높음"
+      }
+    },
+    "overview": {
+      "title": "개요",
+      "description": "프로젝트 성과를 분석하세요.",
+      "revenue": "수익",
+      "projects": "프로젝트",
+      "tasks": "과제",
+      "team": "팀"
+    },
+    "recentActivity": {
+      "title": "최근 활동",
+      "description": "오늘 새 알림이 3개 있습니다.",
+      "projectCreated": "프로젝트가 생성되었습니다",
+      "taskCompleted": "작업 완료",
+      "commentAdded": "댓글이 추가되었습니다",
+      "fileUploaded": "파일 업로드됨"
+    },
+    "metrics": {
+      "title": "성과 지표",
+      "description": "핵심 성과 지표 추적",
+      "onTime": "정시",
+      "overBudget": "예산 초과",
+      "clientSatisfaction": "고객 만족"
+    },
+    "efficiency": {
+      "title": "프로젝트 효율성",
+      "description": "2026년 1월 - 6월",
+      "trending": "이번 달 5.2% 상승 추세"
+    },
+    "achievement": {
+      "title": "연도별 성과",
+      "description": "올해 하루 평균 완료한 프로젝트 수가 작년보다 많습니다.",
+      "projects": "프로젝트"
+    },
+    "reminders": {
+      "title": "알림",
+      "showOther": "나머지 10개의 알림을 보여주세요"
+    },
+    "successMetrics": {
+      "title": "성공 지표",
+      "description": "프로젝트 성공을 위한 핵심 성과 지표",
+      "successRate": "프로젝트 성공률",
+      "onTime": "정시 완료",
+      "clientSat": "고객 만족",
+      "budget": "예산 준수"
+    },
+    "reports": {
+      "title": "프로젝트 보고서",
+      "description": "프로젝트에 대한 자세한 보고서를 다운로드하세요.",
+      "download": "보고서 다운로드"
+    },
+    "table": {
+      "columns": {
+        "projectName": "프로젝트명",
+        "clientName": "고객 이름",
+        "startDate": "시작일",
+        "deadline": "사선",
+        "status": "상태",
+        "progress": "진전"
+      },
+      "placeholder": {
+        "filterProjects": "프로젝트 필터링..."
+>>>>>>> zealous-williams
       }
     }
   },
   "hardcoded": {
+<<<<<<< HEAD
     "task_or_project_deadline": "Task or 프로젝트 마감일",
     "deadline": "Deadline",
     "team_meeting_or_call": "Team meeting or 통화",
@@ -161,5 +364,41 @@
     "mobile_app_design": "모바일",
     "select_all": "모두 선택",
     "select_all_1": "모두 선택"
+=======
+    "task_or_project_deadline": "업무 또는 프로젝트 마감일",
+    "deadline": "사선",
+    "team_meeting_or_call": "팀 회의 또는 통화",
+    "no_project_data_available": "프로젝트 데이터가 없습니다.",
+    "due_now": "지금 바로",
+    "comprehensive_overview_of_all_active_projects_and": "현재 진행 중인 모든 프로젝트에 대한 종합적인 개요 및",
+    "detailed_analysis_of_team_productivity_and_efficie": "팀 생산성 및 효율성에 대한 상세 분석",
+    "financial_overview_showing_budget_allocation_and_s": "예산 배분 및 기타 사항을 보여주는 재무 개요",
+    "project_success_rate": "프로젝트 성공률",
+    "percentage_of_projects_completed_successfully": "성공적으로 완료된 프로젝트 비율",
+    "ontime_delivery": "정시 배송",
+    "migrate_legacy_database_to_cloud_infrastructure": "기존 데이터베이스를 클라우드 인프라로 마이그레이션",
+    "comprehensive_security_assessment_and_remediation": "종합적인 보안 평가 및 개선 조치",
+    "design_wireframes": "와이어프레임을 디자인하세요",
+    "website_redesign_review": "웹사이트 재디자인 검토",
+    "review_the_latest_designs_and_provide_feedback": "최신 디자인을 검토하고 의견을 제공해 주세요.",
+    "mobile_app_sprint_planning": "모바일 앱 스프린트 계획 수립",
+    "export_project_data": "내보내기 프로젝트 데이터",
+    "steps": "단계",
+    "steps_1": "단계",
+    "steps_2": "단계",
+    "enter_your_reminder": "알림 시간을 입력하세요",
+    "enter_your_reminder_1": "알림 시간을 입력하세요",
+    "select_a_category": "카테고리를 선택하세요",
+    "visitors": "방문객들",
+    "desktop": "데스크톱",
+    "mobile": "이동하는",
+    "visitors_1": "방문객들",
+    "desktop_1": "데스크톱",
+    "mobile_1": "이동하는",
+    "toggle_details": "세부 정보 토글",
+    "mobile_app_design": "모바일 앱 디자인",
+    "select_all": "모두 선택하세요",
+    "select_all_1": "모두 선택하세요"
+>>>>>>> zealous-williams
   }
 }

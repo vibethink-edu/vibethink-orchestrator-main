@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "concept.booking.resource.room": "كابينة",
   "concept.booking.resource.studio_room": "استوديو تسجيل",
   "concept.booking.resource.equipment": "معدات صوتية"
@@ -6,3 +7,56 @@
 
 
 
+=======
+  "concept": {
+    "booking": {
+      "action": {
+        "book": "حجز",
+        "checkIn": "تسجيل دخول",
+        "checkOut": "تسجيل خروج"
+      },
+      "time": {
+        "checkIn": "تسجيل دخول",
+        "checkOut": "تسجيل خروج"
+      }
+    },
+    "crm": {
+      "entity": {
+        "project": "مشروع",
+        "client": "عميل",
+        "campaign": "حملة"
+      },
+      "status": {
+        "active": "نشط",
+        "completed": "مكتمل",
+        "cancelled": "ملغى"
+      }
+    },
+    "property": {
+      "type": {
+        "standard": "قياسي",
+        "large": "كبير",
+        "studio": "مساحة ستوديو"
+      },
+      "amenity": {
+        "microphone": "ميكروفون",
+        "camera": "كاميرا",
+        "lighting": "إضاءة",
+        "backdrop": "خلفية",
+        "speakers": "مكبرات صوت",
+        "greenScreen": "شاشة خضراء",
+        "audioInterface": "واجهة صوتية"
+      },
+      "service": {
+        "recording": "تسجيل",
+        "editing": "تحرير",
+        "production": "إنتاج",
+        "mixing": "مكساج",
+        "mastering": "ماسترينغ",
+        "colorGrading": "تدرج الألوان"
+      }
+    }
+  }
+}
+
+>>>>>>> zealous-williams

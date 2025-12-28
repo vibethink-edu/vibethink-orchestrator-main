@@ -1,0 +1,77 @@
+{
+  "concept": {
+    "broadcast": {
+      "type": {
+        "live": "直播",
+        "recorded": "录播",
+        "automated": "自动化",
+        "syndicated": "联合播出"
+      },
+      "content": {
+        "show": "节目",
+        "segment": "片段",
+        "commercial": "广告",
+        "jingle": "音效",
+        "promo": "宣传片",
+        "sweeper": "过渡音效",
+        "bumper": "插播"
+      },
+      "station": {
+        "format": {
+          "music": "音乐",
+          "talk": "谈话",
+          "news": "新闻",
+          "sports": "体育",
+          "variety": "综合"
+        }
+      }
+    },
+    "content": {
+      "type": {
+        "music": "音乐",
+        "talk": "谈话",
+        "news": "新闻",
+        "podcast": "播客",
+        "interview": "访谈",
+        "commentary": "评论",
+        "report": "报道"
+      },
+      "genre": {
+        "pop": "流行",
+        "rock": "摇滚",
+        "jazz": "爵士",
+        "classical": "古典",
+        "electronic": "电子",
+        "country": "乡村",
+        "hiphop": "嘻哈"
+      }
+    },
+    "audience": {
+      "type": {
+        "listener": "听众",
+        "caller": "来电者",
+        "subscriber": "订阅者",
+        "follower": "关注者"
+      },
+      "engagement": {
+        "call": "热线电话",
+        "message": "短信",
+        "social": "社交媒体",
+        "request": "点歌"
+      }
+    },
+    "advertising": {
+      "type": {
+        "commercial": "商业广告",
+        "sponsorship": "赞助",
+        "underwriting": "冠名",
+        "psa": "公益广告"
+      },
+      "duration": {
+        "15sec": "15秒",
+        "30sec": "30秒",
+        "60sec": "60秒"
+      }
+    }
+  }
+}

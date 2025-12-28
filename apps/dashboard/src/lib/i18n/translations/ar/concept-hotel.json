@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "concept.booking.resource.room": "غرفة",
   "concept.booking.resource.studio_room": "جناح",
   "concept.booking.resource.meeting_room": "قاعة مناسبات"
@@ -6,3 +7,56 @@
 
 
 
+=======
+  "concept": {
+    "booking": {
+      "resource": {
+        "suite": "جناح",
+        "bedroom": "غرفة نوم",
+        "bathroom": "حمام",
+        "kitchen": "مطبخ",
+        "livingRoom": "غرفة معيشة"
+      },
+      "action": {
+        "book": "حجز",
+        "checkIn": "تسجيل دخول",
+        "checkOut": "تسجيل خروج"
+      }
+    },
+    "property": {
+      "type": {
+        "standard": "قياسي",
+        "deluxe": "ديلوكس",
+        "suite": "جناح",
+        "presidential": "رئاسي"
+      },
+      "amenity": {
+        "wifi": "واي فاي",
+        "parking": "مواقف",
+        "pool": "مسبح",
+        "gym": "صالة رياضة",
+        "spa": "سبا",
+        "restaurant": "مطعم",
+        "breakfast": "إفطار",
+        "roomService": "خدمة الغرفة"
+      },
+      "view": {
+        "city": "إطلالة على المدينة",
+        "garden": "إطلالة على الحديقة",
+        "ocean": "إطلالة على المحيط",
+        "mountain": "إطلالة على الجبل"
+      }
+    },
+    "service": {
+      "housekeeping": "تنظيف الغرف",
+      "concierge": "كونسيرج",
+      "reception": "الاستقبال",
+      "bellService": "خدمة الأمتعة",
+      "valet": "وقوف السيارات",
+      "laundry": "غسيل الملابس",
+      "roomService": "خدمة الغرفة"
+    }
+  }
+}
+
+>>>>>>> zealous-williams

@@ -1,0 +1,60 @@
+{
+  "case": {
+    "status": {
+      "intake": "Admisión",
+      "investigation": "Investigación",
+      "discovery": "Fase de Descubrimiento",
+      "litigation": "En Litigio",
+      "settlement": "Negociación de Acuerdo",
+      "trial": "Juicio",
+      "appealed": "En Apelación"
+    },
+    "action": {
+      "assignAttorney": "Asignar Abogado",
+      "transferCase": "Transferir Caso",
+      "reopenCase": "Reabrir Caso"
+    }
+  },
+  "timeTracking": {
+    "activity": {
+      "courtAppearance": "Comparecencia en Corte",
+      "legalResearch": "Investigación Legal",
+      "documentDrafting": "Redacción de Documentos",
+      "casePreparation": "Preparación de Caso"
+    }
+  },
+  "docket": {
+    "deadline": {
+      "filingDeadline": "Fecha Límite de Presentación",
+      "discoveryDeadline": "Fecha Límite de Descubrimiento",
+      "responseDeadline": "Fecha Límite de Respuesta",
+      "statuteOfLimitations": "Estatuto de Limitaciones",
+      "appealDeadline": "Fecha Límite de Apelación"
+    },
+    "event": {
+      "courtDate": "Fecha de Corte",
+      "hearingScheduled": "Audiencia Programada",
+      "trialDate": "Fecha de Juicio",
+      "depositionScheduled": "Declaración Programada"
+    }
+  },
+  "matter": {
+    "conflictCheck": "Verificación de Conflictos",
+    "engagementLetter": "Carta de Compromiso",
+    "legalStrategy": "Estrategia Legal",
+    "precedentResearch": "Investigación de Precedentes",
+    "caseTheory": "Teoría del Caso",
+    "discovery": {
+      "interrogatories": "Interrogatorios",
+      "requestForProduction": "Solicitud de Producción",
+      "requestForAdmission": "Solicitud de Admisión",
+      "responseToDiscovery": "Respuesta a Descubrimiento"
+    }
+  },
+  "compliance": {
+    "conflictOfInterest": "Verificación de Conflicto de Intereses",
+    "clientConfidentiality": "Confidencialidad del Cliente",
+    "trustAccounting": "Contabilidad Fiduciaria",
+    "barCompliance": "Cumplimiento del Colegio de Abogados"
+  }
+}

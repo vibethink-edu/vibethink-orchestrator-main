@@ -87,6 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "search_user": "Search user...",
@@ -96,3 +97,7 @@
     "kanban_board": "Kanban Board"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams

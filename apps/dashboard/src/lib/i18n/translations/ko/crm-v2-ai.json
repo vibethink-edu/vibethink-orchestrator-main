@@ -87,6 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "show_me_recent_activities": "최근 활동 보여주기",
@@ -96,3 +97,7 @@
     "crm_v2_ai_aifirst_crm_dashboard": "CRM V2 + AI - AI 우선 CRM 대시보드"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams

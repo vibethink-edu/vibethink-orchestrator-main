@@ -279,3 +279,9 @@ export function useTranslation(namespace: TranslationNamespace) {
 **Última actualización:** 2025-12-21  
 **Creado por:** Auto (Claude Sonnet 4.5)
 
+
+
+
+
+
+

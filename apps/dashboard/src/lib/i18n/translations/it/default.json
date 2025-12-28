@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "title": "Dashboard",
   "description": "Main dashboard with overview of key metrics",
   "loading": "Loading...",
@@ -170,10 +171,184 @@
       "noUsersFound": "No users found.",
       "selectUsers": "Select users to add to this thread.",
       "continue": "Continue"
+=======
+  "title": "Pannello di controllo",
+  "description": "Dashboard principale con panoramica delle metriche chiave",
+  "loading": "Caricamento...",
+  "error": "Errore",
+  "success": "Successo",
+  "cancel": "Cancellare",
+  "save": "Salva",
+  "delete": "Eliminare",
+  "edit": "Modificare",
+  "create": "Creare",
+  "update": "Aggiornamento",
+  "search": "Ricerca",
+  "filter": "Filtro",
+  "sort": "Ordinare",
+  "export": "Esportare",
+  "import": "Importare",
+  "download": "Scaricamento",
+  "upload": "Caricamento",
+  "close": "Vicino",
+  "confirm": "Confermare",
+  "back": "Indietro",
+  "next": "Prossimo",
+  "previous": "Precedente",
+  "submit": "Invia",
+  "reset": "Reset",
+  "clear": "Chiaro",
+  "apply": "Fare domanda a",
+  "select": "Selezionare",
+  "selectAll": "Seleziona tutto",
+  "deselectAll": "Deseleziona tutto",
+  "noResults": "Nessun risultato trovato",
+  "noData": "Nessun dato disponibile",
+  "empty": "Vuoto",
+  "active": "Attivo",
+  "inactive": "Inattivo",
+  "pending": "In attesa di",
+  "completed": "Completato",
+  "cancelled": "Annullato",
+  "draft": "Bozza",
+  "published": "Pubblicato",
+  "archived": "Archiviato",
+  "view": "Visualizzazione",
+  "viewDetails": "Visualizza dettagli",
+  "viewMore": "Visualizza altro",
+  "add": "Aggiungere",
+  "addNew": "Aggiungi nuovo",
+  "remove": "Rimuovere",
+  "removeAll": "Rimuovi tutto",
+  "today": "Oggi",
+  "yesterday": "Ieri",
+  "tomorrow": "Domani",
+  "thisWeek": "Questa settimana",
+  "lastWeek": "La settimana scorsa",
+  "thisMonth": "Questo mese",
+  "lastMonth": "Il mese scorso",
+  "thisYear": "Quest'anno",
+  "lastYear": "L'anno scorso",
+  "minutes": "Minuti",
+  "hours": "Ore",
+  "days": "Giorni",
+  "weeks": "settimane",
+  "months": "Mesi",
+  "years": "Anni",
+  "areYouSure": "Sei sicuro?",
+  "thisActionCannotBeUndone": "Questa azione non può essere annullata",
+  "pleaseWait": "Attendere prego...",
+  "operationSuccessful": "Operazione riuscita",
+  "operationFailed": "Operazione fallita",
+  "showing": "Mostrando",
+  "of": "Di",
+  "results": "risultati",
+  "rowsPerPage": "Righe per pagina",
+  "page": "Pagina",
+  "all": "Tutto",
+  "none": "Nessuno",
+  "notification": "Notifica",
+  "notifications": "Notifiche",
+  "noNotifications": "Nessuna notifica",
+  "settings": "Impostazioni",
+  "preferences": "Preferenze",
+  "account": "Account",
+  "profile": "Profilo",
+  "home": "Casa",
+  "dashboard": "Pannello di controllo",
+  "emptyState": {
+    "title": "Nessun elemento trovato",
+    "description": "Inizia creando un nuovo elemento",
+    "action": "Crea nuovo"
+  },
+  "header": {
+    "title": "Pannello di controllo",
+    "download": "Scaricamento"
+  },
+  "cards": {
+    "totalRevenue": {
+      "title": "Ricavi totali",
+      "label": "Reddito",
+      "fromLastMonth": "+{percentage}% rispetto al mese scorso"
+    },
+    "subscriptions": {
+      "title": "Abbonamenti",
+      "fromLastMonth": "+{percentage}% rispetto al mese scorso"
+    },
+    "teamMembers": {
+      "title": "Membri del team",
+      "description": "Invita i membri del tuo team a collaborare."
+    },
+    "exerciseMinutes": {
+      "title": "Minuti di esercizio",
+      "description": "I minuti di esercizio che dedichi sono superiori a quelli che fai normalmente.",
+      "average": "Media",
+      "today": "Oggi"
+    },
+    "paymentMethod": {
+      "title": "Metodo di pagamento",
+      "description": "Aggiungi un nuovo metodo di pagamento al tuo account.",
+      "continue": "Continuare"
+    }
+  },
+  "table": {
+    "selectAll": "Seleziona tutto",
+    "selectRow": "Seleziona riga",
+    "noResults": "Nessun risultato.",
+    "customer": "Cliente",
+    "email": "E-mail",
+    "amount": "Quantità",
+    "status": "Stato"
+  },
+  "payments": {
+    "title": "Ultimi pagamenti",
+    "filterPlaceholder": "Filtra pagamenti...",
+    "actions": "Azioni",
+    "selected": "selezionato",
+    "rowsSelected": "{count} di {total} righe selezionate.",
+    "bulkActions": {
+      "delete": "Elimina selezionato",
+      "export": "Esporta selezionato",
+      "email": "Invia email ai clienti",
+      "tag": "Pagamenti tramite tag"
+    },
+    "menu": {
+      "viewDetails": "Visualizza i dettagli",
+      "downloadReceipt": "Scarica la ricevuta",
+      "contactCustomer": "Contatta il cliente"
+    }
+  },
+  "roles": {
+    "viewer": "Spettatore",
+    "developer": "Sviluppatore",
+    "billing": "Fatturazione",
+    "owner": "Proprietario",
+    "descriptions": {
+      "viewer": "Può visualizzare e commentare.",
+      "developer": "Può visualizzare, commentare e modificare.",
+      "billing": "Può visualizzare, commentare e gestire la fatturazione.",
+      "owner": "Accesso a livello di amministratore a tutte le risorse."
+    },
+    "selectPlaceholder": "Seleziona un nuovo ruolo...",
+    "noRolesFound": "Nessun ruolo trovato."
+  },
+  "chat": {
+    "newMessage": "Nuovo messaggio",
+    "typePlaceholder": "Scrivi il tuo messaggio...",
+    "send": "Inviare",
+    "dialog": {
+      "title": "Nuovo messaggio",
+      "description": "Invita un utente a questa discussione. Verrà creato un nuovo messaggio di gruppo.",
+      "searchPlaceholder": "Cerca utente...",
+      "noUsersFound": "Nessun utente trovato.",
+      "selectUsers": "Seleziona gli utenti da aggiungere a questa discussione.",
+      "continue": "Continuare"
+>>>>>>> zealous-williams
     }
   },
   "paymentForm": {
     "methods": {
+<<<<<<< HEAD
       "card": "Card",
       "paypal": "Paypal",
       "apple": "Apple"
@@ -309,5 +484,34 @@
     "select_new_role": "Select new role...",
     "revenue": "Entrate",
     "open_menu": "Apri menu"
+=======
+      "card": "Carta",
+      "paypal": "PayPal",
+      "apple": "Mela"
+    },
+    "fields": {
+      "nameOnCard": "Nome sulla carta",
+      "city": "Città",
+      "cardNumber": "Numero della carta",
+      "expires": "Scade",
+      "month": "Mese",
+      "year": "Anno",
+      "cvc": "CVC"
+    },
+    "months": {
+      "1": "Gennaio",
+      "2": "Febbraio",
+      "3": "Marzo",
+      "4": "aprile",
+      "5": "Maggio",
+      "6": "Giugno",
+      "7": "Luglio",
+      "8": "agosto",
+      "9": "settembre",
+      "10": "ottobre",
+      "11": "novembre",
+      "12": "Dicembre"
+    }
+>>>>>>> zealous-williams
   }
 }

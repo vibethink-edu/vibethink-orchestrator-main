@@ -1,0 +1,127 @@
+{
+  "aiHost": {
+    "voice": {
+      "male": "Voix Masculine",
+      "female": "Voix Féminine",
+      "neutral": "Voix Neutre",
+      "custom": "Voix Personnalisée"
+    },
+    "personality": {
+      "energetic": "Énergique",
+      "calm": "Calme",
+      "professional": "Professionnel",
+      "humorous": "Humoristique",
+      "friendly": "Amical",
+      "authoritative": "Autoritaire"
+    },
+    "control": {
+      "script": "Suivre le Script",
+      "improvise": "Improviser",
+      "autoIntro": "Intro Automatique",
+      "autoOutro": "Outro Automatique",
+      "talkover": "Voix-Off",
+      "backAnnounce": "Annonce Rétroactive"
+    },
+    "customization": {
+      "tone": "Ton",
+      "pace": "Rythme de Parole",
+      "pronunciation": "Prononciation",
+      "emphasis": "Emphase"
+    }
+  },
+  "scheduling": {
+    "program": {
+      "morningShow": "Émission Matinale",
+      "afternoonDrive": "Émission de l'Après-Midi",
+      "eveningShow": "Émission du Soir",
+      "overnight": "Nocturne",
+      "weekend": "Programmation Week-End"
+    },
+    "block": {
+      "musicBlock": "Bloc Musical",
+      "talkBlock": "Bloc Talk",
+      "newsBlock": "Bloc Actualités",
+      "commercialBreak": "Pause Publicitaire"
+    },
+    "rotation": {
+      "heavy": "Rotation Forte",
+      "medium": "Rotation Moyenne",
+      "light": "Rotation Légère",
+      "specialty": "Spécialité"
+    }
+  },
+  "playout": {
+    "control": {
+      "play": "Lecture",
+      "pause": "Pause",
+      "stop": "Arrêt",
+      "skip": "Passer",
+      "cue": "Préparer",
+      "load": "Charger"
+    },
+    "queue": {
+      "nowPlaying": "En Cours de Lecture",
+      "upNext": "Suivant",
+      "queue": "File d'Attente",
+      "history": "Historique de Lecture"
+    },
+    "mixing": {
+      "fadeIn": "Fondu Entrant",
+      "fadeOut": "Fondu Sortant",
+      "crossfade": "Fondu Enchaîné",
+      "segue": "Enchaînement",
+      "hardCut": "Coupe Franche"
+    }
+  },
+  "live": {
+    "broadcast": {
+      "goLive": "Passer en Direct",
+      "onAir": "À l'Antenne",
+      "offAir": "Hors Antenne",
+      "standby": "En Attente"
+    },
+    "interaction": {
+      "acceptCall": "Accepter l'Appel",
+      "screenCall": "Filtrer l'Appel",
+      "holdCall": "Mettre en Attente",
+      "endCall": "Terminer l'Appel",
+      "readMessage": "Lire le Message"
+    },
+    "monitoring": {
+      "audioLevel": "Niveau Audio",
+      "signalQuality": "Qualité du Signal",
+      "listeners": "Auditeurs Actifs",
+      "bitrate": "Débit Binaire"
+    }
+  },
+  "content": {
+    "library": {
+      "music": "Bibliothèque Musicale",
+      "jingles": "Jingles",
+      "commercials": "Publicités",
+      "sweepers": "Sweepers",
+      "soundEffects": "Effets Sonores"
+    },
+    "metadata": {
+      "artist": "Artiste",
+      "title": "Titre",
+      "album": "Album",
+      "duration": "Durée",
+      "bpm": "BPM",
+      "key": "Tonalité"
+    }
+  },
+  "analytics": {
+    "audience": {
+      "currentListeners": "Auditeurs Actuels",
+      "peakListeners": "Pic d'Auditeurs",
+      "avgListenTime": "Temps d'Écoute Moyen",
+      "demographics": "Données Démographiques"
+    },
+    "performance": {
+      "uptime": "Temps de Disponibilité",
+      "dropouts": "Coupures",
+      "bufferHealth": "État du Tampon"
+    }
+  }
+}

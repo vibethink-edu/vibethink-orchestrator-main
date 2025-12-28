@@ -188,6 +188,7 @@
       "closed": "Closed Won"
     },
     "deals": "deals"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "social_1": "Sociale",
@@ -196,5 +197,7 @@
     "visitors_1": "Visitatori",
     "safari_1": "Safari",
     "crm_admin_dashboard_1": "Dashboard amministratore CRM"
+=======
+>>>>>>> zealous-williams
   }
 }

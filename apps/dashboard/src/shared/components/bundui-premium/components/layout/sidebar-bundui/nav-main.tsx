@@ -426,7 +426,7 @@ const getTitleTranslationKey = (title: string): string => {
 export function NavMain() {
   const pathname = usePathname();
   const { isMobile } = useSidebar();
-  const { t } = useTranslation('navigation');
+  const { t, locale } = useTranslation('navigation');
 
   return (
     <>

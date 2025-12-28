@@ -87,6 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "medieval_castle_on_a_misty_mountain_with_dragons_f": "Medieval castle on a misty mountain with dragons f",
@@ -103,3 +104,7 @@
     "ai_image_generator_vibethink_orchestrator": "Generatore di Immagini IA - VibeThink Orchestrator"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams

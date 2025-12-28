@@ -1,129 +1,241 @@
 {
-    "common": {
-        "status": {
-            "active": "Ativo",
-            "pending": "Pendente",
-            "completed": "Concluído",
-            "archived": "Arquivado"
-        },
-        "actions": {
-            "edit": "Editar",
-            "delete": "Excluir",
-            "view": "Visualizar",
-            "create": "Criar",
-            "cancel": "Cancelar",
-            "save": "Salvar"
-        }
+  "common": {
+    "status": {
+      "active": "Ativo",
+      "pending": "Pendente",
+      "completed": "Concluído",
+      "archived": "Arquivado"
     },
-    "sections": {
-        "recentProjects": "Projetos Recentes",
-        "allProjects": "Todos os Projetos",
-        "projectDetails": "Detalhes do Projeto"
-    },
-    "fields": {
-        "name": "Nome",
-        "description": "Descrição",
-        "startDate": "Data de Início",
-        "endDate": "Data de Término",
-        "status": "Status",
-        "priority": "Prioridade",
-        "client": "Cliente",
-        "budget": "Orçamento"
-    },
-    "messages": {
-        "createSuccess": "Projeto criado com sucesso",
-        "updateSuccess": "Projeto atualizado com sucesso",
-        "deleteSuccess": "Projeto excluído com sucesso",
-        "deleteConfirm": "Tem certeza que deseja excluir este projeto?",
-        "loading": "Carregando...",
-        "error": "Ocorreu um erro",
-        "noProjects": "Nenhum projeto encontrado"
-    },
-    "v2": {
-        "summaryCards": {
-            "totalRevenue": {
-                "title": "Receita Total",
-                "description": "Desde o mês passado",
-                "trending": "Aumento de 12% este mês"
-            },
-            "activeProjects": {
-                "title": "Projetos Ativos",
-                "description": "Atualmente em andamento",
-                "update": "Atualizado há 1 hora"
-            },
-            "teamSize": {
-                "title": "Tamanho da Equipe",
-                "description": "Membros ativos",
-                "hiring": "Contratando (2 vagas)"
-            },
-            "completionRate": {
-                "title": "Taxa de Conclusão",
-                "description": "Entregue no prazo",
-                "performance": "5% melhor que a meta"
-            }
-        },
-        "overview": {
-            "title": "Visão Geral",
-            "description": "Analise o desempenho dos seus projetos",
-            "revenue": "Receita",
-            "projects": "Projetos",
-            "tasks": "Tarefas",
-            "team": "Equipe"
-        },
-        "recentActivity": {
-            "title": "Atividade Recente",
-            "description": "Você tem 3 novas notificações hoje",
-            "projectCreated": "Projeto criado",
-            "taskCompleted": "Tarefa concluída",
-            "commentAdded": "Comentário adicionado",
-            "fileUploaded": "Arquivo enviado"
-        },
-        "metrics": {
-            "title": "Métricas de Desempenho",
-            "description": "Rastreamento de indicadores-chave",
-            "onTime": "No Prazo",
-            "overBudget": "Acima do Orçamento",
-            "clientSatisfaction": "Satisfação do Cliente"
-        },
-        "efficiency": {
-            "title": "Eficiência do Projeto",
-            "description": "Janeiro - Junho 2026",
-            "trending": "Tendência de alta de 5.2% este mês"
-        },
-        "achievement": {
-            "title": "Conquista por Ano",
-            "description": "Você completou mais projetos por dia em média este ano do que no ano passado.",
-            "projects": "projetos"
-        },
-        "reminders": {
-            "title": "Lembrete",
-            "showOther": "Mostrar os outros 10 lembretes"
-        },
-        "successMetrics": {
-            "title": "Métricas de Sucesso",
-            "description": "Indicadores-chave para o sucesso do projeto",
-            "successRate": "Taxa de Sucesso",
-            "onTime": "Conclusão no Prazo",
-            "clientSat": "Satisfação do Cliente",
-            "budget": "Adesão ao Orçamento"
-        },
-        "reports": {
-            "title": "Relatórios de Projetos",
-            "description": "Baixe relatórios detalhados para seus projetos",
-            "download": "Baixar Relatório"
-        },
-        "table": {
-            "columns": {
-                "projectName": "Nome do Projeto",
-                "clientName": "Nome do Cliente",
-                "startDate": "Data de Início",
-                "deadline": "Prazo",
-                "status": "Status",
-                "progress": "Progresso"
-            },
-            "placeholder": {
-                "filterProjects": "Filtrar projetos..."
-            }
-        }
+    "actions": {
+      "edit": "Editar",
+      "delete": "Excluir",
+      "view": "Visualizar",
+      "create": "Criar",
+      "cancel": "Cancelar",
+      "save": "Salvar"
     }
+  },
+  "sections": {
+    "recentProjects": "Projetos recentes",
+    "allProjects": "Todos os projetos",
+    "projectDetails": "Detalhes do projeto",
+    "teamPerformance": "Desempenho da equipe",
+    "teamPerformanceDesc": "Métricas de eficiência e carga de trabalho por membro da equipe",
+    "loadingData": "Carregando dados do projeto...",
+    "recentProjectsDesc": "Exibindo {{count}} projetos ativos",
+    "noProjectsFound": "Nenhum projeto encontrado"
+  },
+  "fields": {
+    "name": "Nome",
+    "description": "Descrição",
+    "startDate": "Data de início",
+    "endDate": "Data de término",
+    "status": "Status",
+    "priority": "Prioridade",
+    "client": "Cliente",
+    "budget": "Orçamento"
+  },
+  "messages": {
+    "createSuccess": "Projeto criado com sucesso",
+    "updateSuccess": "Projeto atualizado com sucesso",
+    "deleteSuccess": "Projeto excluído com sucesso",
+    "deleteConfirm": "Tem certeza de que deseja excluir este projeto?",
+    "loading": "Carregando...",
+    "error": "Ocorreu um erro.",
+    "noProjects": "Nenhum projeto encontrado"
+  },
+  "v2": {
+    "summaryCards": {
+      "totalRevenue": {
+        "title": "Receita total",
+        "description": "Do mês passado",
+        "trending": "Aumento de 12% em relação a este mês."
+      },
+      "activeProjects": {
+        "title": "Projetos Ativos",
+        "description": "Atualmente em andamento",
+        "update": "Atualizado há 1 hora"
+      },
+      "teamSize": {
+        "title": "Tamanho da equipe",
+        "description": "Membros ativos",
+        "hiring": "Contratação (2 vagas em aberto)"
+      },
+      "completionRate": {
+        "title": "Taxa de conclusão",
+        "description": "Entregue no prazo",
+        "performance": "5% melhor que a meta"
+      }
+    },
+    "overview": {
+      "title": "Visão geral",
+      "description": "Analise o desempenho dos seus projetos.",
+      "revenue": "Receita",
+      "projects": "Projetos",
+      "tasks": "Tarefas",
+      "team": "Equipe"
+    },
+    "recentActivity": {
+      "title": "Atividade recente",
+      "description": "Você tem 3 novas notificações hoje.",
+      "projectCreated": "Projeto criado",
+      "taskCompleted": "Tarefa concluída",
+      "commentAdded": "Comentário adicionado",
+      "fileUploaded": "Arquivo enviado"
+    },
+    "metrics": {
+      "title": "Métricas de desempenho",
+      "description": "Monitoramento de indicadores-chave de desempenho",
+      "onTime": "No prazo",
+      "overBudget": "Acima do orçamento",
+      "clientSatisfaction": "Satisfação do Cliente"
+    },
+    "efficiency": {
+      "title": "Eficiência do Projeto",
+      "description": "Janeiro - Junho de 2026",
+      "trending": "Com uma tendência de alta de 5,2% neste mês."
+    },
+    "achievement": {
+      "title": "Conquistas por ano",
+      "description": "Você concluiu, em média, mais projetos por dia este ano do que no ano passado.",
+      "projects": "projetos"
+    },
+    "reminders": {
+      "title": "Lembrete",
+      "showOther": "Mostrar os outros 10 lembretes"
+    },
+    "successMetrics": {
+      "title": "Métricas de sucesso",
+      "description": "Indicadores-chave de desempenho para o sucesso do projeto",
+      "successRate": "Taxa de sucesso do projeto",
+      "onTime": "Conclusão no prazo",
+      "clientSat": "Satisfação do Cliente",
+      "budget": "Cumprimento do orçamento"
+    },
+    "reports": {
+      "title": "Relatórios de Projetos",
+      "description": "Baixe relatórios detalhados para seus projetos.",
+      "download": "Baixar relatório"
+    },
+    "table": {
+      "columns": {
+        "projectName": "Nome do projeto",
+        "clientName": "Nome do cliente",
+        "startDate": "Data de início",
+        "deadline": "Prazo final",
+        "status": "Status",
+        "progress": "Progresso"
+      },
+      "placeholder": {
+        "filterProjects": "Filtrar projetos..."
+      }
+    }
+  },
+  "tabs": {
+    "overview": "Visão geral",
+    "projects": "Projetos",
+    "team": "Equipe",
+    "reports": "Relatórios"
+  },
+  "summary": {
+    "activeProjects": "Projetos Ativos",
+    "completed": "Concluído",
+    "onHold": "Em espera",
+    "totalBudget": "Orçamento total",
+    "teamMembers": "Membros da equipe",
+    "activeTasks": "Tarefas ativas",
+    "completedTasks": "Tarefas Concluídas",
+    "avgEfficiency": "Eficiência média",
+    "activeContributors": "Colaboradores ativos",
+    "fromLastMonth": "do mês passado",
+    "thisMonth": "este mês",
+    "fromLastWeek": "da semana passada",
+    "overdueTasks": "Tarefas atrasadas",
+    "failedToLoad": "Falha ao carregar o resumo",
+    "errorLoadingSuccessMetrics": "Erro ao carregar as métricas"
+  },
+  "header": {
+    "title": "Projetos",
+    "subtitle": "Gerenciar projetos, tarefas e recursos da equipe.",
+    "export": "Exportar",
+    "newProject": "Novo projeto",
+    "newTask": "Nova tarefa",
+    "searchPlaceholder": "Pesquisar projetos ou tarefas...",
+    "status": "Status",
+    "allStatuses": "Todos os status",
+    "priority": "Prioridade",
+    "allPriorities": "Todas as prioridades",
+    "teamLead": "Líder de Equipe"
+  },
+  "status": {
+    "active": "Ativo",
+    "completed": "Concluído",
+    "on-hold": "Em espera",
+    "cancelled": "Cancelado"
+  },
+  "priority": {
+    "low": "Baixo",
+    "medium": "Médio",
+    "high": "Alto",
+    "urgent": "Urgente"
+  },
+  "table": {
+    "project": "Projeto",
+    "status": "Status",
+    "priority": "Prioridade",
+    "progress": "Progresso",
+    "teamLead": "Líder de Equipe",
+    "dueDate": "Dois encontros",
+    "budget": "Orçamento",
+    "actions": "Ações",
+    "complete": "Completo",
+    "inProgress": "Em andamento",
+    "overdue": "Atrasado",
+    "daysLeft": "faltam poucos dias",
+    "spent": "gasto",
+    "tryAdjustingFilters": "Tente ajustar seus filtros ou termos de pesquisa."
+  },
+  "actions": {
+    "viewDetails": "Ver detalhes",
+    "editProject": "Editar projeto",
+    "manageTeam": "Gerenciar equipe",
+    "viewTimeline": "Ver linha do tempo",
+    "deleteProject": "Excluir projeto"
+  },
+  "hardcoded": {
+    "task_or_project_deadline": "prazo da tarefa ou projeto",
+    "deadline": "Prazo final",
+    "team_meeting_or_call": "Reunião de equipe ou chamada",
+    "no_project_data_available": "Não há dados disponíveis sobre o projeto.",
+    "due_now": "Agora está previsto",
+    "comprehensive_overview_of_all_active_projects_and": "Visão geral abrangente de todos os projetos ativos e",
+    "detailed_analysis_of_team_productivity_and_efficie": "Análise detalhada da produtividade e eficiência da equipe.",
+    "financial_overview_showing_budget_allocation_and_s": "Visão geral financeira mostrando a alocação orçamentária e",
+    "project_success_rate": "Taxa de sucesso do projeto",
+    "percentage_of_projects_completed_successfully": "Percentagem de projetos concluídos com sucesso",
+    "ontime_delivery": "Entrega no prazo",
+    "migrate_legacy_database_to_cloud_infrastructure": "Migrar banco de dados legado para infraestrutura em nuvem",
+    "comprehensive_security_assessment_and_remediation": "Avaliação e remediação de segurança abrangentes",
+    "design_wireframes": "Criar wireframes",
+    "website_redesign_review": "Análise de Redesign do Site",
+    "review_the_latest_designs_and_provide_feedback": "Analise os designs mais recentes e dê seu feedback.",
+    "mobile_app_sprint_planning": "Planejamento de sprints de aplicativos móveis",
+    "export_project_data": "Exportar dados do projeto",
+    "steps": "Passos",
+    "steps_1": "Passos",
+    "steps_2": "Passos",
+    "enter_your_reminder": "Insira seu lembrete",
+    "enter_your_reminder_1": "Insira seu lembrete",
+    "select_a_category": "Selecione uma categoria",
+    "visitors": "Visitantes",
+    "desktop": "Área de trabalho",
+    "mobile": "Móvel",
+    "visitors_1": "Visitantes",
+    "desktop_1": "Área de trabalho",
+    "mobile_1": "Móvel",
+    "toggle_details": "Mostrar detalhes",
+    "mobile_app_design": "Design de aplicativo móvel",
+    "select_all": "Selecionar tudo",
+    "select_all_1": "Selecionar tudo"
+  }
 }

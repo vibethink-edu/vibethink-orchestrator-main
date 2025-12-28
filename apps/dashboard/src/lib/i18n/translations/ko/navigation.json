@@ -1,5 +1,6 @@
 {
   "groups": {
+<<<<<<< HEAD
     "dashboards": "Dashboards",
     "ai_apps": "AI Apps",
     "apps": "Apps",
@@ -74,11 +75,88 @@
     "register_v1": "Register v1",
     "register_v2": "Register v2",
     "forgot_password": "Forgot Password",
+=======
+    "dashboards": "대시보드",
+    "ai_apps": "AI 앱",
+    "apps": "앱",
+    "pages": "페이지",
+    "others": "기타"
+  },
+  "items": {
+    "default": "기본",
+    "ecommerce": "이커머스",
+    "sales": "영업",
+    "crm": "CRM",
+    "crm_v2": "CRM V2",
+    "crm_v2_ai": "CRM V2 + AI",
+    "website_analytics": "웹사이트 분석",
+    "project_management": "프로젝트 관리",
+    "projects_v2": "프로젝트 V2",
+    "file_manager": "파일 관리자",
+    "crypto": "암호화폐",
+    "crypto_v2": "암호화폐 V2",
+    "finance": "재무",
+    "finance_v2": "재무 V2",
+    "academy": "아카데미/학교",
+    "hospital": "병원 관리",
+    "hotel": "호텔 대시보드",
+    "ai_chat": "AI 채팅",
+    "ai_chat_v2": "AI 채팅 V2",
+    "image_generator": "이미지 생성기",
+    "text_to_speech": "텍스트 음성 변환",
+    "kanban": "간반",
+    "notes": "메모",
+    "chats": "채팅",
+    "mail": "메일",
+    "todo_list": "할 일 목록 앱",
+    "tasks": "작업",
+    "calendar": "캘린더",
+    "api_keys": "API 키",
+    "pos_app": "POS 앱",
+    "users_list": "사용자 목록",
+    "profile": "프로필",
+    "onboarding": "온보딩 플로우",
+    "empty_states": "빈 상태",
+    "settings": "설정",
+    "pricing": "가격",
+    "authentication": "인증",
+    "error_pages": "오류 페이지",
+    "download_pro": "VibeThink Pro 다운로드",
+    "components": "구성요소",
+    "blocks": "블록",
+    "templates": "템플릿",
+    "github": "깃허브"
+  },
+  "subitems": {
+    "dashboard": "대시보드",
+    "product_list": "제품 목록",
+    "product_detail": "제품 상세",
+    "add_product": "제품 추가",
+    "order_list": "주문 목록",
+    "order_detail": "주문 상세",
+    "bookings": "예약",
+    "empty_states_01": "빈 상태 01",
+    "empty_states_02": "빈 상태 02",
+    "empty_states_03": "빈 상태 03",
+    "account": "계정",
+    "appearance": "외관",
+    "notifications": "알림",
+    "display": "표시",
+    "column_pricing": "열 가격",
+    "table_pricing": "테이블 가격",
+    "single_pricing": "단일 가격",
+    "login_v1": "로그인 v1",
+    "login_v2": "로그인 v2",
+    "register_v1": "등록 v1",
+    "register_v2": "등록 v2",
+    "forgot_password": "비밀번호 찾기",
+>>>>>>> zealous-williams
     "error_404": "404",
     "error_500": "500",
     "error_403": "403"
   },
   "badges": {
+<<<<<<< HEAD
     "new": "New",
     "coming": "Coming",
     "active": "Active",
@@ -93,5 +171,21 @@
     "download": "Download",
     "download_description": "Unlock lifetime access to all dashboards, templates and components.",
     "get_pro": "Get VibeThink Pro"
+=======
+    "new": "신규",
+    "coming": "출시 예정",
+    "active": "활성",
+    "inactive": "비활성"
+  },
+  "header": {
+    "projects": "프로젝트",
+    "add_new_project": "새 프로젝트 추가",
+    "orchestrator": "VibeThink Orchestrator"
+  },
+  "footer": {
+    "download": "다운로드",
+    "download_description": "모든 대시보드, 템플릿 및 구성요소에 대한 평생 액세스 잠금 해제.",
+    "get_pro": "VibeThink Pro 얻기"
+>>>>>>> zealous-williams
   }
 }

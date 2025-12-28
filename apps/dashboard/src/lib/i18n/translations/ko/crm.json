@@ -36,6 +36,7 @@
     "negotiation": "Negotiation",
     "won": "Won",
     "lost": "Lost"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "customers": "고객",
@@ -52,3 +53,19 @@
     "website_redesign_project": "Website Redesign Project"
   }
 }
+=======
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> zealous-williams

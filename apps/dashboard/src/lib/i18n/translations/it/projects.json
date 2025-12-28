@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "common": {
     "status": {
       "active": "Active",
@@ -38,10 +39,128 @@
     "loading": "Loading...",
     "error": "An error occurred",
     "noProjects": "No projects found"
+=======
+  "tabs": {
+    "overview": "Panoramica",
+    "projects": "Progetti",
+    "team": "Squadra",
+    "reports": "Rapporti"
+  },
+  "summary": {
+    "activeProjects": "Progetti attivi",
+    "completed": "Completato",
+    "onHold": "In attesa",
+    "totalBudget": "Budget totale",
+    "teamMembers": "Membri del team",
+    "activeTasks": "Attività attive",
+    "completedTasks": "Attività completate",
+    "avgEfficiency": "Efficienza media",
+    "activeContributors": "Collaboratori attivi",
+    "fromLastMonth": "dal mese scorso",
+    "thisMonth": "questo mese",
+    "fromLastWeek": "dalla settimana scorsa",
+    "overdueTasks": "Compiti scaduti",
+    "failedToLoad": "Impossibile caricare il riepilogo",
+    "errorLoadingSuccessMetrics": "Errore durante il caricamento delle metriche"
+  },
+  "sections": {
+    "teamPerformance": "Prestazioni di squadra",
+    "teamPerformanceDesc": "Metriche di efficienza e carico di lavoro per membro del team",
+    "loadingData": "Caricamento dati progetto in corso...",
+    "recentProjects": "Progetti recenti",
+    "recentProjectsDesc": "Visualizzazione di {{count}} progetti attivi",
+    "noProjectsFound": "Nessun progetto trovato",
+    "allProjects": "Tutti i progetti",
+    "projectDetails": "Dettagli del progetto"
+  },
+  "header": {
+    "title": "Progetti",
+    "subtitle": "Gestisci progetti, attività e risorse del team",
+    "export": "Esportare",
+    "newProject": "Nuovo progetto",
+    "newTask": "Nuovo compito",
+    "searchPlaceholder": "Cerca progetti o attività...",
+    "status": "Stato",
+    "allStatuses": "Tutti gli stati",
+    "priority": "Priorità",
+    "allPriorities": "Tutte le priorità",
+    "teamLead": "Capo squadra"
+  },
+  "status": {
+    "active": "Attivo",
+    "completed": "Completato",
+    "on-hold": "In attesa",
+    "cancelled": "Annullato"
+  },
+  "priority": {
+    "low": "Basso",
+    "medium": "Medio",
+    "high": "Alto",
+    "urgent": "Urgente"
+  },
+  "table": {
+    "project": "Progetto",
+    "status": "Stato",
+    "priority": "Priorità",
+    "progress": "Progressi",
+    "teamLead": "Capo squadra",
+    "dueDate": "Due Date",
+    "budget": "Bilancio",
+    "actions": "Azioni",
+    "complete": "Completare",
+    "inProgress": "In corso",
+    "overdue": "In ritardo",
+    "daysLeft": "giorni rimasti",
+    "spent": "speso",
+    "tryAdjustingFilters": "Prova a modificare i filtri o i termini di ricerca"
+  },
+  "actions": {
+    "viewDetails": "Visualizza dettagli",
+    "editProject": "Modifica progetto",
+    "manageTeam": "Gestire il team",
+    "viewTimeline": "Visualizza la cronologia",
+    "deleteProject": "Elimina progetto"
+  },
+  "common": {
+    "status": {
+      "active": "Attivo",
+      "pending": "In attesa di",
+      "completed": "Completato",
+      "archived": "Archiviato"
+    },
+    "actions": {
+      "edit": "Modificare",
+      "delete": "Eliminare",
+      "view": "Visualizzazione",
+      "create": "Creare",
+      "cancel": "Cancellare",
+      "save": "Salva"
+    }
+  },
+  "fields": {
+    "name": "Nome",
+    "description": "Descrizione",
+    "startDate": "Data di inizio",
+    "endDate": "Data di fine",
+    "status": "Stato",
+    "priority": "Priorità",
+    "client": "Cliente",
+    "budget": "Bilancio"
+  },
+  "messages": {
+    "createSuccess": "Progetto creato con successo",
+    "updateSuccess": "Progetto aggiornato con successo",
+    "deleteSuccess": "Progetto eliminato con successo",
+    "deleteConfirm": "Sei sicuro di voler eliminare questo progetto?",
+    "loading": "Caricamento...",
+    "error": "Si è verificato un errore",
+    "noProjects": "Nessun progetto trovato"
+>>>>>>> zealous-williams
   },
   "v2": {
     "summaryCards": {
       "totalRevenue": {
+<<<<<<< HEAD
         "title": "Total Revenue",
         "description": "From last month",
         "trending": "Up 12% from this month"
@@ -123,10 +242,94 @@
       },
       "placeholder": {
         "filterProjects": "Filter projects..."
+=======
+        "title": "Ricavi totali",
+        "description": "Dal mese scorso",
+        "trending": "In aumento del 12% rispetto a questo mese"
+      },
+      "activeProjects": {
+        "title": "Progetti attivi",
+        "description": "Attualmente in corso",
+        "update": "Aggiornato 1 ora fa"
+      },
+      "teamSize": {
+        "title": "Dimensione del team",
+        "description": "Membri attivi",
+        "hiring": "Assunzioni (2 posizioni aperte)"
+      },
+      "completionRate": {
+        "title": "Tasso di completamento",
+        "description": "Consegnato in tempo",
+        "performance": "5% migliore dell'obiettivo"
+      }
+    },
+    "overview": {
+      "title": "Panoramica",
+      "description": "Analizza le prestazioni dei tuoi progetti.",
+      "revenue": "Reddito",
+      "projects": "Progetti",
+      "tasks": "Compiti",
+      "team": "Squadra"
+    },
+    "recentActivity": {
+      "title": "Attività recenti",
+      "description": "Hai ricevuto 3 nuove notifiche oggi.",
+      "projectCreated": "Progetto creato",
+      "taskCompleted": "Compito completato",
+      "commentAdded": "Commento aggiunto",
+      "fileUploaded": "File caricato"
+    },
+    "metrics": {
+      "title": "Metriche delle prestazioni",
+      "description": "Monitoraggio degli indicatori chiave di prestazione",
+      "onTime": "In tempo",
+      "overBudget": "Fuori budget",
+      "clientSatisfaction": "Soddisfazione del cliente"
+    },
+    "efficiency": {
+      "title": "Efficienza del progetto",
+      "description": "Gennaio - Giugno 2026",
+      "trending": "Tendenza al rialzo del 5,2% questo mese"
+    },
+    "achievement": {
+      "title": "Risultati per anno",
+      "description": "Quest'anno hai completato in media più progetti al giorno rispetto all'anno scorso.",
+      "projects": "progetti"
+    },
+    "reminders": {
+      "title": "Promemoria",
+      "showOther": "Mostra gli altri 10 promemoria"
+    },
+    "successMetrics": {
+      "title": "Metriche di successo",
+      "description": "Indicatori chiave di prestazione per il successo del progetto",
+      "successRate": "Tasso di successo del progetto",
+      "onTime": "Completamento puntuale",
+      "clientSat": "Soddisfazione del cliente",
+      "budget": "Aderenza al bilancio"
+    },
+    "reports": {
+      "title": "Rapporti di progetto",
+      "description": "Scarica report dettagliati per i tuoi progetti",
+      "download": "Scarica il rapporto"
+    },
+    "table": {
+      "columns": {
+        "projectName": "Nome del progetto",
+        "clientName": "Nome del cliente",
+        "startDate": "Data di inizio",
+        "deadline": "Scadenza",
+        "status": "Stato",
+        "progress": "Progressi"
+      },
+      "placeholder": {
+        "filterProjects": "Filtra progetti..."
+>>>>>>> zealous-williams
       }
     }
   },
   "hardcoded": {
+<<<<<<< HEAD
     "task_or_project_deadline": "Task or Scadenza progetto",
     "deadline": "Deadline",
     "team_meeting_or_call": "Team meeting or Chiamata",
@@ -159,6 +362,40 @@
     "mobile_1": "Mobile",
     "toggle_details": "Toggle details",
     "mobile_app_design": "Mobile",
+=======
+    "task_or_project_deadline": "Scadenza del compito o del progetto",
+    "deadline": "Scadenza",
+    "team_meeting_or_call": "Riunione o chiamata di gruppo",
+    "no_project_data_available": "Nessun dato di progetto disponibile",
+    "due_now": "Scadenza immediata",
+    "comprehensive_overview_of_all_active_projects_and": "Panoramica completa di tutti i progetti attivi e",
+    "detailed_analysis_of_team_productivity_and_efficie": "Analisi dettagliata della produttività e dell'efficienza del team",
+    "financial_overview_showing_budget_allocation_and_s": "Panoramica finanziaria che mostra l'allocazione del budget e",
+    "project_success_rate": "Tasso di successo del progetto",
+    "percentage_of_projects_completed_successfully": "Percentuale di progetti completati con successo",
+    "ontime_delivery": "Consegna puntuale",
+    "migrate_legacy_database_to_cloud_infrastructure": "Migrare il database legacy all'infrastruttura cloud",
+    "comprehensive_security_assessment_and_remediation": "Valutazione completa della sicurezza e bonifica",
+    "design_wireframes": "Progettare wireframe",
+    "website_redesign_review": "Revisione della riprogettazione del sito web",
+    "review_the_latest_designs_and_provide_feedback": "Esaminare gli ultimi progetti e fornire feedback",
+    "mobile_app_sprint_planning": "Pianificazione dello sprint delle app mobili",
+    "export_project_data": "Esporta i dati del progetto",
+    "steps": "Passi",
+    "steps_1": "Passi",
+    "steps_2": "Passi",
+    "enter_your_reminder": "Inserisci il tuo promemoria",
+    "enter_your_reminder_1": "Inserisci il tuo promemoria",
+    "select_a_category": "Seleziona una categoria",
+    "visitors": "Visitatori",
+    "desktop": "Scrivania",
+    "mobile": "Mobile",
+    "visitors_1": "Visitatori",
+    "desktop_1": "Scrivania",
+    "mobile_1": "Mobile",
+    "toggle_details": "Attiva/disattiva i dettagli",
+    "mobile_app_design": "Progettazione di app per dispositivi mobili",
+>>>>>>> zealous-williams
     "select_all": "Seleziona tutto",
     "select_all_1": "Seleziona tutto"
   }

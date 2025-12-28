@@ -1,0 +1,67 @@
+{
+  "kitchen": {
+    "station": {
+      "grill": "Estação de Grelha",
+      "saute": "Estação de Salteados",
+      "fry": "Estação de Frituras",
+      "pastry": "Estação de Confeitaria",
+      "cold": "Estação Fria",
+      "hot": "Estação Quente",
+      "prep": "Estação de Preparo",
+      "expo": "Expedição"
+    },
+    "order": {
+      "fire": "Iniciar Pedido",
+      "hold": "Segurar",
+      "plate": "Montar Prato",
+      "expedite": "Expedir",
+      "recall": "Recolher",
+      "86": "86 (Fora de Estoque)",
+      "allDay": "Total do Dia"
+    }
+  },
+  "pos": {
+    "action": {
+      "openCheck": "Abrir Comanda",
+      "sendToKitchen": "Enviar para Cozinha",
+      "sendToBar": "Enviar para Bar",
+      "splitBill": "Dividir Conta",
+      "splitByItem": "Dividir por Item",
+      "splitEvenly": "Dividir Igualmente",
+      "closeCheck": "Fechar Comanda",
+      "voidItem": "Cancelar Item",
+      "comped": "Cortesia"
+    },
+    "modifier": {
+      "extraSauce": "Molho Extra",
+      "noOnions": "Sem Cebola",
+      "wellDone": "Bem Passado",
+      "medium": "Ao Ponto",
+      "rare": "Mal Passado",
+      "onTheSide": "À Parte"
+    }
+  },
+  "inventory": {
+    "foodCost": "Custo de Alimentos",
+    "parLevel": "Nível Mínimo",
+    "waste": "Desperdício",
+    "spoilage": "Deterioração",
+    "portionControl": "Controle de Porções"
+  },
+  "service": {
+    "floor": {
+      "section": "Seção",
+      "tableNumber": "Número da Mesa",
+      "turnTable": "Virar Mesa",
+      "clearTable": "Limpar Mesa",
+      "resetTable": "Recompor Mesa"
+    },
+    "timing": {
+      "seatingTime": "Horário de Acomodação",
+      "orderTime": "Horário do Pedido",
+      "prepTime": "Tempo de Preparo",
+      "tableTime": "Tempo de Mesa",
+      "averageTurnTime": "Tempo Médio de Rotatividade"
+    }
+  }
+}

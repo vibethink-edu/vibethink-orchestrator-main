@@ -63,6 +63,36 @@ export {
   preloadTerminology,
 } from './i18n/terminology';
 
+// Export Terminology Types (Layer 1)
+export {
+  SUPPORTED_LOCALES,
+  DEFAULT_LOCALE,
+  Locale,
+  ProductContext,
+  PRODUCT_CONTEXTS,
+  ConceptID,
+  BookingConcept,
+  CRMConcept,
+  AllConceptIDs,
+  ConceptValue,
+  ConceptObject,
+  TerminologyContext,
+  UIContext,
+  AgentContext,
+  TerminologySnapshot,
+  ConceptNamespace,
+  CONCEPT_FILES_PATH,
+  CONCEPT_FILE_PATTERN,
+  isValidLocale,
+  isValidProductContext,
+  isValidConceptID,
+  isValidTerminologyContext,
+  createUIContext,
+  createAgentContext,
+  getNamespaceForProduct,
+  isProductNamespace,
+} from './i18n/terminology/types';
+
 // Export Terminology Cache
 export {
   buildCacheKey,

@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "table": {
     "common": {
       "search": "بحث...",
@@ -32,3 +33,70 @@
     }
   }
 }
+=======
+  "buttons": {
+    "save": "يحفظ",
+    "cancel": "يلغي",
+    "delete": "يمسح",
+    "edit": "يحرر",
+    "add": "يضيف",
+    "search": "يبحث",
+    "filter": "فلتر",
+    "export": "يصدّر",
+    "import": "يستورد",
+    "download": "تحميل",
+    "upload": "رفع",
+    "close": "يغلق",
+    "submit": "يُقدِّم",
+    "reset": "إعادة ضبط",
+    "apply": "يتقدم",
+    "clear": "واضح",
+    "back": "خلف",
+    "next": "التالي",
+    "previous": "سابق",
+    "confirm": "يتأكد",
+    "yes": "نعم",
+    "no": "لا"
+  },
+  "labels": {
+    "name": "اسم",
+    "email": "بريد إلكتروني",
+    "phone": "هاتف",
+    "address": "عنوان",
+    "status": "حالة",
+    "date": "تاريخ",
+    "time": "وقت",
+    "amount": "كمية",
+    "total": "المجموع",
+    "description": "وصف",
+    "actions": "الإجراءات",
+    "loading": "تحميل...",
+    "noData": "لا توجد بيانات متاحة",
+    "error": "خطأ",
+    "success": "نجاح",
+    "warning": "تحذير",
+    "info": "معلومة"
+  },
+  "messages": {
+    "saved": "تم الحفظ بنجاح",
+    "deleted": "تم الحذف بنجاح",
+    "updated": "تم التحديث بنجاح",
+    "created": "تم الإنشاء بنجاح",
+    "errorOccurred": "حدث خطأ",
+    "confirmDelete": "هل أنت متأكد من رغبتك في حذف هذا العنصر؟",
+    "noResults": "لم يتم العثور على نتائج",
+    "selectOption": "اختر خيارًا"
+  },
+  "time": {
+    "today": "اليوم",
+    "yesterday": "أمس",
+    "tomorrow": "غداً",
+    "thisWeek": "هذا الاسبوع",
+    "lastWeek": "الأسبوع الماضي",
+    "thisMonth": "هذا الشهر",
+    "lastMonth": "الشهر الماضي",
+    "thisYear": "هذا العام",
+    "lastYear": "العام الماضي"
+  }
+}
+>>>>>>> zealous-williams

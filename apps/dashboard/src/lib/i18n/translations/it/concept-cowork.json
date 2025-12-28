@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "concept.booking.resource.room": "Postazione",
   "concept.booking.resource.cowork_desk": "Scrivania condivisa",
   "concept.booking.resource.meeting_room": "Spazio di lavoro"
@@ -6,3 +7,83 @@
 
 
 
+=======
+  "concept": {
+    "booking": {
+      "resource": {
+        "desk": "Scrivania",
+        "office": "Ufficio",
+        "meetingRoom": "Sala riunioni",
+        "eventSpace": "Spazio eventi",
+        "phoneBooth": "Cabina telefonica",
+        "quietRoom": "Sala silenziosa"
+      },
+      "action": {
+        "book": "Prenotare",
+        "checkIn": "Check-in",
+        "checkOut": "Check-out"
+      },
+      "time": {
+        "checkIn": "Check-in",
+        "checkOut": "Check-out",
+        "hourly": "Orario",
+        "daily": "Giornaliero",
+        "weekly": "Settimanale",
+        "monthly": "Mensile"
+      },
+      "unit": {
+        "week": "{count, plural, one {settimana} other {settimane}}",
+        "month": "{count, plural, one {mese} other {mesi}}"
+      }
+    },
+    "property": {
+      "type": {
+        "openDesk": "Scrivania condivisa",
+        "dedicatedDesk": "Scrivania dedicata",
+        "hotDesk": "Hot Desk",
+        "privateOffice": "Ufficio privato",
+        "eventSpace": "Spazio eventi"
+      },
+      "amenity": {
+        "wifi": "WiFi",
+        "parking": "Parcheggio",
+        "kitchen": "Cucina",
+        "coffee": "Caffé",
+        "snacks": "Spuntini",
+        "printer": "Stampante",
+        "scanner": "Scanner"
+      },
+      "service": {
+        "reception": "Recezione",
+        "itSupport": "Supporto IT",
+        "mailService": "Servizio postale",
+        "printing": "Stampa",
+        "packageHandling": "Gestione pacchi"
+      }
+    },
+    "membership": {
+      "tier": {
+        "dayPass": "Pass giornaliero",
+        "monthly": "Mensile",
+        "yearly": "Annuale",
+        "unlimited": "Illimitato"
+      },
+      "benefit": {
+        "discount": "Sconto",
+        "credit": "Credito",
+        "earlyAccess": "Accesso anticipato",
+        "guestAccess": "Accesso ospiti"
+      }
+    },
+    "community": {
+      "feature": {
+        "networking": "Networking",
+        "events": "Eventi",
+        "workshops": "Workshop",
+        "mentorship": "Mentoring"
+      }
+    }
+  }
+}
+
+>>>>>>> zealous-williams

@@ -114,3 +114,9 @@ docs/sessions/archived/
 **Estado:** ✅ **TODO LISTO PARA CERRAR SESIÓN**
 
 
+
+
+
+
+
+

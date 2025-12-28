@@ -59,6 +59,7 @@
     "completed": "Completed",
     "pending": "Pending",
     "failed": "Failed"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "add_new_budget": "Aggiungi nuovo budget",
@@ -81,3 +82,17 @@
     "add_new_revenue": "Entrate"
   }
 }
+=======
+  }
+}
+
+
+
+
+
+
+
+
+
+
+>>>>>>> zealous-williams

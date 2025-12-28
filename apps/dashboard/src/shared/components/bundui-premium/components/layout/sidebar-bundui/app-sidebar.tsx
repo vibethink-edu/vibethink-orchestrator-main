@@ -96,7 +96,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <ScrollArea className="h-full">
-          <NavMain />
+          <NavMain key="nav" />
         </ScrollArea>
       </SidebarContent>
       <SidebarFooter>

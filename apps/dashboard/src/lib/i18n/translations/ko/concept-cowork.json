@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "concept.booking.resource.room": "데스크",
   "concept.booking.resource.cowork_desk": "공유 데스크",
   "concept.booking.resource.meeting_room": "작업 공간"
@@ -6,3 +7,83 @@
 
 
 
+=======
+  "concept": {
+    "booking": {
+      "resource": {
+        "desk": "데스크",
+        "office": "오피스",
+        "meetingRoom": "회의실",
+        "eventSpace": "이벤트 공간",
+        "phoneBooth": "전화 부스",
+        "quietRoom": "조용한 방"
+      },
+      "action": {
+        "book": "예약",
+        "checkIn": "체크인",
+        "checkOut": "체크아웃"
+      },
+      "time": {
+        "checkIn": "체크인",
+        "checkOut": "체크아웃",
+        "hourly": "시간당",
+        "daily": "일일",
+        "weekly": "주간",
+        "monthly": "월간"
+      },
+      "unit": {
+        "week": "{count, plural, other {주}}",
+        "month": "{count, plural, other {개월}}"
+      }
+    },
+    "property": {
+      "type": {
+        "openDesk": "공유 데스크",
+        "dedicatedDesk": "전용 데스크",
+        "hotDesk": "핫데스크",
+        "privateOffice": "프라이빗 오피스",
+        "eventSpace": "이벤트 공간"
+      },
+      "amenity": {
+        "wifi": "와이파이",
+        "parking": "주차",
+        "kitchen": "주방",
+        "coffee": "커피",
+        "snacks": "간식",
+        "printer": "프린터",
+        "scanner": "스캐너"
+      },
+      "service": {
+        "reception": "리셉션",
+        "itSupport": "IT 지원",
+        "mailService": "우편 서비스",
+        "printing": "인쇄",
+        "packageHandling": "택배 처리"
+      }
+    },
+    "membership": {
+      "tier": {
+        "dayPass": "일일 이용권",
+        "monthly": "월간 회원",
+        "yearly": "연간 회원",
+        "unlimited": "무제한"
+      },
+      "benefit": {
+        "discount": "할인",
+        "credit": "크레딧",
+        "earlyAccess": "조기 액세스",
+        "guestAccess": "게스트 액세스"
+      }
+    },
+    "community": {
+      "feature": {
+        "networking": "네트워킹",
+        "events": "이벤트",
+        "workshops": "워크샵",
+        "mentorship": "멘토링"
+      }
+    }
+  }
+}
+
+>>>>>>> zealous-williams

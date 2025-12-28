@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "concept.booking.resource.room": "Booth",
   "concept.booking.resource.studio_room": "Recording Studio",
   "concept.booking.resource.equipment": "Audio Equipment"
@@ -6,3 +7,56 @@
 
 
 
+=======
+  "concept": {
+    "booking": {
+      "action": {
+        "book": "Book",
+        "checkIn": "Check In",
+        "checkOut": "Check Out"
+      },
+      "time": {
+        "checkIn": "Check-in",
+        "checkOut": "Check-out"
+      }
+    },
+    "crm": {
+      "entity": {
+        "project": "Project",
+        "client": "Client",
+        "campaign": "Campaign"
+      },
+      "status": {
+        "active": "Active",
+        "completed": "Completed",
+        "cancelled": "Cancelled"
+      }
+    },
+    "property": {
+      "type": {
+        "standard": "Standard",
+        "large": "Large",
+        "studio": "Studio Space"
+      },
+      "amenity": {
+        "microphone": "Microphone",
+        "camera": "Camera",
+        "lighting": "Lighting",
+        "backdrop": "Backdrop",
+        "speakers": "Speakers",
+        "greenScreen": "Green Screen",
+        "audioInterface": "Audio Interface"
+      },
+      "service": {
+        "recording": "Recording",
+        "editing": "Editing",
+        "production": "Production",
+        "mixing": "Mixing",
+        "mastering": "Mastering",
+        "colorGrading": "Color Grading"
+      }
+    }
+  }
+}
+
+>>>>>>> zealous-williams

@@ -82,6 +82,7 @@
     "saveDraft": "Save Draft",
     "schedule": "Schedule",
     "autoSaved": "Auto-saved {{time}} ago"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "add_recipients": "Add recipients...",
@@ -104,3 +105,7 @@
     "emails_refreshed": "이메일s refreshed"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams

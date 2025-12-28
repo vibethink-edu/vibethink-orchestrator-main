@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "table": {
     "common": {
       "search": "Rechercher...",
@@ -32,3 +33,70 @@
     }
   }
 }
+=======
+  "buttons": {
+    "save": "Sauvegarder",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "add": "Ajouter",
+    "search": "Recherche",
+    "filter": "Filtre",
+    "export": "Exporter",
+    "import": "Importer",
+    "download": "Télécharger",
+    "upload": "Télécharger",
+    "close": "Fermer",
+    "submit": "Soumettre",
+    "reset": "Réinitialiser",
+    "apply": "Appliquer",
+    "clear": "Clair",
+    "back": "Dos",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "confirm": "Confirmer",
+    "yes": "Oui",
+    "no": "Non"
+  },
+  "labels": {
+    "name": "Nom",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "address": "Adresse",
+    "status": "Statut",
+    "date": "Date",
+    "time": "Temps",
+    "amount": "Montant",
+    "total": "Total",
+    "description": "Description",
+    "actions": "Actes",
+    "loading": "Chargement...",
+    "noData": "Aucune donnée disponible",
+    "error": "Erreur",
+    "success": "Succès",
+    "warning": "Avertissement",
+    "info": "Information"
+  },
+  "messages": {
+    "saved": "Sauvegarde réussie",
+    "deleted": "Supprimé avec succès",
+    "updated": "Mise à jour réussie",
+    "created": "Créé avec succès",
+    "errorOccurred": "Une erreur s'est produite.",
+    "confirmDelete": "Êtes-vous sûr de vouloir supprimer cet élément ?",
+    "noResults": "Aucun résultat trouvé",
+    "selectOption": "Sélectionnez une option"
+  },
+  "time": {
+    "today": "Aujourd'hui",
+    "yesterday": "Hier",
+    "tomorrow": "Demain",
+    "thisWeek": "Cette semaine",
+    "lastWeek": "La semaine dernière",
+    "thisMonth": "Ce mois-ci",
+    "lastMonth": "Mois dernier",
+    "thisYear": "Cette année",
+    "lastYear": "L'année dernière"
+  }
+}
+>>>>>>> zealous-williams

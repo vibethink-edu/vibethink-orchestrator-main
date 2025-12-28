@@ -1,161 +1,161 @@
 {
   "tabs": {
-    "overview": "نظرة عامة",
+    "overview": "ملخص",
     "projects": "المشاريع",
-    "team": "الفريق",
+    "team": "فريق",
     "reports": "التقارير"
   },
   "summary": {
-    "activeProjects": "مشاريع نشطة",
-    "completed": "مكتملة",
-    "onHold": "في الانتظار",
-    "totalBudget": "الميزانية الإجمالية",
+    "activeProjects": "المشاريع النشطة",
+    "completed": "مكتمل",
+    "onHold": "معلق",
+    "totalBudget": "إجمالي الميزانية",
     "teamMembers": "أعضاء الفريق",
-    "activeTasks": "مهام نشطة",
-    "completedTasks": "مهام مكتملة",
+    "activeTasks": "المهام النشطة",
+    "completedTasks": "المهام المنجزة",
     "avgEfficiency": "متوسط الكفاءة",
     "activeContributors": "المساهمون النشطون",
     "fromLastMonth": "من الشهر الماضي",
     "thisMonth": "هذا الشهر",
     "fromLastWeek": "من الأسبوع الماضي",
-    "overdueTasks": "مهام متأخرة",
+    "overdueTasks": "المهام المتأخرة",
     "failedToLoad": "فشل تحميل الملخص",
     "errorLoadingSuccessMetrics": "خطأ في تحميل المقاييس"
   },
   "sections": {
     "teamPerformance": "أداء الفريق",
-    "teamPerformanceDesc": "مقاييس الكفاءة وعبء العمل لكل عضو",
-    "loadingData": "جاري تحميل البيانات...",
-    "recentProjects": "المشاريع الأخيرة",
-    "recentProjectsDesc": "عرض {{count}} مشاريع نشطة",
-    "noProjectsFound": "لم يتم العثور على مشاريع",
-    "allProjects": "كل المشاريع",
+    "teamPerformanceDesc": "مقاييس الكفاءة وعبء العمل لكل عضو في الفريق",
+    "loadingData": "جارٍ تحميل بيانات المشروع...",
+    "recentProjects": "المشاريع الحديثة",
+    "recentProjectsDesc": "عرض {{count}} مشروعًا نشطًا",
+    "noProjectsFound": "لم يتم العثور على أي مشاريع",
+    "allProjects": "جميع المشاريع",
     "projectDetails": "تفاصيل المشروع"
   },
   "header": {
     "title": "المشاريع",
-    "subtitle": "إدارة المشاريع والمهام والموارد",
-    "export": "تصدير",
+    "subtitle": "إدارة المشاريع والمهام وموارد الفريق",
+    "export": "يصدّر",
     "newProject": "مشروع جديد",
     "newTask": "مهمة جديدة",
-    "searchPlaceholder": "البحث في المشاريع أو المهام...",
-    "status": "الحالة",
+    "searchPlaceholder": "ابحث عن المشاريع أو المهام...",
+    "status": "حالة",
     "allStatuses": "جميع الحالات",
-    "priority": "الأولوية",
+    "priority": "أولوية",
     "allPriorities": "جميع الأولويات",
     "teamLead": "قائد الفريق"
   },
   "status": {
-    "active": "نشط",
+    "active": "نشيط",
     "completed": "مكتمل",
-    "on-hold": "في الانتظار",
-    "cancelled": "ملغي"
+    "on-hold": "معلق",
+    "cancelled": "تم الإلغاء"
   },
   "priority": {
-    "low": "منخفضة",
-    "medium": "متوسطة",
-    "high": "عالية",
-    "urgent": "عاجلة"
+    "low": "قليل",
+    "medium": "واسطة",
+    "high": "عالي",
+    "urgent": "عاجل"
   },
   "table": {
-    "project": "المشروع",
-    "status": "الحالة",
-    "priority": "الأولوية",
-    "progress": "التقدم",
-    "teamLead": "القائد",
-    "dueDate": "تاريخ الاستحقاق",
-    "budget": "الميزانية",
-    "actions": "إجراءات",
+    "project": "مشروع",
+    "status": "حالة",
+    "priority": "أولوية",
+    "progress": "تقدم",
+    "teamLead": "قائد الفريق",
+    "dueDate": "موعدان",
+    "budget": "ميزانية",
+    "actions": "الإجراءات",
     "complete": "مكتمل",
-    "inProgress": "قي التنفيد",
+    "inProgress": "في تَقَدم",
     "overdue": "متأخر",
     "daysLeft": "أيام متبقية",
-    "spent": "أنفق",
-    "tryAdjustingFilters": "حاول تعديل المرشحات أو مصطلحات البحث"
+    "spent": "قضى",
+    "tryAdjustingFilters": "حاول تعديل عوامل التصفية أو مصطلحات البحث"
   },
   "actions": {
     "viewDetails": "عرض التفاصيل",
-    "editProject": "تعديل المشروع",
+    "editProject": "مشروع التحرير",
     "manageTeam": "إدارة الفريق",
     "viewTimeline": "عرض الجدول الزمني",
     "deleteProject": "حذف المشروع"
   },
   "common": {
     "status": {
-      "active": "نشط",
+      "active": "نشيط",
       "pending": "قيد الانتظار",
       "completed": "مكتمل",
       "archived": "مؤرشف"
     },
     "actions": {
-      "edit": "تعديل",
-      "delete": "حذف",
-      "view": "عرض",
-      "create": "إنشاء",
-      "cancel": "إلغاء",
-      "save": "حفظ"
+      "edit": "يحرر",
+      "delete": "يمسح",
+      "view": "منظر",
+      "create": "يخلق",
+      "cancel": "يلغي",
+      "save": "يحفظ"
     }
   },
   "fields": {
-    "name": "الاسم",
-    "description": "الوصف",
+    "name": "اسم",
+    "description": "وصف",
     "startDate": "تاريخ البدء",
     "endDate": "تاريخ الانتهاء",
-    "status": "الحالة",
-    "priority": "الأولوية",
-    "client": "العميل",
-    "budget": "الميزانية"
+    "status": "حالة",
+    "priority": "أولوية",
+    "client": "عميل",
+    "budget": "ميزانية"
   },
   "messages": {
     "createSuccess": "تم إنشاء المشروع بنجاح",
     "updateSuccess": "تم تحديث المشروع بنجاح",
     "deleteSuccess": "تم حذف المشروع بنجاح",
-    "deleteConfirm": "هل أنت متأكد أنك تريد حذف هذا المشروع؟",
-    "loading": "جاري التحميل...",
-    "error": "حدث خطأ ما",
-    "noProjects": "لا توجد مشاريع"
+    "deleteConfirm": "هل أنت متأكد من رغبتك في حذف هذا المشروع؟",
+    "loading": "تحميل...",
+    "error": "حدث خطأ",
+    "noProjects": "لم يتم العثور على أي مشاريع"
   },
   "v2": {
     "summaryCards": {
       "totalRevenue": {
         "title": "إجمالي الإيرادات",
-        "description": "من الشهر الماضي",
-        "trending": "ارتفعت بنسبة 12% هذا الشهر"
+        "description": "منذ الشهر الماضي",
+        "trending": "ارتفع بنسبة 12% مقارنة بهذا الشهر"
       },
       "activeProjects": {
         "title": "المشاريع النشطة",
-        "description": "قيد التنفيذ حالياً",
-        "update": "آخر تحديث قبل ساعة"
+        "description": "جارٍ العمل عليه حالياً",
+        "update": "تم التحديث قبل ساعة واحدة"
       },
       "teamSize": {
         "title": "حجم الفريق",
-        "description": "أعضاء نشطون",
-        "hiring": "جاري التوظيف (2 وظائف مفتوحة)"
+        "description": "الأعضاء النشطون",
+        "hiring": "التوظيف (وظيفتان شاغرتان)"
       },
       "completionRate": {
         "title": "معدل الإنجاز",
-        "description": "تم التسليم في الوقت المحدد",
+        "description": "تم التسليم في الموعد المحدد",
         "performance": "أفضل بنسبة 5% من الهدف"
       }
     },
     "overview": {
-      "title": "نظرة عامة",
-      "description": "تحليل أداء مشاريعك",
-      "revenue": "الإيرادات",
+      "title": "ملخص",
+      "description": "قم بتحليل أداء مشاريعك.",
+      "revenue": "ربح",
       "projects": "المشاريع",
       "tasks": "المهام",
-      "team": "الفريق"
+      "team": "فريق"
     },
     "recentActivity": {
       "title": "النشاط الأخير",
-      "description": "لديك 3 إشعارات جديدة اليوم",
-      "projectCreated": "تم إنشاء مشروع جديد",
-      "taskCompleted": "تم إكمال المهمة",
-      "commentAdded": "تمت إضافة تعليق",
-      "fileUploaded": "تم رفع ملف"
+      "description": "لديك 3 إشعارات جديدة اليوم.",
+      "projectCreated": "تم إنشاء المشروع",
+      "taskCompleted": "تم إنجاز المهمة",
+      "commentAdded": "تمت إضافة التعليق",
+      "fileUploaded": "تم تحميل الملف"
     },
     "metrics": {
-      "title": "مقاييس الأداء",
+      "title": "مؤشرات الأداء",
       "description": "تتبع مؤشرات الأداء الرئيسية",
       "onTime": "في الوقت المحدد",
       "overBudget": "تجاوز الميزانية",
@@ -164,28 +164,28 @@
     "efficiency": {
       "title": "كفاءة المشروع",
       "description": "يناير - يونيو 2026",
-      "trending": "اتجاه تصاعدي بنسبة 5.2% هذا الشهر"
+      "trending": "ارتفع بنسبة 5.2% هذا الشهر"
     },
     "achievement": {
-      "title": "الإنجاز حسب السنة",
-      "description": "لقد أكملت مشاريع أكثر يومياً في المتوسط هذا العام مقارنة بالعام الماضي.",
-      "projects": "مشاريع"
+      "title": "الإنجازات حسب السنة",
+      "description": "لقد أنجزت مشاريع أكثر يومياً في المتوسط هذا العام مقارنة بالعام الماضي.",
+      "projects": "المشاريع"
     },
     "reminders": {
       "title": "تذكير",
-      "showOther": "عرض 10 تذكيرات أخرى"
+      "showOther": "اعرض التذكيرات العشرة الأخرى"
     },
     "successMetrics": {
       "title": "مقاييس النجاح",
       "description": "مؤشرات الأداء الرئيسية لنجاح المشروع",
       "successRate": "معدل نجاح المشروع",
-      "onTime": "الإنجاز في الوقت المحدد",
+      "onTime": "إنجاز في الوقت المحدد",
       "clientSat": "رضا العملاء",
       "budget": "الالتزام بالميزانية"
     },
     "reports": {
       "title": "تقارير المشاريع",
-      "description": "تنزيل تقارير مفصلة لمشاريعك",
+      "description": "قم بتنزيل تقارير مفصلة لمشاريعك",
       "download": "تنزيل التقرير"
     },
     "table": {
@@ -193,9 +193,9 @@
         "projectName": "اسم المشروع",
         "clientName": "اسم العميل",
         "startDate": "تاريخ البدء",
-        "deadline": "الموعد النهائي",
-        "status": "الحالة",
-        "progress": "التقدم"
+        "deadline": "موعد التسليم",
+        "status": "حالة",
+        "progress": "تقدم"
       },
       "placeholder": {
         "filterProjects": "تصفية المشاريع..."
@@ -203,39 +203,39 @@
     }
   },
   "hardcoded": {
-    "task_or_project_deadline": "Task or الموعد النهائي للمشروع",
-    "deadline": "Deadline",
-    "team_meeting_or_call": "Team meeting or مكالمة",
-    "no_project_data_available": "No project data available",
-    "due_now": "Due now",
-    "comprehensive_overview_of_all_active_projects_and": "Comprehensive overview of all active projects and",
-    "detailed_analysis_of_team_productivity_and_efficie": "Detailed analysis of team productivity and efficie",
-    "financial_overview_showing_budget_allocation_and_s": "Financial overview showing budget allocation and s",
-    "project_success_rate": "Project Success Rate",
-    "percentage_of_projects_completed_successfully": "Percentage of projects completed successfully",
-    "ontime_delivery": "On-Time Delivery",
-    "migrate_legacy_database_to_cloud_infrastructure": "Migrate legacy database to cloud infrastructure",
-    "comprehensive_security_assessment_and_remediation": "Comprehensive security assessment and remediation",
-    "design_wireframes": "Design wireframes",
-    "website_redesign_review": "Website Redesign Review",
-    "review_the_latest_designs_and_provide_feedback": "Review the latest designs and provide feedback",
-    "mobile_app_sprint_planning": "التخطيط",
-    "export_project_data": "Export project data",
-    "steps": "Steps",
-    "steps_1": "Steps",
-    "steps_2": "Steps",
-    "enter_your_reminder": "Enter your reminder",
-    "enter_your_reminder_1": "Enter your reminder",
-    "select_a_category": "Select a category",
+    "task_or_project_deadline": "الموعد النهائي للمهمة أو المشروع",
+    "deadline": "موعد التسليم",
+    "team_meeting_or_call": "اجتماع الفريق أو مكالمة",
+    "no_project_data_available": "لا تتوفر بيانات المشروع",
+    "due_now": "موعد التسليم الآن",
+    "comprehensive_overview_of_all_active_projects_and": "نظرة عامة شاملة على جميع المشاريع النشطة و",
+    "detailed_analysis_of_team_productivity_and_efficie": "تحليل مفصل لإنتاجية الفريق وكفاءته",
+    "financial_overview_showing_budget_allocation_and_s": "نظرة عامة مالية توضح تخصيص الميزانية و",
+    "project_success_rate": "معدل نجاح المشروع",
+    "percentage_of_projects_completed_successfully": "نسبة المشاريع المنجزة بنجاح",
+    "ontime_delivery": "التسليم في الموعد المحدد",
+    "migrate_legacy_database_to_cloud_infrastructure": "نقل قاعدة البيانات القديمة إلى البنية التحتية السحابية",
+    "comprehensive_security_assessment_and_remediation": "تقييم أمني شامل ومعالجة الثغرات",
+    "design_wireframes": "تصميم نماذج أولية",
+    "website_redesign_review": "مراجعة إعادة تصميم الموقع الإلكتروني",
+    "review_the_latest_designs_and_provide_feedback": "راجع أحدث التصاميم وقدم ملاحظاتك",
+    "mobile_app_sprint_planning": "تخطيط دورة تطوير تطبيقات الجوال",
+    "export_project_data": "تصدير بيانات المشروع",
+    "steps": "خطوات",
+    "steps_1": "خطوات",
+    "steps_2": "خطوات",
+    "enter_your_reminder": "أدخل تذكيرك",
+    "enter_your_reminder_1": "أدخل تذكيرك",
+    "select_a_category": "اختر فئة",
     "visitors": "الزوار",
     "desktop": "سطح المكتب",
-    "mobile": "جوال",
+    "mobile": "متحرك",
     "visitors_1": "الزوار",
     "desktop_1": "سطح المكتب",
-    "mobile_1": "جوال",
-    "toggle_details": "Toggle details",
-    "mobile_app_design": "جوال",
-    "select_all": "تحديد الكل",
-    "select_all_1": "تحديد الكل"
+    "mobile_1": "متحرك",
+    "toggle_details": "إظهار/إخفاء التفاصيل",
+    "mobile_app_design": "تصميم تطبيقات الجوال",
+    "select_all": "حدد الكل",
+    "select_all_1": "حدد الكل"
   }
 }

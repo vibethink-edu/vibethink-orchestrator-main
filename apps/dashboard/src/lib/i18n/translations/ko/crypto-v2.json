@@ -87,6 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "total_received": "총 수신",
@@ -96,3 +97,7 @@
     "crypto_admin_dashboard": "암호화폐 관리자 대시보드"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams

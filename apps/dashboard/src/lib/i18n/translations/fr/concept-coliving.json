@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "concept.booking.resource.room": "Espace partagé",
   "concept.booking.resource.coliving_room": "Chambre privée",
   "concept.booking.action.reserve": "Réserver"
@@ -6,3 +7,99 @@
 
 
 
+=======
+  "concept": {
+    "booking": {
+      "resource": {
+        "ensuite": "Avec salle de bain",
+        "suite": "Suite",
+        "sharedSpace": "Espace partagé",
+        "kitchen": "Cuisine",
+        "bathroom": "Salle de bain",
+        "bed": "Lit",
+        "bunkBed": "Lit superposé",
+        "privateBathroom": "Salle de bain privée",
+        "sharedBathroom": "Salle de bain partagée"
+      },
+      "action": {
+        "book": "Réserver",
+        "checkIn": "Enregistrement",
+        "checkOut": "Départ",
+        "extend": "Prolonger",
+        "renew": "Renouveler"
+      },
+      "time": {
+        "checkIn": "Enregistrement",
+        "checkOut": "Départ",
+        "minimumStay": "Durée minimale",
+        "maximumStay": "Durée maximale",
+        "nights": "Nuits",
+        "checkInTime": "Heure d'enregistrement",
+        "checkOutTime": "Heure de départ"
+      },
+      "status": {
+        "checkedIn": "Enregistré",
+        "checkedOut": "Parti"
+      }
+    },
+    "property": {
+      "type": {
+        "privateRoom": "Chambre privée",
+        "ensuite": "Avec salle de bain",
+        "suite": "Suite",
+        "dormitory": "Dortoir",
+        "femaleOnly": "Femmes uniquement",
+        "maleOnly": "Hommes uniquement",
+        "coed": "Mixte",
+        "studio": "Studio"
+      },
+      "amenity": {
+        "kitchen": "Cuisine",
+        "bathroom": "Salle de bain",
+        "shower": "Douche",
+        "laundry": "Blanchisserie",
+        "commonArea": "Espace commun",
+        "livingRoom": "Salon",
+        "tv": "TV",
+        "workspace": "Espace de travail",
+        "highSpeedInternet": "Internet haut débit"
+      },
+      "houseRules": {
+        "quietHours": "Heures de calme",
+        "noSmoking": "Non-fumeur",
+        "noGuests": "Pas d'invités",
+        "petsPolicy": "Politique animaux",
+        "cleaningSchedule": "Calendrier de nettoyage"
+      },
+      "service": {
+        "breakfast": "Petit-déjeuner",
+        "linens": "Draps",
+        "towels": "Serviettes",
+        "housekeeping": "Ménage",
+        "reception": "Réception",
+        "valet": "Voiturier",
+        "laundry": "Blanchisserie",
+        "roomService": "Service en chambre"
+      },
+      "community": {
+        "commonArea": "Espace commun",
+        "kitchen": "Cuisine",
+        "dining": "Salle à manger",
+        "livingRoom": "Salon",
+        "event": "Événement",
+        "activity": "Activité",
+        "game": "Jeu",
+        "movie": "Film",
+        "study": "Étude"
+      },
+      "policy": {
+        "guestsPolicy": "Politique invités",
+        "alcohol": "Alcool",
+        "pets": "Animaux",
+        "quietHours": "Heures de calme"
+      }
+    }
+  }
+}
+
+>>>>>>> zealous-williams

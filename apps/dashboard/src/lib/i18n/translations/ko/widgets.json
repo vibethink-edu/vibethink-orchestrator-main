@@ -87,6 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "analytic_widgets": "Analytic Widgets",
@@ -116,3 +117,7 @@
     "analytics": "Analytics"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams

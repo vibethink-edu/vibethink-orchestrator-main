@@ -1,0 +1,67 @@
+{
+  "kitchen": {
+    "station": {
+      "grill": "Grill Station",
+      "saute": "Sauté Station",
+      "fry": "Fry Station",
+      "pastry": "Pastry Station",
+      "cold": "Cold Station",
+      "hot": "Hot Station",
+      "prep": "Prep Station",
+      "expo": "Expo"
+    },
+    "order": {
+      "fire": "Fire Order",
+      "hold": "Hold",
+      "plate": "Plate",
+      "expedite": "Expedite",
+      "recall": "Recall",
+      "86": "86 (Out of Stock)",
+      "allDay": "All Day"
+    }
+  },
+  "pos": {
+    "action": {
+      "openCheck": "Open Check",
+      "sendToKitchen": "Send to Kitchen",
+      "sendToBar": "Send to Bar",
+      "splitBill": "Split Bill",
+      "splitByItem": "Split by Item",
+      "splitEvenly": "Split Evenly",
+      "closeCheck": "Close Check",
+      "voidItem": "Void Item",
+      "comped": "Comped"
+    },
+    "modifier": {
+      "extraSauce": "Extra Sauce",
+      "noOnions": "No Onions",
+      "wellDone": "Well Done",
+      "medium": "Medium",
+      "rare": "Rare",
+      "onTheSide": "On the Side"
+    }
+  },
+  "inventory": {
+    "foodCost": "Food Cost",
+    "parLevel": "Par Level",
+    "waste": "Waste",
+    "spoilage": "Spoilage",
+    "portionControl": "Portion Control"
+  },
+  "service": {
+    "floor": {
+      "section": "Section",
+      "tableNumber": "Table Number",
+      "turnTable": "Turn Table",
+      "clearTable": "Clear Table",
+      "resetTable": "Reset Table"
+    },
+    "timing": {
+      "seatingTime": "Seating Time",
+      "orderTime": "Order Time",
+      "prepTime": "Prep Time",
+      "tableTime": "Table Time",
+      "averageTurnTime": "Average Turn Time"
+    }
+  }
+}

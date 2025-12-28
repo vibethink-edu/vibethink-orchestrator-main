@@ -87,6 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "mentoring": "멘토링",
@@ -98,3 +99,7 @@
     "search_courses_1": "과정 검색"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams

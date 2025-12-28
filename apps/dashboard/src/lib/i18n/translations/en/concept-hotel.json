@@ -1,7 +1,61 @@
 {
+<<<<<<< HEAD
   "concept.booking.resource.room": "Room",
   "concept.booking.resource.studio_room": "Suite"
 }
 
 
 
+=======
+  "concept": {
+    "booking": {
+      "resource": {
+        "suite": "Suite",
+        "bedroom": "Bedroom",
+        "bathroom": "Bathroom",
+        "kitchen": "Kitchen",
+        "livingRoom": "Living Room"
+      },
+      "action": {
+        "book": "Book",
+        "checkIn": "Check In",
+        "checkOut": "Check Out"
+      }
+    },
+    "property": {
+      "type": {
+        "standard": "Standard",
+        "deluxe": "Deluxe",
+        "suite": "Suite",
+        "presidential": "Presidential"
+      },
+      "amenity": {
+        "wifi": "WiFi",
+        "parking": "Parking",
+        "pool": "Pool",
+        "gym": "Gym",
+        "spa": "Spa",
+        "restaurant": "Restaurant",
+        "breakfast": "Breakfast",
+        "roomService": "Room Service"
+      },
+      "view": {
+        "city": "City View",
+        "garden": "Garden View",
+        "ocean": "Ocean View",
+        "mountain": "Mountain View"
+      }
+    },
+    "service": {
+      "housekeeping": "Housekeeping",
+      "concierge": "Concierge",
+      "reception": "Reception",
+      "bellService": "Bell Service",
+      "valet": "Valet",
+      "laundry": "Laundry",
+      "roomService": "Room Service"
+    }
+  }
+}
+
+>>>>>>> zealous-williams

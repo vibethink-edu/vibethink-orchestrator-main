@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "concept.booking.resource.room": "Quarto",
   "concept.booking.resource.studio_room": "Suíte",
   "concept.booking.resource.meeting_room": "Sala de eventos"
@@ -6,3 +7,56 @@
 
 
 
+=======
+  "concept": {
+    "booking": {
+      "resource": {
+        "suite": "Suíte",
+        "bedroom": "Quarto",
+        "bathroom": "Banheiro",
+        "kitchen": "Cozinha",
+        "livingRoom": "Sala de estar"
+      },
+      "action": {
+        "book": "Reservar",
+        "checkIn": "Check-in",
+        "checkOut": "Check-out"
+      }
+    },
+    "property": {
+      "type": {
+        "standard": "Padrão",
+        "deluxe": "De Luxo",
+        "suite": "Suíte",
+        "presidential": "Presidencial"
+      },
+      "amenity": {
+        "wifi": "WiFi",
+        "parking": "Estacionamento",
+        "pool": "Piscina",
+        "gym": "Academia",
+        "spa": "Spa",
+        "restaurant": "Restaurante",
+        "breakfast": "Café da manhã",
+        "roomService": "Serviço de quarto"
+      },
+      "view": {
+        "city": "Vista da cidade",
+        "garden": "Vista do jardim",
+        "ocean": "Vista do oceano",
+        "mountain": "Vista da montanha"
+      }
+    },
+    "service": {
+      "housekeeping": "Arrumação",
+      "concierge": "Concierge",
+      "reception": "Recepção",
+      "bellService": "Serviço de bagagens",
+      "valet": "Manobrista",
+      "laundry": "Lavanderia",
+      "roomService": "Serviço de quarto"
+    }
+  }
+}
+
+>>>>>>> zealous-williams

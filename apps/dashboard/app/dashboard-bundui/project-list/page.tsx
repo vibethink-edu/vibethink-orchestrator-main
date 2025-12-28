@@ -1,6 +1,6 @@
 "use client";
 
-import { ProjectCardsGrid } from "@/app/dashboard-bundui/projects-v2/components";
+import { ProjectCardsGrid } from "../projects-v2/components";
 import { useTranslation } from "@/lib/i18n";
 
 /**

@@ -59,6 +59,7 @@
     "completed": "Completed",
     "pending": "Pending",
     "failed": "Failed"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "add_new_budget": "새 예산 추가",
@@ -81,3 +82,17 @@
     "add_new_revenue": "수익"
   }
 }
+=======
+  }
+}
+
+
+
+
+
+
+
+
+
+
+>>>>>>> zealous-williams

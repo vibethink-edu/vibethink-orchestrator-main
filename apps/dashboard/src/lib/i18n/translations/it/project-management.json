@@ -87,6 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "task_or_project_deadline": "Task or Scadenza progetto",
@@ -126,3 +127,7 @@
     "select_all_1": "Seleziona tutto"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams

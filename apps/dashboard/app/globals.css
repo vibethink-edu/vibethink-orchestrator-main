@@ -66,6 +66,65 @@
 }
 
 /* ============================================
+   RTL LAYOUT SUPPORT - HTML[dir="rtl"]
+   Inverts layout for Arabic and other RTL languages
+   ============================================ */
+
+/* Main layout container - flip sidebar to right */
+html[dir="rtl"] {
+  direction: rtl;
+}
+
+html[dir="rtl"] body {
+  direction: rtl;
+}
+
+/* Sidebar positioning - move to right side */
+html[dir="rtl"] aside,
+html[dir="rtl"] [data-sidebar],
+html[dir="rtl"] .sidebar {
+  left: auto;
+  right: 0;
+}
+
+/* Main content - adjust for sidebar on right */
+html[dir="rtl"] main {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+/* Text alignment */
+html[dir="rtl"] {
+  text-align: right;
+}
+
+/* Icons and arrows - flip horizontally */
+html[dir="rtl"] .lucide-chevron-left {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .lucide-chevron-right {
+  transform: scaleX(-1);
+}
+
+/* Dropdowns and menus - align to right */
+html[dir="rtl"] [role="menu"],
+html[dir="rtl"] [role="listbox"] {
+  text-align: right;
+}
+
+/* Reverse padding/margin for better RTL flow */
+html[dir="rtl"] .ps-4 {
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+html[dir="rtl"] .pe-4 {
+  padding-right: 0;
+  padding-left: 1rem;
+}
+
+/* ============================================
    LANGUAGES WITH SPECIAL REQUIREMENTS
    ============================================ */
 

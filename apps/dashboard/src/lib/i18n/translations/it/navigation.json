@@ -1,5 +1,6 @@
 {
   "groups": {
+<<<<<<< HEAD
     "dashboards": "Dashboards",
     "ai_apps": "AI Apps",
     "apps": "Apps",
@@ -74,11 +75,88 @@
     "register_v1": "Register v1",
     "register_v2": "Register v2",
     "forgot_password": "Forgot Password",
+=======
+    "dashboards": "Dashboard",
+    "ai_apps": "App di IA",
+    "apps": "Applicazioni",
+    "pages": "Pagine",
+    "others": "Altri"
+  },
+  "items": {
+    "default": "Predefinito",
+    "ecommerce": "E-commerce",
+    "sales": "Vendite",
+    "crm": "CRM",
+    "crm_v2": "CRM V2",
+    "crm_v2_ai": "CRM V2 + IA",
+    "website_analytics": "Analisi del sito web",
+    "project_management": "Gestione del progetto",
+    "projects_v2": "Progetti V2",
+    "file_manager": "Gestore file",
+    "crypto": "Criptovaluta",
+    "crypto_v2": "Cripto V2",
+    "finance": "Finanze",
+    "finance_v2": "Finanze V2",
+    "academy": "Accademia/Scuola",
+    "hospital": "Gestione ospedaliera",
+    "hotel": "Pannello di controllo dell'hotel",
+    "ai_chat": "Chat IA",
+    "ai_chat_v2": "Chat IA V2",
+    "image_generator": "Generatore di immagini",
+    "text_to_speech": "Testo in voce",
+    "kanban": "Kanban",
+    "notes": "Note",
+    "chats": "Chat",
+    "mail": "Email",
+    "todo_list": "App lista delle cose da fare",
+    "tasks": "Compiti",
+    "calendar": "Calendario",
+    "api_keys": "Chiavi API",
+    "pos_app": "Applicazione POS",
+    "users_list": "Elenco utenti",
+    "profile": "Profilo",
+    "onboarding": "Flusso di onboarding",
+    "empty_states": "Stati vuoti",
+    "settings": "Impostazioni",
+    "pricing": "Prezzi",
+    "authentication": "Autenticazione",
+    "error_pages": "Pagine di errore",
+    "download_pro": "Scarica VibeThink Pro",
+    "components": "Componenti",
+    "blocks": "Blocchi",
+    "templates": "Modelli",
+    "github": "GitHub"
+  },
+  "subitems": {
+    "dashboard": "Pannello di controllo",
+    "product_list": "Elenco prodotti",
+    "product_detail": "Dettagli del prodotto",
+    "add_product": "Aggiungi prodotto",
+    "order_list": "Elenco degli ordini",
+    "order_detail": "Dettagli dell'ordine",
+    "bookings": "Prenotazioni",
+    "empty_states_01": "Stati vuoti 01",
+    "empty_states_02": "Stati vuoti 02",
+    "empty_states_03": "Stati vuoti 03",
+    "account": "Account",
+    "appearance": "Aspetto",
+    "notifications": "Notifiche",
+    "display": "Display",
+    "column_pricing": "Prezzi delle colonne",
+    "table_pricing": "Tabella dei prezzi",
+    "single_pricing": "Prezzo unico",
+    "login_v1": "Accesso v1",
+    "login_v2": "Accesso v2",
+    "register_v1": "Registrazione v1",
+    "register_v2": "Registrazione v2",
+    "forgot_password": "Password dimenticata",
+>>>>>>> zealous-williams
     "error_404": "404",
     "error_500": "500",
     "error_403": "403"
   },
   "badges": {
+<<<<<<< HEAD
     "new": "New",
     "coming": "Coming",
     "active": "Active",
@@ -93,5 +171,21 @@
     "download": "Download",
     "download_description": "Unlock lifetime access to all dashboards, templates and components.",
     "get_pro": "Get VibeThink Pro"
+=======
+    "new": "Nuovo",
+    "coming": "In arrivo",
+    "active": "Attivo",
+    "inactive": "Inattivo"
+  },
+  "header": {
+    "projects": "Progetti",
+    "add_new_project": "Aggiungi nuovo progetto",
+    "orchestrator": "Orchestratore VibeThink"
+  },
+  "footer": {
+    "download": "Scarica",
+    "download_description": "Sblocca l'accesso a vita a tutti i dashboard, modelli e componenti.",
+    "get_pro": "Ottieni VibeThink Pro"
+>>>>>>> zealous-williams
   }
 }

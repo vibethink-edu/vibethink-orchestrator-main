@@ -1,0 +1,67 @@
+{
+  "kitchen": {
+    "station": {
+      "grill": "Poste Grill",
+      "saute": "Poste Sauté",
+      "fry": "Poste Friture",
+      "pastry": "Poste Pâtisserie",
+      "cold": "Poste Froid",
+      "hot": "Poste Chaud",
+      "prep": "Poste Préparation",
+      "expo": "Passe"
+    },
+    "order": {
+      "fire": "Lancer la Commande",
+      "hold": "Attendre",
+      "plate": "Dresser",
+      "expedite": "Expédier",
+      "recall": "Rappeler",
+      "86": "86 (Rupture de Stock)",
+      "allDay": "Total du Jour"
+    }
+  },
+  "pos": {
+    "action": {
+      "openCheck": "Ouvrir une Addition",
+      "sendToKitchen": "Envoyer en Cuisine",
+      "sendToBar": "Envoyer au Bar",
+      "splitBill": "Diviser l'Addition",
+      "splitByItem": "Diviser par Article",
+      "splitEvenly": "Diviser Équitablement",
+      "closeCheck": "Fermer l'Addition",
+      "voidItem": "Annuler un Article",
+      "comped": "Offert"
+    },
+    "modifier": {
+      "extraSauce": "Sauce Supplémentaire",
+      "noOnions": "Sans Oignons",
+      "wellDone": "Bien Cuit",
+      "medium": "À Point",
+      "rare": "Saignant",
+      "onTheSide": "À Part"
+    }
+  },
+  "inventory": {
+    "foodCost": "Coût Alimentaire",
+    "parLevel": "Niveau Optimal",
+    "waste": "Gaspillage",
+    "spoilage": "Détérioration",
+    "portionControl": "Contrôle des Portions"
+  },
+  "service": {
+    "floor": {
+      "section": "Section",
+      "tableNumber": "Numéro de Table",
+      "turnTable": "Rotation de Table",
+      "clearTable": "Débarrasser la Table",
+      "resetTable": "Remettre la Table"
+    },
+    "timing": {
+      "seatingTime": "Heure d'Installation",
+      "orderTime": "Heure de Commande",
+      "prepTime": "Temps de Préparation",
+      "tableTime": "Temps à Table",
+      "averageTurnTime": "Temps Moyen de Rotation"
+    }
+  }
+}

@@ -87,6 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "new_patient_orientation": "Orientamento nuovo paziente",
@@ -104,3 +105,7 @@
     "unknown_error": "Errore sconosciuto"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams

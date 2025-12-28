@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "concept.booking.resource.room": "Desk",
   "concept.booking.resource.cowork_desk": "Shared Desk",
   "concept.booking.resource.meeting_room": "Workspace"
@@ -6,3 +7,83 @@
 
 
 
+=======
+  "concept": {
+    "booking": {
+      "resource": {
+        "desk": "Desk",
+        "office": "Office",
+        "meetingRoom": "Meeting Room",
+        "eventSpace": "Event Space",
+        "phoneBooth": "Phone Booth",
+        "quietRoom": "Quiet Room"
+      },
+      "action": {
+        "book": "Book",
+        "checkIn": "Check In",
+        "checkOut": "Check Out"
+      },
+      "time": {
+        "checkIn": "Check-in",
+        "checkOut": "Check-out",
+        "hourly": "Hourly",
+        "daily": "Daily",
+        "weekly": "Weekly",
+        "monthly": "Monthly"
+      },
+      "unit": {
+        "week": "{count, plural, one {week} other {weeks}}",
+        "month": "{count, plural, one {month} other {months}}"
+      }
+    },
+    "property": {
+      "type": {
+        "openDesk": "Open Desk",
+        "dedicatedDesk": "Dedicated Desk",
+        "hotDesk": "Hot Desk",
+        "privateOffice": "Private Office",
+        "eventSpace": "Event Space"
+      },
+      "amenity": {
+        "wifi": "WiFi",
+        "parking": "Parking",
+        "kitchen": "Kitchen",
+        "coffee": "Coffee",
+        "snacks": "Snacks",
+        "printer": "Printer",
+        "scanner": "Scanner"
+      },
+      "service": {
+        "reception": "Reception",
+        "itSupport": "IT Support",
+        "mailService": "Mail Service",
+        "printing": "Printing",
+        "packageHandling": "Package Handling"
+      }
+    },
+    "membership": {
+      "tier": {
+        "dayPass": "Day Pass",
+        "monthly": "Monthly",
+        "yearly": "Yearly",
+        "unlimited": "Unlimited"
+      },
+      "benefit": {
+        "discount": "Discount",
+        "credit": "Credit",
+        "earlyAccess": "Early Access",
+        "guestAccess": "Guest Access"
+      }
+    },
+    "community": {
+      "feature": {
+        "networking": "Networking",
+        "events": "Events",
+        "workshops": "Workshops",
+        "mentorship": "Mentorship"
+      }
+    }
+  }
+}
+
+>>>>>>> zealous-williams

@@ -31,11 +31,15 @@
   "deselectAll": "Deselect All",
   "noResults": "No results found",
   "noData": "No data available",
+<<<<<<< HEAD
   "empty": {
     "noEvents": "No events",
     "noEventsFound": "No events found",
     "noEventsScheduled": "There are no events scheduled for this time period."
   },
+=======
+  "empty": "Empty",
+>>>>>>> zealous-williams
   "active": "Active",
   "inactive": "Inactive",
   "pending": "Pending",
@@ -176,6 +180,7 @@
     "eventDeleted": "Event \"{title}\" deleted",
     "eventMoved": "Event \"{title}\" moved"
   },
+<<<<<<< HEAD
   "labels": {
     "more": "more"
   },
@@ -202,5 +207,14 @@
     "strategic_planning_for_next_year": "계획",
     "project_deadline": "프로젝트 마감일",
     "event_calendar": "이벤트 캘린더"
+=======
+  "empty": {
+    "noEvents": "No events",
+    "noEventsFound": "No events found",
+    "noEventsScheduled": "There are no events scheduled for this time period."
+  },
+  "labels": {
+    "more": "more"
+>>>>>>> zealous-williams
   }
 }

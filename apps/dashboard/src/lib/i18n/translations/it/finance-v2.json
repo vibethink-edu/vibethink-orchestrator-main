@@ -87,6 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "desktop": "Desktop",
@@ -97,3 +98,7 @@
     "finance_admin_dashboard": "Dashboard amministratore Finance"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams

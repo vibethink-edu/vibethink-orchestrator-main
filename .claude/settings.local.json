@@ -70,7 +70,23 @@
       "Bash(done)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(test:*)",
+      "Bash(Select-String -Pattern \"(Error|Failed|✓ Compiled|Route \\(app\\)|error)\")",
+      "Bash(Select-Object -Last 30)",
+      "Bash(npx next@15.3.4 dev:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(Select-String -Pattern \"(HTTP|Location)\")",
+      "Bash(dir /s /b packagesterminology)",
+      "Bash(dir:*)",
+      "Bash(Select-String -Pattern \"(Ready|Error|Failed)\")",
+      "Bash(Select-Object -First 3)",
+      "Bash(Select-String -Pattern \"(Compiled|error|Error|Failed|success)\")",
+      "Bash(Select-Object -First 20)",
+      "Bash(Select-String -Pattern \"(error|Error)\")",
+      "Bash(Select-String -Pattern \"(terminology-snapshot|translation-loader|utils)\")",
+      "Bash(do echo \"=== $file ===\")"
     ],
     "deny": []
   }

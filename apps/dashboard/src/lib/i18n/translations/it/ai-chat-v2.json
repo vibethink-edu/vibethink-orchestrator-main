@@ -87,6 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "ask_me_anything": "Chiedimi qualsiasi cosa...",
@@ -102,3 +103,7 @@
     "ai_chat_v2_1": "Chat IA V2"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams

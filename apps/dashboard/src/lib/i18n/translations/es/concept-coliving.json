@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "concept.booking.resource.room": "Espacio compartido",
   "concept.booking.resource.coliving_room": "Habitación privada",
   "concept.booking.action.reserve": "Apartar"
@@ -6,3 +7,98 @@
 
 
 
+=======
+  "concept": {
+    "booking": {
+      "resource": {
+        "ensuite": "Suite",
+        "suite": "Suite",
+        "sharedSpace": "Shared Space",
+        "kitchen": "Kitchen",
+        "bathroom": "Bathroom",
+        "bed": "Bed",
+        "bunkBed": "Bunk Bed",
+        "privateBathroom": "Private Bathroom",
+        "sharedBathroom": "Shared Bathroom"
+      },
+      "action": {
+        "book": "Book",
+        "checkIn": "Check-in",
+        "checkOut": "Check-out",
+        "extend": "Extend",
+        "renew": "Renew"
+      },
+      "time": {
+        "checkIn": "Check-in",
+        "checkOut": "Check-out",
+        "minimumStay": "Minimum Stay",
+        "maximumStay": "Maximum Stay",
+        "nights": "Nights",
+        "checkInTime": "Check-in Time",
+        "checkOutTime": "Check-out Time"
+      },
+      "status": {
+        "checkedIn": "Checked In",
+        "checkedOut": "Checked Out"
+      }
+    },
+    "property": {
+      "type": {
+        "privateRoom": "Private Room",
+        "ensuite": "Ensuite",
+        "suite": "Suite",
+        "dormitory": "Dormitory",
+        "femaleOnly": "Female Only",
+        "maleOnly": "Male Only",
+        "coed": "Co-ed",
+        "studio": "Studio"
+      },
+      "amenity": {
+        "kitchen": "Kitchen",
+        "bathroom": "Bathroom",
+        "shower": "Shower",
+        "laundry": "Laundry",
+        "commonArea": "Common Area",
+        "livingRoom": "Living Room",
+        "tv": "TV",
+        "workspace": "Workspace",
+        "highSpeedInternet": "High Speed Internet"
+      },
+      "houseRules": {
+        "quietHours": "Quiet Hours",
+        "noSmoking": "No Smoking",
+        "noGuests": "No Guests",
+        "petsPolicy": "Pets Policy",
+        "cleaningSchedule": "Cleaning Schedule"
+      },
+      "service": {
+        "breakfast": "Breakfast",
+        "linens": "Linens",
+        "towels": "Towels",
+        "housekeeping": "Housekeeping",
+        "reception": "Reception",
+        "valet": "Valet",
+        "laundry": "Laundry",
+        "roomService": "Room Service"
+      },
+      "community": {
+        "commonArea": "Área Común",
+        "kitchen": "Cocina",
+        "dining": "Comedor",
+        "livingRoom": "Sala de Estar",
+        "event": "Evento",
+        "activity": "Actividad",
+        "game": "Juego",
+        "movie": "Película",
+        "study": "Estudio"
+      },
+      "policy": {
+        "guestsPolicy": "Guests Policy",
+        "alcohol": "Alcohol",
+        "pets": "Pets",
+        "quietHours": "Quiet Hours"
+      }
+    }
+  }
+}
+>>>>>>> zealous-williams

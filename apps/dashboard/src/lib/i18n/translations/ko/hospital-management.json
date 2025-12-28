@@ -87,6 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "new_patient_orientation": "신규 환자 오리엔테이션",
@@ -104,3 +105,7 @@
     "unknown_error": "알 수 없는 오류"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams

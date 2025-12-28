@@ -158,6 +158,7 @@
     "megabytes": "MB",
     "gigabytes": "GB",
     "terabytes": "TB"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "no_transfer_data_available": "Nessun dato di trasferimento disponibile",
@@ -186,3 +187,17 @@
     "create_new_folder": "Crea nuova cartella"
   }
 }
+=======
+  }
+}
+
+
+
+
+
+
+
+
+
+
+>>>>>>> zealous-williams

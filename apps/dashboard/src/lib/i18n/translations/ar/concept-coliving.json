@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "concept.booking.resource.room": "مساحة مشتركة",
   "concept.booking.resource.coliving_room": "غرفة خاصة",
   "concept.booking.action.reserve": "حجز"
@@ -6,3 +7,99 @@
 
 
 
+=======
+  "concept": {
+    "booking": {
+      "resource": {
+        "ensuite": "مع حمام خاص",
+        "suite": "جناح",
+        "sharedSpace": "مساحة مشتركة",
+        "kitchen": "مطبخ",
+        "bathroom": "حمام",
+        "bed": "سرير",
+        "bunkBed": "سرير بطابقين",
+        "privateBathroom": "حمام خاص",
+        "sharedBathroom": "حمام مشترك"
+      },
+      "action": {
+        "book": "حجز",
+        "checkIn": "تسجيل دخول",
+        "checkOut": "تسجيل خروج",
+        "extend": "تمديد",
+        "renew": "تجديد"
+      },
+      "time": {
+        "checkIn": "تسجيل دخول",
+        "checkOut": "تسجيل خروج",
+        "minimumStay": "الحد الأدنى للإقامة",
+        "maximumStay": "الحد الأقصى للإقامة",
+        "nights": "ليالي",
+        "checkInTime": "وقت تسجيل الدخول",
+        "checkOutTime": "وقت تسجيل الخروج"
+      },
+      "status": {
+        "checkedIn": "مسجل دخوله",
+        "checkedOut": "مسجل خروجه"
+      }
+    },
+    "property": {
+      "type": {
+        "privateRoom": "غرفة خاصة",
+        "ensuite": "مع حمام خاص",
+        "suite": "جناح",
+        "dormitory": "نزل",
+        "femaleOnly": "للإناث فقط",
+        "maleOnly": "للذكور فقط",
+        "coed": "مشترك",
+        "studio": "ستوديو"
+      },
+      "amenity": {
+        "kitchen": "مطبخ",
+        "bathroom": "حمام",
+        "shower": "دش",
+        "laundry": "غسيل الملابس",
+        "commonArea": "مساحة مشتركة",
+        "livingRoom": "غرفة معيشة",
+        "tv": "تلفزيون",
+        "workspace": "مساحة عمل",
+        "highSpeedInternet": "إنترنت عالي السرعة"
+      },
+      "houseRules": {
+        "quietHours": "ساعات الهدوء",
+        "noSmoking": "ممنوع التدخين",
+        "noGuests": "ممنوع الضيوف",
+        "petsPolicy": "سياسة الحيوانات الأليفة",
+        "cleaningSchedule": "جدول التنظيف"
+      },
+      "service": {
+        "breakfast": "إفطار",
+        "linens": "أغطية السرير",
+        "towels": "مناشف",
+        "housekeeping": "تنظيف الغرف",
+        "reception": "الاستقبال",
+        "valet": "وقوف السيارات",
+        "laundry": "غسيل الملابس",
+        "roomService": "خدمة الغرفة"
+      },
+      "community": {
+        "commonArea": "مساحة مشتركة",
+        "kitchen": "مطبخ",
+        "dining": "غرفة طعام",
+        "livingRoom": "غرفة معيشة",
+        "event": "حدث",
+        "activity": "نشاط",
+        "game": "لعبة",
+        "movie": "فيلم",
+        "study": "دراسة"
+      },
+      "policy": {
+        "guestsPolicy": "سياسة الضيوف",
+        "alcohol": "الكحول",
+        "pets": "الحيوانات الأليفة",
+        "quietHours": "ساعات الهدوء"
+      }
+    }
+  }
+}
+
+>>>>>>> zealous-williams

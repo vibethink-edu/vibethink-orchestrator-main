@@ -46,3 +46,9 @@ Write-Host "   • Archivos archivados: $movedCount" -ForegroundColor White
 Write-Host "`n📁 Reportes archivados en: $archivedPath" -ForegroundColor Cyan
 
 
+
+
+
+
+
+

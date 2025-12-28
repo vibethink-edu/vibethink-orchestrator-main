@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "concept.booking.resource.room": "Arbeitsplatz",
   "concept.booking.resource.cowork_desk": "Gemeinsamer Arbeitsplatz",
   "concept.booking.resource.meeting_room": "Arbeitsbereich"
@@ -6,3 +7,83 @@
 
 
 
+=======
+  "concept": {
+    "booking": {
+      "resource": {
+        "desk": "Schreibtisch",
+        "office": "Büro",
+        "meetingRoom": "Besprechungsraum",
+        "eventSpace": "Veranstaltungsraum",
+        "phoneBooth": "Telefonkabine",
+        "quietRoom": "Ruhiger Raum"
+      },
+      "action": {
+        "book": "Buchen",
+        "checkIn": "Einchecken",
+        "checkOut": "Auschecken"
+      },
+      "time": {
+        "checkIn": "Einchecken",
+        "checkOut": "Auschecken",
+        "hourly": "Stündlich",
+        "daily": "Täglich",
+        "weekly": "Wöchentlich",
+        "monthly": "Monatlich"
+      },
+      "unit": {
+        "week": "{count, plural, one {Woche} other {Wochen}}",
+        "month": "{count, plural, one {Monat} other {Monate}}"
+      }
+    },
+    "property": {
+      "type": {
+        "openDesk": "Freiplatz-Schreibtisch",
+        "dedicatedDesk": "Fest zugewiesener Schreibtisch",
+        "hotDesk": "Hot-Desk",
+        "privateOffice": "Privates Büro",
+        "eventSpace": "Veranstaltungsraum"
+      },
+      "amenity": {
+        "wifi": "WLAN",
+        "parking": "Parkplatz",
+        "kitchen": "Küche",
+        "coffee": "Kaffee",
+        "snacks": "Snacks",
+        "printer": "Drucker",
+        "scanner": "Scanner"
+      },
+      "service": {
+        "reception": "Empfang",
+        "itSupport": "IT-Support",
+        "mailService": "Postservice",
+        "printing": "Druckservice",
+        "packageHandling": "Paketannahme"
+      }
+    },
+    "membership": {
+      "tier": {
+        "dayPass": "Tagespass",
+        "monthly": "Monatlich",
+        "yearly": "Jährlich",
+        "unlimited": "Unbegrenzt"
+      },
+      "benefit": {
+        "discount": "Rabatt",
+        "credit": "Guthaben",
+        "earlyAccess": "Früher Zugang",
+        "guestAccess": "Gästezugang"
+      }
+    },
+    "community": {
+      "feature": {
+        "networking": "Networking",
+        "events": "Veranstaltungen",
+        "workshops": "Workshops",
+        "mentorship": "Mentoring"
+      }
+    }
+  }
+}
+
+>>>>>>> zealous-williams

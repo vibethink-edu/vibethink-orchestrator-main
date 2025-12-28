@@ -87,6 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+<<<<<<< HEAD
   },
   "hardcoded": {
     "mentoring": "Mentoring",
@@ -98,3 +99,7 @@
     "search_courses_1": "Cerca corsi"
   }
 }
+=======
+  }
+}
+>>>>>>> zealous-williams
