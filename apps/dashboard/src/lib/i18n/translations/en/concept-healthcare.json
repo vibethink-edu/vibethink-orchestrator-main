@@ -1,4 +1,10 @@
 {
+  "_metadata": {
+    "layer": "concept",
+    "vertical": "healthcare",
+    "subvertical": "hospital",
+    "description": "Healthcare industry domain concepts including appointments, patients, medical providers, and insurance"
+  },
   "concept": {
     "appointment": {
       "type": {

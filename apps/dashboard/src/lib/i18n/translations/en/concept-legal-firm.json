@@ -1,4 +1,10 @@
 {
+  "_metadata": {
+    "layer": "concept",
+    "vertical": "professional-services",
+    "subvertical": "legal",
+    "description": "Legal industry domain concepts including cases, legal documents, court proceedings, and billing"
+  },
   "concept": {
     "caseType": {
       "civil": "Civil",

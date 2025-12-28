@@ -7,103 +7,102 @@
  * - 3 physical layers (transversal, concept, workspace)
  * - Taxonomy as metadata (vertical → subvertical → module)
  * - Fallback chain for overrides
+ * - Zod validation for runtime type safety
  *
  * @see docs/i18n/RFC_I18N_TAXONOMY_ARCHITECTURE.md
  */
 
-export type Layer = 'transversal' | 'concept' | 'workspace';
+import { z } from 'zod';
 
-export type Vertical =
-  | 'healthcare'
-  | 'hospitality'
-  | 'professional-services'
-  | 'media-entertainment'
-  | 'nonprofit'
-  | 'technology';
+// Zod schemas for validation
+export const layerSchema = z.enum(['transversal', 'concept', 'workspace']);
+export type Layer = z.infer<typeof layerSchema>;
 
-export type SubVertical =
+export const verticalSchema = z.enum([
+  'healthcare',
+  'hospitality',
+  'professional-services',
+  'media-entertainment',
+  'nonprofit',
+  'technology',
+]);
+export type Vertical = z.infer<typeof verticalSchema>;
+
+export const subVerticalSchema = z.enum([
   // Healthcare
-  | 'hospital'
-  | 'clinic'
-  | 'dental'
-  | 'mental-health'
-  | 'oncology'
+  'hospital',
+  'clinic',
+  'dental',
+  'mental-health',
+  'oncology',
   // Hospitality
-  | 'restaurant-qsr'
-  | 'restaurant-fine-dining'
-  | 'hotel'
-  | 'catering'
+  'restaurant-qsr',
+  'restaurant-fine-dining',
+  'hotel',
+  'catering',
   // Professional Services
-  | 'legal'
-  | 'consulting'
-  | 'accounting-firm'
+  'legal',
+  'consulting',
+  'accounting-firm',
   // Media & Entertainment
-  | 'radio'
-  | 'tv'
-  | 'podcast'
-  | 'streaming'
-  | 'youtube'
+  'radio',
+  'tv',
+  'podcast',
+  'streaming',
+  'youtube',
   // Nonprofit
-  | 'health-nonprofit'
-  | 'education-nonprofit'
-  | 'environmental'
-  | 'human-rights'
+  'health-nonprofit',
+  'education-nonprofit',
+  'environmental',
+  'human-rights',
   // Technology
-  | 'saas'
-  | 'agency';
+  'saas',
+  'agency',
+]);
+export type SubVertical = z.infer<typeof subVerticalSchema>;
 
-export type Module =
-  | 'emr'
-  | 'pos'
-  | 'case-management'
-  | 'broadcast-studio'
-  | 'donor-portal'
-  | 'client-portal';
+export const moduleSchema = z.enum([
+  'emr',
+  'pos',
+  'case-management',
+  'broadcast-studio',
+  'donor-portal',
+  'client-portal',
+]);
+export type Module = z.infer<typeof moduleSchema>;
 
-export interface TermScope {
-  vertical?: Vertical;
-  subvertical?: SubVertical;
-  module?: Module;
-}
+export const termScopeSchema = z.object({
+  vertical: verticalSchema.optional(),
+  subvertical: subVerticalSchema.optional(),
+  module: moduleSchema.optional(),
+});
+export interface TermScope extends z.infer<typeof termScopeSchema> {}
 
-export interface TermDefinition {
-  /** Stable key (never changes) */
-  key: string;
+export const termDefinitionSchema = z.object({
+  key: z.string().min(1),
+  layer: layerSchema,
+  scopes: termScopeSchema,
+  translations: z.record(z.string(), z.string()),
+  synonyms: z.array(z.string()).optional(),
+  examples: z.array(z.string()).optional(),
+  owner: z.string(),
+  version: z.string(),
+  deprecated: z
+    .object({
+      replacedBy: z.string().optional(),
+      reason: z.string(),
+      removedIn: z.string().optional(),
+    })
+    .optional(),
+  external: z
+    .object({
+      naics: z.array(z.string()).optional(),
+      gics: z.array(z.string()).optional(),
+    })
+    .optional(),
+});
 
-  /** Physical layer location */
-  layer: Layer;
-
-  /** Taxonomy scopes (metadata, not file structure) */
-  scopes: TermScope;
-
-  /** Translations by locale */
-  translations: Record<string, string>;
-
-  /** Synonyms in other contexts (for AI disambiguation) */
-  synonyms?: string[];
-
-  /** Usage examples */
-  examples?: string[];
-
-  /** Team/person responsible */
-  owner: string;
-
-  /** Semantic version */
-  version: string;
-
-  /** If deprecated, migration path */
-  deprecated?: {
-    replacedBy?: string;
-    reason: string;
-    removedIn?: string;
-  };
-
-  /** NAICS/GICS mappings for interoperability */
-  external?: {
-    naics?: string[];
-    gics?: string[];
-  };
-}
+export interface TermDefinition extends z.infer<typeof termDefinitionSchema> {}
 
 /**
  * Example: "Patient" term with scope-based overrides
@@ -246,6 +245,12 @@ export class InMemoryTermRegistry implements TermRegistry {
   }
 
   async addTerm(term: TermDefinition): Promise<void> {
+    // Zod validation
+    const validationResult = termDefinitionSchema.safeParse(term);
+    if (!validationResult.success) {
+      throw new Error(`Invalid term definition: ${validationResult.error.message}`);
+    }
+
     // Governance check: prevent duplicates
     if (this.exists(term.key)) {
       throw new Error(`Term ${term.key} already exists`);
@@ -257,7 +262,7 @@ export class InMemoryTermRegistry implements TermRegistry {
       console.warn(`Similar terms found for "${term.translations['en']}":`, similar.map(t => t.key));
     }
 
-    this.terms.set(term.key, term);
+    this.terms.set(term.key, validationResult.data);
   }
 
   async deprecateTerm(key: string, migration: { replacedBy?: string; reason: string }): Promise<void> {

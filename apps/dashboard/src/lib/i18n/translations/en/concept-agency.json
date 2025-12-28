@@ -1,4 +1,10 @@
 {
+  "_metadata": {
+    "layer": "concept",
+    "vertical": "technology",
+    "subvertical": "saas-agency",
+    "description": "Technology/SaaS agency domain concepts including service products, client types, deployments, and engagements"
+  },
   "concept": {
     "service": {
       "product": {

@@ -1,4 +1,10 @@
 {
+  "_metadata": {
+    "layer": "concept",
+    "vertical": "nonprofit",
+    "subvertical": null,
+    "description": "Nonprofit organization domain concepts including organization types, programs, fundraising, volunteers, and impact measurement"
+  },
   "organization": {
     "type": {
       "charity": "Charity",

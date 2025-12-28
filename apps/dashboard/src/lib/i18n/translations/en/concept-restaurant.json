@@ -1,4 +1,10 @@
 {
+  "_metadata": {
+    "layer": "concept",
+    "vertical": "hospitality",
+    "subvertical": "restaurant",
+    "description": "Restaurant industry domain concepts including dining, menu, service, and guest management"
+  },
   "concept": {
     "booking": {
       "resource": {

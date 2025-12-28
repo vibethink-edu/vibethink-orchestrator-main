@@ -1,4 +1,10 @@
 {
+  "_metadata": {
+    "layer": "concept",
+    "vertical": "media-entertainment",
+    "subvertical": null,
+    "description": "Media and entertainment industry domain concepts including platforms, content types, broadcasting, and audience management"
+  },
   "platform": {
     "type": {
       "radioStation": "Radio Station",
