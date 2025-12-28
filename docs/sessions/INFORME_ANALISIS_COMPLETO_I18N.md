@@ -662,3 +662,4 @@ git commit -m "fix(i18n): Refine 6 idiomas 90% → 95%"
 **Estado:** ✅ LISTO PARA REVISIÓN
 
 
+
