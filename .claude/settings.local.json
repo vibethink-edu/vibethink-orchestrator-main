@@ -86,7 +86,8 @@
       "Bash(Select-Object -First 20)",
       "Bash(Select-String -Pattern \"(error|Error)\")",
       "Bash(Select-String -Pattern \"(terminology-snapshot|translation-loader|utils)\")",
-      "Bash(do echo \"=== $file ===\")"
+      "Bash(do echo \"=== $file ===\")",
+      "Bash(xargs git add)"
     ],
     "deny": []
   }
