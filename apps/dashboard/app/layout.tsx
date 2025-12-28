@@ -85,8 +85,8 @@ export default async function RootLayout({
       .map(([key, value]) => [`data-theme-${key.replace(/([A-Z])/g, "-$1").toLowerCase()}`, value])
   );
 
-  // RTL support for Arabic
-  const isRTL = initialLocale === 'ar';
+  // RTL support for Arabic, Hebrew, Persian, and Urdu
+  const isRTL = initialLocale === 'ar' || initialLocale === 'he' || initialLocale === 'fa' || initialLocale === 'ur';
   const direction = isRTL ? 'rtl' : 'ltr';
 
   return (

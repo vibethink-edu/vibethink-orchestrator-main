@@ -23,20 +23,31 @@ export default function DashboardBunduiLayout({
   children: React.ReactNode;
 }) {
   // Detect RTL from document direction
-  const [isRTL, setIsRTL] = React.useState(false);
+  // Initialize with current dir to avoid flash
+  const [isRTL, setIsRTL] = React.useState(() => {
+    if (typeof window !== 'undefined') {
+      return document.documentElement.getAttribute('dir') === 'rtl';
+    }
+    return false;
+  });
 
   React.useEffect(() => {
-    // Initial check
+    // Initial check (in case state initialization didn't capture it)
     const direction = document.documentElement.getAttribute('dir');
-    setIsRTL(direction === 'rtl');
+    console.log('[Layout] Initial dir check:', direction, 'isRTL:', isRTL);
+
+    if ((direction === 'rtl') !== isRTL) {
+      console.log('[Layout] Updating isRTL to:', direction === 'rtl');
+      setIsRTL(direction === 'rtl');
+    }
 
     // Watch for dir attribute changes (when locale changes dynamically)
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.type === 'attributes' && mutation.attributeName === 'dir') {
           const newDir = document.documentElement.getAttribute('dir');
+          console.log('[Layout] 🔄 RTL direction changed:', newDir, '→ isRTL will be:', newDir === 'rtl');
           setIsRTL(newDir === 'rtl');
-          console.log('[Layout] RTL direction changed:', newDir);
         }
       });
     });
@@ -47,10 +58,16 @@ export default function DashboardBunduiLayout({
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [isRTL]);
+
+  // Log whenever isRTL changes
+  React.useEffect(() => {
+    console.log('[Layout] 📍 Sidebar side prop will be:', isRTL ? 'RIGHT' : 'LEFT');
+  }, [isRTL]);
 
   return (
     <SidebarProvider
+      key={`sidebar-${isRTL ? 'rtl' : 'ltr'}`}
       defaultOpen={true}
       style={
         {
@@ -63,7 +80,7 @@ export default function DashboardBunduiLayout({
         } as React.CSSProperties
       }
     >
-      <AppSidebar variant="inset" side={isRTL ? "right" : "left"} />
+      <AppSidebar key={`app-sidebar-${isRTL ? 'rtl' : 'ltr'}`} variant="inset" side={isRTL ? "right" : "left"} />
       <SidebarInset>
         <SiteHeader />
         <div className="flex items-center gap-2 px-4 pt-2 pb-1 border-b bg-background">
