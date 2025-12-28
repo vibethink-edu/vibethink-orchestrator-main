@@ -57,14 +57,6 @@
   text-align: right;
 }
 
-/* RTL: Auto-reverse flex direction */
-:lang(ar) .flex,
-:lang(he) .flex,
-:lang(fa) .flex,
-:lang(ur) .flex {
-  flex-direction: row-reverse;
-}
-
 /* ============================================
    RTL LAYOUT SUPPORT - HTML[dir="rtl"]
    Inverts layout for Arabic and other RTL languages
@@ -85,6 +77,21 @@ html[dir="rtl"] [data-sidebar],
 html[dir="rtl"] .sidebar {
   left: auto;
   right: 0;
+}
+
+/* RTL: flip layout direction for dashboard-bundui wrapper */
+html[dir="rtl"] .dashboard-bundui-layout[data-slot="sidebar-wrapper"] {
+  flex-direction: row-reverse;
+}
+
+@media (min-width: 768px) {
+  html[dir="rtl"] .dashboard-bundui-layout [data-slot="sidebar"][data-state="expanded"] ~ [data-slot="sidebar-inset"] {
+    padding-right: var(--sidebar-width);
+  }
+
+  html[dir="rtl"] .dashboard-bundui-layout [data-slot="sidebar"][data-state="collapsed"] ~ [data-slot="sidebar-inset"] {
+    padding-right: var(--sidebar-width-icon);
+  }
 }
 
 /* Main content - adjust for sidebar on right */

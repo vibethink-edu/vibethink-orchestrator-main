@@ -6,6 +6,7 @@ import { AppSidebar } from "@/shared/components/bundui-premium/components/layout
 import { DashboardBadge } from "@/shared/components/dashboard-badge";
 import { SiteHeader } from "@/shared/components/bundui-premium/components/layout/header-bundui";
 import { Footer } from "@/components/layout/footer";
+import { useI18n } from "@/lib/i18n/context";
 
 /**
  * Layout para todas las rutas bajo `/dashboard-bundui/*`.
@@ -21,21 +22,26 @@ export default function DashboardBunduiLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const { locale } = useI18n();
+  const isRTL = locale === 'ar';
+
   return (
     <SidebarProvider
       defaultOpen={true}
-      style={
-        {
-          "--sidebar-width": "calc(var(--spacing) * 64)",
-          "--header-height": "calc(var(--spacing) * 14)",
-          "--content-padding": "calc(var(--spacing) * 4)",
-          "--content-margin": "calc(var(--spacing) * 1.5)",
-          "--content-full-height":
-            "calc(100vh - var(--header-height) - (var(--content-padding) * 2) - (var(--content-margin) * 2))"
-        } as React.CSSProperties
-      }
+      className="dashboard-bundui-layout"
+      style=
+      {{
+        "--sidebar-width": "calc(var(--spacing) * 64)",
+        "--header-height": "calc(var(--spacing) * 14)",
+        "--content-padding": "calc(var(--spacing) * 4)",
+        "--content-margin": "calc(var(--spacing) * 1.5)",
+        "--content-full-height":
+          "calc(100vh - var(--header-height) - (var(--content-padding) * 2) - (var(--content-margin) * 2))",
+        direction: isRTL ? 'rtl' : 'ltr',
+        WebkitFontSmoothing: 'antialiased'
+      } as React.CSSProperties}
     >
-      <AppSidebar variant="inset" />
+      <AppSidebar variant="inset" side={isRTL ? 'right' : 'left'} />
       <SidebarInset>
         <SiteHeader />
         <div className="flex items-center gap-2 px-4 pt-2 pb-1 border-b bg-background">
