@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from 'react'
 import { Spinner } from '../../../components/spinner'
 import { cn } from '@/lib/utils'
