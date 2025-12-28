@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-27T16:37:23.590Z",
+  "timestamp": "2025-12-27T17:23:13.623Z",
   "summary": {
     "totalNamespaces": 4,
     "totalLocales": 8,
@@ -7,7 +7,7 @@
     "completeLocales": 8,
     "incompleteLocales": 24,
     "missingFiles": 0,
-    "totalMissingKeys": 138
+    "totalMissingKeys": 159
   },
   "details": [
     {
@@ -108,21 +108,34 @@
             "page",
             "notification",
             "notifications",
-            "paymentForm.fields.cvc"
+            "header.download",
+            "table.selectAll",
+            "table.selectRow",
+            "table.noResults",
+            "table.customer",
+            "table.email",
+            "table.amount",
+            "payments.actions",
+            "paymentForm.methods.apple"
           ],
-          "count": 5,
-          "percentComplete": 96.9
+          "count": 13,
+          "percentComplete": 92
         },
         "pt": {
           "fileExists": true,
           "missingKeys": [
-            "download",
             "header.download",
+            "table.selectAll",
+            "table.selectRow",
+            "table.noResults",
+            "table.customer",
+            "table.email",
+            "table.amount",
             "table.status",
-            "paymentForm.fields.cvc"
+            "paymentForm.methods.apple"
           ],
-          "count": 4,
-          "percentComplete": 97.5
+          "count": 9,
+          "percentComplete": 94.5
         },
         "de": {
           "fileExists": true,
@@ -152,10 +165,18 @@
         "ko": {
           "fileExists": true,
           "missingKeys": [
+            "header.download",
+            "table.selectAll",
+            "table.selectRow",
+            "table.noResults",
+            "table.customer",
+            "table.email",
+            "table.amount",
+            "paymentForm.methods.apple",
             "paymentForm.fields.cvc"
           ],
-          "count": 1,
-          "percentComplete": 99.4
+          "count": 9,
+          "percentComplete": 94.5
         }
       },
       "summary": {
