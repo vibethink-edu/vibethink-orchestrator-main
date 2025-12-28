@@ -1,0 +1,252 @@
+{
+  "beneficiary": {
+    "journey": {
+      "intake": "Intake",
+      "assessment": "Assessment",
+      "service": "Service Delivery",
+      "followUp": "Follow-up",
+      "completion": "Program Completion",
+      "alumni": "Alumni Status"
+    },
+    "case": {
+      "openCase": "Open Case",
+      "assignCaseWorker": "Assign Case Worker",
+      "servicePlan": "Service Plan",
+      "caseNotes": "Case Notes",
+      "followUp": "Follow-up Appointment",
+      "updateStatus": "Update Status",
+      "closeCase": "Close Case"
+    },
+    "portal": {
+      "myJourney": "My Journey",
+      "serviceSchedule": "Service Schedule",
+      "myDocuments": "My Documents",
+      "requestSupport": "Request Support",
+      "connectWithPeer": "Connect with Peer",
+      "resources": "Resources",
+      "myProgress": "My Progress"
+    },
+    "support": {
+      "emergency": "Emergency Support",
+      "counseling": "Counseling",
+      "mentorship": "Mentorship",
+      "peerSupport": "Peer Support",
+      "groupSession": "Group Session"
+    }
+  },
+  "donor": {
+    "donation": {
+      "oneTime": "One-Time Donation",
+      "recurring": "Recurring Donation",
+      "monthly": "Monthly",
+      "quarterly": "Quarterly",
+      "yearly": "Yearly",
+      "memorial": "Memorial Donation",
+      "honor": "Honor Donation",
+      "corporate": "Corporate Sponsorship",
+      "matching": "Matching Gift",
+      "legacy": "Planned Giving"
+    },
+    "impact": {
+      "beneficiariesHelped": "Beneficiaries Helped",
+      "fundsRaised": "Funds Raised",
+      "programsSupported": "Programs Supported",
+      "impactReport": "Impact Report",
+      "yourImpact": "Your Impact",
+      "donationHistory": "Donation History",
+      "taxReceipt": "Tax Receipt"
+    },
+    "engagement": {
+      "becomeDonor": "Become a Donor",
+      "sponsorBeneficiary": "Sponsor a Beneficiary",
+      "fundProgram": "Fund a Program",
+      "viewImpact": "View Your Impact",
+      "updatePayment": "Update Payment Method",
+      "joinLegacyCircle": "Join Legacy Circle"
+    }
+  },
+  "partner": {
+    "network": {
+      "joinNetwork": "Join Partner Network",
+      "referBeneficiary": "Refer Beneficiary",
+      "acceptReferral": "Accept Referral",
+      "collaborate": "Collaborate on Services",
+      "coordination": "Service Coordination"
+    },
+    "services": {
+      "directService": "Direct Service",
+      "supportServices": "Support Services",
+      "specializedService": "Specialized Service",
+      "emergencyService": "Emergency Service",
+      "ongoing": "Ongoing Support"
+    },
+    "credentialing": {
+      "license": "Professional License",
+      "certification": "Certification",
+      "specialty": "Specialty Area",
+      "verification": "Verification Status",
+      "backgroundCheck": "Background Check"
+    }
+  },
+  "resource": {
+    "education": {
+      "training": "Training Materials",
+      "guides": "Resource Guides",
+      "webinar": "Webinars",
+      "workshop": "Workshops",
+      "toolkit": "Toolkit",
+      "bestPractices": "Best Practices"
+    },
+    "community": {
+      "supportGroup": "Support Group",
+      "forum": "Community Forum",
+      "events": "Events & Workshops",
+      "webinar": "Webinar",
+      "newsletter": "Newsletter",
+      "blog": "Blog & Stories",
+      "successStories": "Success Stories"
+    }
+  },
+  "program": {
+    "type": {
+      "directAid": "Direct Aid Program",
+      "skillsTraining": "Skills Training",
+      "education": "Education Program",
+      "healthServices": "Health Services",
+      "housing": "Housing Program",
+      "counseling": "Counseling Program",
+      "peerSupport": "Peer Support Program",
+      "advocacy": "Advocacy Program"
+    },
+    "enrollment": {
+      "apply": "Apply to Program",
+      "eligibility": "Check Eligibility",
+      "applicationStatus": "Application Status",
+      "renewEnrollment": "Renew Enrollment",
+      "documents": "Required Documents",
+      "waitlist": "Join Waitlist"
+    }
+  },
+  "team": {
+    "role": {
+      "director": "Program Director",
+      "coordinator": "Program Coordinator",
+      "caseWorker": "Case Worker",
+      "counselor": "Counselor",
+      "mentor": "Mentor",
+      "volunteer": "Volunteer",
+      "specialist": "Specialist"
+    },
+    "appointment": {
+      "schedule": "Schedule Appointment",
+      "intake": "Intake Appointment",
+      "counseling": "Counseling Session",
+      "followUp": "Follow-up Visit",
+      "assessment": "Assessment",
+      "groupSession": "Group Session"
+    }
+  },
+  "contentManagement": {
+    "type": {
+      "article": "Article",
+      "video": "Video",
+      "infographic": "Infographic",
+      "guide": "Resource Guide",
+      "testimonial": "Testimonial",
+      "story": "Success Story",
+      "caseStudy": "Case Study"
+    },
+    "category": {
+      "education": "Educational Content",
+      "awareness": "Awareness Campaign",
+      "research": "Research Update",
+      "events": "Events & Programs",
+      "news": "News & Updates",
+      "impact": "Impact Stories"
+    },
+    "action": {
+      "create": "Create Content",
+      "edit": "Edit Content",
+      "publish": "Publish",
+      "schedule": "Schedule Publication",
+      "archive": "Archive"
+    },
+    "status": {
+      "draft": "Draft",
+      "review": "Under Review",
+      "approved": "Approved",
+      "published": "Published",
+      "scheduled": "Scheduled"
+    }
+  },
+  "marketing": {
+    "campaign": {
+      "awareness": "Awareness Campaign",
+      "fundraising": "Fundraising Campaign",
+      "recruitment": "Beneficiary Recruitment",
+      "volunteer": "Volunteer Recruitment",
+      "advocacy": "Advocacy Campaign",
+      "annual": "Annual Campaign"
+    },
+    "channel": {
+      "email": "Email Marketing",
+      "social": "Social Media",
+      "events": "Events",
+      "partnerships": "Partnerships",
+      "community": "Community Outreach",
+      "media": "Media Relations"
+    },
+    "metrics": {
+      "reach": "Reach",
+      "engagement": "Engagement",
+      "conversions": "Conversions",
+      "donations": "Donations Generated",
+      "signups": "New Signups",
+      "volunteers": "Volunteer Applications"
+    }
+  },
+  "marketplace": {
+    "category": {
+      "services": "Services",
+      "supplies": "Supplies",
+      "equipment": "Equipment",
+      "resources": "Educational Resources",
+      "technology": "Technology Tools"
+    },
+    "provider": {
+      "verified": "Verified Provider",
+      "featured": "Featured Provider",
+      "discount": "Community Discount Available",
+      "rating": "Provider Rating",
+      "trusted": "Trusted Partner"
+    },
+    "action": {
+      "browse": "Browse Services",
+      "requestQuote": "Request Quote",
+      "connectProvider": "Connect with Provider",
+      "addToCart": "Add to Cart",
+      "applyDiscount": "Apply Community Discount"
+    }
+  },
+  "integration": {
+    "providerType": {
+      "serviceProvider": "Service Provider",
+      "supplier": "Supplier",
+      "referralPartner": "Referral Partner",
+      "technologyPartner": "Technology Partner",
+      "fundingPartner": "Funding Partner"
+    },
+    "status": {
+      "pending": "Pending Approval",
+      "active": "Active Integration",
+      "suspended": "Suspended",
+      "inactive": "Inactive"
+    },
+    "action": {
+      "applyToJoin": "Apply to Join Network",
+      "updateCatalog": "Update Service Catalog",
+      "manageReferrals": "Manage Referrals",
+      "viewAnalytics": "View Analytics"
+    }
+  }
+}

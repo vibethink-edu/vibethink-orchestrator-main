@@ -1,0 +1,118 @@
+{
+  "platform": {
+    "type": {
+      "radioStation": "Radio Station",
+      "tvChannel": "TV Channel",
+      "podcastNetwork": "Podcast Network",
+      "streamingService": "Streaming Service",
+      "youtubeChannel": "YouTube Channel",
+      "socialChannel": "Social Media Channel",
+      "productionStudio": "Production Studio"
+    }
+  },
+  "broadcast": {
+    "type": {
+      "live": "Live",
+      "recorded": "Recorded",
+      "automated": "Automated",
+      "syndicated": "Syndicated",
+      "onDemand": "On-Demand"
+    },
+    "format": {
+      "music": "Music",
+      "talk": "Talk",
+      "news": "News",
+      "sports": "Sports",
+      "variety": "Variety",
+      "entertainment": "Entertainment",
+      "documentary": "Documentary"
+    }
+  },
+  "content": {
+    "type": {
+      "show": "Show",
+      "episode": "Episode",
+      "segment": "Segment",
+      "series": "Series",
+      "movie": "Movie",
+      "podcast": "Podcast",
+      "interview": "Interview",
+      "commentary": "Commentary",
+      "shortForm": "Short-form Video",
+      "livestream": "Livestream"
+    },
+    "production": {
+      "commercial": "Commercial",
+      "jingle": "Jingle",
+      "promo": "Promo",
+      "sweeper": "Sweeper",
+      "bumper": "Bumper",
+      "trailer": "Trailer",
+      "teaser": "Teaser"
+    },
+    "genre": {
+      "pop": "Pop",
+      "rock": "Rock",
+      "jazz": "Jazz",
+      "classical": "Classical",
+      "electronic": "Electronic",
+      "country": "Country",
+      "hiphop": "Hip-Hop",
+      "comedy": "Comedy",
+      "drama": "Drama",
+      "action": "Action",
+      "thriller": "Thriller"
+    }
+  },
+  "audience": {
+    "type": {
+      "viewer": "Viewer",
+      "listener": "Listener",
+      "subscriber": "Subscriber",
+      "follower": "Follower",
+      "caller": "Caller",
+      "fan": "Fan"
+    },
+    "demographic": {
+      "allAges": "All Ages",
+      "children": "Children",
+      "teens": "Teens",
+      "adults": "Adults",
+      "seniors": "Seniors"
+    },
+    "engagement": {
+      "callIn": "Call-In",
+      "textMessage": "Text Message",
+      "socialMedia": "Social Media",
+      "songRequest": "Song Request",
+      "comment": "Comment",
+      "like": "Like",
+      "share": "Share"
+    }
+  },
+  "advertising": {
+    "type": {
+      "commercial": "Commercial",
+      "sponsorship": "Sponsorship",
+      "underwriting": "Underwriting",
+      "psa": "Public Service Announcement",
+      "productPlacement": "Product Placement",
+      "brandedContent": "Branded Content"
+    },
+    "duration": {
+      "15sec": "15 Seconds",
+      "30sec": "30 Seconds",
+      "60sec": "60 Seconds",
+      "90sec": "90 Seconds"
+    }
+  },
+  "distribution": {
+    "channel": {
+      "terrestrial": "Terrestrial Broadcast",
+      "satellite": "Satellite",
+      "cable": "Cable",
+      "internet": "Internet Streaming",
+      "mobile": "Mobile App"
+    }
+  }
+}

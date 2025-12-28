@@ -1,0 +1,112 @@
+{
+  "organization": {
+    "type": {
+      "charity": "Charity",
+      "foundation": "Foundation",
+      "association": "Association",
+      "socialEnterprise": "Social Enterprise",
+      "ngo": "NGO",
+      "community": "Community Organization"
+    },
+    "cause": {
+      "health": "Health & Medical",
+      "education": "Education",
+      "environment": "Environment",
+      "animalWelfare": "Animal Welfare",
+      "humanRights": "Human Rights",
+      "poverty": "Poverty Alleviation",
+      "disasterRelief": "Disaster Relief",
+      "arts": "Arts & Culture"
+    },
+    "beneficiary": {
+      "children": "Children",
+      "elderly": "Elderly",
+      "patients": "Patients",
+      "veterans": "Veterans",
+      "refugees": "Refugees",
+      "homeless": "Homeless",
+      "disabled": "People with Disabilities"
+    }
+  },
+  "program": {
+    "type": {
+      "directService": "Direct Service",
+      "advocacy": "Advocacy",
+      "research": "Research",
+      "education": "Education",
+      "grantmaking": "Grantmaking",
+      "community": "Community Building"
+    },
+    "service": {
+      "financialAid": "Financial Aid",
+      "counseling": "Counseling",
+      "mentorship": "Mentorship",
+      "training": "Training",
+      "support": "Support Services",
+      "emergency": "Emergency Assistance"
+    }
+  },
+  "fundraising": {
+    "campaign": {
+      "annual": "Annual Campaign",
+      "capital": "Capital Campaign",
+      "emergency": "Emergency Appeal",
+      "endowment": "Endowment Campaign",
+      "special": "Special Event"
+    },
+    "method": {
+      "online": "Online Donation",
+      "event": "Fundraising Event",
+      "directMail": "Direct Mail",
+      "phoneCall": "Phone-a-thon",
+      "grant": "Grant Application",
+      "corporate": "Corporate Partnership"
+    }
+  },
+  "volunteer": {
+    "type": {
+      "regular": "Regular Volunteer",
+      "occasional": "Occasional Volunteer",
+      "skilled": "Skilled Volunteer",
+      "board": "Board Member",
+      "ambassador": "Ambassador"
+    },
+    "opportunity": {
+      "onsite": "On-site",
+      "remote": "Remote/Virtual",
+      "event": "Event-based",
+      "ongoing": "Ongoing Commitment"
+    }
+  },
+  "impact": {
+    "metric": {
+      "beneficiaries": "Beneficiaries Served",
+      "programs": "Programs Delivered",
+      "volunteers": "Volunteer Hours",
+      "funds": "Funds Raised",
+      "partnerships": "Partnerships Formed"
+    },
+    "reporting": {
+      "annual": "Annual Report",
+      "impact": "Impact Report",
+      "financial": "Financial Statement",
+      "program": "Program Outcomes"
+    }
+  },
+  "donor": {
+    "type": {
+      "individual": "Individual Donor",
+      "corporate": "Corporate Donor",
+      "foundation": "Foundation Grant",
+      "government": "Government Grant",
+      "legacy": "Legacy Donor"
+    },
+    "level": {
+      "supporter": "Supporter",
+      "patron": "Patron",
+      "benefactor": "Benefactor",
+      "champion": "Champion",
+      "legacy": "Legacy Circle"
+    }
+  }
+}

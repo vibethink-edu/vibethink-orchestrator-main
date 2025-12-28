@@ -1,13 +1,4 @@
 {
-<<<<<<< HEAD
-  "concept.booking.resource.room": "Booth",
-  "concept.booking.resource.studio_room": "Recording Studio",
-  "concept.booking.resource.equipment": "Audio Equipment"
-}
-
-
-
-=======
   "concept": {
     "booking": {
       "action": {
@@ -18,6 +9,11 @@
       "time": {
         "checkIn": "Check-in",
         "checkOut": "Check-out"
+      },
+      "resource": {
+        "room": "Booth",
+        "studio_room": "Recording Studio",
+        "equipment": "Audio Equipment"
       }
     },
     "crm": {
@@ -58,5 +54,3 @@
     }
   }
 }
-
->>>>>>> zealous-williams
