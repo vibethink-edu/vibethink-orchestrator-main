@@ -59,20 +59,8 @@ export async function loadTranslation(
     
     return namespaceContent;
   } catch (error) {
-    // Only log error if it's not a common missing namespace
-    const isCommonMissing = error instanceof Error &&
-      (error.message.includes('Cannot find module') || error.message.includes('ENOENT'));
-
-    if (!isCommonMissing) {
-      console.error(
-        `[i18n] ❌ Failed to load translation for ${locale}/${namespace}:`,
-        error instanceof Error ? error.message : error
-      );
-    } else {
-      console.warn(
-        `[i18n] ⚠️ Translation file not found: ${locale}/${namespace}.json - using fallback`
-      );
-    }
+    // Silently fallback to English for missing translation files
+    // This is expected behavior for namespaces that don't have all language versions yet
 
     // Fallback to English if available
     if (locale !== 'en') {
@@ -81,16 +69,23 @@ export async function loadTranslation(
           `./translations/en/${namespace}.json`
         );
         const fallbackTranslations = fallback.default || fallback;
-        console.log(`[i18n] ✅ Using English fallback for namespace: ${namespace}`);
+
+        // Extract namespace content if JSON has namespace as root key
+        let namespaceContent: TranslationDictionary;
+        if (fallbackTranslations[namespace] && typeof fallbackTranslations[namespace] === 'object') {
+          namespaceContent = fallbackTranslations[namespace] as TranslationDictionary;
+        } else {
+          namespaceContent = fallbackTranslations as TranslationDictionary;
+        }
 
         // Cache the English fallback for this locale too
         const cacheKey = getCacheKey(locale, namespace);
-        translationCache.set(cacheKey, fallbackTranslations);
+        translationCache.set(cacheKey, namespaceContent);
 
-        return fallbackTranslations;
+        return namespaceContent;
       } catch {
-        console.warn(`[i18n] ⚠️ No English fallback available for: ${namespace}`);
-        // If even English fails, return empty object
+        // If even English fails, return empty object silently
+        // The app will use translation keys as fallback text
         return {};
       }
     }

@@ -57,72 +57,19 @@
   text-align: right;
 }
 
-/* RTL: Auto-reverse flex direction */
-:lang(ar) .flex,
-:lang(he) .flex,
-:lang(fa) .flex,
-:lang(ur) .flex {
-  flex-direction: row-reverse;
-}
-
 /* ============================================
    RTL LAYOUT SUPPORT - HTML[dir="rtl"]
-   Inverts layout for Arabic and other RTL languages
+   Minimal RTL support - Shadcn Sidebar handles its own positioning
    ============================================ */
 
-/* Main layout container - flip sidebar to right */
+/* Set text direction and alignment */
 html[dir="rtl"] {
   direction: rtl;
+  text-align: right;
 }
 
 html[dir="rtl"] body {
   direction: rtl;
-}
-
-/* Sidebar positioning - Shadcn UI specific */
-html[dir="rtl"] [data-slot="sidebar-wrapper"] {
-  flex-direction: row-reverse;
-}
-
-html[dir="rtl"] [data-side="right"] {
-  order: -1;
-}
-
-/* Sidebar gap - position correctly for RTL */
-html[dir="rtl"] [data-slot="sidebar-gap"] {
-  left: auto;
-  right: 0;
-}
-
-/* Sidebar inset variant - adjust positioning */
-html[dir="rtl"] [data-variant="inset"] [data-slot="sidebar"] {
-  left: auto;
-  right: 0;
-}
-
-/* SidebarInset - adjust margins for RTL */
-html[dir="rtl"] [data-slot="sidebar-inset"] {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-/* Generic sidebar positioning - move to right side */
-html[dir="rtl"] aside,
-html[dir="rtl"] [data-sidebar],
-html[dir="rtl"] .sidebar {
-  left: auto;
-  right: 0;
-}
-
-/* Main content - adjust for sidebar on right */
-html[dir="rtl"] main {
-  margin-right: auto;
-  margin-left: 0;
-}
-
-/* Text alignment */
-html[dir="rtl"] {
-  text-align: right;
 }
 
 /* Icons and arrows - flip horizontally */
@@ -140,25 +87,20 @@ html[dir="rtl"] [role="listbox"] {
   text-align: right;
 }
 
-/* Reverse padding/margin for better RTL flow */
-html[dir="rtl"] .ps-4 {
-  padding-left: 0;
-  padding-right: 1rem;
-}
-
-html[dir="rtl"] .pe-4 {
-  padding-right: 0;
-  padding-left: 1rem;
-}
-
-/* Fix flex direction for RTL - override auto-reverse */
+/* CRITICAL FIX: Ensure flex-col is NOT reversed in RTL */
 html[dir="rtl"] .flex-col {
   flex-direction: column !important;
 }
 
-html[dir="rtl"] .flex-row {
-  flex-direction: row-reverse !important;
+/* Ensure vertical layouts stay vertical */
+html[dir="rtl"] [class*="flex"][class*="flex-col"],
+html[dir="rtl"] .flex.flex-col {
+  flex-direction: column !important;
 }
+
+/* CRITICAL: DO NOT override flex directions or sidebar positioning
+   The Shadcn Sidebar component handles its own layout via the "side" prop
+   Global flex overrides break the sidebar and footer positioning */
 
 /* ============================================
    LANGUAGES WITH SPECIAL REQUIREMENTS
