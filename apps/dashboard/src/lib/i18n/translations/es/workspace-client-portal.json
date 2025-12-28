@@ -1,0 +1,107 @@
+{
+  "portal": {
+    "subscription": {
+      "plan": {
+        "starter": "Inicial",
+        "professional": "Profesional",
+        "business": "Empresarial",
+        "enterprise": "Empresa",
+        "custom": "Personalizado"
+      },
+      "billing": {
+        "monthly": "Mensual",
+        "yearly": "Anual",
+        "usage": "Basado en Uso",
+        "custom": "Facturación Personalizada"
+      },
+      "status": {
+        "active": "Activo",
+        "trial": "Prueba",
+        "suspended": "Suspendido",
+        "cancelled": "Cancelado",
+        "expired": "Vencido"
+      }
+    },
+    "support": {
+      "ticket": {
+        "create": "Crear Ticket",
+        "view": "Ver Ticket",
+        "update": "Actualizar Ticket",
+        "close": "Cerrar Ticket"
+      },
+      "priority": {
+        "low": "Baja",
+        "medium": "Media",
+        "high": "Alta",
+        "urgent": "Urgente",
+        "critical": "Crítica"
+      },
+      "channel": {
+        "email": "Correo Electrónico",
+        "chat": "Chat en Vivo",
+        "phone": "Teléfono",
+        "portal": "Portal"
+      },
+      "resource": {
+        "documentation": "Documentación",
+        "knowledgeBase": "Base de Conocimientos",
+        "tutorial": "Tutorial",
+        "faq": "Preguntas Frecuentes",
+        "apiDocs": "Documentación de API"
+      }
+    },
+    "integration": {
+      "status": {
+        "connected": "Conectado",
+        "pending": "Autorización Pendiente",
+        "failed": "Conexión Fallida",
+        "disconnected": "Desconectado"
+      },
+      "action": {
+        "connect": "Conectar",
+        "disconnect": "Desconectar",
+        "reconnect": "Reconectar",
+        "configure": "Configurar",
+        "testConnection": "Probar Conexión"
+      },
+      "provider": {
+        "quickbooks": "QuickBooks",
+        "stripe": "Stripe",
+        "salesforce": "Salesforce",
+        "slack": "Slack",
+        "zapier": "Zapier"
+      }
+    },
+    "analytics": {
+      "metric": {
+        "usage": "Uso",
+        "performance": "Rendimiento",
+        "uptime": "Tiempo en Línea",
+        "requests": "Solicitudes de API",
+        "storage": "Almacenamiento Utilizado"
+      },
+      "period": {
+        "today": "Hoy",
+        "week": "Esta Semana",
+        "month": "Este Mes",
+        "quarter": "Este Trimestre",
+        "year": "Este Año"
+      }
+    },
+    "account": {
+      "team": {
+        "members": "Miembros del Equipo",
+        "invite": "Invitar Miembro",
+        "remove": "Eliminar Miembro",
+        "role": "Rol",
+        "permissions": "Permisos"
+      },
+      "security": {
+        "2fa": "Autenticación de Dos Factores",
+        "apiKeys": "Claves de API",
+        "auditLog": "Registro de Auditoría",
+        "sessions": "Sesiones Activas"
+      }
+    }
+  }
+}

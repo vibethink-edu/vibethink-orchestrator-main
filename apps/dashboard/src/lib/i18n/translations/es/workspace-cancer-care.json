@@ -1,0 +1,263 @@
+{
+  "patient": {
+    "journey": {
+      "diagnosis": "Diagnóstico",
+      "treatment": "Tratamiento",
+      "recovery": "Recuperación",
+      "survivorship": "Sobrevivencia",
+      "palliativeCare": "Cuidados Paliativos",
+      "endOfLife": "Cuidados al Final de la Vida",
+      "remission": "Monitoreo de Remisión"
+    },
+    "case": {
+      "openCase": "Abrir Caso",
+      "assignCareTeam": "Asignar Equipo de Atención",
+      "treatmentPlan": "Plan de Tratamiento",
+      "caseNotes": "Notas del Caso",
+      "followUp": "Cita de Seguimiento",
+      "updateStatus": "Actualizar Estado"
+    },
+    "portal": {
+      "myJourney": "Mi Trayectoria",
+      "treatmentSchedule": "Horario de Tratamiento",
+      "medicalRecords": "Registros Médicos",
+      "requestSupport": "Solicitar Apoyo",
+      "connectWithSurvivor": "Conectar con Sobreviviente",
+      "symptomTracker": "Registro de Síntomas",
+      "medications": "Mis Medicamentos"
+    }
+  },
+  "sponsor": {
+    "donation": {
+      "oneTime": "Donación Única",
+      "recurring": "Donación Recurrente",
+      "monthly": "Mensual",
+      "quarterly": "Trimestral",
+      "yearly": "Anual",
+      "memorial": "Donación Conmemorativa",
+      "honor": "Donación en Honor",
+      "corporate": "Patrocinio Corporativo",
+      "matching": "Donación Igualada"
+    },
+    "impact": {
+      "patientsHelped": "Pacientes Ayudados",
+      "fundsRaised": "Fondos Recaudados",
+      "programsSupported": "Programas Apoyados",
+      "impactReport": "Informe de Impacto",
+      "yourImpact": "Su Impacto",
+      "donationHistory": "Historial de Donaciones"
+    },
+    "engagement": {
+      "becomeSponsor": "Convertirse en Patrocinador",
+      "sponsorPatient": "Patrocinar un Paciente",
+      "fundProgram": "Financiar un Programa",
+      "viewImpact": "Ver Su Impacto",
+      "updatePayment": "Actualizar Método de Pago",
+      "taxReceipt": "Recibo Fiscal"
+    }
+  },
+  "provider": {
+    "network": {
+      "joinNetwork": "Unirse a la Red de Proveedores",
+      "referPatient": "Referir Paciente",
+      "acceptReferral": "Aceptar Referencia",
+      "collaborateOnCare": "Colaborar en la Atención",
+      "careCoordination": "Coordinación de Atención"
+    },
+    "services": {
+      "oncology": "Servicios de Oncología",
+      "supportServices": "Servicios de Apoyo",
+      "homeHealth": "Salud en el Hogar",
+      "hospice": "Cuidados Paliativos Terminales",
+      "rehabilitation": "Rehabilitación",
+      "palliative": "Cuidados Paliativos",
+      "infusion": "Centro de Infusión"
+    },
+    "credentialing": {
+      "license": "Licencia Médica",
+      "certification": "Certificación de la Junta",
+      "specialty": "Especialidad",
+      "verification": "Estado de Verificación",
+      "insurance": "Seguros Aceptados"
+    }
+  },
+  "resource": {
+    "education": {
+      "patientEducation": "Educación del Paciente",
+      "caregiverResources": "Recursos para Cuidadores",
+      "treatmentGuides": "Guías de Tratamiento",
+      "sideEffectManagement": "Manejo de Efectos Secundarios",
+      "nutritionGuides": "Guías de Nutrición",
+      "exercisePrograms": "Programas de Ejercicio",
+      "mindfulness": "Conciencia Plena y Meditación"
+    },
+    "community": {
+      "supportGroup": "Grupo de Apoyo",
+      "forum": "Foro Comunitario",
+      "events": "Eventos y Talleres",
+      "webinar": "Seminario Web",
+      "newsletter": "Boletín Informativo",
+      "blog": "Blog e Historias"
+    }
+  },
+  "program": {
+    "type": {
+      "financialAid": "Programa de Ayuda Financiera",
+      "transportation": "Programa de Transporte",
+      "housing": "Programa de Vivienda",
+      "counseling": "Programa de Consejería",
+      "peerSupport": "Programa de Apoyo Entre Pares",
+      "nutrition": "Programa de Nutrición",
+      "wellness": "Programa de Bienestar"
+    },
+    "enrollment": {
+      "apply": "Solicitar al Programa",
+      "eligibility": "Verificar Elegibilidad",
+      "applicationStatus": "Estado de la Solicitud",
+      "renewEnrollment": "Renovar Inscripción",
+      "documents": "Documentos Requeridos"
+    }
+  },
+  "care": {
+    "team": {
+      "oncologist": "Oncólogo",
+      "nurse": "Enfermera de Oncología",
+      "socialWorker": "Trabajador Social",
+      "nutritionist": "Nutricionista",
+      "counselor": "Consejero",
+      "patientNavigator": "Navegador de Pacientes",
+      "careCoordinator": "Coordinador de Atención"
+    },
+    "appointment": {
+      "schedule": "Programar Cita",
+      "chemotherapy": "Cita de Quimioterapia",
+      "radiation": "Cita de Radioterapia",
+      "followUp": "Visita de Seguimiento",
+      "imaging": "Cita de Imagenología",
+      "labWork": "Trabajo de Laboratorio"
+    }
+  },
+  "contentManagement": {
+    "type": {
+      "article": "Artículo",
+      "video": "Video",
+      "infographic": "Infografía",
+      "guide": "Guía de Tratamiento",
+      "testimonial": "Testimonio de Paciente",
+      "story": "Historia de Sobreviviente"
+    },
+    "category": {
+      "education": "Contenido Educativo",
+      "awareness": "Campaña de Concientización",
+      "research": "Actualización de Investigación",
+      "events": "Eventos y Programas",
+      "news": "Noticias y Actualizaciones"
+    },
+    "action": {
+      "create": "Crear Contenido",
+      "edit": "Editar Contenido",
+      "publish": "Publicar",
+      "schedule": "Programar Publicación",
+      "archive": "Archivar"
+    },
+    "status": {
+      "draft": "Borrador",
+      "review": "En Revisión",
+      "approved": "Aprobado",
+      "published": "Publicado",
+      "scheduled": "Programado"
+    }
+  },
+  "marketing": {
+    "campaign": {
+      "awareness": "Campaña de Concientización",
+      "fundraising": "Campaña de Recaudación de Fondos",
+      "recruitment": "Reclutamiento de Pacientes",
+      "volunteer": "Reclutamiento de Voluntarios",
+      "advocacy": "Campaña de Defensa"
+    },
+    "channel": {
+      "email": "Marketing por Correo",
+      "social": "Redes Sociales",
+      "events": "Eventos",
+      "partnerships": "Alianzas",
+      "community": "Extensión Comunitaria"
+    },
+    "metrics": {
+      "reach": "Alcance",
+      "engagement": "Participación",
+      "conversions": "Conversiones",
+      "donations": "Donaciones Generadas",
+      "signups": "Nuevas Inscripciones"
+    }
+  },
+  "aiAgent": {
+    "companion": {
+      "type": {
+        "emotional": "Agente de Apoyo Emocional",
+        "educational": "Agente Educativo",
+        "medication": "Agente de Recordatorio de Medicamentos",
+        "symptom": "Agente de Registro de Síntomas",
+        "navigation": "Agente de Navegación de Atención"
+      },
+      "interaction": {
+        "chat": "Chatear con Agente",
+        "voiceCall": "Llamada de Voz",
+        "videoCall": "Videollamada",
+        "scheduledCheckIn": "Verificación Programada"
+      },
+      "capability": {
+        "answerQuestions": "Responder Preguntas",
+        "provideSuppport": "Brindar Apoyo Emocional",
+        "trackSymptoms": "Registrar Síntomas",
+        "remindMedication": "Recordatorios de Medicamentos",
+        "connectToHuman": "Conectar con Apoyo Humano"
+      }
+    }
+  },
+  "marketplace": {
+    "category": {
+      "medical": "Suministros Médicos",
+      "wellness": "Productos de Bienestar",
+      "nutrition": "Nutrición y Suplementos",
+      "comfort": "Artículos de Confort",
+      "books": "Libros y Recursos",
+      "technology": "Tecnología de Asistencia"
+    },
+    "provider": {
+      "verified": "Proveedor Verificado",
+      "featured": "Proveedor Destacado",
+      "discount": "Descuento Comunitario Disponible",
+      "rating": "Calificación del Proveedor"
+    },
+    "action": {
+      "browse": "Explorar Productos",
+      "requestQuote": "Solicitar Cotización",
+      "connectProvider": "Conectar con Proveedor",
+      "addToCart": "Agregar al Carrito",
+      "applyDiscount": "Aplicar Descuento Comunitario"
+    }
+  },
+  "integration": {
+    "providerType": {
+      "medical": "Proveedor de Equipo Médico",
+      "pharmacy": "Farmacia",
+      "transportation": "Servicio de Transporte",
+      "homecare": "Servicio de Atención Domiciliaria",
+      "nutrition": "Servicio de Nutrición",
+      "wellness": "Servicio de Bienestar"
+    },
+    "status": {
+      "pending": "Aprobación Pendiente",
+      "active": "Integración Activa",
+      "suspended": "Suspendido",
+      "inactive": "Inactivo"
+    },
+    "action": {
+      "applyToJoin": "Solicitar Unirse a la Red",
+      "updateCatalog": "Actualizar Catálogo de Productos",
+      "manageOrders": "Gestionar Pedidos",
+      "viewAnalytics": "Ver Analíticas"
+    }
+  }
+}

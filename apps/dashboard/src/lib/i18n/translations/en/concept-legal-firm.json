@@ -1,0 +1,62 @@
+{
+  "concept": {
+    "caseType": {
+      "civil": "Civil",
+      "criminal": "Criminal",
+      "corporate": "Corporate",
+      "familyLaw": "Family Law",
+      "laborLaw": "Labor Law",
+      "taxLaw": "Tax Law",
+      "intellectualProperty": "Intellectual Property",
+      "realEstate": "Real Estate",
+      "immigration": "Immigration",
+      "bankruptcy": "Bankruptcy"
+    },
+    "legalDocument": {
+      "contract": "Contract",
+      "lawsuit": "Lawsuit",
+      "complaint": "Complaint",
+      "motion": "Motion",
+      "brief": "Brief",
+      "affidavit": "Affidavit",
+      "pleading": "Pleading",
+      "discovery": "Discovery",
+      "subpoena": "Subpoena",
+      "settlement": "Settlement Agreement",
+      "powerOfAttorney": "Power of Attorney",
+      "will": "Will",
+      "deed": "Deed"
+    },
+    "courtProceeding": {
+      "hearing": "Hearing",
+      "trial": "Trial",
+      "deposition": "Deposition",
+      "mediation": "Mediation",
+      "arbitration": "Arbitration",
+      "appeal": "Appeal",
+      "conference": "Conference",
+      "arraignment": "Arraignment"
+    },
+    "party": {
+      "client": "Client",
+      "plaintiff": "Plaintiff",
+      "defendant": "Defendant",
+      "witness": "Witness",
+      "expert": "Expert Witness",
+      "opposing": "Opposing Party",
+      "judge": "Judge",
+      "jury": "Jury",
+      "prosecutor": "Prosecutor",
+      "respondent": "Respondent"
+    },
+    "billing": {
+      "hourly": "Hourly Rate",
+      "flatFee": "Flat Fee",
+      "contingency": "Contingency",
+      "retainer": "Retainer",
+      "billableHours": "Billable Hours",
+      "nonBillable": "Non-Billable",
+      "proBonoHours": "Pro Bono Hours"
+    }
+  }
+}

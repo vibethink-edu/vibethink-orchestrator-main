@@ -1,0 +1,95 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "table": "Mesa",
+        "booth": "Cabine",
+        "barSeat": "Assento no Bar",
+        "terrace": "Terraço",
+        "privateRoom": "Sala Privativa",
+        "patio": "Pátio"
+      },
+      "action": {
+        "book": "Reservar Mesa",
+        "reserve": "Reservar",
+        "checkIn": "Acomodar Clientes",
+        "checkOut": "Liberar Mesa"
+      }
+    },
+    "menu": {
+      "category": {
+        "appetizer": "Entrada",
+        "soup": "Sopa",
+        "salad": "Salada",
+        "mainCourse": "Prato Principal",
+        "sideDish": "Acompanhamento",
+        "dessert": "Sobremesa",
+        "beverage": "Bebida",
+        "alcoholic": "Bebida Alcoólica",
+        "nonAlcoholic": "Bebida Não Alcoólica"
+      },
+      "attribute": {
+        "spicy": "Picante",
+        "mild": "Suave",
+        "hot": "Quente",
+        "cold": "Frio",
+        "seasonal": "Sazonal",
+        "chefSpecial": "Especial do Chef",
+        "signature": "Prato Assinatura"
+      }
+    },
+    "service": {
+      "type": {
+        "dineIn": "Comer no Local",
+        "takeout": "Para Viagem",
+        "delivery": "Entrega",
+        "curbside": "Retirada na Calçada",
+        "reservation": "Reserva",
+        "walkIn": "Sem Reserva"
+      },
+      "staff": {
+        "hostess": "Recepcionista",
+        "server": "Garçom/Garçonete",
+        "waiter": "Garçom",
+        "waitress": "Garçonete",
+        "busser": "Auxiliar de Garçom",
+        "bartender": "Bartender",
+        "sommelier": "Sommelier"
+      }
+    },
+    "dietary": {
+      "restriction": {
+        "vegetarian": "Vegetariano",
+        "vegan": "Vegano",
+        "glutenFree": "Sem Glúten",
+        "dairyFree": "Sem Lactose",
+        "nutFree": "Sem Nozes",
+        "kosher": "Kosher",
+        "halal": "Halal"
+      },
+      "allergen": {
+        "nuts": "Nozes",
+        "dairy": "Laticínios",
+        "eggs": "Ovos",
+        "shellfish": "Frutos do Mar",
+        "soy": "Soja",
+        "wheat": "Trigo",
+        "fish": "Peixe"
+      }
+    },
+    "guest": {
+      "type": {
+        "regular": "Cliente Frequente",
+        "vip": "Cliente VIP",
+        "firstTime": "Primeira Visita",
+        "group": "Grupo",
+        "party": "Festa"
+      },
+      "count": {
+        "partySize": "Tamanho do Grupo",
+        "covers": "Pessoas",
+        "guests": "Convidados"
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "concept": {
+    "service": {
+      "product": {
+        "dashboard": "Plateforme Dashboard",
+        "integration": "Services d'Intégration",
+        "aiSolution": "Solution AI",
+        "customDevelopment": "Développement Sur Mesure",
+        "consulting": "Conseil",
+        "support": "Support et Maintenance"
+      },
+      "delivery": {
+        "saas": "SaaS",
+        "onPremise": "Sur Site",
+        "hybrid": "Hybride",
+        "managed": "Service Géré"
+      }
+    },
+    "client": {
+      "type": {
+        "enterprise": "Grande Entreprise",
+        "midMarket": "Marché Intermédiaire",
+        "startup": "Startup",
+        "solopreneur": "Entrepreneur Solo",
+        "government": "Gouvernement",
+        "nonprofit": "Organisation à But Non Lucratif"
+      },
+      "industry": {
+        "hospitality": "Hôtellerie",
+        "retail": "Commerce de Détail",
+        "healthcare": "Santé",
+        "legal": "Services Juridiques",
+        "media": "Médias et Diffusion",
+        "foodService": "Restauration",
+        "technology": "Technologie"
+      }
+    },
+    "deployment": {
+      "cloud": "Cloud",
+      "onPremise": "Sur Site",
+      "hybrid": "Hybride",
+      "multiCloud": "Multi-Cloud"
+    },
+    "engagement": {
+      "phase": {
+        "discovery": "Découverte",
+        "proposal": "Proposition",
+        "onboarding": "Intégration",
+        "implementation": "Mise en Œuvre",
+        "launch": "Lancement",
+        "support": "Support Continu"
+      },
+      "type": {
+        "fixedPrice": "Prix Fixe",
+        "timeAndMaterials": "Temps et Matériaux",
+        "retainer": "Forfait",
+        "subscription": "Abonnement"
+      }
+    }
+  }
+}

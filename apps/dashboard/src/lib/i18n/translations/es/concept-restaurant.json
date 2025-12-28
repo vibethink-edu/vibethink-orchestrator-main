@@ -1,0 +1,95 @@
+{
+  "concept": {
+    "booking": {
+      "resource": {
+        "table": "Mesa",
+        "booth": "Reservado",
+        "barSeat": "Asiento de Barra",
+        "terrace": "Terraza",
+        "privateRoom": "Salón Privado",
+        "patio": "Patio"
+      },
+      "action": {
+        "book": "Reservar Mesa",
+        "reserve": "Reservar",
+        "checkIn": "Sentar Comensales",
+        "checkOut": "Limpiar Mesa"
+      }
+    },
+    "menu": {
+      "category": {
+        "appetizer": "Entrada",
+        "soup": "Sopa",
+        "salad": "Ensalada",
+        "mainCourse": "Plato Principal",
+        "sideDish": "Guarnición",
+        "dessert": "Postre",
+        "beverage": "Bebida",
+        "alcoholic": "Bebida Alcohólica",
+        "nonAlcoholic": "Bebida Sin Alcohol"
+      },
+      "attribute": {
+        "spicy": "Picante",
+        "mild": "Suave",
+        "hot": "Caliente",
+        "cold": "Frío",
+        "seasonal": "De Temporada",
+        "chefSpecial": "Especial del Chef",
+        "signature": "Plato Firma"
+      }
+    },
+    "service": {
+      "type": {
+        "dineIn": "Comer en el Local",
+        "takeout": "Para Llevar",
+        "delivery": "Entrega a Domicilio",
+        "curbside": "Recogida en la Acera",
+        "reservation": "Reservación",
+        "walkIn": "Sin Reserva"
+      },
+      "staff": {
+        "hostess": "Anfitriona",
+        "server": "Mesero/a",
+        "waiter": "Mesero",
+        "waitress": "Mesera",
+        "busser": "Ayudante de Mesero",
+        "bartender": "Bartender",
+        "sommelier": "Sommelier"
+      }
+    },
+    "dietary": {
+      "restriction": {
+        "vegetarian": "Vegetariano",
+        "vegan": "Vegano",
+        "glutenFree": "Sin Gluten",
+        "dairyFree": "Sin Lácteos",
+        "nutFree": "Sin Nueces",
+        "kosher": "Kosher",
+        "halal": "Halal"
+      },
+      "allergen": {
+        "nuts": "Nueces",
+        "dairy": "Lácteos",
+        "eggs": "Huevos",
+        "shellfish": "Mariscos",
+        "soy": "Soya",
+        "wheat": "Trigo",
+        "fish": "Pescado"
+      }
+    },
+    "guest": {
+      "type": {
+        "regular": "Cliente Habitual",
+        "vip": "Cliente VIP",
+        "firstTime": "Cliente Nuevo",
+        "group": "Grupo",
+        "party": "Fiesta"
+      },
+      "count": {
+        "partySize": "Tamaño del Grupo",
+        "covers": "Cubiertos",
+        "guests": "Comensales"
+      }
+    }
+  }
+}

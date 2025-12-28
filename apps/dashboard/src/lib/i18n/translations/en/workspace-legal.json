@@ -1,0 +1,60 @@
+{
+  "case": {
+    "status": {
+      "intake": "Intake",
+      "investigation": "Investigation",
+      "discovery": "Discovery Phase",
+      "litigation": "In Litigation",
+      "settlement": "Settlement Negotiation",
+      "trial": "Trial",
+      "appealed": "On Appeal"
+    },
+    "action": {
+      "assignAttorney": "Assign Attorney",
+      "transferCase": "Transfer Case",
+      "reopenCase": "Reopen Case"
+    }
+  },
+  "timeTracking": {
+    "activity": {
+      "courtAppearance": "Court Appearance",
+      "legalResearch": "Legal Research",
+      "documentDrafting": "Document Drafting",
+      "casePreparation": "Case Preparation"
+    }
+  },
+  "docket": {
+    "deadline": {
+      "filingDeadline": "Filing Deadline",
+      "discoveryDeadline": "Discovery Deadline",
+      "responseDeadline": "Response Deadline",
+      "statuteOfLimitations": "Statute of Limitations",
+      "appealDeadline": "Appeal Deadline"
+    },
+    "event": {
+      "courtDate": "Court Date",
+      "hearingScheduled": "Hearing Scheduled",
+      "trialDate": "Trial Date",
+      "depositionScheduled": "Deposition Scheduled"
+    }
+  },
+  "matter": {
+    "conflictCheck": "Conflict Check",
+    "engagementLetter": "Engagement Letter",
+    "legalStrategy": "Legal Strategy",
+    "precedentResearch": "Precedent Research",
+    "caseTheory": "Case Theory",
+    "discovery": {
+      "interrogatories": "Interrogatories",
+      "requestForProduction": "Request for Production",
+      "requestForAdmission": "Request for Admission",
+      "responseToDiscovery": "Response to Discovery"
+    }
+  },
+  "compliance": {
+    "conflictOfInterest": "Conflict of Interest Check",
+    "clientConfidentiality": "Client Confidentiality",
+    "trustAccounting": "Trust Accounting",
+    "barCompliance": "Bar Compliance"
+  }
+}

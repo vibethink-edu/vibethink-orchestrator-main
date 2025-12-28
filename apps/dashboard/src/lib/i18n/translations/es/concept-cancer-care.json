@@ -1,0 +1,73 @@
+{
+  "concept": {
+    "cancerType": {
+      "breast": "Cáncer de Mama",
+      "lung": "Cáncer de Pulmón",
+      "colorectal": "Cáncer Colorrectal",
+      "prostate": "Cáncer de Próstata",
+      "ovarian": "Cáncer de Ovario",
+      "leukemia": "Leucemia",
+      "lymphoma": "Linfoma",
+      "melanoma": "Melanoma",
+      "pancreatic": "Cáncer de Páncreas",
+      "liver": "Cáncer de Hígado",
+      "bladder": "Cáncer de Vejiga",
+      "kidney": "Cáncer de Riñón",
+      "thyroid": "Cáncer de Tiroides"
+    },
+    "treatment": {
+      "chemotherapy": "Quimioterapia",
+      "radiation": "Radioterapia",
+      "surgery": "Cirugía",
+      "immunotherapy": "Inmunoterapia",
+      "targetedTherapy": "Terapia Dirigida",
+      "hormonalTherapy": "Terapia Hormonal",
+      "clinicalTrial": "Ensayo Clínico",
+      "stemCellTransplant": "Trasplante de Células Madre",
+      "boneMarrowTransplant": "Trasplante de Médula Ósea"
+    },
+    "stage": {
+      "stage0": "Etapa 0 (In Situ)",
+      "stage1": "Etapa I (Temprana)",
+      "stage2": "Etapa II",
+      "stage3": "Etapa III (Localmente Avanzada)",
+      "stage4": "Etapa IV (Metastásica)",
+      "remission": "Remisión",
+      "recurrence": "Recurrencia",
+      "cured": "Curado"
+    },
+    "stakeholder": {
+      "patient": "Paciente",
+      "survivor": "Sobreviviente",
+      "caregiver": "Cuidador",
+      "familyMember": "Miembro de la Familia",
+      "sponsor": "Patrocinador",
+      "donor": "Donante",
+      "provider": "Proveedor de Salud",
+      "volunteer": "Voluntario",
+      "advocate": "Defensor del Paciente"
+    },
+    "support": {
+      "emotional": "Apoyo Emocional",
+      "financial": "Asistencia Financiera",
+      "nutritional": "Apoyo Nutricional",
+      "transportation": "Asistencia de Transporte",
+      "housing": "Asistencia de Vivienda",
+      "counseling": "Servicios de Consejería",
+      "peerSupport": "Grupo de Apoyo Entre Pares",
+      "respite": "Cuidado de Relevo",
+      "legal": "Asistencia Legal"
+    },
+    "symptom": {
+      "pain": "Dolor",
+      "fatigue": "Fatiga",
+      "nausea": "Náusea",
+      "vomiting": "Vómito",
+      "hairLoss": "Pérdida de Cabello",
+      "appetiteLoss": "Pérdida de Apetito",
+      "weightLoss": "Pérdida de Peso",
+      "anxiety": "Ansiedad",
+      "depression": "Depresión"
+    }
+  }
+}

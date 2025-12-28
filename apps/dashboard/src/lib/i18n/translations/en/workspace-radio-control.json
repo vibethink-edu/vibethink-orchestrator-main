@@ -1,0 +1,127 @@
+{
+  "aiHost": {
+    "voice": {
+      "male": "Male Voice",
+      "female": "Female Voice",
+      "neutral": "Neutral Voice",
+      "custom": "Custom Voice"
+    },
+    "personality": {
+      "energetic": "Energetic",
+      "calm": "Calm",
+      "professional": "Professional",
+      "humorous": "Humorous",
+      "friendly": "Friendly",
+      "authoritative": "Authoritative"
+    },
+    "control": {
+      "script": "Follow Script",
+      "improvise": "Improvise",
+      "autoIntro": "Auto Intro",
+      "autoOutro": "Auto Outro",
+      "talkover": "Talkover",
+      "backAnnounce": "Back Announce"
+    },
+    "customization": {
+      "tone": "Tone",
+      "pace": "Speaking Pace",
+      "pronunciation": "Pronunciation",
+      "emphasis": "Emphasis"
+    }
+  },
+  "scheduling": {
+    "program": {
+      "morningShow": "Morning Show",
+      "afternoonDrive": "Afternoon Drive",
+      "eveningShow": "Evening Show",
+      "overnight": "Overnight",
+      "weekend": "Weekend Programming"
+    },
+    "block": {
+      "musicBlock": "Music Block",
+      "talkBlock": "Talk Block",
+      "newsBlock": "News Block",
+      "commercialBreak": "Commercial Break"
+    },
+    "rotation": {
+      "heavy": "Heavy Rotation",
+      "medium": "Medium Rotation",
+      "light": "Light Rotation",
+      "specialty": "Specialty"
+    }
+  },
+  "playout": {
+    "control": {
+      "play": "Play",
+      "pause": "Pause",
+      "stop": "Stop",
+      "skip": "Skip",
+      "cue": "Cue",
+      "load": "Load"
+    },
+    "queue": {
+      "nowPlaying": "Now Playing",
+      "upNext": "Up Next",
+      "queue": "Queue",
+      "history": "Play History"
+    },
+    "mixing": {
+      "fadeIn": "Fade In",
+      "fadeOut": "Fade Out",
+      "crossfade": "Crossfade",
+      "segue": "Segue",
+      "hardCut": "Hard Cut"
+    }
+  },
+  "live": {
+    "broadcast": {
+      "goLive": "Go Live",
+      "onAir": "On Air",
+      "offAir": "Off Air",
+      "standby": "Standby"
+    },
+    "interaction": {
+      "acceptCall": "Accept Call",
+      "screenCall": "Screen Call",
+      "holdCall": "Hold Call",
+      "endCall": "End Call",
+      "readMessage": "Read Message"
+    },
+    "monitoring": {
+      "audioLevel": "Audio Level",
+      "signalQuality": "Signal Quality",
+      "listeners": "Active Listeners",
+      "bitrate": "Bitrate"
+    }
+  },
+  "content": {
+    "library": {
+      "music": "Music Library",
+      "jingles": "Jingles",
+      "commercials": "Commercials",
+      "sweepers": "Sweepers",
+      "soundEffects": "Sound Effects"
+    },
+    "metadata": {
+      "artist": "Artist",
+      "title": "Title",
+      "album": "Album",
+      "duration": "Duration",
+      "bpm": "BPM",
+      "key": "Key"
+    }
+  },
+  "analytics": {
+    "audience": {
+      "currentListeners": "Current Listeners",
+      "peakListeners": "Peak Listeners",
+      "avgListenTime": "Average Listen Time",
+      "demographics": "Demographics"
+    },
+    "performance": {
+      "uptime": "Uptime",
+      "dropouts": "Dropouts",
+      "bufferHealth": "Buffer Health"
+    }
+  }
+}

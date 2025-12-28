@@ -1,0 +1,61 @@
+{
+  "concept": {
+    "service": {
+      "product": {
+        "dashboard": "Plataforma de Dashboard",
+        "integration": "Servicios de Integración",
+        "aiSolution": "Solución de IA",
+        "customDevelopment": "Desarrollo Personalizado",
+        "consulting": "Consultoría",
+        "support": "Soporte y Mantenimiento"
+      },
+      "delivery": {
+        "saas": "SaaS",
+        "onPremise": "En las Instalaciones",
+        "hybrid": "Híbrido",
+        "managed": "Servicio Gestionado"
+      }
+    },
+    "client": {
+      "type": {
+        "enterprise": "Empresa",
+        "midMarket": "Mercado Medio",
+        "startup": "Startup",
+        "solopreneur": "Emprendedor Individual",
+        "government": "Gobierno",
+        "nonprofit": "Organización sin Fines de Lucro"
+      },
+      "industry": {
+        "hospitality": "Hospitalidad",
+        "retail": "Comercio Minorista",
+        "healthcare": "Salud",
+        "legal": "Servicios Legales",
+        "media": "Medios y Difusión",
+        "foodService": "Servicio de Alimentos",
+        "technology": "Tecnología"
+      }
+    },
+    "deployment": {
+      "cloud": "Nube",
+      "onPremise": "En las Instalaciones",
+      "hybrid": "Híbrido",
+      "multiCloud": "Multi-Nube"
+    },
+    "engagement": {
+      "phase": {
+        "discovery": "Descubrimiento",
+        "proposal": "Propuesta",
+        "onboarding": "Incorporación",
+        "implementation": "Implementación",
+        "launch": "Lanzamiento",
+        "support": "Soporte Continuo"
+      },
+      "type": {
+        "fixedPrice": "Precio Fijo",
+        "timeAndMaterials": "Tiempo y Materiales",
+        "retainer": "Retención",
+        "subscription": "Suscripción"
+      }
+    }
+  }
+}

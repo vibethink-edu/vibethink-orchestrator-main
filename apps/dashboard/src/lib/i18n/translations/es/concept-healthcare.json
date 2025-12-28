@@ -1,0 +1,88 @@
+{
+  "concept": {
+    "appointment": {
+      "type": {
+        "checkup": "Chequeo",
+        "followUp": "Seguimiento",
+        "consultation": "Consulta",
+        "emergency": "Emergencia",
+        "surgery": "Cirugía",
+        "diagnostic": "Prueba Diagnóstica",
+        "vaccination": "Vacunación",
+        "therapySession": "Sesión de Terapia",
+        "screening": "Examen de Detección",
+        "physicalExam": "Examen Físico"
+      },
+      "status": {
+        "scheduled": "Programada",
+        "confirmed": "Confirmada",
+        "arrived": "Llegó",
+        "inProgress": "En Proceso",
+        "completed": "Completada",
+        "cancelled": "Cancelada",
+        "noShow": "No Se Presentó"
+      }
+    },
+    "patient": {
+      "type": {
+        "newPatient": "Paciente Nuevo",
+        "returning": "Paciente Recurrente",
+        "inpatient": "Paciente Interno",
+        "outpatient": "Paciente Externo",
+        "emergency": "Paciente de Emergencia"
+      },
+      "age": {
+        "infant": "Bebé",
+        "child": "Niño",
+        "adolescent": "Adolescente",
+        "adult": "Adulto",
+        "senior": "Adulto Mayor"
+      }
+    },
+    "medical": {
+      "specialty": {
+        "generalPractice": "Medicina General",
+        "pediatrics": "Pediatría",
+        "cardiology": "Cardiología",
+        "dermatology": "Dermatología",
+        "orthopedics": "Ortopedia",
+        "neurology": "Neurología",
+        "psychiatry": "Psiquiatría",
+        "obstetrics": "Obstetricia y Ginecología",
+        "oncology": "Oncología",
+        "radiology": "Radiología"
+      },
+      "provider": {
+        "physician": "Médico",
+        "nurse": "Enfermera",
+        "nursesPractitioner": "Enfermera Practicante",
+        "physician Assistant": "Asistente Médico",
+        "specialist": "Especialista",
+        "surgeon": "Cirujano"
+      }
+    },
+    "diagnosis": {
+      "status": {
+        "preliminary": "Preliminar",
+        "confirmed": "Confirmado",
+        "differential": "Diferencial",
+        "final": "Final"
+      }
+    },
+    "prescription": {
+      "medication": "Medicamento",
+      "dosage": "Dosificación",
+      "frequency": "Frecuencia",
+      "duration": "Duración",
+      "refill": "Resurtido",
+      "instructions": "Instrucciones"
+    },
+    "insurance": {
+      "provider": "Aseguradora",
+      "coverage": "Cobertura",
+      "copay": "Copago",
+      "deductible": "Deducible",
+      "outOfPocket": "Gastos de Bolsillo"
+    }
+  }
+}

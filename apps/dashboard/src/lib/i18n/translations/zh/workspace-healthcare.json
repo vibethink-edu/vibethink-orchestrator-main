@@ -1,0 +1,112 @@
+{
+  "emr": {
+    "chart": {
+      "vitals": "生命体征",
+      "bloodPressure": "血压",
+      "heartRate": "心率",
+      "temperature": "体温",
+      "weight": "体重",
+      "height": "身高",
+      "bmi": "BMI",
+      "oxygenSaturation": "血氧饱和度"
+    },
+    "record": {
+      "medicalHistory": "病史",
+      "allergies": "过敏史",
+      "currentMedications": "当前用药",
+      "pastSurgeries": "既往手术史",
+      "familyHistory": "家族史",
+      "socialHistory": "社会史"
+    },
+    "documentation": {
+      "chiefComplaint": "主诉",
+      "historyOfPresentIllness": "现病史",
+      "reviewOfSystems": "系统回顾",
+      "physicalExam": "体格检查",
+      "assessment": "评估",
+      "plan": "计划"
+    },
+    "results": {
+      "labResults": "化验结果",
+      "imagingResults": "影像结果",
+      "pathologyReport": "病理报告",
+      "testResults": "检查结果"
+    }
+  },
+  "scheduling": {
+    "appointment": {
+      "book": "预约",
+      "confirm": "确认预约",
+      "reschedule": "改约",
+      "cancel": "取消预约",
+      "checkIn": "患者签到",
+      "noShow": "标记未到"
+    },
+    "queue": {
+      "waitingRoom": "候诊室",
+      "inExamRoom": "诊室中",
+      "withProvider": "就诊中",
+      "checkout": "离开"
+    },
+    "resource": {
+      "examRoom": "诊室",
+      "procedureRoom": "手术室",
+      "operatingRoom": "手术室",
+      "equipment": "医疗设备"
+    }
+  },
+  "billing": {
+    "insurance": {
+      "verify": "核实保险",
+      "eligibility": "检查资格",
+      "authorization": "预授权",
+      "claim": "保险理赔",
+      "submitClaim": "提交理赔"
+    },
+    "payment": {
+      "copay": "自付额",
+      "coinsurance": "共同保险",
+      "deductible": "免赔额",
+      "patientBalance": "患者欠费",
+      "paymentPlan": "付款计划"
+    },
+    "coding": {
+      "icd10": "ICD-10编码",
+      "cpt": "CPT编码",
+      "diagnosisCode": "诊断编码",
+      "procedureCode": "手术编码"
+    }
+  },
+  "clinical": {
+    "order": {
+      "labOrder": "化验单",
+      "imagingOrder": "影像检查单",
+      "prescription": "处方",
+      "referral": "转诊",
+      "procedure": "手术单"
+    },
+    "workflow": {
+      "triage": "分诊",
+      "rooming": "引导入诊室",
+      "examination": "检查",
+      "treatment": "治疗",
+      "discharge": "出院"
+    }
+  },
+  "patientPortal": {
+    "access": {
+      "viewRecords": "查看病历",
+      "requestRefill": "申请续方",
+      "messageProvider": "联系医生",
+      "bookAppointment": "预约",
+      "viewTestResults": "查看检查结果",
+      "payBill": "支付账单"
+    }
+  },
+  "compliance": {
+    "hipaa": "HIPAA合规",
+    "consent": "患者同意",
+    "privacy": "隐私声明",
+    "authorization": "授权"
+  }
+}

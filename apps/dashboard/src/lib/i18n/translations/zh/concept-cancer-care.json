@@ -1,0 +1,73 @@
+{
+  "concept": {
+    "cancerType": {
+      "breast": "乳腺癌",
+      "lung": "肺癌",
+      "colorectal": "结直肠癌",
+      "prostate": "前列腺癌",
+      "ovarian": "卵巢癌",
+      "leukemia": "白血病",
+      "lymphoma": "淋巴瘤",
+      "melanoma": "黑色素瘤",
+      "pancreatic": "胰腺癌",
+      "liver": "肝癌",
+      "bladder": "膀胱癌",
+      "kidney": "肾癌",
+      "thyroid": "甲状腺癌"
+    },
+    "treatment": {
+      "chemotherapy": "化疗",
+      "radiation": "放疗",
+      "surgery": "手术",
+      "immunotherapy": "免疫治疗",
+      "targetedTherapy": "靶向治疗",
+      "hormonalTherapy": "激素治疗",
+      "clinicalTrial": "临床试验",
+      "stemCellTransplant": "干细胞移植",
+      "boneMarrowTransplant": "骨髓移植"
+    },
+    "stage": {
+      "stage0": "0期（原位癌）",
+      "stage1": "I期（早期）",
+      "stage2": "II期",
+      "stage3": "III期（局部晚期）",
+      "stage4": "IV期（转移期）",
+      "remission": "缓解",
+      "recurrence": "复发",
+      "cured": "治愈"
+    },
+    "stakeholder": {
+      "patient": "患者",
+      "survivor": "癌症康复者",
+      "caregiver": "护理人",
+      "familyMember": "家属",
+      "sponsor": "赞助者",
+      "donor": "捐赠者",
+      "provider": "医疗提供者",
+      "volunteer": "志愿者",
+      "advocate": "患者权益倡导者"
+    },
+    "support": {
+      "emotional": "情感支持",
+      "financial": "经济援助",
+      "nutritional": "营养支持",
+      "transportation": "交通帮助",
+      "housing": "住宿帮助",
+      "counseling": "心理咨询",
+      "peerSupport": "同伴支持小组",
+      "respite": "喘息护理",
+      "legal": "法律援助"
+    },
+    "symptom": {
+      "pain": "疼痛",
+      "fatigue": "疲劳",
+      "nausea": "恶心",
+      "vomiting": "呕吐",
+      "hairLoss": "脱发",
+      "appetiteLoss": "食欲减退",
+      "weightLoss": "体重减轻",
+      "anxiety": "焦虑",
+      "depression": "抑郁"
+    }
+  }
+}

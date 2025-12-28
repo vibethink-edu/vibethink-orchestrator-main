@@ -1,0 +1,112 @@
+{
+  "emr": {
+    "chart": {
+      "vitals": "Signes Vitaux",
+      "bloodPressure": "Tension Artérielle",
+      "heartRate": "Fréquence Cardiaque",
+      "temperature": "Température",
+      "weight": "Poids",
+      "height": "Taille",
+      "bmi": "IMC",
+      "oxygenSaturation": "Saturation en Oxygène"
+    },
+    "record": {
+      "medicalHistory": "Antécédents Médicaux",
+      "allergies": "Allergies",
+      "currentMedications": "Médicaments Actuels",
+      "pastSurgeries": "Chirurgies Antérieures",
+      "familyHistory": "Antécédents Familiaux",
+      "socialHistory": "Antécédents Sociaux"
+    },
+    "documentation": {
+      "chiefComplaint": "Motif de Consultation",
+      "historyOfPresentIllness": "Histoire de la Maladie Actuelle",
+      "reviewOfSystems": "Revue des Systèmes",
+      "physicalExam": "Examen Physique",
+      "assessment": "Évaluation",
+      "plan": "Plan"
+    },
+    "results": {
+      "labResults": "Résultats de Laboratoire",
+      "imagingResults": "Résultats d'Imagerie",
+      "pathologyReport": "Rapport d'Anatomopathologie",
+      "testResults": "Résultats de Tests"
+    }
+  },
+  "scheduling": {
+    "appointment": {
+      "book": "Réserver un Rendez-vous",
+      "confirm": "Confirmer le Rendez-vous",
+      "reschedule": "Reporter",
+      "cancel": "Annuler le Rendez-vous",
+      "checkIn": "Enregistrer le Patient",
+      "noShow": "Marquer Absent"
+    },
+    "queue": {
+      "waitingRoom": "Salle d'Attente",
+      "inExamRoom": "En Salle d'Examen",
+      "withProvider": "Avec le Praticien",
+      "checkout": "Sortie"
+    },
+    "resource": {
+      "examRoom": "Salle d'Examen",
+      "procedureRoom": "Salle de Procédure",
+      "operatingRoom": "Salle d'Opération",
+      "equipment": "Équipement Médical"
+    }
+  },
+  "billing": {
+    "insurance": {
+      "verify": "Vérifier l'Assurance",
+      "eligibility": "Vérifier l'Éligibilité",
+      "authorization": "Pré-autorisation",
+      "claim": "Demande de Remboursement",
+      "submitClaim": "Soumettre la Demande"
+    },
+    "payment": {
+      "copay": "Quote-part",
+      "coinsurance": "Co-assurance",
+      "deductible": "Franchise",
+      "patientBalance": "Solde Patient",
+      "paymentPlan": "Plan de Paiement"
+    },
+    "coding": {
+      "icd10": "Code ICD-10",
+      "cpt": "Code CPT",
+      "diagnosisCode": "Code Diagnostique",
+      "procedureCode": "Code de Procédure"
+    }
+  },
+  "clinical": {
+    "order": {
+      "labOrder": "Prescription de Laboratoire",
+      "imagingOrder": "Prescription d'Imagerie",
+      "prescription": "Ordonnance",
+      "referral": "Référence",
+      "procedure": "Prescription de Procédure"
+    },
+    "workflow": {
+      "triage": "Triage",
+      "rooming": "Installation",
+      "examination": "Examen",
+      "treatment": "Traitement",
+      "discharge": "Sortie"
+    }
+  },
+  "patientPortal": {
+    "access": {
+      "viewRecords": "Consulter le Dossier Médical",
+      "requestRefill": "Demander un Renouvellement",
+      "messageProvider": "Contacter le Praticien",
+      "bookAppointment": "Réserver un Rendez-vous",
+      "viewTestResults": "Consulter les Résultats",
+      "payBill": "Payer la Facture"
+    }
+  },
+  "compliance": {
+    "hipaa": "Conformité HIPAA",
+    "consent": "Consentement du Patient",
+    "privacy": "Avis de Confidentialité",
+    "authorization": "Autorisation"
+  }
+}

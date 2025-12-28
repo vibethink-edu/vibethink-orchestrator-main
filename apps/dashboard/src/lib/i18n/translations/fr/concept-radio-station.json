@@ -1,0 +1,77 @@
+{
+  "concept": {
+    "broadcast": {
+      "type": {
+        "live": "En Direct",
+        "recorded": "Enregistré",
+        "automated": "Automatisé",
+        "syndicated": "Syndiqué"
+      },
+      "content": {
+        "show": "Émission",
+        "segment": "Segment",
+        "commercial": "Publicité",
+        "jingle": "Jingle",
+        "promo": "Promo",
+        "sweeper": "Sweeper",
+        "bumper": "Bumper"
+      },
+      "station": {
+        "format": {
+          "music": "Musique",
+          "talk": "Talk",
+          "news": "Actualités",
+          "sports": "Sports",
+          "variety": "Variété"
+        }
+      }
+    },
+    "content": {
+      "type": {
+        "music": "Musique",
+        "talk": "Talk",
+        "news": "Actualités",
+        "podcast": "Podcast",
+        "interview": "Interview",
+        "commentary": "Commentaire",
+        "report": "Reportage"
+      },
+      "genre": {
+        "pop": "Pop",
+        "rock": "Rock",
+        "jazz": "Jazz",
+        "classical": "Classique",
+        "electronic": "Électronique",
+        "country": "Country",
+        "hiphop": "Hip-Hop"
+      }
+    },
+    "audience": {
+      "type": {
+        "listener": "Auditeur",
+        "caller": "Appelant",
+        "subscriber": "Abonné",
+        "follower": "Abonné"
+      },
+      "engagement": {
+        "call": "Appel à l'Antenne",
+        "message": "SMS",
+        "social": "Réseaux Sociaux",
+        "request": "Demande de Chanson"
+      }
+    },
+    "advertising": {
+      "type": {
+        "commercial": "Publicité",
+        "sponsorship": "Parrainage",
+        "underwriting": "Soutien",
+        "psa": "Annonce d'Intérêt Public"
+      },
+      "duration": {
+        "15sec": "15 Secondes",
+        "30sec": "30 Secondes",
+        "60sec": "60 Secondes"
+      }
+    }
+  }
+}

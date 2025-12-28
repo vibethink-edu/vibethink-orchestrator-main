@@ -1,0 +1,60 @@
+{
+  "case": {
+    "status": {
+      "intake": "受理",
+      "investigation": "调查",
+      "discovery": "证据开示阶段",
+      "litigation": "诉讼中",
+      "settlement": "和解协商",
+      "trial": "审判",
+      "appealed": "上诉中"
+    },
+    "action": {
+      "assignAttorney": "指定律师",
+      "transferCase": "转移案件",
+      "reopenCase": "重启案件"
+    }
+  },
+  "timeTracking": {
+    "activity": {
+      "courtAppearance": "出庭",
+      "legalResearch": "法律研究",
+      "documentDrafting": "文件起草",
+      "casePreparation": "案件准备"
+    }
+  },
+  "docket": {
+    "deadline": {
+      "filingDeadline": "提交截止日期",
+      "discoveryDeadline": "证据开示截止日期",
+      "responseDeadline": "答复截止日期",
+      "statuteOfLimitations": "诉讼时效",
+      "appealDeadline": "上诉截止日期"
+    },
+    "event": {
+      "courtDate": "开庭日期",
+      "hearingScheduled": "听证会安排",
+      "trialDate": "审判日期",
+      "depositionScheduled": "取证安排"
+    }
+  },
+  "matter": {
+    "conflictCheck": "利益冲突检查",
+    "engagementLetter": "委托书",
+    "legalStrategy": "法律策略",
+    "precedentResearch": "判例研究",
+    "caseTheory": "案件理论",
+    "discovery": {
+      "interrogatories": "书面质询",
+      "requestForProduction": "文件调取请求",
+      "requestForAdmission": "认可请求",
+      "responseToDiscovery": "证据开示答复"
+    }
+  },
+  "compliance": {
+    "conflictOfInterest": "利益冲突检查",
+    "clientConfidentiality": "客户保密",
+    "trustAccounting": "信托会计",
+    "barCompliance": "律协合规"
+  }
+}
