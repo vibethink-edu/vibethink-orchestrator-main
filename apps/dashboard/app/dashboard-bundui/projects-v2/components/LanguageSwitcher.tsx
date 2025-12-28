@@ -25,6 +25,14 @@ export function LanguageSwitcher() {
 
     const currentLanguage = LANGUAGES.find((lang) => lang.code === locale) || LANGUAGES[0];
 
+    const handleLanguageChange = (langCode: string) => {
+        setLocale(langCode as any);
+        // Reload page to ensure server renders with new locale (prevents hydration mismatch)
+        if (typeof window !== 'undefined') {
+            window.location.reload();
+        }
+    };
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -38,7 +46,7 @@ export function LanguageSwitcher() {
                 {LANGUAGES.map((lang) => (
                     <DropdownMenuItem
                         key={lang.code}
-                        onClick={() => setLocale(lang.code as any)}
+                        onClick={() => handleLanguageChange(lang.code)}
                         className={`flex items-center gap-2 ${locale === lang.code ? 'bg-accent' : ''}`}
                     >
                         <span className="text-lg">{lang.flag}</span>

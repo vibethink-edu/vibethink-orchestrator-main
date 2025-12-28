@@ -23,6 +23,14 @@ export function LocaleSelector() {
   const { locale, setLocale } = useI18n();
   const currentLocale = localeMetadata[locale];
 
+  const handleLocaleChange = (newLocale: typeof locale) => {
+    setLocale(newLocale);
+    // Reload page to ensure server renders with new locale (prevents hydration mismatch)
+    if (typeof window !== 'undefined') {
+      window.location.reload();
+    }
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -38,7 +46,7 @@ export function LocaleSelector() {
           return (
             <DropdownMenuItem
               key={loc}
-              onClick={() => setLocale(loc)}
+              onClick={() => handleLocaleChange(loc)}
               className={locale === loc ? 'bg-accent' : ''}
             >
               <span className="mr-2">{meta.flag}</span>

@@ -181,7 +181,18 @@ function PageContent() {
 
             {/* Side Panel - Fixed overlay */}
             {isPanelOpen && (
-                <div className="fixed top-0 right-0 h-screen w-[400px] shadow-xl z-50 transition-transform duration-300 ease-in-out">
+                <div 
+                    style={{
+                        position: 'fixed',
+                        top: 0,
+                        [document.documentElement.dir === 'rtl' ? 'left' : 'right']: 0,
+                        height: '100vh',
+                        width: '400px',
+                        zIndex: 50,
+                        transition: 'transform 300ms ease-in-out',
+                        boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)'
+                    }}
+                >
                     <ContextualSidePanel
                         onClose={togglePanel}
                     />

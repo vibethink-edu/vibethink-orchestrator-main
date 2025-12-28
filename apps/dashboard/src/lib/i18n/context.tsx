@@ -251,6 +251,18 @@ export function I18nProvider({
   );
 
   /**
+   * Update document direction when locale changes
+   */
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const isRTL = locale === 'ar';
+      document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+      document.documentElement.lang = locale;
+      console.log(`[i18n] Updated dir to '${isRTL ? 'rtl' : 'ltr'}' for locale '${locale}'`);
+    }
+  }, [locale]);
+
+  /**
    * Set locale and persist
    */
   const setLocale = useCallback(
