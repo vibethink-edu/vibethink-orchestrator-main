@@ -3,6 +3,20 @@
     "version": "0.1.0",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        },
+        "./datetime": {
+            "types": "./dist/datetime/index.d.ts",
+            "default": "./dist/datetime/index.js"
+        },
+        "./context": {
+            "types": "./dist/context/index.d.ts",
+            "default": "./dist/context/index.js"
+        }
+    },
     "scripts": {
         "build": "tsc",
         "test": "echo \"Error: no test specified\" && exit 1"
