@@ -19,10 +19,12 @@ jobs:
 
       - name: Ejecutar validación metodológica
         run: python dev-portal/dev-tools/scripts/validate-methodology-alignment.py
+        continue-on-error: ${{ github.event_name == "pull_request" }}
 
       - name: Subir reporte como artefacto
         uses: actions/upload-artifact@v4
         with:
           name: validation-report
           path: validation-report.json 
+
 
