@@ -1,34 +1,5 @@
 /**
-<<<<<<< HEAD
- * CAPA 2: Terminology System Exports
- */
 
-// CAPA 1: Types
-export type {
-  Locale,
-  ProductContext,
-  DomainContext,
-  ConceptID,
-  BookingConcept,
-  CRMConcept,
-  TerminologyContext,
-  AgentContext,
-} from './types';
-
-export { SUPPORTED_LOCALES } from './types';
-
-// CAPA 2: Engine
-export {
-  term,
-  termSync,
-  preloadTerminology,
-  clearCache,
-  getCacheStats,
-} from './engine';
-
-
-
-=======
  * CAPA 1 & CAPA 2: Re-exports Públicos del Sistema de Terminología
  * 
  * Este archivo consolida todas las exportaciones del sistema de 3 capas
@@ -186,10 +157,8 @@ export {
 // ============================================================================
 // CAPA 3: Terminology Provider & Hydration Components
 // ============================================================================
-// NOTE: TerminologyProvider and TerminologyHydration are React components
-// and should be imported directly from the dashboard app, not from @vibethink/utils
-// export * from './TerminologyProvider';
-// export * from './TerminologyHydration';
+export * from './TerminologyProvider';
+export * from './TerminologyHydration';
 
 // ============================================================================
 // Metadata del módulo (documentación)
@@ -314,4 +283,3 @@ export const TerminologySystem = {
   metadata: TERMINOLOGY_MODULE_INFO,
   getModuleInfo: getTerminologyModuleInfo,
 } as const;
->>>>>>> zealous-williams
