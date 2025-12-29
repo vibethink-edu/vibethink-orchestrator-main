@@ -7,7 +7,7 @@ on:
     branches: [ main, develop ]
 
 env:
-  NODE_VERSION: '18'
+  NODE_VERSION: '20'
   CACHE_DEPENDENCY_PATH: package-lock.json
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
 
       - name: Guardrail - conflict markers
         run: |
-          if grep -R -n -E "^[[:space:]]*(<<<<<<<|=======|>>>>>>>)" .; then
+          if grep -R -n -E "^[[:space:]]*(<<<<<<<|=======|>>>>>>>)([[:space:]].*)?$" .; then
             echo "Conflict markers found."
             exit 1
           fi
