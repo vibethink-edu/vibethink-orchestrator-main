@@ -19,6 +19,13 @@ jobs:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
 
+      - name: Guardrail - conflict markers
+        run: |
+          if grep -R -n -E "^[[:space:]]*(<<<<<<<|=======|>>>>>>>)" .; then
+            echo "Conflict markers found."
+            exit 1
+          fi
+
       - name: 🔧 Setup Node.js
         uses: actions/setup-node@v4
         with:
