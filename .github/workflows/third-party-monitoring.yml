@@ -30,7 +30,7 @@ jobs:
     - name: 📦 Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version-file: '.nvmrc'
         cache: 'npm'
 
     - name: 📥 Install Dependencies
@@ -200,3 +200,4 @@ ${decision.evaluation.recommendation}
         
         # Move to docs if we want to keep it
         mv MONITORING_DASHBOARD.md docs/PROJECT/02_ARCHITECTURE/MONITORING_DASHBOARD.md
+

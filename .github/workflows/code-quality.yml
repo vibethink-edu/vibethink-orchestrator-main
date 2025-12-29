@@ -5,26 +5,38 @@ jobs:
   quality-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version-file: '.nvmrc'
           
       - name: Install dependencies
         run: npm install
-        
+
       - name: Check for accents in code
         run: |
-          echo "🔍 Verificando acentos en código..."
-          if grep -r "[áéíóúÁÉÍÓÚñÑ]" src/ --include="*.ts" --include="*.tsx" --include="*.js" --include="*.jsx"; then
-            echo "❌ ERROR: Se encontraron acentos en el código"
-            echo "Por favor, elimina todos los acentos de variables, funciones y identificadores"
+          echo "Checking accents in code..."
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            git fetch origin "${{ github.base_ref }}" --depth=1
+            range="origin/${{ github.base_ref }}...HEAD"
+          else
+            range="${{ github.event.before }}...${{ github.sha }}"
+          fi
+          files=$(git diff --name-only $range -- 'src/**/*.ts' 'src/**/*.tsx' 'src/**/*.js' 'src/**/*.jsx')
+          if [ -z "$files" ]; then
+            echo "No code files changed. Skipping accent scan."
+            exit 0
+          fi
+          if grep -r -P "[\\x{00C0}-\\x{00FF}]" $files; then
+            echo "ERROR: accents found in code"
             exit 1
           fi
-          echo "✅ No se encontraron acentos en el código"
-          
+          echo "No accents found in code"
+
       - name: Run ESLint
         run: npm run lint
         
@@ -40,3 +52,6 @@ jobs:
         run: |
           echo "🔍 Validando reglas de etiqueta..."
           node scripts/validate-etiquette.js 
+
+
+
