@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import ImageGenerator from "./components/image-generator";
-import { TooltipProvider } from "@vibethink/ui";
+import AiImageGeneratorClient from "./AiImageGeneratorClient";
 
 export const metadata: Metadata = {
   title: "AI Image Generator - VibeThink Orchestrator",
@@ -9,11 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return (
-    <TooltipProvider>
-      <ImageGenerator />
-    </TooltipProvider>
-  );
+  return <AiImageGeneratorClient />;
 }
 
 
