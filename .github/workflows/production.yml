@@ -113,7 +113,7 @@ jobs:
         run: npm run generate:deployment-report
       
       - name: Upload deployment report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: deployment-report-${{ github.event.release.tag_name }}
           path: deployment-report.md
@@ -128,3 +128,4 @@ jobs:
             Version: ${{ github.event.release.tag_name }}
             All systems operational
             Monitoring will continue for 24 hours 
+

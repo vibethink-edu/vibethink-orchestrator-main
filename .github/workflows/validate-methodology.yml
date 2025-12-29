@@ -21,7 +21,7 @@ jobs:
         run: python scripts/validate-methodology-alignment.py
 
       - name: Subir reporte como artefacto
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: validation-report
           path: validation-report.json 
