@@ -18,10 +18,11 @@ jobs:
           python-version: '3.10'
 
       - name: Ejecutar validación metodológica
-        run: python scripts/validate-methodology-alignment.py
+        run: python dev-portal/dev-tools/scripts/validate-methodology-alignment.py
 
       - name: Subir reporte como artefacto
         uses: actions/upload-artifact@v4
         with:
           name: validation-report
           path: validation-report.json 
+
