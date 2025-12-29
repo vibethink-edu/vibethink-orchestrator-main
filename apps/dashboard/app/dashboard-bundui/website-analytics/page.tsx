@@ -12,8 +12,8 @@ import {
   SalesByCountriesCard,
   TotalEarningCard,
   MonthlyCampaignStateCard
-} from "@/app/dashboard/(auth)/website-analytics/components";
-import StatCards from "@/app/dashboard/(auth)/website-analytics/components/stat-cards";
+} from "./components";
+import StatCards from "./components/stat-cards";
 
 export async function generateMetadata() {
   return generateMeta({

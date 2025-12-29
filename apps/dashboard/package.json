@@ -49,6 +49,7 @@
     "console-table-printer": "^2.15.0",
     "date-fns": "4.1.0",
     "embla-carousel-react": "8.6.0",
+    "i18next-resources-to-backend": "^1.2.1",
     "input-otp": "1.4.2",
     "inquirer": "^9.3.8",
     "lottie-react": "^2.4.1",

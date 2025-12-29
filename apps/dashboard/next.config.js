@@ -31,14 +31,6 @@ const nextConfig = {
     ],
   },
   webpack: (config) => {
-    const path = require('path');
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': path.resolve(__dirname, '../../src'),
-      '@/shared': path.resolve(__dirname, '../../src/shared'),
-      '@/lib': path.resolve(__dirname, '../../src/lib'),
-    };
-
     // Suprimir warnings de React 19 compatibility para componentes Radix UI
     config.ignoreWarnings = [
       { message: /Accessing element\.ref was removed in React 19/ },
