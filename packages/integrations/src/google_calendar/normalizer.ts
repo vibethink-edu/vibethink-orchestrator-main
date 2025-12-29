@@ -57,7 +57,7 @@ export function normalizeGoogleCalendarEvent(
     // All-day event: treat as civil_range
     return {
       kind: 'civil_range',
-      domain: 'studio', // Assume studio for calendar events
+      domain: 'hotel', // Default to hotel for calendar events
       unit: 'night',
       resourceId: resourceCtx.resourceId,
       venueTimezone: resourceCtx.timeZone,
