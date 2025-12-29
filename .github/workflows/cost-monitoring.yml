@@ -29,7 +29,7 @@ jobs:
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version-file: '.nvmrc'
           cache: 'npm'
       
       - name: 📦 Install Dependencies
@@ -177,3 +177,4 @@ jobs:
           echo "📊 GitHub Actions usage monitoring complete"
           echo "🔍 Check artifacts for detailed report"
           echo "💰 Current status: ${{ steps.check_usage.outputs.high_usage == 'true' && 'HIGH USAGE DETECTED' || 'Usage within limits' }}"
+

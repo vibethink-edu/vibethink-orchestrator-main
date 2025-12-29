@@ -29,7 +29,7 @@ jobs:
       - name: 🔧 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: '.nvmrc'
           cache: 'npm'
           cache-dependency-path: ${{ env.CACHE_DEPENDENCY_PATH }}
 
@@ -76,7 +76,7 @@ jobs:
       - name: 🔧 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: '.nvmrc'
           cache: 'npm'
           cache-dependency-path: ${{ env.CACHE_DEPENDENCY_PATH }}
 
@@ -116,7 +116,7 @@ jobs:
       - name: 🔧 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: '.nvmrc'
           cache: 'npm'
           cache-dependency-path: ${{ env.CACHE_DEPENDENCY_PATH }}
 
@@ -159,7 +159,7 @@ jobs:
       - name: 🔧 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: '.nvmrc'
           cache: 'npm'
           cache-dependency-path: ${{ env.CACHE_DEPENDENCY_PATH }}
 
@@ -201,7 +201,7 @@ jobs:
       - name: 🔧 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: '.nvmrc'
           cache: 'npm'
           cache-dependency-path: ${{ env.CACHE_DEPENDENCY_PATH }}
 
@@ -301,4 +301,5 @@ jobs:
           echo "❌ CI/CD pipeline failed!"
           echo "🔍 Please check the failed jobs above."
           exit 1 
+
 
