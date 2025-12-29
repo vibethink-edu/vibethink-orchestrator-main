@@ -1,39 +1,4 @@
 {
-<<<<<<< HEAD
-  "table": {
-    "common": {
-      "search": "بحث...",
-      "filter": "تصفية",
-      "columns": "الأعمدة",
-      "actions": "الإجراءات",
-      "openMenu": "فتح القائمة",
-      "selectAll": "تحديد الكل",
-      "selectRow": "تحديد الصف",
-      "noResults": "لا توجد نتائج.",
-      "rowsSelected": "{{count}} من {{total}} صف محدد.",
-      "previous": "السابق",
-      "next": "التالي",
-      "showing": "عرض {{from}} إلى {{to}} من {{total}} إدخال"
-    },
-    "status": {
-      "active": "نشط",
-      "inactive": "غير نشط",
-      "pending": "قيد الانتظار",
-      "completed": "مكتمل",
-      "cancelled": "ملغى",
-      "cancel": "إلغاء",
-      "draft": "مسودة",
-      "published": "منشور"
-    },
-    "priority": {
-      "low": "منخفضة",
-      "medium": "متوسطة",
-      "high": "عالية",
-      "urgent": "عاجلة"
-    }
-  }
-}
-=======
   "buttons": {
     "save": "يحفظ",
     "cancel": "يلغي",
@@ -99,4 +64,3 @@
     "lastYear": "العام الماضي"
   }
 }
->>>>>>> zealous-williams

@@ -1,10 +1,4 @@
 {
-<<<<<<< HEAD
-  "header": {
-    "title": "Gestione Chiavi API"
-  },
-=======
->>>>>>> zealous-williams
   "title": "",
   "description": "",
   "loading": "Loading...",
@@ -93,22 +87,5 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "more_than_last_month": "Più del mese scorso",
-    "expiry_date": "Data di scadenza",
-    "select_all": "Seleziona tutto",
-    "select_all_1": "Seleziona tutto",
-    "select_all_2": "Seleziona tutto",
-    "failed_conversions": "Conversioni",
-    "more_than_last_month_1": "Più del mese scorso",
-    "successful_conversions": "Conversioni",
-    "less_than_last_month": "Meno del mese scorso",
-    "api_keys_vibethink_orchestrator": "Chiavi API - VibeThink Orchestrator"
   }
 }
-=======
-  }
-}
->>>>>>> zealous-williams

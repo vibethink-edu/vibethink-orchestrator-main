@@ -1,98 +1,4 @@
 {
-<<<<<<< HEAD
-  "title": "Dashboard",
-  "description": "Main dashboard with overview of key metrics",
-  "loading": "Loading...",
-  "error": "Error",
-  "success": "Success",
-  "cancel": "Cancel",
-  "save": "Save",
-  "delete": "Delete",
-  "edit": "Edit",
-  "create": "Create",
-  "update": "Update",
-  "search": "Search",
-  "filter": "Filter",
-  "sort": "Sort",
-  "export": "Export",
-  "import": "Import",
-  "download": "Download",
-  "upload": "Upload",
-  "close": "Close",
-  "confirm": "Confirm",
-  "back": "Back",
-  "next": "Next",
-  "previous": "Previous",
-  "submit": "Submit",
-  "reset": "Reset",
-  "clear": "Clear",
-  "apply": "Apply",
-  "select": "Select",
-  "selectAll": "Select All",
-  "deselectAll": "Deselect All",
-  "noResults": "No results found",
-  "noData": "No data available",
-  "empty": "Empty",
-  "active": "Active",
-  "inactive": "Inactive",
-  "pending": "Pending",
-  "completed": "Completed",
-  "cancelled": "Cancelled",
-  "draft": "Draft",
-  "published": "Published",
-  "archived": "Archived",
-  "view": "View",
-  "viewDetails": "View Details",
-  "viewMore": "View More",
-  "add": "Add",
-  "addNew": "Add New",
-  "remove": "Remove",
-  "removeAll": "Remove All",
-  "today": "Today",
-  "yesterday": "Yesterday",
-  "tomorrow": "Tomorrow",
-  "thisWeek": "This Week",
-  "lastWeek": "Last Week",
-  "thisMonth": "This Month",
-  "lastMonth": "Last Month",
-  "thisYear": "This Year",
-  "lastYear": "Last Year",
-  "minutes": "Minutes",
-  "hours": "Hours",
-  "days": "Days",
-  "weeks": "Weeks",
-  "months": "Months",
-  "years": "Years",
-  "areYouSure": "Are you sure?",
-  "thisActionCannotBeUndone": "This action cannot be undone",
-  "pleaseWait": "Please wait...",
-  "operationSuccessful": "Operation successful",
-  "operationFailed": "Operation failed",
-  "showing": "Showing",
-  "of": "of",
-  "results": "results",
-  "rowsPerPage": "Rows per page",
-  "page": "Page",
-  "all": "All",
-  "none": "None",
-  "notification": "Notification",
-  "notifications": "Notifications",
-  "noNotifications": "No notifications",
-  "settings": "Settings",
-  "preferences": "Preferences",
-  "account": "Account",
-  "profile": "Profile",
-  "home": "Home",
-  "dashboard": "Dashboard",
-  "emptyState": {
-    "title": "No items found",
-    "description": "Get started by creating a new item",
-    "action": "Create New"
-  },
-  "header": {
-    "title": "Dashboard",
-    "download": "Download"
-=======
   "title": "대시보드",
   "description": "주요 지표 개요를 제공하는 메인 대시보드",
   "loading": "로딩 중...",
@@ -185,25 +91,16 @@
   "header": {
     "title": "대시보드",
     "download": "다운로드"
->>>>>>> zealous-williams
   },
   "cards": {
     "totalRevenue": {
       "title": "총 수익",
       "label": "수익",
-<<<<<<< HEAD
-      "fromLastMonth": "지난달 대비 +{percentage}%"
-    },
-    "subscriptions": {
-      "title": "구독",
-      "fromLastMonth": "지난달 대비 +{percentage}%"
-=======
       "fromLastMonth": "+{percentage}% 지난달 대비"
     },
     "subscriptions": {
       "title": "구독",
       "fromLastMonth": "+{percentage}% 지난달 대비"
->>>>>>> zealous-williams
     },
     "teamMembers": {
       "title": "팀 구성원",
@@ -211,11 +108,7 @@
     },
     "exerciseMinutes": {
       "title": "운동 시간",
-<<<<<<< HEAD
-      "description": "운동 시간이 평소보다 앞서 있습니다.",
-=======
       "description": "귀하의 운동 시간이 평소보다 많습니다.",
->>>>>>> zealous-williams
       "average": "평균",
       "today": "오늘"
     },
@@ -226,33 +119,15 @@
     }
   },
   "table": {
-<<<<<<< HEAD
-    "selectAll": "전체 선택",
-    "selectRow": "행 선택",
-    "noResults": "결과 없음.",
-=======
     "selectAll": "모두 선택",
     "selectRow": "행 선택",
     "noResults": "결과 없습니다.",
->>>>>>> zealous-williams
     "customer": "고객",
     "email": "이메일",
     "amount": "금액",
     "status": "상태"
   },
   "payments": {
-<<<<<<< HEAD
-    "title": "최근 결제",
-    "filterPlaceholder": "결제 필터링...",
-    "actions": "작업",
-    "selected": "선택됨",
-    "rowsSelected": "총 {total}개 중 {count}개 행이 선택되었습니다.",
-    "bulkActions": {
-      "delete": "선택 항목 삭제",
-      "export": "선택 항목 내보내기",
-      "email": "고객에게 이메일",
-      "tag": "결제 태그 지정"
-=======
     "title": "최신 결제",
     "filterPlaceholder": "결제 필터링...",
     "actions": "작업",
@@ -263,7 +138,6 @@
       "export": "선택 내보내기",
       "email": "고객 이메일",
       "tag": "결제 태그"
->>>>>>> zealous-williams
     },
     "menu": {
       "viewDetails": "세부 정보 보기",
@@ -272,24 +146,11 @@
     }
   },
   "roles": {
-<<<<<<< HEAD
-    "viewer": "뷰어",
-=======
     "viewer": "조회자",
->>>>>>> zealous-williams
     "developer": "개발자",
     "billing": "결제",
     "owner": "소유자",
     "descriptions": {
-<<<<<<< HEAD
-      "viewer": "볼 수 있고 댓글을 달 수 있습니다.",
-      "developer": "볼 수 있고, 댓글을 달고, 편집할 수 있습니다.",
-      "billing": "볼 수 있고, 댓글을 달고, 결제를 관리할 수 있습니다.",
-      "owner": "모든 리소스에 대한 관리자 수준의 액세스 권한이 있습니다."
-    },
-    "selectPlaceholder": "새 역할 선택...",
-    "noRolesFound": "역할을 찾을 수 없습니다."
-=======
       "viewer": "조회 및 댓글 작성 가능.",
       "developer": "보기, 댓글 및 편집 가능.",
       "billing": "결제를 보고, 댓글 및 관리 가능.",
@@ -297,7 +158,6 @@
     },
     "selectPlaceholder": "새 역할 선택...",
     "noRolesFound": "역할을 찾을 수 없음."
->>>>>>> zealous-williams
   },
   "chat": {
     "newMessage": "새 메시지",
@@ -305,158 +165,15 @@
     "send": "보내기",
     "dialog": {
       "title": "새 메시지",
-<<<<<<< HEAD
-      "description": "이 스레드에 사용자를 초대하세요. 새 그룹 메시지가 생성됩니다.",
-      "searchPlaceholder": "사용자 검색...",
-      "noUsersFound": "사용자를 찾을 수 없습니다.",
-=======
       "description": "사용자를 이 스레드에 초대하세요. 이렇게 하면 새 그룹 메시지가 생성됩니다.",
       "searchPlaceholder": "사용자 검색...",
       "noUsersFound": "사용자를 찾을 수 없음.",
->>>>>>> zealous-williams
       "selectUsers": "이 스레드에 추가할 사용자를 선택하세요.",
       "continue": "계속"
     }
   },
   "paymentForm": {
     "methods": {
-<<<<<<< HEAD
-      "card": "Card",
-      "paypal": "Paypal",
-      "apple": "Apple"
-    },
-    "fields": {
-      "nameOnCard": "Name on the card",
-      "city": "City",
-      "cardNumber": "Card number",
-      "expires": "Expires",
-      "month": "Month",
-      "year": "Year",
-      "cvc": "CVC"
-    },
-    "months": {
-      "1": "January",
-      "2": "February",
-      "3": "March",
-      "4": "April",
-      "5": "May",
-      "6": "June",
-      "7": "July",
-      "8": "August",
-      "9": "September",
-      "10": "October",
-      "11": "November",
-      "12": "December"
-    }
-  },
-  "hardcoded": {
-    "empty_states_01_vibethink_orchestrator": "Empty States 01 - VibeThink Orchestrator",
-    "no_projects": "No projects",
-    "create_your_first_project": "Create your first project",
-    "marketing_campaign": "Marketing Campaign",
-    "engineering_project": "Engineering Project",
-    "empty_states_02_vibethink_orchestrator": "Empty States 02 - VibeThink Orchestrator",
-    "empty_states_03_vibethink_orchestrator": "Empty States 03 - VibeThink Orchestrator",
-    "empty_state_illustration": "Empty state illustration",
-    "403_page_vibethink_orchestrator": "403 Page - VibeThink Orchestrator",
-    "go_to_home": "Go to home",
-    "individual": "Individual",
-    "perfect_for_personal_projects_and_freelancers": "Perfect for personal projects and freelancers",
-    "personal_dashboard": "Personal dashboard",
-    "tell_us_about_your_work_style": "Tell us about your work style",
-    "preferred_work_style": "Preferred work style",
-    "work_from_anywhere": "Work from anywhere",
-    "onboarding_flow_vibethink_orchestrator": "Onboarding Flow - VibeThink Orchestrator",
-    "select_all": "모두 선택",
-    "select_all_1": "모두 선택",
-    "select_all_2": "모두 선택",
-    "orders_page_vibethink_orchestrator": "Orders Page - VibeThink Orchestrator",
-    "order_detail_page_vibethink_orchestrator": "Order Detail Page - VibeThink Orchestrator",
-    "pricing_column_layout": "Pricing - Column Layout",
-    "essential_features_for_individuals": "Essential features for individuals",
-    "basic_support": "Basic support",
-    "limited_integrations": "Limited integrations",
-    "pricing_tables": "Pricing Tables",
-    "pricing_single_plan": "Pricing - Single Plan",
-    "unlimited_access_to_all_courses": "Unlimited access to all courses",
-    "personalized_learning_paths": "Personalized learning paths",
-    "progress_tracking_and_analytics": "Progress tracking and analytics",
-    "pricing_table_layout": "Pricing - Table Layout",
-    "basic_support_1": "Basic support",
-    "limited_integrations_1": "Limited integrations",
-    "priority_support": "Priority support",
-    "httpswwwexamplecomimagejpg": "https://www.example.com/image.jpg",
-    "upload_image_file": "Upload image file",
-    "upload_image_file_1": "Upload image file",
-    "upload_image_file_2": "Upload image file",
-    "add_product_page_vibethink_orchestrator": "Add Product Page - VibeThink Orchestrator",
-    "product_list_vibethink_orchestrator": "Product List - VibeThink Orchestrator",
-    "select_all_3": "모두 선택",
-    "select_all_4": "모두 선택",
-    "select_all_5": "모두 선택",
-    "product_detail_page_vibethink_orchestrator": "Product Detail Page - VibeThink Orchestrator",
-    "touch_sensor_controls": "Touch sensor controls",
-    "card": "Card",
-    "product_image": "Product image",
-    "product_thumbnail": "Product thumbnail",
-    "decent_but_could_be_better": "Decent but could be better",
-    "decent_but_could_be_better_1": "Decent but could be better",
-    "beautiful_design": "Beautiful design",
-    "no_rating_selected": "No rating selected",
-    "enter_your_name": "Enter your name",
-    "enter_your_name_1": "Enter your name",
-    "enter_your_email": "Enter your 이메일",
-    "mock_premium_pack": "Mock premium pack",
-    "enterprise_plan_subscription": "Enterprise plan subscription",
-    "business_board_pro_license": "Business board pro license",
-    "profile_page": "Profile Page",
-    "english": "English",
-    "french": "French",
-    "german": "German",
-    "select_a_font": "Select a font",
-    "select_font": "Select font",
-    "select_font_1": "Select font",
-    "mock_premium_pack_1": "Mock premium pack",
-    "enterprise_plan_subscription_1": "Enterprise plan subscription",
-    "business_board_pro_license_1": "Business board pro license",
-    "profile_1": "새 고객 프로필 만들기",
-    "account_1": "Account",
-    "billing": "Billing",
-    "recents": "Recents",
-    "home_1": "Home",
-    "applications": "Applications",
-    "settings_page": "Settings Page",
-    "all_new_messages": "All new messages",
-    "direct_messages_and_mentions": "직접 messages and mentions",
-    "communication_emails": "Communication 이메일s",
-    "change_image": "Change image",
-    "upload_image": "Upload image",
-    "upload_image_file_3": "Upload image file",
-    "task_report_uploaded_weekly_reports": "Task report - uploaded weekly reports",
-    "project_status_updated": "Project status updated",
-    "project_status_updated_1": "Project status updated",
-    "complete_your_profile": "Complete your profile",
-    "get_a_complete_audit_store": "Get a complete audit store",
-    "build_stronger_customer_relationships": "Build stronger customer relationships",
-    "update_subscription_method": "Update subscription method",
-    "user_profile": "User Profile",
-    "no_department": "No department",
-    "select_all_6": "모두 선택",
-    "select_all_7": "모두 선택",
-    "select_all_8": "모두 선택",
-    "users_list": "Users List",
-    "new_message": "New message",
-    "new_message_1": "New message",
-    "type_your_message": "메시지를 입력하세요...",
-    "desktop": "데스크톱",
-    "mobile": "모바일",
-    "card_1": "Card",
-    "paypal": "Paypal",
-    "subscription": "Subscription",
-    "select_new_role": "Select new role...",
-    "revenue": "수익",
-    "open_menu": "메뉴 열기"
-=======
       "card": "카드",
       "paypal": "PayPal",
       "apple": "Apple"
@@ -723,6 +440,5 @@
     "mobile_app_design": "모바일 앱 디자인",
     "select_all": "모두 선택",
     "select_all_1": "모두 선택"
->>>>>>> zealous-williams
   }
 }

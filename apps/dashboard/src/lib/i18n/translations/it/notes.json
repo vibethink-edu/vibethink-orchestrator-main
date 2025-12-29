@@ -87,43 +87,5 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "text_note": "Text Note",
-    "checklist": "Checklist",
-    "markdown": "Markdown",
-    "text_note_1": "Text Note",
-    "checklist_1": "Checklist",
-    "markdown_1": "Markdown",
-    "add_item": "Add item...",
-    "write_your_note_in_markdown": "Write your note in Markdown...",
-    "transcript_will_appear_here": "Transcript will appear here...",
-    "search_notes": "Search notes",
-    "failed_to_fetch_folders": "Failed to fetch folders",
-    "user_not_authenticated": "User not authenticated",
-    "user_not_authenticated_1": "User not authenticated",
-    "failed_to_fetch_labels": "Failed to fetch labels",
-    "user_not_authenticated_2": "User not authenticated",
-    "user_not_authenticated_3": "User not authenticated",
-    "project_planning_notes": "Pianificazione",
-    "meeting_notes": "Meeting Notes",
-    "failed_to_fetch_notes": "Failed to fetch notes",
-    "title_1": "Title",
-    "enter_note_description": "Enter note description...",
-    "add_image": "Add image",
-    "mountain_sunset_photography": "Mountain Sunset Photography",
-    "weekly_grocery_list": "Weekly Grocery List",
-    "organic_vegetables": "Organic vegetables",
-    "new_label_name": "New label name",
-    "new_label_name_1": "New label name",
-    "select_color": "Select color",
-    "search_notes_1": "Search notes",
-    "no_notes_found": "No notes found",
-    "note_app": "Note App"
   }
 }
-=======
-  }
-}
->>>>>>> zealous-williams

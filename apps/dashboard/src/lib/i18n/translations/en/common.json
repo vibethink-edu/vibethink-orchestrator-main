@@ -62,37 +62,21 @@
     "lastMonth": "Last month",
     "thisYear": "This year",
     "lastYear": "Last year"
-  },
-  "table": {
-    "common": {
-      "search": "Search...",
-      "filter": "Filter",
-      "columns": "Columns",
-      "actions": "Actions",
-      "openMenu": "Open menu",
-      "selectAll": "Select all",
-      "selectRow": "Select row",
-      "noResults": "No results.",
-      "rowsSelected": "{{count}} of {{total}} row(s) selected.",
-      "previous": "Previous",
-      "next": "Next",
-      "showing": "Showing {{from}} to {{to}} of {{total}} entries"
-    },
-    "status": {
-      "active": "Active",
-      "inactive": "Inactive",
-      "pending": "Pending",
-      "completed": "Completed",
-      "cancelled": "Cancelled",
-      "cancel": "Cancel",
-      "draft": "Draft",
-      "published": "Published"
-    },
-    "priority": {
-      "low": "Low",
-      "medium": "Medium",
-      "high": "High",
-      "urgent": "Urgent"
-    }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

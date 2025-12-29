@@ -87,23 +87,5 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "ask_me_anything": "Chiedimi qualsiasi cosa...",
-    "attach_files": "Allega file",
-    "select_model": "Select model",
-    "explore": "Esplora",
-    "library": "Biblioteca",
-    "history": "Cronologia",
-    "perfect_for_getting_started": "Perfetto per iniziare",
-    "standard_support": "Supporto standard",
-    "web_access_only": "Solo accesso web",
-    "ai_chat_v2": "Chat IA V2",
-    "ai_chat_v2_1": "Chat IA V2"
   }
 }
-=======
-  }
-}
->>>>>>> zealous-williams

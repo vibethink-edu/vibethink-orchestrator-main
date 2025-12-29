@@ -87,17 +87,5 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "show_me_recent_activities": "최근 활동 보여주기",
-    "initial_discovery_call_completed": "초기 발견 통화 완료",
-    "initial_discovery_call_completed_1": "초기 발견 통화 완료",
-    "discussed_project_requirements_and_timeline": "프로젝트 요구사항 및 일정 논의",
-    "crm_v2_ai_aifirst_crm_dashboard": "CRM V2 + AI - AI 우선 CRM 대시보드"
   }
 }
-=======
-  }
-}
->>>>>>> zealous-williams

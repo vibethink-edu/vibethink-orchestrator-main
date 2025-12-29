@@ -9,11 +9,6 @@
       "time": {
         "checkIn": "Check-in",
         "checkOut": "Check-out"
-      },
-      "resource": {
-        "room": "Booth",
-        "studio_room": "Recording Studio",
-        "equipment": "Audio Equipment"
       }
     },
     "crm": {
@@ -54,3 +49,6 @@
     }
   }
 }
+
+
+

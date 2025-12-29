@@ -87,17 +87,5 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "total_received": "총 수신",
-    "total_send": "총 전송",
-    "total_withdraw": "총 인출",
-    "current_balance": "현재 잔액",
-    "crypto_admin_dashboard": "암호화폐 관리자 대시보드"
   }
 }
-=======
-  }
-}
->>>>>>> zealous-williams

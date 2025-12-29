@@ -87,23 +87,5 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "ask_me_anything": "무엇이든 물어보세요...",
-    "attach_files": "파일 첨부",
-    "select_model": "Select model",
-    "explore": "탐색",
-    "library": "라이브러리",
-    "history": "기록",
-    "perfect_for_getting_started": "시작하기에 완벽합니다",
-    "standard_support": "표준 지원",
-    "web_access_only": "웹 액세스만",
-    "ai_chat_v2": "AI 채팅 V2",
-    "ai_chat_v2_1": "AI 채팅 V2"
   }
 }
-=======
-  }
-}
->>>>>>> zealous-williams

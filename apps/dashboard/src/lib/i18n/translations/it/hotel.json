@@ -2,18 +2,12 @@
   "hotel": {
     "title": "Hotel Management",
     "description": "Manage your hotel operations, bookings, and guests",
-<<<<<<< HEAD
-=======
     
->>>>>>> zealous-williams
     "navigation": {
       "dashboard": "Dashboard",
       "bookings": "Bookings"
     },
-<<<<<<< HEAD
-=======
     
->>>>>>> zealous-williams
     "sidebar": {
       "title": "Hotel Dashboard",
       "subOptions": {
@@ -21,10 +15,7 @@
         "bookings": "Bookings"
       }
     },
-<<<<<<< HEAD
-=======
     
->>>>>>> zealous-williams
     "components": {
       "header": {
         "title": "Hotel Management",
@@ -33,10 +24,7 @@
           "reports": "Reports"
         }
       },
-<<<<<<< HEAD
-=======
       
->>>>>>> zealous-williams
       "statCards": {
         "titles": {
           "todayCheckIn": "Today's check-in",
@@ -50,10 +38,7 @@
           "export": "Export"
         }
       },
-<<<<<<< HEAD
-=======
       
->>>>>>> zealous-williams
       "bookingList": {
         "title": "Bookings",
         "search": {
@@ -90,10 +75,7 @@
           "last": "Last"
         }
       },
-<<<<<<< HEAD
-=======
       
->>>>>>> zealous-williams
       "bookingsCard": {
         "title": "Bookings",
         "totalBookings": "Total Bookings",
@@ -107,10 +89,7 @@
           "yearly": "Y"
         }
       },
-<<<<<<< HEAD
-=======
       
->>>>>>> zealous-williams
       "bookingForm": {
         "title": "New Booking",
         "description": "Fill out the form to create a new room booking.",
@@ -158,10 +137,7 @@
           }
         }
       },
-<<<<<<< HEAD
-=======
       
->>>>>>> zealous-williams
       "campaignOverview": {
         "title": "Campaign Overview",
         "booked": "Booked",
@@ -180,10 +156,7 @@
           "visited": "Visited"
         }
       },
-<<<<<<< HEAD
-=======
       
->>>>>>> zealous-williams
       "reservationsCard": {
         "title": "Reservations",
         "totalLabel": "Reservations",
@@ -194,10 +167,7 @@
           "checkedOut": "Checked Out"
         }
       },
-<<<<<<< HEAD
-=======
       
->>>>>>> zealous-williams
       "revenueStat": {
         "title": "Revenue Stat",
         "fromLastMonth": "from last month",
@@ -212,10 +182,7 @@
           "projected": "Projected"
         }
       },
-<<<<<<< HEAD
-=======
       
->>>>>>> zealous-williams
       "meetingRoomSchedule": {
         "title": "Meeting Room Schedule",
         "actions": {
@@ -253,10 +220,7 @@
         }
       }
     },
-<<<<<<< HEAD
-=======
     
->>>>>>> zealous-williams
     "status": {
       "checkedIn": "Checked-In",
       "pending": "Pending",
@@ -267,28 +231,19 @@
       "confirmed": "Confirmed",
       "checkedOut": "Checked Out"
     },
-<<<<<<< HEAD
-=======
     
->>>>>>> zealous-williams
     "roomTypes": {
       "deluxe": "Deluxe",
       "standard": "Standard",
       "suite": "Suite"
     },
-<<<<<<< HEAD
-=======
     
->>>>>>> zealous-williams
     "formatters": {
       "roomNumber": "Room {{number}}",
       "nights": "{{count}} night",
       "nightsPlural": "{{count}} nights"
     },
-<<<<<<< HEAD
-=======
     
->>>>>>> zealous-williams
     "messages": {
       "error": {
         "loading": "Error loading hotel data",
@@ -300,25 +255,6 @@
         "deleted": "Booking deleted successfully"
       }
     }
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "booking_created": "Prenotazione creata",
-    "booking_created_1": "Prenotazione creata",
-    "enter_name": "Inserisci il nome",
-    "finished": "Finito",
-    "cancelled": "Annullato",
-    "pending": "In attesa",
-    "room_1": "Camera 1",
-    "room_2": "Camera 2",
-    "room_3": "Camera 3",
-    "bookings": "Prenotazioni",
-    "recent_activities": "Attività recenti",
-    "guest_request_information": "Informazioni richiesta ospite"
-  }
-}
-=======
   }
 }
 
->>>>>>> zealous-williams

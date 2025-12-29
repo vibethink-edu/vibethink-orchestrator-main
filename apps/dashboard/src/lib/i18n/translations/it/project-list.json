@@ -87,13 +87,5 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "list_of_your_ongoing_projects": "List of your ongoing projects"
   }
 }
-=======
-  }
-}
->>>>>>> zealous-williams

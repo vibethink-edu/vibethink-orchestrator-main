@@ -1,13 +1,4 @@
 {
-<<<<<<< HEAD
-  "concept.booking.resource.room": "Habitación",
-  "concept.booking.resource.studio_room": "Suite",
-  "concept.booking.resource.meeting_room": "Sala de eventos"
-}
-
-
-
-=======
   "concept": {
     "booking": {
       "resource": {
@@ -59,4 +50,5 @@
   }
 }
 
->>>>>>> zealous-williams
+
+

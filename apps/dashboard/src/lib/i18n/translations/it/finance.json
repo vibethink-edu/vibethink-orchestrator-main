@@ -59,30 +59,6 @@
     "completed": "Completed",
     "pending": "Pending",
     "failed": "Failed"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "add_new_budget": "Aggiungi nuovo budget",
-    "budget_vs_actual": "Budget vs Reale",
-    "cash_flow_analysis": "Analisi del flusso di cassa",
-    "expense_breakdown": "Ripartizione delle spese",
-    "open_menu": "Apri menu",
-    "all_categories": "Tutte le categorie",
-    "sales": "Vendite",
-    "services": "Servizi",
-    "refresh_insights": "Aggiorna insights",
-    "digital_marketing_campaigns_and_advertising": "Campagne di marketing digitale e pubblicità",
-    "monthly_payroll_and_benefits": "Busta paga mensile e benefici",
-    "quarterly_revenue_target_from_product_sales": "Entrate",
-    "implementation_and_training_services": "Implementation and training Servizi",
-    "january_subscription_renewals": "Rinnovi di abbonamento di gennaio",
-    "january_payroll": "Busta paga di gennaio",
-    "export_financial_data": "Esporta dati finanziari",
-    "add_new_expense": "Aggiungi nuova spesa",
-    "add_new_revenue": "Entrate"
-  }
-}
-=======
   }
 }
 
@@ -95,4 +71,3 @@
 
 
 
->>>>>>> zealous-williams

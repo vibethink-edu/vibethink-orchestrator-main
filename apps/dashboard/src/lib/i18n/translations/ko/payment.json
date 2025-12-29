@@ -87,17 +87,5 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "page_views": "Page Views",
-    "desktop": "데스크톱",
-    "mobile": "모바일",
-    "you_have_information_to_submit_in_verification_cen": "You have information to submit in verification cen",
-    "updated_every_several_minutes": "Updated every several minutes"
   }
 }
-=======
-  }
-}
->>>>>>> zealous-williams

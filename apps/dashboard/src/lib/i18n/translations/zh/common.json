@@ -1,39 +1,4 @@
 {
-<<<<<<< HEAD
-  "table": {
-    "common": {
-      "search": "搜索...",
-      "filter": "筛选",
-      "columns": "列",
-      "actions": "操作",
-      "openMenu": "打开菜单",
-      "selectAll": "全选",
-      "selectRow": "选择行",
-      "noResults": "无结果。",
-      "rowsSelected": "已选择 {{count}} / {{total}} 行。",
-      "previous": "上一页",
-      "next": "下一页",
-      "showing": "显示 {{from}} 到 {{to}}，共 {{total}} 条"
-    },
-    "status": {
-      "active": "活跃",
-      "inactive": "非活跃",
-      "pending": "待处理",
-      "completed": "已完成",
-      "cancelled": "已取消",
-      "cancel": "取消",
-      "draft": "草稿",
-      "published": "已发布"
-    },
-    "priority": {
-      "low": "低",
-      "medium": "中",
-      "high": "高",
-      "urgent": "紧急"
-    }
-  }
-}
-=======
   "buttons": {
     "save": "节省",
     "cancel": "取消",
@@ -99,4 +64,3 @@
     "lastYear": "去年"
   }
 }
->>>>>>> zealous-williams

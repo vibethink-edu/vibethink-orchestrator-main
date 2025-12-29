@@ -92,14 +92,7 @@
     "title": "Website Analytics",
     "dateRange": "Date Range",
     "export": "Export",
-<<<<<<< HEAD
-    "refresh": "Refresh",
-    "exportAsCsv": "Export as CSV",
-    "exportAsExcel": "Export as Excel",
-    "exportAsPdf": "Export as PDF"
-=======
     "refresh": "Refresh"
->>>>>>> zealous-williams
   },
   "cards": {
     "totalEarning": {
@@ -246,54 +239,9 @@
     "yesterday": "Yesterday",
     "last7Days": "Last 7 Days",
     "last30Days": "Last 30 Days",
-<<<<<<< HEAD
-    "last90Days": "Last 90 Days",
-=======
->>>>>>> zealous-williams
     "thisMonth": "This Month",
     "lastMonth": "Last Month",
     "thisYear": "This Year",
     "lastYear": "Last Year"
-<<<<<<< HEAD
-  },
-  "debug": {
-    "title": "Debug Information (Development Only)",
-    "ready": "Ready",
-    "loadingState": "Loading State",
-    "errorState": "Error State",
-    "filtersApplied": "Filters Applied",
-    "dateRange": "Date Range",
-    "countryFilter": "Country Filter",
-    "campaignFilter": "Campaign Filter",
-    "allCountries": "All Countries",
-    "allCampaigns": "All Campaigns"
-  },
-  "hardcoded": {
-    "website_analytics": "Website Analytics",
-    "analytics": "Analytics",
-    "visitors": "Visitatori",
-    "desktop": "Desktop",
-    "mobile": "Mobile",
-    "revenue": "Entrate",
-    "net_profit": "Profitto",
-    "expenses": "Spese",
-    "impressions": "Impressioni",
-    "clicks": "Clic",
-    "conversions": "Conversioni",
-    "united_states": "Stati Uniti",
-    "canada": "Canada",
-    "united_kingdom": "Regno Unito",
-    "sales": "Vendite",
-    "target": "Obiettivo",
-    "overflow": "Eccedenza",
-    "failed_to_load_earning_reports": "Impossibile caricare i rapporti di guadagno",
-    "failed_to_load_support_tickets_data": "Failed to load support tickets data",
-    "revenue_1": "Entrate",
-    "profit": "Profitto",
-    "failed_to_load_earning_data": "Failed to load earning data",
-    "failed_to_load_website_analytics_data": "Impossibile caricare i dati di analisi del sito web",
-    "website_analytics_1": "Website Analytics"
-=======
->>>>>>> zealous-williams
   }
 }

@@ -36,24 +36,6 @@
     "negotiation": "Negotiation",
     "won": "Won",
     "lost": "Lost"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "customers": "Clienti",
-    "value": "Valore",
-    "revenue": "Entrate",
-    "search_customers_deals": "Cerca clienti, affari...",
-    "error_loading_metrics": "Errore nel caricamento delle metriche",
-    "no_customers_found": "Nessun cliente trovato",
-    "no_active_deals_found": "Nessun affare attivo trovato",
-    "add_new_customer": "Aggiungi nuovo cliente",
-    "create_a_new_customer_profile": "Crea un nuovo profilo cliente",
-    "create_deal": "Crea affare",
-    "enterprise_software_license": "Enterprise Software License",
-    "website_redesign_project": "Website Redesign Project"
-  }
-}
-=======
   }
 }
 
@@ -68,4 +50,3 @@
 
 
 
->>>>>>> zealous-williams

@@ -1,39 +1,4 @@
 {
-<<<<<<< HEAD
-  "table": {
-    "common": {
-      "search": "Buscar...",
-      "filter": "Filtrar",
-      "columns": "Columnas",
-      "actions": "Acciones",
-      "openMenu": "Abrir menú",
-      "selectAll": "Seleccionar todo",
-      "selectRow": "Seleccionar fila",
-      "noResults": "Sin resultados.",
-      "rowsSelected": "{{count}} de {{total}} fila(s) seleccionada(s).",
-      "previous": "Anterior",
-      "next": "Siguiente",
-      "showing": "Mostrando {{from}} a {{to}} de {{total}} entradas"
-    },
-    "status": {
-      "active": "Activo",
-      "inactive": "Inactivo",
-      "pending": "Pendiente",
-      "completed": "Completado",
-      "cancelled": "Cancelado",
-      "cancel": "Cancelar",
-      "draft": "Borrador",
-      "published": "Publicado"
-    },
-    "priority": {
-      "low": "Baja",
-      "medium": "Media",
-      "high": "Alta",
-      "urgent": "Urgente"
-    }
-  }
-}
-=======
   "buttons": {
     "save": "Ahorrar",
     "cancel": "Cancelar",
@@ -100,4 +65,5 @@
   }
 }
 
->>>>>>> zealous-williams
+
+

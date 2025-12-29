@@ -87,37 +87,5 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "analytic_widgets": "Analytic Widgets",
-    "ecommerce_widgets": "E-commerce Widgets",
-    "weight": "Weight",
-    "body_weight_tracking": "Body weight tracking",
-    "steps": "Steps",
-    "calories": "Calories",
-    "water": "Water",
-    "joined_yoga_challenge": "Joined yoga challenge",
-    "recent_activity": "Recent activity",
-    "visitors": "방문자",
-    "safari": "Safari",
-    "fitness_motivation": "Fitness motivation",
-    "carbs": "Carbs",
-    "protein": "Protein",
-    "fats": "Fats",
-    "5d_ago": "5d ago",
-    "8d_ago": "8d ago",
-    "14d_ago": "14d ago",
-    "morning_run": "Morning Run",
-    "strength_training": "Strength Training",
-    "yoga_session": "Yoga Session",
-    "fitness_widgets": "Fitness Widgets",
-    "fitness": "Fitness",
-    "ecommerce": "E-commerce",
-    "analytics": "Analytics"
   }
 }
-=======
-  }
-}
->>>>>>> zealous-williams

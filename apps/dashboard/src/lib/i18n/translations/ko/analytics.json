@@ -92,14 +92,7 @@
     "title": "Website Analytics",
     "dateRange": "Date Range",
     "export": "Export",
-<<<<<<< HEAD
-    "refresh": "Refresh",
-    "exportAsCsv": "Export as CSV",
-    "exportAsExcel": "Export as Excel",
-    "exportAsPdf": "Export as PDF"
-=======
     "refresh": "Refresh"
->>>>>>> zealous-williams
   },
   "cards": {
     "totalEarning": {
@@ -246,54 +239,9 @@
     "yesterday": "Yesterday",
     "last7Days": "Last 7 Days",
     "last30Days": "Last 30 Days",
-<<<<<<< HEAD
-    "last90Days": "Last 90 Days",
-=======
->>>>>>> zealous-williams
     "thisMonth": "This Month",
     "lastMonth": "Last Month",
     "thisYear": "This Year",
     "lastYear": "Last Year"
-<<<<<<< HEAD
-  },
-  "debug": {
-    "title": "Debug Information (Development Only)",
-    "ready": "Ready",
-    "loadingState": "Loading State",
-    "errorState": "Error State",
-    "filtersApplied": "Filters Applied",
-    "dateRange": "Date Range",
-    "countryFilter": "Country Filter",
-    "campaignFilter": "Campaign Filter",
-    "allCountries": "All Countries",
-    "allCampaigns": "All Campaigns"
-  },
-  "hardcoded": {
-    "website_analytics": "Website Analytics",
-    "analytics": "Analytics",
-    "visitors": "방문자",
-    "desktop": "데스크톱",
-    "mobile": "모바일",
-    "revenue": "수익",
-    "net_profit": "이익",
-    "expenses": "비용",
-    "impressions": "노출",
-    "clicks": "클릭",
-    "conversions": "전환",
-    "united_states": "미국",
-    "canada": "캐나다",
-    "united_kingdom": "영국",
-    "sales": "판매",
-    "target": "목표",
-    "overflow": "초과",
-    "failed_to_load_earning_reports": "수익 보고서를 로드하지 못했습니다",
-    "failed_to_load_support_tickets_data": "Failed to load support tickets data",
-    "revenue_1": "수익",
-    "profit": "이익",
-    "failed_to_load_earning_data": "Failed to load earning data",
-    "failed_to_load_website_analytics_data": "웹사이트 분석 데이터를 로드하지 못했습니다",
-    "website_analytics_1": "Website Analytics"
-=======
->>>>>>> zealous-williams
   }
 }

@@ -1,13 +1,4 @@
 {
-<<<<<<< HEAD
-  "concept.booking.resource.room": "Desk",
-  "concept.booking.resource.cowork_desk": "Shared Desk",
-  "concept.booking.resource.meeting_room": "Workspace"
-}
-
-
-
-=======
   "concept": {
     "booking": {
       "resource": {
@@ -86,4 +77,5 @@
   }
 }
 
->>>>>>> zealous-williams
+
+

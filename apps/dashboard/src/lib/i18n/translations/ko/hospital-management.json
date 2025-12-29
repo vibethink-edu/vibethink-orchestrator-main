@@ -87,25 +87,5 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "new_patient_orientation": "신규 환자 오리엔테이션",
-    "inventory_check": "재고 확인",
-    "annual_health_checkup": "연간 건강 검진",
-    "female": "여성",
-    "male": "남성",
-    "child": "아동",
-    "visitors": "방문자",
-    "cardiology": "심장학",
-    "neurology": "신경학",
-    "general_health_check_up": "일반 건강 검진",
-    "temporary_headache": "일시적 두통",
-    "filter_sales": "판매",
-    "unknown_error": "알 수 없는 오류"
   }
 }
-=======
-  }
-}
->>>>>>> zealous-williams
