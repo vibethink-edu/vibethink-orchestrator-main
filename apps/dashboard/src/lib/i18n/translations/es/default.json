@@ -1,205 +1,207 @@
 {
-  "title": "Panel",
-  "description": "Panel principal con descripción general de las métricas clave",
-  "loading": "Cargando...",
-  "error": "Error",
-  "success": "Éxito",
-  "cancel": "Cancelar",
-  "save": "Ahorrar",
-  "delete": "Borrar",
-  "edit": "Editar",
-  "create": "Crear",
-  "update": "Actualizar",
-  "search": "Buscar",
-  "filter": "Filtrar",
-  "sort": "Clasificar",
-  "export": "Exportar",
-  "import": "Importar",
-  "download": "Descargar",
-  "upload": "Subir",
-  "close": "Cerca",
-  "confirm": "Confirmar",
-  "back": "Atrás",
-  "next": "Próximo",
-  "previous": "Anterior",
-  "submit": "Entregar",
-  "reset": "Reiniciar",
-  "clear": "Claro",
-  "apply": "Aplicar",
-  "select": "Seleccionar",
-  "selectAll": "Seleccionar todo",
-  "deselectAll": "Deseleccionar todo",
-  "noResults": "No se encontraron resultados",
-  "noData": "No hay datos disponibles",
-  "empty": "Vacío",
-  "active": "Activo",
-  "inactive": "Inactivo",
-  "pending": "Pendiente",
-  "completed": "Terminado",
-  "cancelled": "Cancelado",
-  "draft": "Borrador",
-  "published": "Publicado",
-  "archived": "Archivado",
-  "view": "Vista",
-  "viewDetails": "Ver detalles",
-  "viewMore": "Ver más",
-  "add": "Agregar",
-  "addNew": "Agregar nuevo",
-  "remove": "Eliminar",
-  "removeAll": "Eliminar todo",
-  "today": "Hoy",
-  "yesterday": "Ayer",
-  "tomorrow": "Mañana",
-  "thisWeek": "Esta semana",
-  "lastWeek": "La semana pasada",
-  "thisMonth": "Este mes",
-  "lastMonth": "Mes pasado",
-  "thisYear": "Este año",
-  "lastYear": "El año pasado",
-  "minutes": "Minutos",
-  "hours": "Horas",
-  "days": "Días",
-  "weeks": "Semanas",
-  "months": "Meses",
-  "years": "Años",
-  "areYouSure": "¿Está seguro?",
-  "thisActionCannotBeUndone": "Esta acción no se puede deshacer",
-  "pleaseWait": "Espere por favor...",
-  "operationSuccessful": "Operación exitosa",
-  "operationFailed": "Operación fallida",
-  "showing": "Demostración",
-  "of": "de",
-  "results": "resultados",
-  "rowsPerPage": "Filas por página",
-  "page": "Página",
-  "all": "Todo",
-  "none": "Ninguno",
-  "notification": "Notificación",
-  "notifications": "Notificaciones",
-  "noNotifications": "Sin notificaciones",
-  "settings": "Ajustes",
-  "preferences": "Preferencias",
-  "account": "Cuenta",
-  "profile": "Perfil",
-  "home": "Hogar",
-  "dashboard": "Panel",
-  "emptyState": {
-    "title": "No se encontraron artículos",
-    "description": "Comience creando un nuevo elemento",
-    "action": "Crear nuevo"
-  },
-  "header": {
+  "default": {
     "title": "Panel",
-    "download": "Descargar"
-  },
-  "cards": {
-    "totalRevenue": {
-      "title": "Ingresos totales",
-      "label": "Ganancia",
-      "fromLastMonth": "+{porcentaje}% respecto al mes pasado"
-    },
-    "subscriptions": {
-      "title": "Suscripciones",
-      "fromLastMonth": "+{porcentaje}% respecto al mes pasado"
-    },
-    "teamMembers": {
-      "title": "Miembros del equipo",
-      "description": "Invita a los miembros de tu equipo a colaborar."
-    },
-    "exerciseMinutes": {
-      "title": "Minutos de ejercicio",
-      "description": "Tus minutos de ejercicio están adelantados respecto a lo que haces normalmente.",
-      "average": "Promedio",
-      "today": "Hoy"
-    },
-    "paymentMethod": {
-      "title": "Método de pago",
-      "description": "Añade un nuevo método de pago a tu cuenta.",
-      "continue": "Continuar"
-    }
-  },
-  "table": {
+    "description": "Panel principal con descripción general de las métricas clave",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "save": "Ahorrar",
+    "delete": "Borrar",
+    "edit": "Editar",
+    "create": "Crear",
+    "update": "Actualizar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Clasificar",
+    "export": "Exportar",
+    "import": "Importar",
+    "download": "Descargar",
+    "upload": "Subir",
+    "close": "Cerca",
+    "confirm": "Confirmar",
+    "back": "Atrás",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "submit": "Entregar",
+    "reset": "Reiniciar",
+    "clear": "Claro",
+    "apply": "Aplicar",
+    "select": "Seleccionar",
     "selectAll": "Seleccionar todo",
-    "selectRow": "Seleccionar fila",
-    "noResults": "No hay resultados.",
-    "customer": "Cliente",
-    "email": "Correo electrónico",
-    "amount": "Cantidad",
-    "status": "Estado"
-  },
-  "payments": {
-    "title": "Últimos pagos",
-    "filterPlaceholder": "Filtrar pagos...",
-    "actions": "Comportamiento",
-    "selected": "seleccionado",
-    "rowsSelected": "{count} de {total} filas seleccionadas.",
-    "bulkActions": {
-      "delete": "Eliminar seleccionados",
-      "export": "Exportar seleccionados",
-      "email": "Clientes de correo electrónico",
-      "tag": "Pagos con etiquetas"
+    "deselectAll": "Deseleccionar todo",
+    "noResults": "No se encontraron resultados",
+    "noData": "No hay datos disponibles",
+    "empty": "Vacío",
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "pending": "Pendiente",
+    "completed": "Terminado",
+    "cancelled": "Cancelado",
+    "draft": "Borrador",
+    "published": "Publicado",
+    "archived": "Archivado",
+    "view": "Vista",
+    "viewDetails": "Ver detalles",
+    "viewMore": "Ver más",
+    "add": "Agregar",
+    "addNew": "Agregar nuevo",
+    "remove": "Eliminar",
+    "removeAll": "Eliminar todo",
+    "today": "Hoy",
+    "yesterday": "Ayer",
+    "tomorrow": "Mañana",
+    "thisWeek": "Esta semana",
+    "lastWeek": "La semana pasada",
+    "thisMonth": "Este mes",
+    "lastMonth": "Mes pasado",
+    "thisYear": "Este año",
+    "lastYear": "El año pasado",
+    "minutes": "Minutos",
+    "hours": "Horas",
+    "days": "Días",
+    "weeks": "Semanas",
+    "months": "Meses",
+    "years": "Años",
+    "areYouSure": "¿Está seguro?",
+    "thisActionCannotBeUndone": "Esta acción no se puede deshacer",
+    "pleaseWait": "Espere por favor...",
+    "operationSuccessful": "Operación exitosa",
+    "operationFailed": "Operación fallida",
+    "showing": "Demostración",
+    "of": "de",
+    "results": "resultados",
+    "rowsPerPage": "Filas por página",
+    "page": "Página",
+    "all": "Todo",
+    "none": "Ninguno",
+    "notification": "Notificación",
+    "notifications": "Notificaciones",
+    "noNotifications": "Sin notificaciones",
+    "settings": "Ajustes",
+    "preferences": "Preferencias",
+    "account": "Cuenta",
+    "profile": "Perfil",
+    "home": "Hogar",
+    "dashboard": "Panel",
+    "emptyState": {
+      "title": "No se encontraron artículos",
+      "description": "Comience creando un nuevo elemento",
+      "action": "Crear nuevo"
     },
-    "menu": {
-      "viewDetails": "Ver detalles",
-      "downloadReceipt": "Descargar recibo",
-      "contactCustomer": "Contactar al cliente"
-    }
-  },
-  "roles": {
-    "viewer": "Espectador",
-    "developer": "Revelador",
-    "billing": "Facturación",
-    "owner": "Dueño",
-    "descriptions": {
-      "viewer": "Puede ver y comentar.",
-      "developer": "Puede ver, comentar y editar.",
-      "billing": "Puede ver, comentar y administrar la facturación.",
-      "owner": "Acceso a nivel de administrador a todos los recursos."
+    "header": {
+      "title": "Panel",
+      "download": "Descargar"
     },
-    "selectPlaceholder": "Seleccionar nuevo rol...",
-    "noRolesFound": "No se encontraron roles."
-  },
-  "chat": {
-    "newMessage": "Nuevo mensaje",
-    "typePlaceholder": "Escribe tu mensaje...",
-    "send": "Enviar",
-    "dialog": {
-      "title": "Nuevo mensaje",
-      "description": "Invita a un usuario a este hilo. Esto creará un nuevo mensaje grupal.",
-      "searchPlaceholder": "Buscar usuario...",
-      "noUsersFound": "No se encontraron usuarios.",
-      "selectUsers": "Seleccione usuarios para agregar a este hilo.",
-      "continue": "Continuar"
-    }
-  },
-  "paymentForm": {
-    "methods": {
-      "card": "Tarjeta",
-      "paypal": "PayPal",
-      "apple": "Manzana"
+    "cards": {
+      "totalRevenue": {
+        "title": "Ingresos totales",
+        "label": "Ganancia",
+        "fromLastMonth": "+{porcentaje}% respecto al mes pasado"
+      },
+      "subscriptions": {
+        "title": "Suscripciones",
+        "fromLastMonth": "+{porcentaje}% respecto al mes pasado"
+      },
+      "teamMembers": {
+        "title": "Miembros del equipo",
+        "description": "Invita a los miembros de tu equipo a colaborar."
+      },
+      "exerciseMinutes": {
+        "title": "Minutos de ejercicio",
+        "description": "Tus minutos de ejercicio están adelantados respecto a lo que haces normalmente.",
+        "average": "Promedio",
+        "today": "Hoy"
+      },
+      "paymentMethod": {
+        "title": "Método de pago",
+        "description": "Añade un nuevo método de pago a tu cuenta.",
+        "continue": "Continuar"
+      }
     },
-    "fields": {
-      "nameOnCard": "Nombre en la tarjeta",
-      "city": "Ciudad",
-      "cardNumber": "Número de tarjeta",
-      "expires": "Caduca",
-      "month": "Mes",
-      "year": "Año",
-      "cvc": "CVC"
+    "table": {
+      "selectAll": "Seleccionar todo",
+      "selectRow": "Seleccionar fila",
+      "noResults": "No hay resultados.",
+      "customer": "Cliente",
+      "email": "Correo electrónico",
+      "amount": "Cantidad",
+      "status": "Estado"
     },
-    "months": {
-      "1": "Enero",
-      "2": "Febrero",
-      "3": "Marzo",
-      "4": "Abril",
-      "5": "Puede",
-      "6": "Junio",
-      "7": "Julio",
-      "8": "Agosto",
-      "9": "Septiembre",
-      "10": "Octubre",
-      "11": "Noviembre",
-      "12": "Diciembre"
+    "payments": {
+      "title": "Últimos pagos",
+      "filterPlaceholder": "Filtrar pagos...",
+      "actions": "Comportamiento",
+      "selected": "seleccionado",
+      "rowsSelected": "{count} de {total} filas seleccionadas.",
+      "bulkActions": {
+        "delete": "Eliminar seleccionados",
+        "export": "Exportar seleccionados",
+        "email": "Clientes de correo electrónico",
+        "tag": "Pagos con etiquetas"
+      },
+      "menu": {
+        "viewDetails": "Ver detalles",
+        "downloadReceipt": "Descargar recibo",
+        "contactCustomer": "Contactar al cliente"
+      }
+    },
+    "roles": {
+      "viewer": "Espectador",
+      "developer": "Revelador",
+      "billing": "Facturación",
+      "owner": "Dueño",
+      "descriptions": {
+        "viewer": "Puede ver y comentar.",
+        "developer": "Puede ver, comentar y editar.",
+        "billing": "Puede ver, comentar y administrar la facturación.",
+        "owner": "Acceso a nivel de administrador a todos los recursos."
+      },
+      "selectPlaceholder": "Seleccionar nuevo rol...",
+      "noRolesFound": "No se encontraron roles."
+    },
+    "chat": {
+      "newMessage": "Nuevo mensaje",
+      "typePlaceholder": "Escribe tu mensaje...",
+      "send": "Enviar",
+      "dialog": {
+        "title": "Nuevo mensaje",
+        "description": "Invita a un usuario a este hilo. Esto creará un nuevo mensaje grupal.",
+        "searchPlaceholder": "Buscar usuario...",
+        "noUsersFound": "No se encontraron usuarios.",
+        "selectUsers": "Seleccione usuarios para agregar a este hilo.",
+        "continue": "Continuar"
+      }
+    },
+    "paymentForm": {
+      "methods": {
+        "card": "Tarjeta",
+        "paypal": "PayPal",
+        "apple": "Manzana"
+      },
+      "fields": {
+        "nameOnCard": "Nombre en la tarjeta",
+        "city": "Ciudad",
+        "cardNumber": "Número de tarjeta",
+        "expires": "Caduca",
+        "month": "Mes",
+        "year": "Año",
+        "cvc": "CVC"
+      },
+      "months": {
+        "1": "Enero",
+        "2": "Febrero",
+        "3": "Marzo",
+        "4": "Abril",
+        "5": "Puede",
+        "6": "Junio",
+        "7": "Julio",
+        "8": "Agosto",
+        "9": "Septiembre",
+        "10": "Octubre",
+        "11": "Noviembre",
+        "12": "Diciembre"
+      }
     }
   }
 }
