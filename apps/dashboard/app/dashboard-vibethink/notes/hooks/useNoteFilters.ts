@@ -15,7 +15,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { useDebounce } from '@/shared/hooks/hooks/base/useDebounce';
+import { useDebounce } from '@/shared/hooks/base/useDebounce';
 import { 
   NoteFilters, 
   NoteSortOptions, 

@@ -1,4 +1,4 @@
 /**
- * Bridge file - Re-export utils from monorepo root
+ * Bridge file - Re-export utils from dashboard local lib
  */
-export * from '../../../../src/lib/utils';
+export * from '../../lib/utils';

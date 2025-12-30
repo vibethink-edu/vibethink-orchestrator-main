@@ -32,22 +32,4 @@ body {
   }
 }
 
-/* Estilos específicos para VThink 1.0 */
-.vthink-container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-}
-
-.vthink-card {
-  @apply bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6;
-}
-
-.vthink-button {
-  @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .vthink-container {
-    @apply px-2;
-  }
-} 
+/* Estilos específicos para VThink 1.0 - Tailwind v4 compatible */ 

@@ -1,3 +1,5 @@
+"use client";
+
 import CustomDateRangePicker from "@/shared/components/bundui-premium/components/custom-date-range-picker";
 import {
   BalanceCard,

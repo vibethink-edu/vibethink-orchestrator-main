@@ -1,16 +1,7 @@
-import { Metadata } from "next";
-import { generateMeta } from "@/lib/utils";
+"use client";
+
 import { AlertCircleIcon } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
-
-export async function generateMetadata(): Promise<Metadata> {
-  return generateMeta({
-    title: "Text to Speech",
-    description:
-      "Text to speech app is a ui template that converts written text into spoken audio. Built with shadcn/ui, Tailwind CSS, Next.js and React.",
-    canonical: "/dashboard-bundui/text-to-speech"
-  });
-}
 
 export default function Page() {
   return (

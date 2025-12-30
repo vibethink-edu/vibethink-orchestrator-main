@@ -15,7 +15,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { useDebounce } from '@/shared/hooks/hooks/base/useDebounce';
+import { useDebounce } from '@/shared/hooks/base/useDebounce';
 import { Note, UpdateNotePayload, NoteType } from '../types';
 
 export interface UseNoteEditorReturn {
