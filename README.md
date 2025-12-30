@@ -13,6 +13,8 @@
 3. **THIRD:** Read `SYSTEM_STATUS_2025-12-26.md` - Latest system state
 4. **FOURTH:** Continue with stability rules below
 
+**New? Read:** `docs/FOUNDATION/START_HERE.md`
+
 **🚨 NEVER revert approved executive decisions** - Check PROJECT_STATUS.md before changing anything
 
 ---
