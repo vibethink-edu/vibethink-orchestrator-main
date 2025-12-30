@@ -248,3 +248,21 @@ npm run deploy:blue-green
 - No PRs were merged or closed.
 
 Rescue apps snapshot branch pushed: `rescue/apps-snapshot-20251229` (commit `87f4e212`).
+
+## Desapego – Cierre Técnico
+
+**Fecha:** 2025-12-29
+
+**Ramas rescue en origin:**
+- `rescue/local-snapshot-20251229`
+- `rescue/apps-snapshot-20251229`
+
+**Declaración:** No queda valor dependiente del estado local.
+
+**Pendientes conocidos (solo listado):**
+- PR #4 (estado UNKNOWN, verificar en GitHub)
+- CI status (UNKNOWN, verificar en GitHub)
+
+**Observaciones locales:**
+- Solo artefactos locales: `.turbo/**`, `.claude/settings.local.json`.
+- Archivo diff local no versionado: `*dashboard-i18n-rollback*.diff` (derivado, no fuente de verdad).
