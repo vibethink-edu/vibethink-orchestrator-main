@@ -25,6 +25,15 @@ Describe de manera clara y concisa el "porqué" de este PR.
 - [ ] 📦 **Build/CI** (Cambios en nuestro sistema de build o pipeline de CI/CD)
 - [ ] ⚙️ **Configuración** (Cambios en archivos de configuración)
 
+## P0 Checklist (START_HERE)
+
+- [ ] I read `docs/FOUNDATION/START_HERE.md`
+- [ ] One task, one branch (no mixed scope)
+- [ ] I did not use `git add .` (staged intentionally)
+- [ ] Tests run or explicitly noted as not applicable
+- [ ] All work pushed (or rescued with `rescue/*` if WIP)
+
+
 
 ## 🖼️ **¿Cómo ha sido probado?**
 
