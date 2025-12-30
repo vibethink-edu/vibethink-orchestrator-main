@@ -30,7 +30,14 @@ export const SUPPORTED_LOCALES = [
   'ko', // 🇰🇷 한국어 (Korean)
   'ar', // 🇸🇦 العربية (Arabic)
   'zh', // 🇨🇳 中文 (Chinese)
+] as const;
 
+/**
+ * Tipo derivado de SUPPORTED_LOCALES
+ */
+export type Locale = typeof SUPPORTED_LOCALES[number];
+
+/**
  * Idioma por defecto (fallback universal)
  */
 export const DEFAULT_LOCALE: Locale = 'en';

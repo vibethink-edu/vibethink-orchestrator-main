@@ -1832,3 +1832,4 @@ ORDER BY conversion_rate DESC;
 **Mantenido por:** Equipo de Arquitectura
 **Versión:** 1.0.0
 
+

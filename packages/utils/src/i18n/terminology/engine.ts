@@ -93,15 +93,18 @@ async function resolveWithFallback(
 
   // Último recurso: retornar el Concept ID
   console.warn(`[Terminology] Concept not found in any locale: ${conceptId}`);
+  return conceptId;
+}
 
+/**
  * Aplica overrides de producto y contexto a un valor base
- * 
+ *
  * Orden de precedencia de overrides:
  * 1. base (concept.json)
  * 2. productContext (concept-hotel.json, concept-studio.json)
  * 3. domainContext (futuro: concept-booking.json)
  * 4. tenantId (overrides en memoria, futura BD)
- * 
+ *
  * @param baseValue - El valor desde el archivo base
  * @param context - El contexto de terminology
  * @returns El valor final con overrides aplicados
@@ -206,7 +209,11 @@ export async function term(
  * const label = termSync('concept.booking.resource.unknown', { locale: 'es' });
  * // → [Terminology] termSync() called without preload for: concept.booking.resource.unknown
  * ```
-
+ */
+export function termSync(
+  conceptId: ConceptID,
+  context: TerminologyContext = {}
+): string {
   // Validar contexto
   if (!isValidTerminologyContext(context)) {
     console.warn(`[Terminology] Invalid context:`, context);
@@ -234,7 +241,10 @@ export async function term(
   );
 
   // Fallback: retornar el Concept ID (nunca null/undefined)
+  return conceptId;
+}
 
+/**
  * Crea un snapshot de conceptos para Client Hydration
  * 
  * Esta función se usa en Server Components para crear un snapshot
