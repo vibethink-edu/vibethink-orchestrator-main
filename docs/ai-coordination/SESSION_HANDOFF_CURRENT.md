@@ -246,3 +246,5 @@ npm run deploy:blue-green
 **Notes:**
 - No changes were made to `main`.
 - No PRs were merged or closed.
+
+Rescue apps snapshot branch pushed: `rescue/apps-snapshot-20251229` (commit `87f4e212`).
