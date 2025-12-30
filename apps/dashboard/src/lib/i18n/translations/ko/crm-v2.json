@@ -188,16 +188,5 @@
       "closed": "Closed Won"
     },
     "deals": "deals"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "social_1": "소셜",
-    "email_1": "이메일",
-    "call_1": "통화",
-    "visitors_1": "방문자",
-    "safari_1": "Safari",
-    "crm_admin_dashboard_1": "CRM 관리자 대시보드"
-=======
->>>>>>> zealous-williams
   }
 }
