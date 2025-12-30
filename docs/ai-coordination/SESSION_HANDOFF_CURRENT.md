@@ -217,3 +217,32 @@ npm run deploy:blue-green
 *This handoff ensures seamless continuity for the next AI to continue building upon the VThink innovations without any coordination gaps or rework.*
 
 **Handoff Status**: ✅ Complete | **Next AI**: Ready to onboard | **Continuity**: Guaranteed
+---
+
+## Rescue Snapshot 2025-12-29
+
+**Branch:** `rescue/local-snapshot-20251229`  
+**Commits:** `25084532` (gitignore safety), `044bc2d7` (snapshot)
+
+**Included (snapshot):**
+- `docs/**`
+- `scripts/**`
+- `packages/**`
+- `.github/**`
+- `package.json`, `package-lock.json`
+- `.gitignore`
+
+**Excluded (by policy):**
+- `apps/**` (large local changes; not reviewed)
+- `.turbo/**`, `*.tar.zst`, `*.cookie`, `*.log`
+- `.claude/settings.local.json`
+- Local rollback diff file (`*dashboard-i18n-rollback*.diff`)
+
+**Pending items (not resolved):**
+- PR #4 (status unknown, verify in GitHub)
+- CI status for rescue branch and main (verify in GitHub)
+- Decide how to handle local `apps/**` changes (not in snapshot)
+
+**Notes:**
+- No changes were made to `main`.
+- No PRs were merged or closed.
