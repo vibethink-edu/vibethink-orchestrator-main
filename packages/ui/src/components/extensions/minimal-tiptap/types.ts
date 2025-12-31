@@ -26,3 +26,24 @@ export interface FormatAction {
   shortcuts: string[]
   value: string
 }
+
+export interface RichTextI18nLabels {
+  // Formatting
+  bold?: string
+  italic?: string
+  underline?: string
+  strikethrough?: string
+  code?: string
+  clearFormatting?: string
+  moreFormatting?: string
+
+  // Lists
+  orderedList?: string
+  bulletList?: string
+
+  // Links
+  editLink?: string
+  removeLink?: string
+  openLink?: string
+}
+

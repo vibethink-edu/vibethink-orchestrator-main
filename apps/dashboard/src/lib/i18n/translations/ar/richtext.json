@@ -1,0 +1,13 @@
+{
+    "toolbar": {
+        "bold": "Bold",
+        "italic": "Italic",
+        "underline": "Underline",
+        "strikethrough": "Strikethrough",
+        "code": "Code",
+        "clearFormatting": "Clear formatting",
+        "moreFormatting": "More formatting",
+        "orderedList": "Numbered list",
+        "bulletList": "Bullet list"
+    }
+}

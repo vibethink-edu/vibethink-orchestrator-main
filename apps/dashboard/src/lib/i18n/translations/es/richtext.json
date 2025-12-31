@@ -1,0 +1,13 @@
+{
+    "toolbar": {
+        "bold": "Negrita",
+        "italic": "Cursiva",
+        "underline": "Subrayado",
+        "strikethrough": "Tachado",
+        "code": "Código",
+        "clearFormatting": "Limpiar formato",
+        "moreFormatting": "Más opciones de formato",
+        "orderedList": "Lista numerada",
+        "bulletList": "Lista con viñetas"
+    }
+}

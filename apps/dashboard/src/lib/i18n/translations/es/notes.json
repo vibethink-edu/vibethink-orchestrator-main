@@ -87,5 +87,19 @@
     "title": "No se encontraron elementos",
     "description": "Comienza creando un nuevo elemento",
     "action": "Crear Nuevo"
+  },
+  "addNote": "Agregar nota",
+  "placeholders": {
+    "title": "Título",
+    "description": "Ingrese descripción de la nota...",
+    "searchTags": "Buscar etiquetas..."
+  },
+  "tooltips": {
+    "addImage": "Agregar imagen",
+    "addTag": "Agregar etiqueta",
+    "archive": "Archivar"
+  },
+  "empty": {
+    "noLabelsFound": "No se encontraron etiquetas."
   }
 }

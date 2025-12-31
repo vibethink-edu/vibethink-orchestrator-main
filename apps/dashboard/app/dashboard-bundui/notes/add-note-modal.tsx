@@ -6,6 +6,7 @@ import { cn } from "@/shared/lib/utils";
 import { ImageIcon, Tag, PenSquare, Check, Trash2Icon, ArchiveIcon } from "lucide-react";
 import { MinimalTiptapEditor } from "@vibethink/ui";
 import { Content } from "@tiptap/react";
+import { useTranslation } from "@/lib/i18n";
 
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@vibethink/ui";
 import { Input } from "@vibethink/ui";
@@ -26,9 +27,22 @@ import { Badge } from "@vibethink/ui";
 import { noteLabels } from "./data";
 
 export function AddNoteModal() {
+  const { t } = useTranslation(['notes', 'richtext']);
   const [imagePreview, setImagePreview] = React.useState<string | null>(null);
   const [value, setValue] = React.useState<Content>("");
   const [selectedTags, setSelectedTags] = React.useState<NoteLabel[]>([]);
+
+  const editorLabels = {
+    bold: t('richtext:toolbar.bold'),
+    italic: t('richtext:toolbar.italic'),
+    underline: t('richtext:toolbar.underline'),
+    strikethrough: t('richtext:toolbar.strikethrough'),
+    code: t('richtext:toolbar.code'),
+    clearFormatting: t('richtext:toolbar.clearFormatting'),
+    moreFormatting: t('richtext:toolbar.moreFormatting'),
+    orderedList: t('richtext:toolbar.orderedList'),
+    bulletList: t('richtext:toolbar.bulletList'),
+  };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -46,7 +60,7 @@ export function AddNoteModal() {
       <DialogTrigger asChild>
         <Button className="w-full">
           <PenSquare />
-          <span className="hidden md:block">Add Note</span>
+          <span className="hidden md:block">{t('notes:addNote')}</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="max-h-screen max-w-(--breakpoint-sm) overflow-y-scroll p-0 lg:overflow-y-auto">
@@ -63,13 +77,13 @@ export function AddNoteModal() {
           </figure>
         )}
         <VisuallyHidden>
-          <DialogTitle>Add Note</DialogTitle>
+          <DialogTitle>{t('notes:addNote')}</DialogTitle>
         </VisuallyHidden>
 
         <form className={cn({ "p-6": !imagePreview, "p-6 pt-0": imagePreview })}>
           <div className="space-y-6">
             <Input
-              placeholder="Title"
+              placeholder={t('notes:placeholders.title')}
               name="title"
               className="mb-4 rounded-none border-0 px-0 text-xl focus-visible:ring-0"
             />
@@ -80,7 +94,8 @@ export function AddNoteModal() {
               className="w-full"
               editorContentClassName="p-5"
               output="html"
-              placeholder="Enter note description..."
+              placeholder={t('notes:placeholders.description')}
+              labels={editorLabels}
               autofocus={true}
               editable={true}
               editorClassName="focus:outline-hidden"
@@ -107,7 +122,7 @@ export function AddNoteModal() {
                       </Button>
                     </div>
                   </TooltipTrigger>
-                  <TooltipContent>Add image</TooltipContent>
+                  <TooltipContent>{t('notes:tooltips.addImage')}</TooltipContent>
                 </Tooltip>
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -120,9 +135,9 @@ export function AddNoteModal() {
                         </PopoverTrigger>
                         <PopoverContent className="w-[200px] p-0">
                           <Command>
-                            <CommandInput placeholder="Search tags..." className="h-9" />
+                            <CommandInput placeholder={t('notes:placeholders.searchTags')} className="h-9" />
                             <CommandList>
-                              <CommandEmpty>No labels found.</CommandEmpty>
+                              <CommandEmpty>{t('notes:empty.noLabelsFound')}</CommandEmpty>
                               <CommandGroup className="p-2">
                                 {noteLabels &&
                                   noteLabels.length &&
@@ -163,7 +178,7 @@ export function AddNoteModal() {
                       </Popover>
                     </div>
                   </TooltipTrigger>
-                  <TooltipContent>Add tag</TooltipContent>
+                  <TooltipContent>{t('notes:tooltips.addTag')}</TooltipContent>
                 </Tooltip>
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -171,7 +186,7 @@ export function AddNoteModal() {
                       <ArchiveIcon className="h-4 w-4" />
                     </Button>
                   </TooltipTrigger>
-                  <TooltipContent>Archive</TooltipContent>
+                  <TooltipContent>{t('notes:tooltips.archive')}</TooltipContent>
                 </Tooltip>
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -179,11 +194,11 @@ export function AddNoteModal() {
                       <Trash2Icon className="h-4 w-4" />
                     </Button>
                   </TooltipTrigger>
-                  <TooltipContent>Delete</TooltipContent>
+                  <TooltipContent>{t('notes:delete')}</TooltipContent>
                 </Tooltip>
               </TooltipProvider>
             </div>
-            <Button>Add Note</Button>
+            <Button>{t('notes:addNote')}</Button>
           </div>
 
           <div className="mt-2 flex flex-wrap gap-2">

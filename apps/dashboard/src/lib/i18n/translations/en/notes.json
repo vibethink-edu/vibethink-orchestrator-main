@@ -87,5 +87,19 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
+  },
+  "addNote": "Add Note",
+  "placeholders": {
+    "title": "Title",
+    "description": "Enter note description...",
+    "searchTags": "Search tags..."
+  },
+  "tooltips": {
+    "addImage": "Add image",
+    "addTag": "Add tag",
+    "archive": "Archive"
+  },
+  "empty": {
+    "noLabelsFound": "No labels found."
   }
 }

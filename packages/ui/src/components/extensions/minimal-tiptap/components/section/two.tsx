@@ -1,6 +1,6 @@
 import * as React from 'react'
 import type { Editor } from '@tiptap/react'
-import type { FormatAction } from '../../types'
+import type { FormatAction, RichTextI18nLabels } from '../../types'
 import type { toggleVariants } from '../../../../toggle'
 import type { VariantProps } from 'class-variance-authority'
 import {
@@ -20,10 +20,10 @@ interface TextStyle extends FormatAction {
   value: TextStyleAction
 }
 
-const formatActions: TextStyle[] = [
+const formatActions = (labels?: RichTextI18nLabels): TextStyle[] => [
   {
     value: 'bold',
-    label: 'Bold',
+    label: labels?.bold ?? 'Bold',
     icon: <FontBoldIcon className="size-5" />,
     action: editor => editor.chain().focus().toggleBold().run(),
     isActive: editor => editor.isActive('bold'),
@@ -32,7 +32,7 @@ const formatActions: TextStyle[] = [
   },
   {
     value: 'italic',
-    label: 'Italic',
+    label: labels?.italic ?? 'Italic',
     icon: <FontItalicIcon className="size-5" />,
     action: editor => editor.chain().focus().toggleItalic().run(),
     isActive: editor => editor.isActive('italic'),
@@ -41,7 +41,7 @@ const formatActions: TextStyle[] = [
   },
   {
     value: 'underline',
-    label: 'Underline',
+    label: labels?.underline ?? 'Underline',
     icon: <UnderlineIcon className="size-5" />,
     action: editor => editor.chain().focus().toggleUnderline().run(),
     isActive: editor => editor.isActive('underline'),
@@ -50,7 +50,7 @@ const formatActions: TextStyle[] = [
   },
   {
     value: 'strikethrough',
-    label: 'Strikethrough',
+    label: labels?.strikethrough ?? 'Strikethrough',
     icon: <StrikethroughIcon className="size-5" />,
     action: editor => editor.chain().focus().toggleStrike().run(),
     isActive: editor => editor.isActive('strike'),
@@ -59,7 +59,7 @@ const formatActions: TextStyle[] = [
   },
   {
     value: 'code',
-    label: 'Code',
+    label: labels?.code ?? 'Code',
     icon: <CodeIcon className="size-5" />,
     action: editor => editor.chain().focus().toggleCode().run(),
     isActive: editor => editor.isActive('code'),
@@ -68,7 +68,7 @@ const formatActions: TextStyle[] = [
   },
   {
     value: 'clearFormatting',
-    label: 'Clear formatting',
+    label: labels?.clearFormatting ?? 'Clear formatting',
     icon: <TextNoneIcon className="size-5" />,
     action: editor => editor.chain().focus().unsetAllMarks().run(),
     isActive: () => false,
@@ -81,23 +81,25 @@ interface SectionTwoProps extends VariantProps<typeof toggleVariants> {
   editor: Editor
   activeActions?: TextStyleAction[]
   mainActionCount?: number
+  labels?: RichTextI18nLabels
 }
 
 export const SectionTwo: React.FC<SectionTwoProps> = ({
   editor,
-  activeActions = formatActions.map(action => action.value),
+  activeActions = formatActions().map(action => action.value),
   mainActionCount = 2,
   size,
-  variant
+  variant,
+  labels
 }) => {
   return (
     <ToolbarSection
       editor={editor}
-      actions={formatActions}
+      actions={formatActions(labels)}
       activeActions={activeActions}
       mainActionCount={mainActionCount}
       dropdownIcon={<DotsHorizontalIcon className="size-5" />}
-      dropdownTooltip="More formatting"
+      dropdownTooltip={labels?.moreFormatting ?? "More formatting"}
       dropdownClassName="w-8"
       size={size}
       variant={variant}

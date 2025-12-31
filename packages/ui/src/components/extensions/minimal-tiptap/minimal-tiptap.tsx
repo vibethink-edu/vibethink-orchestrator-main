@@ -2,7 +2,7 @@ import * as React from "react";
 import "./styles/index.css";
 
 import type { Content, Editor } from "@tiptap/react";
-import type { UseMinimalTiptapEditorProps } from "./hooks/use-minimal-tiptap";
+import type { UseMinimalTiptapEditorProps, RichTextI18nLabels } from "./hooks/use-minimal-tiptap";
 import { EditorContent } from "@tiptap/react";
 import { Separator } from "../../separator";
 import { cn } from "@/lib/utils";
@@ -17,13 +17,15 @@ export interface MinimalTiptapProps extends Omit<UseMinimalTiptapEditorProps, "o
   onChange?: (value: Content) => void;
   className?: string;
   editorContentClassName?: string;
+  labels?: RichTextI18nLabels;
 }
 
-const Toolbar = ({ editor }: { editor: Editor }) => (
+const Toolbar = ({ editor, labels }: { editor: Editor; labels?: RichTextI18nLabels }) => (
   <div className="shrink-0 overflow-x-auto border-b border-border p-2">
     <div className="flex w-max items-center gap-px">
       <SectionTwo
         editor={editor}
+        labels={labels}
         activeActions={["bold", "italic", "underline", "strikethrough", "code", "clearFormatting"]}
         mainActionCount={3}
       />
@@ -32,6 +34,7 @@ const Toolbar = ({ editor }: { editor: Editor }) => (
 
       <SectionFour
         editor={editor}
+        labels={labels}
         activeActions={["orderedList", "bulletList"]}
         mainActionCount={0}
       />
@@ -40,7 +43,7 @@ const Toolbar = ({ editor }: { editor: Editor }) => (
 );
 
 export const MinimalTiptapEditor = React.forwardRef<HTMLDivElement, MinimalTiptapProps>(
-  ({ value, onChange, className, editorContentClassName, ...props }, ref) => {
+  ({ value, onChange, className, editorContentClassName, labels, ...props }, ref) => {
     const editor = useMinimalTiptapEditor({
       value,
       onUpdate: onChange,
@@ -60,12 +63,12 @@ export const MinimalTiptapEditor = React.forwardRef<HTMLDivElement, MinimalTipta
           "flex h-auto min-h-72 w-full flex-col rounded-md border border-input shadow-xs focus-within:border-primary",
           className
         )}>
-        <Toolbar editor={editor} />
+        <Toolbar editor={editor} labels={labels} />
         <EditorContent
           editor={editor}
           className={cn("minimal-tiptap-editor", editorContentClassName)}
         />
-        <LinkBubbleMenu editor={editor} />
+        <LinkBubbleMenu editor={editor} labels={labels} />
       </MeasuredContainer>
     );
   }
