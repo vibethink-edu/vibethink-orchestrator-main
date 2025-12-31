@@ -8,7 +8,9 @@ const rootDir = path.resolve(__dirname, '..');
 
 const EXCLUDES = [
     'node_modules', '.git', '.next', 'dist', 'build', 'coverage', '.turbo', 'out', 'vendor', 'tmp',
-    '.cursor', '_legacy', 'packages/cli/src/validation'
+const EXCLUDES = [
+    'node_modules', '.git', '.next', 'dist', 'build', 'coverage', '.turbo', 'out', 'vendor', 'tmp',
+    '.cursor', '_legacy', 'packages/cli/src/validation', 'docusaurus-dev'
 ];
 
 function shouldScan(filePath) {
