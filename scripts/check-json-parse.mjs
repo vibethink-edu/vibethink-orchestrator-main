@@ -13,7 +13,13 @@ const EXCLUDES = [
 
 function shouldScan(filePath) {
     const relativePath = path.relative(rootDir, filePath);
-    if (EXCLUDES.some(ex => relativePath.split(path.sep).includes(ex))) {
+    // Normalize to forward slashes for comparison
+    const normalizedPath = relativePath.split(path.sep).join('/');
+
+    if (EXCLUDES.some(ex => {
+        // Exact match or directory prefix match
+        return normalizedPath === ex || normalizedPath.startsWith(ex + '/');
+    })) {
         return false;
     }
     return path.extname(filePath) === '.json';
