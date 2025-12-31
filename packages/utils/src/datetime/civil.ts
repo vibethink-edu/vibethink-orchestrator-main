@@ -1,4 +1,16 @@
 /**
+ * @provenance
+ * provider: date-fns
+ * package: date-fns@4.1.0
+ * distance: 0
+ * risk: HIGH
+ * policy: governed
+ * boundary: canonical datetime utilities (Safe Noon pattern)
+ * rationale: Wraps date-fns to enforce timezone safety per VITO_ARCHITECTURE_SPEC Part 2
+ * replaced_by: none (canonical boundary)
+ */
+
+/**
  * CivilDate Utilities - Safe Noon Trick
  * 
  * Functions for parsing and manipulating CivilDate (date-only) values
@@ -18,11 +30,11 @@ import type { CivilDate } from './types';
  */
 export function civilDateToParts(d: CivilDate): { year: number; month: number; day: number } {
   const [year, month, day] = d.split('-').map(Number);
-  
+
   if (isNaN(year) || isNaN(month) || isNaN(day)) {
     throw new Error(`Invalid CivilDate format: ${d}. Expected YYYY-MM-DD`);
   }
-  
+
   return { year, month, day };
 }
 
@@ -40,7 +52,7 @@ export function civilDateToParts(d: CivilDate): { year: number; month: number; d
  */
 export function civilDateToSafeDate(civilDate: CivilDate): Date {
   const { year, month, day } = civilDateToParts(civilDate);
-  
+
   // Safe Noon Trick: 12:00 UTC evita DST edge cases
   return new Date(Date.UTC(year, month - 1, day, 12, 0, 0));
 }
@@ -64,10 +76,10 @@ export function formatCivilDate(
   options?: Intl.DateTimeFormatOptions
 ): string {
   const { year, month, day } = civilDateToParts(civilDate);
-  
+
   // Safe Noon Trick: 12:00 UTC evita DST edge cases
   const safeDate = new Date(Date.UTC(year, month - 1, day, 12, 0, 0));
-  
+
   const formatter = new Intl.DateTimeFormat(locale, {
     year: 'numeric',
     month: 'short',
@@ -75,7 +87,7 @@ export function formatCivilDate(
     timeZone: 'UTC', // Siempre UTC para fechas civiles
     ...options,
   });
-  
+
   return formatter.format(safeDate);
 }
 
@@ -91,13 +103,13 @@ export function formatCivilDate(
 export function diffCivilDates(start: CivilDate, end: CivilDate): number {
   const startParts = civilDateToParts(start);
   const endParts = civilDateToParts(end);
-  
+
   const startDate = new Date(Date.UTC(startParts.year, startParts.month - 1, startParts.day));
   const endDate = new Date(Date.UTC(endParts.year, endParts.month - 1, endParts.day));
-  
+
   const diffMs = endDate.getTime() - startDate.getTime();
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-  
+
   return diffDays;
 }
 
@@ -111,10 +123,10 @@ export function diffCivilDates(start: CivilDate, end: CivilDate): number {
 export function diffInstants(start: InstantISO, end: InstantISO): number {
   const startDate = new Date(start);
   const endDate = new Date(end);
-  
+
   const diffMs = endDate.getTime() - startDate.getTime();
   const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-  
+
   return diffHours;
 }
 
