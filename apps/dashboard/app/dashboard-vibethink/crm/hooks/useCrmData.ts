@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClient } from '@supabase/supabase-js'
+
 
 // Mock Supabase client for demo - replace with real implementation
 const supabase = {
@@ -187,13 +187,13 @@ export function useCrmData() {
     const closedDeals = deals.filter(deal => deal.stage === 'closed')
     const totalRevenue = closedDeals.reduce((sum, deal) => sum + deal.value, 0)
     const activeDeals = deals.filter(deal => deal.stage !== 'closed' && deal.stage !== 'lost').length
-    
+
     // Calculate conversion rate
-    const conversionRate = deals.length > 0 ? 
+    const conversionRate = deals.length > 0 ?
       (closedDeals.length / deals.length) * 100 : 0
 
     // Calculate average deal size
-    const averageDealSize = deals.length > 0 ? 
+    const averageDealSize = deals.length > 0 ?
       deals.reduce((sum, deal) => sum + deal.value, 0) / deals.length : 0
 
     return {

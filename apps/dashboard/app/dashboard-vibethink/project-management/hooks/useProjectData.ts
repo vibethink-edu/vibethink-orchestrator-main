@@ -8,11 +8,11 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClient } from '@supabase/supabase-js'
-import { 
-  Project, 
-  Task, 
-  TeamMember, 
+
+import {
+  Project,
+  Task,
+  TeamMember,
   ProjectSummary,
   ProjectFilters,
   CreateProjectForm,
@@ -289,7 +289,7 @@ export const useProjectData = (filters?: ProjectFilters) => {
           }
           if (filters.search) {
             const searchLower = filters.search.toLowerCase()
-            filteredProjects = filteredProjects.filter(p => 
+            filteredProjects = filteredProjects.filter(p =>
               p.name.toLowerCase().includes(searchLower) ||
               p.description.toLowerCase().includes(searchLower) ||
               (p.team_lead_name && p.team_lead_name.toLowerCase().includes(searchLower))
@@ -351,12 +351,12 @@ export const useProjectSummary = () => {
         const totalSpent = projects.reduce((sum, p) => sum + p.spent, 0)
 
         const currentDate = new Date()
-        const overdueTasksCount = tasks.filter(t => 
+        const overdueTasksCount = tasks.filter(t =>
           t.status !== 'completed' && new Date(t.due_date) < currentDate
         ).length
 
         const thisMonthStart = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1)
-        const completedTasksThisMonth = tasks.filter(t => 
+        const completedTasksThisMonth = tasks.filter(t =>
           t.status === 'completed' && new Date(t.updated_at) >= thisMonthStart
         ).length
 
@@ -407,10 +407,10 @@ export const useCreateProject = () => {
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1500))
-      
+
       // In real implementation, would call Supabase
       console.log('Creating project:', { ...projectData, company_id: mockUser.company_id })
-      
+
       return { id: 'new-project-' + Date.now(), ...projectData }
     } catch (error) {
       throw error
@@ -437,10 +437,10 @@ export const useCreateTask = () => {
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1500))
-      
+
       // In real implementation, would call Supabase
       console.log('Creating task:', { ...taskData, company_id: mockUser.company_id })
-      
+
       return { id: 'new-task-' + Date.now(), ...taskData }
     } catch (error) {
       throw error
@@ -467,10 +467,10 @@ export const useUpdateProjectProgress = () => {
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000))
-      
+
       // In real implementation, would call Supabase with company_id filter
       console.log('Updating project progress:', { projectId, progress, company_id: mockUser.company_id })
-      
+
       return { projectId, progress }
     } catch (error) {
       throw error
@@ -497,10 +497,10 @@ export const useUpdateTaskStatus = () => {
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000))
-      
+
       // In real implementation, would call Supabase with company_id filter
       console.log('Updating task status:', { taskId, status, company_id: mockUser.company_id })
-      
+
       return { taskId, status }
     } catch (error) {
       throw error

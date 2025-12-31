@@ -8,10 +8,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClient } from '@supabase/supabase-js'
-import { 
-  Task, 
-  TeamMember, 
+
+import {
+  Task,
+  TeamMember,
   TaskSummary,
   TaskMetrics,
   TaskFilters,
@@ -360,13 +360,13 @@ export const useTaskData = (filters?: TaskFilters) => {
             filteredTasks = filteredTasks.filter(t => t.project_id && filters.project_id!.includes(t.project_id))
           }
           if (filters.tags?.length) {
-            filteredTasks = filteredTasks.filter(t => 
+            filteredTasks = filteredTasks.filter(t =>
               filters.tags!.some(tag => t.tags.includes(tag))
             )
           }
           if (filters.search) {
             const searchLower = filters.search.toLowerCase()
-            filteredTasks = filteredTasks.filter(t => 
+            filteredTasks = filteredTasks.filter(t =>
               t.title.toLowerCase().includes(searchLower) ||
               t.description.toLowerCase().includes(searchLower) ||
               (t.assigned_to_name && t.assigned_to_name.toLowerCase().includes(searchLower)) ||
@@ -376,7 +376,7 @@ export const useTaskData = (filters?: TaskFilters) => {
           }
           if (filters.is_overdue) {
             const currentDate = new Date()
-            filteredTasks = filteredTasks.filter(t => 
+            filteredTasks = filteredTasks.filter(t =>
               t.status !== 'completed' && new Date(t.due_date) < currentDate
             )
           }
@@ -384,8 +384,8 @@ export const useTaskData = (filters?: TaskFilters) => {
 
         // Generate mock metrics
         const mockMetrics: TaskMetrics = {
-          daily_completions: Array.from({length: 7}, (_, i) => ({
-            date: new Date(Date.now() - (6-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+          daily_completions: Array.from({ length: 7 }, (_, i) => ({
+            date: new Date(Date.now() - (6 - i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
             completed: Math.floor(Math.random() * 8) + 2,
             created: Math.floor(Math.random() * 5) + 1,
             overdue: Math.floor(Math.random() * 3)
@@ -420,8 +420,8 @@ export const useTaskData = (filters?: TaskFilters) => {
             efficiency_score: member.efficiency_score,
             workload_percentage: Math.round((member.current_workload / member.workload_capacity) * 100)
           })),
-          productivity_trends: Array.from({length: 7}, (_, i) => ({
-            date: new Date(Date.now() - (6-i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+          productivity_trends: Array.from({ length: 7 }, (_, i) => ({
+            date: new Date(Date.now() - (6 - i) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
             tasks_completed: Math.floor(Math.random() * 10) + 5,
             hours_logged: Math.floor(Math.random() * 40) + 20,
             efficiency_score: Math.floor(Math.random() * 20) + 75,
@@ -433,8 +433,8 @@ export const useTaskData = (filters?: TaskFilters) => {
             current_tasks: member.active_tasks,
             capacity: member.workload_capacity,
             utilization_percentage: Math.round((member.current_workload / member.workload_capacity) * 100),
-            overload_risk: member.current_workload > member.workload_capacity * 0.9 ? 'high' : 
-                          member.current_workload > member.workload_capacity * 0.75 ? 'medium' : 'low'
+            overload_risk: member.current_workload > member.workload_capacity * 0.9 ? 'high' :
+              member.current_workload > member.workload_capacity * 0.75 ? 'medium' : 'low'
           }))
         }
 
@@ -489,7 +489,7 @@ export const useTaskSummary = () => {
         const cancelledTasks = tasks.filter(t => t.status === 'cancelled').length
 
         const currentDate = new Date()
-        const overdueTasksCount = tasks.filter(t => 
+        const overdueTasksCount = tasks.filter(t =>
           t.status !== 'completed' && new Date(t.due_date) < currentDate
         ).length
 
@@ -501,7 +501,7 @@ export const useTaskSummary = () => {
         const totalTimeLogged = tasks.reduce((sum, t) => sum + t.time_logged, 0)
 
         const completedTasksWithTime = tasks.filter(t => t.status === 'completed' && t.actual_hours > 0)
-        const averageCompletionTime = completedTasksWithTime.length > 0 
+        const averageCompletionTime = completedTasksWithTime.length > 0
           ? completedTasksWithTime.reduce((sum, t) => sum + t.actual_hours, 0) / completedTasksWithTime.length
           : 0
 
@@ -554,10 +554,10 @@ export const useCreateTask = () => {
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1500))
-      
+
       // In real implementation, would call Supabase
       console.log('Creating task:', { ...taskData, company_id: mockUser.company_id })
-      
+
       return { id: 'new-task-' + Date.now(), ...taskData }
     } catch (error) {
       throw error
@@ -584,10 +584,10 @@ export const useUpdateTask = () => {
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000))
-      
+
       // In real implementation, would call Supabase with company_id filter
       console.log('Updating task:', { taskId, taskData, company_id: mockUser.company_id })
-      
+
       return { taskId, ...taskData }
     } catch (error) {
       throw error
@@ -614,10 +614,10 @@ export const useDeleteTask = () => {
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000))
-      
+
       // In real implementation, would call Supabase with company_id filter
       console.log('Deleting task:', { taskId, company_id: mockUser.company_id })
-      
+
       return { taskId }
     } catch (error) {
       throw error
@@ -644,10 +644,10 @@ export const useCreateTimeEntry = () => {
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000))
-      
+
       // In real implementation, would call Supabase
       console.log('Creating time entry:', { ...timeData, user_id: mockUser.id })
-      
+
       return { id: 'new-time-' + Date.now(), ...timeData, user_id: mockUser.id }
     } catch (error) {
       throw error

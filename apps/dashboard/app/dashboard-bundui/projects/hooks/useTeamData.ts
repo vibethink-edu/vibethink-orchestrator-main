@@ -8,7 +8,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClient } from '@supabase/supabase-js'
+
 import { TeamMember, Reminder, CreateReminderForm } from '../types'
 
 // Mock Supabase client for demo - replace with real implementation
@@ -271,10 +271,10 @@ export const useCreateReminder = () => {
       await new Promise(resolve => setTimeout(resolve, 1200))
 
       // In real implementation, would call Supabase
-      console.log('Creating reminder:', { 
-        ...reminderData, 
-        company_id: mockUser.company_id, 
-        user_id: mockUser.id 
+      console.log('Creating reminder:', {
+        ...reminderData,
+        company_id: mockUser.company_id,
+        user_id: mockUser.id
       })
 
       const newReminder: Reminder = {
@@ -315,9 +315,9 @@ export const useCompleteReminder = () => {
       await new Promise(resolve => setTimeout(resolve, 800))
 
       // In real implementation, would call Supabase with company_id filter
-      console.log('Completing reminder:', { 
-        reminderId, 
-        company_id: mockUser.company_id 
+      console.log('Completing reminder:', {
+        reminderId,
+        company_id: mockUser.company_id
       })
 
       return { reminderId, completed: true }

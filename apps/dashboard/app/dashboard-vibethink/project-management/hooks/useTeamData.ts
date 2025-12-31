@@ -8,7 +8,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClient } from '@supabase/supabase-js'
+
 import { TeamMember, Reminder, CreateReminderForm } from '../types'
 
 // Mock Supabase client for demo - replace with real implementation

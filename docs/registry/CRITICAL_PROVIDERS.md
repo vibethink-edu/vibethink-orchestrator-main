@@ -58,8 +58,9 @@
 - **Declared in:** `apps/dashboard/package.json:24`
 - **License:** Apache-2.0
 - **Risk:** **HIGH** — core reasoning vendor lock-in risk
-- **Adapter status:** ❌ MISSING (direct usage found)
-- **Usage evidence:** `apps/dashboard/app/api/chat/route.ts:1` direct import:
+- **Adapter status:** ✅ EXISTS
+- **Usage evidence:** `apps/dashboard/src/lib/ai/provider.ts` (Canonical adapter)
+  - `apps/dashboard/app/api/chat/route.ts` uses `streamAI` adapter
   - `import { openai } from '@ai-sdk/openai'`
 
 **Governance requirement (P0):**
