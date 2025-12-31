@@ -42,6 +42,7 @@ The integrity gates scan the **entire repository** with the following canonical 
 - `_legacy` (Deprecated tools, not part of production build)
 - `packages/cli/src/validation` (Legacy report templates with invalid JSON fragments)
 - `docusaurus-dev` (Legacy documentation requirements)
+- `docs/projects` (Legacy recursive artifact)
 
 ### Rule: No Productive Code Exclusion
 **NO** productive code path (e.g., `apps/`, `packages/ui/`) may ever be excluded from these gates. Any JSON error in productive code must be fixed, not ignored.
