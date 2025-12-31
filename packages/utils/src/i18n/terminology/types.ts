@@ -29,8 +29,10 @@ export const SUPPORTED_LOCALES = [
   'it', // 🇮🇹 Italiano
   'ko', // 🇰🇷 한국어 (Korean)
   'ar', // 🇸🇦 العربية (Arabic)
-  'zh', // 🇨🇳 中文 (Chinese)
+  'zh', // 🇨🇳 中文 (Chinese) // TODO: Add 'ja', 'ru' in future
+];
 
+/**
  * Idioma por defecto (fallback universal)
  */
 export const DEFAULT_LOCALE: Locale = 'en';
@@ -57,7 +59,7 @@ export const PRODUCT_CONTEXTS: ProductContext[] = [
  * 
  * Permite overrides específicos por dominio funcional (ej: CRM, Ops, HR, Finance).
  */
-export type DomainContext = 
+export type DomainContext =
   | 'booking'    // Reservas y gestiones de espacios
   | 'crm'        // Customer Relationship Management
   | 'operations'  // Operaciones y logística
@@ -292,7 +294,7 @@ export interface AgentContext extends TerminologyContext {
  *   description: "Espacio individual para alojamiento"
  * }
  */
-export type ConceptValue = 
+export type ConceptValue =
   | string // Shorthand: solo el label
   | ConceptObject; // Enriched: metadata completa
 
@@ -409,7 +411,7 @@ export interface TerminologySnapshot {
  * - concept-cowork.json (overrides para cowork)
  * - concept-coliving.json (overrides para coliving)
  */
-export type ConceptNamespace = 
+export type ConceptNamespace =
   | 'concept'           // Base universal
   | 'concept-hotel'      // Overrides para hotel
   | 'concept-studio'     // Overrides para studio
@@ -451,11 +453,11 @@ export function isValidTerminologyContext(context: TerminologyContext): boolean 
   if (context.locale && !isValidLocale(context.locale)) {
     return false;
   }
-  
+
   if (context.productContext && !isValidProductContext(context.productContext)) {
     return false;
   }
-  
+
   return true;
 }
 
@@ -496,7 +498,7 @@ export function createAgentContext(
   if (!tenantId) {
     throw new Error(`tenantId is required for AI agents`);
   }
-  
+
   return {
     locale,
     productContext,
@@ -546,7 +548,7 @@ export const CONCEPT_FILES_PATH = 'src/lib/i18n/translations';
  * - concept-hotel.json (con producto)
  * - concept-studio.json (con producto)
  */
-export const CONCEPT_FILE_PATTERN = (productContext?: ProductContext) => 
+export const CONCEPT_FILE_PATTERN = (productContext?: ProductContext) =>
   productContext ? `concept-${productContext}.json` : 'concept.json';
 
 /**
