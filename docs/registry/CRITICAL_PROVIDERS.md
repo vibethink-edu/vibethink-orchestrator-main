@@ -23,8 +23,9 @@
 - **License:** MIT
 - **Risk:** **CRITICAL** — single source of truth for operational memory
 - **Replacement cost:** 6+ months (persistence layer)
-- **Wrapper/Adapter status:** ❓ UNKNOWN (requires audit of services layer)
-- **Usage evidence:** Declared only (usage not verified in this audit)
+- **Wrapper/Adapter status:** ✅ EXISTS (placeholder boundary)
+- **Usage evidence:** `apps/dashboard/src/lib/supabase/client.ts` (Canonical boundary)
+  - 0 direct imports in UI hooks (cleaned)
 
 **Governance requirement (P0):**
 - Identify boundary module(s) where Supabase client is instantiated and accessed.
