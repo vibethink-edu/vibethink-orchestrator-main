@@ -51,6 +51,14 @@ The User Experience is a transient projection of the underlying system state. Ar
 > **"External assets are guests, not residents."**
 Bundui Premium, UI kits, and libraries must be treated as external entities. They live in explicit directories, are wrapped in boundaries (Distance model), and never dictate internal domain logic.
 
+### R6: Governance as Code (Defense in Depth)
+> **"Critical invariants must be enforced by machines, not hope."**
+If a rule is critical (e.g., "No broken JSON", "Distance 0 boundaries"), it is not enough to write it down. You must implement **Governance Gates**:
+1.  **Script:** A verifiable check (e.g., `check-merge-markers.mjs`).
+2.  **CI:** A blocking workflow (e.g., `integrity-gates.yml`).
+3.  **Platform:** A Branch Protection Rule (e.g., GitHub Ruleset).
+Documentation defines the Law; Code enforces it.
+
 ---
 
 ## 4. Decision-Making Rules
