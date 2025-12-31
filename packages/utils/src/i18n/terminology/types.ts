@@ -27,10 +27,10 @@ export const SUPPORTED_LOCALES = [
   'pt', // 🇵🇹 Português
   'de', // 🇩🇪 Deutsch
   'it', // 🇮🇹 Italiano
-  'ko', // 🇰🇷 한국어 (Korean)
-  'ar', // 🇸🇦 العربية (Arabic)
   'zh', // 🇨🇳 中文 (Chinese) // TODO: Add 'ja', 'ru' in future
-];
+] as const;
+
+export type Locale = typeof SUPPORTED_LOCALES[number];
 
 /**
  * Idioma por defecto (fallback universal)
