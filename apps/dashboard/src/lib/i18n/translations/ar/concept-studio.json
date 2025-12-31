@@ -1,13 +1,4 @@
 {
-<<<<<<< HEAD
-  "concept.booking.resource.room": "كابينة",
-  "concept.booking.resource.studio_room": "استوديو تسجيل",
-  "concept.booking.resource.equipment": "معدات صوتية"
-}
-
-
-
-=======
   "concept": {
     "booking": {
       "action": {
@@ -58,5 +49,3 @@
     }
   }
 }
-
->>>>>>> zealous-williams

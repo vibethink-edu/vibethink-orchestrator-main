@@ -1,13 +1,4 @@
 {
-<<<<<<< HEAD
-  "concept.booking.resource.room": "مكتب",
-  "concept.booking.resource.cowork_desk": "مكتب مشترك",
-  "concept.booking.resource.meeting_room": "مساحة عمل"
-}
-
-
-
-=======
   "concept": {
     "booking": {
       "resource": {
@@ -85,5 +76,3 @@
     }
   }
 }
-
->>>>>>> zealous-williams
