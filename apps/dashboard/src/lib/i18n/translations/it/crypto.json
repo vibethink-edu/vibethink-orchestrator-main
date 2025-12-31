@@ -47,60 +47,7 @@
     "completed": "Completed",
     "pending": "Pending",
     "failed": "Failed"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "download_crypto_data": "Scarica dati crypto",
-    "buy_crypto_clicked": "Acquista crypto clicked",
-    "add_wallet_clicked": "Aggiungi portafoglio",
-    "price_alerts_management_interface": "Interfaccia di gestione degli allarmi di prezzo",
-    "portfolio_allocation": "Allocazione portafoglio",
-    "no_allocation_data_available": "Nessun dato di allocazione disponibile",
-    "total_received": "Totale ricevuto",
-    "total_send": "Totale inviato",
-    "total_withdraw": "Totale prelevato",
-    "buy_crypto": "Acquista crypto",
-    "set_alert": "Imposta allerta",
-    "export_data": "Esporta dati",
-    "current_portfolio_value": "Valore",
-    "start_by_adding_your_first_cryptocurrency_holding": "Inizia aggiungendo il tuo primo possesso di criptovaluta",
-    "no_wallets_found": "Nessun portafoglio trovato",
-    "just_now": "Proprio ora",
-    "no_portfolio_data_available": "Nessun dato di portafoglio disponibile",
-    "no_recent_activities": "Nessuna attività recente",
-    "portfolio_risk_analysis_and_metrics": "Analisi del rischio e metriche del portafoglio",
-    "please_select_a_cryptocurrency": "Seleziona una criptovaluta",
-    "amount_is_required": "L'importo è obbligatorio",
-    "000": "0.00",
-    "trading_strategies_and_automation_interface": "Interfaccia di strategie di trading e automazione",
-    "cryptocurrency_transaction_history_and_records": "Cronologia e registri delle transazioni di criptovalute",
-    "no_cryptocurrencies_in_watchlist": "Nessuna criptovaluta nella watchlist",
-    "failed_to_fetch_holdings_data": "Impossibile recuperare i dati delle partecipazioni",
-    "failed_to_fetch_transaction_data": "Impossibile recuperare i dati delle transazioni",
-    "failed_to_fetch_wallet_data": "Impossibile recuperare i dati del portafoglio",
-    "no_filters_applied": "Nessun filtro applicato",
-    "bitcoin_etfs_see_record_inflows_as_institutional_a": "Bitcoin ETFs See Record Inflows as Institutional A",
-    "ethereum_network_upgrade_promises_lower_gas_fees": "Ethereum Network Upgrade Promises Lower Gas Fees",
-    "regulatory_clarity_expected_as_congress_discusses": "Regulatory Clarity Expected as Congress Discusses",
-    "momentum_trading_strategy_for_selected_altcoins": "Momentum trading strategy for selected altcoins",
-    "failed_to_fetch_trading_strategies": "Failed to fetch trading strategies",
-    "failed_to_create_trading_strategy": "Failed to create trading strategy",
-    "export_crypto_data": "Esporta dati crypto",
-    "add_new_transaction": "Aggiungi nuova transazione",
-    "add_new_price_alert": "Aggiungi nuovo allarme di prezzo"
   }
+} zealous-williams
+
 }
-=======
-  }
-}
-
-
-
-
-
-
-
-
-
-
->>>>>>> zealous-williams

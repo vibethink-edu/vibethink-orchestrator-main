@@ -82,30 +82,7 @@
     "saveDraft": "Save Draft",
     "schedule": "Schedule",
     "autoSaved": "Auto-saved {{time}} ago"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "add_recipients": "Add recipients...",
-    "add_cc_recipients": "Add CC recipients...",
-    "add_bcc_recipients": "Add BCC recipients...",
-    "just_now": "방금",
-    "no_emails_found": "No 이메일s found",
-    "select_all_emails": "모두 선택 emails",
-    "no_email_selected": "No 이메일 selected",
-    "unknown_date": "Unknown date",
-    "search_emails": "Search 이메일s...",
-    "all_mail": "All mail",
-    "has_attachments": "Has attachments",
-    "create_label": "Create label",
-    "at_least_one_recipient_is_required": "At least one recipient is required",
-    "subject_is_required": "Subject is required",
-    "message_body_is_required": "Message body is required",
-    "failed_to_load_mail_data": "Failed to load mail data",
-    "folder_not_found": "Folder not found",
-    "emails_refreshed": "이메일s refreshed"
   }
+} zealous-williams
+
 }
-=======
-  }
-}
->>>>>>> zealous-williams

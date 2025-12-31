@@ -1,13 +1,4 @@
 {
-<<<<<<< HEAD
-  "concept.booking.resource.room": "공유 공간",
-  "concept.booking.resource.coliving_room": "개인실",
-  "concept.booking.action.reserve": "예약"
-}
-
-
-
-=======
   "concept": {
     "booking": {
       "resource": {
@@ -100,6 +91,6 @@
       }
     }
   }
-}
+} zealous-williams
 
->>>>>>> zealous-williams
+}

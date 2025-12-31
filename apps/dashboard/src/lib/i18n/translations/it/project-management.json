@@ -87,47 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "task_or_project_deadline": "Task or Scadenza progetto",
-    "deadline": "Deadline",
-    "team_meeting_or_call": "Team meeting or Chiamata",
-    "positive_trend_indicates_good_momentum": "Positive trend indicates good momentum",
-    "focus_on_efficiency_improvements_needed": "Focus on efficiency improvements needed",
-    "search_projects": "Search projects...",
-    "status": "Status",
-    "priority": "Priority",
-    "no_project_data_available": "No project data available",
-    "no_projects_found": "No projects found",
-    "failed_to_load_projects": "Failed to load projects",
-    "error_loading_project_data": "Error loading project data",
-    "search_projects_1": "Search projects...",
-    "due_now": "Due now",
-    "failed_to_load_reminders": "Failed to load reminders",
-    "error_loading_reminders": "Error loading reminders",
-    "comprehensive_overview_of_all_active_projects_and": "Comprehensive overview of all active projects and",
-    "detailed_analysis_of_team_productivity_and_efficie": "Detailed analysis of team productivity and efficie",
-    "financial_overview_showing_budget_allocation_and_s": "Financial overview showing budget allocation and s",
-    "failed_to_load_metrics": "Failed to load metrics",
-    "error_loading_success_metrics": "Error loading success metrics",
-    "project_success_rate": "Project Success Rate",
-    "failed_to_load_metrics_1": "Failed to load metrics",
-    "active_projects": "Active Projects",
-    "completed_tasks": "Completed Tasks",
-    "migrate_legacy_database_to_cloud_infrastructure": "Migrate legacy database to cloud infrastructure",
-    "comprehensive_security_assessment_and_remediation": "Comprehensive security assessment and remediation",
-    "design_wireframes": "Design wireframes",
-    "website_redesign_review": "Website Redesign Review",
-    "review_the_latest_designs_and_provide_feedback": "Review the latest designs and provide feedback",
-    "mobile_app_sprint_planning": "Pianificazione",
-    "export_project_data": "Export project data",
-    "mobile_app_design": "Mobile",
-    "select_all": "Seleziona tutto",
-    "select_all_1": "Seleziona tutto"
   }
+} zealous-williams
+
 }
-=======
-  }
-}
->>>>>>> zealous-williams

@@ -59,40 +59,7 @@
     "completed": "Completed",
     "pending": "Pending",
     "failed": "Failed"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "add_new_budget": "새 예산 추가",
-    "budget_vs_actual": "예산 대 실제",
-    "cash_flow_analysis": "현금 흐름 분석",
-    "expense_breakdown": "비용 세부 내역",
-    "open_menu": "메뉴 열기",
-    "all_categories": "모든 카테고리",
-    "sales": "판매",
-    "services": "서비스",
-    "refresh_insights": "인사이트 새로고침",
-    "digital_marketing_campaigns_and_advertising": "디지털 마케팅 캠페인 및 광고",
-    "monthly_payroll_and_benefits": "월간 급여 및 혜택",
-    "quarterly_revenue_target_from_product_sales": "수익",
-    "implementation_and_training_services": "Implementation and training 서비스",
-    "january_subscription_renewals": "1월 구독 갱신",
-    "january_payroll": "1월 급여",
-    "export_financial_data": "재무 데이터 내보내기",
-    "add_new_expense": "새 지출 추가",
-    "add_new_revenue": "수익"
   }
+} zealous-williams
+
 }
-=======
-  }
-}
-
-
-
-
-
-
-
-
-
-
->>>>>>> zealous-williams

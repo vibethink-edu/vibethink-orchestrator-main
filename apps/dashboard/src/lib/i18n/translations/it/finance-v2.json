@@ -87,18 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "desktop": "Desktop",
-    "expenses": "Spese",
-    "visitors": "Visitatori",
-    "chrome": "Chrome",
-    "safari": "Safari",
-    "finance_admin_dashboard": "Dashboard amministratore Finance"
   }
+} zealous-williams
+
 }
-=======
-  }
-}
->>>>>>> zealous-williams

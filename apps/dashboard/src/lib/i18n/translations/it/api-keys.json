@@ -1,10 +1,5 @@
 {
-<<<<<<< HEAD
-  "header": {
-    "title": "Gestione Chiavi API"
-  },
-=======
->>>>>>> zealous-williams
+ zealous-williams
   "title": "",
   "description": "",
   "loading": "Loading...",
@@ -112,3 +107,5 @@
   }
 }
 >>>>>>> zealous-williams
+
+}

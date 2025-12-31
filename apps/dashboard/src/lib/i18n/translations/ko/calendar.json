@@ -31,15 +31,7 @@
   "deselectAll": "Deselect All",
   "noResults": "No results found",
   "noData": "No data available",
-<<<<<<< HEAD
-  "empty": {
-    "noEvents": "No events",
-    "noEventsFound": "No events found",
-    "noEventsScheduled": "There are no events scheduled for this time period."
-  },
-=======
-  "empty": "Empty",
->>>>>>> zealous-williams
+  "empty": "Empty", zealous-williams
   "active": "Active",
   "inactive": "Inactive",
   "pending": "Pending",

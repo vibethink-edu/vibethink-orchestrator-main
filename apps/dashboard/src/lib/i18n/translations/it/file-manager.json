@@ -158,46 +158,7 @@
     "megabytes": "MB",
     "gigabytes": "GB",
     "terabytes": "TB"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "no_transfer_data_available": "Nessun dato di trasferimento disponibile",
-    "average_speed": "Velocità media",
-    "transfer_success": "Trasferimento riuscito",
-    "upload_failed": "Caricamento fallito",
-    "drop_files_here": "Trascina i file qui",
-    "upload_your_files": "Carica i tuoi file",
-    "no_folders_found": "Nessuna cartella trovata",
-    "create_your_first_folder_to_organize_your_files": "Crea la tua prima cartella per organizzare i tuoi file",
-    "this_action_cannot_be_undone": "Questa azione non può essere annullata",
-    "no_storage_data_available": "Nessun dato di archiviazione disponibile",
-    "other_types": "Altri tipi",
-    "no_storage_data_available_1": "Nessun dato di archiviazione disponibile",
-    "just_now": "Proprio ora",
-    "no_recent_files": "Nessun file recente",
-    "upload_some_files_to_see_them_here": "Carica alcuni file per vederli qui",
-    "failed_to_load_data": "Impossibile caricare i dati",
-    "company_documents_and_reports": "Documenti e rapporti aziendali",
-    "photos_and_graphics": "Foto e grafici",
-    "upload_failed_1": "Caricamento fallito",
-    "file_not_found_or_access_denied": "File non trovato o accesso negato",
-    "file_downloaded_successfully": "File scaricato con successo",
-    "search_files_and_folders": "Cerca file e cartelle...",
-    "open_filters": "Apri filtri",
-    "create_new_folder": "Crea nuova cartella"
   }
+} zealous-williams
+
 }
-=======
-  }
-}
-
-
-
-
-
-
-
-
-
-
->>>>>>> zealous-williams

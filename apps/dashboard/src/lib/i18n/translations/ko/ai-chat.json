@@ -1,14 +1,4 @@
 {
-<<<<<<< HEAD
-  "header": {
-    "title": "AI Chat Assistant",
-    "subtitle": "Intelligent conversations with multiple AI providers",
-    "selectConversation": "Select a conversation to start chatting",
-    "untitled": "Untitled Chat",
-    "active": "Active",
-    "messages": "messages",
-    "unknown": "Unknown"
-=======
   "title": "AI Chat",
   "subtitle": "Chat with AI Assistant",
   "description": "AI chatbot is an app ui template that allows users to interact with an AI for messaging and assistance. Built with shadcn/ui, Next.js and Tailwind CSS.",
@@ -19,8 +9,7 @@
   "sidebar": {
     "search": "Search chats...",
     "newChat": "New Chat",
-    "untitledChat": "Untitled Chat"
->>>>>>> zealous-williams
+    "untitledChat": "Untitled Chat" zealous-williams
   },
   "input": {
     "placeholder": "Type your message... (Press Enter to send, Shift+Enter for new line)",
@@ -263,3 +252,5 @@
 
 
 >>>>>>> zealous-williams
+
+}

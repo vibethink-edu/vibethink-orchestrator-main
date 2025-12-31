@@ -1,12 +1,4 @@
 {
-<<<<<<< HEAD
-  "concept.booking.resource.room": "Room",
-  "concept.booking.resource.studio_room": "Suite"
-}
-
-
-
-=======
   "concept": {
     "booking": {
       "resource": {
@@ -56,6 +48,6 @@
       "roomService": "Room Service"
     }
   }
-}
+} zealous-williams
 
->>>>>>> zealous-williams
+}

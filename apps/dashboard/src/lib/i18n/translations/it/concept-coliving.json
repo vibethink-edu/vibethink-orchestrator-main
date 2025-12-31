@@ -1,13 +1,4 @@
 {
-<<<<<<< HEAD
-  "concept.booking.resource.room": "Spazio condiviso",
-  "concept.booking.resource.coliving_room": "Camera privata",
-  "concept.booking.action.reserve": "Prenotare"
-}
-
-
-
-=======
   "concept": {
     "booking": {
       "resource": {
@@ -100,6 +91,6 @@
       }
     }
   }
-}
+} zealous-williams
 
->>>>>>> zealous-williams
+}

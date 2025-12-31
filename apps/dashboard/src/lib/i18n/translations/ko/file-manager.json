@@ -158,46 +158,7 @@
     "megabytes": "MB",
     "gigabytes": "GB",
     "terabytes": "TB"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "no_transfer_data_available": "전송 데이터를 사용할 수 없습니다",
-    "average_speed": "평균 속도",
-    "transfer_success": "전송 성공",
-    "upload_failed": "업로드 실패",
-    "drop_files_here": "파일을 여기에 놓으세요",
-    "upload_your_files": "파일을 업로드하세요",
-    "no_folders_found": "폴더를 찾을 수 없습니다",
-    "create_your_first_folder_to_organize_your_files": "파일을 정리하기 위해 첫 번째 폴더를 만드세요",
-    "this_action_cannot_be_undone": "이 작업은 취소할 수 없습니다",
-    "no_storage_data_available": "저장소 데이터를 사용할 수 없습니다",
-    "other_types": "기타 유형",
-    "no_storage_data_available_1": "저장소 데이터를 사용할 수 없습니다",
-    "just_now": "방금",
-    "no_recent_files": "최근 파일 없음",
-    "upload_some_files_to_see_them_here": "여기서 보려면 파일을 업로드하세요",
-    "failed_to_load_data": "데이터를 로드하지 못했습니다",
-    "company_documents_and_reports": "회사 문서 및 보고서",
-    "photos_and_graphics": "사진 및 그래픽",
-    "upload_failed_1": "업로드 실패",
-    "file_not_found_or_access_denied": "파일을 찾을 수 없거나 액세스가 거부되었습니다",
-    "file_downloaded_successfully": "파일이 성공적으로 다운로드되었습니다",
-    "search_files_and_folders": "파일 및 폴더 검색...",
-    "open_filters": "필터 열기",
-    "create_new_folder": "새 폴더 만들기"
   }
+} zealous-williams
+
 }
-=======
-  }
-}
-
-
-
-
-
-
-
-
-
-
->>>>>>> zealous-williams

@@ -92,14 +92,7 @@
     "title": "Website Analytics",
     "dateRange": "Date Range",
     "export": "Export",
-<<<<<<< HEAD
-    "refresh": "Refresh",
-    "exportAsCsv": "Export as CSV",
-    "exportAsExcel": "Export as Excel",
-    "exportAsPdf": "Export as PDF"
-=======
-    "refresh": "Refresh"
->>>>>>> zealous-williams
+    "refresh": "Refresh" zealous-williams
   },
   "cards": {
     "totalEarning": {

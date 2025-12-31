@@ -1,13 +1,4 @@
 {
-<<<<<<< HEAD
-  "concept.booking.resource.room": "房间",
-  "concept.booking.resource.studio_room": "套房",
-  "concept.booking.resource.meeting_room": "活动厅"
-}
-
-
-
-=======
   "concept": {
     "booking": {
       "resource": {
@@ -57,6 +48,6 @@
       "roomService": "客房服务"
     }
   }
-}
+} zealous-williams
 
->>>>>>> zealous-williams
+}

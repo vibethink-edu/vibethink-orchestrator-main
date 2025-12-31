@@ -87,19 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "mentoring": "Mentoring",
-    "organization": "Organizzazione",
-    "planning": "Pianificazione",
-    "desktop": "Desktop",
-    "course_name": "Nome del corso",
-    "search_courses": "Cerca corsi",
-    "search_courses_1": "Cerca corsi"
   }
+} zealous-williams
+
 }
-=======
-  }
-}
->>>>>>> zealous-williams

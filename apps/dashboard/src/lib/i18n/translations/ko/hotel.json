@@ -2,10 +2,7 @@
   "hotel": {
     "title": "Hotel Management",
     "description": "Manage your hotel operations, bookings, and guests",
-<<<<<<< HEAD
-=======
-    
->>>>>>> zealous-williams
+ zealous-williams
     "navigation": {
       "dashboard": "Dashboard",
       "bookings": "Bookings"
@@ -322,3 +319,5 @@
 }
 
 >>>>>>> zealous-williams
+
+}

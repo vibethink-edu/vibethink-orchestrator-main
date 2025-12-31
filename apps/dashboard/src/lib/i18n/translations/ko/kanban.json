@@ -87,17 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "search_user": "Search user...",
-    "integrate_stripe_payment_gateway": "Integrate Stripe payment gateway",
-    "redesign_marketing_homepage": "Redesign marketing homepage",
-    "redesign_marketing_homepage_1": "Redesign marketing homepage",
-    "kanban_board": "Kanban Board"
   }
+} zealous-williams
+
 }
-=======
-  }
-}
->>>>>>> zealous-williams

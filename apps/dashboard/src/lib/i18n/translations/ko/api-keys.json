@@ -1,10 +1,5 @@
 {
-<<<<<<< HEAD
-  "header": {
-    "title": "API 키 관리"
-  },
-=======
->>>>>>> zealous-williams
+ zealous-williams
   "title": "",
   "description": "",
   "loading": "Loading...",
@@ -112,3 +107,5 @@
   }
 }
 >>>>>>> zealous-williams
+
+}

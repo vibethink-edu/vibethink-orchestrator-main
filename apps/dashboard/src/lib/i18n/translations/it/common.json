@@ -1,7 +1,6 @@
 {
   "buttons": {
-<<<<<<< HEAD
-    "save": "Save",
+"save": "Save",
     "cancel": "Cancel",
     "delete": "Delete",
     "edit": "Edit",
@@ -109,9 +108,8 @@
     "inicio": "Inicio",
     "punto_de_inicio_del_workflow": "Punto de inicio del workflow",
     "procesar_datos": "Procesar Datos",
-    "workflow_editor": "Workflow Editor"
-=======
-    "save": "Salva",
+    "workflow_editor": "Workflow Editor",
+  "save": "Salva",
     "cancel": "Annulla",
     "delete": "Elimina",
     "edit": "Modifica",
@@ -172,7 +170,6 @@
     "thisMonth": "Questo mese",
     "lastMonth": "Il mese scorso",
     "thisYear": "Quest'anno",
-    "lastYear": "L'anno scorso"
->>>>>>> zealous-williams
+    "lastYear": "L'anno scorso" zealous-williams
   }
 }

@@ -87,18 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "desktop": "데스크톱",
-    "expenses": "비용",
-    "visitors": "방문자",
-    "chrome": "크롬",
-    "safari": "Safari",
-    "finance_admin_dashboard": "재무 관리자 대시보드"
   }
+} zealous-williams
+
 }
-=======
-  }
-}
->>>>>>> zealous-williams

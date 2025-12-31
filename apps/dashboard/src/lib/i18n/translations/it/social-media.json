@@ -87,26 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "what": "What",
-    "add_photos_to_your_post": "Add photos to your post",
-    "add_video_to_your_post": "Add video to your post",
-    "video_thumbnail": "Video thumbnail",
-    "hide_comments": "Hide comments",
-    "add_a_comment": "Add a comment...",
-    "home_1": "Home",
-    "tasks": "Tasks",
-    "users": "Users",
-    "this_house_looks_beautiful": "This house looks beautiful",
-    "product_reveal_teaser": "Product Reveal Teaser",
-    "sunset_in_the_valley": "Sunset in the Valley",
-    "social_media_app": "Sociale Media App",
-    "more_posts": "More posts"
   }
+} zealous-williams
+
 }
-=======
-  }
-}
->>>>>>> zealous-williams

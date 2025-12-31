@@ -87,24 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "enter_title": "Enter title",
-    "enter_title_1": "Enter title",
-    "enter_description": "Enter description",
-    "both_comment_and_author_name_are_required": "Both comment and author name are required",
-    "subtask_title_is_required": "Subtask title is required",
-    "enter_subtask_title": "Enter subtask title",
-    "show_starred_only": "Show starred only",
-    "search_tasks": "Search tasks...",
-    "list_view": "List view",
-    "todo_list_app": "Todo List App",
-    "title_is_required": "Title is required",
-    "at_least_one_assignee_is_required": "At least one assignee is required"
   }
+} zealous-williams
+
 }
-=======
-  }
-}
->>>>>>> zealous-williams

@@ -87,24 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "medieval_castle_on_a_misty_mountain_with_dragons_f": "Medieval castle on a misty mountain with dragons f",
-    "bioluminescent_forest_with_glowing_mushrooms_and_f": "Bioluminescent forest with glowing mushrooms and f",
-    "underwater_coral_reef_with_tropical_fish_and_sea_c": "Underwater coral reef with tropical fish and sea c",
-    "this_may_take_a_few_moments": "Questo potrebbe richiedere alcuni istanti",
-    "square_11": "Quadrato (1:1)",
-    "landscape_169": "Paesaggio (16:9)",
-    "portrait_916": "Ritratto (9:16)",
-    "cyberpunk_cityscape_with_neon_lights_and_flying_ca": "Cyberpunk cityscape with neon lights and flying ca",
-    "adorable_corgi_puppy_playing_in_a_field_of_colorfu": "Adorable corgi puppy playing in a field of colorfu",
-    "abstract_geometric_patterns_with_vibrant_colors_an": "Abstract geometric patterns with vibrant colors an",
-    "failed_to_download_image": "Impossibile scaricare l'immagine",
-    "ai_image_generator_vibethink_orchestrator": "Generatore di Immagini IA - VibeThink Orchestrator"
   }
+} zealous-williams
+
 }
-=======
-  }
-}
->>>>>>> zealous-williams

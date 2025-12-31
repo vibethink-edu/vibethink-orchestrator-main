@@ -1,7 +1,6 @@
 {
   "buttons": {
-<<<<<<< HEAD
-    "save": "Save",
+"save": "Save",
     "cancel": "Cancel",
     "delete": "Delete",
     "edit": "Edit",
@@ -109,9 +108,8 @@
     "inicio": "Inicio",
     "punto_de_inicio_del_workflow": "Punto de inicio del workflow",
     "procesar_datos": "Procesar Datos",
-    "workflow_editor": "Workflow Editor"
-=======
-    "save": "구하다",
+    "workflow_editor": "Workflow Editor",
+  "save": "구하다",
     "cancel": "취소",
     "delete": "삭제",
     "edit": "편집하다",
@@ -172,7 +170,6 @@
     "thisMonth": "이번 달",
     "lastMonth": "전달",
     "thisYear": "올해",
-    "lastYear": "작년"
->>>>>>> zealous-williams
+    "lastYear": "작년" zealous-williams
   }
 }

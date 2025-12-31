@@ -1,6 +1,5 @@
 {
-<<<<<<< HEAD
-  "table": {
+"table": {
     "common": {
       "search": "搜索...",
       "filter": "筛选",
@@ -32,8 +31,7 @@
       "urgent": "紧急"
     }
   }
-}
-=======
+},
   "buttons": {
     "save": "节省",
     "cancel": "取消",
@@ -98,5 +96,5 @@
     "thisYear": "今年",
     "lastYear": "去年"
   }
+} zealous-williams
 }
->>>>>>> zealous-williams

@@ -87,25 +87,7 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
-  },
-  "hardcoded": {
-    "new_patient_orientation": "Orientamento nuovo paziente",
-    "inventory_check": "Controllo inventario",
-    "annual_health_checkup": "Visita medica annuale",
-    "female": "Femminile",
-    "male": "Maschile",
-    "child": "Bambino",
-    "visitors": "Visitatori",
-    "cardiology": "Cardiologia",
-    "neurology": "Neurologia",
-    "general_health_check_up": "Visita medica generale",
-    "temporary_headache": "Mal di testa temporaneo",
-    "filter_sales": "Vendite",
-    "unknown_error": "Errore sconosciuto"
   }
+} zealous-williams
+
 }
-=======
-  }
-}
->>>>>>> zealous-williams

@@ -1,6 +1,5 @@
 {
-<<<<<<< HEAD
-  "table": {
+"table": {
     "common": {
       "search": "Rechercher...",
       "filter": "Filtrer",
@@ -32,8 +31,7 @@
       "urgent": "Urgente"
     }
   }
-}
-=======
+},
   "buttons": {
     "save": "Sauvegarder",
     "cancel": "Annuler",
@@ -98,5 +96,5 @@
     "thisYear": "Cette année",
     "lastYear": "L'année dernière"
   }
+} zealous-williams
 }
->>>>>>> zealous-williams

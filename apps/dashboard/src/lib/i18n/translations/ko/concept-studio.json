@@ -1,13 +1,4 @@
 {
-<<<<<<< HEAD
-  "concept.booking.resource.room": "부스",
-  "concept.booking.resource.studio_room": "녹음 스튜디오",
-  "concept.booking.resource.equipment": "오디오 장비"
-}
-
-
-
-=======
   "concept": {
     "booking": {
       "action": {
@@ -57,6 +48,6 @@
       }
     }
   }
-}
+} zealous-williams
 
->>>>>>> zealous-williams
+}
