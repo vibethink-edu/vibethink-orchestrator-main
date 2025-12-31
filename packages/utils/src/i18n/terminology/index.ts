@@ -149,7 +149,7 @@ export {
   // Inicialización y limpieza
   initTerminologyCache,
   destroyTerminologyCache,
-  
+
   // Funciones con auto-cleanup
   withAutoCleanup,
 } from './cache';
@@ -157,8 +157,8 @@ export {
 // ============================================================================
 // CAPA 3: Terminology Provider & Hydration Components
 // ============================================================================
-export * from './TerminologyProvider';
-export * from './TerminologyHydration';
+// export * from './TerminologyProvider';
+// export * from './TerminologyHydration';
 
 // ============================================================================
 // Metadata del módulo (documentación)
