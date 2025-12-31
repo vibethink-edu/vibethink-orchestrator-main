@@ -73,29 +73,13 @@
     "login_v2": "로그인 v2",
     "register_v1": "등록 v1",
     "register_v2": "등록 v2",
-    "forgot_password": "비밀번호 찾기", zealous-williams
+    "forgot_password": "비밀번호 찾기", 
     "error_404": "404",
     "error_500": "500",
     "error_403": "403"
   },
   "badges": {
-<<<<<<< HEAD
-    "new": "New",
-    "coming": "Coming",
-    "active": "Active",
-    "inactive": "Inactive"
-  },
-  "header": {
-    "projects": "Projects",
-    "add_new_project": "Add New Project",
-    "orchestrator": "VibeThink Orchestrator"
-  },
-  "footer": {
-    "download": "Download",
-    "download_description": "Unlock lifetime access to all dashboards, templates and components.",
-    "get_pro": "Get VibeThink Pro"
-=======
-    "new": "신규",
+"new": "신규",
     "coming": "출시 예정",
     "active": "활성",
     "inactive": "비활성"
@@ -109,6 +93,5 @@
     "download": "다운로드",
     "download_description": "모든 대시보드, 템플릿 및 구성요소에 대한 평생 액세스 잠금 해제.",
     "get_pro": "VibeThink Pro 얻기"
->>>>>>> zealous-williams
   }
 }

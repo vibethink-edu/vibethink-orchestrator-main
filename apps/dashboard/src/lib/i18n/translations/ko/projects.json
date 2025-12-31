@@ -113,95 +113,12 @@
     "deleteConfirm": "이 프로젝트를 정말로 삭제하시겠습니까?",
     "loading": "로딩 중...",
     "error": "오류가 발생했습니다",
-    "noProjects": "프로젝트를 찾을 수 없습니다." zealous-williams
+    "noProjects": "프로젝트를 찾을 수 없습니다." 
   },
   "v2": {
     "summaryCards": {
       "totalRevenue": {
-<<<<<<< HEAD
-        "title": "Total Revenue",
-        "description": "From last month",
-        "trending": "Up 12% from this month"
-      },
-      "activeProjects": {
-        "title": "Active Projects",
-        "description": "Currently in progress",
-        "update": "Updated 1 hour ago"
-      },
-      "teamSize": {
-        "title": "Team Size",
-        "description": "Active members",
-        "hiring": "Hiring (2 open roles)"
-      },
-      "completionRate": {
-        "title": "Completion Rate",
-        "description": "Delivered on time",
-        "performance": "5% better than target"
-      }
-    },
-    "overview": {
-      "title": "Overview",
-      "description": "Analyze your projects performance.",
-      "revenue": "Revenue",
-      "projects": "Projects",
-      "tasks": "Tasks",
-      "team": "Team"
-    },
-    "recentActivity": {
-      "title": "Recent Activity",
-      "description": "You have 3 new notifications today.",
-      "projectCreated": "Project created",
-      "taskCompleted": "Task completed",
-      "commentAdded": "Comment added",
-      "fileUploaded": "File uploaded"
-    },
-    "metrics": {
-      "title": "Performance Metrics",
-      "description": "Key performance indicators tracking",
-      "onTime": "On Time",
-      "overBudget": "Over Budget",
-      "clientSatisfaction": "Client Satisfaction"
-    },
-    "efficiency": {
-      "title": "Project Efficiency",
-      "description": "January - June 2026",
-      "trending": "Trending up by 5.2% this month"
-    },
-    "achievement": {
-      "title": "Achievement by Year",
-      "description": "You completed more projects per day on average this year than last year.",
-      "projects": "projects"
-    },
-    "reminders": {
-      "title": "Reminder",
-      "showOther": "Show the other 10 reminders"
-    },
-    "successMetrics": {
-      "title": "Success Metrics",
-      "description": "Key performance indicators for project success",
-      "successRate": "Project Success Rate",
-      "onTime": "On-Time Completion",
-      "clientSat": "Client Satisfaction",
-      "budget": "Budget Adherence"
-    },
-    "reports": {
-      "title": "Projects Reports",
-      "description": "Download detailed reports for your projects",
-      "download": "Download Report"
-    },
-    "table": {
-      "columns": {
-        "projectName": "Project Name",
-        "clientName": "Client Name",
-        "startDate": "Start Date",
-        "deadline": "Deadline",
-        "status": "Status",
-        "progress": "Progress"
-      },
-      "placeholder": {
-        "filterProjects": "Filter projects..."
-=======
-        "title": "총 수익",
+"title": "총 수익",
         "description": "지난달부터",
         "trending": "이번 달 대비 12% 상승"
       },
@@ -282,48 +199,11 @@
       },
       "placeholder": {
         "filterProjects": "프로젝트 필터링..."
->>>>>>> zealous-williams
       }
     }
   },
   "hardcoded": {
-<<<<<<< HEAD
-    "task_or_project_deadline": "Task or 프로젝트 마감일",
-    "deadline": "Deadline",
-    "team_meeting_or_call": "Team meeting or 통화",
-    "no_project_data_available": "No project data available",
-    "due_now": "Due now",
-    "comprehensive_overview_of_all_active_projects_and": "Comprehensive overview of all active projects and",
-    "detailed_analysis_of_team_productivity_and_efficie": "Detailed analysis of team productivity and efficie",
-    "financial_overview_showing_budget_allocation_and_s": "Financial overview showing budget allocation and s",
-    "project_success_rate": "Project Success Rate",
-    "percentage_of_projects_completed_successfully": "Percentage of projects completed successfully",
-    "ontime_delivery": "On-Time Delivery",
-    "migrate_legacy_database_to_cloud_infrastructure": "Migrate legacy database to cloud infrastructure",
-    "comprehensive_security_assessment_and_remediation": "Comprehensive security assessment and remediation",
-    "design_wireframes": "Design wireframes",
-    "website_redesign_review": "Website Redesign Review",
-    "review_the_latest_designs_and_provide_feedback": "Review the latest designs and provide feedback",
-    "mobile_app_sprint_planning": "계획",
-    "export_project_data": "Export project data",
-    "steps": "Steps",
-    "steps_1": "Steps",
-    "steps_2": "Steps",
-    "enter_your_reminder": "Enter your reminder",
-    "enter_your_reminder_1": "Enter your reminder",
-    "select_a_category": "Select a category",
-    "visitors": "방문자",
-    "desktop": "데스크톱",
-    "mobile": "모바일",
-    "visitors_1": "방문자",
-    "desktop_1": "데스크톱",
-    "mobile_1": "모바일",
-    "toggle_details": "Toggle details",
-    "mobile_app_design": "모바일",
-    "select_all": "모두 선택",
-    "select_all_1": "모두 선택"
-=======
-    "task_or_project_deadline": "업무 또는 프로젝트 마감일",
+"task_or_project_deadline": "업무 또는 프로젝트 마감일",
     "deadline": "사선",
     "team_meeting_or_call": "팀 회의 또는 통화",
     "no_project_data_available": "프로젝트 데이터가 없습니다.",
@@ -357,6 +237,5 @@
     "mobile_app_design": "모바일 앱 디자인",
     "select_all": "모두 선택하세요",
     "select_all_1": "모두 선택하세요"
->>>>>>> zealous-williams
   }
 }

@@ -31,7 +31,7 @@
   "deselectAll": "Deselect All",
   "noResults": "No results found",
   "noData": "No data available",
-  "empty": "Empty", zealous-williams
+  "empty": "Empty", 
   "active": "Active",
   "inactive": "Inactive",
   "pending": "Pending",
@@ -172,41 +172,12 @@
     "eventDeleted": "Event \"{title}\" deleted",
     "eventMoved": "Event \"{title}\" moved"
   },
-<<<<<<< HEAD
-  "labels": {
-    "more": "more"
-  },
-  "hardcoded": {
-    "new_event": "New Event",
-    "event_not_found": "Event not found",
-    "event_not_found_1": "Event not found",
-    "all_day": "All day",
-    "search_events": "Search events...",
-    "no_events_found": "No events found",
-    "month_view": "Month View",
-    "month": "Month",
-    "week_view": "Week View",
-    "event_title_is_required": "Event title is required",
-    "title_too_long": "Title too long",
-    "end_time_must_be_after_start_time": "End time must be after start time",
-    "marketing_strategy_meeting": "Marketing Strategy Meeting",
-    "team_standup": "Team Standup",
-    "daily_standup_meeting_for_development_team": "Daily standup meeting for development team",
-    "missing_data_in_drag_start_event": "Dati mancanti nell'evento di inizio trascinamento",
-    "missing_data_in_drag_event": "Dati mancanti nell'evento di trascinamento",
-    "missing_required_event_data": "Dati evento richiesti mancanti",
-    "annual_planning": "Pianificazione",
-    "strategic_planning_for_next_year": "Pianificazione",
-    "project_deadline": "Scadenza progetto",
-    "event_calendar": "Calendario eventi"
-=======
-  "empty": {
+"empty": {
     "noEvents": "No events",
     "noEventsFound": "No events found",
     "noEventsScheduled": "There are no events scheduled for this time period."
   },
   "labels": {
     "more": "more"
->>>>>>> zealous-williams
   }
 }
