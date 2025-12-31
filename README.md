@@ -6,6 +6,8 @@
 
 ### 📋 NEW AI/AGENTS: Start Here
 
+> 🛡️ **GOVERNANCE:** All agents must follow the [Governance Protocol](AGENTS.md#%EF%B8%8F-governance--compliance-protocol-canonical) before making changes.
+
 **If you are a new AI/agent working on this project:**
 
 1. **FIRST:** Read `PROJECT_STATUS.md` - Complete project status and decisions

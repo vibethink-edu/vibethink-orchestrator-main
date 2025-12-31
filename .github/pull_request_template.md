@@ -53,6 +53,12 @@ Asegúrate de que tu PR cumpla con todos los siguientes puntos.
 Marca con una 'x' cada caja que hayas completado. Si alguna no aplica, explica por qué.
 -->
 
+### **🛡️ Higiene & Gobernanza (OBLIGATORIO)**
+- [ ] **Clean Workspace Gate (CWG)**: Verifiqué `git status --porcelain` antes de empezar.
+- [ ] **Allowlist Staging**: No usé `git add .`, solo archivos explícitos.
+- [ ] **Evidencia**: Si es refactor/limpieza, incluí evidencia en `docs/ai-coordination/`.
+- [ ] **Cuarentena**: No toqué archivos `MANUAL_REQUIRED` (si aplica).
+
 ### **Código y Arquitectura**
 - [ ] **Sigue Patrones de Desarrollo**: Mi código sigue los estándares definidos en `DEVELOPMENT_PATTERNS.md`.
 - [ ] **Nomenclatura Clara**: He usado nombres de variables, funciones y clases descriptivos y consistentes.

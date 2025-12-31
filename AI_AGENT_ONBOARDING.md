@@ -12,7 +12,7 @@ Este documento es la **PRIMERA LECTURA OBLIGATORIA** para cualquier agente AI qu
 
 **Si eres un agente AI y acabas de ser invocado:**
 1. ✅ Lee este documento completo (5-10 minutos)
-2. ✅ Lee `AGENTS.md` (reglas del proyecto)
+2. ✅ Lee `AGENTS.md` (reglas y **PROTOCOLO DE GOBERNANZA**)
 3. ✅ Lee `docs/SCRIPTS_REFERENCE.md` (herramientas disponibles)
 4. ✅ Lee `README.md` (introducción al proyecto)
 5. ✅ Solo entonces, comienza a trabajar

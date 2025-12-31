@@ -38,8 +38,94 @@ This project is a **VibeThink Orchestrator 1.0** (codename: **ViTo**) - an Enter
 4. **Legal justification:** ViTo is a legitimate internal acronym, clearly anchored to VibeThink, for internal/non-commercial use only.
 
 **Documentation:**
-- [PROJECT_NAME.md](docs/PROJECT_NAME.md) - Complete name documentation
 - [VITO_MANIFESTO.md](docs/VITO_MANIFESTO.md) - Official ViTo manifesto
+
+## ⚖️ GOVERNANCE & COMPLIANCE PROTOCOL (CANONICAL)
+
+**Status:** ACTIVE | **Enforcement:** NON-NEGOTIABLE
+**Scope:** All agents (Human/AI), Repo Hygiene, Codemods, Migrations, Automated Scripts.
+
+### 1️⃣ REGLAS GLOBALES NO NEGOCIABLES
+
+#### 1. Clean Workspace Gate (CWG)
+Antes de ejecutar cualquier script o cambio masivo, el agente **DEBE** verificar:
+```bash
+git status --porcelain
+```
+Si el output **NO** está vacío:
+- 🛑 **STOP INMEDIATO**.
+- **NO** ejecutar scripts.
+- **NO** hacer staging.
+- **Remediación obligatoria** (elegir una):
+    - `git stash push -u -m "pre-hygiene"`
+    - `git fetch origin && git reset --hard origin/main && git clean -fd`
+
+#### 2. Branching Canónico
+- Toda tarea inicia en una rama **NUEVA** creada desde `origin/main` limpio.
+- **PROHIBIDO** reutilizar ramas previas para higiene o refactors.
+```bash
+git switch -c <branch-name> origin/main
+```
+
+#### 3. Allowlist Staging (Anti-contaminación)
+- **PROHIBIDO** usar `git add .` o `git add <folder>`.
+- El staging **DEBE** ser explícito y limitado a:
+    - Archivos listados por el script/alcance.
+    - Evidencia generada.
+    - Scripts utilizados.
+
+#### 4. Regla de Cuarentena
+Si un archivo falla validación (ej. `JSON.parse`):
+- **NO** debe ser modificado en el PR mecánico.
+- Debe quedar **INTACTO**.
+- Debe ser listado explícitamente como `MANUAL_REQUIRED` en la evidencia.
+
+#### 5. Gates Obligatorios (Pre-Commit)
+Antes de hacer commit, el agente **DEBE** verificar:
+- ✅ No existen merge markers (`<<<<`, `====`, `>>>>`) en archivos staged.
+- ✅ Todos los archivos staged pasan validación sintáctica (ej. JSON válido).
+- ✅ El número de archivos modificados coincide con el alcance declarado.
+
+**Si cualquier gate falla:** Revertir staging, reportar y **DETENER** operación.
+
+#### 6. Reglas de PR
+Todo PR debe ser **Atómico**, **Auditable** y **Explicable** sin contexto externo.
+**Debe incluir:**
+- Qué se cambió.
+- Cuántos archivos.
+- Qué NO se tocó.
+- Evidencia versionada (`docs/ai-coordination/...`) si aplica.
+
+---
+
+### 🎭 ROLES DE AGENTES
+
+Ningún agente puede asumir más de un rol en el mismo PR.
+
+| Rol | Responsabilidad | Acción Principal |
+| :--- | :--- | :--- |
+| **Architect** | Define reglas y gobernanza. **NO Ejecuta.** | `update AGENTS.md` |
+| **Executor** | Ejecuta scripts bajo reglas estrictas. | `run script`, `git commit` |
+| **Auditor** | Valida cumplimiento (Veredicto Binario). | `audit script`, `APPROVE/BLOCK` |
+| **Reviewer** | Revisa coherencia semántica. | `review code`, `feedback` |
+
+### 🚀 RECOMENDACIONES DE FUTURO (Best Practices)
+
+#### 1. CI Fail-Fast (Eficiencia)
+- La validación `npm run lint:hygiene` debe ejecutarse condicionalmente en CI.
+- **Trigger ideal:** Solo cuando el PR toca rutas sensibles (`src/lib/i18n`, `config/`, `scripts/`).
+- Evita ruido en PRs de documentación o assets.
+
+#### 2. Etiquetado Semántico
+- Usar etiquetas (labels) claras en PRs para facilitar triage automático:
+    - `type: hygiene` 🧹 (Cambios mecánicos, cleaners)
+    - `type: semantic` 🧠 (Cambios de lógica, humanos)
+- Antigravity/Agentes usarán estas señales para ajustar su nivel de riesgo.
+
+#### 3. Determinismo JSON (Sorting) - Best Practice 💉
+- **Regla:** Los archivos de traducción JSON DEBEN mantenerse ordenados alfabéticamente por key.
+- **Adopción Progresiva:** "Touch it = Sort it". No reordenar masivamente sin autorización, pero si editas un archivo, déjalo ordenado.
+- **Objetivo:** Prevenir conflictos de merge causados por inserciones aleatorias y minimizar diffs.
 
 ## 🚨 CRITICAL: Sistema i18n de 3 Capas (ACTIVO - 2025-12-26)
 
