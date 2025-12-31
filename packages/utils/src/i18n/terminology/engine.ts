@@ -92,8 +92,10 @@ async function resolveWithFallback(
   }
 
   // Último recurso: retornar el Concept ID
-  console.warn(`[Terminology] Concept not found in any locale: ${conceptId}`);
+  return conceptId;
+}
 
+/**
  * Aplica overrides de producto y contexto a un valor base
  * 
  * Orden de precedencia de overrides:
