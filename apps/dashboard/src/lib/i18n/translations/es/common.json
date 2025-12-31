@@ -1,5 +1,5 @@
 {
-"table": {
+  "table": {
     "common": {
       "search": "Buscar...",
       "filter": "Filtrar",
@@ -31,70 +31,4 @@
       "urgent": "Urgente"
     }
   }
-},
-  "buttons": {
-    "save": "Ahorrar",
-    "cancel": "Cancelar",
-    "delete": "Borrar",
-    "edit": "Editar",
-    "add": "Agregar",
-    "search": "Buscar",
-    "filter": "Filtrar",
-    "export": "Exportar",
-    "import": "Importar",
-    "download": "Descargar",
-    "upload": "Subir",
-    "close": "Cerca",
-    "submit": "Entregar",
-    "reset": "Reiniciar",
-    "apply": "Aplicar",
-    "clear": "Claro",
-    "back": "Atrás",
-    "next": "Próximo",
-    "previous": "Anterior",
-    "confirm": "Confirmar",
-    "yes": "Sí",
-    "no": "No"
-  },
-  "labels": {
-    "name": "Nombre",
-    "email": "Correo electrónico",
-    "phone": "Teléfono",
-    "address": "DIRECCIÓN",
-    "status": "Estado",
-    "date": "Fecha",
-    "time": "Tiempo",
-    "amount": "Cantidad",
-    "total": "Total",
-    "description": "Descripción",
-    "actions": "Comportamiento",
-    "loading": "Cargando...",
-    "noData": "No hay datos disponibles",
-    "error": "Error",
-    "success": "Éxito",
-    "warning": "Advertencia",
-    "info": "Información"
-  },
-  "messages": {
-    "saved": "Guardado exitosamente",
-    "deleted": "Eliminado exitosamente",
-    "updated": "Actualizado exitosamente",
-    "created": "Creado exitosamente",
-    "errorOccurred": "Se produjo un error",
-    "confirmDelete": "¿Está seguro que desea eliminar este elemento?",
-    "noResults": "No se encontraron resultados",
-    "selectOption": "Seleccione una opción"
-  },
-  "time": {
-    "today": "Hoy",
-    "yesterday": "Ayer",
-    "tomorrow": "Mañana",
-    "thisWeek": "Esta semana",
-    "lastWeek": "La semana pasada",
-    "thisMonth": "Este mes",
-    "lastMonth": "Mes pasado",
-    "thisYear": "Este año",
-    "lastYear": "El año pasado"
-  }
-} zealous-williams
 }

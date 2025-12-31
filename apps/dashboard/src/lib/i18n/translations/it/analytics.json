@@ -92,7 +92,7 @@
     "title": "Website Analytics",
     "dateRange": "Date Range",
     "export": "Export",
-    "refresh": "Refresh" zealous-williams
+    "refresh": "Refresh"
   },
   "cards": {
     "totalEarning": {
@@ -239,15 +239,11 @@
     "yesterday": "Yesterday",
     "last7Days": "Last 7 Days",
     "last30Days": "Last 30 Days",
-<<<<<<< HEAD
     "last90Days": "Last 90 Days",
-=======
->>>>>>> zealous-williams
     "thisMonth": "This Month",
     "lastMonth": "Last Month",
     "thisYear": "This Year",
     "lastYear": "Last Year"
-<<<<<<< HEAD
   },
   "debug": {
     "title": "Debug Information (Development Only)",
@@ -286,7 +282,5 @@
     "failed_to_load_earning_data": "Failed to load earning data",
     "failed_to_load_website_analytics_data": "Impossibile caricare i dati di analisi del sito web",
     "website_analytics_1": "Website Analytics"
-=======
->>>>>>> zealous-williams
   }
 }

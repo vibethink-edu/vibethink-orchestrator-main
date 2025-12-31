@@ -7,15 +7,24 @@
     "description": "AI chatbot is an app ui template that allows users to interact with an AI for messaging and assistance. Built with shadcn/ui, Next.js and Tailwind CSS."
   },
   "sidebar": {
-    "search": "Search chats...",
-    "newChat": "New Chat",
-    "untitledChat": "Untitled Chat" zealous-williams
+    "title": "Conversations",
+    "newChat": "New",
+    "searchPlaceholder": "Search chats...",
+    "all": "All",
+    "noChats": "No chats yet",
+    "startFirstChat": "Start your first chat",
+    "untitled": "Untitled Chat",
+    "export": "Export",
+    "archive": "Archive",
+    "delete": "Delete",
+    "totalChats": "Total chats",
+    "active": "Active",
+    "unknown": "Unknown"
   },
   "input": {
     "placeholder": "Type your message... (Press Enter to send, Shift+Enter for new line)",
     "send": "Send",
     "sending": "Sending...",
-<<<<<<< HEAD
     "attach": "Attach files",
     "voice": "Voice input",
     "emoji": "Add emoji",
@@ -104,21 +113,6 @@
     },
     "mockResponse": "This is a simulated AI response for demo purposes."
   },
-  "sidebar": {
-    "title": "Conversations",
-    "newChat": "New",
-    "searchPlaceholder": "Search chats...",
-    "all": "All",
-    "noChats": "No chats yet",
-    "startFirstChat": "Start your first chat",
-    "untitled": "Untitled Chat",
-    "export": "Export",
-    "archive": "Archive",
-    "delete": "Delete",
-    "totalChats": "Total chats",
-    "active": "Active",
-    "unknown": "Unknown"
-  },
   "upload": {
     "dropFiles": "Drop files here",
     "clickToUpload": "Click to upload or drag and drop",
@@ -177,80 +171,4 @@
     "provider": "AI Provider",
     "attachments": "Attachments"
   }
-}
-=======
-    "error": "Error sending message:"
-  },
-  "messages": {
-    "aiGenerating": "ViTo is generating a response...",
-    "aiAssistant": "ViTo AI Assistant",
-    "copy": "Copy message",
-    "copied": "Copied!",
-    "copyError": "Failed to copy message:",
-    "empty_state_title": "Start the conversation",
-    "empty_state_description": "Send a message to begin chatting with ViTo. You can ask questions, request help, or have a conversation about any topic.",
-    "loading_conversation": "Loading conversation...",
-    "loading_messages": "Loading messages...",
-    "today": "Today",
-    "yesterday": "Yesterday",
-    "message_count": "messages in this conversation",
-    "tokens_used": "tokens used",
-    "scroll_to_bottom": "Scroll to bottom"
-  },
-  "settings": {
-    "systemInstructions": "Enter system instructions for the AI...",
-    "selectModel": "Select a model",
-    "localModel": "Local Model"
-  },
-  "upgrade": {
-    "title": "Upgrade to Pro",
-    "currentPlan": "Current Plan",
-    "processing": "Processing...",
-    "plans": {
-      "free": {
-        "title": "Free",
-        "description": "Perfect for getting started",
-        "features": [
-          "Basic AI models",
-          "Standard support",
-          "Web access only"
-        ]
-      },
-      "pro": {
-        "title": "Pro",
-        "description": "For power users and professionals",
-        "features": [
-          "Unlimited messages",
-          "Advanced AI models (iBeeBot 4o)",
-          "Priority support",
-          "API access",
-          "Custom integrations",
-          "Advanced analytics"
-        ],
-        "button": "Upgrade to Pro"
-      },
-      "enterprise": {
-        "title": "Enterprise",
-        "description": "For teams and organizations",
-        "features": [
-          "Everything in Pro",
-          "Team collaboration",
-          "SSO & advanced security",
-          "Dedicated support",
-          "Custom models",
-          "On-premise deployment"
-        ],
-        "button": "Contact Sales"
-      }
-    }
-  },
-  "dateFormat": "MMMM d, yyyy"
-}
-
-
-
-
-
->>>>>>> zealous-williams
-
 }

@@ -1,5 +1,4 @@
 {
- zealous-williams
   "title": "",
   "description": "",
   "loading": "Loading...",
@@ -88,7 +87,6 @@
     "title": "No items found",
     "description": "Get started by creating a new item",
     "action": "Create New"
-<<<<<<< HEAD
   },
   "hardcoded": {
     "more_than_last_month": "지난달보다 많음",
@@ -102,10 +100,4 @@
     "less_than_last_month": "지난달보다 적음",
     "api_keys_vibethink_orchestrator": "API 키 - VibeThink Orchestrator"
   }
-}
-=======
-  }
-}
->>>>>>> zealous-williams
-
 }
