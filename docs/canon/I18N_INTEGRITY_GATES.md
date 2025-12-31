@@ -23,8 +23,9 @@ To guarantee the structural integrity of the codebase by preventing invalid arti
 
 ## 3. Scope & Exclusions
 
-The integrity gates scan the **entire repository** with the following canonical exclusions:
+The integrity gates scan the **entire repository** with the following canonical exclusions, which must be strictly classified:
 
+### Category A: Generated/Build Artifacts (Ignored)
 - `node_modules`
 - `.git`
 - `.next`
@@ -35,6 +36,14 @@ The integrity gates scan the **entire repository** with the following canonical 
 - `out`
 - `vendor`
 - `tmp`
+
+### Category B: Archived Legacy / Non-Productive (Quarantined)
+- `.cursor` (Local configuration snippets, known schema issues)
+- `_legacy` (Deprecated tools, not part of production build)
+- `packages/cli/src/validation` (Legacy report templates with invalid JSON fragments)
+
+### Rule: No Productive Code Exclusion
+**NO** productive code path (e.g., `apps/`, `packages/ui/`) may ever be excluded from these gates. Any JSON error in productive code must be fixed, not ignored.
 
 All other files (including root configs like `package.json`, `turbo.json`, and all `apps/` source code) are subject to validation.
 
