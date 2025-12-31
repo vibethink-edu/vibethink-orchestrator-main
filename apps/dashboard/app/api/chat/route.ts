@@ -1,5 +1,4 @@
-import { openai } from '@ai-sdk/openai';
-import { streamText } from 'ai';
+import { streamAI } from '@/lib/ai/provider';
 import { AI_ASSISTANT_CONFIG } from '@/lib/constants/ai-config';
 import {
     ExtendedPanelContext,
@@ -79,8 +78,8 @@ export async function POST(req: Request) {
         // ========================================
         // 4. STREAM AI RESPONSE
         // ========================================
-        const result = streamText({
-            model: openai(selectedModel),
+        const result = streamAI({
+            model: selectedModel,
             system: systemPrompt,
             messages,
         });
