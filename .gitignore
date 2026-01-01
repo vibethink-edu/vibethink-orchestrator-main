@@ -169,3 +169,4 @@ external/
 
 nul
 .turbo/
+.claude/settings.local.json
