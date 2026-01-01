@@ -94,9 +94,16 @@ export class GoogleWorkspaceAdapter implements SignalAdapter {
             return google.gmail({ version: "v1" });
         }
 
-        // Real credentials wiring is scheduled for Phase 3A.
-        // Phase 2 only supports "fixture" mode for architectural verification.
-        throw new Error(`[GoogleWorkspaceAdapter] Real connection refs (e.g., "${connectionRef}") are not supported in Phase 2. Please use "fixture" mode.`);
+        // Resolve credentials for real ingestion (Activated in Phase 3A)
+        const { EnvCredentialResolver } = await import("./auth");
+        const resolver = new EnvCredentialResolver();
+        const auth = await resolver.resolve(connectionRef);
+
+        if (!auth) {
+            throw new Error(`[GoogleWorkspaceAdapter] Failed to resolve credentials for connection_ref: ${connectionRef}`);
+        }
+
+        return google.gmail({ version: "v1", auth });
     }
 
     private buildQuery(since?: string, until?: string): string {

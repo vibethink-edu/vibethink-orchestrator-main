@@ -79,7 +79,25 @@ Replaced mock logic with production-ready Gmail API implementation:
 
 ---
 
-## Phase 2 Status: [LOCKED]
-The foundation is stable. All verify gates are GREEN.
-The adaptation layer handles ingestion and normalized errors.
-Core is strictly isolated from the Google SDK.
+## Phase 3A: Local Execution with Credentials
+Wired the adapter to use real OAuth2 credentials from environment variables:
+
+### Mandatory Environment Variables
+Create a `.env` in the project root with:
+```bash
+GOOGLE_OAUTH_CLIENT_ID=your_client_id
+GOOGLE_OAUTH_CLIENT_SECRET=your_client_secret
+GOOGLE_OAUTH_REFRESH_TOKEN=your_refresh_token
+```
+
+### How to use
+When calling `ingest()`, use `connection_ref: "google:dev"`. The adapter will automatically resolve the credentials using the `EnvCredentialResolver`.
+
+### Local Smoke Test (Non-CI)
+To verify your local credentials:
+```bash
+npx tsx packages/adapters/google-workspace/scripts/smoke-auth.ts
+```
+
+---
+**Status**: Phase 3A (Auth Activation) Verified. Logic is active and decoupled from the locked Phase 2 baseline.
