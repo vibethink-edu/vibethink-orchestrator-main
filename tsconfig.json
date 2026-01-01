@@ -13,6 +13,12 @@
     "paths": {
       "@/*": [
         "./*"
+      ],
+      "@vibethink/core": [
+        "./packages/core/src/index.ts"
+      ],
+      "@vibethink/core/*": [
+        "./packages/core/src/*"
       ]
     },
     "noImplicitAny": false,

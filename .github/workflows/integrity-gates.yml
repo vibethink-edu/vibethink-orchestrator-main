@@ -24,3 +24,9 @@ jobs:
         
       - name: Check JSON Syntax
         run: node scripts/check-json-parse.mjs
+        
+      - name: Enterprise Signals FIT Gate
+        run: npm run fit:enterprise-signals:001
+        
+      - name: Verify Google Adapter Skeleton
+        run: npm run verify:google-adapter-skeleton
