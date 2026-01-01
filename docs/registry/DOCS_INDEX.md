@@ -18,7 +18,7 @@ The **Canon** represents the irrefutable architectural truth of the system.
 
 Operational specs and design evaluations.
 *   [**Specs Folder**](../specs/) - Feature designs and adapter evaluations
-*   [**RUNBOOK**] [ESI_WALKTHROUGH.md](../runbooks/ESI_WALKTHROUGH.md) - Phase 2 Ingestion & CI Report.
+*   [**RUNBOOK**] [ESI_WALKTHROUGH.md](../runbooks/ESI_WALKTHROUGH.md) - Phase 2 Ingestion & CI Report (Auth scaffolding present but inactive).
 
 ## 🗄️ Archives & Legacy
 

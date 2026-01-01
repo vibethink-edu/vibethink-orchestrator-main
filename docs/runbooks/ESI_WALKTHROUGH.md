@@ -79,6 +79,20 @@ Replaced mock logic with production-ready Gmail API implementation:
 
 ---
 
+## Phase Boundary Clarification: Scaffold vs. Activation
+To maintain a strict audit trail, we distinguish between **scaffolding** and **activation**:
+
+- **Phase 2 (LOCKED)**: Includes mandatory **Auth Scaffolding** (`auth.ts`, `smoke-auth.ts`). These files are present to define types and interfaces, but the code is **inactive** (non-functional for real ingestion).
+- **Phase 3A**: Represents **Auth Activation**. This is where environment variables are wired into the resolver and real API connectivity is established.
+
+**Audit Evidence (Phase 2 Baseline):**
+| File | Status | Role |
+| :--- | :--- | :--- |
+| `packages/adapters/google-workspace/src/auth.ts` | **SCAFFOLD** | Type definitions only. |
+| `packages/adapters/google-workspace/scripts/smoke-auth.ts` | **SCAFFOLD** | Local testing stub. |
+
+---
+
 ## Phase 2 Status: [LOCKED]
 The foundation is stable. All verify gates are GREEN.
 The adaptation layer handles ingestion and normalized errors.
