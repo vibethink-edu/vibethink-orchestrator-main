@@ -72,21 +72,38 @@ The `integrity` job status check MUST be configured as **Required** for merging 
 
 ---
 
-## 5. Recovery Protocol
+## 5. Definition of Done: "Integrity Trusted"
 
-If the gate fails:
+The repository is considered to be in an "Integrity Trusted" state only when:
 
-1.  **Identify the culprit:** Read the CI log for `❌ Invalid JSON in ...` or `❌ Merge marker found in ...`.
-2.  **Fix locally:** Run the scripts locally to reproduce.
-3.  **Resolve:**
-    *   For markers: complete the merge resolution and commit.
-    *   For JSON: fix the syntax error (commas, quotes, brackets).
-4.  **Verify:** Run scripts again until `✅ PASSED`.
-5.  **Push:** Update the PR.
+1.  **Merge Markers = 0**: `rg "<<<<<<<|=======|>>>>>>>" -S .` returns no matches.
+2.  **JSON Syntax = PASS**: `node scripts/check-json-parse.mjs` validates 100% of non-excluded files.
+3.  **Runtime Loads**: The core application (dashboard-bundui) loads without crashing due to parsing errors.
+4.  **Enforcement**: Integrity status checks are configured as **Required** in Branch Protection.
+
+**Note on Build Status:** A "Build Green" state is separate from "Integrity Trusted". The repository may be Integrity Trusted (safe from corruption) while still carrying Build Debt (e.g., TypeScript errors in UI components).
 
 ---
 
-## 6. Scripts Reference
+## 6. Runbook: CI Integrity Failure
+
+When the `integrity` CI job fails:
+
+1.  **Stop:** Do NOT attempt to merge or override.
+2.  **Diagnose:**
+    - Run `rg -n "<<<<<<<|=======|>>>>>>>" -S .` to find merge markers.
+    - Run `node scripts/check-json-parse.mjs` to identify broken JSON files.
+3.  **Fix:**
+    - If markers exist: Resolve the git conflict manually and commit the result.
+    - If JSON is invalid: Fix the syntax error (missing commas, quotes, braces).
+4.  **Verify:** Run the scripts locally until they PASS.
+5.  **Push:** Push the fix to the branch.
+
+**NEVER** use `--no-verify` or force push to bypass these checks if they are failing due to integrity violations.
+
+---
+
+## 7. Scripts Reference
 
 *   `scripts/check-merge-markers.mjs`: Scans for conflict markers in all text files.
-*   `scripts/check-json-parse.mjs`: strict `JSON.parse` validation for all `.json` files.
+*   `scripts/check-json-parse.mjs`: Strict `JSON.parse` validation for all `.json` files.
