@@ -2,9 +2,9 @@ name: Integrity Gates
 
 on:
   push:
-    branches: [ "main", "chore/docs-consolidation-v1" ]
+    branches: [ "main", "chore/docs-consolidation-v1", "chore/ci-workflow-cleanup" ]
   pull_request:
-    branches: [ "main", "chore/docs-consolidation-v1" ]
+    branches: [ "main", "chore/docs-consolidation-v1", "chore/ci-workflow-cleanup" ]
 
 jobs:
   integrity:
