@@ -44,34 +44,26 @@ console.log('🔍 Scanning for merge markers (<<<<<<<, =======, >>>>>>>)...');
 const files = scanDir(rootDir);
 let hasError = false;
 
-const MARKERS = [
-    '<<<<<<<',
-    '=======',
-    '>>>>>>>'
-];
+const MARKER_REGEX = /^(<<<<<<<|=======|>>>>>>>)(?:\s|$)/m;
 
 files.forEach(file => {
     try {
         const content = fs.readFileSync(file, 'utf8');
         let fileHasError = false;
 
-        // Check for each marker
-        MARKERS.forEach(marker => {
-            if (content.includes(marker)) {
-                // Simple check: git usually puts markers at start of line, but we'll be strict
-                const lines = content.split('\n');
-                lines.forEach((line, index) => {
-                    if (line.includes(marker)) {
-                        // Filter out this script itself if scanned
-                        if (file === __filename) return;
+        if (MARKER_REGEX.test(content)) {
+            const lines = content.split('\n');
+            lines.forEach((line, index) => {
+                if (/^(<<<<<<<|=======|>>>>>>>)(?:\s|$)/.test(line)) {
+                    // Filter out this script itself if scanned
+                    if (file === __filename) return;
 
-                        console.error(`❌ Merge marker found in ${path.relative(rootDir, file)}:${index + 1}`);
-                        console.error(`   ${line.trim()}`);
-                        fileHasError = true;
-                    }
-                });
-            }
-        });
+                    console.error(`❌ Merge marker found in ${path.relative(rootDir, file)}:${index + 1}`);
+                    console.error(`   ${line.trim()}`);
+                    fileHasError = true;
+                }
+            });
+        }
 
         if (fileHasError) {
             hasError = true;
