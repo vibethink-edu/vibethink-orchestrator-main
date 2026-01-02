@@ -2,9 +2,9 @@ name: Integrity Gates
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "chore/docs-consolidation-v1" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "chore/docs-consolidation-v1" ]
 
 jobs:
   integrity:
@@ -19,8 +19,17 @@ jobs:
         with:
           node-version: '20'
           
+      - name: Install Dependencies
+        run: npm ci
+          
       - name: Check for Merge Markers
         run: node scripts/check-merge-markers.mjs
         
       - name: Check JSON Syntax
         run: node scripts/check-json-parse.mjs
+        
+      - name: Enterprise Signals FIT Gate
+        run: npm run fit:enterprise-signals:001
+        
+      - name: Verify Google Adapter Skeleton
+        run: npm run verify:google-adapter-skeleton

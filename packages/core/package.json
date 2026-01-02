@@ -1,0 +1,11 @@
+{
+    "name": "@vibethink/core",
+    "version": "0.0.1",
+    "private": true,
+    "main": "src/index.ts",
+    "types": "src/index.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "typecheck": "tsc --noEmit"
+    }
+}
