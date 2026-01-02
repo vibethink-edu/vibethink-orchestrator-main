@@ -33,6 +33,7 @@ Irrefutable architectural truth. If it's in Canon, it IS the law.
 |-----|---------|
 | [`PLANS_AND_QUOTAS_MODEL.md`](../canon/PLANS_AND_QUOTAS_MODEL.md) | Subscription plans model |
 | [`CRITICAL_DEPENDENCY_GOVERNANCE.md`](../canon/CRITICAL_DEPENDENCY_GOVERNANCE.md) | Third-party dependency rules |
+| [`CI_VITO_GOVERNANCE.md`](../canon/CI_VITO_GOVERNANCE.md) | CI/CD governance & blocking criteria |
 | [`I18N_INTEGRITY_GATES.md`](../canon/I18N_INTEGRITY_GATES.md) | Translation integrity rules |
 | [`COMMERCE_ADAPTER_EVALUATION.md`](../canon/COMMERCE_ADAPTER_EVALUATION.md) | Commerce Engine Decision |
 
