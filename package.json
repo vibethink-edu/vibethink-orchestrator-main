@@ -21,7 +21,8 @@
     "i18n:missing-keys": "echo 'TODO: Implement missing keys script'",
     "i18n:find-hardcoded": "echo 'TODO: Implement hardcoded strings finder'",
     "i18n:test-rtl": "echo 'TODO: Implement RTL testing script'",
-    "i18n:coverage": "node scripts/lang-quality.js --all"
+    "i18n:coverage": "node scripts/lang-quality.js --all",
+    "validate:methodology-adoption": "node scripts/validate-methodology-adoption.mjs"
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.71.2",

@@ -24,3 +24,6 @@ jobs:
         
       - name: Check JSON Syntax
         run: node scripts/check-json-parse.mjs
+        
+      - name: Methodology Adoption Gate
+        run: npm run validate:methodology-adoption

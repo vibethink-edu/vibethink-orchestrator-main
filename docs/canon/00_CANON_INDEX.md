@@ -50,6 +50,13 @@ Canon documents define:
 | [`00_CANON_INDEX.md`](./00_CANON_INDEX.md) | ✅ ACTIVE | This index |
 | [`02_AI_FIRST_3_LAYER_ARCHITECTURE.md`](./02_AI_FIRST_3_LAYER_ARCHITECTURE.md) | ✅ ACTIVE | 3-layer architecture (Memory + Reasoning + UX) |
 | [`13_CORE_AND_DOMAIN_PACKS_MODEL.md`](./13_CORE_AND_DOMAIN_PACKS_MODEL.md) | ✅ ACTIVE | Core agnostic + Domain Packs (hotel/studio/etc) |
+| [`METHODOLOGY_EVALUATION_FRAMEWORK.md`](./METHODOLOGY_EVALUATION_FRAMEWORK.md) | ✅ ACTIVE | Methodology Evaluation Framework (MEF) |
+
+### Registries & Tracking
+| Doc | Purpose |
+|-----|---------|
+| [`METHODOLOGY_REGISTRY.md`](../registry/METHODOLOGY_REGISTRY.md) | Status of evaluated methodologies |
+| [`CRITICAL_PROVIDERS.md`](../registry/CRITICAL_PROVIDERS.md) | Vendor governance tracking |
 
 ### Memory Layer (Operational Substrate)
 
