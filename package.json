@@ -13,6 +13,8 @@
     "lint": "turbo run lint",
     "test": "turbo run test",
     "clean": "turbo run clean",
+    "fit:enterprise-signals:001": "tsx scripts/fits/fit-enterprise-signals-001.ts",
+    "verify:google-adapter-skeleton": "tsx scripts/verify-google-adapter-skeleton.ts",
     "lang-quality": "node scripts/lang-quality.js",
     "lang-quality:all": "node scripts/lang-quality.js --all",
     "validate:i18n": "node scripts/lang-quality.js",
@@ -27,7 +29,8 @@
     "@anthropic-ai/sdk": "^0.71.2",
     "@google-cloud/translate": "^9.3.0",
     "dotenv": "^17.2.3",
-    "turbo": "latest"
+    "turbo": "latest",
+    "tsx": "^4.0.0"
   },
   "engines": {
     "node": ">=18"

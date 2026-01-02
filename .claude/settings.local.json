@@ -91,7 +91,8 @@
       "Bash(cat:*)",
       "Bash(git rm:*)",
       "Bash(do echo \"Checking $file\")",
-      "Bash(echo:*)"
+      "Bash(echo:*)",
+      "Bash(git ls-tree:*)"
     ],
     "deny": []
   }

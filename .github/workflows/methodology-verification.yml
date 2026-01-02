@@ -1,0 +1,25 @@
+name: Methodology Verification
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+    branches: [ "main" ]
+
+jobs:
+  validate-spec-link:
+    name: Spec Link Validation (Stub)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check for Spec Link
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          echo "$PR_BODY" > pr_body.txt
+          node scripts/validate-spec-links.js pr_body.txt

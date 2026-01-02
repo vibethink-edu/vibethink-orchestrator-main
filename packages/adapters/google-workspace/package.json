@@ -1,0 +1,17 @@
+{
+    "name": "@vibethink/adapter-google-workspace",
+    "version": "0.1.0",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "dependencies": {
+        "googleapis": "^129.0.0",
+        "@vibethink/core": "*"
+    },
+    "devDependencies": {
+        "typescript": "^5.0.0"
+    },
+    "scripts": {
+        "build": "tsc",
+        "typecheck": "tsc --noEmit"
+    }
+}
