@@ -22,7 +22,7 @@ ViTo implements a **3-layer AI-first architecture**:
 ┌─────────────────────────────────────────────────────────┐
 │  LAYER 2: REASONING (Specialists + Coordination)        │
 │  - Domain specialists (Sales, Ops, Finance, Support)   │
-│  - Orchestration / decision-making                      │
+│  - Orchestration / decision-support layer                  │
 │  - Trace logging (evidence of decisions)               │
 └─────────────────────────────────────────────────────────┘
                          ↑ consumes
@@ -150,7 +150,7 @@ await assignUserToDepartment(userId, departmentId, companyId, 'LEAD');
 
 **What SHOULD exist**:
 - Specialist classes: `SalesSpecialist`, `AccountingSpecialist`, `OperationsSpecialist`, `SupportSpecialist`
-- Interface `ISpecialist` with methods: `analyzeMemory()`, `decideAction()`, `executeAction()`
+- Interface `ISpecialist` with methods: `analyzeMemory()`, `proposeAction()`, `awaitExecution()`
 - Anchored to departments: Each specialist assigned to 1+ departments
 
 **Current state**: **ZERO** classes, **ZERO** interfaces
@@ -300,6 +300,51 @@ await assignUserToDepartment(userId, departmentId, companyId, 'LEAD');
    - Specialists read from Entity Graph + Events
    - Specialists write decisions to `specialist_trace_logs`
    - Specialists execute actions via service layer (not direct DB)
+
+4. **Agent governance follows separation of concerns**
+   - Execution agents (Gemini) apply plans within Canon boundaries
+   - Audit agents (Claude) verify coherence against Canon
+   - No agent self-certifies governance tasks (requires counter-agent or human approval)
+   - (See `docs/canon/AGENT_GOVERNANCE_MODEL.md` for operational details)
+
+---
+
+## 🔗 End-to-End Examples
+
+### EXAMPLE A: Signal Ingestion (No Email/Calendar Entities)
+
+**Scenario**: A User receives an invite for a "Project Kickoff" via Google Calendar.
+
+1.  **Ingestion (Layer 1)**:
+    *   System creates an `Interaction Event` entity.
+    *   Metadata: `{ source_app: 'GOOGLE_CALENDAR', ext_id: 'abc-123' }`.
+    *   **NO** `CalendarEvent` entity is created.
+2.  **Reasoning (Layer 2)**:
+    *   `CalendarSpecialist` observes the new `Interaction Event`.
+    *   Infers connection with `Project X` based on attendees.
+    *   Logs inference in `trace_logs`.
+3.  **Projection (Layer 3)**:
+    *   Dashboard Timeline queries `Interaction Events`.
+    *   Renders a "Meeting Card" with a Google Icon.
+    *   **Result**: User sees "Calendar Invite", System sees "Interaction Event".
+
+### EXAMPLE B: The "Rumor" (Inference ≠ Truth)
+
+**Scenario**: 3 emails and 1 chat mention "Acme Corp is bankrupt".
+
+1.  **Memory (Layer 1)**:
+    *   4 `Communication Signal` entities created.
+    *   Content stored securely.
+2.  **Reasoning (Layer 2)**:
+    *   `RiskSpecialist` scans signals.
+    *   Detects high frequency of negative sentiment for `Entity: Acme Corp`.
+    *   **Reasoning Output**: "High Risk Warning (Confidence 90%)".
+    *   **Constraint**: Does **NOT** change Acme Corp status to `BANKRUPT`.
+3.  **UX (Layer 3)**:
+    *   Action Composer suggests: "Flag Acme Corp as At-Risk?".
+4.  **Truth**:
+    *   User approves suggestion → System updates Acme Corp status.
+    *   **WIT-005 Protection**: Inference remained a suggestion until validated.
 
 ---
 

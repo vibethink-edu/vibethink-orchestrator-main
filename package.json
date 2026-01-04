@@ -11,7 +11,9 @@
     "build": "turbo run build",
     "start": "turbo run start",
     "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
     "test": "turbo run test",
+    "test:unit": "turbo run test -- --testPathPattern='unit'",
     "clean": "turbo run clean",
     "lang-quality": "node scripts/lang-quality.js",
     "lang-quality:all": "node scripts/lang-quality.js --all",
@@ -22,7 +24,11 @@
     "i18n:find-hardcoded": "echo 'TODO: Implement hardcoded strings finder'",
     "i18n:test-rtl": "echo 'TODO: Implement RTL testing script'",
     "i18n:coverage": "node scripts/lang-quality.js --all",
-    "validate:methodology-adoption": "node scripts/validate-methodology-adoption.mjs"
+    "check-hardcoding": "node scripts/check-hardcoding.js",
+    "validate:methodology-adoption": "node scripts/validate-methodology-adoption.mjs",
+    "validate:fit-claims": "node scripts/validate-fit-claims.mjs",
+    "validate:reports": "node scripts/validate-reports.js",
+    "validate:root": "node scripts/validate-root-cleanliness.js"
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.71.2",

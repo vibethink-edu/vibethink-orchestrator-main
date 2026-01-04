@@ -1,24 +1,20 @@
-# AI-First Universal Methodology — ViTo Orchestrator
+# AI-First Module Implementation — ViTo Orchestrator
 
-**STATUS:** 🚨 **IMPERATIVO** - Metodología universal para TODOS los módulos  
-**VERSION:** 1.0.0  
-**DATE:** 2025-12-21  
-**CONTEXT:** ViTo es un **Orchestrator multipropósito**, no solo un sistema de booking
+**STATUS:** NON-CANON (Implementation Guide)
+**VERSION:** 1.0.2
+**DATE:** 2026-01-02
+**CONTEXT:** Practical implementation guide for modules, subordinate to `docs/canon/02_AI_FIRST_3_LAYER_ARCHITECTURE.md`.
 
 ---
 
-## 🎯 Visión: ViTo como Orchestrator Universal
+## 🎯 Implementation Scope
 
-**ViTo NO es:**
-- ❌ Solo un sistema de booking
-- ❌ Solo un sistema de prestación de servicios de estudio
-- ❌ Un sistema monolítico de un solo dominio
+This document describes how to implement business modules (Hotel, Studio, CRM) in compliance with the **3-Layer AI-First Architecture**.
 
-**ViTo SÍ es:**
-- ✅ **Orchestrator multipropósito** que integra múltiples dominios
-- ✅ **AI-First Platform** donde cada módulo hereda la misma metodología
-- ✅ **Context-Aware System** que adapta terminología y comportamiento según el dominio
-- ✅ **Evolutivo** - Los módulos se agregan gradualmente (Hotel → Studio → CRM → Tareas → Calendario → Soporte)
+**Authority Note:**
+This file is NOT the architectural law. The law is defined in:
+1. `docs/canon/02_AI_FIRST_3_LAYER_ARCHITECTURE.md` (Core)
+2. `docs/canon/09_SPECIALISTS_ARCHITECTURE_SPEC.md` (Reasoning Layer)
 
 ---
 
@@ -62,11 +58,11 @@
 
 ---
 
-## 🔄 Metodología AI-First Universal
+## 🔄 Implementation Principles under AI-First Architecture
 
 ### Principio Fundamental
 
-**Cada módulo es AI-First, pero hereda la misma metodología base:**
+**Cada módulo implementa la arquitectura base:**
 
 1. **Context-Aware Terminology**
    - Cada módulo tiene su contexto (`hotel`, `studio`, `crm`, `tasks`, etc.)

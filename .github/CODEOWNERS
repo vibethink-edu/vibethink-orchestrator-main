@@ -1,0 +1,80 @@
+# =============================================================================
+# VIBETHINK ORCHESTRATOR - CODEOWNERS
+# =============================================================================
+# This file defines code ownership for automatic PR reviewer assignment
+# and protection of critical areas.
+#
+# RULES:
+# - Later patterns override earlier ones
+# - @vibethink-edu/architects is the fallback for everything
+# - Canon and governance files require Principal Architect approval
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# DEFAULT: All files require at least one architect review
+# -----------------------------------------------------------------------------
+*                                           @vibethink-edu/architects
+
+# -----------------------------------------------------------------------------
+# CANON (Protected - Principal Architect ONLY)
+# These files define architectural truth. No agent or engineer may modify
+# without explicit Principal Architect approval.
+# -----------------------------------------------------------------------------
+/docs/canon/                                @vibethink-edu/principal-architect
+/docs/fits/                                 @vibethink-edu/principal-architect
+
+# -----------------------------------------------------------------------------
+# GOVERNANCE & REGISTRY
+# Methodology decisions and critical provider tracking
+# -----------------------------------------------------------------------------
+/docs/registry/                             @vibethink-edu/principal-architect
+/docs/governance/                           @vibethink-edu/principal-architect
+/AI_STABILITY_RULES.md                      @vibethink-edu/principal-architect
+/AGENTS.md                                  @vibethink-edu/principal-architect
+
+# -----------------------------------------------------------------------------
+# CI/CD INFRASTRUCTURE
+# Workflows and automation - requires DevOps + Architect approval
+# -----------------------------------------------------------------------------
+/.github/workflows/                         @vibethink-edu/principal-architect @vibethink-edu/devops
+/.github/CODEOWNERS                         @vibethink-edu/principal-architect
+/.husky/                                    @vibethink-edu/principal-architect
+
+# -----------------------------------------------------------------------------
+# SECURITY-SENSITIVE AREAS
+# Environment, secrets, authentication
+# -----------------------------------------------------------------------------
+/.env*                                      @vibethink-edu/principal-architect
+/apps/login/                                @vibethink-edu/principal-architect @vibethink-edu/security
+
+# -----------------------------------------------------------------------------
+# SHARED PACKAGES (Require careful review)
+# Changes here affect all apps
+# -----------------------------------------------------------------------------
+/packages/ui/                               @vibethink-edu/frontend-lead @vibethink-edu/architects
+/packages/utils/                            @vibethink-edu/architects
+/packages/utils/src/i18n/terminology/       @vibethink-edu/principal-architect
+
+# -----------------------------------------------------------------------------
+# REFERENCE DIRECTORIES (Read-Only - Should NEVER be modified)
+# If a PR touches these, it's likely an error
+# -----------------------------------------------------------------------------
+/apps/bundui-reference/                     @vibethink-edu/principal-architect
+
+# -----------------------------------------------------------------------------
+# APPLICATIONS
+# Standard review process
+# -----------------------------------------------------------------------------
+/apps/dashboard/                            @vibethink-edu/frontend-lead @vibethink-edu/architects
+/apps/admin/                                @vibethink-edu/architects
+/apps/helpdesk/                             @vibethink-edu/architects
+
+# -----------------------------------------------------------------------------
+# SCRIPTS & TOOLING
+# Validation and build scripts
+# -----------------------------------------------------------------------------
+/scripts/                                   @vibethink-edu/architects
+
+# =============================================================================
+# END OF CODEOWNERS
+# =============================================================================
