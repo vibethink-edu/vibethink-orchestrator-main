@@ -1,6 +1,6 @@
 # ViTo Database Naming & Structure Rules
 
-**Status**: SEALED v1.1.0
+**Status**: SEALED v1.2.0
 **Authority**: Engineering Rector Pack v1
 **Last Updated**: 2026-01-04
 **Scope**: Normative rules for all database objects in ViTo platform
@@ -156,14 +156,14 @@ tags_array            -- Array column (suffix type)
 tenant_id UUID NOT NULL
 
 -- Audit trail (REQUIRED for core entities)
--- Store UTC; use TIMESTAMPTZ when supported (PostgreSQL), otherwise TIMESTAMP with app-layer normalization
-created_at TIMESTAMP NOT NULL DEFAULT NOW()  -- Use TIMESTAMPTZ when supported
-updated_at TIMESTAMP NOT NULL DEFAULT NOW()  -- Use TIMESTAMPTZ when supported
+-- PostgreSQL examples use TIMESTAMPTZ; adapt to platform (TIMESTAMP with app-layer UTC normalization if TZ types unavailable)
+created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 created_by_user_id UUID REFERENCES users(id)
 updated_by_user_id UUID REFERENCES users(id)
 
 -- Soft delete (OPTIONAL but recommended)
-deleted_at TIMESTAMP
+deleted_at TIMESTAMPTZ
 deleted_by_user_id UUID REFERENCES users(id)
 
 -- Optimistic locking (OPTIONAL)
@@ -431,10 +431,10 @@ CREATE TABLE IF NOT EXISTS learners (
   age INTEGER,
   language_preference VARCHAR(10),
   metadata_json JSONB,
-  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-  updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   created_by_user_id UUID,
-  deleted_at TIMESTAMP,
+  deleted_at TIMESTAMPTZ,
 
   CONSTRAINT fk_learners_tenants
     FOREIGN KEY (tenant_id) REFERENCES tenants(id) ON DELETE RESTRICT,
@@ -532,15 +532,15 @@ CREATE POLICY tenant_isolation ON intervention_sessions
 
 ### Mandatory Audit Fields (Core Entities)
 ```sql
-created_at TIMESTAMP NOT NULL DEFAULT NOW()        -- When record created (UTC)
-updated_at TIMESTAMP NOT NULL DEFAULT NOW()        -- When record last modified (UTC)
+created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()      -- When record created (UTC)
+updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()      -- When record last modified (UTC)
 created_by_user_id UUID REFERENCES users(id)       -- Who created (nullable for system)
 updated_by_user_id UUID REFERENCES users(id)       -- Who last updated (nullable for system)
 ```
 
 ### Optional Audit Fields
 ```sql
-deleted_at TIMESTAMP                               -- Soft delete timestamp
+deleted_at TIMESTAMPTZ                             -- Soft delete timestamp
 deleted_by_user_id UUID REFERENCES users(id)       -- Who deleted
 version INTEGER NOT NULL DEFAULT 1                 -- Optimistic locking version
 ```
@@ -595,11 +595,11 @@ CREATE TABLE learners (
   metadata_json JSONB,
 
   -- Audit fields
-  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-  updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   created_by_user_id UUID,
   updated_by_user_id UUID,
-  deleted_at TIMESTAMP,
+  deleted_at TIMESTAMPTZ,
 
   -- Constraints
   CONSTRAINT fk_learners_tenants
@@ -648,7 +648,7 @@ CREATE TABLE session_interventions (
   is_active BOOLEAN NOT NULL DEFAULT TRUE,
 
   -- Audit (optional for junction tables)
-  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 
   -- Constraints
   PRIMARY KEY (session_id, intervention_id),
@@ -673,7 +673,7 @@ CREATE INDEX idx_session_interventions_tenant_id ON session_interventions(tenant
 CREATE TABLE sys_migrations (
   id BIGSERIAL PRIMARY KEY,
   migration_name VARCHAR(255) NOT NULL UNIQUE,
-  applied_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  applied_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   checksum VARCHAR(64),
 
   CONSTRAINT ck_sys_migrations_name_format
@@ -704,15 +704,15 @@ CONSTRAINT fk_sessions_intervention_types
 
 ### Temporal Data (Start/End)
 ```sql
-started_at TIMESTAMP,
-ended_at TIMESTAMP,
+started_at TIMESTAMPTZ,
+ended_at TIMESTAMPTZ,
 CONSTRAINT ck_sessions_dates
   CHECK (ended_at IS NULL OR ended_at >= started_at)
 ```
 
 ### Soft Delete
 ```sql
-deleted_at TIMESTAMP,
+deleted_at TIMESTAMPTZ,
 deleted_by_user_id UUID REFERENCES users(id),
 
 -- Partial unique index to allow re-use of unique values after soft delete
@@ -745,7 +745,7 @@ CREATE TABLE intervention_snapshots (
   intervention_id UUID NOT NULL,
   version INTEGER NOT NULL,
   snapshot_data JSONB NOT NULL,
-  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   created_by_user_id UUID,
 
   CONSTRAINT fk_intervention_snapshots_interventions
@@ -850,6 +850,7 @@ When generating migrations or DDL:
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
+| 1.2.0 | 2026-01-04 | SEALED. PostgreSQL examples consistency: all timestamp columns now use TIMESTAMPTZ instead of TIMESTAMP (Reserved Column Names, Audit Fields, Migration Template, Canonical Examples, Common Patterns). Ensures copy-paste safety for UTC-aware timestamp handling. | Data Architect AI |
 | 1.1.0 | 2026-01-04 | SEALED. Final Codex audit fixes: audit field naming consistency (created_by_user_id/updated_by_user_id), tenant_id ordering precedence in unique constraints, TIMESTAMPTZ annotations, composite FK documentation requirement, rollback script location standard, max-3-words clarified as guidance, users table scope documented | Data Architect AI |
 | 1.0.1 | 2026-01-04 | Fixed Codex audit findings: vendor-agnostic naming vs implementation, canonical vocabulary scope, multi-tenant FK enforcement, timestamp UTC guidance, index ordering precedence, nullable unique constraints, migration rollback clarity | Data Architect AI |
 | 1.0.0 | 2026-01-04 | Initial version | Data Architect AI |
