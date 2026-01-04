@@ -1,6 +1,6 @@
 # ViTo Database Naming & Structure Rules
 
-**Status**: DRAFT v1.0.1 (fixing Codex audit findings)
+**Status**: SEALED v1.1.0
 **Authority**: Engineering Rector Pack v1
 **Last Updated**: 2026-01-04
 **Scope**: Normative rules for all database objects in ViTo platform
@@ -10,9 +10,9 @@
 ## Non-Negotiables
 
 1. **Multi-Tenant First**: Every tenant-scoped table MUST include `tenant_id`
-2. **Audit Always**: Core entities MUST have audit fields (`created_at`, `updated_at`, `created_by`, `updated_by`)
+2. **Audit Always**: Core entities MUST have audit fields (`created_at`, `updated_at`, `created_by_user_id`, `updated_by_user_id`)
 3. **Vendor Agnostic Naming**: Naming MUST be vendor-agnostic. Implementation MAY use vendor-specific features when explicitly documented in this rulebook.
-4. **Canonical Vocabulary**: Use ONLY terms from the sealed Ontología Canónica for ViTo domain tables. Examples in this document are illustrative and not canonical entities.
+4. **Canonical Vocabulary**: Use ONLY terms from the sealed Ontología Canónica for ViTo domain tables. Examples in this document are illustrative only and do not define canonical entities.
 5. **Immutable Names**: Once in production, table/column names are contracts—renaming requires major migration
 6. **Explicit Over Implicit**: Names must be self-documenting
 7. **AI-Readable**: Names must be parseable by LLMs and code generators without ambiguity
@@ -89,7 +89,7 @@ profile_versions
 1. **Plural nouns**: Tables contain multiple rows → plural names
 2. **No verb prefixes**: ❌ `get_learners`, ❌ `create_session`
 3. **Domain-first**: Most significant entity comes first (e.g., `learner_sessions` not `sessions_learner`)
-4. **Max 3 words**: SHOULD limit to 3 words; MAY exceed for canonical clarity when required
+4. **Max 3 words** (guidance, not validation rule): SHOULD limit to 3 words; MAY exceed for canonical clarity when required
 5. **Junction tables**: Alphabetically ordered entity names joined by underscore
 
 ### Do / Don't
@@ -156,9 +156,9 @@ tags_array            -- Array column (suffix type)
 tenant_id UUID NOT NULL
 
 -- Audit trail (REQUIRED for core entities)
--- Store UTC; use timezone-aware type if DB supports it (e.g., TIMESTAMPTZ in PostgreSQL)
-created_at TIMESTAMP NOT NULL DEFAULT NOW()
-updated_at TIMESTAMP NOT NULL DEFAULT NOW()
+-- Store UTC; use TIMESTAMPTZ when supported (PostgreSQL), otherwise TIMESTAMP with app-layer normalization
+created_at TIMESTAMP NOT NULL DEFAULT NOW()  -- Use TIMESTAMPTZ when supported
+updated_at TIMESTAMP NOT NULL DEFAULT NOW()  -- Use TIMESTAMPTZ when supported
 created_by_user_id UUID REFERENCES users(id)
 updated_by_user_id UUID REFERENCES users(id)
 
@@ -315,7 +315,7 @@ ALTER TABLE learners
 1. **Multi-tenant uniqueness**: Always include `tenant_id` for tenant-scoped data
 2. **Soft delete compatibility**: If using `deleted_at`, prefer partial unique index
 3. **Business keys**: Use for natural identifiers (email, slug, external_id)
-4. **Column order**: Most selective column first
+4. **Column order**: For tenant-scoped data, `tenant_id` MUST be first; then most selective column
 
 ---
 
@@ -405,7 +405,7 @@ YYYYMMDDHHMMSS_descriptive_action.sql
 ```
 
 ### Migration Principles
-1. **Explicit rollback**: Migrations MUST include explicit rollback scripts; do not rely on automatic rollback tooling
+1. **Explicit rollback**: Migrations MUST include explicit rollback scripts in same directory with `_rollback` suffix or separate `rollback/` folder; do not rely on automatic rollback tooling
 2. **Idempotent**: Use `IF NOT EXISTS`, `IF EXISTS` for safety
 3. **Atomic**: One logical change per migration (except tightly coupled changes)
 4. **Timestamped**: UTC timestamp prefix for ordering
@@ -473,7 +473,7 @@ COMMIT;
 2. **Foreign Key to Tenants**: `tenant_id` MUST reference `tenants(id) ON DELETE RESTRICT`
 3. **Index on Tenant ID**: All tenant-scoped tables MUST have index starting with `tenant_id`
 4. **Unique Constraints**: Include `tenant_id` in all unique constraints for scoped data
-5. **Foreign Key Safety**: Cross-tenant references MUST validate `tenant_id` matches via composite FK or database trigger. Junction tables MUST enforce `tenant_id` consistency across referenced rows.
+5. **Foreign Key Safety**: Cross-tenant references MUST validate `tenant_id` matches via composite FK (preferred) or database trigger. If trigger used, document trigger name and scope in migration. Junction tables MUST enforce `tenant_id` consistency across referenced rows.
 
 ### Tenant-Scoped vs Global Tables
 
@@ -496,7 +496,8 @@ CREATE INDEX idx_intervention_sessions_tenant_id
 
 #### Global Tables (NO tenant_id)
 ```sql
--- Examples: tenants, sys_migrations, language_models (shared), users (if global)
+-- Examples: tenants, sys_migrations, language_models (shared)
+-- NOTE: `users` is assumed to be a global/system table when referenced in audit FKs
 CREATE TABLE tenants (
   id UUID PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
@@ -849,6 +850,7 @@ When generating migrations or DDL:
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
+| 1.1.0 | 2026-01-04 | SEALED. Final Codex audit fixes: audit field naming consistency (created_by_user_id/updated_by_user_id), tenant_id ordering precedence in unique constraints, TIMESTAMPTZ annotations, composite FK documentation requirement, rollback script location standard, max-3-words clarified as guidance, users table scope documented | Data Architect AI |
 | 1.0.1 | 2026-01-04 | Fixed Codex audit findings: vendor-agnostic naming vs implementation, canonical vocabulary scope, multi-tenant FK enforcement, timestamp UTC guidance, index ordering precedence, nullable unique constraints, migration rollback clarity | Data Architect AI |
 | 1.0.0 | 2026-01-04 | Initial version | Data Architect AI |
 
