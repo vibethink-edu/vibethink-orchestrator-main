@@ -1,6 +1,6 @@
 # ViTo Database Naming & Structure Rules
 
-**Status**: SEALED v1.2.0
+**Status**: SEALED v1.3.0
 **Authority**: Engineering Rector Pack v1
 **Last Updated**: 2026-01-04
 **Scope**: Normative rules for all database objects in ViTo platform
@@ -12,7 +12,7 @@
 1. **Multi-Tenant First**: Every tenant-scoped table MUST include `tenant_id`
 2. **Audit Always**: Core entities MUST have audit fields (`created_at`, `updated_at`, `created_by_user_id`, `updated_by_user_id`)
 3. **Vendor Agnostic Naming**: Naming MUST be vendor-agnostic. Implementation MAY use vendor-specific features when explicitly documented in this rulebook.
-4. **Canonical Vocabulary**: Use ONLY terms from the sealed Ontología Canónica for ViTo domain tables. Examples in this document are illustrative only and do not define canonical entities.
+4. **Canonical Vocabulary**: Use ONLY terms from the sealed Ontologia Canonica for ViTo domain tables. Examples in this document are illustrative only and do not define canonical entities.
 5. **Immutable Names**: Once in production, table/column names are contracts—renaming requires major migration
 6. **Explicit Over Implicit**: Names must be self-documenting
 7. **AI-Readable**: Names must be parseable by LLMs and code generators without ambiguity
@@ -44,9 +44,9 @@ This rulebook mandates **vendor-agnostic naming** but permits **vendor-specific 
 - **Migrations**: `YYYYMMDDHHMMSS_descriptive_name.sql` (timestamp + snake_case)
 
 ### Abbreviations (AVOID)
-- ❌ `usr` → ✅ `user`
-- ❌ `sess` → ✅ `session`
-- ❌ `org` → ✅ `organization`
+- `usr` -> `user` (AVOID -> USE)
+- `sess` -> `session` (AVOID -> USE)
+- `org` -> `organization` (AVOID -> USE)
 - **Exception**: Industry-standard abbreviations only (`url`, `id`, `uuid`, `api`, `json`)
 
 ### Reserved Prefixes
@@ -87,13 +87,13 @@ profile_versions
 
 ### Rules
 1. **Plural nouns**: Tables contain multiple rows → plural names
-2. **No verb prefixes**: ❌ `get_learners`, ❌ `create_session`
+2. **No verb prefixes**: [X] `get_learners`, [X] `create_session`
 3. **Domain-first**: Most significant entity comes first (e.g., `learner_sessions` not `sessions_learner`)
 4. **Max 3 words** (guidance, not validation rule): SHOULD limit to 3 words; MAY exceed for canonical clarity when required
 5. **Junction tables**: Alphabetically ordered entity names joined by underscore
 
 ### Do / Don't
-| ❌ Don't | ✅ Do |
+| DON'T | DO |
 |---------|------|
 | `tbl_user` | `users` |
 | `LearnerData` | `learners` |
@@ -148,7 +148,7 @@ tags_array            -- Array column (suffix type)
 4. **Dates/Times**: Suffix with `_at` (timestamps) or `_date` (dates only)
 5. **JSON/Arrays**: Suffix with `_json`, `_array` to indicate type
 6. **Enums**: Use full column name, no `_type` suffix unless ambiguous
-7. **No data type in name**: ❌ `session_varchar`, ❌ `score_int`
+7. **No data type in name**: [X] `session_varchar`, [X] `score_int`
 
 ### Reserved Column Names (Audit & Multi-Tenant)
 ```sql
@@ -171,7 +171,7 @@ version INTEGER NOT NULL DEFAULT 1
 ```
 
 ### Do / Don't
-| ❌ Don't | ✅ Do |
+| DON'T | DO |
 |---------|------|
 | `SessionStatus` | `session_status` |
 | `user` | `user_id` (if FK) or `username` (if attribute) |
@@ -378,7 +378,7 @@ CREATE INDEX idx_cognitive_profiles_embedding_vector
 7. **Type suffix**: Add for non-standard index types to aid DBA/AI understanding
 
 ### Do / Don't
-| ❌ Don't | ✅ Do |
+| DON'T | DO |
 |---------|------|
 | `idx1`, `idx2` | `idx_sessions_learner_id` |
 | `learner_idx` | `idx_sessions_learner_id` |
@@ -456,7 +456,7 @@ COMMIT;
 ```
 
 ### Do / Don't
-| ❌ Don't | ✅ Do |
+| DON'T | DO |
 |---------|------|
 | `migration_1.sql` | `20260104120000_create_learners_table.sql` |
 | `fix_stuff.sql` | `20260104120100_add_missing_index_sessions.sql` |
@@ -522,8 +522,8 @@ CREATE POLICY tenant_isolation ON intervention_sessions
 
 ### Cross-Tenant Queries (Forbidden)
 ```sql
--- ❌ NEVER allow joins across tenants without explicit admin privilege
--- ✅ Validate tenant_id match in application layer or trigger
+-- [X] NEVER allow joins across tenants without explicit admin privilege
+-- [OK] Validate tenant_id match in application layer or trigger
 ```
 
 ---
@@ -760,7 +760,7 @@ CREATE TABLE intervention_snapshots (
 ## Do / Don't Quick Reference
 
 ### Table Names
-| ❌ Don't | ✅ Do |
+| DON'T | DO |
 |---------|------|
 | `Learner`, `LEARNER` | `learners` |
 | `tbl_learner` | `learners` |
@@ -769,7 +769,7 @@ CREATE TABLE intervention_snapshots (
 | `get_learners` | `learners` |
 
 ### Column Names
-| ❌ Don't | ✅ Do |
+| DON'T | DO |
 |---------|------|
 | `LearnerID` | `learner_id` |
 | `active` (boolean) | `is_active` |
@@ -778,7 +778,7 @@ CREATE TABLE intervention_snapshots (
 | `fk_learner` | `learner_id` |
 
 ### Constraints
-| ❌ Don't | ✅ Do |
+| DON'T | DO |
 |---------|------|
 | Auto-generated names | Explicit naming |
 | `constraint_1` | `fk_sessions_learners` |
@@ -786,7 +786,7 @@ CREATE TABLE intervention_snapshots (
 | `status_check` | `ck_sessions_status` |
 
 ### Indexes
-| ❌ Don't | ✅ Do |
+| DON'T | DO |
 |---------|------|
 | `index_1` | `idx_sessions_learner_id` |
 | `learner_idx` | `idx_sessions_learner_id` |
@@ -794,7 +794,7 @@ CREATE TABLE intervention_snapshots (
 | `(status, tenant_id)` | `(tenant_id, status)` |
 
 ### Multi-Tenant
-| ❌ Don't | ✅ Do |
+| DON'T | DO |
 |---------|------|
 | Omit `tenant_id` | Always include for scoped data |
 | `UNIQUE (email)` | `UNIQUE (tenant_id, email)` |
@@ -802,7 +802,7 @@ CREATE TABLE intervention_snapshots (
 | `INDEX (learner_id)` | `INDEX (tenant_id, learner_id)` |
 
 ### Migrations
-| ❌ Don't | ✅ Do |
+| DON'T | DO |
 |---------|------|
 | `001_migration.sql` | `20260104120000_create_learners.sql` |
 | `fix.sql` | `20260104120100_add_index_sessions.sql` |
@@ -850,6 +850,7 @@ When generating migrations or DDL:
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
+| 1.3.0 | 2026-01-04 | SEALED. Encoding normalization: replaced all UTF-8 emoji/special characters with ASCII for parser/tooling compatibility. "Ontologia Canonica" (plain ASCII), table headers "DON'T/DO" (ASCII), checkmarks [X]/[OK] (ASCII), arrows -> (ASCII). Ensures AI-readable, copy-paste safe, and cross-platform compatible. | Data Architect AI |
 | 1.2.0 | 2026-01-04 | SEALED. PostgreSQL examples consistency: all timestamp columns now use TIMESTAMPTZ instead of TIMESTAMP (Reserved Column Names, Audit Fields, Migration Template, Canonical Examples, Common Patterns). Ensures copy-paste safety for UTC-aware timestamp handling. | Data Architect AI |
 | 1.1.0 | 2026-01-04 | SEALED. Final Codex audit fixes: audit field naming consistency (created_by_user_id/updated_by_user_id), tenant_id ordering precedence in unique constraints, TIMESTAMPTZ annotations, composite FK documentation requirement, rollback script location standard, max-3-words clarified as guidance, users table scope documented | Data Architect AI |
 | 1.0.1 | 2026-01-04 | Fixed Codex audit findings: vendor-agnostic naming vs implementation, canonical vocabulary scope, multi-tenant FK enforcement, timestamp UTC guidance, index ordering precedence, nullable unique constraints, migration rollback clarity | Data Architect AI |
