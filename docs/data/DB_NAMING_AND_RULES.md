@@ -13,7 +13,7 @@
 2. **Audit Always**: Core entities MUST have audit fields (`created_at`, `updated_at`, `created_by_user_id`, `updated_by_user_id`)
 3. **Vendor Agnostic Naming**: Naming MUST be vendor-agnostic. Implementation MAY use vendor-specific features when explicitly documented in this rulebook.
 4. **Canonical Vocabulary**: Use ONLY terms from the sealed Ontologia Canonica for ViTo domain tables. Examples in this document are illustrative only and do not define canonical entities.
-5. **Immutable Names**: Once in production, table/column names are contracts—renaming requires major migration
+5. **Immutable Names**: Once in production, table/column names are contracts--renaming requires major migration
 6. **Explicit Over Implicit**: Names must be self-documenting
 7. **AI-Readable**: Names must be parseable by LLMs and code generators without ambiguity
 
@@ -86,7 +86,7 @@ profile_versions
 ```
 
 ### Rules
-1. **Plural nouns**: Tables contain multiple rows → plural names
+1. **Plural nouns**: Tables contain multiple rows -> plural names
 2. **No verb prefixes**: [X] `get_learners`, [X] `create_session`
 3. **Domain-first**: Most significant entity comes first (e.g., `learner_sessions` not `sessions_learner`)
 4. **Max 3 words** (guidance, not validation rule): SHOULD limit to 3 words; MAY exceed for canonical clarity when required
@@ -242,8 +242,8 @@ ALTER TABLE sessions
 ### Rules
 1. **Always name explicitly**: Never rely on auto-generated FK names
 2. **ON DELETE/UPDATE**: Specify behavior explicitly
-   - `ON DELETE CASCADE`: For dependent data (e.g., session → interventions)
-   - `ON DELETE RESTRICT`: For referenced entities (e.g., tenant → sessions)
+   - `ON DELETE CASCADE`: For dependent data (e.g., session -> interventions)
+   - `ON DELETE RESTRICT`: For referenced entities (e.g., tenant -> sessions)
    - `ON DELETE SET NULL`: For optional references (e.g., assigned_to_user_id)
 3. **Multi-tenant safety**: FK to tenant-scoped tables must validate `tenant_id` matches
 4. **Qualifier suffix**: Add when multiple FKs reference same table
@@ -283,7 +283,7 @@ ALTER TABLE sessions
 ### Rules
 1. **Enum validation**: Prefer CHECK over app-level validation for status/type fields
 2. **Range validation**: Enforce min/max on numeric/date columns
-3. **Business rules**: Simple invariants only (complex logic → application layer)
+3. **Business rules**: Simple invariants only (complex logic -> application layer)
 4. **Null-safe**: Always handle NULL explicitly in multi-column checks
 
 ---
@@ -371,7 +371,7 @@ CREATE INDEX idx_cognitive_profiles_embedding_vector
 ### Rules
 1. **Multi-tenant indexes**: Always prefix with `tenant_id` for tenant-scoped queries
 2. **Selectivity order**: For tenant-scoped tables, `tenant_id` MUST be first, then most selective columns
-3. **Covering indexes**: Avoid—use sparingly and document why
+3. **Covering indexes**: Avoid--use sparingly and document why
 4. **Partial indexes**: Prefer over full index when filtering on common WHERE clause
 5. **Unique indexes vs constraints**: Use unique index for conditional uniqueness (e.g., soft delete with nullable columns)
 6. **Nullable columns in unique constraints**: If unique includes nullable columns, define NULL handling explicitly and use partial indexes accordingly
@@ -565,8 +565,8 @@ CREATE TRIGGER trg_intervention_sessions_updated_at
 
 ### Rules
 1. **Core entities**: All domain tables with business data MUST have `created_at`, `updated_at`
-2. **System tables**: Optional—use judgment (e.g., `sys_migrations` may skip)
-3. **Junction tables**: Optional—use judgment based on audit needs
+2. **System tables**: Optional--use judgment (e.g., `sys_migrations` may skip)
+3. **Junction tables**: Optional--use judgment based on audit needs
 4. **Soft delete**: Use `deleted_at` instead of hard delete for GDPR/audit compliance
 5. **UTC storage**: Store timestamps as UTC; if database supports timezone-aware types (e.g., TIMESTAMPTZ in PostgreSQL), use them; otherwise normalize in application layer and document
 6. **Nullability**: `created_by_user_id` nullable for system-generated records
@@ -869,7 +869,7 @@ This document is **SEALED** under Engineering Rector Pack v1.
 
 **Questions or clarifications**: Open issue in engineering governance repo.
 
-**For AI agents**: This document is authoritative—do not deviate or "improve" naming patterns.
+**For AI agents**: This document is authoritative--do not deviate or "improve" naming patterns.
 
 ---
 
