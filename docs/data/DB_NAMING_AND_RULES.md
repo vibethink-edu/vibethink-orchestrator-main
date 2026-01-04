@@ -1,6 +1,6 @@
 # ViTo Database Naming & Structure Rules
 
-**Status**: SEALED v1.0.0
+**Status**: DRAFT v1.0.1 (fixing Codex audit findings)
 **Authority**: Engineering Rector Pack v1
 **Last Updated**: 2026-01-04
 **Scope**: Normative rules for all database objects in ViTo platform
@@ -11,11 +11,26 @@
 
 1. **Multi-Tenant First**: Every tenant-scoped table MUST include `tenant_id`
 2. **Audit Always**: Core entities MUST have audit fields (`created_at`, `updated_at`, `created_by`, `updated_by`)
-3. **Vendor Agnostic**: No database-specific syntax in naming or constraints
-4. **Canonical Vocabulary**: Use ONLY terms from the sealed Ontología Canónica
+3. **Vendor Agnostic Naming**: Naming MUST be vendor-agnostic. Implementation MAY use vendor-specific features when explicitly documented in this rulebook.
+4. **Canonical Vocabulary**: Use ONLY terms from the sealed Ontología Canónica for ViTo domain tables. Examples in this document are illustrative and not canonical entities.
 5. **Immutable Names**: Once in production, table/column names are contracts—renaming requires major migration
 6. **Explicit Over Implicit**: Names must be self-documenting
 7. **AI-Readable**: Names must be parseable by LLMs and code generators without ambiguity
+
+---
+
+## Vendor-Specific Features
+
+This rulebook mandates **vendor-agnostic naming** but permits **vendor-specific implementations** when explicitly documented.
+
+**Vendor-specific features used in this document** (annotated in examples):
+- **PostgreSQL**: `UUID`, `JSONB`, `GIN` indexes, `gen_random_uuid()`, `to_tsvector()`, `plpgsql`, `TIMESTAMPTZ`, Row-Level Security (RLS)
+- **pgvector extension**: `ivfflat` indexes for vector similarity
+
+**When using vendor-specific features**:
+1. Annotate in migration comments which features are vendor-specific
+2. Provide alternative implementation guidance for other databases where feasible
+3. Naming conventions remain vendor-agnostic (e.g., `metadata_json` not `metadata_jsonb`)
 
 ---
 
@@ -74,7 +89,7 @@ profile_versions
 1. **Plural nouns**: Tables contain multiple rows → plural names
 2. **No verb prefixes**: ❌ `get_learners`, ❌ `create_session`
 3. **Domain-first**: Most significant entity comes first (e.g., `learner_sessions` not `sessions_learner`)
-4. **Max 3 words**: If longer, reconsider design
+4. **Max 3 words**: SHOULD limit to 3 words; MAY exceed for canonical clarity when required
 5. **Junction tables**: Alphabetically ordered entity names joined by underscore
 
 ### Do / Don't
@@ -141,6 +156,7 @@ tags_array            -- Array column (suffix type)
 tenant_id UUID NOT NULL
 
 -- Audit trail (REQUIRED for core entities)
+-- Store UTC; use timezone-aware type if DB supports it (e.g., TIMESTAMPTZ in PostgreSQL)
 created_at TIMESTAMP NOT NULL DEFAULT NOW()
 updated_at TIMESTAMP NOT NULL DEFAULT NOW()
 created_by_user_id UUID REFERENCES users(id)
@@ -187,7 +203,7 @@ ALTER TABLE session_interventions
 ```
 
 ### Rules
-1. **Single column preferred**: Use `id` as primary key (UUID or BIGINT)
+1. **Single column preferred**: Use `id` as primary key (UUID or BIGINT); PK generation SHOULD be abstracted by application layer or adapter; database default is optional per platform
 2. **Composite keys**: Only for junction tables or naturally composite entities
 3. **Never business data**: PK should be surrogate, not natural key
 4. **Immutable**: Primary keys must never change once assigned
@@ -354,11 +370,12 @@ CREATE INDEX idx_cognitive_profiles_embedding_vector
 
 ### Rules
 1. **Multi-tenant indexes**: Always prefix with `tenant_id` for tenant-scoped queries
-2. **Selectivity order**: Most selective column first (exception: `tenant_id` always first)
+2. **Selectivity order**: For tenant-scoped tables, `tenant_id` MUST be first, then most selective columns
 3. **Covering indexes**: Avoid—use sparingly and document why
 4. **Partial indexes**: Prefer over full index when filtering on common WHERE clause
-5. **Unique indexes vs constraints**: Use unique index for conditional uniqueness (e.g., soft delete)
-6. **Type suffix**: Add for non-standard index types to aid DBA/AI understanding
+5. **Unique indexes vs constraints**: Use unique index for conditional uniqueness (e.g., soft delete with nullable columns)
+6. **Nullable columns in unique constraints**: If unique includes nullable columns, define NULL handling explicitly and use partial indexes accordingly
+7. **Type suffix**: Add for non-standard index types to aid DBA/AI understanding
 
 ### Do / Don't
 | ❌ Don't | ✅ Do |
@@ -388,7 +405,7 @@ YYYYMMDDHHMMSS_descriptive_action.sql
 ```
 
 ### Migration Principles
-1. **Forward-only**: No automatic rollback—write explicit down migrations
+1. **Explicit rollback**: Migrations MUST include explicit rollback scripts; do not rely on automatic rollback tooling
 2. **Idempotent**: Use `IF NOT EXISTS`, `IF EXISTS` for safety
 3. **Atomic**: One logical change per migration (except tightly coupled changes)
 4. **Timestamped**: UTC timestamp prefix for ordering
@@ -456,7 +473,7 @@ COMMIT;
 2. **Foreign Key to Tenants**: `tenant_id` MUST reference `tenants(id) ON DELETE RESTRICT`
 3. **Index on Tenant ID**: All tenant-scoped tables MUST have index starting with `tenant_id`
 4. **Unique Constraints**: Include `tenant_id` in all unique constraints for scoped data
-5. **Foreign Key Safety**: Cross-tenant references MUST validate `tenant_id` matches (app-level or trigger)
+5. **Foreign Key Safety**: Cross-tenant references MUST validate `tenant_id` matches via composite FK or database trigger. Junction tables MUST enforce `tenant_id` consistency across referenced rows.
 
 ### Tenant-Scoped vs Global Tables
 
@@ -550,7 +567,7 @@ CREATE TRIGGER trg_intervention_sessions_updated_at
 2. **System tables**: Optional—use judgment (e.g., `sys_migrations` may skip)
 3. **Junction tables**: Optional—use judgment based on audit needs
 4. **Soft delete**: Use `deleted_at` instead of hard delete for GDPR/audit compliance
-5. **UTC only**: All timestamps in UTC—convert to local time in application layer
+5. **UTC storage**: Store timestamps as UTC; if database supports timezone-aware types (e.g., TIMESTAMPTZ in PostgreSQL), use them; otherwise normalize in application layer and document
 6. **Nullability**: `created_by_user_id` nullable for system-generated records
 
 ---
@@ -559,9 +576,11 @@ CREATE TRIGGER trg_intervention_sessions_updated_at
 
 ### Full Table Definition (Learner)
 ```sql
+-- NOTE: This example uses PostgreSQL-specific features (UUID, JSONB, gen_random_uuid, GIN)
+-- Adapt data types and defaults for other database platforms
 CREATE TABLE learners (
   -- Primary key
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),  -- PostgreSQL: gen_random_uuid() or app-generated UUID
 
   -- Multi-tenant
   tenant_id UUID NOT NULL,
@@ -598,14 +617,14 @@ CREATE TABLE learners (
 
 -- Indexes
 CREATE INDEX idx_learners_tenant_id ON learners(tenant_id);
-CREATE INDEX idx_learners_email ON learners(email) WHERE deleted_at IS NULL;
-CREATE INDEX idx_learners_metadata_gin ON learners USING GIN (metadata_json);
+CREATE INDEX idx_learners_email ON learners(email) WHERE deleted_at IS NULL;  -- Partial index (vendor-specific WHERE clause syntax varies)
+CREATE INDEX idx_learners_metadata_gin ON learners USING GIN (metadata_json);  -- PostgreSQL GIN index
 
--- Triggers
+-- Triggers (PostgreSQL syntax; adapt for other platforms)
 CREATE TRIGGER trg_learners_updated_at
   BEFORE UPDATE ON learners
   FOR EACH ROW
-  EXECUTE FUNCTION trigger_update_timestamp();
+  EXECUTE FUNCTION trigger_update_timestamp();  -- PostgreSQL: EXECUTE FUNCTION; MySQL: CALL; SQL Server: EXEC
 
 -- Comments
 COMMENT ON TABLE learners IS 'Core learner entities with multi-tenant isolation';
@@ -830,7 +849,8 @@ When generating migrations or DDL:
 
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
-| 1.0.0 | 2026-01-04 | Initial sealed version | Data Architect AI |
+| 1.0.1 | 2026-01-04 | Fixed Codex audit findings: vendor-agnostic naming vs implementation, canonical vocabulary scope, multi-tenant FK enforcement, timestamp UTC guidance, index ordering precedence, nullable unique constraints, migration rollback clarity | Data Architect AI |
+| 1.0.0 | 2026-01-04 | Initial version | Data Architect AI |
 
 ---
 
