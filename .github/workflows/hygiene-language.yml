@@ -1,0 +1,25 @@
+name: Hygiene - Non-Canonical Language
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hygiene-language-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  language_hygiene:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check non-canonical language rules
+        run: node scripts/hygiene/check-noncanonical-language.js

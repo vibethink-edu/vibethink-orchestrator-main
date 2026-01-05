@@ -31,7 +31,7 @@ on:
         - complete  # ~45-60 minutes
 
 env:
-  NODE_VERSION: '18'
+  NODE_VERSION: "20"
 
 jobs:
   # 🏃‍♂️ Fast validation (always runs)

@@ -30,7 +30,7 @@ on:
         - security-only
 
 env:
-  NODE_VERSION: '18'
+  NODE_VERSION: "20"
   COMPONENT_NAME: ${{ github.event.inputs.component_name || 'auto-detect' }}
 
 jobs:

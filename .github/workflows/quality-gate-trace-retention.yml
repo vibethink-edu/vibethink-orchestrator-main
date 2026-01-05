@@ -1,0 +1,19 @@
+name: Quality Gate - Trace Retention (Optional)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  trace_retention_gate:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Trace retention tests
+        run: node --test tests/ops/trace-retention.test.js
