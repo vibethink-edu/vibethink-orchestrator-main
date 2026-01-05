@@ -1,6 +1,22 @@
 {
-  "schema_version": "1.0",
-  "errorType": "SPECIALIST_TIMEOUT",
-  "isRetryable": false,
-  "description": "Expected structure for a non-retryable failure envelope after a specialist times out."
+  "error_id": "err-test-001",
+  "error_type": "SPECIALIST_TIMEOUT",
+  "message": "Simulated SPECIALIST_TIMEOUT",
+  "classification": "NON_RETRYABLE",
+  "occurred_at": "2026-01-05T10:00:00Z",
+  "tenant_id": "tenant-test-001",
+  "run_id": "run-test-001",
+  "correlation_id": "test-corr-001",
+  "policy_context_id": "policy-test-001",
+  "source": {
+    "system": "orchestrator",
+    "name": "specialist-runtime"
+  },
+  "trace_link": {
+    "input_snapshot_hash": "snap-test-001"
+  },
+  "details": {
+    "timeout_ms": 100,
+    "specialist_name": "test-specialist"
+  }
 }

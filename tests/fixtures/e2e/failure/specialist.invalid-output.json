@@ -1,9 +1,5 @@
 {
-  "proposedAction": {
-    "type": "SCHEDULE_MEETING",
-    "details": {
-      "participants": ["Dr. Evelyn Reed"]
-    }
-  },
-  "error_description": "This output is invalid because 'details' is missing required fields: topic, startTime, durationMinutes."
+  "invalid_field": "not_in_action_intent_schema",
+  "missing_required": false,
+  "extra_unexpected_data": "this_is_not_allowed"
 }

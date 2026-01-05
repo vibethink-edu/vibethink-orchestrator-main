@@ -1,5 +1,10 @@
 {
-  "simulate": "timeout",
-  "wait_ms": 500,
-  "description": "This file is used as a marker for the test runner to simulate an approval request that expires."
+  "decision": "TIMEOUT",
+  "reason": "Approval request exceeded timeout threshold",
+  "approval_request_id": "approval-001",
+  "step_id": "step-002",
+  "run_id": "run-test-001",
+  "requested_at": "2026-01-05T10:00:00Z",
+  "expired_at": "2026-01-05T10:00:05Z",
+  "timeout_threshold_ms": 5000
 }

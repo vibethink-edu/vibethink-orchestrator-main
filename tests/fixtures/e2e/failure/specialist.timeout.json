@@ -1,4 +1,9 @@
 {
-  "simulate": "timeout",
-  "description": "This file is used as a marker for the test runner to simulate a Specialist timeout."
+  "specialist_id": "test-specialist-001",
+  "specialist_name": "Test Specialist",
+  "timeout_ms": 100,
+  "reason": "Specialist exceeded maximum execution time",
+  "step_id": "step-001",
+  "run_id": "run-test-001",
+  "expected_error_type": "SPECIALIST_TIMEOUT"
 }
