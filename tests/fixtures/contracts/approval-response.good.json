@@ -1,0 +1,20 @@
+{
+  "tenant_id": "tenant-123",
+  "run_id": "run-456",
+  "correlation_id": "corr-789",
+  "policy_context_id": "policy-001",
+  "decision_id": "decision-123",
+  "request_id": "request-abc",
+  "action_intent_ref": "action-intent-001",
+  "decision": "APPROVE",
+  "decided_by": {
+    "actor_id": "user-42",
+    "actor_type": "user",
+    "role": "approver"
+  },
+  "decided_at": "2026-01-05T11:00:00Z",
+  "trace_link": "trace-001",
+  "metadata": {
+    "note": "Approved by ops"
+  }
+}

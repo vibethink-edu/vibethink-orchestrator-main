@@ -1,0 +1,19 @@
+{
+  "tenant_id": "tenant-123",
+  "run_id": "run-456",
+  "correlation_id": "corr-789",
+  "policy_context_id": "policy-001",
+  "decision_id": "decision-123",
+  "request_id": "request-abc",
+  "action_intent_ref": "action-intent-001",
+  "decision": "ALLOW",
+  "decided_by": {
+    "actor_id": "user-42",
+    "actor_type": "user"
+  },
+  "decided_at": "",
+  "trace_link": {
+    "input_snapshot_hash": ""
+  },
+  "extra_field": "not_allowed"
+}

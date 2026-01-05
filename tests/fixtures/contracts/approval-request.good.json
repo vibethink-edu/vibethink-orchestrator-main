@@ -1,0 +1,22 @@
+{
+  "tenant_id": "tenant-123",
+  "run_id": "run-456",
+  "correlation_id": "corr-789",
+  "policy_context_id": "policy-001",
+  "request_id": "request-abc",
+  "action_intent_ref": "action-intent-001",
+  "expires_at": "2026-01-05T12:00:00Z",
+  "priority": "HIGH",
+  "requested_by": {
+    "actor_id": "user-42",
+    "actor_type": "user",
+    "role": "approver"
+  },
+  "trace_link": {
+    "input_snapshot_hash": "snap-001",
+    "trace_id": "trace-001"
+  },
+  "context": {
+    "reason": "High-risk change"
+  }
+}
