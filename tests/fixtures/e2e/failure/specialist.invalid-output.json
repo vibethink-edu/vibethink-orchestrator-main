@@ -1,0 +1,9 @@
+{
+  "proposedAction": {
+    "type": "SCHEDULE_MEETING",
+    "details": {
+      "participants": ["Dr. Evelyn Reed"]
+    }
+  },
+  "error_description": "This output is invalid because 'details' is missing required fields: topic, startTime, durationMinutes."
+}

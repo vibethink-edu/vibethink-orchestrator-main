@@ -1,0 +1,4 @@
+{
+  "simulate": "timeout",
+  "description": "This file is used as a marker for the test runner to simulate a Specialist timeout."
+}

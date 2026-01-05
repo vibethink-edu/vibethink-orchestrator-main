@@ -1,0 +1,5 @@
+{
+  "simulate": "timeout",
+  "wait_ms": 500,
+  "description": "This file is used as a marker for the test runner to simulate an approval request that expires."
+}

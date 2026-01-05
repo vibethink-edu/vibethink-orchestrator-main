@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0",
+  "errorType": "SPECIALIST_TIMEOUT",
+  "isRetryable": false,
+  "description": "Expected structure for a non-retryable failure envelope after a specialist times out."
+}
