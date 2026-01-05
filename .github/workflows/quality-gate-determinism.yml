@@ -1,0 +1,35 @@
+name: Quality Gate - Determinism
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-gate-determinism-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  determinism_gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Verify trace completeness (good fixture)
+        run: node scripts/determinism/verify-trace-completeness.js tests/fixtures/determinism/trace-good.json
+      - name: Verify trace completeness (bad fixture must fail)
+        run: |
+          node scripts/determinism/verify-trace-completeness.js tests/fixtures/determinism/trace-bad.json && exit 1 || exit 0
+      - name: Run determinism tests
+        run: node --test tests/determinism/trace-completeness.test.js
+      - name: Replay harness stub
+        run: node scripts/determinism/replay-harness.js tests/fixtures/determinism/replay-input.json tests/fixtures/determinism/replay-output.json
