@@ -1,12 +1,27 @@
 {
-  "requestId": "approval-request-placeholder",
-  "runId": "run-id-placeholder",
-  "summary": "Request to execute action 'vito.actions.database.delete_record' on table 'users' for record 'user-123-critical'. Reason: User requested account deletion via free-text chat.",
-  "proposedAction": {
-    "action": "vito.actions.database.delete_record",
-    "parameters": {
-      "table": "users",
-      "recordId": "user-123-critical"
-    }
+  "approval_request_id": "approval-req-001",
+  "run_id": "run-test-001",
+  "correlation_id": "test-llm-corr-001",
+  "step_id": "step-approval-gate-001",
+  "action_intent_ref": "intent-llm-001",
+  "requested_by": {
+    "actor_id": "specialist-approval-001",
+    "actor_type": "SPECIALIST",
+    "role": "approver_required"
+  },
+  "required_approvals": ["USER", "COMPLIANCE"],
+  "requested_at": "2026-01-05T10:00:00Z",
+  "expires_at": "2026-01-06T10:00:00Z",
+  "policy_context_id": "policy-test-001",
+  "tenant_id": "tenant-test-001",
+  "action_summary": {
+    "action_type": "API_CALL",
+    "api_endpoint": "https://api.example.com/v1/resource",
+    "method": "POST",
+    "resource_id": "res-123"
+  },
+  "trace_link": {
+    "input_snapshot_hash": "snap-llm-test-001",
+    "trace_id": "trace-llm-001"
   }
 }

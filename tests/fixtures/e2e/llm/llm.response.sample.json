@@ -1,9 +1,27 @@
 {
-  "action": "vito.actions.database.delete_record",
-  "parameters": {
-    "table": "users",
-    "recordId": "user-123-critical"
+  "action_type": "API_CALL",
+  "tenant_id": "tenant-test-001",
+  "created_at": "2026-01-05T10:00:00Z",
+  "correlation_id": "test-llm-corr-001",
+  "run_id": "run-test-001",
+  "idempotency_key": "test-key-approval-gate-001",
+  "policy_context_id": "policy-test-001",
+  "inputs": {
+    "api_endpoint": "https://api.example.com/v1/resource",
+    "method": "POST",
+    "payload": {
+      "resource_id": "res-123",
+      "action": "update_status",
+      "new_status": "approved"
+    }
   },
-  "requiresApproval": true,
-  "reason": "User requested account deletion via free-text chat."
+  "requested_by": {
+    "actor_id": "specialist-approval-001",
+    "actor_type": "SPECIALIST",
+    "role": "approver_required"
+  },
+  "required_approvals": ["USER", "COMPLIANCE"],
+  "trace_link": {
+    "input_snapshot_hash": "snap-llm-test-001"
+  }
 }
