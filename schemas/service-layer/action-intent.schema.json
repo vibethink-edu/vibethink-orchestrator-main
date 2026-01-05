@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ActionIntent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "action_type",
+    "tenant_id",
+    "created_at",
+    "run_id",
+    "correlation_id",
+    "idempotency_key",
+    "policy_context_id",
+    "inputs",
+    "requested_by",
+    "trace_link"
+  ],
+  "properties": {
+    "action_type": { "type": "string", "minLength": 1 },
+    "tenant_id": { "type": "string", "minLength": 1 },
+    "created_at": { "type": "string", "minLength": 1 },
+    "correlation_id": { "type": "string", "minLength": 1 },
+    "run_id": { "type": "string", "minLength": 1 },
+    "idempotency_key": { "type": "string", "minLength": 1 },
+    "policy_context_id": { "type": "string", "minLength": 1 },
+    "inputs": { "type": "object", "additionalProperties": true },
+    "requested_by": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["actor_id", "actor_type"],
+      "properties": {
+        "actor_id": { "type": "string", "minLength": 1 },
+        "actor_type": { "type": "string", "minLength": 1 },
+        "role": { "type": "string" }
+      }
+    },
+    "required_approvals": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "retry_count": { "type": "integer", "minimum": 0 },
+    "trace_link": {
+      "anyOf": [
+        { "type": "string", "minLength": 1 },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "oneOf": [
+            { "required": ["input_snapshot_hash"] },
+            { "required": ["trace_id"] }
+          ],
+          "properties": {
+            "input_snapshot_hash": { "type": "string", "minLength": 1 },
+            "trace_id": { "type": "string", "minLength": 1 }
+          }
+        }
+      ]
+    }
+  }
+}

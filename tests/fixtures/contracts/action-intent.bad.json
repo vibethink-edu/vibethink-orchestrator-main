@@ -1,0 +1,17 @@
+{
+  "action_type": "notify",
+  "tenant_id": "tenant-123",
+  "correlation_id": "corr-456",
+  "policy_context_id": "policy-001",
+  "inputs": {
+    "message": "hello"
+  },
+  "requested_by": {
+    "actor_id": "svc-1",
+    "actor_type": "service"
+  },
+  "trace_link": {
+    "input_snapshot_hash": ""
+  },
+  "extra_field": "not_allowed"
+}
