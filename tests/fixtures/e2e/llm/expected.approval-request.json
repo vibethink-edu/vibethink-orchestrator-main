@@ -1,0 +1,12 @@
+{
+  "requestId": "approval-request-placeholder",
+  "runId": "run-id-placeholder",
+  "summary": "Request to execute action 'vito.actions.database.delete_record' on table 'users' for record 'user-123-critical'. Reason: User requested account deletion via free-text chat.",
+  "proposedAction": {
+    "action": "vito.actions.database.delete_record",
+    "parameters": {
+      "table": "users",
+      "recordId": "user-123-critical"
+    }
+  }
+}

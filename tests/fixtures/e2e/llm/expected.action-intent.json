@@ -1,0 +1,10 @@
+{
+  "intentId": "action-intent-placeholder",
+  "sourceRunId": "run-id-placeholder",
+  "action": "vito.actions.database.delete_record",
+  "isApproved": true,
+  "parameters": {
+    "table": "users",
+    "recordId": "user-123-critical"
+  }
+}
