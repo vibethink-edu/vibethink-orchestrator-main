@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FailureEnvelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "error_id",
+    "error_type",
+    "message",
+    "classification",
+    "occurred_at",
+    "tenant_id",
+    "run_id",
+    "correlation_id",
+    "policy_context_id",
+    "source",
+    "trace_link"
+  ],
+  "properties": {
+    "error_id": { "type": "string", "minLength": 1 },
+    "error_type": { "type": "string", "minLength": 1 },
+    "message": { "type": "string", "minLength": 1 },
+    "classification": {
+      "type": "string",
+      "enum": ["RETRYABLE", "NON_RETRYABLE"]
+    },
+    "occurred_at": { "type": "string", "minLength": 1 },
+    "tenant_id": { "type": "string", "minLength": 1 },
+    "run_id": { "type": "string", "minLength": 1 },
+    "correlation_id": { "type": "string", "minLength": 1 },
+    "policy_context_id": { "type": "string", "minLength": 1 },
+    "action_intent_ref": { "type": "string", "minLength": 1 },
+    "tool_call_ref": { "type": "string", "minLength": 1 },
+    "retry_after_ms": { "type": "integer", "minimum": 0 },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["system", "name"],
+      "properties": {
+        "system": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 }
+      }
+    },
+    "trace_link": {
+      "anyOf": [
+        { "type": "string", "minLength": 1 },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "oneOf": [
+            { "required": ["input_snapshot_hash"] },
+            { "required": ["trace_id"] }
+          ],
+          "properties": {
+            "input_snapshot_hash": { "type": "string", "minLength": 1 },
+            "trace_id": { "type": "string", "minLength": 1 }
+          }
+        }
+      ]
+    },
+    "details": { "type": "object", "additionalProperties": true }
+  }
+}

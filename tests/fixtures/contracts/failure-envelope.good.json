@@ -1,0 +1,25 @@
+{
+  "error_id": "err-123",
+  "error_type": "timeout",
+  "message": "Service timed out",
+  "classification": "RETRYABLE",
+  "occurred_at": "2026-01-05T12:00:00Z",
+  "tenant_id": "tenant-001",
+  "run_id": "run-abc",
+  "correlation_id": "corr-xyz",
+  "policy_context_id": "policy-123",
+  "action_intent_ref": "action-intent-001",
+  "tool_call_ref": "tool-call-9",
+  "retry_after_ms": 3000,
+  "source": {
+    "system": "service",
+    "name": "payments-api"
+  },
+  "trace_link": {
+    "input_snapshot_hash": "snap-001",
+    "trace_id": "trace-001"
+  },
+  "details": {
+    "http_status": 504
+  }
+}

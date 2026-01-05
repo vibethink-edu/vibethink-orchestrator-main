@@ -1,0 +1,16 @@
+{
+  "error_id": "err-123",
+  "error_type": "timeout",
+  "message": "",
+  "classification": "RETRY",
+  "occurred_at": "2026-01-05T12:00:00Z",
+  "tenant_id": "tenant-001",
+  "run_id": "run-abc",
+  "policy_context_id": "policy-123",
+  "source": {
+    "system": "service",
+    "name": "payments-api"
+  },
+  "trace_link": "",
+  "extra_field": "not_allowed"
+}
