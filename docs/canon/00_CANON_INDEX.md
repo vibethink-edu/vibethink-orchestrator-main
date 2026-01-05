@@ -72,6 +72,7 @@ Canon documents define:
 | Doc | Status | Purpose |
 |-----|--------|---------|
 | [`09_SPECIALISTS_ARCHITECTURE_SPEC.md`](./09_SPECIALISTS_ARCHITECTURE_SPEC.md) | 📋 SPEC | Specialists by domain (PLANNED) |
+| [`10_REASONING_ORCHESTRATOR_EXECUTION_SPEC.md`](./10_REASONING_ORCHESTRATOR_EXECUTION_SPEC.md) | ✅ ACTIVE | Reasoning Runtime Orchestrator Execution Model |
 | [`10_TRACE_AND_EVIDENCE_MODEL.md`](./10_TRACE_AND_EVIDENCE_MODEL.md) | 📋 SPEC | Decision trace logging |
 
 ### UX Layer (Projection + Actions)
@@ -206,3 +207,7 @@ Canon is **living documentation** but changes require:
 ---
 
 **END OF CANON INDEX**
+
+
+
+
