@@ -39,15 +39,15 @@ function scanDir(dir) {
     return results;
 }
 
-console.log('🔍 Scanning for merge markers (<<<<<<<, =======, >>>>>>>)...');
+console.log('?? Scanning for merge markers (<<<<<<<, =======, >>>>>>>)...');
 
 const files = scanDir(rootDir);
 let hasError = false;
 
-const MARKERS = [
-    '<<<<<<<',
-    '=======',
-    '>>>>>>>'
+const MARKER_REGEXES = [
+    /^<<<<<<<.*/,
+    /^=======$/,
+    /^>>>>>>>.*/
 ];
 
 files.forEach(file => {
@@ -55,21 +55,16 @@ files.forEach(file => {
         const content = fs.readFileSync(file, 'utf8');
         let fileHasError = false;
 
-        // Check for each marker
-        MARKERS.forEach(marker => {
-            if (content.includes(marker)) {
-                // Simple check: git usually puts markers at start of line, but we'll be strict
-                const lines = content.split('\n');
-                lines.forEach((line, index) => {
-                    if (line.includes(marker)) {
-                        // Filter out this script itself if scanned
-                        if (file === __filename) return;
-
-                        console.error(`❌ Merge marker found in ${path.relative(rootDir, file)}:${index + 1}`);
-                        console.error(`   ${line.trim()}`);
-                        fileHasError = true;
-                    }
-                });
+        const lines = content.split('\n');
+        lines.forEach((line, index) => {
+            if (file === __filename) return;
+            for (const regex of MARKER_REGEXES) {
+                if (regex.test(line)) {
+                    console.error(`? Merge marker found in ${path.relative(rootDir, file)}:${index + 1}`);
+                    console.error(`   ${line.trim()}`);
+                    fileHasError = true;
+                    break;
+                }
             }
         });
 
@@ -82,9 +77,9 @@ files.forEach(file => {
 });
 
 if (hasError) {
-    console.error('\n💥 FAILED: Merge markers detected. Please resolve conflicts before committing.');
+    console.error('\n?? FAILED: Merge markers detected. Please resolve conflicts before committing.');
     process.exit(1);
 } else {
-    console.log('✅ PASSED: No merge markers found.');
+    console.log('? PASSED: No merge markers found.');
     process.exit(0);
 }

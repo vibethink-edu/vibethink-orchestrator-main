@@ -20,6 +20,7 @@ Canon-Impact: NONE
 - LLM Approval Obedience: Ensures approvals are enforced before execution.
 - Contract tests: Schema compliance for runtime contracts.
 - CI sanity: End-to-end CI workflow reliability and consistency.
+- Merge Marker Gate: Detects real git conflict markers only.
 
 ## Local Commands
 - Determinism/Replay:
@@ -35,9 +36,21 @@ Canon-Impact: NONE
   - `node --test tests/contracts/failure-envelope.test.js`
 - CI sanity:
   - `gh run list --branch main --limit 5`
+- Merge Marker Gate:
+  - `node scripts/check-merge-markers.mjs`
 
 ## No Side Effects Signal
 All tests must:
 - Avoid writing to production systems.
 - Use fixtures and local-only stubs.
 - Exit non-zero on any unexpected mutation or live calls.
+
+## Merge Marker Gate
+Detects only real git conflict markers:
+- `<<<<<<<`
+- `=======` (exactly 7 equals on its own line)
+- `>>>>>>>`
+
+Does NOT flag:
+- separator lines like `====` or `===========`
+- documentation dividers in markdown/yaml
