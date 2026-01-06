@@ -1,0 +1,69 @@
+{
+    "contract_name": "UI i18n & UX Translation Contract",
+    "version": "1.2.0",
+    "meta": {
+        "description": "Rules for machine-validation of internationalization standards.",
+        "enforcement_level": "BLOCKING_QA"
+    },
+    "rules": {
+        "source_locale": "en",
+        "required_locales": [
+            "en",
+            "es"
+        ],
+        "validation": {
+            "allowedReturnTypes": [
+                "string"
+            ],
+            "prohibitedReturnTypes": [
+                "object",
+                "array",
+                "number",
+                "boolean"
+            ],
+            "no_non_terminal_nodes": {
+                "enabled": true,
+                "severity": "FAIL"
+            },
+            "key_parity": {
+                "enabled": true,
+                "missing_in_baseline_severity": "FAIL",
+                "missing_in_alternative_severity": "WARN"
+            },
+            "unused_keys": {
+                "enabled": true,
+                "severity": "WARN"
+            }
+        },
+        "fallback_policy": {
+            "strategy": "source_locale",
+            "environments": {
+                "dev": {
+                    "allow_literal_key": true,
+                    "marker": "[MISSING: {key}]",
+                    "severity": "WARN"
+                },
+                "prod": {
+                    "allow_literal_key": false,
+                    "placeholder": "—",
+                    "require_telemetry": true,
+                    "severity": "FAIL"
+                }
+            }
+        },
+        "namespaces": {
+            "required": true,
+            "allowed": [
+                "common",
+                "auth",
+                "errors",
+                "features",
+                "ai"
+            ]
+        },
+        "patterns": {
+            "key_naming": "^[a-z0-9]+(\\.[a-z0-9]+)*$",
+            "namespace_separator": ":"
+        }
+    }
+}
