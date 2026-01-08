@@ -1,0 +1,12 @@
+{
+    "name": "@vibethink/core-allocation",
+    "version": "0.1.0",
+    "main": "./src/index.ts",
+    "types": "./src/index.ts",
+    "dependencies": {
+        "@vibethink/core-assets": "workspace:*"
+    },
+    "devDependencies": {
+        "typescript": "^5.0.0"
+    }
+}
