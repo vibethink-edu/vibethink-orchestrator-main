@@ -32,9 +32,13 @@ export function mapFlightToUsageEvent(flight: JetFlight, assetId: string): Usage
     const totalMinutes = flight.legs.reduce((acc, leg) => acc + leg.flight_time_minutes, 0);
     const totalHours = totalMinutes / 60;
 
+    if (!flight.legs.length) {
+        throw new Error(`Invalid flight data: Flight ${flight.id} has no legs.`);
+    }
+
     // Determine global start/end
-    const startAt = flight.legs[0]?.off_block || new Date(); // Fallback if no legs (shouldn't happen)
-    const endAt = flight.legs[flight.legs.length - 1]?.on_block || new Date();
+    const startAt = flight.legs[0].off_block;
+    const endAt = flight.legs[flight.legs.length - 1].on_block;
 
     // Tags for traceability
     const tags = [

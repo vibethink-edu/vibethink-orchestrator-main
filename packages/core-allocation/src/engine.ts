@@ -150,7 +150,7 @@ export class AllocationEngine {
         }
 
         // Distribute based on the metric of the related usage
-        // Assuming single-user usage events for simplicity (typical in jets: 'Owner A' flew this leg). 
+        // Assuming single-user usage events for simplicity (typical in shared assets: 'Owner A' used this). 
         // If usage is shared (e.g. 2 owners on board), usage event needs to specify 'who'.
         // Core UsageEvent doesn't have 'owner_id' explicitly in the type def provided in prompt, 
         // but usually 'refs' or 'metadata' holds it. OR UsageEvent IS the usage. 
