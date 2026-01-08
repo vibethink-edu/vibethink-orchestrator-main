@@ -1,50 +1,51 @@
 {
-    "name":  "@vibethink/orchestrator",
-    "version":  "1.0.0",
-    "private":  true,
-    "workspaces":  [
-                       "apps/*",
-                       "packages/*"
-                   ],
-    "scripts":  {
-                    "dev":  "turbo run dev",
-                    "build":  "turbo run build",
-                    "start":  "turbo run start",
-                    "lint":  "turbo run lint",
-                    "type-check":  "turbo run type-check",
-                    "test":  "turbo run test",
-                    "test:unit":  "turbo run test -- --testPathPattern=\u0027unit\u0027",
-                    "clean":  "turbo run clean",
-                    "lang-quality":  "node scripts/lang-quality.js",
-                    "lang-quality:all":  "node scripts/lang-quality.js --all",
-                    "validate:i18n":  "node scripts/lang-quality.js",
-                    "i18n:validate":  "node scripts/validate-i18n.js apps/dashboard/src/lib/i18n/translations",
-                    "i18n:validate-all":  "node scripts/validate-i18n.js",
-                    "i18n:missing-keys":  "echo \u0027TODO: Implement missing keys script\u0027",
-                    "i18n:find-hardcoded":  "echo \u0027TODO: Implement hardcoded strings finder\u0027",
-                    "i18n:test-rtl":  "echo \u0027TODO: Implement RTL testing script\u0027",
-                    "i18n:coverage":  "node scripts/lang-quality.js --all",
-                    "check-hardcoding":  "node scripts/check-hardcoding.js",
-                    "validate:methodology-adoption":  "node scripts/validate-methodology-adoption.mjs",
-                    "validate:fit-claims":  "node scripts/validate-fit-claims.mjs",
-                    "validate:reports":  "node scripts/validate-reports.js",
-                    "validate:root":  "node scripts/validate-root-cleanliness.js",
-                    "test:quick":  "node scripts/tests/run-suite.js quick",
-                    "test:full":  "node scripts/tests/run-suite.js full"
-                },
-    "devDependencies":  {
-                            "@anthropic-ai/sdk":  "^0.71.2",
-                            "@google-cloud/translate":  "^9.3.0",
-                            "dotenv":  "^17.2.3",
-                            "turbo":  "latest"
-                        },
-    "engines":  {
-                    "node": ">=20"
-                },
-    "packageManager":  "npm@10.2.4",
-    "dependencies":  {
-                         "i18next":  "^25.7.3",
-                         "react-i18next":  "^16.5.0"
-                     }
+    "name": "@vibethink/orchestrator",
+    "version": "1.0.0",
+    "private": true,
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ],
+    "scripts": {
+        "dev": "turbo run dev",
+        "build": "turbo run build",
+        "start": "turbo run start",
+        "lint": "turbo run lint",
+        "format:check": "turbo run format:check --continue",
+        "format:write": "turbo run format:write --continue",
+        "type-check": "turbo run type-check",
+        "test": "turbo run test",
+        "test:unit": "turbo run test -- --testPathPattern=\u0027unit\u0027",
+        "clean": "turbo run clean",
+        "lang-quality": "node scripts/lang-quality.js",
+        "lang-quality:all": "node scripts/lang-quality.js --all",
+        "validate:i18n": "node scripts/lang-quality.js",
+        "i18n:validate": "node scripts/validate-i18n.js apps/dashboard/src/lib/i18n/translations",
+        "i18n:validate-all": "node scripts/validate-i18n.js",
+        "i18n:missing-keys": "echo \u0027TODO: Implement missing keys script\u0027",
+        "i18n:find-hardcoded": "echo \u0027TODO: Implement hardcoded strings finder\u0027",
+        "i18n:test-rtl": "echo \u0027TODO: Implement RTL testing script\u0027",
+        "i18n:coverage": "node scripts/lang-quality.js --all",
+        "check-hardcoding": "node scripts/check-hardcoding.js",
+        "validate:methodology-adoption": "node scripts/validate-methodology-adoption.mjs",
+        "validate:fit-claims": "node scripts/validate-fit-claims.mjs",
+        "validate:reports": "node scripts/validate-reports.js",
+        "validate:root": "node scripts/validate-root-cleanliness.js",
+        "test:quick": "node scripts/tests/run-suite.js quick",
+        "test:full": "node scripts/tests/run-suite.js full"
+    },
+    "devDependencies": {
+        "@anthropic-ai/sdk": "^0.71.2",
+        "@google-cloud/translate": "^9.3.0",
+        "dotenv": "^17.2.3",
+        "turbo": "latest"
+    },
+    "engines": {
+        "node": ">=20"
+    },
+    "packageManager": "npm@10.2.4",
+    "dependencies": {
+        "i18next": "^25.7.3",
+        "react-i18next": "^16.5.0"
+    }
 }
-
