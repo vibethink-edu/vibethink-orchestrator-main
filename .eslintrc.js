@@ -15,6 +15,22 @@ module.exports = {
   ],
   overrides: [
     {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/ban-ts-comment': [
+          'error',
+          {
+            'ts-expect-error': 'allow-with-description',
+            'ts-ignore': false,
+            'ts-nocheck': true,
+            'ts-check': false,
+            'minimumDescriptionLength': 5
+          }
+        ]
+      }
+    },
+    {
       // Reglas específicas para archivos de configuración
       files: ['**/config/**/*.ts', '**/config/**/*.js'],
       rules: {

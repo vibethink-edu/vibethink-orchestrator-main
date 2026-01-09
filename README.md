@@ -17,6 +17,20 @@
 
 ---
 
+## 🛡️ Quality Gates & Standards
+
+**Este proyecto aplica estrictos controles de calidad automatizados.**
+
+- **Documento Canónico**: [GOV-QA — Quality Gates Pack v1](./docs/qa/QUALITY_GATES_PACK_V1.md)
+- **Comando de Verificación**: `pnpm gate:quality`
+
+Todas las PRs deben cumplir con:
+1. Sin `any` ni `ts-ignore`.
+2. Tests pasando.
+3. Validación de i18n correcta.
+
+---
+
 ## 🌍 CRITICAL: i18n Protocol (MANDATORY)
 
 **⚠️ ALL modules, components, and third-party integrations MUST comply with VibeThink i18n requirements**

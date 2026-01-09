@@ -177,8 +177,13 @@ export function initializeDocumentIntelligence(config: ModuleConfig): DocumentIn
 
     const extractionService = new ExtractionService();
 
+    // Fail-fast checks for required adapters defined as optional in config for transition
+    if (!config.reviewPersistenceAdapter) {
+        throw new Error('DocumentIntelligence Module Initialization Failure: reviewPersistenceAdapter is required.');
+    }
+
     const reviewService = new ReviewService(
-        config.persistenceAdapter as unknown as IReviewPersistenceAdapter,
+        config.reviewPersistenceAdapter,
         config.auditService
     );
 
@@ -203,9 +208,11 @@ export interface ModuleConfig {
     // Infrastructure Adapters
     storageAdapter: IStorageAdapter;
     persistenceAdapter: IPersistenceAdapter;
+    reviewPersistenceAdapter?: IReviewPersistenceAdapter; // Optional for transition, but enforced in runtime if used
     auditService: IAuditService;
     queueService: IQueueService;
 }
+
 
 export interface DocumentIntelligenceModule {
     ingestService: IngestService;

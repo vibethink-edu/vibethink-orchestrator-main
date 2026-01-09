@@ -75,6 +75,8 @@ Any AI must complete this checklist before making changes:
 5. [ ] `package.json` - Available scripts and dependencies
 6. [ ] This document (`AI_COORDINATION_PROTOCOL.md`)
 
+7. [ ] `docs/qa/QUALITY_GATES_PACK_V1.md` - **CRITICAL: Read Quality Gates Standards**
+
 #### **Understand Current Implementations**
 1. [ ] Study `BunduiCompleteLayout.tsx` - Master layout with DynamicHeader
 2. [ ] Examine `sidebar.tsx` - Enhanced sidebar with VThink innovations

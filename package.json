@@ -34,7 +34,9 @@
         "formalize": "powershell -ExecutionPolicy Bypass -File ./scripts/git-formalize.ps1",
         "validate:pnpm": "pnpm install --frozen-lockfile --dry-run",
         "test:quick": "node scripts/tests/run-suite.js quick",
-        "test:full": "node scripts/tests/run-suite.js full"
+        "test:full": "node scripts/tests/run-suite.js full",
+        "gate:banned": "node scripts/quality/gate-banned.mjs",
+        "gate:quality": "pnpm run type-check && pnpm run lint && pnpm run test && pnpm run gate:banned"
     },
     "devDependencies": {
         "@anthropic-ai/sdk": "^0.71.2",
