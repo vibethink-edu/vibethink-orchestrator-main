@@ -69,6 +69,9 @@ Prioritize the implementation of the concrete **Google Vision Adapter** and the 
 
 ---
 
+## Governance Compliance
+**Role Separation:** Audit remediation performed in isolated branch; closure validated by independent role. The **[Role Separation Policy](../../ROLE_SEPARATION_POLICY.md)** is now formally adopted.
+
 ## Approvals
 
 | Role | Name | Date |
