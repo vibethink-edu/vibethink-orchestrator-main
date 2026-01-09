@@ -95,6 +95,9 @@ pnpm run lint
 pnpm run format
 pnpm run type-check
 pnpm run test
+pnpm run test:integration
+pnpm run test:contract
+pnpm run test:api
 pnpm run build
 
 # Or use Turbo directly for parallel execution

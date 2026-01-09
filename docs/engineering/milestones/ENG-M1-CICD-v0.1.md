@@ -11,7 +11,7 @@ To establish a robust, deterministic, and scalable CI/CD infrastructure for the 
 ## 2. Scope Delivered
 - **Package Manager**: Full migration from `npm` to `pnpm` (Strict workspaces).
 - **CI Pipeline**: Streamlined GitHub Actions workflow (`ci.yml`) replacing fragmented legacy files.
-- **Quality Gates**: Implemented 5 mandatory gates: `lint`, `format`, `typecheck`, `test`, `build`.
+- **Quality Gates**: Implemented 5 mandatory gates (`lint`, `format`, `typecheck`, `test`, `build`) and added granular targets (`test:integration`, `test:contract`, `test:api`).
 - **Infrastructure**: Fixed caching paths (`pnpm-lock.yaml`) and workspace protocols.
 - **Documentation**: Sealed `CI_CD_GUIDE.md` and `NPM_VS_PNPM_GUIDE.md`.
 - **Governance**: Added `preinstall` constraints to prevent regression.
