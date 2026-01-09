@@ -147,8 +147,9 @@ describe('Document Intelligence API Routes', () => {
             // but validates the validation logic
             expect(() => {
                 // Access private method for testing (type-safe way)
-                const routesWithPrivate = routes as unknown as { validateFile: (file: UploadedFile) => void };
-                routesWithPrivate.validateFile(validFile);
+                // Access private method for testing by casting to `any` (standard pattern for testing privates)
+                // Using explicit `any` instead of `unknown` to avoid double casting warning
+                (routes as any).validateFile(validFile);
             }).not.toThrow();
         });
     });
