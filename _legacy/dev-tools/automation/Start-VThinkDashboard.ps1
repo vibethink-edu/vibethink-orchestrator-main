@@ -25,7 +25,8 @@ function Stop-ProcessOnPort {
             try {
                 Stop-Process -Id $pid -Force -ErrorAction SilentlyContinue
                 Write-Host "[✓] Puerto $Port liberado (PID: $pid)" -ForegroundColor Green
-            } catch {
+            }
+            catch {
                 # Ignorar errores si el proceso ya no existe
             }
         }
@@ -33,13 +34,13 @@ function Stop-ProcessOnPort {
 }
 
 # Navegar al directorio del dashboard
-$dashboardPath = Join-Path $PSScriptRoot "apps\dashboard"
+$dashboardPath = Join-Path $PSScriptRoot "..\..\..\apps\dashboard"
 Set-Location $dashboardPath
 
 # Limpiar si se solicita
 if ($Clean) {
     Write-Host "[*] Limpiando instalación anterior..." -ForegroundColor Yellow
-    Remove-Item -Path "node_modules", ".next", "pnpm-lock.yaml", "package-lock.json", "yarn.lock" -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path "node_modules", ".next" -Recurse -Force -ErrorAction SilentlyContinue
     Write-Host "[✓] Limpieza completada" -ForegroundColor Green
 }
 
@@ -81,4 +82,4 @@ Write-Host "Presiona Ctrl+C para detener el servidor" -ForegroundColor Yellow
 Write-Host ""
 
 # Ejecutar Next.js
-npx next dev -p $Port
+pnpm exec next dev -p $Port

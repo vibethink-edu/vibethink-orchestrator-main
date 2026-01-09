@@ -25,4 +25,4 @@ echo [*] Iniciando servidor en http://localhost:3001
 echo.
 echo [!] Presiona Ctrl+C para detener el servidor
 echo.
-npx next dev -p 3001
+pnpm exec next dev -p 3001

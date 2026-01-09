@@ -57,23 +57,23 @@ $recentCommits
 ## 🚀 Próximos Pasos Sugeridos
 
 1. **Al retomar mañana:**
-   - Ejecutar: npm run validate:quick
+   - Ejecutar: pnpm run lint
    - Revisar este resumen de sesión
    - Verificar que dashboard funciona: http://localhost:3001
 
 2. **Tareas pendientes identificadas:**
-   - [ ] Revisar validaciones de dependencias (124 advertencias)
+   - [ ] Revisar estado de CI/CD (GitHub Actions)
    - [ ] Configurar puertos explícitos en apps faltantes
    - [ ] Crear .env.example en apps sin configuración
 
 ## 📊 Métricas de Calidad
-- ✅ **Errores críticos:** 0
-- ⚠️ **Advertencias:** 124 (principalmente versiones de dependencias)
-- ✅ **Validaciones exitosas:** 36
+- ✅ **CI Status:** PENDING CHECK
+- ⚠️ **Advertencias:** Revisar logs de CI
+- ✅ **Validaciones exitosas:** N/A
 
 ---
 *Generado automáticamente - $timestamp*
-*Para continuar mañana: leer este archivo y ejecutar 'npm run validate:quick'*
+*Para continuar mañana: leer este archivo y ejecutar 'pnpm run lint'*
 "@
 
 # Escribir archivo

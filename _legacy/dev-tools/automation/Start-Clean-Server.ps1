@@ -4,13 +4,13 @@
 # Fecha: 2025-08-11
 
 param(
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [string]$App = "dashboard",
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [int]$Port = 3001,
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [switch]$Force
 )
 
@@ -41,7 +41,8 @@ function Show-NodeProcesses {
             Write-Host "${White}  🔸 PID: $($_.Id) | Memoria: ${memoryMB}MB${Reset}"
         }
         Write-Host "${Yellow}  Total procesos: $($nodeProcesses.Count)${Reset}"
-    } else {
+    }
+    else {
         Write-Host "${Green}  ✅ No hay procesos Node.js activos${Reset}"
     }
     Write-Host ""
@@ -66,10 +67,12 @@ function Kill-ProcessOnPort {
                     }
                 }
             }
-        } else {
+        }
+        else {
             Write-Host "${Green}  ✅ Puerto $PortNumber libre${Reset}"
         }
-    } catch {
+    }
+    catch {
         Write-Host "${Red}  ❌ Error verificando puerto: $($_.Exception.Message)${Reset}"
     }
 }
@@ -93,7 +96,8 @@ function Kill-AllNodeProcesses {
             if ($ForceKill) {
                 # Force kill
                 taskkill /PID $process.Id /F 2>$null
-            } else {
+            }
+            else {
                 # Gentle kill first
                 $process.CloseMainWindow() | Out-Null
                 Start-Sleep -Milliseconds 500
@@ -106,7 +110,8 @@ function Kill-AllNodeProcesses {
                 Write-Host "${Green}  ✅ Node.js PID $($process.Id) eliminado${Reset}"
                 $killCount++
             }
-        } catch {
+        }
+        catch {
             Write-Host "${Red}  ❌ Error eliminando PID $($process.Id): $($_.Exception.Message)${Reset}"
         }
     }
@@ -148,12 +153,14 @@ function Start-Server {
     try {
         if ($AppName -eq "dashboard") {
             Write-Host "${Blue}📱 Iniciando Dashboard de VibeThink...${Reset}"
-            npx next@15.3.4 dev -p $ServerPort
-        } else {
-            Write-Host "${Blue}📱 Iniciando $AppName...${Reset}"
-            npm run dev -- --port $ServerPort
+            pnpm exec next dev -p $ServerPort
         }
-    } catch {
+        else {
+            Write-Host "${Blue}📱 Iniciando $AppName...${Reset}"
+            pnpm run dev -- --port $ServerPort
+        }
+    }
+    catch {
         Write-Host "${Red}❌ Error iniciando servidor: $($_.Exception.Message)${Reset}"
         Set-Location ..\..
         exit 1

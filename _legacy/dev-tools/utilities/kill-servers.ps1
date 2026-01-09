@@ -14,11 +14,13 @@ function Kill-ProcessByName {
             try {
                 $process.Kill()
                 Write-Host "Killed $Description (PID: $($process.Id))" -ForegroundColor Green
-            } catch {
+            }
+            catch {
                 Write-Host "Failed to kill $Description (PID: $($process.Id)): $_" -ForegroundColor Red
             }
         }
-    } else {
+    }
+    else {
         Write-Host "No $Description processes found" -ForegroundColor Gray
     }
 }
@@ -41,15 +43,18 @@ function Kill-ProcessByPort {
                             $process.Kill()
                             Write-Host "Killed process on port $Port (PID: $pid, Name: $($process.ProcessName))" -ForegroundColor Green
                         }
-                    } catch {
+                    }
+                    catch {
                         Write-Host "Failed to kill process on port $Port (PID: $pid): $_" -ForegroundColor Red
                     }
                 }
             }
-        } else {
+        }
+        else {
             Write-Host "No process found on port $Port" -ForegroundColor Gray
         }
-    } catch {
+    }
+    catch {
         Write-Host "Error checking port $Port: $_" -ForegroundColor Red
     }
 }
@@ -94,11 +99,12 @@ if ($nodeProcesses) {
         try {
             $process.Kill($true) # Force kill
             Write-Host "Force killed Node.js (PID: $($process.Id))" -ForegroundColor Green
-        } catch {
+        }
+        catch {
             Write-Host "Failed to force kill Node.js (PID: $($process.Id)): $_" -ForegroundColor Red
         }
     }
 }
 
 Write-Host "`nServer cleanup completed!" -ForegroundColor Green
-Write-Host "You can now run 'npm run dev' safely" -ForegroundColor Cyan 
+Write-Host "You can now run 'pnpm run dev' safely" -ForegroundColor Cyan 
