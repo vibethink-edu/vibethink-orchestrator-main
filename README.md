@@ -486,7 +486,7 @@ node scripts/validate-concepts-coherence.js  # i18n concepts check
 ### **⚡ Quick Commands**
 ```bash
 # Validate dependency state
-pnpm run validate:npm-install
+pnpm run validate:pnpm
 
 # Fix duplications automatically
 pnpm run fix:npm-duplications

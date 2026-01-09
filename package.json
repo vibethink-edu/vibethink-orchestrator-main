@@ -28,6 +28,8 @@
         "validate:fit-claims": "node scripts/validate-fit-claims.mjs",
         "validate:reports": "node scripts/validate-reports.js",
         "validate:root": "node scripts/validate-root-cleanliness.js",
+        "formalize": "powershell ./scripts/git-formalize.ps1",
+        "validate:pnpm": "pnpm install --frozen-lockfile --dry-run",
         "test:quick": "node scripts/tests/run-suite.js quick",
         "test:full": "node scripts/tests/run-suite.js full"
     },
