@@ -387,6 +387,6 @@ Si este documento está desactualizado o tienes dudas:
 Status: **SEALED**
 
 * XTP/XTR/AIPAIR removed as active authority (no hits outside `_legacy`).
-* VGB-1 canonical baseline established at `docs/governance/VITO_GOVERNANCE_BASELINE_V1.md`.
+* VGB-1 canonical baseline established at `docs/governance/vito-governance-baseline-v1.md`.
 * Legacy artifacts archived under `_legacy/` with traceability notes.
 * Governance regression lock implemented via `scripts/validate-governance.(sh|ps1)` and enforced in CI.
