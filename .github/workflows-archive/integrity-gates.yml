@@ -1,0 +1,29 @@
+name: Integrity Gates
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  integrity:
+    name: Integrity Checks
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Check for Merge Markers
+        run: node scripts/check-merge-markers.mjs
+        
+      - name: Check JSON Syntax
+        run: node scripts/check-json-parse.mjs
+        
+      - name: Methodology Adoption Gate
+        run: npm run validate:methodology-adoption
