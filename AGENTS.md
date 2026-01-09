@@ -1,4 +1,17 @@
 # Project Mission
+
+> [!CAUTION]
+> **MULTI-AGENT GOVERNANCE (IRON LAW)**
+> **Scope:** Antigravity, Cursor, Claude Code, Windsurf & Humans.
+> 
+> 1. **PERSISTENCE**: If you mark a document/agreement as **SEALED**, **CLOSED**, **DEPRECATED**, or **APPROVED**, you **MUST**:
+>    - **Commit** immediately.
+>    - **Push** to `origin` immediately.
+>    *Rationale: No agreement exists unless it is immutable in the Remote Repository.*
+> 
+> 2. **CONTEXT**: Always check `git status` and `git log` before acting to respect work by other agents in the ecosystem.
+
+This project is a **VibeThink Orchestrator 1.0** (codenamed **ViTo**).
 This project is a **VibeThink Orchestrator 1.0** (codename: **ViTo**) - an Enterprise SaaS Platform with AI Integration featuring multiple dashboard systems for different purposes.
 
 ## 🚀 QUICK START FOR NEW AI AGENTS

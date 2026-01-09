@@ -1,6 +1,13 @@
 # ============================================================================
 # VIBETHINK ORCHESTRATOR 1.0 - AI AGENT CONFIGURATION
 # ============================================================================
+
+# 🚨 MULTI-AGENT GOVERNANCE (IRON LAW)
+# Scope: Antigravity, Cursor, Claude Code, Windsurf & Humans
+# 1. PERSISTENCE: If you SEAL/CLOSE/APPROVE a doc/agreement, you MUST:
+#    a) Commit immediately. b) Push to origin immediately.
+#    RATIONALE: No agreement exists unless it is immutable in Remote.
+# 2. CONTEXT: Check `git status`/`git log` before acting. Respect other agents.
 # Inherits from: _vibethink-dev-kit
 # Last updated: 2025-12-16
 # ============================================================================
