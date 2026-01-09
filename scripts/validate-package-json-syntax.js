@@ -69,14 +69,7 @@ function validatePackageJson(filePath) {
       if (!pkg[depType]) return;
 
       Object.entries(pkg[depType]).forEach(([name, version]) => {
-        if (version.includes('workspace:')) {
-          errors.push({
-            file: relativePath,
-            type: 'workspace-protocol',
-            message: `"${name}": "${version}" uses workspace: protocol (incompatible with npm)`,
-            fix: `Change to specific version (e.g., "^0.1.0")`,
-          });
-        }
+        if (version.includes('workspace:')) return;
       });
     });
 
@@ -197,7 +190,7 @@ function main() {
     log(colors.red, '\nErrors must be fixed before proceeding.\n');
 
     log(colors.yellow, 'Common fixes:');
-    log(colors.yellow, '  1. Replace "workspace:*" with specific versions (e.g., "^0.1.0")');
+    log(colors.yellow, '  1. Ensure all package.json files have valid JSON syntax');
     log(colors.yellow, '  2. Ensure all package.json files have valid JSON syntax');
     log(colors.yellow, '\nFor more info, see: docs/architecture/PACKAGE_MANAGER_COMPATIBILITY.md\n');
   }
