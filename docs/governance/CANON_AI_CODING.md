@@ -152,7 +152,7 @@ YOLO = "You Only Live Once" coding. Making changes without:
 ### Before Starting Any Task
 
 ```
-1. READ: docs/canon/00_CANON_INDEX.md
+1. READ: docs/canon-drafts-es/00_CANON_INDEX_es.md (Spanish Draft)
 2. READ: AGENTS.md (project rules)
 3. CHECK: docs/fits/FIT_INDEX.md (what's allowed to claim)
 4. CHECK: docs/registry/METHODOLOGY_REGISTRY.md (allowed patterns)

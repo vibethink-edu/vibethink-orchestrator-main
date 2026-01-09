@@ -18,6 +18,10 @@
         },
         "clean": {
             "cache": false
-        }
+        },
+        "type-check": {},
+        "test": {},
+        "format:check": {},
+        "format:write": {}
     }
 }

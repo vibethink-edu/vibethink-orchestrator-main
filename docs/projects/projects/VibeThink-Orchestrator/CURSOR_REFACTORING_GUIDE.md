@@ -13,7 +13,7 @@ Esta guía te ayudará a mantener las reglas Cursor alineadas cuando hagas cambi
 
 1. **Documenta el cambio:**
    ```typescript
-   // Escribe: xtp-task
+   // Escribe: vtk-task
    const refactorTask = {
      id: 'REFACTOR-001',
      title: 'Refactorizar estructura de apps',
@@ -159,7 +159,7 @@ const updateCursorRules = {
   
   updateSnippets: (oldName, newName) => {
     // Actualiza snippets en .cursor/snippets/
-    const snippetsPath = '.cursor/snippets/xtp-1.0-snippets.json';
+    const snippetsPath = '.cursor/snippets/vtk-1.0-snippets.json';
     const snippets = JSON.parse(fs.readFileSync(snippetsPath, 'utf8'));
     
     // Actualizar ejemplos en snippets

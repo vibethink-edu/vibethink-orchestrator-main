@@ -1,4 +1,4 @@
-name: KPI Automation - CMMI v3 + XTP + AIPAIR
+name: KPI Automation - CMMI v3 + VTK + AIPAIR
 
 on:
   schedule:

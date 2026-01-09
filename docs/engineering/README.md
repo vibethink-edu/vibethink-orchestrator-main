@@ -31,4 +31,12 @@ These contracts are mandatory for their respective domains but are not part of t
 - **[Git Daily Checklist](./GIT_DAILY_CHECKLIST.md)**
 
 ---
+
+## 📜 Legacy Methodology Note (DEPRECATED)
+
+- **XTP v4.6 / XTR**: These methodologies are hereby declared **LEGACY / DEPRECATED**. They are no longer applicable to current or future development. 
+- All active standards are defined by the **Canon**, **Runtime Canon**, and enforceable **Engineering & UX Contracts**.
+- No further migration or consideration of XTP is required.
+
+---
 *Status: Engineering Quality Enforcement Layer.*

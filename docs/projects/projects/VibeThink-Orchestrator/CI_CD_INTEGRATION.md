@@ -6,7 +6,7 @@
 ---
 
 ## 🎯 Casos de Uso para este Proyecto
-- **Validación automática de cumplimiento metodológico** (XTP, CMMI) en cada push o pull request.
+- **Validación automática de cumplimiento metodológico** (VTK 1.0, CMMI) en cada push o pull request.
 - **Evaluación de la colaboración humano-IA** mediante indicadores VibeThink (no como metodología).
 - **Evidencia automática para auditoría**: cada ejecución genera un reporte trazable.
 - **Prevención de errores metodológicos**: bloquea merges si la alineación baja de cierto umbral.
@@ -17,8 +17,8 @@
 
 ---
 
-## 🏛️ Metodologías validadas
-- **XTP (Extreme Traceable Programming)**
+## 🏛️ Metodologías validadas (Vigentes)
+- **VTK 1.0 (VibeThink Knowledge)**
 - **CMMI v3 (Capability Maturity Model Integration)**
 
 ## 🤖 Paradigma de Colaboración Evaluado
@@ -29,7 +29,7 @@
 ---
 
 ## 🚦 ¿Qué se valida y reporta?
-- **Score de cumplimiento:** Solo XTP y CMMI.
+- **Score de cumplimiento:** Solo VTK 1.0 y CMMI.
 - **Indicadores de colaboración:** Métricas de handoff, balance humano-IA, eficiencia, etc. (VibeThink).
 
 ---
@@ -38,7 +38,7 @@
 
 ```yaml
 cumplimiento_metodologico:
-  xtp: "9/9"
+  vtk10: "9/9"
   cmmi: "9/9"
   score_total: "18/18"
   nivel: "EXCELENTE"
@@ -115,9 +115,9 @@ jobs:
 
 ## ❓ FAQs por Categoría
 
-### Metodologías (XTP, CMMI)
+### Metodologías (VTK 1.0, CMMI)
 - **¿Qué se valida como cumplimiento metodológico?**
-  - Solo XTP y CMMI. Se revisan prácticas, evidencias, roles y procesos.
+  - Solo VTK 1.0 y CMMI. Se revisan prácticas, evidencias, roles y procesos.
 - **¿Puedo personalizar los umbrales de score?**
   - Sí, ajusta el script según tus necesidades.
 

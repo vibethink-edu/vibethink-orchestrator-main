@@ -13,7 +13,7 @@ Esta guía te ayudará a usar Cursor IDE de manera eficiente con las reglas VTK 
 
 1. **Usa el snippet de sesión:**
    ```typescript
-   // Escribe: xtp-session
+   // Escribe: vtk-session
    // Cursor te autocompletará:
    const sessionInfo = {
      fecha: "DD-MM-YYYY",
@@ -39,7 +39,7 @@ Esta guía te ayudará a usar Cursor IDE de manera eficiente con las reglas VTK 
 
 ### **1. Crear Componente VTK 1.0**
 ```typescript
-// Escribe: xtp-component
+// Escribe: vtk-component
 // Cursor te generará un componente con:
 // - Validación de permisos
 // - Multi-tenant security
@@ -49,7 +49,7 @@ Esta guía te ayudará a usar Cursor IDE de manera eficiente con las reglas VTK 
 
 ### **2. Query Multi-tenant**
 ```typescript
-// Escribe: xtp-query
+// Escribe: vtk-query
 // Cursor te generará:
 // - Filtrado por company_id
 // - Validación de RLS policies
@@ -58,7 +58,7 @@ Esta guía te ayudará a usar Cursor IDE de manera eficiente con las reglas VTK 
 
 ### **3. Test Template**
 ```typescript
-// Escribe: xtp-test
+// Escribe: vtk-test
 // Cursor te generará tests para:
 // - Company isolation
 // - Role-based access
@@ -67,7 +67,7 @@ Esta guía te ayudará a usar Cursor IDE de manera eficiente con las reglas VTK 
 
 ### **4. Task Management**
 ```typescript
-// Escribe: xtp-task
+// Escribe: vtk-task
 // Cursor te generará una tarea con:
 // - Nivel de complejidad
 // - Criterios de aceptación
@@ -77,7 +77,7 @@ Esta guía te ayudará a usar Cursor IDE de manera eficiente con las reglas VTK 
 
 ### **5. Git Commit VTK**
 ```bash
-# Escribe: xtp-commit
+# Escribe: vtk-commit
 # Cursor te generará un commit con:
 # - Formato estándar
 # - Información de compliance
@@ -375,13 +375,13 @@ const data = await fetchData(); // Sin error handling
 
 ### **1. Iniciar Sesión:**
 ```typescript
-// Escribe: xtp-session
+// Escribe: vtk-session
 // Completa la información de sesión
 ```
 
 ### **2. Crear Componente:**
 ```typescript
-// Escribe: xtp-component
+// Escribe: vtk-component
 // Cursor te generará el template completo
 ```
 
@@ -394,19 +394,19 @@ const data = await fetchData(); // Sin error handling
 
 ### **4. Escribir Tests:**
 ```typescript
-// Escribe: xtp-test
+// Escribe: vtk-test
 // Cursor te generará tests completos
 ```
 
 ### **5. Documentar:**
 ```typescript
-// Escribe: xtp-docs
+// Escribe: vtk-docs
 // Cursor te generará documentación VTK
 ```
 
 ### **6. Commit:**
 ```bash
-# Escribe: xtp-commit
+# Escribe: vtk-commit
 # Cursor te generará commit con compliance
 ```
 

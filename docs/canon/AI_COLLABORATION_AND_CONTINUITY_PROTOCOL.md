@@ -377,7 +377,7 @@ rg "@provenance" --type ts
 
 - `CRITICAL_DEPENDENCY_GOVERNANCE.md` (Distance model, governance rules)
 - `02_AI_FIRST_3_LAYER_ARCHITECTURE.md` (Memory → Reasoning → UX)
-- `00_CANON_INDEX.md` (Canon registry)
+- `../canon-drafts-es/00_CANON_INDEX_es.md` (Canon registry - Spanish Draft)
 
 ## Related FITs
 

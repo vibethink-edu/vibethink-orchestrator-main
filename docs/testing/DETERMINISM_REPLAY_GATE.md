@@ -7,6 +7,27 @@
 Ensure determinism and replayability for Reasoning Orchestrator traces:
 Given the same Signal + same evidence snapshot + same versions, outputs and effects must match.
 
+## 3-Minute Local Run (Quick Start)
+Prereqs:
+- Node.js >= 18 (see `package.json` engines)
+- Run from repo root
+
+PowerShell:
+```powershell
+node scripts/determinism/verify-trace-completeness.js tests/fixtures/determinism/trace-good.json
+node scripts/determinism/verify-trace-completeness.js tests/fixtures/determinism/trace-bad.json
+node --test tests/determinism/trace-completeness.test.js
+node scripts/determinism/replay-harness.js tests/fixtures/determinism/replay-input.json tests/fixtures/determinism/replay-output.json
+```
+
+bash:
+```bash
+node scripts/determinism/verify-trace-completeness.js tests/fixtures/determinism/trace-good.json
+node scripts/determinism/verify-trace-completeness.js tests/fixtures/determinism/trace-bad.json
+node --test tests/determinism/trace-completeness.test.js
+node scripts/determinism/replay-harness.js tests/fixtures/determinism/replay-input.json tests/fixtures/determinism/replay-output.json
+```
+
 ## Determinism Contract (Required Fields)
 - `signal_id`
 - `input_snapshot_hash`
@@ -23,30 +44,50 @@ Given the same Signal + same evidence snapshot + same versions, outputs and effe
 - Output: `effects`, `expected_output_hash`
 - Hashing: `expected_output_hash` is sha256 of stable JSON for output payload (excluding `expected_output_hash`)
 
-## Local Run
-- Determinism verify:
-  - `node scripts/determinism/verify-trace-completeness.js tests/fixtures/determinism/trace-good.json`
-- Determinism tests:
-  - `node --test tests/determinism/trace-completeness.test.js`
-- Replay harness stub:
-  - `node scripts/determinism/replay-harness.js tests/fixtures/determinism/replay-input.json tests/fixtures/determinism/replay-output.json`
+## PASS / FAIL Signals
+PASS:
+- Good fixture prints `Trace completeness check passed.`
+- Bad fixture exits non-zero (expected failure)
+- `node --test` reports `pass` for both tests
+- Replay harness prints `Replay harness stub passed.`
+
+FAIL:
+- Missing or invalid required fields in trace records
+- Bad fixture unexpectedly passes
+- Missing scripts or incorrect paths
+- Replay output hash mismatch or input/output hash mismatch
 
 ## CI Run
 The workflow `.github/workflows/quality-gate-determinism.yml` runs:
-- Lint, type-check, test
 - Trace completeness verification (good fixture must pass, bad fixture must fail)
 - Replay harness stub
 
-## PASS Criteria
-- Trace completeness verifier passes on good fixture
-- Verifier fails on bad fixture
-- Tests pass
-- Replay harness stub passes
+Expected jobs:
+- Determinism checks only (no lint/type-check/test in this workflow)
 
-## FAIL Criteria
-- Any missing required trace fields
-- Verifier unexpectedly passes on bad fixture
-- Missing scripts or incorrect paths
+## Troubleshooting
+Node version:
+- Check: `node -v`
+- Fix: install Node.js >= 18, then retry Quick Start commands.
+
+Missing scripts or wrong paths:
+- Ensure you are in repo root: `git rev-parse --show-toplevel`
+- Confirm files exist:
+  - `scripts/determinism/verify-trace-completeness.js`
+  - `scripts/determinism/replay-harness.js`
+  - `tests/determinism/trace-completeness.test.js`
+  - `tests/fixtures/determinism/trace-good.json`
+  - `tests/fixtures/determinism/trace-bad.json`
+
+Replay hash mismatch:
+- Recompute expected output hash from `tests/fixtures/determinism/replay-output.json` (excluding `expected_output_hash`)
+- Ensure `tests/fixtures/determinism/replay-input.json` and output use the same `expected_output_hash`
+
+GitHub Actions:
+- Check the workflow run for `Quality Gate - Determinism` on `main`
+- Validate steps:
+  - Verify trace completeness (good/bad)
+  - Replay harness stub
 
 ## Lessons Learned (Enforced)
 - No missing scripts: all scripts referenced by CI are versioned

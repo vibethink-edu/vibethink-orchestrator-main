@@ -10,7 +10,7 @@
 
 ### **Inicio de Sesión**
 ```bash
-# Escribe: xtp-session
+# Escribe: vtk-session
 const sessionInfo = {
   fecha: "DD-MM-YYYY",
   participante: "Tu nombre",
@@ -21,7 +21,7 @@ const sessionInfo = {
 
 ### **Crear Componente**
 ```bash
-# Escribe: xtp-component
+# Escribe: vtk-component
 const ComponentName: React.FC<ComponentProps> = ({ prop1, prop2 }) => {
   const { hasPermission } = useAuth();
   
@@ -41,7 +41,7 @@ export default React.memo(ComponentName);
 
 ### **Query Multi-tenant**
 ```bash
-# Escribe: xtp-query
+# Escribe: vtk-query
 const { data, error } = await supabase
   .from('table_name')
   .select('*')
@@ -55,7 +55,7 @@ if (error) {
 
 ### **Test Template**
 ```bash
-# Escribe: xtp-test
+# Escribe: vtk-test
 describe('ComponentName', () => {
   it('should render correctly', () => {
     // Test implementation
@@ -73,7 +73,7 @@ describe('ComponentName', () => {
 
 ### **Task Management**
 ```bash
-# Escribe: xtp-task
+# Escribe: vtk-task
 const task = {
   id: 'TASK-001',
   title: 'Task title',
@@ -88,7 +88,7 @@ const task = {
 
 ### **Git Commit**
 ```bash
-# Escribe: xtp-commit
+# Escribe: vtk-commit
 git commit -m "feat(scope): description
 
 - Implements feature
@@ -329,13 +329,13 @@ npm run test:watch
 
 ### **1. Iniciar Sesión**
 ```bash
-# Escribe: xtp-session
+# Escribe: vtk-session
 # Completa la información
 ```
 
 ### **2. Crear Componente**
 ```bash
-# Escribe: xtp-component
+# Escribe: vtk-component
 # Personaliza según necesidades
 ```
 
@@ -348,19 +348,19 @@ npm run test:watch
 
 ### **4. Testear**
 ```bash
-# Escribe: xtp-test
+# Escribe: vtk-test
 # Ejecuta tests
 ```
 
 ### **5. Documentar**
 ```bash
-# Escribe: xtp-docs
+# Escribe: vtk-docs
 # Actualiza documentación
 ```
 
 ### **6. Commit**
 ```bash
-# Escribe: xtp-commit
+# Escribe: vtk-commit
 # Push y deploy
 ```
 
