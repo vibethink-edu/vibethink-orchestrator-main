@@ -29,9 +29,11 @@ A FIT is an **objective, executable validation** that determines if an architect
 | [FIT-004](#fit-004) | "Trace Logging" | ❌ FAIL | **HIGH** — No auditability |
 | [FIT-005](#fit-005) | "Shell vs Content Enforcement" | ✅ PASS | None |
 | [FIT-006](#fit-006) | "Core + Domain Pack Contract" | ⚠️ PARTIAL | Minor — Foundation exists |
+| [FIT-DOCUMENT-INTELLIGENCE-001](./FIT-DOCUMENT-INTELLIGENCE-001.md) | "Document Intelligence Service" | 📋 PROPOSED | Vertical FIT — Awaiting implementation |
 
-**Overall**: 1.5 / 6 FITs passing (25%)  
-**Blockers**: FIT-001, FIT-002 must pass before "Operational Brain" claim
+**Overall**: 1.5 / 7 FITs (21% passing, 1 proposed)  
+**Blockers**: FIT-001, FIT-002 must pass before "Operational Brain" claim  
+**Proposed**: FIT-DOCUMENT-INTELLIGENCE-001 (Document Intelligence vertical)
 
 ---
 
