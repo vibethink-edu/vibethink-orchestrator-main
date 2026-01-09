@@ -178,7 +178,7 @@ export function initializeDocumentIntelligence(config: ModuleConfig): DocumentIn
     const extractionService = new ExtractionService();
 
     const reviewService = new ReviewService(
-        config.persistenceAdapter as any, // TODO: Fix type
+        config.persistenceAdapter as unknown as IReviewPersistenceAdapter,
         config.auditService
     );
 

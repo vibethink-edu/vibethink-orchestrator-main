@@ -9,19 +9,22 @@
  * @module document-intelligence/tests/rls-tenant-context
  */
 
-import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { SupabasePersistenceAdapter, PersistenceError } from '../infra/persistence.adapter.js';
+import { describe, it, expect, vi } from 'vitest';
+import { SupabasePersistenceAdapter } from '../infra/persistence.adapter.js';
+import {
+    createMockSupabaseClient,
+    createMockRpcFailure,
+    createMockRpcSuccess,
+    createMockQueryBuilder,
+} from './_mocks/supabase.js';
 
 describe('RLS Tenant Context', () => {
     describe('Fail-Fast Enforcement', () => {
         it('should throw if tenant context cannot be set', async () => {
             // Mock Supabase client to fail on set_config
-            const mockSupabase = {
-                rpc: vi.fn(() => Promise.resolve({
-                    error: { message: 'RPC failed' },
-                })),
-                from: vi.fn(),
-            } as any;
+            const mockSupabase = createMockSupabaseClient({
+                rpc: createMockRpcFailure('RPC failed'),
+            });
 
             const adapter = new SupabasePersistenceAdapter(mockSupabase);
 
@@ -52,12 +55,10 @@ describe('RLS Tenant Context', () => {
         it('should NOT execute DB operations if tenant context fails', async () => {
             // Mock Supabase client to fail on set_config
             const mockFrom = vi.fn();
-            const mockSupabase = {
-                rpc: vi.fn(() => Promise.resolve({
-                    error: { message: 'RPC failed' },
-                })),
+            const mockSupabase = createMockSupabaseClient({
+                rpc: createMockRpcFailure('RPC failed'),
                 from: mockFrom,
-            } as any;
+            });
 
             const adapter = new SupabasePersistenceAdapter(mockSupabase);
 
@@ -91,13 +92,11 @@ describe('RLS Tenant Context', () => {
     describe('Transaction Isolation (is_local=true)', () => {
         it('should use is_local=true for tenant context', async () => {
             // Mock Supabase client to succeed on set_config
-            const mockRpc = vi.fn(() => Promise.resolve({ error: null }));
-            const mockSupabase = {
+            const mockRpc = createMockRpcSuccess();
+            const mockSupabase = createMockSupabaseClient({
                 rpc: mockRpc,
-                from: vi.fn(() => ({
-                    insert: vi.fn(() => Promise.resolve({ error: null })),
-                })),
-            } as any;
+                from: vi.fn(() => createMockQueryBuilder({ data: null, error: null })),
+            });
 
             const adapter = new SupabasePersistenceAdapter(mockSupabase);
 
@@ -127,13 +126,11 @@ describe('RLS Tenant Context', () => {
     describe('Multi-Tenant Isolation', () => {
         it('should set different tenant contexts for different operations', async () => {
             // Mock Supabase client
-            const mockRpc = vi.fn(() => Promise.resolve({ error: null }));
-            const mockSupabase = {
+            const mockRpc = createMockRpcSuccess();
+            const mockSupabase = createMockSupabaseClient({
                 rpc: mockRpc,
-                from: vi.fn(() => ({
-                    insert: vi.fn(() => Promise.resolve({ error: null })),
-                })),
-            } as any;
+                from: vi.fn(() => createMockQueryBuilder({ data: null, error: null })),
+            });
 
             const adapter = new SupabasePersistenceAdapter(mockSupabase);
 

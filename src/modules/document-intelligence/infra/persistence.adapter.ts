@@ -487,7 +487,7 @@ export class SupabasePersistenceAdapter implements IPersistenceAdapter, IReviewP
         }
 
         for (const [flag_name, flag_data] of Object.entries(flags)) {
-            if ((flag_data as any).detected) {
+            if (typeof flag_data === 'object' && flag_data !== null && 'detected' in flag_data && flag_data.detected) {
                 reasons.push(`${flag_name} detected`);
             }
         }

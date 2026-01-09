@@ -10,25 +10,15 @@
  */
 
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { DocumentIntelligenceRoutes, ApiError } from '../api/routes.js';
-import type { SupabaseClient } from '@supabase/supabase-js';
+import { DocumentIntelligenceRoutes, ApiError, type UploadedFile } from '../api/routes.js';
+import { createMockSupabaseClient, createMockQueryBuilder } from './_mocks/supabase.js';
 
 describe('Document Intelligence API Routes', () => {
     let routes: DocumentIntelligenceRoutes;
-    let mockSupabase: SupabaseClient;
 
     beforeEach(() => {
-        // Mock Supabase client
-        mockSupabase = {
-            from: vi.fn(() => ({
-                select: vi.fn(() => ({
-                    eq: vi.fn(() => ({
-                        single: vi.fn(() => Promise.resolve({ data: null, error: null })),
-                    })),
-                })),
-                insert: vi.fn(() => Promise.resolve({ error: null })),
-            })),
-        } as any;
+        // Mock Supabase client with strictly typed mocks
+        const mockSupabase = createMockSupabaseClient();
 
         // Create routes instance
         routes = new DocumentIntelligenceRoutes(mockSupabase, {
@@ -41,7 +31,7 @@ describe('Document Intelligence API Routes', () => {
         it('should reject request without API key', async () => {
             await expect(
                 routes.ingestDocument({
-                    apiKey: undefined as any,
+                    apiKey: '', // Empty string instead of undefined
                     file: createMockFile(),
                     document_profile_id: 'profile-123',
                 })
@@ -49,7 +39,7 @@ describe('Document Intelligence API Routes', () => {
 
             try {
                 await routes.ingestDocument({
-                    apiKey: undefined as any,
+                    apiKey: '',
                     file: createMockFile(),
                     document_profile_id: 'profile-123',
                 });
@@ -156,8 +146,9 @@ describe('Document Intelligence API Routes', () => {
             // Note: This will fail in actual execution due to missing dependencies,
             // but validates the validation logic
             expect(() => {
-                // @ts-ignore - Private method access for testing
-                routes.validateFile(validFile);
+                // Access private method for testing (type-safe way)
+                const routesWithPrivate = routes as unknown as { validateFile: (file: UploadedFile) => void };
+                routesWithPrivate.validateFile(validFile);
             }).not.toThrow();
         });
     });
@@ -171,30 +162,27 @@ describe('Document Intelligence API Routes', () => {
 
         it('should return 404 for job from different tenant', async () => {
             // Mock: Job exists but belongs to different tenant
-            mockSupabase.from = vi.fn(() => ({
-                select: vi.fn(() => ({
-                    eq: vi.fn(() => ({
-                        eq: vi.fn(() => ({
-                            is: vi.fn(() => ({
-                                single: vi.fn(() => Promise.resolve({
-                                    data: null,
-                                    error: { code: 'PGRST116' }, // Not found
-                                })),
-                            })),
-                        })),
-                    })),
+            const mockSupabase = createMockSupabaseClient({
+                from: vi.fn(() => createMockQueryBuilder({
+                    data: null,
+                    error: { code: 'PGRST116', message: 'Not found' }, // Not found
                 })),
-            })) as any;
+            });
+
+            const routesWithMock = new DocumentIntelligenceRoutes(mockSupabase, {
+                bucket: 'test-bucket',
+                region: 'us-east-1',
+            });
 
             await expect(
-                routes.getJobStatus({
+                routesWithMock.getJobStatus({
                     apiKey: 'test-key',
                     job_id: 'job-from-other-tenant',
                 })
             ).rejects.toThrow(ApiError);
 
             try {
-                await routes.getJobStatus({
+                await routesWithMock.getJobStatus({
                     apiKey: 'test-key',
                     job_id: 'job-from-other-tenant',
                 });
@@ -248,12 +236,7 @@ describe('Document Intelligence API Routes', () => {
 
 // ========== HELPERS ==========
 
-function createMockFile(overrides?: Partial<{
-    originalname: string;
-    mimetype: string;
-    size: number;
-    buffer: Buffer;
-}>): any {
+function createMockFile(overrides?: Partial<UploadedFile>): UploadedFile {
     return {
         originalname: 'test.pdf',
         mimetype: 'application/pdf',
