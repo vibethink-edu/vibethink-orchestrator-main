@@ -68,16 +68,77 @@ To bridge the gap between high-level governance prohibitions (VGB-1) and actual 
 
 ## 3.5. Voice & Real-time Media
 
-### Voice Cloning & Synthesis
-*   **Primary**: **Cartesia** (preferred for low-latency, high-quality cloning).
-*   **Alternative**: **ElevenLabs** (fallback, broader voice library).
-*   **Rationale**: Both offer REST APIs, no vendor lock-in.
+### Voice Cloning & Synthesis (APPROVED)
+*   **Primary**: **Cartesia** (production-validated, exceptional results).
+    *   **Strengths**: Low latency, high quality, cost-effective.
+    *   **Use Cases**: Real-time voice synthesis, avatar audio streams, conversational AI.
+*   **Secondary**: **ElevenLabs** (fallback, broader voice library).
+    *   **Use Cases**: Pre-recorded content, voice library exploration, backup provider.
 
-### Real-time Communication (Under Evaluation)
-*   **LiveKit**: WebRTC infrastructure for voice/video (preferred for self-hosted control).
-*   **Retell**: Conversational AI phone calls (alternative, managed service).
-*   **Decision Pending**: Evaluate based on latency, cost, and control requirements.
-*   **Integration**: TypeScript client SDK, Python backend for AI processing.
+### Conversational AI Platform (RECOMMENDED)
+*   **Primary**: **ElevenLabs Conversational AI Platform**.
+    *   **Rationale**: 
+        - Sub-100ms latency (critical for avatar lip-sync).
+        - 32+ languages (multi-tenant global support).
+        - LLM flexibility (Claude, GPT, Gemini, Custom).
+        - Webhooks/Tools for backend integration.
+        - WebSocket API for real-time streaming.
+    *   **Integration**: TypeScript client → ElevenLabs WebSocket → Agno (Python) for reasoning.
+
+*   **Alternative**: **Retell AI** (specialized use cases).
+    *   **Use Cases**: 
+        - Outbound telephony (sales, collections, reminders).
+        - IVR navigation (legacy system integration).
+        - Warm call transfers with handoff messages.
+    *   **Limitation**: More telephony-focused, less omnichannel than ElevenLabs.
+
+### Avatar Generation (APPROVED)
+*   **Provider**: **Tavus PALs** (Personalized AI Lifelike avatars).
+    *   **Capabilities**: 
+        - Real-time lip-sync with audio streams (Cartesia/ElevenLabs).
+        - Omnichannel (chat, voice, video).
+        - Personalized avatars with memory and context.
+    *   **Integration Flow**:
+        ```
+        User Input → ElevenLabs/Agno (reasoning) → Cartesia (TTS) 
+        → Tavus (lip-sync + rendering) → WebRTC (frontend)
+        ```
+
+### Real-time Communication Infrastructure
+*   **WebRTC**: **LiveKit** (preferred for self-hosted control, voice/video streaming).
+*   **Telephony**: **Twilio** (SIP trunking, PSTN integration) or **Retell AI** (managed service).
+
+### Architecture Pattern: Provider-Agnostic (MANDATORY)
+Following the Document Intelligence model, Voice AI MUST implement provider abstraction:
+
+```typescript
+// src/modules/voice-ai/interfaces/voice-provider.interface.ts
+export interface IVoiceProvider {
+  cloneVoice(audioSample: Buffer, metadata: VoiceMetadata): Promise<VoiceId>;
+  synthesize(text: string, voiceId: string, options?: SynthesisOptions): Promise<AudioBuffer>;
+  getUsageMetrics(): Promise<UsageMetrics>;
+}
+
+// src/modules/voice-ai/interfaces/conversational-ai-provider.interface.ts
+export interface IConversationalAIProvider {
+  createAgent(config: AgentConfig): Promise<Agent>;
+  startConversation(agentId: string, context: ConversationContext): Promise<WebSocket>;
+  endConversation(conversationId: string): Promise<ConversationSummary>;
+}
+
+// Factory Pattern (no vendor lock-in)
+export class VoiceProviderFactory {
+  static create(provider: 'cartesia' | 'elevenlabs'): IVoiceProvider {
+    // Implementation
+  }
+}
+```
+
+**Benefits:**
+- Switch providers without code changes (config-driven).
+- A/B test providers per tenant.
+- Automatic fallback if primary provider fails.
+- Unified usage tracking across all providers.
 
 ---
 
@@ -228,7 +289,7 @@ Deviations from this standard require:
 
 | Version | Date | Changes |
 | :--- | :--- | :--- |
-| 1.0 | 2026-01-09 | Initial release. Formalized Supabase, BullMQ, Type Guards, pgvector. Drizzle ORM preferred (under review). Polyglot strategy (TypeScript + Python/Agno). Voice infrastructure (Cartesia/ElevenLabs, LiveKit/Retell under evaluation). |
+| 1.0 | 2026-01-09 | Initial release. Formalized Supabase, BullMQ, Type Guards, pgvector. Drizzle ORM preferred (under review). Polyglot strategy (TypeScript + Python/Agno). Voice infrastructure: Cartesia (primary), ElevenLabs Conversational AI, Tavus avatars. Provider-agnostic architecture (mandatory pattern). |
 
 ---
 
