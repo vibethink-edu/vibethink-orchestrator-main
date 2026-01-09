@@ -42,13 +42,13 @@
 
 ```bash
 # Validate your module before PR
-npm run i18n:validate
+pnpm run i18n:validate
 
 # Check for missing keys
-npm run i18n:missing-keys
+pnpm run i18n:missing-keys
 
 # Find hardcoded strings
-npm run i18n:find-hardcoded
+pnpm run i18n:find-hardcoded
 ```
 
 ### 🚫 Module Rejection
@@ -161,22 +161,22 @@ node scripts/sync-translations-structure.js
 
 ```bash
 # ✅ BEFORE making any changes
-npm run ai:before-changes
+pnpm run ai:before-changes
 
 # ✅ AFTER making changes
-npm run ai:after-changes
+pnpm run ai:after-changes
 
 # ✅ Test changes safely
-npm run ai:test-changes
+pnpm run ai:test-changes
 
 # ✅ Safe commit with validation
-npm run ai:safe-commit "your commit message"
+pnpm run ai:safe-commit "your commit message"
 
 # ✅ Recovery procedure
-npm run ai:recovery
+pnpm run ai:recovery
 
 # ✅ Check stability
-npm run ai:stability-check
+pnpm run ai:stability-check
 
 # ✅ Validate i18n concepts coherence
 node scripts/validate-concepts-coherence.js
@@ -249,7 +249,7 @@ node scripts/fix-concepts-coherence.js
 ### 5. TESTING RULES
 ```bash
 # ✅ MANDATORY: Always test after changes
-npm run dev  # ✅ MUST test server startup
+pnpm run dev  # ✅ MUST test server startup
 curl http://localhost:3001  # ✅ MUST test server response
 # ✅ MUST open browser and verify functionality
 
@@ -293,10 +293,10 @@ useEffect(() => {
 ### If Dependencies Break:
 ```bash
 # ✅ IMMEDIATE FIX: Clean install with exact versions
-npm cache clean --force
+pnpm cache clean --force
 Remove-Item -Recurse -Force node_modules, .next
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 ### If Theme Customizer Breaks:
@@ -357,22 +357,22 @@ git clone https://github.com/mescallo-edu/vibethink-orchestrator-main.git
 cd vibethink-orchestrator-main
 
 # Install dependencies
-npm install
+pnpm install
 
 # Validate stability rules
-npm run validate:stability
+pnpm run validate:stability
 
 # Validate i18n concepts (NEW)
 node scripts/validate-concepts-coherence.js
 
 # Start development server
-npm run dev
+pnpm run dev
 ```
 
 ### AI Development Workflow
 ```bash
 # 1. Before making changes
-npm run ai:before-changes
+pnpm run ai:before-changes
 
 # 2. Make your changes
 
@@ -380,13 +380,13 @@ npm run ai:before-changes
 node scripts/validate-concepts-coherence.js
 
 # 4. After making changes
-npm run ai:after-changes
+pnpm run ai:after-changes
 
 # 5. Test changes
-npm run ai:test-changes
+pnpm run ai:test-changes
 
 # 6. Safe commit
-npm run ai:safe-commit "feat: your feature description"
+pnpm run ai:safe-commit "feat: your feature description"
 ```
 
 ## 📁 Project Structure
@@ -446,9 +446,9 @@ vibethink-orchestrator-main/
 
 ### Validation Commands
 ```bash
-npm run validate:stability         # Full stability check
-npm run validate:vtk               # VThink-specific validation
-npm run ai:stability-check         # Quick stability check
+pnpm run validate:stability         # Full stability check
+pnpm run validate:vtk               # VThink-specific validation
+pnpm run ai:stability-check         # Quick stability check
 node scripts/validate-concepts-coherence.js  # i18n concepts check
 ```
 
@@ -467,10 +467,10 @@ node scripts/validate-concepts-coherence.js  # i18n concepts check
 **🚨 VIOLATION OF THESE RULES WILL CAUSE SYSTEM INSTABILITY 🚨**
 
 ## 🤖 AI Build & Execution Policy (Claude, Gemini, OpenAI)
-- NPM-only: no pnpm/yarn/bun
-- Dashboard build: ejecutar desde root con `npm run build:dashboard` (internamente: `cd apps/dashboard && npx --no-install next build`)
-- No ejecutar `next build` directamente dentro de apps
-- Dependencias solo en root; apps sin node_modules
+- **PNPM-only**: no npm/yarn/bun
+- Dashboard build: ejecutar desde root con `pnpm run build`
+- No ejecutar `pnpm build` directamente dentro de apps sin usar filter o Turbo
+- Dependencias gestionadas via Workspaces (`pnpm-workspace.yaml`)
 - Versiones exactas (sin ^ ni ~ ni latest)
 
 ---
@@ -486,13 +486,13 @@ node scripts/validate-concepts-coherence.js  # i18n concepts check
 ### **⚡ Quick Commands**
 ```bash
 # Validate dependency state
-npm run validate:npm-install
+pnpm run validate:npm-install
 
 # Fix duplications automatically
-npm run fix:npm-duplications
+pnpm run fix:npm-duplications
 
 # Complete validation
-npm run validate:universal
+pnpm run validate:universal
 
 # NEW: Validate i18n concepts
 node scripts/validate-concepts-coherence.js

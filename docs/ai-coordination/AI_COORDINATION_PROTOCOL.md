@@ -82,7 +82,7 @@ Any AI must complete this checklist before making changes:
 4. [ ] Check `globals.css` - CSS overrides for sidebar behavior
 
 #### **Validate Current State**
-1. [ ] Run `npm run dev` and verify sidebar functionality
+1. [ ] Run `pnpm run dev` and verify sidebar functionality
 2. [ ] Test Theme Customizer "Default" ↔ "Icon" mode switching
 3. [ ] Confirm header tools remain accessible during sidebar changes
 4. [ ] Verify no console errors in browser
@@ -90,7 +90,7 @@ Any AI must complete this checklist before making changes:
 ### **Phase 2: Work Continuation (Guidelines)**
 
 #### **Before Making Any Changes**
-- [ ] Run `npm run validate:ecosystem` to ensure current state is healthy
+- [ ] Run `pnpm run validate:ecosystem` to ensure current state is healthy
 - [ ] Read recent commit messages to understand latest work
 - [ ] Check if there are pending TODOs or known issues
 - [ ] Understand the user's specific request in context of existing work
@@ -104,7 +104,7 @@ Any AI must complete this checklist before making changes:
 #### **After Completing Work**
 - [ ] Update this coordination document with new state
 - [ ] Document any new patterns or decisions made
-- [ ] Ensure all scripts pass: `npm run validate:ecosystem`
+- [ ] Ensure all scripts pass: `pnpm run validate:ecosystem`
 - [ ] Update CLAUDE.md if new commands or patterns added
 
 ---
@@ -257,7 +257,7 @@ const NewComponent = () => {
 ### **When Bundui Updates Are Released**
 ```bash
 # Mandatory evaluation process
-npm run validate:bundui-compatibility
+pnpm run validate:bundui-compatibility
 
 # If conflicts detected:
 # 1. Document the conflict
@@ -295,17 +295,17 @@ npm run validate:bundui-compatibility
 ### **If An AI Seems Uncoordinated**
 1. **Stop immediately** - don't make changes without context
 2. **Read this entire document** - understand current state
-3. **Run validation** - `npm run validate:ecosystem`
+3. **Run validation** - `pnpm run validate:ecosystem`
 4. **Check git history** - understand recent changes
 5. **Ask for clarification** - if anything is unclear
 
 ### **Context Recovery Commands**
 ```bash
 # Validate current state
-npm run validate:ecosystem
+pnpm run validate:ecosystem
 
 # Check what's working
-npm run dev
+pnpm run dev
 
 # Review recent work
 git log --oneline -10

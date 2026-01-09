@@ -113,7 +113,7 @@ This document defines the **AI Coding Methodology** for Vibethink Vito (ViTo). I
 | Gate | Script | Trigger |
 |------|--------|---------|
 | Hardcoded strings | `check-hardcoding.js` | All PRs |
-| Lint warnings | `npm run lint` | All PRs |
+| Lint warnings | `pnpm run lint` | All PRs |
 
 ---
 
@@ -172,8 +172,8 @@ YOLO = "You Only Live Once" coding. Making changes without:
 ### After Task Completion
 
 ```
-1. RUN: npm run validate:fit-claims
-2. RUN: npm run validate:methodology-adoption
+1. RUN: pnpm run validate:fit-claims
+2. RUN: pnpm run validate:methodology-adoption
 3. CREATE: PR with clear description
 4. WAIT: For Human or Counter-Agent review
 5. DO NOT: Approve your own PR

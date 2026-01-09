@@ -10,8 +10,8 @@
 |--------|---------|------|
 | **Start** | `.\scripts\start-dashboard.ps1` | 3005 |
 | **Stop** | `.\scripts\stop-dashboard.ps1` | - |
-| **Build** | `npm run build:dashboard` | - |
-| **Dev** | `npm run dev:dashboard` | 3000 |
+| **Build** | `pnpm run build:dashboard` | - |
+| **Dev** | `pnpm run dev:dashboard` | 3000 |
 
 ## 📋 Inherit From
 

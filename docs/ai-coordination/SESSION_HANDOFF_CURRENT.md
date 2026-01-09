@@ -118,7 +118,7 @@
 4. **Documentation first** - Update docs with any changes
 
 ### **Validation Requirements**
-- Always run `npm run validate:ecosystem` before major changes
+- Always run `pnpm run validate:ecosystem` before major changes
 - Test Theme Customizer functionality after any sidebar modifications
 - Ensure header tools remain accessible during development
 - Verify no console errors in browser
@@ -158,18 +158,18 @@
 ### **Available Commands**
 ```bash
 # Core development
-npm run dev                    # Start development server
-npm run build                  # Production build
-npm run validate:ecosystem     # Complete validation
+pnpm run dev                    # Start development server
+pnpm run build                  # Production build
+pnpm run validate:ecosystem     # Complete validation
 
 # Testing (when implemented)
-npm run test:sidebar-innovations
-npm run test:header-sync
-npm run test:cross-app-compatibility
+pnpm run test:sidebar-innovations
+pnpm run test:header-sync
+pnpm run test:cross-app-compatibility
 
 # Deployment (when needed)
-npm run deploy:staging
-npm run deploy:blue-green
+pnpm run deploy:staging
+pnpm run deploy:blue-green
 ```
 
 ---
@@ -207,7 +207,7 @@ npm run deploy:blue-green
 
 ### **How Next AI Should Start**
 1. **Read the coordination protocol** (`AI_COORDINATION_PROTOCOL.md`)
-2. **Validate current state** (`npm run dev` + test functionality)
+2. **Validate current state** (`pnpm run dev` + test functionality)
 3. **Understand user request** in context of existing work
 4. **Choose appropriate next step** from recommended priorities
 5. **Follow VThink patterns** and maintain architectural consistency

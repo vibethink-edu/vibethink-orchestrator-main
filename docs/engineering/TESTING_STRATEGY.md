@@ -11,10 +11,10 @@
 
 ## 2) Default Pipeline
 Minimum required in CI:
-- `npm run lint`
-- `npm run type-check`
-- `npm run test`
-- `npm run build`
+- `pnpm run lint`
+- `pnpm run type-check`
+- `pnpm run test`
+- `pnpm run build`
 
 ## 3) Change-Based Testing
 - Docs-only change: author is not required to run runtime tests locally; CI still runs the full gate.

@@ -28,7 +28,7 @@ This repository uses GitHub Actions for continuous integration and deployment wi
 
 **Features**:
 - Concurrency control (cancels in-progress runs for same branch)
-- npm caching for faster installs
+- pnpm caching for faster installs
 - Artifact uploads (coverage, build output)
 - Timeout limits per job
 - `--if-present` flags (graceful degradation if scripts missing)
@@ -91,14 +91,14 @@ ci / build
 
 ```bash
 # Run all checks (same as CI)
-npm run lint
-npm run format
-npm run type-check
-npm run test
-npm run build
+pnpm run lint
+pnpm run format
+pnpm run type-check
+pnpm run test
+pnpm run build
 
 # Or use Turbo directly for parallel execution
-npx turbo run lint format type-check test build
+pnpm exec turbo run lint format type-check test build
 ```
 
 ### Pre-commit Hooks (Optional)
@@ -107,7 +107,7 @@ If using Husky (already configured in `.husky/`):
 
 ```bash
 # Install hooks
-npm install
+pnpm install
 
 # Hooks will run automatically on git commit
 ```
@@ -118,12 +118,12 @@ npm install
 
 The CI automatically detects the package manager:
 
-- **Current**: npm (detected via `package-lock.json`)
-- **Fallback**: If `pnpm-lock.yaml` exists, would use `pnpm`
+- **Current**: pnpm (detected via `pnpm-lock.yaml`)
+- **Fallback**: (Strict mode enabled)
 
 **Cache Strategy**:
 - Uses `actions/setup-node@v4` built-in caching
-- Cache key: `package-lock.json` hash
+- Cache key: `pnpm-lock.yaml` hash
 - Speeds up installs by ~60-80%
 
 ---
@@ -186,7 +186,7 @@ jobs:
 - uses: actions/setup-node@v4
   with:
     node-version: ${{ env.NODE_VERSION }}
-    # cache: npm  # Comment out
+    # cache: pnpm  # Comment out
 ```
 
 ### CodeQL Failing
@@ -207,7 +207,7 @@ continue-on-error: true
 Current optimizations:
 
 1. **Concurrency Control**: Cancels redundant runs
-2. **npm Caching**: Reuses dependencies across runs
+2. **pnpm Caching**: Reuses dependencies across runs
 3. **Turbo Caching**: Reuses build outputs (if configured)
 4. **Parallel Jobs**: Lint/format/typecheck run in parallel
 5. **Artifact Retention**: 7 days (reduces storage costs)
