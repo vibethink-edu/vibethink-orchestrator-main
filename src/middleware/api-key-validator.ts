@@ -13,10 +13,11 @@
  * Security:
  * - API keys NEVER stored in plain text (SHA-256 hash only)
  * - Multi-tenant isolation enforced
+ * - Timing-safe hash comparison (prevents timing attacks)
  * - Rate limits and cost limits checked
  */
 
-import { createHash } from 'crypto';
+import { createHash, timingSafeEqual } from 'crypto';
 import { createClient } from '@supabase/supabase-js';
 
 // ============================================================================
@@ -47,6 +48,7 @@ export interface ApiKeyMetadata {
     rate_limit_per_day: number;
     max_cost_per_day_cents: number | null;
     max_cost_per_month_cents: number | null;
+    key_hash: string;
 }
 
 // ============================================================================
@@ -134,20 +136,20 @@ function isExpired(expiresAt: string | null): boolean {
 }
 
 /**
- * Check rate limits (simplified - use Redis in production)
- * TODO: Implement with Redis sliding window counter
+ * Check rate limits (Phase 2 - requires Redis)
+ * Currently returns placeholder for Phase 1
  */
 async function checkRateLimit(
     keyId: string,
     limitPerMinute: number
 ): Promise<{ allowed: boolean; remaining: number }> {
-    // TODO: Implement with Redis
+    // Phase 2: Implement with Redis sliding window counter
     // For now, always allow (Phase 1 - basic implementation)
     return { allowed: true, remaining: limitPerMinute };
 }
 
 /**
- * Check cost limits (daily)
+ * Check cost limits (daily budget enforcement)
  */
 async function checkCostLimit(
     keyId: string,
@@ -210,24 +212,59 @@ export async function validateApiKey(
     // 2. Derive prefix and hash
     const { prefix, hash } = deriveKeyComponents(apiKey);
 
-    // 3. Lookup by hash (secure)
-    const { data: keyData, error: fetchError } = await supabase
+    // 3. Narrow candidates by prefix and status (NOT by hash - timing attack prevention)
+    const { data: candidates, error: fetchError } = await supabase
         .from('tenant_api_keys')
         .select('*')
-        .eq('key_hash', hash)
-        .eq('is_active', true)
-        .single();
+        .eq('key_prefix', prefix)
+        .eq('is_active', true);
 
-    if (fetchError || !keyData) {
+    if (fetchError) {
+        console.error('[API Key Validator] Database query failed:', {
+            error: fetchError.message,
+        });
+        return {
+            isValid: false,
+            error: 'API key validation failed',
+        };
+    }
+
+    if (!candidates || candidates.length === 0) {
         return {
             isValid: false,
             error: 'API key not found or inactive',
         };
     }
 
-    const keyMetadata = keyData as unknown as ApiKeyMetadata;
+    // 4. Timing-safe hash comparison (prevent timing attacks)
+    const providedHashBuffer = Buffer.from(hash, 'hex');
 
-    // 4. Check expiration
+    let keyData: ApiKeyMetadata | null = null;
+    for (const candidate of candidates) {
+        const storedHashBuffer = Buffer.from(candidate.key_hash, 'hex');
+
+        // Check length equality first (fast path)
+        if (storedHashBuffer.length !== providedHashBuffer.length) {
+            continue;
+        }
+
+        // Timing-safe comparison
+        if (timingSafeEqual(storedHashBuffer, providedHashBuffer)) {
+            keyData = candidate as unknown as ApiKeyMetadata;
+            break;
+        }
+    }
+
+    if (!keyData) {
+        return {
+            isValid: false,
+            error: 'API key not found or inactive',
+        };
+    }
+
+    const keyMetadata = keyData;
+
+    // 5. Check expiration
     if (isExpired(keyMetadata.expires_at)) {
         return {
             isValid: false,
@@ -235,7 +272,7 @@ export async function validateApiKey(
         };
     }
 
-    // 5. Check scope
+    // 6. Check scope
     if (!keyMetadata.scopes.includes(requiredScope)) {
         return {
             isValid: false,
@@ -243,7 +280,7 @@ export async function validateApiKey(
         };
     }
 
-    // 6. Check provider (if specified)
+    // 7. Check provider (if specified)
     if (provider && keyMetadata.allowed_providers.length > 0) {
         if (!keyMetadata.allowed_providers.includes(provider)) {
             return {
@@ -253,7 +290,7 @@ export async function validateApiKey(
         }
     }
 
-    // 7. Check model (if specified)
+    // 8. Check model (if specified)
     if (model && keyMetadata.allowed_models.length > 0) {
         if (!keyMetadata.allowed_models.includes(model)) {
             return {
@@ -263,7 +300,7 @@ export async function validateApiKey(
         }
     }
 
-    // 8. Check rate limits
+    // 9. Check rate limits (Phase 2)
     const rateLimitCheck = await checkRateLimit(
         keyMetadata.id,
         keyMetadata.rate_limit_per_minute
@@ -276,7 +313,7 @@ export async function validateApiKey(
         };
     }
 
-    // 9. Check cost limits
+    // 10. Check cost limits (budget-based)
     const costLimitCheck = await checkCostLimit(
         keyMetadata.id,
         keyMetadata.max_cost_per_day_cents
@@ -289,7 +326,7 @@ export async function validateApiKey(
         };
     }
 
-    // 10. Update last_used_at (async, don't wait)
+    // 11. Update last_used_at (async, don't wait)
     supabase
         .from('tenant_api_keys')
         .update({ last_used_at: new Date().toISOString() })
@@ -297,10 +334,10 @@ export async function validateApiKey(
         .then(() => { })
         .catch((err) => console.error('[API Key Validator] Failed to update last_used_at:', err));
 
-    // 11. Generate correlation ID (for tracing)
+    // 12. Generate correlation ID (for tracing)
     const correlationId = crypto.randomUUID();
 
-    // 12. Return success
+    // 13. Return success
     return {
         isValid: true,
         tenantId: keyMetadata.tenant_id,

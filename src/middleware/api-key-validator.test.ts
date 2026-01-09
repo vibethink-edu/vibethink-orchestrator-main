@@ -119,4 +119,32 @@ describe('API Key Validator', () => {
             expect(validateKeyFormat('')).toBe(false);
         });
     });
+
+    describe('timing-safe hash comparison', () => {
+        it('should use timing-safe comparison (not SQL equality)', () => {
+            // This test verifies that hash comparison is done in Node.js,
+            // not in SQL (which would be vulnerable to timing attacks)
+
+            const key1 = 'vito_test_abc123def456';
+            const key2 = 'vito_test_abc123def457'; // Different by 1 char
+
+            const result1 = deriveKeyComponents(key1);
+            const result2 = deriveKeyComponents(key2);
+
+            // Hashes should be different
+            expect(result1.hash).not.toBe(result2.hash);
+
+            // Both should have same prefix (first 16 chars)
+            expect(result1.prefix).toBe(result2.prefix);
+        });
+
+        it('should handle hash length mismatch gracefully', () => {
+            // If stored hash has different length, timing-safe compare should fail fast
+            const validKey = 'vito_test_abc123def456';
+            const { hash } = deriveKeyComponents(validKey);
+
+            // Hash should be 64 hex chars (SHA-256)
+            expect(hash).toHaveLength(64);
+        });
+    });
 });

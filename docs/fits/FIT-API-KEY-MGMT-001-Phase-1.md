@@ -116,7 +116,8 @@ Implement a secure, scalable, multi-tenant API Key and Secrets Management system
 - ✅ API key can be validated with scope/provider/model checks.
 - ✅ Tenant secrets can be stored and retrieved securely.
 - ✅ Usage is tracked with tenant_id, key_id, scope, cost.
-- ✅ Rate limits and cost limits are enforced.
+- ✅ Cost limits are enforced (budget-based, daily enforcement via DB).
+- ⏳ Rate limits: Phase 2 (requires Redis distributed counters).
 
 ### Phase 2: Integration & UI (Week 3-4)
 **Deliverables:**
