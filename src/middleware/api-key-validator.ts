@@ -215,9 +215,10 @@ export async function validateApiKey(
     // 3. Narrow candidates by prefix and status (NOT by hash - timing attack prevention)
     const { data: candidates, error: fetchError } = await supabase
         .from('tenant_api_keys')
-        .select('*')
+        .select('id,tenant_id,key_name,key_hash,scopes,allowed_models,allowed_providers,is_active,expires_at,rate_limit_per_minute,rate_limit_per_day,max_cost_per_day_cents,max_cost_per_month_cents')
         .eq('key_prefix', prefix)
-        .eq('is_active', true);
+        .eq('is_active', true)
+        .limit(50); // Prevent prefix collision DoS
 
     if (fetchError) {
         console.error('[API Key Validator] Database query failed:', {
@@ -241,6 +242,14 @@ export async function validateApiKey(
 
     let keyData: ApiKeyMetadata | null = null;
     for (const candidate of candidates) {
+        // Validate hash format (must be 64 hex chars for SHA-256)
+        if (!candidate.key_hash || !/^[a-f0-9]{64}$/i.test(candidate.key_hash)) {
+            console.warn('[API Key Validator] Invalid hash format in DB:', {
+                keyId: candidate.id,
+            });
+            continue; // Skip invalid hash
+        }
+
         const storedHashBuffer = Buffer.from(candidate.key_hash, 'hex');
 
         // Check length equality first (fast path)
