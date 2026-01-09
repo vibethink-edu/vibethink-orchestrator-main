@@ -27,7 +27,7 @@ jobs:
           cache: npm
           cache-dependency-path: ${{ env.CACHE_DEPENDENCY_PATH }}
       - name: Install dependencies
-        run: npm install --frozen-lockfile --prefer-offline --no-audit
+        run: npm install --prefer-offline --no-audit
       - name: Run lint
         run: npm run lint --if-present
 
@@ -43,7 +43,7 @@ jobs:
           cache: npm
           cache-dependency-path: ${{ env.CACHE_DEPENDENCY_PATH }}
       - name: Install dependencies
-        run: npm install --frozen-lockfile --prefer-offline --no-audit
+        run: npm install --prefer-offline --no-audit
       - name: Run format check
         run: npm run format:check --if-present
 
@@ -59,7 +59,7 @@ jobs:
           cache: npm
           cache-dependency-path: ${{ env.CACHE_DEPENDENCY_PATH }}
       - name: Install dependencies
-        run: npm install --frozen-lockfile --prefer-offline --no-audit
+        run: npm install --prefer-offline --no-audit
       - name: Run typecheck
         run: npm run type-check --if-present
 
@@ -75,7 +75,7 @@ jobs:
           cache: npm
           cache-dependency-path: ${{ env.CACHE_DEPENDENCY_PATH }}
       - name: Install dependencies
-        run: npm install --frozen-lockfile --prefer-offline --no-audit
+        run: npm install --prefer-offline --no-audit
       - name: Run tests
         run: npm run test --if-present
         env:
@@ -101,7 +101,7 @@ jobs:
           cache: npm
           cache-dependency-path: ${{ env.CACHE_DEPENDENCY_PATH }}
       - name: Install dependencies
-        run: npm install --frozen-lockfile --prefer-offline --no-audit
+        run: npm install --prefer-offline --no-audit
       - name: Run build
         run: npm run build --if-present
         env:
