@@ -4,6 +4,7 @@
 **Type**: FUNCTIONAL_INTEGRATION_TEST  
 **Version**: 1.0.0  
 **Date**: 2026-01-09  
+**Phase**: 3 (Backlog & Planning)
 **Related Canon**: CANON-PERSISTENCE-001, CANON-EVENTS-001, ONTOLOGY_SPEC  
 
 ---
@@ -903,11 +904,28 @@ interface IntegrationBudget {
 - [ ] NO clinical UI elements
 
 ### Validation Tests
-- [ ] Test 1 (Multi-Tenant Isolation): PASS
-- [ ] Test 2 (Domain-Agnostic): PASS
-- [ ] Test 3 (OCR Immutability): PASS
-- [ ] Test 4 (Vendor Swap): PASS
-- [ ] Test 5 (Retention Policy): PASS
+### Validation Tests
+- [x] Test 1 (Multi-Tenant Isolation): PASS
+- [x] Test 2 (Domain-Agnostic): PASS
+- [x] Test 3 (OCR Immutability): PASS
+- [x] Test 4 (Vendor Swap): DEFERRED (Mock used)
+- [x] Test 5 (Retention Policy): DEFERRED (Mock used)
+
+## 12. Phase 3 Backlog (Planning)
+> **Goal:** Production Hardening & Non-Functional Requirements
+
+| ID | Task | Type | Description |
+|:---|:---|:---|:---|
+| **PH3-01** | **Google Vision Adapter** | Feat | Implement real `GoogleVisionAdapter` with credentials. |
+| **PH3-02** | **Cost Ledger Events** | Feat | Emit `cost.recorded` events for billing service. |
+| **PH3-03** | **Retention Worker** | Ops | Implement cron job to enforce `retention_days`. |
+| **PH3-04** | **Rate Limiter** | Ops | Move from in-memory to Redis-based limiter. |
+| **PH3-05** | **Audit Service** | Sec | Connect to real Audit Log (vs console.log). |
+| **PH3-06** | **Validator Schemas** | Feat | Add JSON Schema validation for `structured_data`. |
+| **PH3-07** | **Queue Dead Letter** | Ops | Configure BullMQ DLQ for failed jobs. |
+| **PH3-08** | **Signed URLs** | Sec | Implement real S3 presigned URLs for safe reads. |
+| **PH3-09** | **Webhooks** | Feat | Implement `webhook_url` delivery logic. |
+| **PH3-10** | **Dashboard V1** | UI | Build the internal technical dashboard. |
 
 ---
 
@@ -918,6 +936,8 @@ interface IntegrationBudget {
 - **ONTOLOGY_SPEC**: Canonical entities (Tenant, Workspace, Identity User)
 - **DB_NAMING_AND_RULES**: Multi-tenant isolation, naming conventions
 - **FIT-PERSISTENCE-ABSTRACTION-001**: Repository pattern
+- **API-CANON-001**: External API Standards
+- **API Reference**: `docs/api/v1/`
 
 ---
 
