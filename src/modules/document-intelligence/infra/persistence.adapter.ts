@@ -257,6 +257,29 @@ export class SupabasePersistenceAdapter implements IPersistenceAdapter, IReviewP
         }
     }
 
+    /**
+     * Delete all items for a job (idempotency support)
+     * 
+     * Used by worker to ensure retries don't create duplicates.
+     * Always deletes before inserting new batch.
+     * 
+     * @param tenant_id - Tenant ID
+     * @param job_id - Job ID
+     */
+    async deleteDocumentItemsByJobId(tenant_id: string, job_id: string): Promise<void> {
+        await this.setTenantContext(tenant_id);
+
+        const { error } = await this.supabase
+            .from('document_items')
+            .delete()
+            .eq('tenant_id', tenant_id)
+            .eq('document_job_id', job_id);
+
+        if (error) {
+            throw new PersistenceError(`Failed to delete items for job: ${error.message}`, error);
+        }
+    }
+
     // ========== HUMAN REVIEWS ==========
 
     /**

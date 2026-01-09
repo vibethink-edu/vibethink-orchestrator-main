@@ -168,19 +168,20 @@ export class DocumentIntelligenceWorker {
     }
 
     /**
-     * Persist items idempotently
-     * 
-     * Strategy: Delete existing items for this job + insert new ones.
-     * This ensures retries don't create duplicates.
-     */
+   * Persist items idempotently
+   * 
+   * Strategy: Delete existing items for this job + insert new ones.
+   * This ensures retries don't create duplicates.
+   */
     private async persistItemsIdempotent(
         tenant_id: string,
         job_id: string,
         items: CreateDocumentItemInput[]
     ): Promise<void> {
-        // TODO: Implement delete existing items
-        // For Phase 2, we assume first-time processing (no retries with partial success)
+        // 1) Always delete first: makes retries safe even after partial failures
+        await this.persistenceAdapter.deleteDocumentItemsByJobId(tenant_id, job_id);
 
+        // 2) Insert new batch (if any)
         if (items.length > 0) {
             await this.persistenceAdapter.createDocumentItems(items, tenant_id);
         }
