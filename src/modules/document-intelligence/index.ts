@@ -177,7 +177,23 @@ export function initializeDocumentIntelligence(config: ModuleConfig): DocumentIn
 
     const extractionService = new ExtractionService();
 
+    // Type Guard for Runtime Validation (Preventive)
+    function isReviewPersistenceAdapter(adapter: unknown): adapter is IReviewPersistenceAdapter {
+        const candidate = adapter as any;
+        return (
+            candidate &&
+            typeof candidate.getReviewById === 'function' &&
+            typeof candidate.createReview === 'function' &&
+            typeof candidate.updateReview === 'function' &&
+            typeof candidate.listPendingReviews === 'function'
+        );
+    }
+
     // Fail-fast checks for required adapters defined as optional in config for transition
+    if (config.reviewPersistenceAdapter && !isReviewPersistenceAdapter(config.reviewPersistenceAdapter)) {
+        throw new Error('DocumentIntelligence Module Initialization Failure: reviewPersistenceAdapter provided does not implement IReviewPersistenceAdapter interface correctly.');
+    }
+
     if (!config.reviewPersistenceAdapter) {
         throw new Error('DocumentIntelligence Module Initialization Failure: reviewPersistenceAdapter is required.');
     }
