@@ -39,8 +39,11 @@ La Ontología ViTo define entidades en singular (**Identity Entity**), mientras 
 | Tenant | `tenants` |
 | Workspace | `workspaces` |
 | Organization | `organizations` |
+| Organization Unit | `organization_units` |
 | Person | `persons` |
 | Identity User | `identity_users` |
+| Capability Activation | `capability_activations` |
+| Temporal Context | `temporal_contexts` |
 
 **Nota: `identity_users` se define como un Bridge Técnico Ontológico** que representa actores internos autenticados, distinto de la entidad `Person`.
 
@@ -115,6 +118,43 @@ Las relaciones cross-tenant están **PROHIBIDAS**. El enforcement ocurre a nivel
     CREATE POLICY tenant_isolation_policy ON cases
       USING (tenant_id = current_setting('app.current_tenant_id')::UUID);
     ```
+
+### Reference Implementation (PL/pgSQL)
+
+Para asegurar el aislamiento físico en relaciones donde no es viable el uso de FKs compuestas:
+
+```sql
+-- 1. Función de validación universal de Tenant
+CREATE OR REPLACE FUNCTION validate_tenant_fk()
+RETURNS TRIGGER AS $$
+DECLARE
+    parent_tenant_id UUID;
+BEGIN
+    -- Obtenemos el tenant_id del padre (ej: workspace_id)
+    -- TG_ARGV[0] es el nombre de la tabla padre, TG_ARGV[1] el FK col name
+    EXECUTE format('SELECT tenant_id FROM %I WHERE id = $1', TG_ARGV[0])
+    INTO parent_tenant_id
+    USING (CASE 
+        WHEN TG_ARGV[1] = 'workspace_id' THEN NEW.workspace_id 
+        WHEN TG_ARGV[1] = 'parent_id' THEN NEW.parent_id
+        ELSE NULL 
+    END);
+
+    IF (NEW.tenant_id != parent_tenant_id) THEN
+        RAISE EXCEPTION 'Cross-tenant violation: child tenant % does not match parent % tenant %', 
+            NEW.tenant_id, TG_ARGV[0], parent_tenant_id;
+    END IF;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- 2. Trigger aplicado a la tabla 'cases'
+CREATE TRIGGER trg_validate_case_tenant
+BEFORE INSERT OR UPDATE ON cases
+FOR EACH ROW
+EXECUTE FUNCTION validate_tenant_fk('workspaces', 'workspace_id');
+```
 
 ---
 

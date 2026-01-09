@@ -73,14 +73,29 @@ Eliminar el factor pánico de la operación en producción mediante flujos deter
 
 | Nivel | Impacto | Acción | Tiempo de Respuesta |
 | :--- | :--- | :--- | :--- |
-| **CRITICAL** | Sistema caído o fuga de datos multi-tenant. | Incidente + Rollback total. | Inmediato (< 15 min) |
+| **CRITICAL** | Sistema caído o fuga de datos multi-tenant. | Incidente + Rollback total. | Target: < 15 min (Best Effort) |
 | **HIGH** | Funcionalidad core rota para un grupo de usuarios. | Hotfix prioritario. | < 60 min |
 | **MEDIUM** | Degradación menor o bug estético. | Patch programado. | < 24 horas |
 | **LOW** | Mejora o sugerencia técnica. | Backlog / Next Release. | Próximo Ciclo |
 
 ---
 
-## 6. Reglas Anti-Pánico
+## 6. Database Migration Rollback Strategy
+
+### Filosofía: Migraciones Reversibles
+Toda migración de base de datos DEBE ser reversible por defecto. Los cambios destructivos (DROP, TRUNCATE) requieren aprobación del Technical Lead y backup previo verificado.
+
+### Procedimiento de Rollback
+1.  **Rollback de Código**: Revertir el binario/contenedor a la versión anterior.
+2.  **Rollback de Schema**: Ejecutar el script `down` (o rollback) correspondiente:
+    - `pnpm run db:rollback` (o comando equivalente que ejecute el paso inverso de la migración actual).
+3.  **Naming de Migraciones**: Sigue el patrón `YYYYMMDDHHMMSS_descriptive_name.sql` para asegurar orden y trazabilidad.
+4.  **Cambios Irreversibles**: En casos donde el rollback es técnicamente imposible (ej: limpieza de datos complejos), se requiere:
+    - Backup completo pre-cambio.
+    - Registro en el `CHANGELOG.md`.
+    - Aprobación explícita del *Principal Architect*.
+
+## 7. Reglas Anti-Pánico
 
 - 🛡️ **No Deploys on Fridays**: A menos que sea un Hotfix crítico (Severity High+).
 - 🛡️ **Logs over Guessing**: Nunca aplicar un fix basándose en "intuición". Requiere evidencia en logs o trazas de observabilidad.

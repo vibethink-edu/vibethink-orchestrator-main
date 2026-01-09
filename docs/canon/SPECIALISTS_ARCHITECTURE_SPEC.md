@@ -109,6 +109,12 @@ To ensure reliability, the Reasoning Runtime follows these rules:
 *   ❌ **Bypassing Approval**: Executing an `Effect` that modifies external state without an Approval/Workflow Gate.
 *   ❌ **Ontology Expansion**: Creating new domain entities (e.g., `RiskScoreObject`) instead of using `TraceRecord` metadata.
 
+### 5.4 Trace & Log Persistence
+The `trace_logs` represent the cognitive evidence of the Reasoning Runtime.
+- **Persistence Type**: Persistent Database Table (managed via migrations).
+- **Retention Policy**: Defined by `TRACE_RETENTION_AND_AUDIT_POLICY.md`.
+- **Primary Use**: Post-mortem audit, RLHF (Reinforcement Learning from Human Feedback), and regulatory compliance.
+
 ---
 
 ## 8. Summary of Components
@@ -119,6 +125,31 @@ To ensure reliability, the Reasoning Runtime follows these rules:
 | **Orchestrator** | Lifecycle Control | 2 | Runtime State Transitions |
 | **Approval Gate** | Governance | 2 | Validated Execution Rights |
 | **Effect Executor** | External Mutation | 2 | Changes to Layer 1 / External |
+
+---
+
+## 9. Approval Authority Matrix
+
+### 9.1 Approval Gate Governance
+
+| Effect Type | Impact Scope | Authority | Auto-Approval |
+| :--- | :--- | :--- | :--- |
+| **READ_ONLY_QUERY** | Meta-data / Analytics | Specialist (Self) | YES (Pre-defined) |
+| **SIGNAL_EMIT** | Internal Event Bus | Orchestrator | YES |
+| **TRUTH_MUTATION** | Single Tenant Entity | Workspace Admin | NO |
+| **SYSTEM_CONFIG** | Global / Multi-tenant | Platform Owner | NO |
+| **THIRD_PARTY_API** | External System | Account Owner | NO |
+
+### 9.2 Workflow Approval Policies
+- **Explicit Consent**: Any effect modifying financial or legal states requires MFA or explicit click-thru.
+- **Trace Linkage**: No approval can be granted without a valid `trace_id` link.
+- **M-of-N Approval**: Critical system changes may require 2-of-3 signatures from human principals.
+
+### 9.3 Prohibited Auto-Approvals
+- Mutation of `Case` or `Person` status.
+- External fund transfers.
+- Modification of Security Policies / RLS.
+- Bulk data exports.
 
 ---
 
