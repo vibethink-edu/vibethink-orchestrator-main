@@ -4,12 +4,18 @@
 ## What this API does
 The **Document Intelligence API** enables your application to programmatically submit documents (PDFs, Images) for automated structured data extraction. It converts unstructured documents into typed JSON data (e.g., medication lists, invoices, forms) using ViTo's proprietary extraction pipelines.
 
-## Authentication
+## Authentication & Access
 This API uses **API Keys** for authentication. You must include your key in the `x-api-key` header of every request.
 
 ```bash
 x-api-key: pk_prod_1234567890
 ```
+
+### Obtaining an API Key
+To obtain credentials for Production or Sandbox:
+1. Contact the **ViTo Platform Engineering Team** or your Account Manager.
+2. Request a key with the `documents:write` scope.
+3. Store the key securely (e.g., in AWS Secrets Manager).
 
 > **Security Note:** Never expose your API Key in client-side code (browsers, mobile apps). Always call this API from your backend server.
 
@@ -18,6 +24,15 @@ x-api-key: pk_prod_1234567890
 | :--- | :--- | :--- |
 | **Production** | `https://api.vito.ai/document-intelligence/v1` | Live environment with billing enabled. |
 | **Sandbox** | `https://api.sandbox.vito.ai/document-intelligence/v1` | Free testing environment. Data is not retained. |
+
+## Integration Models
+### Polling (Current)
+Version 1 supports **polling** for job status.
+1. Submit document -> Receive `job_id`.
+2. Poll `GET /documents/{job_id}` every 2-5 seconds.
+3. When status is `completed`, call `GET /documents/{job_id}/items`.
+
+> **Note:** Webhooks are not supported in v1. Please use the polling pattern with exponential backoff.
 
 ## Main Use Cases
 
@@ -76,8 +91,9 @@ curl -X GET https://api.sandbox.vito.ai/document-intelligence/v1/documents/550e8
 | **404** | `JOB_NOT_FOUND` | Creation failed or ID is wrong. | Check the `job_id`. |
 | **413** | `PAYLOAD_TOO_LARGE` | File exceeds limit (50MB). | Compress or split the document. |
 | **415** | `UNSUPPORTED_MEDIA` | Invalid MIME type. | Convert to PDF, PNG, or JPG. |
-| **429** | `RATE_LIMITED` | Too many requests. | Back off and retry after `X-RateLimit-Reset`. |
-| **500** | `INTERNAL_ERROR` | ViTo server error. | Retry later. If persistent, contact support. |
+| **429** | `RATE_LIMITED` | Too many requests. | **Retry** after the duration in `X-RateLimit-Reset`. |
+| **500** | `INTERNAL_ERROR` | ViTo server error. | **Retry** with exponential backoff (e.g., 1s, 2s, 4s). |
+| **503** | `SERVICE_UNAVAILABLE` | System maintenance. | **Retry** later. |
 
 ## Rate Limits & Quotas
 > TODO(API-DOCS): Finalize rate limit tiers for v1 launch. (source: `infra/rate-limiter.ts`)
