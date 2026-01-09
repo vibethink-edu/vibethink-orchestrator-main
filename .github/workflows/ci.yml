@@ -12,7 +12,7 @@ concurrency:
 
 env:
   NODE_VERSION: "20"
-  CACHE_DEPENDENCY_PATH: package-lock.json
+  CACHE_DEPENDENCY_PATH: pnpm-lock.yaml
 
 jobs:
   lint:
