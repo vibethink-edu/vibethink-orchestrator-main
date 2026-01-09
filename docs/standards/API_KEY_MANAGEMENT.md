@@ -303,13 +303,15 @@ export async function validateApiKey(
     }
   }
   
-  // Check rate limits (use Redis in production)
+  // **Phase 1 Limitation**: Rate limiting is NOT enforced in Phase 1.
+  // Phase 2 (Redis-based distributed counters) is required for production rate limiting.
+  // For now, this is a placeholder that always allows requests.
   const rateLimitOk = await checkRateLimit(keyData.id, keyData.rate_limit_per_minute);
   if (!rateLimitOk) {
     return { isValid: false };
   }
   
-  // Check cost limits
+  // **Phase 1**: Cost limits ARE enforced via daily DB queries.
   const costLimitOk = await checkCostLimit(keyData.id, keyData.max_cost_per_day_cents);
   if (!costLimitOk) {
     return { isValid: false };

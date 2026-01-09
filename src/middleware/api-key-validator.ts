@@ -241,17 +241,15 @@ export async function validateApiKey(
     // This prevents attackers from forcing worst-case comparisons and also flags misconfigured prefix length.
     if (candidates.length >= 50) {
         console.warn('[API Key Validator] Prefix collision limit reached', {
-            // Do NOT log tenant_id or any key material. Prefix alone is low-sensitivity but still avoid if you prefer.
-            prefix,
             count: candidates.length,
         });
-        
+
         return {
             isValid: false,
             error: 'API key validation failed',
         };
     }
-    
+
     // 4. Timing-safe hash comparison (prevent timing attacks)
     const providedHashBuffer = Buffer.from(hash, 'hex');
 
