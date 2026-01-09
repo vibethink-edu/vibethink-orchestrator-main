@@ -243,6 +243,21 @@ export async function getTenantSecret(
 
 ## 5. API Key Validation Middleware
 
+---
+
+### ⚠️ Phase 1 Implementation Status
+
+**Rate Limiting:** NOT enforced in Phase 1.  
+The current implementation is a placeholder that always allows requests.  
+Distributed rate limiting requires **Phase 2 (Redis-based counters)**.
+
+**Cost Limits:** ENFORCED.  
+Requests are blocked when the daily budget is exhausted using DB-backed checks.
+
+See `FIT-API-KEY-MGMT-001-Phase-1.md` for the authoritative implementation scope.
+
+---
+
 ```typescript
 // src/middleware/api-key-validator.ts
 import { createHash } from 'crypto';
@@ -496,6 +511,13 @@ export async function calculateMonthlyBilling(tenantId: string, month: string) {
 - [ ] Rate limiting enforced (Redis).
 - [ ] Cost limits enforced (daily/monthly).
 - [ ] Scope validation on every request.
+
+
+---
+
+## 11. Governance
+
+This standard is subject to the **ViTo Audit Gate Policy** (see `docs/governance/AUDIT_GATE_POLICY.md`).
 
 ---
 
