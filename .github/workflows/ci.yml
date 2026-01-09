@@ -15,6 +15,15 @@ env:
   CACHE_DEPENDENCY_PATH: pnpm-lock.yaml
 
 jobs:
+  governance:
+    name: ci / governance
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run VGB-1 Governance Validation
+        run: bash scripts/validate-governance.sh
+
   lint:
     name: ci / lint
     runs-on: ubuntu-latest

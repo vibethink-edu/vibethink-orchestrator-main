@@ -378,3 +378,15 @@ Si este documento está desactualizado o tienes dudas:
 1. Revisa `CHANGELOG.md` primero
 2. Busca en `docs/sessions/` por fecha reciente
 3. Pregunta al usuario (Marcelo)
+
+---
+
+## 🏛️ GOVERNANCE MIGRATION SEAL (2026-01-09)
+
+**Governance Migration Seal — XTP → VGB-1**
+Status: **SEALED**
+
+* XTP/XTR/AIPAIR removed as active authority (no hits outside `_legacy`).
+* VGB-1 canonical baseline established at `docs/governance/VITO_GOVERNANCE_BASELINE_V1.md`.
+* Legacy artifacts archived under `_legacy/` with traceability notes.
+* Governance regression lock implemented via `scripts/validate-governance.(sh|ps1)` and enforced in CI.
