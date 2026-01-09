@@ -237,6 +237,21 @@ export async function validateApiKey(
         };
     }
 
+    // Guard: potential prefix collision flood. If we hit the query cap, treat as failure.
+    // This prevents attackers from forcing worst-case comparisons and also flags misconfigured prefix length.
+    if (candidates.length >= 50) {
+        console.warn('[API Key Validator] Prefix collision limit reached', {
+            // Do NOT log tenant_id or any key material. Prefix alone is low-sensitivity but still avoid if you prefer.
+            prefix,
+            count: candidates.length,
+        });
+        
+        return {
+            isValid: false,
+            error: 'API key validation failed',
+        };
+    }
+    
     // 4. Timing-safe hash comparison (prevent timing attacks)
     const providedHashBuffer = Buffer.from(hash, 'hex');
 
@@ -244,9 +259,7 @@ export async function validateApiKey(
     for (const candidate of candidates) {
         // Validate hash format (must be 64 hex chars for SHA-256)
         if (!candidate.key_hash || !/^[a-f0-9]{64}$/i.test(candidate.key_hash)) {
-            console.warn('[API Key Validator] Invalid hash format in DB:', {
-                keyId: candidate.id,
-            });
+            console.warn('[API Key Validator] Invalid stored key hash format');
             continue; // Skip invalid hash
         }
 
@@ -357,3 +370,4 @@ export async function validateApiKey(
         correlationId,
     };
 }
+
