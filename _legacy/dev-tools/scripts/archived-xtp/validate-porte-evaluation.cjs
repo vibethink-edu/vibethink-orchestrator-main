@@ -9,7 +9,7 @@
  * 
  * Uso: node scripts/validate-porte-evaluation.cjs
  * 
- * XTP v4.6 - Framework de Porte - Validación de Proceso
+ * LEGACY ARCHIVED - Framework de Porte - Validación de Proceso
  */
 
 const fs = require('fs').promises;

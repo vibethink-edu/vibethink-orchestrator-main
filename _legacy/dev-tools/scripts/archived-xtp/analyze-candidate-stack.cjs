@@ -9,7 +9,7 @@
  * 
  * Uso: node scripts/analyze-candidate-stack.cjs [component-name] [repo-url]
  * 
- * XTP v4.6 - Stack Versionado System + Acceptance Rules
+ * LEGACY ARCHIVED - Stack Versionado System + Acceptance Rules
  */
 
 const fs = require('fs').promises;
@@ -834,7 +834,7 @@ class CandidateStackAnalyzer {
         repository_url: this.repoUrl,
         analysis_date: this.timestamp,
         our_stack_version: ourStack.stack_info.version,
-        analyzer_version: 'XTP v4.6',
+        analyzer_version: LEGACY
         acceptance_rules_version: '1.0'
       },
       our_stack_summary: {
@@ -938,7 +938,7 @@ class CandidateStackAnalyzer {
 
 **Fecha**: ${new Date(report.analysis_info.analysis_date).toLocaleDateString()}  
 **Repositorio**: ${report.analysis_info.repository_url}  
-**Análisis**: XTP v4.6 - Reglas de Aceptación v1.0  
+**Análisis**: LEGACY ARCHIVED - Reglas de Aceptación v1.0  
 
 ---
 

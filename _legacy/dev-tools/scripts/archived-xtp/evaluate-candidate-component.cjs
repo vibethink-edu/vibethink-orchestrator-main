@@ -9,7 +9,7 @@
  * 
  * Uso: node scripts/evaluate-candidate-component.cjs [nombre] [repo_url] [--mode=interactive]
  * 
- * XTP v4.6 - Framework de Evaluación Formal
+ * LEGACY ARCHIVED - Framework de Evaluación Formal
  */
 
 const fs = require('fs').promises;
