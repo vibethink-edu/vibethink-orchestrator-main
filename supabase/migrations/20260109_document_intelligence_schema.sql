@@ -36,6 +36,14 @@ CREATE TABLE IF NOT EXISTS document_jobs (
   storage_path VARCHAR(1000) NOT NULL,
   storage_retention_days INTEGER,
   
+  -- S3 Storage Metadata
+  source_storage_provider VARCHAR(50),
+  source_object_key VARCHAR(1000),
+  source_bucket VARCHAR(255),
+  source_size_bytes BIGINT,
+  source_mime_type VARCHAR(100),
+  source_pages INTEGER,
+  
   -- Processing Status
   status VARCHAR(50) NOT NULL DEFAULT 'pending',
   error_message TEXT,

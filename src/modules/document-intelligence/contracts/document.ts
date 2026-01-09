@@ -60,6 +60,24 @@ export interface DocumentJob {
     /** Retention policy (days, null = permanent) */
     storage_retention_days?: number;
 
+    /** Storage provider (s3, azure_blob) */
+    source_storage_provider?: string;
+
+    /** S3 object key or Azure blob path */
+    source_object_key?: string;
+
+    /** S3 bucket or Azure container */
+    source_bucket?: string;
+
+    /** Source file size (bytes) */
+    source_size_bytes?: number;
+
+    /** Source MIME type */
+    source_mime_type?: string;
+
+    /** Source pages (if detected during upload) */
+    source_pages?: number;
+
     /** Processing status */
     status: DocumentJobStatus;
 
