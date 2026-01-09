@@ -23,7 +23,7 @@
 ### **2. Reglas Especializadas (`.cursor/rules/`)**
 ```typescript
 // 15 reglas especializadas que cubren:
-- xtp-1.0-methodology.md     // Metodología universal
+- vtk-1.0-methodology.md     // Metodología universal
 - monorepo-management.md      // Gestión de monorepo
 - testing-enterprise.md       // Testing empresarial
 - multi-tenant-security.md    // Seguridad multi-tenant

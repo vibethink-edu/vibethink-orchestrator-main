@@ -88,18 +88,18 @@ src/apps/ap/
 
 ```bash
 # Snippets principales:
-xtp-session      # Protocolo de sesión obligatorio
-xtp-component    # Componente con seguridad multi-tenant
-xtp-query        # Query segura con company_id
-xtp-test         # Tests completos por nivel
-xtp-task         # Task management XTP
-xtp-commit       # Git commit con compliance
-xtp-docs         # Documentación XTP
+vtk-session      # Protocolo de sesión obligatorio
+vtk-component    # Componente con seguridad multi-tenant
+vtk-query        # Query segura con company_id
+vtk-test         # Tests completos por nivel
+vtk-task         # Task management XTP
+vtk-commit       # Git commit con compliance
+vtk-docs         # Documentación XTP
 
 # Snippets especializados:
-xtp-security     # Patrones de seguridad
-xtp-performance  # Optimización de performance
-xtp-monorepo     # Gestión de monorepo
+vtk-security     # Patrones de seguridad
+vtk-performance  # Optimización de performance
+vtk-monorepo     # Gestión de monorepo
 ```
 
 ---
@@ -136,7 +136,7 @@ node scripts/validate-cursor-rules.js
 
 1. **Documenta el error:**
    ```typescript
-   // Escribe: xtp-task
+   // Escribe: vtk-task
    const bugTask = {
      id: 'BUG-001',
      title: 'Error en reglas Cursor',

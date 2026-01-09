@@ -1,0 +1,29 @@
+{
+  "trace_records": [
+    {
+      "trace_id": "hash:cd54aede3a32ae0f7b3c3c36520ad2db9b3264a83570c075221f120d540e35d2",
+      "created_at": "2026-01-04T00:00:00Z",
+      "user": {
+        "user_id": "hash:9d5e1ae522d61196367135a9cac985a5807a8dc18d772978233eea445718e448",
+        "email": "hash:b530ab4f7ae961379437bcfcb148f866250eda3d2af92871cbd2bddaec4b4c6d",
+        "name": "Alice"
+      },
+      "request": {
+        "ip": "hash:462dca5590b9ea2196fd47c7dcfc6c78a7fce4878e4e23aa36ddc30614ee267e",
+        "authorization": "[REDACTED]"
+      },
+      "tool_call_inputs_outputs": [
+        {
+          "tool_name": "fetch",
+          "input": {
+            "query": "abc",
+            "api_key": "[REDACTED]"
+          },
+          "output": {
+            "status": 200
+          }
+        }
+      ]
+    }
+  ]
+}
