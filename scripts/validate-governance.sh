@@ -1,6 +1,6 @@
 #!/bin/bash
 # ViTo Governance Baseline v1 (VGB-1) Validator
-# Enforces static norms defined in docs/governance/VITO_GOVERNANCE_BASELINE_V1.md
+# Enforces static norms defined in docs/governance/vito-governance-baseline-v1.md
 # EXIT CODES: 0=PASS, 1=FAIL
 
 set -e
@@ -57,6 +57,19 @@ if [ ! -z "$FOUND_LICENSES" ]; then
   EXIT_CODE=1
 else
   echo "✅ PASS: No forbidden licenses found."
+fi
+
+# Rule G3: Naming Convention (Preventive - docs/governance/closures)
+echo -e "\nRunning G3: Naming Convention Check..."
+# Check for uppercase in .md files under closures, excluding INDEX/README
+FOUND_BAD_NAMES=$(find docs/governance/closures -type f -name "*.md" ! -name "INDEX.md" ! -name "README.md" | grep "[A-Z]" || true)
+
+if [ ! -z "$FOUND_BAD_NAMES" ]; then
+  echo "⚠️ WARN: Non-kebab-case filenames found (Preventive Check):"
+  echo "$FOUND_BAD_NAMES"
+  # EXIT_CODE=1 # Enable to BLOCK
+else
+  echo "✅ PASS: Naming conventions respected in closures/."
 fi
 
 # Summary

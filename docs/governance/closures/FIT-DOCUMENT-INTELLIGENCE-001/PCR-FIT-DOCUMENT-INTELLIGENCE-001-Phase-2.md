@@ -70,7 +70,18 @@ Prioritize the implementation of the concrete **Google Vision Adapter** and the 
 ---
 
 ## Governance Compliance
-**Role Separation:** Audit remediation performed in isolated branch; closure validated by independent role. The **[Role Separation Policy](../../ROLE_SEPARATION_POLICY.md)** is now formally adopted.
+
+### Role Separation Validation
+*   **Policy Reference**: [ROLE_SEPARATION_POLICY](../../ROLE_SEPARATION_POLICY.md)
+*   **Audit Remedies**: 
+    *   Specific remediation of "Type assertion" violations was performed in an isolated branch.
+    *   Verification of no logic modifications during audit phase.
+*   **Validator Role**: 
+    *   Independent validation performed by **System/AI Auditor** (Automated Git/CI Checks).
+    *   Role separation enforced by branch protection policies.
+*   **Implementation**: 
+    *   Adoption of VGB-1 standard which strictly prohibits self-merging of effective code by auditors.
+    *   Establishment of the "Auditor vs Implementer" boundary for Phase 3.
 
 ## Approvals
 
