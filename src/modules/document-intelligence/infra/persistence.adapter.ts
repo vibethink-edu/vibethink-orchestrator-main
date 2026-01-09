@@ -381,16 +381,21 @@ export class SupabasePersistenceAdapter implements IPersistenceAdapter, IReviewP
 
     /**
      * Set tenant context for RLS
+     *
+     * - Uses is_local = true to scope context to the current transaction/session
+     * - Fail-fast: if tenant context cannot be set, NO DB operations are allowed
      */
     private async setTenantContext(tenant_id: string): Promise<void> {
         const { error } = await this.supabase.rpc('set_config', {
             setting: 'app.current_tenant_id',
             value: tenant_id,
-            is_local: false,
+            is_local: true, // 🔴 CRITICAL FIX: Isolates context to current transaction
         });
 
         if (error) {
-            console.warn(`Failed to set tenant context: ${error.message}`);
+            throw new Error(
+                `RLS tenant context not set. Aborting DB operation. tenant_id=${tenant_id}`
+            );
         }
     }
 
