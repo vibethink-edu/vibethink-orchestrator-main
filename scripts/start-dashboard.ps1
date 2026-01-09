@@ -12,8 +12,8 @@ $connections = Get-NetTCPConnection -LocalPort $port -ErrorAction SilentlyContin
 if ($connections) {
     # Handle both single connection and array
     $uniqueProcessIds = $connections | 
-        Select-Object -ExpandProperty OwningProcess -Unique | 
-        Where-Object { $_ -gt 0 }  # Filter out system processes (Idle = 0)
+    Select-Object -ExpandProperty OwningProcess -Unique | 
+    Where-Object { $_ -gt 0 }  # Filter out system processes (Idle = 0)
     
     # Filter out processes that no longer exist (TIME_WAIT connections)
     $validProcessIds = @()
@@ -55,8 +55,8 @@ if ($connections) {
         $connections = Get-NetTCPConnection -LocalPort $port -ErrorAction SilentlyContinue
         if ($connections) {
             $uniqueProcessIds = $connections | 
-                Select-Object -ExpandProperty OwningProcess -Unique | 
-                Where-Object { $_ -gt 0 }
+            Select-Object -ExpandProperty OwningProcess -Unique | 
+            Where-Object { $_ -gt 0 }
             
             $stillValid = $false
             foreach ($processId in $uniqueProcessIds) {
@@ -92,7 +92,7 @@ if (-not (Test-Path $dashboardPath)) {
 Write-Host "Starting Next.js dev server on port $port..." -ForegroundColor Green
 try {
     Push-Location $dashboardPath
-    npm run dev -- -p $port
+    pnpm run dev -- -p $port
 }
 catch {
     Write-Host "❌ Error starting dev server: $($_.Exception.Message)" -ForegroundColor Red

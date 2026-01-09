@@ -18,12 +18,14 @@ if (Test-Path $PortManagerPath) {
     
     if ($PORT) {
         Write-Host "📋 Using global port assignment: $PORT" -ForegroundColor Green
-    } else {
+    }
+    else {
         Write-Warning "⚠️  Could not load port assignment. Using fallback port 3052"
         $PORT = 3052
         $REF_INFO = $null
     }
-} else {
+}
+else {
     Write-Warning "⚠️  PortManager module not found at: $PortManagerPath"
     Write-Warning "   Using fallback port 3052 (global standard)"
     $PORT = 3052
@@ -34,7 +36,8 @@ if (Test-Path $PortManagerPath) {
 if ($REF_INFO) {
     $REACTFLOW_DIR = $REF_INFO.location
     $REF_NAME = $REF_INFO.name
-} else {
+}
+else {
     $REACTFLOW_DIR = "C:\IA Marcelo Labs\xyflow\xyflow\examples\react"
     $REF_NAME = "React Flow"
 }
@@ -61,8 +64,8 @@ $portListening = Get-NetTCPConnection -LocalPort $PORT -State Listen -ErrorActio
 if ($portListening) {
     # Handle both single connection and array
     $uniqueProcessIds = $portListening | 
-        Select-Object -ExpandProperty OwningProcess -Unique | 
-        Where-Object { $_ -gt 0 }  # Filter out system processes (Idle = 0)
+    Select-Object -ExpandProperty OwningProcess -Unique | 
+    Where-Object { $_ -gt 0 }  # Filter out system processes (Idle = 0)
     
     if ($uniqueProcessIds) {
         # Get process info for better error message
@@ -71,7 +74,8 @@ if ($portListening) {
             try {
                 $proc = Get-Process -Id $processId -ErrorAction Stop
                 $processInfo += "$($proc.ProcessName) (PID: $processId)"
-            } catch {
+            }
+            catch {
                 $processInfo += "Unknown (PID: $processId)"
             }
         }
@@ -87,7 +91,7 @@ if ($portListening) {
 if (-not (Test-Path "$REACTFLOW_DIR\node_modules")) {
     Write-Host "📦 Installing dependencies (first time setup)..." -ForegroundColor Yellow
     Push-Location $REACTFLOW_DIR
-    npm install
+    pnpm install
     Pop-Location
 }
 
@@ -96,11 +100,13 @@ Write-Host "Starting dev server on port $PORT..." -ForegroundColor Green
 Write-Host "🌐 URL: http://localhost:$PORT" -ForegroundColor Cyan
 try {
     Push-Location $REACTFLOW_DIR
-    npm run dev -- --port $PORT
-} catch {
+    pnpm run dev -- --port $PORT
+}
+catch {
     Write-Host "❌ Error starting dev server: $($_.Exception.Message)" -ForegroundColor Red
     Pop-Location
     exit 1
-} finally {
+}
+finally {
     Pop-Location
 }
