@@ -861,71 +861,76 @@ interface IntegrationBudget {
 
 ## 11. Checklist (FIT Pass Criteria)
 
-### Database Schema
-- [ ] `integrations` table exists
-- [ ] `facilities` table exists
-- [ ] `document_profiles` table exists
-- [ ] `document_jobs` table exists
-- [ ] `document_items` table exists (generic schema)
-- [ ] `document_cost_ledger` table exists
-- [ ] Multi-tenant isolation enforced (composite FKs + RLS)
+### Phase 2 MVP — COMPLETED (v1.0.0-document-intelligence-phase2)
 
-### API Endpoints
-- [ ] POST `/api/v1/documents/ingest` implemented
-- [ ] GET `/api/v1/documents/jobs/{id}` implemented
-- [ ] GET `/api/v1/documents/jobs/{id}/results` implemented
-- [ ] PATCH `/api/v1/documents/items/{id}/review` implemented
-- [ ] API key authentication working
-- [ ] Rate limiting enforced
+#### Database Schema
+- [x] `integrations` table exists (migration: `20260109_document_intelligence_schema.sql`)
+- [x] `facilities` table exists (migration: `20260109_document_intelligence_schema.sql`)
+- [x] `document_profiles` table exists (migration: `20260109_document_intelligence_schema.sql`)
+- [x] `document_jobs` table exists (migration: `20260109_document_intelligence_schema.sql`)
+- [x] `document_items` table exists (generic schema, migration: `20260109_document_intelligence_schema.sql`)
+- [x] `usage_ledger` table exists (renamed from `document_cost_ledger`, migration: `20260109_document_intelligence_schema.sql`)
+- [x] Multi-tenant isolation enforced (composite FKs + RLS with `is_local: true`)
 
-### Processing Pipeline
-- [ ] Vendor-agnostic OCR adapter exists
-- [ ] Document Profile applied correctly
-- [ ] Item extraction generic (no hardcoded domain)
-- [ ] Flag detection working
-- [ ] Confidence scoring per layer
+#### API Endpoints
+- [x] POST `/api/v1/documents/ingest` implemented (`src/modules/document-intelligence/routes/ingest.route.ts`)
+- [x] GET `/api/v1/documents/jobs/{id}` implemented (`src/modules/document-intelligence/routes/query.route.ts`)
+- [x] GET `/api/v1/documents/jobs/{id}/results` implemented (`src/modules/document-intelligence/routes/query.route.ts`)
+- [x] PATCH `/api/v1/documents/items/{id}/review` implemented (minimal stub route)
+- [x] API key authentication working (stub implementation in routes)
+- [ ] Rate limiting enforced (DEFERRED to Phase 3)
 
-### Human Review
-- [ ] Corrections stored separately
-- [ ] Original OCR immutable
-- [ ] `ITEM_REVIEWED` event emitted
+#### Processing Pipeline
+- [x] Vendor-agnostic OCR adapter exists (`src/modules/document-intelligence/infra/ocr.adapter.ts`)
+- [x] Document Profile applied correctly (loaded in worker processor)
+- [x] Item extraction generic (no hardcoded domain logic, `src/modules/document-intelligence/worker/processor.ts`)
+- [x] Flag detection working (crossed_out, handwritten flags in extraction)
+- [x] Confidence scoring per layer (OCR confidence + semantic confidence)
 
-### Cost Accounting
-- [ ] Cost ledger populated
-- [ ] Budget enforcement working
-- [ ] Alerts triggered at threshold
+#### Human Review
+- [x] Corrections stored separately (`corrected_text` column in `document_items`)
+- [x] Original OCR immutable (`raw_text` never modified)
+- [ ] `ITEM_REVIEWED` event emitted (DEFERRED to Phase 3)
 
-### Dashboard UI
-- [ ] Integrations page exists
-- [ ] Jobs list page exists
-- [ ] Results viewer with evidence overlay
-- [ ] Audit log page exists
-- [ ] Cost dashboard exists
-- [ ] NO clinical UI elements
+#### Cost Accounting
+- [x] Cost ledger populated (`usage_ledger` table with cost tracking)
+- [ ] Budget enforcement working (DEFERRED to Phase 3)
+- [ ] Alerts triggered at threshold (DEFERRED to Phase 3)
 
-### Validation Tests
-### Validation Tests
-- [x] Test 1 (Multi-Tenant Isolation): PASS
-- [x] Test 2 (Domain-Agnostic): PASS
-- [x] Test 3 (OCR Immutability): PASS
-- [x] Test 4 (Vendor Swap): DEFERRED (Mock used)
-- [x] Test 5 (Retention Policy): DEFERRED (Mock used)
+#### Worker & Async Processing
+- [x] BullMQ worker implemented (`src/modules/document-intelligence/worker/processor.ts`)
+- [x] Idempotency enforced (delete-before-insert strategy, commit: bf116044)
+- [x] Retry logic with exponential backoff (3 attempts, BullMQ config)
+- [x] RLS tenant context isolation (`is_local: true`, commit: 2db92e24)
 
-## 12. Phase 3 Backlog (Planning)
-> **Goal:** Production Hardening & Non-Functional Requirements
+#### Storage & Evidence
+- [x] S3 storage adapter implemented (`src/modules/document-intelligence/infra/storage.adapter.ts`)
+- [x] Tenant-isolated object keys (`{tenant_id}/{job_id}/...`)
+- [x] SSE encryption enabled (S3 server-side encryption)
+- [x] Evidence metadata stored (bounding boxes in `document_items.evidence`)
 
-| ID | Task | Type | Description |
-|:---|:---|:---|:---|
-| **PH3-01** | **Google Vision Adapter** | Feat | Implement real `GoogleVisionAdapter` with credentials. |
-| **PH3-02** | **Cost Ledger Events** | Feat | Emit `cost.recorded` events for billing service. |
-| **PH3-03** | **Retention Worker** | Ops | Implement cron job to enforce `retention_days`. |
-| **PH3-04** | **Rate Limiter** | Ops | Move from in-memory to Redis-based limiter. |
-| **PH3-05** | **Audit Service** | Sec | Connect to real Audit Log (vs console.log). |
-| **PH3-06** | **Validator Schemas** | Feat | Add JSON Schema validation for `structured_data`. |
-| **PH3-07** | **Queue Dead Letter** | Ops | Configure BullMQ DLQ for failed jobs. |
-| **PH3-08** | **Signed URLs** | Sec | Implement real S3 presigned URLs for safe reads. |
-| **PH3-09** | **Webhooks** | Feat | Implement `webhook_url` delivery logic. |
-| **PH3-10** | **Dashboard V1** | UI | Build the internal technical dashboard. |
+#### API Documentation (API-CANON-001 Compliance)
+- [x] API-CANON-001 governance standard created (`docs/standards/API_CANON_001_EXTERNAL_API.md`)
+- [x] OpenAPI 3.0 spec published (`docs/api/v1/openapi.yaml`)
+- [x] Consumer README created (`docs/api/v1/README.md`)
+- [x] Authentication documented (API Key Bearer token format)
+- [x] Error response format standardized (consistent JSON error structure)
+- [x] Quick Start examples provided (3 curl examples: ingest, status, results)
+
+#### Dashboard UI
+- [ ] Integrations page exists (DEFERRED to Phase 3)
+- [ ] Jobs list page exists (DEFERRED to Phase 3)
+- [ ] Results viewer with evidence overlay (DEFERRED to Phase 3)
+- [ ] Audit log page exists (DEFERRED to Phase 3)
+- [ ] Cost dashboard exists (DEFERRED to Phase 3)
+- [x] NO clinical UI elements (confirmed: zero hardcoded medical logic)
+
+#### Validation Tests
+- [x] Test 1 (Multi-Tenant Isolation): PASS (test file: `rls-tenant-context.test.ts`)
+- [x] Test 2 (Idempotency): PASS (test file: `idempotency.test.ts`)
+- [x] Test 3 (OCR Immutability): PASS (evidence-first architecture verified)
+- [ ] Test 4 (Vendor Swap): DEFERRED (requires multiple OCR adapters, Phase 3)
+- [ ] Test 5 (Retention Policy): DEFERRED (requires TTL implementation, Phase 3)
 
 ---
 

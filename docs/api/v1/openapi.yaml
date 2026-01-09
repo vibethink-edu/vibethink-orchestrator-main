@@ -1,83 +1,316 @@
 openapi: 3.0.3
 info:
-  title: Document Intelligence API
+  title: ViTo Document Intelligence API
   description: |
-    # ViTo Document Intelligence API v1
+    API-first document processing service for ViTo platform.
     
-    The Document Intelligence API allows external systems to submit documents for automated processing, including OCR, extraction, and normalization.
+    **Features**:
+    - OCR + semantic extraction
+    - Domain-agnostic (prescriptions, invoices, receipts, contracts)
+    - Vendor-agnostic (swappable OCR providers)
+    - Multi-tenant isolation
+    - Human review support
+    - Cost accounting
     
-    ## Authentication
-    All requests must include the `x-api-key` header.
-    
-    ## Environments
-    - **Production**: `https://api.vito.ai/document-intelligence/v1`
-    - **Sandbox**: `https://api.sandbox.vito.ai/document-intelligence/v1`
+    **Authentication**: API Key (Bearer token)
   version: 1.0.0
   contact:
-    name: ViTo Developer Support
-    email: api-support@vito.ai
+    name: ViTo Platform Team
+    email: platform@vibethink.com
 
 servers:
-  - url: https://api.vito.ai/document-intelligence/v1
-    description: Production Server
-  - url: https://api.sandbox.vito.ai/document-intelligence/v1
-    description: Sandbox Server
+  - url: https://api.vibethink.com/v1
+    description: Production
+  - url: https://sandbox.api.vibethink.com/v1
+    description: Sandbox
+
+security:
+  - ApiKeyAuth: []
+
+tags:
+  - name: Documents
+    description: Document ingestion and processing
+  - name: Jobs
+    description: Job status and results
+  - name: Items
+    description: Extracted items and human review
+  - name: Integrations
+    description: API key management (admin only)
+
+paths:
+  /documents/ingest:
+    post:
+      tags:
+        - Documents
+      summary: Ingest a document for processing
+      description: |
+        Upload a document (PDF or image) for OCR and item extraction.
+        
+        **Processing is asynchronous**. Use the returned `job_id` to poll for status.
+      operationId: ingestDocument
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+                - document_profile_id
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: Document file (PDF, PNG, JPEG)
+                document_profile_id:
+                  type: string
+                  format: uuid
+                  description: ID of the document profile to use
+                  example: "550e8400-e29b-41d4-a716-446655440000"
+                facility_id:
+                  type: string
+                  format: uuid
+                  description: Optional facility ID (for multi-location tenants)
+                  example: "660e8400-e29b-41d4-a716-446655440000"
+                external_ref:
+                  type: string
+                  description: Client's reference ID
+                  example: "ORDER-12345"
+                metadata:
+                  type: object
+                  description: Optional metadata (domain-specific)
+                  example:
+                    patient_id: "external-123"
+                    encounter_date: "2026-01-09"
+      responses:
+        '202':
+          description: Document accepted for processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IngestResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimitExceeded'
+
+  /documents/jobs/{job_id}:
+    get:
+      tags:
+        - Jobs
+      summary: Get job status
+      description: Retrieve the current status of a document processing job
+      operationId: getJobStatus
+      parameters:
+        - name: job_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: "770e8400-e29b-41d4-a716-446655440000"
+      responses:
+        '200':
+          description: Job status retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatus'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /documents/jobs/{job_id}/results:
+    get:
+      tags:
+        - Jobs
+      summary: Get extracted items
+      description: Retrieve all items extracted from a completed job
+      operationId: getJobResults
+      parameters:
+        - name: job_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 50
+            minimum: 1
+            maximum: 100
+      responses:
+        '200':
+          description: Extracted items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResults'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /documents/items/{item_id}/review:
+    patch:
+      tags:
+        - Items
+      summary: Submit human review
+      description: |
+        Correct an extracted item. The original OCR is preserved.
+        
+        **Requires scope**: `document:review`
+      operationId: reviewItem
+      parameters:
+        - name: item_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - corrected_text
+              properties:
+                corrected_text:
+                  type: string
+                  description: Corrected text
+                  example: "Amoxicillin 500mg BID"
+                review_notes:
+                  type: string
+                  description: Optional notes
+                  example: "Handwriting unclear, confirmed with prescriber"
+      responses:
+        '200':
+          description: Review submitted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewResponse'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /integrations:
+    get:
+      tags:
+        - Integrations
+      summary: List integrations
+      description: |
+        List all integrations for the authenticated tenant.
+        
+        **Admin only**
+      operationId: listIntegrations
+      responses:
+        '200':
+          description: List of integrations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  integrations:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Integration'
+
+    post:
+      tags:
+        - Integrations
+      summary: Create integration
+      description: |
+        Create a new integration and generate an API key.
+        
+        **Admin only**
+      operationId: createIntegration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - integration_name
+                - integration_type
+              properties:
+                integration_name:
+                  type: string
+                  example: "EHR Integration"
+                integration_type:
+                  type: string
+                  enum: [EHR, ACCOUNTING, EXPENSE, CUSTOM]
+                environment:
+                  type: string
+                  enum: [sandbox, production]
+                  default: production
+                scopes:
+                  type: array
+                  items:
+                    type: string
+                  example: ["document:write", "document:read"]
+                rate_limit_rpm:
+                  type: integer
+                  default: 60
+                  minimum: 1
+                  maximum: 1000
+      responses:
+        '201':
+          description: Integration created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationCreated'
 
 components:
   securitySchemes:
     ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: x-api-key
-      description: Provide your assigned API Key.
+      type: http
+      scheme: bearer
+      bearerFormat: API_KEY
+      description: |
+        API key authentication. Include in `Authorization` header:
+        ```
+        Authorization: Bearer {API_KEY}
+        ```
 
   schemas:
-    # Requests
-    IngestRequest:
-      type: object
-      required:
-        - file
-        - document_profile_id
-      properties:
-        file:
-          type: string
-          format: binary
-          description: The document file to process (PDF, JPG, PNG, TIFF). Max 50MB.
-        document_profile_id:
-          type: string
-          format: uuid
-          description: ID of the Document Profile to apply (defines extraction logic).
-        facility_id:
-          type: string
-          format: uuid
-          description: Optional Facility ID for multi-site tenants.
-        external_reference:
-          type: string
-          description: Client-side reference ID for tracking.
-
-    # Responses
     IngestResponse:
       type: object
       properties:
         job_id:
           type: string
           format: uuid
-          description: Unique Job ID for tracking status.
+          example: "770e8400-e29b-41d4-a716-446655440000"
         status:
           type: string
-          enum: [pending, processing, completed, failed, review_required]
-          example: pending
-        document_profile_id:
+          enum: [pending, processing]
+          example: "pending"
+        correlation_id:
           type: string
           format: uuid
-        facility_id:
+          example: "880e8400-e29b-41d4-a716-446655440000"
+        estimated_completion_seconds:
+          type: integer
+          example: 30
+        webhook_url:
           type: string
-          format: uuid
-        created_at:
-          type: string
-          format: date-time
+          nullable: true
+          example: "https://client.com/webhook"
 
-    JobStatusResponse:
+    JobStatus:
       type: object
       properties:
         job_id:
@@ -86,47 +319,61 @@ components:
         status:
           type: string
           enum: [pending, processing, completed, failed, review_required]
-        document_profile_id:
-          type: string
-          format: uuid
-        facility_id:
-          type: string
-          format: uuid
-        source:
+          example: "completed"
+        document_profile:
           type: object
           properties:
-            mime_type:
+            id:
               type: string
-            size_bytes:
-              type: integer
-            signed_url:
+              format: uuid
+            key:
               type: string
-              description: Temporary generic read URL (if retention policy allows).
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
+              example: "clinical-prescription-v1"
+        page_count:
+          type: integer
+          example: 2
+        items_extracted:
+          type: integer
+          example: 12
+        items_flagged_for_review:
+          type: integer
+          example: 2
         processed_at:
           type: string
           format: date-time
+          nullable: true
+          example: "2026-01-09T12:05:30Z"
+        cost_cents:
+          type: integer
+          example: 15
+        results_url:
+          type: string
+          example: "/api/v1/documents/jobs/770e8400-e29b-41d4-a716-446655440000/results"
 
-    ItemsResponse:
+    JobResults:
       type: object
       properties:
         job_id:
           type: string
           format: uuid
-        total:
-          type: integer
-          description: Total number of items extracted.
         items:
           type: array
           items:
-            $ref: '#/components/schemas/ExtractedItem'
+            $ref: '#/components/schemas/DocumentItem'
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 12
+            page:
+              type: integer
+              example: 1
+            per_page:
+              type: integer
+              example: 50
 
-    ExtractedItem:
+    DocumentItem:
       type: object
       properties:
         item_id:
@@ -134,54 +381,141 @@ components:
           format: uuid
         item_index:
           type: integer
+          description: Position in document
+          example: 0
         item_type:
           type: string
-          example: medication
+          description: Type from document profile
+          example: "medication"
         raw_text:
           type: string
-          description: Immutable raw text from OCR.
+          description: Original OCR output
+          example: "Amoxicillin 500mg"
         normalized_text:
           type: string
-          description: Text normalized by business rules.
+          nullable: true
+          description: Normalized text (if applicable)
+          example: "Amoxicillin"
         ocr_confidence:
           type: number
           format: float
           minimum: 0
           maximum: 1
+          example: 0.95
         flags:
           type: object
-          additionalProperties:
-            type: object
-            properties:
-              detected:
-                type: boolean
-              confidence:
-                type: number
+          description: Detected flags
+          example:
+            crossed_out: false
+            handwritten: true
+            confidence: 0.88
         evidence:
           type: object
+          description: Visual evidence
           properties:
             page:
               type: integer
+              example: 1
             bbox:
               type: object
               properties:
-                x: { type: number }
-                y: { type: number }
-                width: { type: number }
-                height: { type: number }
+                x:
+                  type: integer
+                  example: 120
+                y:
+                  type: integer
+                  example: 300
+                width:
+                  type: integer
+                  example: 250
+                height:
+                  type: integer
+                  example: 40
         structured_data:
           type: object
-          description: Domain-specific schema (variable).
+          description: Domain-specific fields
+          example:
+            dosage: "500mg"
+            frequency: "twice daily"
         is_reviewed:
           type: boolean
+          example: false
         corrected_text:
           type: string
+          nullable: true
+          description: Human correction (if reviewed)
+
+    ReviewResponse:
+      type: object
+      properties:
+        item_id:
+          type: string
+          format: uuid
+        is_reviewed:
+          type: boolean
+          example: true
         reviewed_at:
           type: string
           format: date-time
+          example: "2026-01-09T12:10:00Z"
+        reviewed_by:
+          type: string
+          example: "user@example.com"
 
-    # Errors
-    ApiError:
+    Integration:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        integration_name:
+          type: string
+          example: "EHR Integration"
+        integration_type:
+          type: string
+          example: "EHR"
+        environment:
+          type: string
+          example: "production"
+        status:
+          type: string
+          enum: [active, suspended, revoked]
+          example: "active"
+        api_key_prefix:
+          type: string
+          description: First 8 characters of API key
+          example: "vito_sk_"
+        scopes:
+          type: array
+          items:
+            type: string
+          example: ["document:write", "document:read"]
+        rate_limit_rpm:
+          type: integer
+          example: 60
+        created_at:
+          type: string
+          format: date-time
+
+    IntegrationCreated:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        integration_name:
+          type: string
+        api_key:
+          type: string
+          description: |
+            **IMPORTANT**: This is the only time the full API key is shown.
+            Store it securely.
+          example: "vito_sk_1234567890abcdef1234567890abcdef"
+        api_key_prefix:
+          type: string
+          example: "vito_sk_"
+
+    Error:
       type: object
       properties:
         error:
@@ -189,102 +523,79 @@ components:
           properties:
             code:
               type: string
-              example: INVALID_FILE
+              example: "invalid_request"
             message:
               type: string
-              example: File is empty or corrupt.
-            trace_id:
-              type: string
+              example: "Missing required field: document_profile_id"
+            details:
+              type: object
+              nullable: true
 
-tags:
-  - name: Documents
-    description: Document ingestion and status
-  - name: Results
-    description: Extraction results
-
-security:
-  - ApiKeyAuth: []
-
-paths:
-  /documents:
-    post:
-      summary: Ingest Document
-      operationId: ingestDocument
-      tags: [Documents]
-      description: Upload a document for asynchronous processing.
-      requestBody:
-        required: true
-        content:
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/IngestRequest'
-      responses:
-        '201':
-          description: Job Created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/IngestResponse'
-        '400':
-          description: Invalid Request (Empty file, missing fields)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiError'
-        '401':
-          description: Unauthorized (Missing API Key)
-        '403':
-          description: Forbidden (Insufficient Scope)
-        '413':
-          description: Payload Too Large (>50MB)
-        '415':
-          description: Unsupported Media Type
-
-  /documents/{id}:
-    get:
-      summary: Get Job Status
-      operationId: getJobStatus
-      tags: [Documents]
-      parameters:
-        - in: path
-          name: id
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
           schema:
-            type: string
-            format: uuid
-          required: true
-          description: The Job ID returned by ingestion.
-      responses:
-        '200':
-          description: Job Status found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/JobStatusResponse'
-        '401':
-          description: Unauthorized
-        '404':
-          description: Job Not Found
+            $ref: '#/components/schemas/Error'
+          example:
+            error:
+              code: "invalid_request"
+              message: "Missing required field: document_profile_id"
 
-  /documents/{id}/items:
-    get:
-      summary: Get Extracted Items
-      operationId: getJobItems
-      tags: [Results]
-      parameters:
-        - in: path
-          name: id
+    Unauthorized:
+      description: Unauthorized (invalid or missing API key)
+      content:
+        application/json:
           schema:
-            type: string
-            format: uuid
-          required: true
-      responses:
-        '200':
-          description: Extraction success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ItemsResponse'
-        '401':
-          description: Unauthorized
-        '404':
-          description: Job Not Found
+            $ref: '#/components/schemas/Error'
+          example:
+            error:
+              code: "unauthorized"
+              message: "Invalid API key"
+
+    Forbidden:
+      description: Forbidden (insufficient scopes)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error:
+              code: "forbidden"
+              message: "Requires scope: document:review"
+
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error:
+              code: "not_found"
+              message: "Job not found"
+
+    RateLimitExceeded:
+      description: Rate limit exceeded
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error:
+              code: "rate_limit_exceeded"
+              message: "Rate limit: 60 requests per minute"
+      headers:
+        X-RateLimit-Limit:
+          schema:
+            type: integer
+          description: Request limit per minute
+        X-RateLimit-Remaining:
+          schema:
+            type: integer
+          description: Remaining requests
+        X-RateLimit-Reset:
+          schema:
+            type: integer
+          description: Unix timestamp when limit resets
