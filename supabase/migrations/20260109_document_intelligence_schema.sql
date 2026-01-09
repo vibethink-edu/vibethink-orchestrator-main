@@ -10,6 +10,19 @@
 -- - Soft-delete support
 
 -- ============================================================================
+-- HELPER FUNCTION: update_updated_at_column
+-- Purpose: Auto-update updated_at timestamp
+-- ============================================================================
+
+CREATE OR REPLACE FUNCTION update_updated_at_column()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at = NOW();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ============================================================================
 -- TABLE: document_jobs
 -- Purpose: Tracks document processing jobs
 -- ============================================================================
@@ -61,7 +74,6 @@ CREATE TABLE IF NOT EXISTS document_jobs (
   deleted_at TIMESTAMPTZ,
   
   -- Constraints
-  CONSTRAINT pk_document_jobs PRIMARY KEY (id),
   CONSTRAINT ck_document_jobs_status CHECK (status IN (
     'pending', 'processing', 'completed', 'failed', 'review_required'
   )),
@@ -138,7 +150,6 @@ CREATE TABLE IF NOT EXISTS document_items (
   deleted_at TIMESTAMPTZ,
   
   -- Constraints
-  CONSTRAINT pk_document_items PRIMARY KEY (id),
   CONSTRAINT fk_document_items_jobs_tenant FOREIGN KEY (tenant_id, document_job_id)
     REFERENCES document_jobs(tenant_id, id) ON DELETE CASCADE,
   CONSTRAINT ck_document_items_item_index CHECK (item_index >= 0),
@@ -202,7 +213,6 @@ CREATE TABLE IF NOT EXISTS human_reviews (
   deleted_at TIMESTAMPTZ,
   
   -- Constraints
-  CONSTRAINT pk_human_reviews PRIMARY KEY (id),
   CONSTRAINT fk_human_reviews_items_tenant FOREIGN KEY (tenant_id, document_item_id)
     REFERENCES document_items(tenant_id, id) ON DELETE CASCADE,
   CONSTRAINT ck_human_reviews_status CHECK (status IN (
@@ -261,7 +271,6 @@ CREATE TABLE IF NOT EXISTS usage_ledger (
   recorded_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   
   -- Constraints
-  CONSTRAINT pk_usage_ledger PRIMARY KEY (id),
   CONSTRAINT fk_usage_ledger_jobs_tenant FOREIGN KEY (tenant_id, document_job_id)
     REFERENCES document_jobs(tenant_id, id) ON DELETE CASCADE,
   CONSTRAINT ck_usage_ledger_pages CHECK (pages_processed > 0),
@@ -282,18 +291,7 @@ ALTER TABLE usage_ledger ENABLE ROW LEVEL SECURITY;
 CREATE POLICY tenant_isolation_policy ON usage_ledger
   USING (tenant_id = current_setting('app.current_tenant_id', true)::UUID);
 
--- ============================================================================
--- HELPER FUNCTION: update_updated_at_column
--- Purpose: Auto-update updated_at timestamp
--- ============================================================================
-
-CREATE OR REPLACE FUNCTION update_updated_at_column()
-RETURNS TRIGGER AS $$
-BEGIN
-  NEW.updated_at = NOW();
-  RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
+-- Function moved to top for dependency order
 
 -- ============================================================================
 -- COMMENTS (Documentation)
