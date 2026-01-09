@@ -35,6 +35,54 @@ To bridge the gap between high-level governance prohibitions (VGB-1) and actual 
 
 ---
 
+## 3.4. Polyglot Strategy (TypeScript + Python)
+
+### When to Use TypeScript (Node.js)
+*   **API Gateway & Orchestration**: All HTTP endpoints, routing, authentication.
+*   **CRUD Operations**: Database queries, business logic, multi-tenant isolation.
+*   **Real-time Communication**: WebSockets, Server-Sent Events, LiveKit client integration.
+*   **Frontend**: React/Next.js (universal).
+*   **Job Orchestration**: BullMQ queue management, job scheduling.
+
+### When to Use Python
+*   **Multi-Agent AI**: Agno framework for autonomous agents, reasoning, collaboration.
+*   **ML/AI Heavy Processing**: Custom model training, fine-tuning, local inference.
+*   **Simulation & Digital Twins**: SimPy, Mesa for enterprise behavior modeling.
+*   **Data Science**: NumPy, Pandas, SciPy for complex analytics.
+*   **Voice Processing**: Integration with Cartesia/ElevenLabs for voice cloning.
+
+### Integration Pattern
+*   **Architecture**: Microservices communicating via HTTP/gRPC (not monolith).
+*   **Job Queues**: TypeScript enqueues jobs → Python workers process → Results back to TypeScript.
+*   **Data Exchange**: JSON over HTTP, Protocol Buffers for high-throughput.
+*   **Deployment**: Separate containers (Docker), independent scaling.
+
+### Python Stack (Approved)
+*   **AI Framework**: **Agno** (multi-agent, reasoning, collaboration).
+*   **Validation**: **Pydantic** (equivalent to Zod in TypeScript).
+*   **Structured Outputs**: **Pydantic AI** (LLM response parsing).
+*   **Simulation**: **SimPy** or **Mesa** (for Digital Twin use cases).
+*   **API Framework**: **FastAPI** (async, OpenAPI auto-generation).
+
+---
+
+## 3.5. Voice & Real-time Media
+
+### Voice Cloning & Synthesis
+*   **Primary**: **Cartesia** (preferred for low-latency, high-quality cloning).
+*   **Alternative**: **ElevenLabs** (fallback, broader voice library).
+*   **Rationale**: Both offer REST APIs, no vendor lock-in.
+
+### Real-time Communication (Under Evaluation)
+*   **LiveKit**: WebRTC infrastructure for voice/video (preferred for self-hosted control).
+*   **Retell**: Conversational AI phone calls (alternative, managed service).
+*   **Decision Pending**: Evaluate based on latency, cost, and control requirements.
+*   **Integration**: TypeScript client SDK, Python backend for AI processing.
+
+---
+
+---
+
 ## 3. Approved Libraries (Third-Party)
 
 ### 3.1. Critical Infrastructure
@@ -180,7 +228,7 @@ Deviations from this standard require:
 
 | Version | Date | Changes |
 | :--- | :--- | :--- |
-| 1.0 | 2026-01-09 | Initial release. Formalized Supabase, BullMQ, Type Guards, pgvector. Drizzle ORM preferred (under review). |
+| 1.0 | 2026-01-09 | Initial release. Formalized Supabase, BullMQ, Type Guards, pgvector. Drizzle ORM preferred (under review). Polyglot strategy (TypeScript + Python/Agno). Voice infrastructure (Cartesia/ElevenLabs, LiveKit/Retell under evaluation). |
 
 ---
 
@@ -189,6 +237,11 @@ Deviations from this standard require:
 *   **VGB-1**: `docs/governance/vito-governance-baseline-v1.md` (High-level prohibitions)
 *   **DB Rules**: `docs/data/DB_NAMING_AND_RULES.md` (Persistence naming)
 *   **Core Architecture**: `docs/arch/CORE_VITO_ARCHITECTURE.md` (Structural canon)
+*   **Agno Evaluation**: `docs/projects/VibeThink-Orchestrator/evaluations/completadas/AGNO_EVALUATION_SUMMARY.md`
+
+### Pending Use Case Documentation
+*   **Digital Twin**: FIT pending for enterprise simulation and optimization.
+*   **Voice AI**: FIT pending for Cartesia/ElevenLabs integration and LiveKit/Retell evaluation.
 
 ---
 
