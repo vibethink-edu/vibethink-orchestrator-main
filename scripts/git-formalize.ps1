@@ -2,7 +2,8 @@ param(
     [string]$m = "CHORE: Auto-formalize state"
 )
 
-$ErrorActionPreference = "Stop"
+# Set common encoding for emojis
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 Write-Host "🚀 Starting Formalization Process..." -ForegroundColor Cyan
 
@@ -10,8 +11,6 @@ Write-Host "🚀 Starting Formalization Process..." -ForegroundColor Cyan
 $branch = git rev-parse --abbrev-ref HEAD
 if ($branch -ne "main") {
     Write-Warning "⚠️  You are on branch '$branch', not 'main'."
-    $confirm = Read-Host "Continue pushing to $branch? (y/n)"
-    if ($confirm -ne "y") { exit }
 }
 
 # 2. Add all changes (including deletions)
@@ -20,16 +19,12 @@ git add -A
 
 # 3. Commit
 Write-Host "📝 Committing with message: '$m'..." -ForegroundColor Yellow
-try {
-    git commit -m "$m"
-}
-catch {
-    Write-Warning "No changes to commit (working tree clean)."
-}
+$commitResult = git commit -m "$m" 2>&1
+Write-Host $commitResult
 
 # 4. Pull & Push
 Write-Host "🔄 Syncing with origin..." -ForegroundColor Yellow
-git pull origin $branch --rebase
-git push origin $branch
+git pull origin $branch --rebase 2>&1
+git push origin $branch 2>&1
 
 Write-Host "✅ SUCCESS: State is now FORMALIZED in GitHub ($branch)" -ForegroundColor Green

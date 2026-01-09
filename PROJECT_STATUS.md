@@ -27,14 +27,14 @@ Si encuentras algo que parece incompleto o en conflicto:
 - **Versión:** 0.5.1
 - **Branch:** projects-v2-consolidation
 - **Main branch:** main
-- **Package manager:** npm@10.2.4
+- **Package manager:** pnpm@8.15.0
 
 ### Tecnologías Core
 - **Framework:** Next.js 15.3.4
 - **React:** 19.0.0
 - **TypeScript:** 5.8.3
 - **Tailwind CSS:** 4.1.10
-- **Monorepo:** Turborepo con npm workspaces
+- **Monorepo:** Turborepo con pnpm workspaces
 
 ---
 
@@ -134,18 +134,39 @@ apps/dashboard/src/lib/i18n/
 
 ```
 root/
-├── package.json               ← packageManager: "npm@10.2.4"
+├── package.json               ← packageManager: "pnpm@8.15.0"
+├── pnpm-workspace.yaml        ← Workspace configuration
 ├── apps/
 │   └── dashboard/
-│       └── package.json       ← Dependencias del dashboard
+│       └── package.json       ← Dependencias del dashboard (pnpm scripts)
 └── packages/
     ├── integrations/
-    │   └── package.json       ← CORREGIDO: usa "^0.1.0" NO "workspace:*"
+    │   └── package.json       ← Usa "workspace:*" (pnpm protocol)
     ├── ui/
     │   └── package.json
     └── utils/
         └── package.json
-```
+
+---
+
+## ⏸️ ESTADO: HOLD (LEGACY/FROZEN)
+
+Los siguientes módulos y directorios se encuentran en estado **HOLD**. No forman parte del flujo activo de migración a pnpm y deben ser tratados como archivados o pendientes de decisión futura:
+
+### 1. Docusaurus Documentation Sites
+- `docusaurus-api/`
+- `docusaurus-archives/`
+- `docusaurus-dev/`
+- `docusaurus-docs/`
+- `docusaurus-vthink/`
+*Estado: Congelado. Mantienen su package-lock.json original para referencia histórica.*
+
+### 2. Apps en espera
+- `apps/bundui-reference/`
+- `apps/website/`
+*Estado: Hold. Referencias externas o componentes legacy.*
+
+---```
 
 ---
 
@@ -246,8 +267,9 @@ npm run build
 
 ### Banderas rojas (NO hacer):
 
-❌ Cambiar `packageManager` de npm a otro
-❌ Usar sintaxis `workspace:*` en package.json
+❌ Cambiar `packageManager` de pnpm a otro
+❌ Usar `npm install` (usar siempre `pnpm`)
+❌ Borrar pnpm-lock.yaml
 ❌ Reducir de 9 a 7 idiomas
 ❌ Eliminar configuraciones de `it` o `ja` si ya existen
 ❌ Revertir cambios de `packages/integrations/package.json`
