@@ -16,9 +16,11 @@ To bridge the gap between high-level governance prohibitions (VGB-1) and actual 
 
 ### 2.1. Persistence Layer
 *   **Database**: PostgreSQL via **Supabase**.
-*   **ORM/Querying**: 
-    *   **Prohibited**: Direct usage of heavy ORMs (TypeORM, Prisma) in hot paths.
-    *   **Standard**: `QueryBuilder` (Internal Lightweight Utility) or `supabase-js` direct client.
+*   **ORM/Querying** (Tiered Strategy):
+    *   **Simple Queries**: `QueryBuilder` (Internal Lightweight Utility) or `supabase-js` direct client.
+    *   **Complex Queries** (joins, aggregations): **Drizzle ORM** (preferred for type-safety, zero runtime overhead).
+    *   **Under Review**: Prisma (concerns: binary size, RLS compatibility). TypeORM (deprecated, low maintenance).
+    *   **Migrations**: Supabase SQL migrations are the source of truth. ORM schemas are derived, not authoritative.
 *   **Validation**: All external data inputs MUST pass through runtime Type Guards or Zod schemas before persistence.
 
 ### 2.2. Asynchronous Processing (Queues)
@@ -178,7 +180,7 @@ Deviations from this standard require:
 
 | Version | Date | Changes |
 | :--- | :--- | :--- |
-| 1.0 | 2026-01-09 | Initial release. Formalized Supabase, BullMQ, Type Guards, pgvector. |
+| 1.0 | 2026-01-09 | Initial release. Formalized Supabase, BullMQ, Type Guards, pgvector. Drizzle ORM preferred (under review). |
 
 ---
 
