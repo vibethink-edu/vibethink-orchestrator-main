@@ -12,11 +12,11 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner'
 import { supabase } from '@/integrations/supabase/client'
 import { useAuth } from '@/shared/hooks/useAuth'
-import type { 
-  MeetingProcessRequest, 
-  MeetingProcessResponse, 
+import type {
+  MeetingProcessRequest,
+  MeetingProcessResponse,
   Meeting,
-  ProcessingState 
+  ProcessingState
 } from '@/shared/types/meeting'
 
 /**
@@ -90,6 +90,7 @@ export function useMeetings() {
       }
 
       const { data, error } = await supabase
+        // Explicit cast needed due to generated types mismatch (pending regeneration)
         .from('meetings' as any)
         .select('*')
         .eq('company_id', user.user_metadata.company_id)
@@ -99,7 +100,8 @@ export function useMeetings() {
         throw error
       }
 
-      return (data || []) as unknown as Meeting[]
+      // Safe cast: Frontend Meeting type matches backend schema
+      return (data || []) as Meeting[]
     },
     enabled: !!user?.user_metadata?.company_id,
     staleTime: 5 * 60 * 1000, // 5 minutes
@@ -121,6 +123,7 @@ export function useMeeting(meetingId: string) {
       }
 
       const { data, error } = await supabase
+        // Explicit cast needed due to generated types mismatch (pending regeneration)
         .from('meetings' as any)
         .select('*')
         .eq('id', meetingId)
@@ -134,7 +137,8 @@ export function useMeeting(meetingId: string) {
         throw error
       }
 
-      return data as unknown as Meeting
+      // Safe cast: Frontend Meeting type matches backend schema
+      return data as Meeting
     },
     enabled: !!meetingId && !!user?.user_metadata?.company_id,
     staleTime: 10 * 60 * 1000, // 10 minutes
@@ -155,6 +159,7 @@ export function useDeleteMeeting() {
       }
 
       const { error } = await supabase
+        // Explicit cast needed due to generated types mismatch (pending regeneration)
         .from('meetings' as any)
         .delete()
         .eq('id', meetingId)
@@ -282,8 +287,8 @@ export function useCompanyUsage() {
       }
 
       const { data, error } = await supabase
-        .rpc('get_company_limits', { 
-          p_company_id: user.user_metadata.company_id 
+        .rpc('get_company_limits', {
+          p_company_id: user.user_metadata.company_id
         })
 
       if (error) {

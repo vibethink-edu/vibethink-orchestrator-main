@@ -129,7 +129,7 @@ export class QueryBuilder<T extends TableName> {
     this.conditions.forEach(condition => {
       const [column, operator, ...valueParts] = condition.split('.');
       const value = valueParts.join('.');
-      
+
       switch (operator) {
         case 'eq':
           query = (query as any).eq(column, value);
@@ -194,7 +194,8 @@ export class QueryBuilder<T extends TableName> {
     const query = this.buildQuery();
     const result = await query;
     return {
-      data: result.data as unknown as Row<T>[] | null,
+      // Type assertion justified: Wrapper guarantees T matches table schema
+      data: result.data as Row<T>[] | null,
       error: result.error,
       count: result.count || undefined
     };
@@ -204,7 +205,8 @@ export class QueryBuilder<T extends TableName> {
     const query = this.buildQuery();
     const result = await query.single();
     return {
-      data: result.data as unknown as Row<T> | null,
+      // Type assertion justified: Wrapper guarantees T matches table schema
+      data: result.data as Row<T> | null,
       error: result.error
     };
   }
@@ -213,7 +215,8 @@ export class QueryBuilder<T extends TableName> {
     const query = this.buildQuery();
     const result = await query.maybeSingle();
     return {
-      data: result.data as unknown as Row<T> | null,
+      // Type assertion justified: Wrapper guarantees T matches table schema
+      data: result.data as Row<T> | null,
       error: result.error
     };
   }
@@ -222,7 +225,8 @@ export class QueryBuilder<T extends TableName> {
   async insert(data: Insert<T> | Insert<T>[]): Promise<QueryResult<Row<T>>> {
     const result = await (supabase.from(this.tableName) as any).insert(data).select();
     return {
-      data: result.data as unknown as Row<T>[] | null,
+      // Type assertion justified: Wrapper guarantees T matches table schema
+      data: result.data as Row<T>[] | null,
       error: result.error
     };
   }
@@ -235,7 +239,7 @@ export class QueryBuilder<T extends TableName> {
     this.conditions.forEach(condition => {
       const [column, operator, ...valueParts] = condition.split('.');
       const value = valueParts.join('.');
-      
+
       switch (operator) {
         case 'eq':
           query = query.eq(column, value);
@@ -246,7 +250,8 @@ export class QueryBuilder<T extends TableName> {
 
     const result = await query.select();
     return {
-      data: result.data as unknown as Row<T>[] | null,
+      // Type assertion justified: Wrapper guarantees T matches table schema
+      data: result.data as Row<T>[] | null,
       error: result.error
     };
   }
@@ -259,7 +264,7 @@ export class QueryBuilder<T extends TableName> {
     this.conditions.forEach(condition => {
       const [column, operator, ...valueParts] = condition.split('.');
       const value = valueParts.join('.');
-      
+
       switch (operator) {
         case 'eq':
           query = query.eq(column, value);
@@ -288,12 +293,12 @@ export class QueryBuilder<T extends TableName> {
   // Generate SQL for debugging
   toSQL(): string {
     let sql = `SELECT ${this.selectQuery} FROM ${String(this.tableName)}`;
-    
+
     if (this.conditions.length > 0) {
       const whereConditions = this.conditions.map(condition => {
         const [column, operator, ...valueParts] = condition.split('.');
         const value = valueParts.join('.');
-        
+
         switch (operator) {
           case 'eq': return `${column} = ${value}`;
           case 'neq': return `${column} != ${value}`;
@@ -310,20 +315,20 @@ export class QueryBuilder<T extends TableName> {
       });
       sql += ` WHERE ${whereConditions.join(' AND ')}`;
     }
-    
+
     if (this.orderByClause) {
       const [column, direction] = this.orderByClause.split('.');
       sql += ` ORDER BY ${column} ${direction.toUpperCase()}`;
     }
-    
+
     if (this.limitValue) {
       sql += ` LIMIT ${this.limitValue}`;
     }
-    
+
     if (this.offsetValue) {
       sql += ` OFFSET ${this.offsetValue}`;
     }
-    
+
     return sql;
   }
 }
