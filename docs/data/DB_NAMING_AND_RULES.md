@@ -180,3 +180,39 @@ PostgreSQL se define como la **implementación de referencia**. El uso de `UUID`
 - 🚫 **No prefijos redundantes**: No llamar a una columna `case_title` dentro de la tabla `cases`.
 - 🚫 **No saltar la Ontología**.
 - 🚫 **No permitir Cross-Tenant Joins sin validación de ID de inquilino**.
+
+---
+
+## 9. Vector / Embedding Extensions (RAG Ops)
+
+### Naming y Estructura
+Almacenamiento de Embeddings y Chunks para operaciones semánticas.
+
+1.  **Tablas de Embeddings**:
+    Deben tener el prefijo o sufijo explícito que denote su naturaleza vectorial.
+    *   Sufijo: `_embeddings` (Recomendado) o `_vectors`.
+    *   Ejemplo: `knowledge_artifacts_embeddings`.
+
+2.  **Dimensiones Estrictas**:
+    Las columnas vectoriales DEBEN declarar su dimensión para evitar mismatch de modelos.
+    *   `embedding vector(1536)` (OpenAI text-embedding-3-small)
+    *   `embedding vector(3072)` (OpenAI text-embedding-3-large)
+    
+3.  **Chunking Metadata (Obligatorio)**:
+    Todo chunk debe ser trazable a su fuente original.
+    ```sql
+    source_id      UUID NOT NULL REFERENCES origin_table(id), -- FK a la fuente
+    chunk_index    INTEGER NOT NULL,   -- Orden secuencial
+    chunk_content  TEXT NOT NULL,      -- Texto plano del chunk
+    tokens_count   INTEGER,            -- Cost accounting
+    embedding      VECTOR(1536),       -- Payload vectorial
+    strategy_v     VARCHAR(20)         -- Versión del algoritmo de chunking (ej: 'v1.0-overlap-200')
+    ```
+
+4.  **Índices HNSW**:
+    Para producción, usar índices HNSW en lugar de IVFFlat para performance.
+    ```sql
+    CREATE INDEX idx_artifacts_embedding ON knowledge_artifacts_embeddings 
+    USING hnsw (embedding vector_cosine_ops);
+    ```
+
