@@ -18,10 +18,12 @@
 
 import { v4 as uuidv4 } from 'uuid';
 import type { SupabaseClient } from '@supabase/supabase-js';
-import { IngestService } from '../services/ingest.service.js';
+import type { Queue } from 'bullmq';
 import { SupabasePersistenceAdapter } from '../infra/persistence.adapter.js';
 import { S3StorageAdapter } from '../infra/storage.adapter.js';
 import type { CreateDocumentJobInput } from '../contracts/document.js';
+import type { DocumentProcessingPayload } from '../worker/processor.js';
+import { enqueueDocumentProcessing } from '../worker/processor.js';
 
 /**
  * Document Intelligence Routes Handler
@@ -29,23 +31,18 @@ import type { CreateDocumentJobInput } from '../contracts/document.js';
  * Pluggable router module for any framework (Express, Fastify, Next.js API routes).
  */
 export class DocumentIntelligenceRoutes {
-    private readonly ingestService: IngestService;
     private readonly persistenceAdapter: SupabasePersistenceAdapter;
     private readonly storageAdapter: S3StorageAdapter;
+    private readonly queue?: Queue<DocumentProcessingPayload>;
 
     constructor(
         supabaseClient: SupabaseClient,
-        storageConfig: { bucket: string; region: string; credentials?: any }
+        storageConfig: { bucket: string; region: string; credentials?: any },
+        queue?: Queue<DocumentProcessingPayload>
     ) {
         this.persistenceAdapter = new SupabasePersistenceAdapter(supabaseClient);
         this.storageAdapter = new S3StorageAdapter(storageConfig);
-
-        this.ingestService = new IngestService(
-            this.storageAdapter as any, // TODO: Fix type
-            this.persistenceAdapter,
-            createAuditServiceStub(), // TODO Phase 2: Real audit service
-            createQueueServiceStub()  // TODO Phase 2: BullMQ
-        );
+        this.queue = queue;
     }
 
     /**
@@ -103,8 +100,20 @@ export class DocumentIntelligenceRoutes {
         console.log(`[AUDIT] document.ingested: tenant=${auth.tenant_id}, job=${jobId}`);
 
         // 7. Enqueue for async processing
-        // TODO Phase 2: Implement BullMQ queue
-        console.log(`[QUEUE] Enqueued job for processing: ${jobId}`);
+        if (this.queue) {
+            await enqueueDocumentProcessing(this.queue, {
+                tenant_id: auth.tenant_id,
+                job_id: jobId,
+                document_profile_id: request.document_profile_id,
+                s3_bucket: storageMetadata.bucket,
+                s3_key: storageMetadata.objectKey,
+                mime_type: request.file.mimetype,
+                original_filename: request.file.originalname,
+            });
+            console.log(`[QUEUE] Enqueued job for processing: ${jobId}`);
+        } else {
+            console.warn(`[QUEUE] Queue not configured, job will not be processed: ${jobId}`);
+        }
 
         // 8. Return response
         return {
