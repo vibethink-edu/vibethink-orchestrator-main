@@ -42,6 +42,7 @@
     "validate:indexes": "tsx scripts/validate-indexes.ts",
     "validate:archival": "tsx scripts/validate-archival.ts",
     "db:archive-conversations": "tsx scripts/archive-conversations.ts",
+    "db:setup-ci": "tsx scripts/setup-db-schema.ts",
     "prepare": "husky"
   },
   "devDependencies": {

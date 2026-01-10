@@ -46,9 +46,11 @@ jobs:
       - name: Validate JSONB Schemas
         run: pnpm run validate:jsonb-schemas
 
-      # Note: For real DB validation we need migrations to run first.
-      # Assuming a 'db:migrate' script exists or can be simulated.
-      # If not, these will verify the scripts can run but might skip actual DB checks if empty.
+      - name: Bootstrap Database (CI)
+        run: pnpm run db:setup-ci
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+
       - name: Validate ENUMs
         run: pnpm run validate:enums
         env:

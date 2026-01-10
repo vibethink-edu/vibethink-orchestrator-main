@@ -1,18 +1,12 @@
 /**
  * Revenue Share Model
- * Ensures celebrity + platform = 100% at compile time using TypeScript literal types.
+ * Uses discriminating unions to enforce valid 100% splits at compile time.
  */
-
-export type RevenueShareModel = {
-    celebrity: number;
-    platform: number;
-    total: 100; // Literal type enforces sum = 100 semantically
-};
-
-// Compile-time assertion helper
-// We rely on the unit test for mathematical validation since TS doesn't support
-// direct arithmetic subtraction on generic number types easily.
-export type AssertSum<T extends { celebrity: number; platform: number; total: 100 }> = T;
+export type RevenueShareModel =
+    | { celebrity: 70; platform: 30; total: 100 }
+    | { celebrity: 50; platform: 50; total: 100 }
+    | { celebrity: 80; platform: 20; total: 100 }
+    | { celebrity: 90; platform: 10; total: 100 };
 
 // ------------------------------------------------------------------
 // DEFINITIONS
@@ -23,38 +17,27 @@ export type AssertSum<T extends { celebrity: number; platform: number; total: 10
  * Celebrity: 70%
  * Platform: 30%
  */
-export const PORTAL_REVENUE_SHARE = {
+export const PORTAL_REVENUE_SHARE: RevenueShareModel = {
     celebrity: 70,
     platform: 30,
     total: 100
-} as const;
+};
 
 /**
  * White-Label Revenue Share
  * Celebrity: 70%
  * Platform: 30%
- * (Note: White-label fees are handled separately via setup/platform fees)
  */
-export const WHITE_LABEL_REVENUE_SHARE = {
+export const WHITE_LABEL_REVENUE_SHARE: RevenueShareModel = {
     celebrity: 70,
     platform: 30,
     total: 100
-} as const;
-
-// ------------------------------------------------------------------
-// COMPILE-TIME VALIDATIONS
-// ------------------------------------------------------------------
-
-// These lines will cause a TypeScript error if the math is wrong
-// @ts-ignore: Unused variable is intentional for type check
-type _ValidPortal = AssertSum<typeof PORTAL_REVENUE_SHARE>;
-// @ts-ignore: Unused variable is intentional for type check
-type _ValidWhiteLabel = AssertSum<typeof WHITE_LABEL_REVENUE_SHARE>;
+};
 
 // ------------------------------------------------------------------
 // RUNTIME HELPERS
 // ------------------------------------------------------------------
 
-export function validateRevenueShare(model: { celebrity: number; platform: number }): boolean {
+export function validateRevenueShare(model: RevenueShareModel): boolean {
     return model.celebrity + model.platform === 100;
 }
