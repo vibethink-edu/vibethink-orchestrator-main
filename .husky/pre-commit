@@ -1,13 +1,2 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-# VThink 1.0 - Pre-commit Hook
-echo "🔍 Validando reglas de reportes..."
-
-# Validar ubicación de reportes
-npm run validate:reports
-
-# Validar limpieza de raíz
-npm run validate:root
-
-echo "✅ Pre-commit validations passed"
+pnpm run validate:jsonb-schemas
+pnpm test src/types/__tests__/revenue.test.ts

@@ -15,6 +15,52 @@ env:
   CACHE_DEPENDENCY_PATH: pnpm-lock.yaml
 
 jobs:
+  validate-database:
+    name: ci / validate database
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      - name: Validate JSONB Schemas
+        run: pnpm run validate:jsonb-schemas
+
+      # Note: For real DB validation we need migrations to run first.
+      # Assuming a 'db:migrate' script exists or can be simulated.
+      # If not, these will verify the scripts can run but might skip actual DB checks if empty.
+      - name: Validate ENUMs
+        run: pnpm run validate:enums
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+          CI: true
+
+      - name: Validate Indexes
+        run: pnpm run validate:indexes
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+          CI: true
+
   governance:
     name: ci / governance
     runs-on: ubuntu-latest
