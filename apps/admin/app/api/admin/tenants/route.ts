@@ -1,13 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { AuditService } from "@/lib/audit-service";
-import { AdminSession } from "@/lib/types";
-
-// MOCK SESSION - Replace with real Auth Logic
-async function getAdminSession(req: NextRequest): Promise<AdminSession | null> {
-    // TODO: Verify JWT/Cookie and return session
-    // return null; // Default deny
-    return { userId: "mock-admin", email: "admin@vibethink.io", role: "SUPER" }; // DEV ONLY
-}
+import { getAdminSession } from "@/lib/auth"; // Real Auth 🛡️
 
 export async function GET(req: NextRequest) {
     // 1. AUTH GUARD
@@ -20,10 +13,12 @@ export async function GET(req: NextRequest) {
     }
 
     // 3. LOGIC
+    // TODO: Fetch real tenants from adminDb
     return NextResponse.json({
         message: "Admin Tenants List",
         tenants: [],
-        warning: "Stub Implementation"
+        username: session.email, // Echo back for debug
+        role: session.role
     });
 }
 
