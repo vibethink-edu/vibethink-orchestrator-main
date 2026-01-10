@@ -1,28 +1,34 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google"; // Asumiendo font disponible, sino usar sistema
-import { Toaster } from "@/components/ui/toaster"; // Asumiendo shadcn compartido
+import { Inter } from "next/font/google";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ViTo Nexus | Global Control Plane",
+  title: "ViTo Admin | Control Plane",
   description: "Internal Operations Console for VibeThink Staff",
-  robots: "noindex, nofollow", // CRITICAL: Ocultar de Google
+  robots: "noindex, nofollow",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // Default to Spanish for internal staff
+  const locale = 'es';
+  const messages = await getMessages({ locale });
+
   return (
-    <html lang="en" className="dark">
+    <html lang={locale} className="dark">
       <body className={inter.className} suppressHydrationWarning>
-        <main className="min-h-screen bg-background text-foreground">
-          {children}
-        </main>
-        {/* <Toaster /> Comentado hasta verificar path de componentes */}
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <main className="min-h-screen bg-background text-foreground">
+            {children}
+          </main>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

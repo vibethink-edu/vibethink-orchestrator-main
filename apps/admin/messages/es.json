@@ -1,0 +1,56 @@
+{
+    "common": {
+        "loading": "Cargando...",
+        "error": "Error",
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "delete": "Eliminar",
+        "edit": "Editar",
+        "search": "Buscar",
+        "actions": "Acciones"
+    },
+    "nav": {
+        "tenants": "Inquilinos",
+        "identitySearch": "Búsqueda de Identidad",
+        "auditLog": "Registro de Auditoría",
+        "platformHealth": "Salud de la Plataforma"
+    },
+    "tenants": {
+        "title": "Inquilinos",
+        "subtitle": "Gestionar aprovisionamiento, estado y acceso al sistema.",
+        "search": "Filtrar inquilinos...",
+        "totalCount": "Total de {count} inquilinos",
+        "provision": "Aprovisionar Inquilino",
+        "table": {
+            "name": "Nombre",
+            "slug": "Slug",
+            "status": "Estado",
+            "uuid": "UUID",
+            "actions": "Acciones"
+        },
+        "status": {
+            "active": "Activo",
+            "suspended": "Suspendido"
+        },
+        "actions": {
+            "copyId": "Copiar ID",
+            "viewDashboard": "Ver Panel",
+            "suspend": "Suspender Inquilino",
+            "activate": "Activar Inquilino"
+        },
+        "pagination": {
+            "previous": "Anterior",
+            "next": "Siguiente"
+        },
+        "empty": "No se encontraron inquilinos."
+    },
+    "admin": {
+        "user": "Usuario Admin",
+        "role": {
+            "super": "SUPER_ADMIN",
+            "ops": "OPS",
+            "support": "SOPORTE"
+        },
+        "logout": "Cerrar Sesión"
+    }
+}

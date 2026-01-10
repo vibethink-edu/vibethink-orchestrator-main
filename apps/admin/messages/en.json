@@ -1,0 +1,56 @@
+{
+    "common": {
+        "loading": "Loading...",
+        "error": "Error",
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "search": "Search",
+        "actions": "Actions"
+    },
+    "nav": {
+        "tenants": "Tenants",
+        "identitySearch": "Identity Search",
+        "auditLog": "Audit Log",
+        "platformHealth": "Platform Health"
+    },
+    "tenants": {
+        "title": "Tenants",
+        "subtitle": "Manage tenant provisioning, status, and system access.",
+        "search": "Filter tenants...",
+        "totalCount": "Total of {count} tenants",
+        "provision": "Provision Tenant",
+        "table": {
+            "name": "Name",
+            "slug": "Slug",
+            "status": "Status",
+            "uuid": "UUID",
+            "actions": "Actions"
+        },
+        "status": {
+            "active": "Active",
+            "suspended": "Suspended"
+        },
+        "actions": {
+            "copyId": "Copy ID",
+            "viewDashboard": "View Dashboard",
+            "suspend": "Suspend Tenant",
+            "activate": "Activate Tenant"
+        },
+        "pagination": {
+            "previous": "Previous",
+            "next": "Next"
+        },
+        "empty": "No tenants found."
+    },
+    "admin": {
+        "user": "Admin User",
+        "role": {
+            "super": "SUPER_ADMIN",
+            "ops": "OPS",
+            "support": "SUPPORT"
+        },
+        "logout": "Logout"
+    }
+}
