@@ -42,9 +42,7 @@ jobs:
       # Apps Doc Path: apps/docs
       # Output Dir: apps/docs/dist
       - name: Build Documentation
-        run: |
-          cd apps/docs
-          pnpm build
+        run: pnpm --filter docs build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
