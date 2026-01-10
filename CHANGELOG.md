@@ -18,6 +18,36 @@ Todos los cambios notables de este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] - 2026-01-10
+
+### Added
+- ✅ **Agent Immunity System (Nivel Código)**
+  - Implementado conjunto de scripts de validación (`validate:*`)
+  - Hook de pre-commit contra deletes masivos (>50 líneas)
+  - `AGENT_IMMUNITY_PROTOCOL.md` y `ORCHESTRATION_WORKFLOW.md`
+  - CI Safety Gates estrictos (Hard Failure on Warnings)
+
+- ✅ **Seguridad Multi-Tenancy (Nivel DB)**
+  - RLS (Row Level Security) activado en tabla `conversations`
+  - Constraints `NOT NULL` estrictos para `company_id`
+  - Foreign Keys para integridad referencial (`conversations` -> `companies`)
+  - Script de validación `validate:multi-tenancy`
+
+- ✅ **CodeRabbit Optimization**
+  - Implementado `.coderabbit.yaml` con reglas personalizadas
+  - Protocolo para ignorar falsos positivos conocidos
+  - Metavalidador (`validate:validators`) para asegurar calidad interna
+
+### Changed
+- 🔒 **CI Workflow:** Todos los quality gates (syntax, imports, types) ahora bloquean el build si fallan.
+- 🔒 **Archival Script:** Interpolación de strings reemplazada por parámetros SQL (`$1, $2`) para prevenir inyecciones.
+
+### Technical
+- 🛡️ El sistema ahora rechaza automáticamente código que viole type-safety o reglas multi-tenant.
+- 🤖 Preparado para operación con Agentes Autónomos (OpenSpec Workflow).
+
+---
+
 ## [0.6.0] - 2025-12-26
 
 ### Added

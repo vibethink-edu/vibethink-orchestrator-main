@@ -29,9 +29,6 @@ export default [
       'react-refresh': reactRefreshPlugin,
       'readable-tailwind': readableTailwindPlugin,
     },
-    extends: [
-      'next/core-web-vitals',
-    ],
     ignores: [
       'node_modules/**/*',
       '.next/**/*',

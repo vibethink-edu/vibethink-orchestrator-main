@@ -84,7 +84,7 @@ export async function POST(req: Request) {
             messages,
         });
 
-        return result.toDataStreamResponse();
+        return result.toTextStreamResponse();
 
     } catch (error) {
         console.error(`[${AI_ASSISTANT_CONFIG.name}] Error:`, error);
