@@ -39,10 +39,20 @@ async function setupSchema(): Promise<void> {
 
     // 2. Create Tables
     await pool.query(`
-      -- 2a. Conversations Table with Strict Constraints
+      -- 2a. Companies Table (Tenant Source of Truth)
+      CREATE TABLE IF NOT EXISTS companies (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        name TEXT NOT NULL,
+        plan TEXT NOT NULL DEFAULT 'free',
+        created_at TIMESTAMPTZ DEFAULT NOW()
+      );
+
+      ALTER TABLE companies ENABLE ROW LEVEL SECURITY;
+
+      -- 2b. Conversations Table with Strict Constraints & FK
       CREATE TABLE IF NOT EXISTS conversations (
         id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-        company_id UUID NOT NULL, -- Critical for multi-tenancy
+        company_id UUID NOT NULL REFERENCES companies(id), -- Enforce referential integrity
         messages JSONB DEFAULT '[]'::jsonb,
         context JSONB DEFAULT '{}'::jsonb,
         updated_at TIMESTAMPTZ DEFAULT NOW(),
