@@ -125,7 +125,48 @@ interface IRealTimeContextAdapter {
 
 ---
 
-## 5. Cost Control Strategy: Burst Management
+## 5. The Control Dashboard (Governance Console)
+
+> **Principle:** The Twin Brain is stateless and obedient. It ONLY knows what the Dashboard approves.
+
+The Dashboard is the **Single Source of Truth** for the Avatar's behavior, knowledge, and restrictions.
+
+### 5.1 Dashboard Architecture (Modules)
+
+| Module | Responsibility | Source of Truth (DB) |
+| :--- | :--- | :--- |
+| **Knowledge Hub** | Ingest sources (PDF, YouTube, API). **Status:** `Pending` -> `Approved`. | `twin_knowledge_sources` |
+| **Behavior Control** | System Prompts versioning & prohibited topics. | `twin_system_prompts` |
+| **Integrations** | API Keys for Video/Voice providers & Live Data. | `tenant_secrets` (Encrypted) |
+| **Analytics** | Cost/Usage tracking per interaction unit. | `billing_meters` |
+| **Distribution** | Embed codes, specific domain allow-lists. | `twin_deployments` |
+
+### 5.2 Critical Workflows
+
+#### A. Knowledge Ingestion & Approval
+*   **Trigger:** User uploads PDF or adds YouTube URL.
+*   **State 1 (Ingesting):** Backend processes content -> Vector DB (marked `draft`).
+*   **State 2 (Review):** User sees summary/preview in Dashboard.
+*   **State 3 (Approval):** Admin clicks "APPROVE".
+*   **Effect:** Only `approved` vectors are queryable by the Avatar RAG.
+*   *Risk:* Auto-scraping without approval is **FORBIDDEN**.
+
+#### B. Prompt Versioning Strategy
+*   **No Hardcoded Prompts:** The Agent code fetches prompt from DB at session start.
+*   **Immutable History:** Every save creates a new `version_id`.
+*   **Rollback:** "Revert to v12" must be instant.
+*   **Context Injection:** Dashboard variables (`{{user_name}}`, `{{subscription_tier}}`) are injected dynamically.
+
+### 5.3 Permission Matrix (RBAC)
+
+| Role | Edit Prompts? | Approve Knowledge? | View Analytics? | Top-up Credits? |
+| :--- | :---: | :---: | :---: | :---: |
+| **Viewer** | ❌ | ❌ | ✅ | ❌ |
+| **Editor** | ✅ | ❌ | ✅ | ❌ |
+| **Approver** | ✅ | ✅ | ✅ | ❌ |
+| **Owner** | ✅ | ✅ | ✅ | ✅ |
+
+## 6. Cost Control Strategy: Burst Management
 
 We implement a 3-stage defense against cost overruns:
 
@@ -139,7 +180,7 @@ We implement a 3-stage defense against cost overruns:
 
 ---
 
-## 6. Evidence Checklist (FIT Gate)
+## 7. Evidence Checklist (FIT Gate)
 
 The Auditor must verify these claims before "RELEASE":
 
