@@ -1,0 +1,49 @@
+# CodeRabbit Configuration for Admin Console
+
+# Language Configuration
+language: "en"
+
+# Custom Rules for Admin Console
+reviews:
+  # i18n Configuration
+  - path: "apps/admin/messages/**"
+    rules:
+      - name: "Admin i18n scope"
+        description: |
+          Admin Console uses ONLY 2 languages: English (en) and Spanish (es).
+          This is intentional and documented in apps/admin/I18N_STRATEGY.md.
+          Do NOT flag missing translations for other languages (fr, pt, de, it, ko, ar, zh).
+        severity: "info"
+
+  # UI Component Strategy
+  - path: "apps/admin/components/**"
+    rules:
+      - name: "Bundui inheritance"
+        description: |
+          Admin components MUST be copied from apps/dashboard/app/dashboard-bundui.
+          See apps/admin/UI_COMPONENT_STRATEGY.md for details.
+          Flag any custom components that could be inherited from Bundui instead.
+        severity: "warning"
+
+  # Security
+  - path: "apps/admin/**/*.ts"
+    rules:
+      - name: "Admin security"
+        description: |
+          Admin Console is CRITICAL INFRASTRUCTURE.
+          All security concerns are HIGH priority.
+          See apps/admin/SECURITY.md for hardening guidelines.
+        severity: "error"
+
+# Ignore Patterns
+ignore:
+  - "apps/admin/messages/!(en|es).json"  # Only EN and ES are valid
+  - "apps/admin/.next/**"
+  - "apps/admin/node_modules/**"
+
+# Custom Messages
+custom_messages:
+  i18n_scope: |
+    ℹ️ Admin Console uses only 2 languages (EN + ES) by design.
+    See apps/admin/I18N_STRATEGY.md for rationale.
+    Dashboard uses 9 languages, but Admin is internal-only.
