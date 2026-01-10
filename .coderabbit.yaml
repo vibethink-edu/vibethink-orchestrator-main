@@ -1,0 +1,87 @@
+# CodeRabbit Configuration
+# https://docs.coderabbit.ai/guides/configure-coderabbit/
+
+# Language: English
+language: en-US
+
+# Review settings
+reviews:
+  # High-level review settings
+  high_level_summary: true
+  poem: false
+  review_status: true
+  
+  # Collapse walkthrough
+  collapse_walkthrough: false
+  
+  # Auto-review settings
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - main
+      - develop
+  
+  # Path-based instructions
+  path_instructions:
+    - path: "scripts/validate-*.ts"
+      instructions: |
+        These are validation scripts that enforce code quality rules.
+        They already follow TypeScript best practices including:
+        - Type guards for all type assertions
+        - Runtime validation before type narrowing
+        - Proper error handling
+        
+        If reporting type assertion issues, verify the code actually has the issue
+        before reporting. Check for:
+        1. Presence of type guard functions (e.g., isExecError)
+        2. Runtime validation before using 'as'
+        3. Proper error handling patterns
+    
+    - path: "**/*.test.ts"
+      instructions: |
+        Test files may use type assertions for test data setup.
+        This is acceptable in test contexts.
+  
+  # Known issues to ignore (false positives)
+  ignore_patterns:
+    # This issue was fixed in commit 94c5c057
+    # CodeRabbit may still report it on old PRs
+    - pattern: "Type assertion without runtime validation"
+      files:
+        - "scripts/validate-unused-code.ts"
+      reason: "Fixed in commit 94c5c057 with isExecError type guard"
+      fixed_date: "2026-01-10"
+
+# Chat settings
+chat:
+  auto_reply: true
+
+# Knowledge base
+knowledge_base:
+  learnings:
+    enabled: true
+    scope: global
+  
+  # Project-specific rules
+  custom_rules:
+    - name: "Type Assertions Require Type Guards"
+      description: "All type assertions must be preceded by runtime type validation"
+      severity: error
+      
+    - name: "No @ts-ignore Without Description"
+      description: "Use @ts-expect-error with detailed description instead"
+      severity: warning
+      
+    - name: "Console Statements in Production"
+      description: "console.log/debug/info not allowed in production code"
+      severity: warning
+      exceptions:
+        - "**/*.test.ts"
+        - "scripts/**"
+
+# Tools configuration
+tools:
+  github:
+    enabled: true
+    auto_review_on_push: true

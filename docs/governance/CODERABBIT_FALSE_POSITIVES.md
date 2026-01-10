@@ -58,6 +58,14 @@ const err = error;
 Nuestro propio validador `validate-type-safety.ts` debería haber detectado esto.
 Necesitamos ejecutar los validadores en los scripts mismos antes de commit.
 
+**Prevención Implementada:**
+1. ✅ Agregado `.coderabbit.yaml` con configuración específica
+2. ✅ Path-based instructions para `scripts/validate-*.ts`
+3. ✅ Ignore pattern para este issue específico
+4. ✅ Custom rules documentando las directrices del proyecto
+
+**Archivo:** `.coderabbit.yaml`
+
 ---
 
 ## 🛠️ Cómo Usar Este Documento
