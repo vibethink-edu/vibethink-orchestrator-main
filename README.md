@@ -31,6 +31,51 @@ Todas las PRs deben cumplir con:
 
 ---
 
+## 🛡️ AI Agent Safety System
+
+**Sistema de prevención contra cambios destructivos por agentes AI.**
+
+### 📚 Documentación Completa:
+- **[AI Agent Safety Protocol](./docs/governance/AI_AGENT_SAFETY_PROTOCOL.md)** - Protocolo completo
+- **[Quick Reference](./docs/governance/AI_SAFETY_QUICK_REF.md)** - Referencia rápida
+
+### 🚨 Protecciones Activas:
+
+#### 1. **Pre-commit Hooks**
+- ⚠️ Detecta eliminaciones >50 líneas
+- ⚠️ Valida imports rotos
+- ⚠️ Previene @ts-ignore sin descripción
+
+#### 2. **CI Safety Gates**
+- ✅ Validación de imports
+- ✅ TypeScript strict check
+- ✅ Build completo
+- ✅ Test suite
+
+#### 3. **Comandos de Seguridad**
+```bash
+# Validar imports rotos
+pnpm run validate:imports
+
+# Validación completa de seguridad
+pnpm run safety:check
+
+# Ejecutar todas las validaciones
+pnpm run gate:quality
+```
+
+### 🚫 Reglas Críticas para AIs:
+
+1. **NO eliminar >50 líneas sin aprobación**
+2. **NO usar @ts-ignore sin investigar**
+3. **SIEMPRE buscar en TODO el monorepo antes de concluir "no existe"**
+4. **VALIDAR incrementalmente** (cambio → validar → siguiente cambio)
+5. **COMUNICAR proactivamente** antes de cambios destructivos
+
+**Ver:** [AI Safety Protocol](./docs/governance/AI_AGENT_SAFETY_PROTOCOL.md) para detalles completos.
+
+---
+
 ## 🌍 CRITICAL: i18n Protocol (MANDATORY)
 
 **⚠️ ALL modules, components, and third-party integrations MUST comply with VibeThink i18n requirements**

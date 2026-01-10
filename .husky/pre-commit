@@ -1,2 +1,19 @@
+#!/bin/sh
+# Pre-commit validations
+
+echo "🔍 Running pre-commit validations..."
+
+# 1. Check for large deletions
+.husky/pre-commit-large-deletions
+
+# 2. Validate JSONB schemas
 pnpm run validate:jsonb-schemas
+
+# 3. Validate imports
+pnpm run validate:imports
+
+# 4. Run revenue tests
 npx vitest run src/types/__tests__/revenue.test.ts
+
+echo "✅ Pre-commit checks passed"
+
