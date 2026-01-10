@@ -1,6 +1,14 @@
 import { Pool } from 'pg';
 
-async function setupSchema() {
+/**
+ * Sets up the database schema for CI environments
+ * @description Creates ENUMs, tables, and indexes required for the application.
+ *              Includes RLS policies for multi-tenant isolation.
+ * @securityReview Required - validates multi-tenant isolation
+ * @testingRequired Unit tests for schema creation and RLS enforcement
+ * @returns {Promise<void>}
+ */
+async function setupSchema(): Promise<void> {
   if (!process.env.DATABASE_URL) {
     console.error('❌ DATABASE_URL required');
     process.exit(1);
