@@ -27,6 +27,7 @@ Antes de incluir cualquier librería, verificamos su licencia contra este semáf
 | **XYFlow (React Flow)** | **MIT** | 🟢 Seguro | Core libre. Versión Pro opcional. |
 | **Bundui Premium** | **COMERCIAL** | 🟡 **Licencia Requerida** | Requiere compra única. No redistribuir código fuente públicamente. |
 | **Builder.io** | **MIT (SDK)** | 🟢 Seguro | El SDK es MIT. El servicio es SaaS Freemium/Paid. |
+| **Puck Editor** | **MIT** | 🟢 Seguro | Visual page builder open-source. No vendor lock-in. |
 
 ### ⚙️ Backend & Core
 
