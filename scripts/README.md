@@ -19,6 +19,9 @@
 ```
 
 **Features:**
+- ✅ **Auto-Install:** Detects missing `node_modules` and runs `pnpm install`
+- ✅ **Auto-Heal:** If port is taken, attempts to auto-stop the old process
+- ✅ **Auto-Launch:** Opens default browser at `http://localhost:3002`
 - ✅ Detects port conflicts (EADDRINUSE)
 - ✅ Handles TIME_WAIT connections gracefully
 - ✅ Validates `.env.local` exists (critical for Admin)

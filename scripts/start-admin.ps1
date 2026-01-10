@@ -4,103 +4,98 @@
 Write-Host "🔐 Starting ViTo Admin Console (Internal Staff Only)..." -ForegroundColor Cyan
 
 $port = 3002
+$projectRoot = Split-Path -Parent $PSScriptRoot
+$adminPath = Join-Path $projectRoot "apps\admin"
+
+# --- 1. HEALTH CHECKS ---
+
+# Check admin directory structure
+if (-not (Test-Path $adminPath)) {
+    Write-Host "❌ Admin directory not found: $adminPath" -ForegroundColor Red
+    exit 1
+}
+
+# Check .env.local (Security Critical)
+$envPath = Join-Path $adminPath ".env.local"
+if (-not (Test-Path $envPath)) {
+    Write-Host "❌ .env.local not found in apps/admin" -ForegroundColor Red
+    Write-Host "👉 Action: Copy .env.local.example to .env.local and configure Supabase credentials" -ForegroundColor Yellow
+    exit 1
+}
+
+# Check node_modules (Dependencies)
+$nodeModulesPath = Join-Path $adminPath "node_modules"
+if (-not (Test-Path $nodeModulesPath)) {
+    Write-Host "⚠️  Dependencies not found (node_modules missing)" -ForegroundColor Yellow
+    Write-Host "📦 Installing dependencies via pnpm..." -ForegroundColor Cyan
+    try {
+        Push-Location $projectRoot # Run install from root for monorepo sanity
+        pnpm install --filter @vibethink/admin
+        Pop-Location
+        Write-Host "✅ Dependencies installed!" -ForegroundColor Green
+    }
+    catch {
+        Write-Host "❌ Failed to install dependencies. Please run 'pnpm install' manually." -ForegroundColor Red
+        if ($PWD.Path -ne $projectRoot) { Pop-Location }
+        exit 1
+    }
+}
+
+# --- 2. PORT CHECK ---
 
 # Check if port is already in use
 $connections = Get-NetTCPConnection -LocalPort $port -ErrorAction SilentlyContinue
 
 if ($connections) {
-    # Handle both single connection and array
-    $uniqueProcessIds = $connections | 
-    Select-Object -ExpandProperty OwningProcess -Unique | 
-    Where-Object { $_ -gt 0 }  # Filter out system processes (Idle = 0)
+    # Handle single/multiple connections
+    $uniqueProcessIds = $connections | Select-Object -ExpandProperty OwningProcess -Unique | Where-Object { $_ -gt 0 }
     
-    # Filter out processes that no longer exist (TIME_WAIT connections)
     $validProcessIds = @()
-    foreach ($processId in $uniqueProcessIds) {
+    foreach ($pidToCheck in $uniqueProcessIds) {
         try {
-            $proc = Get-Process -Id $processId -ErrorAction Stop
-            $validProcessIds += $processId
+            $proc = Get-Process -Id $pidToCheck -ErrorAction Stop
+            $validProcessIds += $pidToCheck
         }
-        catch {
-            # Process doesn't exist, connection is likely in TIME_WAIT
-            Write-Host "⚠️  Port $port has connection from non-existent process $processId (TIME_WAIT state)" -ForegroundColor Yellow
-        }
+        catch { /* TIME_WAIT process */ }
     }
     
     if ($validProcessIds.Count -gt 0) {
-        # Get process info for better error message
-        $processInfo = @()
-        foreach ($processId in $validProcessIds) {
-            try {
-                $proc = Get-Process -Id $processId -ErrorAction Stop
-                $processInfo += "$($proc.ProcessName) (PID: $processId)"
+        Write-Host "⚠️  Port $port is already in use. Attempting to stop existing process..." -ForegroundColor Yellow
+        try {
+            # Auto-heal: Try to stop the process using our own stop script
+            $stopScript = Join-Path $PSScriptRoot "stop-admin.ps1"
+            if (Test-Path $stopScript) {
+                & $stopScript
+                Start-Sleep -Seconds 2 # Wait for port release
             }
-            catch {
-                $processInfo += "Unknown (PID: $processId)"
+            else {
+                Write-Host "❌ Stop script not found. Please kill process manually." -ForegroundColor Red
+                exit 1
             }
         }
-        
-        Write-Host "⚠️  Port $port is already in use by:" -ForegroundColor Yellow
-        $processInfo | ForEach-Object { Write-Host "   - $_" -ForegroundColor Yellow }
-        Write-Host "Run .\scripts\stop-admin.ps1 first to stop existing server" -ForegroundColor Yellow
-        exit 1
-    }
-    else {
-        # Only TIME_WAIT connections, wait a bit and retry
-        Write-Host "⚠️  Port $port has TIME_WAIT connections, waiting 3 seconds..." -ForegroundColor Yellow
-        Start-Sleep -Seconds 3
-        
-        # Re-check after wait
-        $connections = Get-NetTCPConnection -LocalPort $port -ErrorAction SilentlyContinue
-        if ($connections) {
-            $uniqueProcessIds = $connections | 
-            Select-Object -ExpandProperty OwningProcess -Unique | 
-            Where-Object { $_ -gt 0 }
-            
-            $stillValid = $false
-            foreach ($processId in $uniqueProcessIds) {
-                try {
-                    $proc = Get-Process -Id $processId -ErrorAction Stop
-                    $stillValid = $true
-                    Write-Host "⚠️  Port $port still in use by $($proc.ProcessName) (PID: $processId)" -ForegroundColor Yellow
-                    Write-Host "Run .\scripts\stop-admin.ps1 first to stop existing server" -ForegroundColor Yellow
-                    exit 1
-                }
-                catch {
-                    # Process doesn't exist, continue
-                }
-            }
-            
-            if (-not $stillValid) {
-                Write-Host "✅ Port $port cleared, proceeding..." -ForegroundColor Green
-            }
+        catch {
+            Write-Host "❌ Failed to stop existing process." -ForegroundColor Red
+            exit 1
         }
     }
 }
 
-# Validate admin directory exists
-$projectRoot = Split-Path -Parent $PSScriptRoot
-$adminPath = Join-Path $projectRoot "apps\admin"
-if (-not (Test-Path $adminPath)) {
-    Write-Host "❌ Admin directory not found: $adminPath" -ForegroundColor Red
-    Write-Host "Please ensure the project structure is correct." -ForegroundColor Red
-    exit 1
+# --- 3. START SERVER ---
+
+Write-Host "🚀 Starting Admin Console on port $port..." -ForegroundColor Green
+Write-Host "⚠️  SECURITY ALERT: Internal Tool - Do NOT expose to public internet." -ForegroundColor Yellow
+Write-Host "🌐 URL: http://localhost:$port/tenants" -ForegroundColor Cyan
+
+# Optional: Auto-open browser after slight delay
+$job = Start-Job -ScriptBlock {
+    Start-Sleep -Seconds 5
+    Start-Process "http://localhost:3002/tenants"
 }
 
-# Validate .env.local exists (critical for Admin Console)
-$envPath = Join-Path $adminPath ".env.local"
-if (-not (Test-Path $envPath)) {
-    Write-Host "❌ .env.local not found in apps/admin" -ForegroundColor Red
-    Write-Host "Copy .env.local.example to .env.local and configure Supabase credentials" -ForegroundColor Red
-    exit 1
-}
-
-# Start dev server
-Write-Host "Starting Admin Console on port $port..." -ForegroundColor Green
-Write-Host "⚠️  SECURITY: This is an internal tool. Never expose to public internet." -ForegroundColor Yellow
 try {
     Push-Location $adminPath
-    npx next dev --port $port
+    # Use 'cmd /c' to allow proper signal handling in some terminals
+    cmd /c "npx next dev --port $port"
 }
 catch {
     Write-Host "❌ Error starting dev server: $($_.Exception.Message)" -ForegroundColor Red
