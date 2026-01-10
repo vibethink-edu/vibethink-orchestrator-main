@@ -13,17 +13,17 @@ export default async function TenantsPage() {
     if (error) {
         console.error("DB Error:", JSON.stringify(error, null, 2), "Status:", error.code, error.details);
         return (
-            <div className="p-10">
-                <div className="bg-red-50 text-red-600 p-4 rounded-md border border-red-200">
+            <div className="p-6">
+                <div className="bg-destructive/10 text-destructive p-4 rounded-lg border border-destructive/20">
                     <h3 className="font-bold">Database Error</h3>
                     <p className="text-sm">{error.message}</p>
-                    <p className="text-xs mt-2 text-red-400">Make sure SUPABASE_SERVICE_ROLE_KEY is valid.</p>
+                    <p className="text-xs mt-2 opacity-70">Make sure SUPABASE_SERVICE_ROLE_KEY is valid.</p>
                 </div>
             </div>
         );
     }
 
-    // Cast to expected type (Supabase returns slightly different types sometimes)
+    // Cast to expected type
     const tenants: Tenant[] = (rawTenants || []).map(t => ({
         id: t.id,
         name: t.name,
@@ -33,17 +33,19 @@ export default async function TenantsPage() {
     }));
 
     return (
-        <div className="flex flex-col gap-8 p-10 max-w-7xl mx-auto h-full">
-            <div className="flex flex-col gap-2">
-                <h1 className="text-3xl font-bold tracking-tight text-slate-900 font-mono">
-                    <span className="text-slate-400">/admin/</span>tenants
+        <div className="flex flex-1 flex-col gap-4">
+            {/* Page Header - Bundui Style */}
+            <div className="flex flex-col gap-1">
+                <h1 className="text-2xl font-semibold tracking-tight">
+                    Tenant Management
                 </h1>
-                <div className="text-slate-500 text-sm">
+                <p className="text-sm text-muted-foreground">
                     Manage tenant provisioning, status, and system access.
-                </div>
+                </p>
             </div>
 
-            <div className="mt-4">
+            {/* Main Content */}
+            <div className="flex-1">
                 <TenantsTable data={tenants} />
             </div>
         </div>

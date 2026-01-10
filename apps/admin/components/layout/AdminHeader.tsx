@@ -11,12 +11,14 @@ import {
     BreadcrumbSeparator,
 } from "@vibethink/ui/components/breadcrumb";
 import { usePathname } from "next/navigation";
+import { ThemeSwitch } from "./ThemeSwitch";
+import { UserMenu } from "./UserMenu";
 
 const pageNames: Record<string, string> = {
-    tenants: "Inquilinos",
-    users: "Búsqueda de Identidad",
-    audit: "Registro de Auditoría",
-    status: "Salud de la Plataforma",
+    tenants: "Tenants",
+    users: "Identity Search",
+    audit: "Audit Log",
+    status: "Platform Health",
 };
 
 export function AdminHeader() {
@@ -28,24 +30,33 @@ export function AdminHeader() {
     const pageName = pageNames[currentPage] || currentPage;
 
     return (
-        <header className="flex h-14 shrink-0 items-center gap-2 border-b bg-background px-4">
-            <SidebarTrigger className="-ml-1" />
-            <Separator orientation="vertical" className="mr-2 h-4" />
-            <Breadcrumb>
-                <BreadcrumbList>
-                    <BreadcrumbItem className="hidden md:block">
-                        <BreadcrumbLink href="/">
-                            Admin
-                        </BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator className="hidden md:block" />
-                    <BreadcrumbItem>
-                        <BreadcrumbPage className="capitalize">
-                            {pageName}
-                        </BreadcrumbPage>
-                    </BreadcrumbItem>
-                </BreadcrumbList>
-            </Breadcrumb>
+        <header className="sticky top-0 z-50 flex h-14 shrink-0 items-center gap-2 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <div className="flex w-full items-center gap-2 px-4">
+                <SidebarTrigger className="-ml-1" />
+                <Separator orientation="vertical" className="mr-2 h-4" />
+                <Breadcrumb>
+                    <BreadcrumbList>
+                        <BreadcrumbItem className="hidden md:block">
+                            <BreadcrumbLink href="/">
+                                Admin
+                            </BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator className="hidden md:block" />
+                        <BreadcrumbItem>
+                            <BreadcrumbPage>
+                                {pageName}
+                            </BreadcrumbPage>
+                        </BreadcrumbItem>
+                    </BreadcrumbList>
+                </Breadcrumb>
+
+                {/* Right side controls - Bundui style */}
+                <div className="ml-auto flex items-center gap-2">
+                    <ThemeSwitch />
+                    <Separator orientation="vertical" className="mx-2 h-4" />
+                    <UserMenu />
+                </div>
+            </div>
         </header>
     );
 }
