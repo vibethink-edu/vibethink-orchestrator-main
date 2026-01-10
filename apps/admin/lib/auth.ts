@@ -3,10 +3,24 @@ import { adminDb } from "./supabase";
 import { AdminSession, AdminRole } from "./types";
 
 /**
- * Resolves the current Admin Session from Request.
- * Supports:
- * 1. DEV Override (via env var ADMIN_DEV_ROLE)
- * 2. Bearer Token (Authorization Header)
+ * @description Resolves the current Admin Session from NextRequest.
+ * Supports DEV override via ADMIN_DEV_ROLE env var and Bearer token authentication.
+ * Queries admin_role_assignments table to resolve admin role for authenticated users.
+ * 
+ * @requires adminDb from ./supabase
+ * @requires AdminSession, AdminRole types from ./types
+ * 
+ * @param {NextRequest} req - The Next.js request object
+ * @returns {Promise<AdminSession | null>} Admin session with userId, email, and role, or null if authentication fails
+ * 
+ * @example
+ * const session = await getAdminSession(request);
+ * if (!session) {
+ *   return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+ * }
+ * 
+ * @securityReview Required - handles authentication and role-based access control
+ * @testingRequired Yes - test dev override, token verification, role resolution, and error cases
  */
 export async function getAdminSession(req: NextRequest): Promise<AdminSession | null> {
     // 1. DEV OVERRIDE (Only in Development)
