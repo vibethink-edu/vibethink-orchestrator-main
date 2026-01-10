@@ -120,5 +120,6 @@ async function checkCostLimit(keyId: string, maxCostPerDay?: number | null): Pro
         return total < maxCostPerDay;
     }
 
-    return (data as number) < maxCostPerDay;
+    const costValue = typeof data === 'number' ? data : 0;
+    return costValue < maxCostPerDay;
 }

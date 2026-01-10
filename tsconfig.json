@@ -27,6 +27,7 @@
       "esnext"
     ],
     "strict": false,
+    "useUnknownInCatchVariables": true,
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,

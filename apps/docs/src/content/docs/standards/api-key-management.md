@@ -42,6 +42,18 @@ Establish a secure, scalable system for managing:
 └─────────────────────────────────────────────────────┘
 ```
 
+### 2.2. Backend Proxy Pattern for Third-Party API Keys
+
+**Requirement**: All third-party API interactions (provider keys) MUST occur server-side.
+
+1.  **Flow**: `Client (Frontend)` → `Middleware/Backend (VibeThink)` → `External API (e.g., Gemini, ElevenLabs)`
+2.  **Prohibition**: **NEVER** expose third-party API keys (e.g., `sk-ant-...`) in client-side code, headers, or local storage.
+3.  **Mechanism**:
+    *   The specialized backend service holds the provider key (retrieved from Vault).
+    *   The frontend authenticates with VibeThink using a **Platform API Key** (Tier 1).
+    *   The backend validates the Platform Key, retrieves the Provider Key securely, and proxies the request.
+4.  **Reference Implementation**: See `server/ultravox-proxy.js` for the canonical secure proxy pattern.
+
 ---
 
 ## 3. Database Schema
