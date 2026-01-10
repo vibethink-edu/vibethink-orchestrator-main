@@ -50,37 +50,37 @@ jobs:
       - name: Validate Syntax
         run: |
           echo "🔍 Validating syntax..."
-          pnpm run validate:syntax || echo "::warning::Syntax errors detected"
+          pnpm run validate:syntax
       
       # GATE 3: Validate Component Imports
       - name: Validate Component Imports
         run: |
           echo "🔍 Validating component imports..."
-          pnpm run validate:imports || echo "::warning::Broken imports detected"
+          pnpm run validate:imports
       
       # GATE 4: Validate ESLint Config
       - name: Validate ESLint Config
         run: |
           echo "🔍 Validating ESLint config..."
-          pnpm run validate:eslint-config || echo "::warning::ESLint config issues detected"
+          pnpm run validate:eslint-config
       
       # GATE 5: Validate TypeScript Paths
       - name: Validate TypeScript Paths
         run: |
           echo "🔍 Validating TypeScript path mappings..."
-          pnpm run validate:tsconfig-paths || echo "::warning::Missing path mappings detected"
+          pnpm run validate:tsconfig-paths
       
       # GATE 6: Validate AI SDK Usage
       - name: Validate AI SDK Usage
         run: |
           echo "🔍 Validating AI SDK usage..."
-          pnpm run validate:ai-sdk || echo "::warning::AI SDK usage issues detected"
+          pnpm run validate:ai-sdk
 
       # GATE 7: Validate Multi-Tenancy Safety
       - name: Validate Multi-Tenancy Safety
         run: |
           echo "🔍 Validating Multi-Tenancy Safety..."
-          pnpm run validate:multi-tenancy || echo "::warning::Multi-tenancy safety issues detected"
+          pnpm run validate:multi-tenancy
       
       # GATE 8: TypeScript Strict Check
       - name: TypeScript Type Check
