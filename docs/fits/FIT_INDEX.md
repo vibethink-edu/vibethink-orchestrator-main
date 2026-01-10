@@ -23,6 +23,7 @@ This index categorizes FITs by architectural layer. Use this to locate the Sourc
 | FIT ID | Name | Status | Description |
 | :--- | :--- | :--- | :--- |
 | **[API-001](./FIT-API-KEY-MGMT-001-Phase-1.md)** | **API Key Management** | 🟢 **ACTIVE** | Multi-tenant secret vault and API key lifecycle. **Critical for Digital Twin.** |
+| **[ADM-001](./FIT-PLATFORM-ADMIN-DASHBOARD-001.md)** | **Platform Admin** | 🟡 **DEFINITION** | **The God View.** Super-Admin dashboard for tenant provisioning & support. |
 | **[PER-001](./FIT-PERSISTENCE-ABSTRACTION-001.md)** | **Persistence Layer** | 🟢 **SEALED** | Abstract Data Access implementation details. |
 | **[ORC-001](./FIT-ORCH-SCHEMA-001.md)** | **Orchestration Schema** | 🟢 **SEALED** | Base schema definitions for the orchestrator. |
 | **[EXT-001](./FIT-EXTERNAL-CLIENT-ACCESS-001.md)** | **External Access** | 🟢 **ACTIVE** | Secure gateways for third-party clients. |
