@@ -40,6 +40,8 @@
     "validate:jsonb-schemas": "tsx scripts/validate-jsonb-schemas.ts",
     "validate:enums": "tsx scripts/validate-enums.ts",
     "validate:indexes": "tsx scripts/validate-indexes.ts",
+    "validate:archival": "tsx scripts/validate-archival.ts",
+    "db:archive-conversations": "tsx scripts/archive-conversations.ts",
     "prepare": "husky"
   },
   "devDependencies": {

@@ -1,0 +1,62 @@
+name: data-hygiene
+
+on:
+  schedule:
+    # Run at 00:00 every day
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+env:
+  NODE_VERSION: "20"
+
+jobs:
+  db-health-check:
+    name: db / health check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # In a real scenario, we would restore a sanitized backup or run seeds here
+      # to simulate the production DB state.
+      # For now, we simulate the environment.
+
+      - name: Check Archival Status
+        run: pnpm run validate:archival
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+          CI: true
+
+      - name: Check Database Consistency (Enums)
+        run: pnpm run validate:enums
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+          CI: true
+
+      - name: Check Database Performance (Indexes)
+        run: pnpm run validate:indexes
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+          CI: true

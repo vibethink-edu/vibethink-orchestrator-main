@@ -1,2 +1,2 @@
 pnpm run validate:jsonb-schemas
-pnpm test src/types/__tests__/revenue.test.ts
+npx vitest run src/types/__tests__/revenue.test.ts
