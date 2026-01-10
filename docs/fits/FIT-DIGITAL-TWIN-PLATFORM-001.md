@@ -131,7 +131,22 @@ interface IRealTimeContextAdapter {
 
 The Dashboard is the **Single Source of Truth** for the Avatar's behavior, knowledge, and restrictions.
 
-### 5.1 Dashboard Architecture (Modules)
+### 5.1 Dashboard Architecture (Integrated in ViTo)
+
+The Digital Twin controls are NOT a separate app. They are a **Module within the ViTo Tenant Dashboard**.
+
+```mermaid
+graph TD
+    ViTo[ViTo Platform (Super Admin)] --> Tenant[Tenant Context (e.g. TV Azteca)]
+    Tenant --> Twin[Digital Twin Module]
+    
+    subgraph "Twin Management UI (Per Tenant)"
+        Twin --> DNA[🧬 DNA & Onboarding]
+        Twin --> Know[📚 Knowledge Hub]
+        Twin --> Limits[💳 Cost & Limits]
+        Twin --> Deploy[🚀 Deployment Codes]
+    end
+```
 
 | Module | Responsibility | Source of Truth (DB) |
 | :--- | :--- | :--- |
@@ -165,6 +180,33 @@ The Dashboard is the **Single Source of Truth** for the Avatar's behavior, knowl
 | **Editor** | ✅ | ❌ | ✅ | ❌ |
 | **Approver** | ✅ | ✅ | ✅ | ❌ |
 | **Owner** | ✅ | ✅ | ✅ | ✅ |
+
+### 5.4 Onboarding & Twin Profiling (DNA Setup)
+
+Before a Twin stream its first pixel, it must pass through the **DNA Setup Wizard**:
+
+#### A. Twin Personality Profile (IDENTITY)
+This config defines the *texture* of the interaction.
+*   **Tone:** `Euphoric` (Cantor) vs `Analytical` (Consultant).
+*   **Pacing:** `Fast/High Energy` vs `Measured/Calm`.
+*   **Signature Phrases:** List of mandatory catchphrases (e.g., "¡Goooool!", "Let's deep dive").
+*   **Language & Accent:** Specific regional dialect enforcement (e.g., "Rioplatense Spanish").
+
+#### B. Marketing & Business Objective (PURPOSE)
+This instructs the Twin on its *ultimate goal*.
+*   **Target Audience:** "Soccer Fans aged 18-50" vs "C-Level Executives".
+*   **Conversion Goal:** `Entertainment` (maximize watch time) vs `Lead Gen` (get email).
+*   **Call to Action (CTA):** What should the twin suggest at the end?
+    *   *Cantor:* "Download the app!"
+    *   *Consultant:* "Book a strategy call."
+
+#### C. The "Mirror Test" (Approval Gate)
+1.  **Calibration:** System generates 3 sample videos based on DNA.
+2.  **Human Review:** The Celebrity/Owner reviews the samples.
+3.  **Refinement:** Adjust parameters (Pitch, Speed).
+4.  **Sign-off:** "This looks/sounds like me." -> **Twin Activated**.
+
+---
 
 ## 6. Cost Control Strategy: Burst Management
 
