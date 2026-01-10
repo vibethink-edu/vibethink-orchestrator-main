@@ -1,4 +1,10 @@
-# FIT: API Key & Secrets Management - Phase 1
+---
+title: "FIT: API Key Management (Phase 1)"
+description: "Feature Implementation Ticket for API Keys, Secrets Vault, and Usage Tracking."
+sidebar:
+  label: "FIT-001: API Keys"
+  order: 1
+---
 
 **FIT ID**: FIT-API-KEY-MGMT-001  
 **Status**: Phase 1 - Planning  

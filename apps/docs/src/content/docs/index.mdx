@@ -1,0 +1,42 @@
+---
+title: ViTo Documentation Hub
+description: The single source of truth for VibeThink Orchestrator.
+template: splash
+hero:
+  tagline: Evidence-based engineering and architectural canon.
+  image:
+    file: ../../assets/houston.webp
+  actions:
+    - text: System Governance
+      link: /system/documentation-system
+      icon: right-arrow
+      variant: primary
+    - text: API Docs
+      link: /api/versioning
+      icon: external
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Documentation Structure
+
+<CardGrid stagger>
+	<Card title="Canonical System" icon="pencil">
+		Governance, Logic, and Reasoning live here. This is the **Source of Truth**.
+	</Card>
+	<Card title="API & Versioning" icon="setting">
+		Strict semantic versioning `/v1` and changelogs for consumers.
+	</Card>
+	<Card title="Operations" icon="rocket">
+		Release flows, QA gates, and deployment strategies.
+	</Card>
+	<Card title="Architecture" icon="puzzle">
+		Core patterns, decisions, and system constraints.
+	</Card>
+</CardGrid>
+
+<div class="not-content">
+  <blockquote>
+    <strong>Note:</strong> Content in this portal is synchronized from the canonical `/docs` directory in the repository root.
+  </blockquote>
+</div>

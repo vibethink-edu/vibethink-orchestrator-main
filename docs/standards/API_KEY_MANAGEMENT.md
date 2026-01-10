@@ -1,4 +1,10 @@
-# ViTo API Key & Secrets Management Standard
+---
+title: "Standard: API Key & Secrets"
+description: "Comprehensive standard for multi-tenant API key management, secrets storage, and usage tracking."
+sidebar:
+  label: "API Key Management"
+  order: 1
+---
 
 **Status**: SEALED  
 **Authority**: Engineering Rector Pack v1  

@@ -1,0 +1,22 @@
+{
+  "name": "docs",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "node scripts/sync-canon.mjs && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "sync:docs": "node scripts/sync-canon.mjs"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.37.2",
+    "astro": "^5.6.1",
+    "sharp": "^0.34.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.5.10",
+    "typescript": "^5.4.5"
+  }
+}

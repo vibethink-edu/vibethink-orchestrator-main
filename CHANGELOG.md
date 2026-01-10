@@ -1,5 +1,18 @@
 # Changelog
 
+## POLICY: Versioning & Changelog (SEALED)
+- **Phase ≠ Version**: Phases are milestones; Version is SemVer.
+- **Platform**: Uses SemVer MAJOR.MINOR.PATCH.
+- **API**: Uses `/v1` path. Breaking changes trigger `/v2`.
+- **Source of Truth**: Docs on `main` branch are rolling-truth.
+- **History**: Git tags/releases.
+- **Two Changelogs**:
+  - `CHANGELOG.md`: Product root.
+  - `docs/api/CHANGELOG.md`: API specific.
+- **PR Rules**: Must update docs or declare "No doc impact".
+- **Policy Changes**: Require Decision Record approval.
+
+
 Todos los cambios notables de este proyecto serán documentados en este archivo.
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
