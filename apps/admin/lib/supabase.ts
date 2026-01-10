@@ -1,3 +1,4 @@
+import "server-only"; // 🛡️ CRITICAL: Prevent usage in Client Components
 import { createClient } from "@supabase/supabase-js";
 
 // SINGLETON for Server-Side Admin Operations

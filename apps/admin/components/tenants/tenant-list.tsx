@@ -15,13 +15,24 @@ export function TenantList() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        // SECURITY NOTE:
+        // This fetch currently relies on Same-Origin Cookies (Next.js default for API Routes).
+        // In a fully decoupled setup (or specific RBAC scenarios), inject token explicitly:
+        // const { data: { session } } = await supabase.auth.getSession();
+        // fetch(url, { headers: { Authorization: `Bearer ${session?.access_token}` } })
+
         // Fetch data from API
-        // In MVP, if API returns empty/stub, we use mock data for visualization
         fetch("/api/admin/tenants")
-            .then((res) => res.json())
+            .then((res) => {
+                if (res.status === 401 || res.status === 403) {
+                    console.warn("Auth Error:", res.status);
+                    return { tenants: [] }; // Handle gracefully
+                }
+                return res.json();
+            })
             .then((data) => {
                 if (!data.tenants || data.tenants.length === 0) {
-                    // FALLBACK MOCK DATA FOR DEV PREVIEW
+                    // FALLBACK MOCK DATA FOR DEV PREVIEW (DX Only)
                     setTenants([
                         { id: "tnt_01", name: "Andrés Cantor Twin", flavor: "ENTERPRISE", status: "ACTIVE", modules: ["TWIN", "MEDIA"] },
                         { id: "tnt_02", name: "Clínica San José", flavor: "PRO", status: "ACTIVE", modules: ["CLINICAL", "DOCS"] },
