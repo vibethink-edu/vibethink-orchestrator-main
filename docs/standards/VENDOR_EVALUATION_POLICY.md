@@ -4,7 +4,21 @@
 
 ---
 
-## 1. El Criterio de los "3 Ejes"
+## 1. El Checkpoint Legal OBLIGATORIO (Compliance First)
+
+Antes de cualquier evaluación técnica, el candidato debe pasar el **Filtro del Semáforo Legal** (ver [Audit Detallada](../compliance/LICENSE_AUDIT.md)).
+
+| El Candidato tiene licencia... | Acción Inmediata |
+| :--- | :--- |
+| **GPLv2, GPLv3, AGPL** (Virales) | 🛑 **STOP INMEDIATO.** Rechazo automático para Backend. Riesgo legal crítico para el SaaS. |
+| **Comercial / No-Open Source** | ⚠️ **PAUSA.** ¿Tenemos presupuesto? ¿El CTO aprobó el gasto? ¿La licencia permite SaaS ilimitado? |
+| **MIT, Apache 2.0, ISC, BSD** | ✅ **PROCEDER.** Pasar a Evaluación Técnica. |
+
+> **Regla de Oro:** Si es AGPL, ni siquiera lo clones. El riesgo de "contaminar" nuestro código propietario es inaceptable.
+
+---
+
+## 2. El Criterio de los "3 Ejes" (Solo si pasó Legal)
 
 Para aceptar un nuevo vendor, debe ganar en al menos 2 de estos 3 ejes sin sacrificar el tercero catastróficamente:
 
@@ -14,7 +28,7 @@ Para aceptar un nuevo vendor, debe ganar en al menos 2 de estos 3 ejes sin sacri
 *   **Dependencias:** ¿Trae un "árbol de navidad" de dependencias (bloatware) o es ligero?
 
 ### B. Eje de Negocio (Valor/Licencia)
-*   **Licencia:** ¿Es MIT/Apache (gratis y seguro) o Comercial/Restrictiva?
+*   **Licencia:** Ver Checkpoint Legal arriba.
 *   **Costo de Cambio:** ¿Reemplazar lo actual (Bundui) nos cuesta 100 horas de refactorización? Si el beneficio es marginal, la respuesta es NO.
 *   **Mantenimiento:** ¿El repo tiene commits recientes (último mes) o está abandonado?
 
@@ -25,7 +39,7 @@ Para aceptar un nuevo vendor, debe ganar en al menos 2 de estos 3 ejes sin sacri
 
 ---
 
-## 2. El Proceso de "Shootout" (Duelo)
+## 3. El Proceso de "Shootout" (Duelo)
 
 Antes de adoptar, se ejecuta un "Shootout" documentado.
 
@@ -46,23 +60,21 @@ Crear un documento temporal `docs/evaluations/MOTIADEV_VS_BUNDUI.md`:
 
 | Criterio | Bundui (Actual) | MotiaDev (Candidato) | Ganador |
 | :--- | :--- | :--- | :--- |
+| **Legal** | Comercial (Pagado) | MIT (Gratis) | MotiaDev |
 | **Stack** | Next 15 / React 19 | ¿...? | ? |
-| **Estilos** | Tailwind v4 | ¿...? | ? |
-| **Licencia** | Comercial (Pagada) | ¿MIT? | ? |
 | **Diseño** | Premium | ¿...? | ? |
-| **Código** | Necesita refactor (i18n) | ¿...? | ? |
 
 ---
 
-## 3. Matriz de Decisión
+## 4. Matriz de Decisión Final
 
-*   **✅ ADOPTAR (Reemplazo Total):** Si gana en Técnico y Negocio, y la migración es viable.
-*   **🤝 INCORPORAR (Complemento):** Si tiene componentes únicos (ej. un Gráfico 3D) que el actual no tiene. Se usa solo para esos casos.
-*   **❌ RECHAZAR:** Si es técnicamente inferior o igual pero con costo de migración alto.
+*   **✅ ADOPTAR (Reemplazo Total):** Pasa Legal + Gana Técnico y Negocio.
+*   **🤝 INCORPORAR (Complemento):** Pasa Legal + Tiene componente único.
+*   **❌ RECHAZAR:** Falla Legal O es técnicamente inferior.
 
 ---
 
-## 4. Resultado Formal (ADR)
+## 5. Resultado Formal (ADR)
 
 Si se decide cambiar, se debe crear un **ADR (Architectural Decision Record)** en `docs/governance/decisions/` explicando:
 "Decidimos migrar de X a Y porque Y soporta React 19 nativo y ahorra 20% de tiempo de desarrollo, a pesar del costo de migración inicial."
