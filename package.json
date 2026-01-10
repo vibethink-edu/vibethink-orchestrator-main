@@ -41,6 +41,8 @@
     "validate:enums": "tsx scripts/validate-enums.ts",
     "validate:indexes": "tsx scripts/validate-indexes.ts",
     "validate:archival": "tsx scripts/validate-archival.ts",
+    "validate:imports": "tsx scripts/validate-imports.ts",
+    "safety:check": "pnpm run validate:imports && pnpm run type-check && pnpm test",
     "db:archive-conversations": "tsx scripts/archive-conversations.ts",
     "db:setup-ci": "tsx scripts/setup-db-schema.ts",
     "prepare": "husky"

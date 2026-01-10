@@ -1,0 +1,21 @@
+#!/bin/sh
+# .husky/pre-commit-large-deletions
+
+# Detect if any file has >50 lines deleted
+LARGE_DELETIONS=$(git diff --cached --numstat | awk '$2 > 50 { print $3 " (-" $2 " lines)" }')
+
+if [ -n "$LARGE_DELETIONS" ]; then
+  echo "⚠️  WARNING: Large deletions detected:"
+  echo "$LARGE_DELETIONS"
+  echo ""
+  echo "Files with >50 lines deleted require manual review."
+  echo "Are you sure you want to commit? (y/n)"
+  
+  read -r response
+  if [ "$response" != "y" ]; then
+    echo "❌ Commit aborted."
+    exit 1
+  fi
+fi
+
+exit 0

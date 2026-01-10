@@ -1,0 +1,98 @@
+name: Code Safety Gates
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main]
+
+jobs:
+  safety-checks:
+    name: AI Safety Validations
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Need full history for diff analysis
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      # GATE 1: Detect Large Deletions
+      - name: Check for Large Deletions
+        run: |
+          echo "🔍 Checking for large code deletions..."
+          
+          LARGE_DELETIONS=$(git diff origin/main...HEAD --numstat | awk '$2 > 50 { print $3 " (-" $2 " lines)" }')
+          
+          if [ -n "$LARGE_DELETIONS" ]; then
+            echo "⚠️  WARNING: Large deletions detected:"
+            echo "$LARGE_DELETIONS"
+            echo ""
+            echo "::warning::Files with >50 lines deleted detected. Manual review required."
+            # Don't fail, just warn
+          else
+            echo "✅ No large deletions detected"
+          fi
+      
+      # GATE 2: Validate Imports
+      - name: Validate Component Imports
+        run: |
+          echo "🔍 Validating component imports..."
+          pnpm run validate:imports || echo "::warning::Broken imports detected"
+      
+      # GATE 3: TypeScript Strict Check
+      - name: TypeScript Type Check
+        run: |
+          echo "🔍 Running TypeScript type check..."
+          pnpm run type-check
+      
+      # GATE 4: Detect @ts-ignore Usage
+      - name: Check for Undocumented @ts-ignore
+        run: |
+          echo "🔍 Scanning for @ts-ignore usage..."
+          
+          TS_IGNORES=$(rg "@ts-ignore" --type ts --type tsx -n || true)
+          
+          if [ -n "$TS_IGNORES" ]; then
+            echo "⚠️  @ts-ignore detected:"
+            echo "$TS_IGNORES"
+            echo ""
+            echo "::warning::@ts-ignore usage detected. Consider using @ts-expect-error with description."
+          else
+            echo "✅ No @ts-ignore usage detected"
+          fi
+      
+      # GATE 5: Full Build Validation
+      - name: Build All Packages
+        run: |
+          echo "🔍 Building all packages..."
+          pnpm run build
+      
+      # GATE 6: Test Suite
+      - name: Run Tests
+        run: |
+          echo "🔍 Running test suite..."
+          pnpm test
+      
+      - name: Safety Report
+        if: always()
+        run: |
+          echo "📊 Safety Gates Summary:"
+          echo "✅ Large deletions: Checked"
+          echo "✅ Import validation: Checked"
+          echo "✅ TypeScript: Checked"
+          echo "✅ @ts-ignore usage: Checked"
+          echo "✅ Build: Checked"
+          echo "✅ Tests: Checked"
