@@ -36,8 +36,10 @@ Todas las PRs deben cumplir con:
 **Sistema de prevención contra cambios destructivos por agentes AI.**
 
 ### 📚 Documentación Completa:
-- **[AI Agent Safety Protocol](./docs/governance/AI_AGENT_SAFETY_PROTOCOL.md)** - Protocolo completo
-- **[Quick Reference](./docs/governance/AI_SAFETY_QUICK_REF.md)** - Referencia rápida
+- **📄 [AI Agent Safety Protocol](docs/governance/AI_AGENT_SAFETY_PROTOCOL.md):** Detailed rules for AI interaction.
+- **🛡️ [Agent Immunity Protocol](docs/governance/AGENT_IMMUNITY_PROTOCOL.md):** (OpenSpec Standard) The law for Agent Coders.
+- **⚡ [Safety Quick Ref](docs/governance/AI_SAFETY_QUICK_REF.md):** Cheat sheet for humans and agents.
+- **🚫 [CodeRabbit False Positives](docs/governance/CODERABBIT_FALSE_POSITIVES.md):** Known issues tracker.rápida
 
 ### 🚨 Protecciones Activas:
 
