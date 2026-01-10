@@ -748,9 +748,32 @@ WHERE schema_name = 'twin_config' AND version = 2;
 ```sql
 -- Add message count limit
 ALTER TABLE conversations
-ADD COLUMN message_count INTEGER DEFAULT 0,
-ADD COLUMN is_archived BOOLEAN DEFAULT FALSE,
-ADD COLUMN archived_at TIMESTAMPTZ;
+ADD COLUMN message_count INTEGER DEFAULT 0;
+
+-- Trigger logic (pseudo-code)
+IF NEW.message_count > 1000 THEN
+  RAISE EXCEPTION 'Conversation limit reached. Please archive.';
+END IF;
+```
+
+**Implementation Strategy:**
+
+1.  **Preventive Validation (Runtime):**
+    *   **Hard Limit:** 1000 messages per conversation.
+    *   **Alerting:** Logic triggers warning at 90% capacity (900 messages).
+    *   **Enforcement:** Application service (`ConversationService`) checks count before insertion.
+
+2.  **Data Hygiene & Archival (Scheduled):**
+    *   **Retention Policy:** Conversations inactive for > 365 days are archived.
+    *   **Proactive Monitoring:** Daily cron job (`validate-archival.ts`) alerts on accumulated cold data.
+    *   **Multi-Tenant Isolation:** The archival job (`archive-conversations.ts`) iterates strictly by `company_id` to ensure data isolation and avoid cross-tenant performance impact.
+
+    > **Archival Workflow:**
+    > 1. Fetch active `company_id` list with archivable data.
+    > 2. For each tenant: `UPDATE conversations SET is_archived=TRUE ... LIMIT 500`.
+    > 3. Log results per tenant.
+
+
 
 -- Trigger to track message count
 CREATE OR REPLACE FUNCTION update_message_count()
