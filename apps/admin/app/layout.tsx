@@ -1,34 +1,29 @@
-import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google"; // Asumiendo font disponible, sino usar sistema
+import { Toaster } from "@/components/ui/toaster"; // Asumiendo shadcn compartido
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'VibeThink - Admin Panel',
-  description: 'Panel de administración de VibeThink Orchestrator',
-  keywords: 'VibeThink, Admin, gestión empresarial, multi-tenant',
-  authors: [{ name: 'VibeThink Team' }],
-  robots: 'noindex, nofollow',
-}
+  title: "ViTo Nexus | Global Control Plane",
+  description: "Internal Operations Console for VibeThink Staff",
+  robots: "noindex, nofollow", // CRITICAL: Ocultar de Google
+};
 
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-}
-
-export default function AdminLayout({
+export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
+    <html lang="en" className="dark">
       <body className={inter.className}>
-        <div id="admin-root">
+        <main className="min-h-screen bg-background text-foreground">
           {children}
-        </div>
+        </main>
+        {/* <Toaster /> Comentado hasta verificar path de componentes */}
       </body>
     </html>
-  )
-} 
+  );
+}
