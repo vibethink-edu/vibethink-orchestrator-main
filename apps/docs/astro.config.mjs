@@ -35,6 +35,7 @@ export default defineConfig({
 					items: [
 						{ label: 'Versioning Strategy', link: '/api/versioning' },
 						{ label: 'API Changelog', link: '/api/changelog' },
+						{ label: 'Interactive Reference', link: '/api/reference' },
 					],
 				},
 				{

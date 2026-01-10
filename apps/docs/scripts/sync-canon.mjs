@@ -57,4 +57,19 @@ copyFile(
     'fits/fit-api-key-mgmt-001.md'
 );
 
+// SYNC API SPECS (For Swagger UI)
+// Copy openapi.yaml to public/ so it can be fetched by the UI
+const publicApiDir = path.resolve(__dirname, '../public/api');
+ensureDir(publicApiDir);
+
+const specSource = path.join(docsSrcDir, 'api/v1/openapi.yaml');
+const specDest = path.join(publicApiDir, 'openapi.yaml');
+
+if (fs.existsSync(specSource)) {
+    fs.copyFileSync(specSource, specDest);
+    console.log(`✅ Copied API Spec: api/v1/openapi.yaml -> public/api/openapi.yaml`);
+} else {
+    console.warn(`⚠️ Missing API Spec: ${specSource}`);
+}
+
 console.log('✨ Sync Complete.');

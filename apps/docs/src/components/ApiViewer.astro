@@ -1,0 +1,22 @@
+---
+interface Props {
+  url?: string;
+}
+
+const { url = "/vibethink-orchestrator-main/api/openapi.yaml" } = Astro.props;
+---
+<!-- Scalar API Reference via CDN -->
+<!-- Documentation: https://github.com/scalar/scalar -->
+<script
+  id="api-reference"
+  data-url={url}
+  src="https://cdn.jsdelivr.net/npm/@scalar/api-reference"
+></script>
+
+<style>
+  /* Optional: Adjustments to fit nicely within Starlight container if needed */
+  :global(body) {
+      /* Scalar attaches to body, usually works standalone. 
+         Inside MDX it acts as a web component. */
+  }
+</style>
