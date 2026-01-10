@@ -44,12 +44,13 @@ async function validateArchival() {
             console.log(`✅ Archival health is good. Only ${count} pending items.`);
         }
 
-    } catch (err: any) {
+    } catch (err: unknown) {
+        const error = err as Error & { code?: string }; // Safe cast for Postgres error
         // If table doesn't exist yet (fresh install), warn but don't fail
-        if (err.code === '42P01') { // undefined_table
+        if (error.code === '42P01') { // undefined_table
             console.warn('⚠️ Conversations table does not exist yet. Skipping check.');
         } else {
-            console.error(`❌ Archival check failed: ${err.message}`);
+            console.error(`❌ Archival check failed: ${error.message || String(err)}`);
             if (process.env.CI) process.exit(1);
         }
     } finally {

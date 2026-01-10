@@ -87,8 +87,9 @@ async function validateIndexes() {
             console.log('✅ All required JSONB indexes exist.');
         }
 
-    } catch (err: any) {
-        console.error(`❌ Database validation failed: ${err.message}`);
+    } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : String(err);
+        console.error(`❌ Database validation failed: ${message}`);
         if (process.env.CI) process.exit(1);
     } finally {
         await pool.end();

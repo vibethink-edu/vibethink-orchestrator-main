@@ -47,8 +47,9 @@ async function validateEnums() {
         }
 
         console.log('✅ All required ENUMs exist in the database.');
-    } catch (err: any) {
-        console.error(`❌ Database validation failed: ${err.message}`);
+    } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : String(err);
+        console.error(`❌ Database validation failed: ${message}`);
         // If connection fails in CI, we want to fail. Locally we might just warn.
         if (process.env.CI) {
             process.exit(1);
