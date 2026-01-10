@@ -72,14 +72,20 @@ The following rules are enforced by CI/CD scripts. Violation leads to immediate 
 
 ---
 
-## 🤖 Self-Correction Strategy (For Claude 3.5 Sonnet)
+## 🤖 Self-Correction Strategy (Anti-Loop Mechanism)
 
-When you encounter an error:
-1.  **READ** the full error log. Do not guess.
-2.  **IDENTIFY** which guardrail tripped (e.g., "Multi-Tenancy Guardrail triggered").
-3.  **ANALYZE** the specific violation (e.g., "Missing WHERE clause in update").
-4.  **CORRECT** the code using the *Remedy* pattern defined above.
-5.  **RE-RUN** `pnpm run validate:all` to verify fix.
+**CRITICAL RULE: The 3-Strike Limit**
+
+To prevent infinite loops and token waste:
+
+1.  **Attempt 1:** Analyze output, apply fix.
+2.  **Attempt 2:** If failed again, re-read the Spec and specific file. Try a different approach.
+3.  **Attempt 3 (FINAL):** If validation still fails:
+    *   **STOP immediately.**
+    *   **REVERT** changes to the last clean state.
+    *   **REPORT** to the user: "Unable to satisfy guardrails for task X after 3 attempts."
+
+**DO NOT** continue blindly fixing beyond 3 attempts. Ask for human intervention.
 
 ---
 
