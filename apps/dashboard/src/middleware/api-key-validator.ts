@@ -1,11 +1,32 @@
 import { createHash } from 'crypto';
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import type { ApiKeyValidationResult, IApiKey } from '@/types/api-keys';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+// ------------------------------------------------------------------
+// LAZY & SAFE INITIALIZATION
+// ------------------------------------------------------------------
 
-const supabase = createClient(supabaseUrl, supabaseServiceKey);
+let supabaseAdmin: SupabaseClient | null = null;
+
+function getSupabaseAdmin(): SupabaseClient {
+    if (supabaseAdmin) return supabaseAdmin;
+
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+    if (!supabaseUrl || !supabaseServiceKey) {
+        throw new Error('❌ Missing Supabase Admin Credentials (NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY). This validator must run server-side only.');
+    }
+
+    supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
+        auth: {
+            persistSession: false,
+            autoRefreshToken: false,
+        }
+    });
+
+    return supabaseAdmin;
+}
 
 /**
  * Validates an API key against the database checks:
@@ -25,12 +46,21 @@ export async function validateApiKey(
 ): Promise<ApiKeyValidationResult> {
     if (!apiKey) return { isValid: false, error: 'Missing API Key' };
 
+    // Initialize Client Safely
+    let admin: SupabaseClient;
+    try {
+        admin = getSupabaseAdmin();
+    } catch (err: unknown) {
+        console.error('Validator Init Error:', err);
+        return { isValid: false, error: 'Internal Validator Configuration Error' };
+    }
+
     // 1. Hash the incoming key
     // Format assumption: key is raw, hash is sha256
     const keyHash = createHash('sha256').update(apiKey).digest('hex');
 
     // 2. Fetch Key Data
-    const { data: keyData, error } = await supabase
+    const { data: keyData, error } = await admin
         .from('tenant_api_keys')
         .select('*')
         .eq('key_hash', keyHash)
@@ -70,16 +100,19 @@ export async function validateApiKey(
     }
 
     // 7. Check Cost Limits (Phase 1: DB Query)
-    const costLimitOk = await checkCostLimit(key.id, key.max_cost_per_day_cents);
+    const costLimitOk = await checkCostLimit(admin, key.id, key.max_cost_per_day_cents);
     if (!costLimitOk) {
         return { isValid: false, error: 'Daily cost limit exceeded' };
     }
 
-    // 8. Update Access Time (Async)
-    supabase.from('tenant_api_keys')
+    // 8. Update Access Time (Async & Safe)
+    admin.from('tenant_api_keys')
         .update({ last_used_at: new Date().toISOString() })
         .eq('id', key.id)
-        .then(() => { });
+        .then(({ error: updateError }) => {
+            if (updateError) console.warn(`⚠️ Failed to update last_used_at for key ${key.id}:`, updateError.message);
+        })
+        .catch(err => console.error('❌ Update last_used_at exception:', err));
 
     return {
         isValid: true,
@@ -92,34 +125,33 @@ export async function validateApiKey(
 }
 
 // Check if daily cost limit is reached
-async function checkCostLimit(keyId: string, maxCostPerDay?: number | null): Promise<boolean> {
+async function checkCostLimit(admin: SupabaseClient, keyId: string, maxCostPerDay?: number | null): Promise<boolean> {
     if (!maxCostPerDay) return true;
 
     const todayStr = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
 
-    // OPTIMIZATION: Check daily aggregation table first if implemented, otherwise sum usage
-    // For Phase 1, we defined 'api_key_usage_logs', let's aggregate that or usage_daily if available.
-    // The migration included 'api_key_usage_daily', let's use it for efficiency if populated.
-    // If usage_daily is populated via Async Worker or Trigger, we query it. 
-    // For this "Foundation" implementation, summing logs is safer until the aggregator is confirmed running.
-
-    const { data, error } = await supabase.rpc('get_daily_key_cost', {
+    // Try Safe RPC first
+    const { data, error } = await admin.rpc('get_daily_key_cost', {
         query_key_id: keyId,
         query_date: todayStr
     });
 
     // If RPC missing, sum manually (slower but fallback)
     if (error) {
-        const { data: usageData } = await supabase
+        const { data: usageData } = await admin
             .from('api_key_usage_logs')
             .select('cost_cents')
             .eq('api_key_id', keyId)
             .gte('recorded_at', `${todayStr}T00:00:00Z`);
 
-        const total = usageData?.reduce((sum, row) => sum + row.cost_cents, 0) || 0;
+        const total = usageData?.reduce((sum, row) => {
+            const cost = typeof row.cost_cents === 'number' && !isNaN(row.cost_cents) ? row.cost_cents : 0;
+            return sum + cost;
+        }, 0) || 0;
+
         return total < maxCostPerDay;
     }
 
-    const costValue = typeof data === 'number' ? data : 0;
+    const costValue = (typeof data === 'number' && !isNaN(data)) ? data : 0;
     return costValue < maxCostPerDay;
 }
