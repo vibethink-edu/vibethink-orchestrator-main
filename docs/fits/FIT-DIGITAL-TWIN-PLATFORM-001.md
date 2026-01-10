@@ -1,129 +1,157 @@
-# FIT-DIGITAL-TWIN-PLATFORM-001: Celebrity/Persona AI (Video & Voice Twin)
+# FIT-DIGITAL-TWIN-PLATFORM-001: Digital Twin Vertical (ViTo Implementation)
 
-> **Status:** DRAFT (Pending Seal)
-> **Owner:** VibeThink Architecture Team
+> **Status:** SEALED FOR EXECUTION
 > **Canonical Reference:** `docs/fits/FIT-DIGITAL-TWIN-PLATFORM-001.md`
-> **Dependence:** Relies strictly on `ViTo Core` for tenancy, billing, and limits.
+> **Governance Authority:** ViTo Core Architecture
+> **Enforcement Level:** STRICT (No Drift Allowed)
 
 ---
 
-## 1. Canonical Declaration & Mandate
+## 1. Canonical Declaration
 
-This Feature Implementation Track (FIT) defines the **Digital Twin Vertical** solely as a consumer of the existing **ViTo Core**.
+This Feature Implementation Track (FIT) declares the **Digital Twin Platform** strictly as a **VERTICAL CONSUMER** of the existing `ViTo Core`.
 
-**The Gold Standard:**
-*   **ViTo Core** is the ONLY Source of Truth for: API Keys, Tenant Secrets, Billing, Hard Limits, Throttling, and Audit Logs.
-*   **NO Reinvention:** This vertical MUST NOT create parallel billing, auth, or rate-limiting tables. It must adapter-bind to existing Core modules.
-*   **One Tenant Rule:** In this specific vertical context, **1 Persona/Avatar = 1 Tenant Unit**. A "Company" (e.g., VibeThink) may own multiple Tenants (Avatars), or an Avatar may be its own self-managed Tenant.
-
----
-
-## 2. Scope
-
-### ✅ IN SCOPE (The Vertical)
-1.  **Orchestration of Real-Time Interaction:** Connecting end-users to Voice/Video providers via ViTo.
-2.  **Vendor-Agnostic Adapters:** Interfaces for Video (e.g., Tavus, HeyGen) and Voice (e.g., Cartesia, ElevenLabs).
-3.  **Knowledge Injection:** Feeding the Avatar with real-time data from predefined APIs (e.g., SportRadar, Financial News).
-4.  **Cost Control Logic:** Implementing the specific *Throttle -> Downgrade -> Deny* workflow based on ViTo Core limits.
-5.  **Multi-Channel Usage:** Portal, Embedded Widget, or Campaign Landing.
-
-### 🚫 OUT OF SCOPE (Hard Exclusions)
-1.  **Model Training:** We do not train LLMs. We consume APIs.
-2.  **Video Storage/Hosting:** We stream; we do not build a YouTube clone.
-3.  **Parallel Infrastructure:** No separate auth, no separate logging, no separate billing engine.
-4.  **Clinical Features:** No OCR, no HIPAA-specific workflows (though security is shared).
+**Mandate:**
+*   This is NOT a new product. It is a new interface layout consuming existing core services.
+*   **ViTo Core** remains the sole authority for Identity, Secrets, Billing, and Rate Limiting.
+*   No new billing engines or tenant tables shall be created.
 
 ---
 
-## 3. Targeted Architecture (Layered)
+## 2. Scope & Tenant Model
 
-This vertical sits strictly at the **Application Layer**, consuming Core Services.
+### 2.1 The Non-Negotiable Tenant Rule
+> **Rule:** `1 Avatar = 1 Tenant`
 
-```mermaid
-graph TD
-    User[End User] --> Widget[Embedded / Portal Widget]
-    Widget --> Orchestrator[Twin Orchestrator (The Vertical)]
-    
-    subgraph "ViTo Core (The Authority)"
-        Orchestrator -- "Authorize & Check Limits" --> Limits[Rate Limiter / Billing]
-        Orchestrator -- "Get API Keys" --> Secrets[Tenant Key Vault]
-        Orchestrator -- "Log Event" --> Audit[Audit Logger]
-        Limits --> DB[(ViTo DB)]
-    end
-    
-    subgraph "External Providers (via Adapters)"
-        Orchestrator -- "Stream" --> VideoAPI[Video Provider (Tavus/LiveKit)]
-        Orchestrator -- "Stream" --> VoiceAPI[Voice Provider (Cartesia)]
-        Orchestrator -- "Fetch Data" --> DataAPI[Real-time Data (Stats/News)]
-    end
-```
+*   **Definition:** An "Avatar" (e.g., "Andrés Cantor Digital Twin") is treated as a distinct Tenant Unit within ViTo.
+*   **Implication:** It has its own `tenant_id`, its own `secret_vault` (for video provider keys), and its own distinct Billing Meter.
+*   **Isolation:** Data from "Andrés Cantor" (Tenant A) is cryptographically isolated from "Tony Robbins" (Tenant B).
+
+### 2.2 Scope Definition
+
+| Feature | Status | Constraint |
+| :--- | :--- | :--- |
+| **Real-Time Interaction** | **IN SCOPE** | Must use `LiveKit Agent` orchestration (Python/Node). |
+| **Cost Control** | **IN SCOPE** | Must use `ViTo Billing` Pre-Flight Checks. |
+| **API Integration** | **IN SCOPE** | Live Data (e.g., SportRadar) via `ViTo Secret Vault`. |
+| **Model Training** | **OUT OF SCOPE** | Consumes existing models only. No fine-tuning infrastructure. |
+| **Video Storage** | **OUT OF SCOPE** | Ephemeral streaming only. No long-term storage build. |
+| **Clinical Features** | **OUT OF SCOPE** | No OCR, PHI, or DICOM handling. Shared security only. |
+
+---
+
+## 3. Canonical Use Cases (Validated)
+
+This architecture validates two distinct operational profiles using identical infrastructure.
+
+### 3.1 Use Case A: Sports Personality (High Burst)
+*   **Identity:** **Andrés Cantor** (Football Commentator)
+*   **Description:** Real-time voice/video avatar specializing in football, integrating paid sports APIs.
+*   **Data Strategy:** Hybrid RAG (Historical Context + Live SportRadar API).
+*   **Operational profile:** Mass B2C audience. Extreme burst spikes during live matches.
+*   **Constraint:** Requires aggressive throttling and "Leaky Bucket" rate limiting to survive match-day traffic.
+
+### 3.2 Use Case B: AI Consultant (High Value)
+*   **Identity:** **José Luis Fernández** (AI Strategy Consultant - salesfyconsulting.com)
+*   **Description:** Professional avatar for B2B executives providing strategic AI advice.
+*   **Data Strategy:** Hybrid RAG (Proprietary Frameworks + Live Industry News).
+*   **Operational profile:** Low volume, high interaction depth. Long sessions.
+*   **Constraint:** Requires high token limits per session but stricter monthly budget caps.
+
+### 3.3 Comparative Analysis (Same Engine, Different Config)
+
+| Feature | Case A: Andrés Cantor | Case B: José Luis Fernández | ViTo Core Mechanism |
+| :--- | :--- | :--- | :--- |
+| **Traffic Pattern** | **Extreme Spikes** (Match Day) | **Steady / Scheduled** (Business Hours) | `RateLimiter.checkBurst()` |
+| **Dominant Cost** | Voice Streaming + Sports API | LLM Tokens (Deep Reasoning) | `BillingMeter` (configurable weights) |
+| **Risk Profile** | DDoS / Virality Cost Overrun | Hallucination / Confidentiality | `HardLimit` (Budget Cap) |
+| **External Source** | SportRadar / API-Football | NewsAPI / Vector DB | `SecretVault` + `Adapter` |
+| **Limit Strategy** | Strict Throttling (Queue/Drop) | Soft Cap (Downgrade to Text) | `PolicyConfig` (JSONB) |
+| **Tenant Model** | 1 Avatar = 1 Tenant | 1 Avatar = 1 Tenant | **Identical** |
+
+**Conclusion:** Both use cases are 100% supported by the current FIT without architectural changes. Configuration (Limits/Secrets) handles the divergence.
 
 ---
 
 ## 4. Technical Implementation Plan
 
-### 4.1. Interfaces & Adapters (Vendor-Agnostic)
+### 4.1 Interaction Units (The Currency)
 
-We define interfaces, not vendor implementations, to ensure replaceability.
+We define three standardized units of consumption mapping to ViTo Billing:
 
-*   `IVideoTwinProvider`: Methods for `initializeSession()`, `streamFrame()`, `terminate()`.
-*   `IVoiceSynthesizer`: Methods for `streamAudio()`, `interrupt()`.
-*   `IRealTimeDataSource`: Methods for `fetchContext(topic)`.
+1.  **`token_unit`:** (LLM) 1K tokens input/output.
+2.  **`minute_unit`:** (Video/Voice) 60 seconds of generated stream.
+3.  **`interaction_unit`:** (Orchestrator) 1 successful turn (User Input -> Agent Response).
 
-### 4.2. The Cost Control Loop (The "Kill Switch")
+*Usage:* Every request is debited against one or more of these meters.
 
-Before **EVERY** interaction tick (e.g., every minute of video or every LLM turn), the Orchestrator performs a **Pre-Flight Check** against ViTo Core:
+### 4.2 The Request Lifecycle (Pre-Flight Check)
 
-1.  **Check Hard Limit:** Is `current_usage >= monthly_cap`?
-    *   *If YES:* **DENY**. Return fallback ("I am sleeping now") or downgrade to Text-Only.
-2.  **Check Burst Limit (Throttling):** Is `concurrent_users > burst_allowance`?
-    *   *If YES:* **QUEUE** or **DENY**.
-3.  **Execute:** Call External Provider.
-4.  **Post-Debit:** Asynchronously update Core Billing meter.
+**Critical Path:** NO vendor call happens without prior authorization.
 
-### 4.3. Audit & Claims
+1.  **Incoming Request:** User sends audio packet to `wss://twin-gateway`.
+2.  **Identify Tenant:** Gateway extracts `tenant_id` from JWT/API Key.
+3.  **PRE-FLIGHT CHECK (Synchronous):**
+    *   Call `ViTo.Billing.checkLimit(tenant_id, expected_cost)`.
+    *   Call `ViTo.RateLimit.checkBurst(tenant_id)`.
+4.  **Decision Gate:**
+    *   ✅ **PASS:** Proceed to Step 5.
+    *   ⚠️ **THROTTLE:** Queue request (if within burst buffer).
+    *   ⛔ **DENY:** Return `429 Too Many Requests` or `402 Payment Required`.
+5.  **Vendor Execution:** Call `LiveKit` / `Tavus` / `Cartesia`.
+6.  **Post-Flight Audit:** Async event `BILLING_EVENT` sent to ViTo Audit Log.
 
-The system must produce a verifiable audit trail for every cent charged.
+### 4.3 Vendor-Agnostic Interfaces
 
-*   **Metric Unit:** `interaction_seconds` or `token_count`.
-*   **Audit Log Structure:**
-    ```json
-    {
-      "tenant_id": "avatar-andres-cantor",
-      "event_type": "TWIN_INTERACTION",
-      "provider": "tavus-video",
-      "units_consumed": 45,
-      "unit_type": "seconds",
-      "cost_currency": "USD",
-      "cost_amount": 0.045,
-      "limit_check_id": "req_12345" // Traceability to the permission check
-    }
-    ```
+To prevent vendor lock-in, we implement strictly typed adapters:
+
+```typescript
+interface IStreamingAvatarProvider {
+  /** Initiate a streaming session. Validates cost before connection. */
+  initializeSession(config: AvatarConfig, limits: RuntimeLimits): Promise<SessionId>;
+  
+  /** Send text/audio driver. usageCallback tracks real-time cost. */
+  driveAvatar(input: StreamInput, usageCallback: (metrics: Metrics) => void): Promise<void>;
+  
+  /** Hard kill switch for cost control */
+  terminate(reason: 'COST_LIMIT' | 'USER_EXIT'): Promise<void>;
+}
+
+interface IRealTimeContextAdapter {
+  /** Fetch live context (e.g. soccer score) using Tenant Secrets */
+  fetchContext(query: string, secretScope: string): Promise<ContextData>;
+}
+```
 
 ---
 
-## 5. Guardrails against Drift
+## 5. Cost Control Strategy: Burst Management
 
-1.  **No Direct Vendor Calls:** All external calls MUST go through the `Orchestrator` wrapper which enforces limits. Direct calls from frontend are BANNED.
-2.  **Secret Isolation:** Keys for SportRadar or Tavus live in `tenant_secrets` (encrypted), NEVER in code or environment variables shared globally.
-3.  **Fail-Safe defaults:** If Billing Service is unreachable, the Twin defaults to **OFFLINE** (Safety First), not Free.
+We implement a 3-stage defense against cost overruns:
+
+1.  **Stage 1: Throttle (Leaky Bucket)**
+    *   Smooths out spikes. Delays response by ms instead of rejecting.
+2.  **Stage 2: Downgrade (Fallback)**
+    *   If Video quota exhausted -> Switch to Voice-Only.
+    *   If Voice quota exhausted -> Switch to Text-Only.
+3.  **Stage 3: Deny (Hard Stop)**
+    *   If `monthly_hard_limit` reached -> Immediate 402 Error. "Twin is sleeping".
 
 ---
 
-## 6. Verification & Evidence Checklist
+## 6. Evidence Checklist (FIT Gate)
 
-To efficiently prove this implementation works without testing in production:
+The Auditor must verify these claims before "RELEASE":
 
-| Check ID | Requirement | Evidence Method |
+| ID | Claim | Verification Method (Evidence) |
 | :--- | :--- | :--- |
-| **EVIDENCE-01** | **Hard Limit Enforcement** | **Unit Test:** Mock Billing Service to return `quota_exceeded`. Verify Orchestrator returns `402 Payment Required` without calling Video Provider. |
-| **EVIDENCE-02** | **Throttling under Burst** | **Load Test:** Simulate 100 concurrent requests when limit is 50. Verify 50 succeed and 50 are queued/rejected. |
-| **EVIDENCE-03** | **Tenant Isolation** | **Integration Test:** Verify User A cannot activate User B's avatar even with valid JWT. |
-| **EVIDENCE-04** | **Audit Traceability** | **DB Query:** Perform 1 interaction. Query `audit_logs` table. Verify strict match of cost/seconds. |
-| **EVIDENCE-05** | **Adapter Swappability** | **Code Review:** Verify strictly typed Interfaces. Swap MockProvider for RealProvider via config injection. |
+| **EV-01** | **Hard Limit Implementation** | Configure Tenant A with $1.00 limit. Run $1.01 of simulated traffic. **RESULT:** Request #101 must fail with 402. Vendor API MUST NOT be called. |
+| **EV-02** | **Tenant Isolation** | Use Tenant A's valid key to request Tenant B's avatar. **RESULT:** Immediate 403 Forbidden. |
+| **EV-03** | **Burst Throttling** | Send 100 req/sec with limit 50 req/sec. **RESULT:** 50 Success, 50 Throttled/Rejected. No crash. |
+| **EV-04** | **Audit Trail Integrity** | Perform 1 minute of video. **RESULT:** DB `audit_logs` shows exactly 1 entry with correct `cost_amount` and `provider_id`. |
 
 ---
 
 **Signed:**
-*   **Architect:** VibeThink Governance AI
-*   **Date:** 2026-01-10
+VibeThink Governance Architect
+*Strict Adherence Required*
