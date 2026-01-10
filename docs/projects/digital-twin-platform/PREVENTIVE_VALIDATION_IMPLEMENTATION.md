@@ -807,3 +807,31 @@ After implementation:
 **Status:** 🟢 READY FOR GEMINI CODER  
 **Estimated Effort:** 3-5 days  
 **Dependencies:** None (all tooling is standard)
+
+---
+
+## 🛡️ Preventive Type Safety
+
+We enforce strict error handling in TypeScript configuration.
+
+### catch (error) Safety
+
+We have enabled `useUnknownInCatchVariables: true` in `tsconfig.json`.
+
+**Implication:**
+Caught errors are `unknown` by default, not `any`. You MUST type-check them before usage.
+
+❌ **Forbidden:**
+```typescript
+try { ... } catch (err) {
+  console.log(err.message); // Error: Object is of type 'unknown'.
+}
+```
+
+✅ **Required:**
+```typescript
+try { ... } catch (err: unknown) {
+  const message = err instanceof Error ? err.message : String(err);
+  console.log(message);
+}
+```
