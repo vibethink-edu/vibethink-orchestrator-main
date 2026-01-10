@@ -31,27 +31,40 @@ async function setupSchema() {
 
     // 2. Create Tables
     await pool.query(`
+      -- 2a. Conversations Table with Strict Constraints
+      CREATE TABLE IF NOT EXISTS conversations (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        company_id UUID NOT NULL, -- Critical for multi-tenancy
+        messages JSONB DEFAULT '[]'::jsonb,
+        context JSONB DEFAULT '{}'::jsonb,
+        updated_at TIMESTAMPTZ DEFAULT NOW(),
+        created_at TIMESTAMPTZ DEFAULT NOW(),
+        is_archived BOOLEAN DEFAULT FALSE NOT NULL,
+        archived_at TIMESTAMPTZ,
+        status entity_status DEFAULT 'active'
+      );
+
+      -- 2b. Enable Row Level Security (RLS)
+      ALTER TABLE conversations ENABLE ROW LEVEL SECURITY;
+
+      -- 2c. Create RLS Policies (Mocked for CI/Local, usually auth.uid() based)
+      -- Policy: Users can only see conversations from their company
+      DROP POLICY IF EXISTS "Tenant Isolation Policy" ON conversations;
+      CREATE POLICY "Tenant Isolation Policy" ON conversations
+        USING (company_id::text = current_setting('app.current_company_id', true));
+      
+      -- 2d. Other Tables with Constraints
       CREATE TABLE IF NOT EXISTS celebrities (
         id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-        name TEXT,
-        twin_config JSONB,
-        type celebrity_type
+        name TEXT NOT NULL,
+        twin_config JSONB DEFAULT '{}'::jsonb,
+        type celebrity_type NOT NULL DEFAULT 'synthetic'
       );
 
       CREATE TABLE IF NOT EXISTS deployments (
         id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-        config JSONB,
-        status entity_status
-      );
-
-      CREATE TABLE IF NOT EXISTS conversations (
-        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-        company_id UUID,
-        messages JSONB DEFAULT '[]',
-        context JSONB,
-        updated_at TIMESTAMPTZ DEFAULT NOW(),
-        is_archived BOOLEAN DEFAULT FALSE,
-        archived_at TIMESTAMPTZ
+        config JSONB DEFAULT '{}'::jsonb,
+        status entity_status NOT NULL DEFAULT 'active'
       );
     `);
 
