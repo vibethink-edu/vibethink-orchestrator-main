@@ -9,9 +9,13 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'ViTo Documentation',
-			social: {
-				github: 'https://github.com/withastro/starlight',
-			},
+			social: [
+				{
+					label: 'GitHub',
+					url: 'https://github.com/vibethink-edu/vibethink-orchestrator-main',
+					icon: 'github',
+				},
+			],
 			sidebar: [
 				{
 					label: 'Documentation System',
