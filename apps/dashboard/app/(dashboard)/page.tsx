@@ -1,10 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from '@vibethink/ui'
-import Card from "@/shared/components/generic/Card"
-import Navigation from "@/shared/components/generic/Navigation"
-import Chart from "@/shared/components/generic/Chart"
+import { Button, NavigationMenu as Navigation } from '@vibethink/ui'
+import Card from "@/shared/components/Card"
+import Chart from "@/shared/components/Chart"
 import { useGenericData } from "@/shared/hooks/useGenericData"
 import { formatCurrency, formatNumber, formatPercentage } from "@vibethink/utils"
 import { Users, DollarSign, Activity, CreditCard, Download, Plus, MessageCircle, TrendingUp, Calendar, UserPlus, CreditCard as PaymentIcon, Home, BarChart3, Settings, User, FileText, Bell } from 'lucide-react'
@@ -322,10 +321,10 @@ export default function DashboardPage() {
                       <td className="py-3 font-medium">{formatCurrency(payment.amount)}</td>
                       <td className="py-3">
                         <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs ${payment.status === 'success'
-                            ? 'bg-green-100 text-green-800'
-                            : payment.status === 'processing'
-                              ? 'bg-yellow-100 text-yellow-800'
-                              : 'bg-red-100 text-red-800'
+                          ? 'bg-green-100 text-green-800'
+                          : payment.status === 'processing'
+                            ? 'bg-yellow-100 text-yellow-800'
+                            : 'bg-red-100 text-red-800'
                           }`}>
                           {payment.status}
                         </span>
@@ -565,10 +564,10 @@ export default function DashboardPage() {
                     <td className="py-3 font-medium">{formatCurrency(payment.amount)}</td>
                     <td className="py-3">
                       <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs ${payment.status === 'success'
-                          ? 'bg-green-100 text-green-800'
-                          : payment.status === 'processing'
-                            ? 'bg-yellow-100 text-yellow-800'
-                            : 'bg-red-100 text-red-800'
+                        ? 'bg-green-100 text-green-800'
+                        : payment.status === 'processing'
+                          ? 'bg-yellow-100 text-yellow-800'
+                          : 'bg-red-100 text-red-800'
                         }`}>
                         {payment.status}
                       </span>
