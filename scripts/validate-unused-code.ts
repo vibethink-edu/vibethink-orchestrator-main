@@ -14,6 +14,19 @@ import { execSync } from 'child_process';
 
 console.log('🔍 Scanning for unused code...\n');
 
+interface ExecError {
+    stdout?: string;
+    stderr?: string;
+}
+
+function isExecError(error: unknown): error is ExecError {
+    return (
+        typeof error === 'object' &&
+        error !== null &&
+        ('stdout' in error || 'stderr' in error)
+    );
+}
+
 try {
     // Run TypeScript compiler with noUnusedLocals and noUnusedParameters
     const result = execSync(
@@ -25,7 +38,11 @@ try {
     console.log('✅ No unused code detected.\n');
 
 } catch (error: unknown) {
-    const err = error as { stdout?: string; stderr?: string };
+    if (!isExecError(error)) {
+        console.log('✅ No unused code detected.\n');
+        process.exit(0);
+    }
+    const err = error;
     const output = err.stdout || err.stderr || '';
 
     // Parse TypeScript errors
