@@ -6,6 +6,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	site: 'https://vibethink-edu.github.io',
 	base: '/vibethink-orchestrator-main',
+	trailingSlash: 'always',
 	integrations: [
 		starlight({
 			title: 'ViTo Documentation',
