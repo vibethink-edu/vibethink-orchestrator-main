@@ -85,17 +85,17 @@ async function archiveConversations() {
             ? `SELECT $1::text as company_id WHERE EXISTS(
                  SELECT 1 FROM conversations 
                  WHERE company_id = $1 
-                   AND updated_at < NOW() - INTERVAL '${config.retentionDays} days'
+                   AND updated_at < NOW() - ($2 || ' days')::interval
                    AND is_archived = FALSE
                )`
             : `SELECT DISTINCT company_id 
                FROM conversations 
-               WHERE updated_at < NOW() - INTERVAL '${config.retentionDays} days'
+               WHERE updated_at < NOW() - ($1 || ' days')::interval
                  AND is_archived = FALSE`;
 
         const tenantsResult = config.companyId
-            ? await pool.query(tenantsQuery, [config.companyId])
-            : await pool.query(tenantsQuery);
+            ? await pool.query(tenantsQuery, [config.companyId, config.retentionDays])
+            : await pool.query(tenantsQuery, [config.retentionDays]);
 
         const tenants = tenantsResult.rows.map(r => r.company_id).filter(Boolean);
 
@@ -122,10 +122,10 @@ async function archiveConversations() {
                     SELECT COUNT(*) as count
                     FROM conversations
                     WHERE company_id = $1
-                      AND updated_at < NOW() - INTERVAL '${config.retentionDays} days'
+                      AND updated_at < NOW() - ($2 || ' days')::interval
                       AND is_archived = FALSE
-                    LIMIT ${config.batchSize}
-                `, [companyId]);
+                    LIMIT $3
+                `, [companyId, config.retentionDays, config.batchSize]);
 
                 const count = parseInt(countResult.rows[0]?.count || '0');
                 totalArchived += count;
@@ -141,12 +141,12 @@ async function archiveConversations() {
                     WHERE id IN (
                         SELECT id FROM conversations
                         WHERE company_id = $1
-                          AND updated_at < NOW() - INTERVAL '${config.retentionDays} days'
+                          AND updated_at < NOW() - ($2 || ' days')::interval
                           AND is_archived = FALSE
-                        LIMIT ${config.batchSize}
+                        LIMIT $3
                     )
                     RETURNING id
-                `, [companyId]);
+                `, [companyId, config.retentionDays, config.batchSize]);
 
                 const count = result.rowCount || 0;
                 totalArchived += count;
