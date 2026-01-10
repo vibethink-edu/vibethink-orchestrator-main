@@ -43,7 +43,8 @@ export default defineConfig({
     },
     include: [
       'src/**/*.{test,spec}.{js,ts,jsx,tsx}',
-      'tests/unit/**/*.{test,spec}.{js,ts,jsx,tsx}'
+      'tests/unit/**/*.{test,spec}.{js,ts,jsx,tsx}',
+      'eslint-plugin-custom/**/*.test.js'
     ],
     exclude: [
       'node_modules/',

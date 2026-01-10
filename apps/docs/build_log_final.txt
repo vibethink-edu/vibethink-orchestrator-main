@@ -1,0 +1,896 @@
+
+> docs@0.0.1 astro C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\docs
+> astro "build" "--verbose"
+
+2026-01-10T02:01:46.175Z astro:cli --verbose flag enabled! Enabling: DEBUG="astro:*,vite:*"
+2026-01-10T02:01:46.175Z astro:cli Tip: Set the DEBUG env variable directly for more control. Example: "DEBUG=astro:*,vite:* astro build".
+2026-01-10T02:01:46.994Z astro:telemetry [notify] last notified on 1768005430012
+2026-01-10T02:01:47.916Z astro:Failed to load config with Node Error [ERR_UNSUPPORTED_NODE_MODULES_TYPE_STRIPPING]: Stripping types is currently unsupported for files under node_modules, for "file:///C:/IA%20Marcelo%20Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/index.ts"
+    at stripTypeScriptModuleTypes (node:internal/modules/typescript:156:11)
+    at ModuleLoader.<anonymous> (node:internal/modules/esm/translators:536:16)
+    at #translate (node:internal/modules/esm/loader:540:12)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:587:27)
+    at async ModuleJob._link (node:internal/modules/esm/module_job:162:19)
+2026-01-10T02:01:47.920Z vite:env loading env files: [
+  'C:/IA Marcelo Labs/vibethink-orchestrator-main/apps/docs/.env',
+  'C:/IA Marcelo Labs/vibethink-orchestrator-main/apps/docs/.env.local',
+  'C:/IA Marcelo Labs/vibethink-orchestrator-main/apps/docs/.env.development',
+  'C:/IA Marcelo Labs/vibethink-orchestrator-main/apps/docs/.env.development.local'
+]
+2026-01-10T02:01:47.920Z vite:env env files loaded in 0.88ms
+2026-01-10T02:01:47.921Z vite:env using resolved env: {}
+2026-01-10T02:01:47.931Z vite:config using resolved config: {
+  configFile: undefined,
+  server: {
+    port: 5173,
+    strictPort: false,
+    host: undefined,
+    allowedHosts: [],
+    https: undefined,
+    open: false,
+    proxy: undefined,
+    cors: {
+      origin: /^https?:\/\/(?:(?:[^:]+\.)?localhost|127\.0\.0\.1|\[::1\])(?::\d+)?$/
+    },
+    headers: {},
+    warmup: { clientFiles: [], ssrFiles: [] },
+    middlewareMode: true,
+    fs: {
+      strict: true,
+      deny: [ '.env', '.env.*', '*.{crt,pem}', '**/.git/**' ],
+      allow: [ 'C:/IA Marcelo Labs/vibethink-orchestrator-main' ]
+    },
+    preTransformRequests: true,
+    perEnvironmentStartEndDuringDev: false,
+    sourcemapIgnoreList: [Function: isInNodeModules$1],
+    hmr: false,
+    watch: null,
+    ws: false
+  },
+  optimizeDeps: {
+    include: [],
+    exclude: [],
+    needsInterop: [],
+    extensions: [],
+    disabled: undefined,
+    holdUntilCrawlEnd: true,
+    force: false,
+    noDiscovery: true,
+    esbuildOptions: { preserveSymlinks: false }
+  },
+  clearScreen: false,
+  appType: 'custom',
+  ssr: {
+    target: 'node',
+    optimizeDeps: {
+      esbuildOptions: { preserveSymlinks: false },
+      include: [],
+      exclude: [],
+      needsInterop: [],
+      extensions: [],
+      holdUntilCrawlEnd: true,
+      force: false,
+      noDiscovery: true
+    },
+    external: true,
+    noExternal: [],
+    resolve: {
+      conditions: [ 'module', 'node', 'development|production' ],
+      externalConditions: [ 'node' ]
+    }
+  },
+  plugins: [
+    'vite:optimized-deps',
+    'vite:watch-package-data',
+    'vite:pre-alias',
+    'alias',
+    'vite:modulepreload-polyfill',
+    'vite:resolve',
+    'vite:html-inline-proxy',
+    'vite:css',
+    'vite:esbuild',
+    'vite:json',
+    'vite:wasm-helper',
+    'vite:worker',
+    'vite:asset',
+    'vite:wasm-fallback',
+    'vite:define',
+    'vite:css-post',
+    'vite:worker-import-meta-url',
+    'vite:asset-import-meta-url',
+    'vite:dynamic-import-vars',
+    'vite:import-glob',
+    'vite:client-inject',
+    'vite:css-analysis',
+    'vite:import-analysis'
+  ],
+  environments: {
+    client: {
+      define: undefined,
+      resolve: {
+        externalConditions: [ 'node' ],
+        extensions: [
+          '.mjs',  '.js',
+          '.mts',  '.ts',
+          '.jsx',  '.tsx',
+          '.json'
+        ],
+        dedupe: [],
+        noExternal: [],
+        external: [],
+        preserveSymlinks: false,
+        alias: [
+          {
+            find: /^\/?@vite\/env/,
+            replacement: '/@fs/C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/vite@6.4.1_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.21.0_yaml@2.8.2/node_modules/vite/dist/client/env.mjs'
+          },
+          {
+            find: /^\/?@vite\/client/,
+            replacement: '/@fs/C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/vite@6.4.1_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.21.0_yaml@2.8.2/node_modules/vite/dist/client/client.mjs'
+          }
+        ],
+        mainFields: [ 'browser', 'module', 'jsnext:main', 'jsnext' ],
+        conditions: [ 'module', 'browser', 'development|production' ],
+        builtins: []
+      },
+      keepProcessEnv: false,
+      consumer: 'client',
+      optimizeDeps: {
+        include: [],
+        exclude: [],
+        needsInterop: [],
+        extensions: [],
+        disabled: undefined,
+        holdUntilCrawlEnd: true,
+        force: false,
+        noDiscovery: true,
+        esbuildOptions: { preserveSymlinks: false }
+      },
+      dev: {
+        warmup: [],
+        sourcemap: { js: true },
+        sourcemapIgnoreList: [Function: isInNodeModules$1],
+        preTransformRequests: true,
+        createEnvironment: [Function: defaultCreateClientDevEnvironment],
+        recoverable: true,
+        moduleRunnerTransform: false
+      },
+      build: {
+        target: [ 'es2020', 'edge88', 'firefox78', 'chrome87', 'safari14' ],
+        polyfillModulePreload: true,
+        modulePreload: { polyfill: true },
+        outDir: 'dist',
+        assetsDir: 'assets',
+        assetsInlineLimit: 4096,
+        sourcemap: false,
+        terserOptions: {},
+        rollupOptions: {},
+        commonjsOptions: { include: [ /node_modules/ ], extensions: [ '.js', '.cjs' ] },
+        dynamicImportVarsOptions: { warnOnError: true, exclude: [ /node_modules/ ] },
+        write: true,
+        emptyOutDir: null,
+        copyPublicDir: true,
+        manifest: false,
+        lib: false,
+        ssrManifest: false,
+        ssrEmitAssets: false,
+        reportCompressedSize: true,
+        chunkSizeWarningLimit: 500,
+        watch: null,
+        cssCodeSplit: true,
+        minify: 'esbuild',
+        ssr: false,
+        emitAssets: true,
+        createEnvironment: [Function: createEnvironment],
+        cssTarget: [ 'es2020', 'edge88', 'firefox78', 'chrome87', 'safari14' ],
+        cssMinify: true
+      }
+    },
+    ssr: {
+      define: undefined,
+      resolve: {
+        externalConditions: [ 'node' ],
+        extensions: [
+          '.mjs',  '.js',
+          '.mts',  '.ts',
+          '.jsx',  '.tsx',
+          '.json'
+        ],
+        dedupe: [],
+        noExternal: [],
+        external: true,
+        preserveSymlinks: false,
+        alias: [
+          {
+            find: /^\/?@vite\/env/,
+            replacement: '/@fs/C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/vite@6.4.1_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.21.0_yaml@2.8.2/node_modules/vite/dist/client/env.mjs'
+          },
+          {
+            find: /^\/?@vite\/client/,
+            replacement: '/@fs/C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/vite@6.4.1_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.21.0_yaml@2.8.2/node_modules/vite/dist/client/client.mjs'
+          }
+        ],
+        mainFields: [ 'module', 'jsnext:main', 'jsnext' ],
+        conditions: [ 'module', 'node', 'development|production' ],
+        builtins: [
+          '_http_agent',         '_http_client',        '_http_common',
+          '_http_incoming',      '_http_outgoing',      '_http_server',
+          '_stream_duplex',      '_stream_passthrough', '_stream_readable',
+          '_stream_transform',   '_stream_wrap',        '_stream_writable',
+          '_tls_common',         '_tls_wrap',           'assert',
+          'assert/strict',       'async_hooks',         'buffer',
+          'child_process',       'cluster',             'console',
+          'constants',           'crypto',              'dgram',
+          'diagnostics_channel', 'dns',                 'dns/promises',
+          'domain',              'events',              'fs',
+          'fs/promises',         'http',                'http2',
+          'https',               'inspector',           'inspector/promises',
+          'module',              'net',                 'os',
+          'path',                'path/posix',          'path/win32',
+          'perf_hooks',          'process',             'punycode',
+          'querystring',         'readline',            'readline/promises',
+          'repl',                'stream',              'stream/consumers',
+          'stream/promises',     'stream/web',          'string_decoder',
+          'sys',                 'timers',              'timers/promises',
+          'tls',                 'trace_events',        'tty',
+          'url',                 'util',                'util/types',
+          'v8',                  'vm',                  'wasi',
+          'worker_threads',      'zlib',                /^node:/,
+          /^npm:/,               /^bun:/
+        ]
+      },
+      keepProcessEnv: true,
+      consumer: 'server',
+      optimizeDeps: {
+        include: [],
+        exclude: [],
+        needsInterop: [],
+        extensions: [],
+        disabled: undefined,
+        holdUntilCrawlEnd: true,
+        force: false,
+        noDiscovery: true,
+        esbuildOptions: { preserveSymlinks: false }
+      },
+      dev: {
+        warmup: [],
+        sourcemap: { js: true },
+        sourcemapIgnoreList: [Function: isInNodeModules$1],
+        preTransformRequests: false,
+        createEnvironment: [Function: defaultCreateDevEnvironment],
+        recoverable: false,
+        moduleRunnerTransform: true
+      },
+      build: {
+        target: [ 'es2020', 'edge88', 'firefox78', 'chrome87', 'safari14' ],
+        polyfillModulePreload: true,
+        modulePreload: { polyfill: true },
+        outDir: 'dist',
+        assetsDir: 'assets',
+        assetsInlineLimit: 4096,
+        sourcemap: false,
+        terserOptions: {},
+        rollupOptions: {},
+        commonjsOptions: { include: [ /node_modules/ ], extensions: [ '.js', '.cjs' ] },
+        dynamicImportVarsOptions: { warnOnError: true, exclude: [ /node_modules/ ] },
+        write: true,
+        emptyOutDir: null,
+        copyPublicDir: true,
+        manifest: false,
+        lib: false,
+        ssrManifest: false,
+        ssrEmitAssets: false,
+        reportCompressedSize: true,
+        chunkSizeWarningLimit: 500,
+        watch: null,
+        cssCodeSplit: true,
+        minify: false,
+        ssr: true,
+        emitAssets: false,
+        createEnvironment: [Function: createEnvironment],
+        cssTarget: [ 'es2020', 'edge88', 'firefox78', 'chrome87', 'safari14' ],
+        cssMinify: 'esbuild'
+      }
+    }
+  },
+  resolve: {
+    externalConditions: [ 'node' ],
+    extensions: [
+      '.mjs',  '.js',
+      '.mts',  '.ts',
+      '.jsx',  '.tsx',
+      '.json'
+    ],
+    dedupe: [],
+    noExternal: [],
+    external: [],
+    preserveSymlinks: false,
+    alias: [
+      {
+        find: /^\/?@vite\/env/,
+        replacement: '/@fs/C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/vite@6.4.1_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.21.0_yaml@2.8.2/node_modules/vite/dist/client/env.mjs'
+      },
+      {
+        find: /^\/?@vite\/client/,
+        replacement: '/@fs/C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/vite@6.4.1_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.21.0_yaml@2.8.2/node_modules/vite/dist/client/client.mjs'
+      }
+    ],
+    mainFields: [ 'browser', 'module', 'jsnext:main', 'jsnext' ],
+    conditions: [ 'module', 'browser', 'development|production' ],
+    builtins: []
+  },
+  configFileDependencies: [],
+  inlineConfig: {
+    configFile: false,
+    server: { middlewareMode: true, hmr: false, watch: null, ws: false },
+    optimizeDeps: { noDiscovery: true },
+    clearScreen: false,
+    appType: 'custom',
+    ssr: { external: true },
+    plugins: [ false ],
+    environments: {
+      client: {
+        define: undefined,
+        resolve: undefined,
+        dev: {},
+        build: undefined,
+        optimizeDeps: { noDiscovery: true }
+      },
+      ssr: {
+        define: undefined,
+        resolve: {
+          mainFields: undefined,
+          conditions: undefined,
+          external: true
+        },
+        dev: { createEnvironment: undefined, warmup: undefined },
+        build: { createEnvironment: undefined },
+        optimizeDeps: {}
+      }
+    },
+    resolve: { conditions: undefined, mainFields: undefined }
+  },
+  root: 'C:/IA Marcelo Labs/vibethink-orchestrator-main/apps/docs',
+  base: '/',
+  decodedBase: '/',
+  rawBase: '/',
+  publicDir: 'C:/IA Marcelo Labs/vibethink-orchestrator-main/apps/docs/public',
+  cacheDir: 'C:/IA Marcelo Labs/vibethink-orchestrator-main/apps/docs/node_modules/.vite',
+  command: 'serve',
+  mode: 'development',
+  isWorker: false,
+  mainConfig: null,
+  bundleChain: [],
+  isProduction: true,
+  css: {
+    transformer: 'postcss',
+    preprocessorMaxWorkers: 0,
+    devSourcemap: false
+  },
+  json: { namedExports: true, stringify: 'auto' },
+  esbuild: { jsxDev: false },
+  builder: undefined,
+  preview: {
+    port: 4173,
+    strictPort: false,
+    host: undefined,
+    allowedHosts: [],
+    https: undefined,
+    open: false,
+    proxy: undefined,
+    cors: {
+      origin: /^https?:\/\/(?:(?:[^:]+\.)?localhost|127\.0\.0\.1|\[::1\])(?::\d+)?$/
+    },
+    headers: {}
+  },
+  envDir: 'C:/IA Marcelo Labs/vibethink-orchestrator-main/apps/docs',
+  env: { BASE_URL: '/', MODE: 'development', DEV: false, PROD: true },
+  assetsInclude: [Function: assetsInclude],
+  logger: {
+    hasWarned: false,
+    info: [Function: info],
+    warn: [Function: warn],
+    warnOnce: [Function: warnOnce],
+    error: [Function: error],
+    clearScreen: [Function: clearScreen],
+    hasErrorLogged: [Function: hasErrorLogged]
+  },
+  packageCache: Map(1) {
+    'fnpd_C:/IA Marcelo Labs/vibethink-orchestrator-main/apps/docs' => {
+      dir: 'C:/IA Marcelo Labs/vibethink-orchestrator-main/apps/docs',
+      data: {
+        name: 'docs',
+        type: 'module',
+        version: '0.0.1',
+        scripts: {
+          dev: 'astro dev',
+          start: 'astro dev',
+          build: 'node scripts/sync-canon.mjs && astro build',
+          preview: 'astro preview',
+          astro: 'astro',
+          'sync:docs': 'node scripts/sync-canon.mjs'
+        },
+        dependencies: {
+          '@astrojs/starlight': '^0.37.2',
+          astro: '^5.6.1',
+          sharp: '^0.34.2'
+        },
+        devDependencies: { '@astrojs/check': '^0.5.10', typescript: '^5.4.5' }
+      },
+      hasSideEffects: [Function: hasSideEffects],
+      setResolvedCache: [Function: setResolvedCache],
+      getResolvedCache: [Function: getResolvedCache]
+    },
+    set: [Function (anonymous)]
+  },
+  worker: { format: 'iife', plugins: '() => plugins', rollupOptions: {} },
+  experimental: { importGlobRestoreExtension: false, hmrPartialAccept: false },
+  future: undefined,
+  dev: {
+    warmup: [],
+    sourcemap: { js: true },
+    sourcemapIgnoreList: [Function: isInNodeModules$1],
+    preTransformRequests: false,
+    createEnvironment: [Function: defaultCreateDevEnvironment],
+    recoverable: false,
+    moduleRunnerTransform: false
+  },
+  build: {
+    target: [ 'es2020', 'edge88', 'firefox78', 'chrome87', 'safari14' ],
+    polyfillModulePreload: true,
+    modulePreload: { polyfill: true },
+    outDir: 'dist',
+    assetsDir: 'assets',
+    assetsInlineLimit: 4096,
+    sourcemap: false,
+    terserOptions: {},
+    rollupOptions: {},
+    commonjsOptions: { include: [ /node_modules/ ], extensions: [ '.js', '.cjs' ] },
+    dynamicImportVarsOptions: { warnOnError: true, exclude: [ /node_modules/ ] },
+    write: true,
+    emptyOutDir: null,
+    copyPublicDir: true,
+    manifest: false,
+    lib: false,
+    ssrManifest: false,
+    ssrEmitAssets: false,
+    reportCompressedSize: true,
+    chunkSizeWarningLimit: 500,
+    watch: null,
+    cssCodeSplit: true,
+    minify: 'esbuild',
+    ssr: false,
+    emitAssets: false,
+    createEnvironment: [Function: createEnvironment],
+    cssTarget: [ 'es2020', 'edge88', 'firefox78', 'chrome87', 'safari14' ],
+    cssMinify: true
+  },
+  webSocketToken: 'p8NZBg6P2AFC',
+  getSortedPlugins: [Function: getSortedPlugins],
+  getSortedPluginHooks: [Function: getSortedPluginHooks],
+  createResolver: [Function: createResolver],
+  fsDenyGlob: [Function: arrayMatcher],
+  safeModulePaths: Set(0) {},
+  additionalAllowedHosts: [],
+  [Symbol(vite:resolved-config)]: true
+}
+2026-01-10T02:01:47.970Z vite:resolve 21.53ms C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\docs\astro.config.mjs -> C:/IA Marcelo Labs/vibethink-orchestrator-main/apps/docs/astro.config.mjs
+2026-01-10T02:01:47.975Z vite:load 2.09ms [fs] C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\docs\astro.config.mjs
+2026-01-10T02:01:47.986Z vite:resolve 1.29ms @astrojs/starlight -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/index.ts
+2026-01-10T02:01:47.987Z vite:import-analysis 9.11ms [1 imports rewritten] astro.config.mjs
+2026-01-10T02:01:47.987Z vite:transform 12.17ms C:\IA Marcelo Labs\vibethink-orchestrator-main\apps\docs\astro.config.mjs
+2026-01-10T02:01:48.000Z vite:load 0.74ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/index.ts
+2026-01-10T02:01:48.370Z vite:resolve 3.98ms ./integrations/remark-rehype -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/remark-rehype.ts
+2026-01-10T02:01:48.370Z vite:resolve 4.07ms ./integrations/asides -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/asides.ts
+2026-01-10T02:01:48.370Z vite:resolve 4.10ms ./integrations/expressive-code/index -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/index.ts
+2026-01-10T02:01:48.370Z vite:resolve 4.13ms ./integrations/sitemap -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/sitemap.ts
+2026-01-10T02:01:48.370Z vite:resolve 4.16ms ./integrations/vite-layer-order -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/vite-layer-order.ts
+2026-01-10T02:01:48.370Z vite:resolve 4.18ms ./integrations/virtual-user-config -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/virtual-user-config.ts
+2026-01-10T02:01:48.371Z vite:resolve 4.09ms ./utils/plugins -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/plugins.ts
+2026-01-10T02:01:48.371Z vite:resolve 4.09ms ./utils/i18n -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/i18n.ts
+2026-01-10T02:01:48.372Z vite:import-analysis 10.75ms [8 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/index.ts
+2026-01-10T02:01:48.373Z vite:transform 372.65ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/index.ts
+2026-01-10T02:01:48.723Z vite:load 0.57ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/remark-rehype.ts
+2026-01-10T02:01:48.732Z vite:resolve 1.60ms ../utils/collection-fs -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/collection-fs.ts
+2026-01-10T02:01:48.732Z vite:resolve 1.67ms ./asides -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/asides.ts
+2026-01-10T02:01:48.732Z vite:resolve 1.70ms ./code-rtl-support -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/code-rtl-support.ts
+2026-01-10T02:01:48.732Z vite:resolve 1.71ms ./heading-links -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/heading-links.ts
+2026-01-10T02:01:48.733Z vite:import-analysis 6.35ms [4 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/remark-rehype.ts
+2026-01-10T02:01:48.733Z vite:transform 10.19ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/remark-rehype.ts
+2026-01-10T02:01:48.784Z vite:load 0.67ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/collection-fs.ts
+2026-01-10T02:01:48.788Z vite:resolve 0.47ms ./collection -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/collection.ts
+2026-01-10T02:01:48.789Z vite:import-analysis 1.01ms [1 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/collection-fs.ts
+2026-01-10T02:01:48.789Z vite:transform 4.12ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/collection-fs.ts
+2026-01-10T02:01:48.792Z vite:load 1.02ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/collection.ts
+2026-01-10T02:01:48.796Z vite:import-analysis 0.03ms [no imports] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/collection.ts
+2026-01-10T02:01:48.796Z vite:transform 3.70ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/collection.ts
+2026-01-10T02:01:48.799Z vite:load 0.71ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/asides.ts
+2026-01-10T02:01:48.815Z vite:resolve 2.17ms ../components/Icons -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/components/Icons.ts
+2026-01-10T02:01:48.815Z vite:resolve 1.12ms ./asides-error -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/asides-error.ts
+2026-01-10T02:01:48.815Z vite:import-analysis 10.46ms [2 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/asides.ts
+2026-01-10T02:01:48.815Z vite:transform 16.03ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/asides.ts
+2026-01-10T02:01:48.851Z vite:load 1.02ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/components/Icons.ts
+2026-01-10T02:01:48.859Z vite:resolve 0.76ms ../user-components/file-tree-icons -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/user-components/file-tree-icons.ts
+2026-01-10T02:01:48.859Z vite:import-analysis 1.66ms [1 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/components/Icons.ts
+2026-01-10T02:01:48.859Z vite:transform 7.35ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/components/Icons.ts
+2026-01-10T02:01:48.884Z vite:load 2.25ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/user-components/file-tree-icons.ts
+2026-01-10T02:01:48.906Z vite:import-analysis 1.59ms [no imports] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/user-components/file-tree-icons.ts
+2026-01-10T02:01:48.906Z vite:transform 21.47ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/user-components/file-tree-icons.ts
+2026-01-10T02:01:49.006Z vite:load 0.54ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/asides-error.ts
+2026-01-10T02:01:49.009Z vite:import-analysis 0.13ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/asides-error.ts
+2026-01-10T02:01:49.009Z vite:transform 2.39ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/asides-error.ts
+2026-01-10T02:01:49.011Z vite:load 0.33ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/code-rtl-support.ts
+2026-01-10T02:01:49.013Z vite:import-analysis 0.09ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/code-rtl-support.ts
+2026-01-10T02:01:49.013Z vite:transform 1.95ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/code-rtl-support.ts
+2026-01-10T02:01:49.016Z vite:load 0.45ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/heading-links.ts
+2026-01-10T02:01:49.019Z vite:import-analysis 1.51ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/heading-links.ts
+2026-01-10T02:01:49.020Z vite:transform 3.95ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/heading-links.ts
+2026-01-10T02:01:49.027Z vite:load 0.36ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/index.ts
+2026-01-10T02:01:49.031Z vite:resolve 0.65ms ./preprocessor -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/preprocessor.ts
+2026-01-10T02:01:49.031Z vite:resolve 0.70ms ../../utils/collection-fs -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/collection-fs.ts
+2026-01-10T02:01:49.032Z vite:import-analysis 2.65ms [2 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/index.ts
+2026-01-10T02:01:49.032Z vite:transform 4.04ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/index.ts
+2026-01-10T02:01:49.156Z vite:load 0.46ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/preprocessor.ts
+2026-01-10T02:01:49.160Z vite:resolve 1.27ms ./theming -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/theming.ts
+2026-01-10T02:01:49.161Z vite:resolve 1.35ms ./translations -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/translations.ts
+2026-01-10T02:01:49.161Z vite:resolve 1.39ms ../shared/slugToLocale -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/shared/slugToLocale.ts
+2026-01-10T02:01:49.161Z vite:resolve 1.41ms ../shared/localeToLang -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/shared/localeToLang.ts
+2026-01-10T02:01:49.161Z vite:resolve 1.43ms ../shared/absolutePathToLang -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/shared/absolutePathToLang.ts
+2026-01-10T02:01:49.161Z vite:import-analysis 3.29ms [5 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/preprocessor.ts
+2026-01-10T02:01:49.161Z vite:transform 5.32ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/preprocessor.ts
+2026-01-10T02:01:49.167Z vite:load 0.38ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/theming.ts
+2026-01-10T02:01:49.170Z vite:resolve 0.47ms ./themes/night-owl-dark.jsonc?raw -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/themes/night-owl-dark.jsonc?raw
+2026-01-10T02:01:49.170Z vite:resolve 0.51ms ./themes/night-owl-light.jsonc?raw -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/themes/night-owl-light.jsonc?raw
+2026-01-10T02:01:49.170Z vite:import-analysis 0.88ms [2 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/theming.ts
+2026-01-10T02:01:49.170Z vite:transform 2.36ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/theming.ts
+2026-01-10T02:01:49.173Z vite:load 0.78ms [plugin] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/themes/night-owl-dark.jsonc?raw
+2026-01-10T02:01:49.174Z vite:import-analysis 0.72ms [1 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/themes/night-owl-dark.jsonc?raw
+2026-01-10T02:01:49.174Z vite:transform 0.86ms [skipped] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/themes/night-owl-dark.jsonc?raw
+2026-01-10T02:01:49.181Z vite:load 0.60ms [plugin] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/themes/night-owl-light.jsonc?raw
+2026-01-10T02:01:49.181Z vite:import-analysis 0.57ms [1 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/themes/night-owl-light.jsonc?raw
+2026-01-10T02:01:49.181Z vite:transform 0.70ms [skipped] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/themes/night-owl-light.jsonc?raw
+2026-01-10T02:01:49.187Z vite:load 0.41ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/translations.ts
+2026-01-10T02:01:49.190Z vite:import-analysis 0.71ms [1 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/translations.ts
+2026-01-10T02:01:49.190Z vite:transform 2.12ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/expressive-code/translations.ts
+2026-01-10T02:01:49.191Z vite:load 0.35ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/shared/localeToLang.ts
+2026-01-10T02:01:49.193Z vite:resolve 0.41ms ../../utils/i18n -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/i18n.ts
+2026-01-10T02:01:49.193Z vite:import-analysis 0.74ms [1 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/shared/localeToLang.ts
+2026-01-10T02:01:49.193Z vite:transform 1.79ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/shared/localeToLang.ts
+2026-01-10T02:01:49.196Z vite:load 0.38ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/i18n.ts
+2026-01-10T02:01:49.198Z vite:import-analysis 0.08ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/i18n.ts
+2026-01-10T02:01:49.198Z vite:transform 2.24ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/i18n.ts
+2026-01-10T02:01:49.205Z vite:load 0.41ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/shared/slugToLocale.ts
+2026-01-10T02:01:49.206Z vite:import-analysis 0.03ms [no imports] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/shared/slugToLocale.ts
+2026-01-10T02:01:49.206Z vite:transform 0.97ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/shared/slugToLocale.ts
+2026-01-10T02:01:49.207Z vite:load 0.37ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/shared/absolutePathToLang.ts
+2026-01-10T02:01:49.209Z vite:resolve 0.51ms ./localeToLang -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/shared/localeToLang.ts
+2026-01-10T02:01:49.210Z vite:resolve 0.55ms ./slugToLocale -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/shared/slugToLocale.ts
+2026-01-10T02:01:49.210Z vite:import-analysis 0.82ms [2 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/shared/absolutePathToLang.ts
+2026-01-10T02:01:49.210Z vite:transform 2.38ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/shared/absolutePathToLang.ts
+2026-01-10T02:01:49.211Z vite:load 0.36ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/sitemap.ts
+2026-01-10T02:01:49.214Z vite:import-analysis 1.43ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/sitemap.ts
+2026-01-10T02:01:49.214Z vite:transform 2.47ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/sitemap.ts
+2026-01-10T02:01:49.244Z vite:load 0.36ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/vite-layer-order.ts
+2026-01-10T02:01:49.247Z vite:import-analysis 1.29ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/vite-layer-order.ts
+2026-01-10T02:01:49.247Z vite:transform 2.65ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/vite-layer-order.ts
+2026-01-10T02:01:49.250Z vite:load 0.47ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/virtual-user-config.ts
+2026-01-10T02:01:49.255Z vite:resolve 0.77ms ../utils/git -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/git.ts
+2026-01-10T02:01:49.255Z vite:import-analysis 1.46ms [2 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/virtual-user-config.ts
+2026-01-10T02:01:49.255Z vite:transform 4.57ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/virtual-user-config.ts
+2026-01-10T02:01:49.258Z vite:load 0.41ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/git.ts
+2026-01-10T02:01:49.260Z vite:import-analysis 0.13ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/git.ts
+2026-01-10T02:01:49.260Z vite:transform 1.59ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/git.ts
+2026-01-10T02:01:49.263Z vite:load 0.41ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/plugins.ts
+2026-01-10T02:01:49.270Z vite:resolve 1.71ms ../utils/error-map -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/error-map.ts
+2026-01-10T02:01:49.270Z vite:resolve 1.79ms ../utils/user-config -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/user-config.ts
+2026-01-10T02:01:49.270Z vite:resolve 1.81ms ./translations-fs -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/translations-fs.ts
+2026-01-10T02:01:49.270Z vite:resolve 1.82ms ../integrations/shared/absolutePathToLang -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/integrations/shared/absolutePathToLang.ts
+2026-01-10T02:01:49.270Z vite:resolve 1.85ms ./collection-fs -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/collection-fs.ts
+2026-01-10T02:01:49.271Z vite:import-analysis 4.62ms [5 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/plugins.ts
+2026-01-10T02:01:49.271Z vite:transform 7.60ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/plugins.ts
+2026-01-10T02:01:49.280Z vite:load 0.39ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/error-map.ts
+2026-01-10T02:01:49.283Z vite:import-analysis 0.12ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/error-map.ts
+2026-01-10T02:01:49.283Z vite:transform 2.37ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/error-map.ts
+2026-01-10T02:01:49.287Z vite:load 0.48ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/user-config.ts
+2026-01-10T02:01:49.294Z vite:resolve 3.06ms ../schemas/components -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/components.ts
+2026-01-10T02:01:49.294Z vite:resolve 3.13ms ../schemas/expressiveCode -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/expressiveCode.ts
+2026-01-10T02:01:49.294Z vite:resolve 3.15ms ../schemas/favicon -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/favicon.ts
+2026-01-10T02:01:49.294Z vite:resolve 3.17ms ../schemas/head -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/head.ts
+2026-01-10T02:01:49.294Z vite:resolve 3.18ms ../schemas/logo -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/logo.ts
+2026-01-10T02:01:49.294Z vite:resolve 3.20ms ../schemas/pagefind -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/pagefind.ts
+2026-01-10T02:01:49.294Z vite:resolve 3.21ms ../schemas/sidebar -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/sidebar.ts
+2026-01-10T02:01:49.294Z vite:resolve 3.22ms ../schemas/site-title -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/site-title.ts
+2026-01-10T02:01:49.294Z vite:resolve 3.24ms ../schemas/social -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/social.ts
+2026-01-10T02:01:49.294Z vite:resolve 3.25ms ../schemas/tableOfContents -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/tableOfContents.ts
+2026-01-10T02:01:49.294Z vite:resolve 3.27ms ./i18n -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/i18n.ts
+2026-01-10T02:01:49.295Z vite:import-analysis 5.59ms [11 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/user-config.ts
+2026-01-10T02:01:49.295Z vite:transform 7.96ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/user-config.ts
+2026-01-10T02:01:49.324Z vite:load 0.46ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/components.ts
+2026-01-10T02:01:49.326Z vite:import-analysis 0.12ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/components.ts
+2026-01-10T02:01:49.326Z vite:transform 1.76ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/components.ts
+2026-01-10T02:01:49.330Z vite:load 0.44ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/expressiveCode.ts
+2026-01-10T02:01:49.332Z vite:import-analysis 0.06ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/expressiveCode.ts
+2026-01-10T02:01:49.333Z vite:transform 2.04ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/expressiveCode.ts
+2026-01-10T02:01:49.334Z vite:load 0.43ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/favicon.ts
+2026-01-10T02:01:49.336Z vite:import-analysis 0.07ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/favicon.ts
+2026-01-10T02:01:49.336Z vite:transform 1.26ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/favicon.ts
+2026-01-10T02:01:49.337Z vite:load 0.28ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/head.ts
+2026-01-10T02:01:49.340Z vite:import-analysis 1.01ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/head.ts
+2026-01-10T02:01:49.340Z vite:transform 2.18ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/head.ts
+2026-01-10T02:01:49.343Z vite:load 0.28ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/logo.ts
+2026-01-10T02:01:49.345Z vite:import-analysis 0.05ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/logo.ts
+2026-01-10T02:01:49.345Z vite:transform 1.85ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/logo.ts
+2026-01-10T02:01:49.347Z vite:load 0.37ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/pagefind.ts
+2026-01-10T02:01:49.348Z vite:import-analysis 0.07ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/pagefind.ts
+2026-01-10T02:01:49.348Z vite:transform 1.15ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/pagefind.ts
+2026-01-10T02:01:49.351Z vite:load 0.44ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/sidebar.ts
+2026-01-10T02:01:49.355Z vite:resolve 0.75ms ./badge -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/badge.ts
+2026-01-10T02:01:49.355Z vite:resolve 0.83ms ../utils/path -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/path.ts
+2026-01-10T02:01:49.355Z vite:import-analysis 1.28ms [2 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/sidebar.ts
+2026-01-10T02:01:49.355Z vite:transform 3.34ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/sidebar.ts
+2026-01-10T02:01:49.358Z vite:load 0.40ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/badge.ts
+2026-01-10T02:01:49.359Z vite:import-analysis 0.07ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/badge.ts
+2026-01-10T02:01:49.359Z vite:transform 1.39ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/badge.ts
+2026-01-10T02:01:49.362Z vite:load 0.36ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/path.ts
+2026-01-10T02:01:49.364Z vite:import-analysis 0.04ms [no imports] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/path.ts
+2026-01-10T02:01:49.364Z vite:transform 1.86ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/path.ts
+2026-01-10T02:01:49.366Z vite:load 0.35ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/site-title.ts
+2026-01-10T02:01:49.367Z vite:import-analysis 0.07ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/site-title.ts
+2026-01-10T02:01:49.367Z vite:transform 1.02ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/site-title.ts
+2026-01-10T02:01:49.369Z vite:load 0.35ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/social.ts
+2026-01-10T02:01:49.371Z vite:resolve 0.32ms ./icon -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/icon.ts
+2026-01-10T02:01:49.371Z vite:import-analysis 0.60ms [1 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/social.ts
+2026-01-10T02:01:49.371Z vite:transform 1.84ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/social.ts
+2026-01-10T02:01:49.373Z vite:load 0.28ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/icon.ts
+2026-01-10T02:01:49.375Z vite:import-analysis 0.64ms [1 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/icon.ts
+2026-01-10T02:01:49.375Z vite:transform 2.22ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/icon.ts
+2026-01-10T02:01:49.377Z vite:load 0.33ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/tableOfContents.ts
+2026-01-10T02:01:49.378Z vite:import-analysis 0.04ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/tableOfContents.ts
+2026-01-10T02:01:49.378Z vite:transform 1.06ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/tableOfContents.ts
+2026-01-10T02:01:49.381Z vite:load 0.42ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/translations-fs.ts
+2026-01-10T02:01:49.383Z vite:resolve 0.40ms ./createTranslationSystem -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/createTranslationSystem.ts
+2026-01-10T02:01:49.383Z vite:import-analysis 0.78ms [1 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/translations-fs.ts
+2026-01-10T02:01:49.383Z vite:transform 1.99ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/translations-fs.ts
+2026-01-10T02:01:49.386Z vite:load 0.33ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/createTranslationSystem.ts
+2026-01-10T02:01:49.389Z vite:resolve 0.50ms ../translations/index -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/index.ts
+2026-01-10T02:01:49.389Z vite:import-analysis 2.05ms [2 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/createTranslationSystem.ts
+2026-01-10T02:01:49.390Z vite:transform 3.65ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/utils/createTranslationSystem.ts
+2026-01-10T02:01:49.397Z vite:load 0.46ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/index.ts
+2026-01-10T02:01:49.405Z vite:resolve 5.42ms ../schemas/i18n -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/i18n.ts
+2026-01-10T02:01:49.405Z vite:resolve 5.51ms ./cs.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/cs.json
+2026-01-10T02:01:49.405Z vite:resolve 5.53ms ./en.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/en.json
+2026-01-10T02:01:49.405Z vite:resolve 5.55ms ./es.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/es.json
+2026-01-10T02:01:49.405Z vite:resolve 5.56ms ./ca.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ca.json
+2026-01-10T02:01:49.405Z vite:resolve 5.58ms ./de.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/de.json
+2026-01-10T02:01:49.405Z vite:resolve 5.59ms ./ja.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ja.json
+2026-01-10T02:01:49.405Z vite:resolve 5.61ms ./pt.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/pt.json
+2026-01-10T02:01:49.405Z vite:resolve 5.64ms ./fa.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/fa.json
+2026-01-10T02:01:49.405Z vite:resolve 5.65ms ./fi.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/fi.json
+2026-01-10T02:01:49.405Z vite:resolve 5.67ms ./fr.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/fr.json
+2026-01-10T02:01:49.405Z vite:resolve 5.68ms ./gl.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/gl.json
+2026-01-10T02:01:49.405Z vite:resolve 5.70ms ./he.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/he.json
+2026-01-10T02:01:49.405Z vite:resolve 5.71ms ./id.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/id.json
+2026-01-10T02:01:49.405Z vite:resolve 5.73ms ./it.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/it.json
+2026-01-10T02:01:49.405Z vite:resolve 5.74ms ./nl.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/nl.json
+2026-01-10T02:01:49.405Z vite:resolve 5.77ms ./da.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/da.json
+2026-01-10T02:01:49.405Z vite:resolve 5.78ms ./tr.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/tr.json
+2026-01-10T02:01:49.405Z vite:resolve 5.80ms ./ar.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ar.json
+2026-01-10T02:01:49.405Z vite:resolve 5.82ms ./nb.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/nb.json
+2026-01-10T02:01:49.405Z vite:resolve 5.83ms ./zh-CN.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/zh-CN.json
+2026-01-10T02:01:49.405Z vite:resolve 5.85ms ./ko.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ko.json
+2026-01-10T02:01:49.406Z vite:resolve 5.86ms ./sv.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/sv.json
+2026-01-10T02:01:49.406Z vite:resolve 5.88ms ./ro.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ro.json
+2026-01-10T02:01:49.406Z vite:resolve 5.89ms ./ru.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ru.json
+2026-01-10T02:01:49.406Z vite:resolve 5.91ms ./vi.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/vi.json
+2026-01-10T02:01:49.406Z vite:resolve 5.92ms ./uk.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/uk.json
+2026-01-10T02:01:49.406Z vite:resolve 5.94ms ./hi.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/hi.json
+2026-01-10T02:01:49.406Z vite:resolve 5.95ms ./zh-TW.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/zh-TW.json
+2026-01-10T02:01:49.406Z vite:resolve 5.97ms ./pl.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/pl.json
+2026-01-10T02:01:49.406Z vite:resolve 5.99ms ./sk.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/sk.json
+2026-01-10T02:01:49.406Z vite:resolve 6.00ms ./lv.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/lv.json
+2026-01-10T02:01:49.406Z vite:resolve 6.02ms ./hu.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/hu.json
+2026-01-10T02:01:49.406Z vite:resolve 6.04ms ./el.json -> C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/el.json
+2026-01-10T02:01:49.408Z vite:import-analysis 9.27ms [34 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/index.ts
+2026-01-10T02:01:49.409Z vite:transform 11.15ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/index.ts
+2026-01-10T02:01:49.411Z vite:load 0.41ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/i18n.ts
+2026-01-10T02:01:49.413Z vite:import-analysis 0.06ms [0 imports rewritten] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/i18n.ts
+2026-01-10T02:01:49.413Z vite:transform 1.41ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/schemas/i18n.ts
+2026-01-10T02:01:49.417Z vite:load 0.41ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/cs.json
+2026-01-10T02:01:49.418Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/cs.json
+2026-01-10T02:01:49.418Z vite:transform 0.85ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/cs.json
+2026-01-10T02:01:49.419Z vite:load 0.38ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/en.json
+2026-01-10T02:01:49.419Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/en.json
+2026-01-10T02:01:49.419Z vite:transform 0.33ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/en.json
+2026-01-10T02:01:49.420Z vite:load 0.38ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/es.json
+2026-01-10T02:01:49.421Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/es.json
+2026-01-10T02:01:49.421Z vite:transform 0.27ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/es.json
+2026-01-10T02:01:49.422Z vite:load 0.34ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ca.json
+2026-01-10T02:01:49.422Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ca.json
+2026-01-10T02:01:49.422Z vite:transform 0.18ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ca.json
+2026-01-10T02:01:49.423Z vite:load 0.37ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/de.json
+2026-01-10T02:01:49.424Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/de.json
+2026-01-10T02:01:49.424Z vite:transform 0.18ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/de.json
+2026-01-10T02:01:49.425Z vite:load 0.31ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ja.json
+2026-01-10T02:01:49.425Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ja.json
+2026-01-10T02:01:49.425Z vite:transform 0.18ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ja.json
+2026-01-10T02:01:49.426Z vite:load 0.36ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/pt.json
+2026-01-10T02:01:49.426Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/pt.json
+2026-01-10T02:01:49.426Z vite:transform 0.15ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/pt.json
+2026-01-10T02:01:49.427Z vite:load 0.50ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/fa.json
+2026-01-10T02:01:49.428Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/fa.json
+2026-01-10T02:01:49.428Z vite:transform 0.21ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/fa.json
+2026-01-10T02:01:49.429Z vite:load 0.44ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/fi.json
+2026-01-10T02:01:49.429Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/fi.json
+2026-01-10T02:01:49.429Z vite:transform 0.19ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/fi.json
+2026-01-10T02:01:49.431Z vite:load 0.40ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/fr.json
+2026-01-10T02:01:49.431Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/fr.json
+2026-01-10T02:01:49.431Z vite:transform 0.19ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/fr.json
+2026-01-10T02:01:49.432Z vite:load 0.38ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/gl.json
+2026-01-10T02:01:49.433Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/gl.json
+2026-01-10T02:01:49.433Z vite:transform 0.22ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/gl.json
+2026-01-10T02:01:49.434Z vite:load 0.35ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/he.json
+2026-01-10T02:01:49.434Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/he.json
+2026-01-10T02:01:49.434Z vite:transform 0.13ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/he.json
+2026-01-10T02:01:49.435Z vite:load 0.40ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/id.json
+2026-01-10T02:01:49.435Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/id.json
+2026-01-10T02:01:49.435Z vite:transform 0.26ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/id.json
+2026-01-10T02:01:49.436Z vite:load 0.41ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/it.json
+2026-01-10T02:01:49.437Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/it.json
+2026-01-10T02:01:49.437Z vite:transform 0.18ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/it.json
+2026-01-10T02:01:49.438Z vite:load 0.76ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/nl.json
+2026-01-10T02:01:49.439Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/nl.json
+2026-01-10T02:01:49.439Z vite:transform 0.17ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/nl.json
+2026-01-10T02:01:49.440Z vite:load 0.33ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/da.json
+2026-01-10T02:01:49.440Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/da.json
+2026-01-10T02:01:49.440Z vite:transform 0.14ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/da.json
+2026-01-10T02:01:49.441Z vite:load 0.31ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/tr.json
+2026-01-10T02:01:49.441Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/tr.json
+2026-01-10T02:01:49.441Z vite:transform 0.12ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/tr.json
+2026-01-10T02:01:49.442Z vite:load 0.41ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ar.json
+2026-01-10T02:01:49.442Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ar.json
+2026-01-10T02:01:49.442Z vite:transform 0.18ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ar.json
+2026-01-10T02:01:49.443Z vite:load 0.34ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/nb.json
+2026-01-10T02:01:49.444Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/nb.json
+2026-01-10T02:01:49.444Z vite:transform 0.17ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/nb.json
+2026-01-10T02:01:49.445Z vite:load 0.35ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/zh-CN.json
+2026-01-10T02:01:49.445Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/zh-CN.json
+2026-01-10T02:01:49.445Z vite:transform 0.19ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/zh-CN.json
+2026-01-10T02:01:49.446Z vite:load 0.39ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ko.json
+2026-01-10T02:01:49.446Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ko.json
+2026-01-10T02:01:49.446Z vite:transform 0.26ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ko.json
+2026-01-10T02:01:49.448Z vite:load 0.38ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/sv.json
+2026-01-10T02:01:49.448Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/sv.json
+2026-01-10T02:01:49.448Z vite:transform 0.19ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/sv.json
+2026-01-10T02:01:49.449Z vite:load 0.46ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ro.json
+2026-01-10T02:01:49.449Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ro.json
+2026-01-10T02:01:49.449Z vite:transform 0.21ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ro.json
+2026-01-10T02:01:49.451Z vite:load 0.77ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ru.json
+2026-01-10T02:01:49.451Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ru.json
+2026-01-10T02:01:49.451Z vite:transform 0.24ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/ru.json
+2026-01-10T02:01:49.453Z vite:load 0.48ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/vi.json
+2026-01-10T02:01:49.453Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/vi.json
+2026-01-10T02:01:49.453Z vite:transform 0.19ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/vi.json
+2026-01-10T02:01:49.454Z vite:load 0.45ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/uk.json
+2026-01-10T02:01:49.455Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/uk.json
+2026-01-10T02:01:49.455Z vite:transform 0.20ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/uk.json
+2026-01-10T02:01:49.456Z vite:load 0.83ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/hi.json
+2026-01-10T02:01:49.457Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/hi.json
+2026-01-10T02:01:49.457Z vite:transform 0.21ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/hi.json
+2026-01-10T02:01:49.458Z vite:load 0.41ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/zh-TW.json
+2026-01-10T02:01:49.459Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/zh-TW.json
+2026-01-10T02:01:49.459Z vite:transform 0.26ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/zh-TW.json
+2026-01-10T02:01:49.460Z vite:load 0.70ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/pl.json
+2026-01-10T02:01:49.461Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/pl.json
+2026-01-10T02:01:49.461Z vite:transform 0.23ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/pl.json
+2026-01-10T02:01:49.462Z vite:load 0.54ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/sk.json
+2026-01-10T02:01:49.462Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/sk.json
+2026-01-10T02:01:49.462Z vite:transform 0.20ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/sk.json
+2026-01-10T02:01:49.464Z vite:load 0.75ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/lv.json
+2026-01-10T02:01:49.464Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/lv.json
+2026-01-10T02:01:49.464Z vite:transform 0.21ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/lv.json
+2026-01-10T02:01:49.466Z vite:load 0.37ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/hu.json
+2026-01-10T02:01:49.466Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/hu.json
+2026-01-10T02:01:49.466Z vite:transform 0.24ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/hu.json
+2026-01-10T02:01:49.467Z vite:load 0.44ms [fs] ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/el.json
+2026-01-10T02:01:49.468Z vite:import-analysis [skipped] C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/el.json
+2026-01-10T02:01:49.468Z vite:transform 0.34ms ../../node_modules/.pnpm/@astrojs+starlight@0.37.2_astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_roll_gcty3sgt2gimijwxwklmrtbiqi/node_modules/@astrojs/starlight/translations/el.json
+2026-01-10T02:01:49.695Z astro:telemetry {
+  context: {
+    isGit: true,
+    anonymousProjectId: '1df5a5d6f1357d6cbf3fa1bbc64d64fde4eb5e7a562a277d78e229a030edc79f',
+    packageManager: 'pnpm',
+    packageManagerVersion: '9.15.9',
+    anonymousId: '57f88336f95704db05bd0c067361993b340f773cc2c6a2d1bb38847f11b446a2',
+    anonymousSessionId: '3ffe1b97dc4e0190009919a824cddc94560b4507ae51cd81b752e2c39db41da8'
+  },
+  meta: {
+    nodeVersion: '22.19.0',
+    viteVersion: '6.4.1',
+    astroVersion: '5.16.8',
+    systemPlatform: 'win32',
+    systemRelease: '10.0.26200',
+    systemArchitecture: 'x64',
+    cpuCount: 24,
+    cpuModel: 'Intel(R) Core(TM) i7-14650HX',
+    cpuSpeed: 2419,
+    memoryInMb: 65138,
+    isDocker: false,
+    isTTY: undefined,
+    isWSL: false,
+    isCI: false,
+    ciName: null
+  }
+}
+2026-01-10T02:01:49.695Z astro:telemetry [
+  {
+    "eventName": "ASTRO_CLI_SESSION_STARTED",
+    "payload": {
+      "cliCommand": "build",
+      "config": {
+        "site": true,
+        "base": true,
+        "integrations": [
+          "@astrojs/starlight"
+        ],
+        "build": {},
+        "server": true,
+        "image": {},
+        "markdown": {},
+        "experimental": {},
+        "legacy": {}
+      }
+    }
+  }
+]
+2026-01-10T02:01:49.705Z astro:build Initial setup...
+21:01:49 [ERROR] [@astrojs/starlight] An unhandled error occurred while running the "astro:config:setup" hook
+2026-01-10T02:01:49.723Z astro:telemetry {
+  context: {
+    isGit: true,
+    anonymousProjectId: '1df5a5d6f1357d6cbf3fa1bbc64d64fde4eb5e7a562a277d78e229a030edc79f',
+    packageManager: 'pnpm',
+    packageManagerVersion: '9.15.9',
+    anonymousId: '57f88336f95704db05bd0c067361993b340f773cc2c6a2d1bb38847f11b446a2',
+    anonymousSessionId: '3ffe1b97dc4e0190009919a824cddc94560b4507ae51cd81b752e2c39db41da8'
+  },
+  meta: {
+    nodeVersion: '22.19.0',
+    viteVersion: '6.4.1',
+    astroVersion: '5.16.8',
+    systemPlatform: 'win32',
+    systemRelease: '10.0.26200',
+    systemArchitecture: 'x64',
+    cpuCount: 24,
+    cpuModel: 'Intel(R) Core(TM) i7-14650HX',
+    cpuSpeed: 2419,
+    memoryInMb: 65138,
+    isDocker: false,
+    isTTY: undefined,
+    isWSL: false,
+    isCI: false,
+    ciName: null
+  }
+}
+2026-01-10T02:01:49.723Z astro:telemetry [
+  {
+    "eventName": "ASTRO_CLI_ERROR",
+    "payload": {
+      "name": "AstroUserError",
+      "cliCommand": "build",
+      "isFatal": true,
+      "anonymousMessageHint": "Invalid config passe"
+    }
+  }
+]
+[AstroUserError] Invalid config passed to starlight integration
+  Hint:
+    social.0.href: Required
+  Location:
+    eval at runInlinedModule (file:///C:/IA%20Marcelo%20Labs/vibethink-orchestrator-main/node_modules/.pnpm/vite@6.4.1_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.21.0_yaml@2.8.2/node_modules/vite/dist/node/module-runner.js:1062:11
+  Stack trace:
+    at processParsedData (eval at runInlinedModule (file:///C:/IA%20Marcelo%20Labs/vibethink-orchestrator-main/node_modules/.pnpm/vite@6.4.1_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.21.0_yaml@2.8.2/node_modules/vite/dist/node/module-runner.js:1062:11), <anonymous>:14:11)
+    at runPlugins (eval at runInlinedModule (file:///C:/IA%20Marcelo%20Labs/vibethink-orchestrator-main/node_modules/.pnpm/vite@6.4.1_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_tsx@4.21.0_yaml@2.8.2/node_modules/vite/dist/node/module-runner.js:1062:11), <anonymous>:16:74)
+    at hookFn (file:///C:/IA%20Marcelo%20Labs/vibethink-orchestrator-main/node_modules/.pnpm/astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_rollup@4.55.1_tsx@4.21.0_typescript@5.9.3_yaml@2.8.2/node_modules/astro/dist/integrations/hooks.js:54:21)
+    at runHookInternal (file:///C:/IA%20Marcelo%20Labs/vibethink-orchestrator-main/node_modules/.pnpm/astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_rollup@4.55.1_tsx@4.21.0_typescript@5.9.3_yaml@2.8.2/node_modules/astro/dist/integrations/hooks.js:51:11)
+    at async AstroBuilder.setup (file:///C:/IA%20Marcelo%20Labs/vibethink-orchestrator-main/node_modules/.pnpm/astro@5.16.8_@types+node@24.0.0_jiti@2.6.1_lightningcss@1.30.1_rollup@4.55.1_tsx@4.21.0_typescript@5.9.3_yaml@2.8.2/node_modules/astro/dist/core/build/index.js:71:21)
+ÔÇëELIFECYCLEÔÇë Command failed with exit code 1.
