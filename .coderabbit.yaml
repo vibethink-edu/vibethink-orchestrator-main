@@ -80,6 +80,17 @@ knowledge_base:
         - "**/*.test.ts"
         - "scripts/**"
 
+    - name: "Multi-Tenancy Isolation Required"
+      description: |
+        Scripts handling tenant data MUST:
+        1. Validate company_id
+        2. Filter all queries by company_id
+        3. Support COMPANY_ID env var
+        4. Provide dry-run mode
+      severity: error
+      exceptions:
+        - "scripts/setup-db-schema.ts"
+
 # Tools configuration
 tools:
   github:
