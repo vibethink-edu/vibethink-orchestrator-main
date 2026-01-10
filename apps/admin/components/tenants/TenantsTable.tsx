@@ -31,6 +31,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@vibethink/ui/components/dropdown-menu";
+import Link from "next/link";
 
 import { MoreHorizontal, ArrowUpDown } from "lucide-react";
 
@@ -56,12 +57,16 @@ export const columns: ColumnDef<Tenant>[] = [
                 </Button>
             )
         },
-        cell: ({ row }) => <div className="font-medium">{row.getValue("name")}</div>,
+        cell: ({ row }) => (
+            <Link href={`/tenants/${row.original.id}`} className="font-medium hover:underline hover:text-primary">
+                {row.getValue("name")}
+            </Link>
+        ),
     },
     {
         accessorKey: "slug",
         header: "Slug",
-        cell: ({ row }) => <div className="font-mono text-xs text-slate-500">{row.getValue("slug")}</div>,
+        cell: ({ row }) => <div className="font-mono text-xs text-muted-foreground">{row.getValue("slug")}</div>,
     },
     {
         accessorKey: "status",
@@ -69,7 +74,7 @@ export const columns: ColumnDef<Tenant>[] = [
         cell: ({ row }) => {
             const status = row.getValue("status") as string;
             return (
-                <div className={`capitalize font-bold px-2 py-1 rounded inline-block text-xs ${status === 'ACTIVE' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                <div className={`capitalize font-bold px-2 py-1 rounded inline-block text-xs ${status === 'ACTIVE' ? 'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300' : 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300'}`}>
                     {status.toLowerCase()}
                 </div>
             );
@@ -98,8 +103,12 @@ export const columns: ColumnDef<Tenant>[] = [
                             Copy ID
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem>View Dashboard</DropdownMenuItem>
-                        <DropdownMenuItem className="text-red-600">Suspend Tenant</DropdownMenuItem>
+                        <DropdownMenuItem asChild>
+                            <Link href={`/tenants/${tenant.id}`}>
+                                View Details
+                            </Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem className="text-destructive">Suspend Tenant</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             );
@@ -146,9 +155,9 @@ export function TenantsTable({ data }: TenantsTableProps) {
                 </div>
             </div>
 
-            <div className="rounded-md border bg-white overflow-hidden">
+            <div className="rounded-md border bg-card text-card-foreground overflow-hidden">
                 <Table>
-                    <TableHeader className="bg-slate-50">
+                    <TableHeader className="bg-muted/50">
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => {
