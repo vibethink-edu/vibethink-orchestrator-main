@@ -1,7 +1,7 @@
 import { Pool } from 'pg';
 
 const RETENTION_DAYS = 365;
-const BATCH_SIZE = 1000;
+const BATCH_SIZE_PER_TENANT = 500;
 
 async function archiveConversations() {
     if (!process.env.DATABASE_URL) {
@@ -10,35 +10,64 @@ async function archiveConversations() {
     }
 
     const pool = new Pool({
-        connectionString: process.env.DATABASE_URL
+        connectionString: process.env.DATABASE_URL,
+        connectionTimeoutMillis: 10000
     });
 
     try {
-        console.log(`📦 Starting archival job (Limit: ${RETENTION_DAYS} days)...`);
+        console.log(`📦 Starting Multi-Tenant Archival Job (Limit: ${RETENTION_DAYS} days)...`);
 
-        // In a real implementation:
-        // 1. Select candidates
-        // 2. Move to cold storage (S3/Glacier)
-        // 3. Mark as archived OR delete from hot DB
+        // 1. Get List of Tenants (Companies) with data to archive
+        // Using DISTINCT filtering to only process relevant tenants
+        const tenantsResult = await pool.query(`
+            SELECT DISTINCT company_id 
+            FROM conversations 
+            WHERE updated_at < NOW() - INTERVAL '${RETENTION_DAYS} days'
+              AND is_archived = FALSE
+        `);
 
-        // Stub implementation for update only
-        const result = await pool.query(`
-      UPDATE conversations
-      SET is_archived = TRUE, archived_at = NOW()
-      WHERE id IN (
-        SELECT id FROM conversations
-        WHERE updated_at < NOW() - INTERVAL '${RETENTION_DAYS} days'
-          AND is_archived = FALSE
-        LIMIT ${BATCH_SIZE}
-      )
-      RETURNING id
-    `);
+        const tenants = tenantsResult.rows.map(r => r.company_id);
 
-        console.log(`✅ Archived ${result.rowCount} conversations.`);
-
-        if (result.rowCount === BATCH_SIZE) {
-            console.log('ℹ️ Batch limit reached. Run again to archive more.');
+        if (tenants.length === 0) {
+            console.log('✅ No tenants require archival actions.');
+            return;
         }
+
+        console.log(`ℹ️ Found ${tenants.length} tenants with archivable data.`);
+
+        let totalArchived = 0;
+
+        // 2. Process per Tenant (maintaining isolation logic)
+        for (const companyId of tenants) {
+            if (!companyId) continue; // Skip nulls if any
+
+            console.log(`Processing Tenant: ${companyId}...`);
+
+            const result = await pool.query(`
+                UPDATE conversations
+                SET is_archived = TRUE, archived_at = NOW()
+                WHERE id IN (
+                    SELECT id FROM conversations
+                    WHERE company_id = $1
+                      AND updated_at < NOW() - INTERVAL '${RETENTION_DAYS} days'
+                      AND is_archived = FALSE
+                    LIMIT ${BATCH_SIZE_PER_TENANT}
+                )
+                RETURNING id
+            `, [companyId]);
+
+            const count = result.rowCount || 0;
+            totalArchived += count;
+
+            if (count > 0) {
+                console.log(`  -> Archived ${count} conversations for ${companyId}`);
+            }
+
+            // Safety pause between tenants to not hog DB
+            await new Promise(r => setTimeout(r, 100));
+        }
+
+        console.log(`✅ Job Complete. Total archived: ${totalArchived} conversations across ${tenants.length} tenants.`);
 
     } catch (err: any) {
         console.error(`❌ Archival job failed: ${err.message}`);
