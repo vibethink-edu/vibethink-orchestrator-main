@@ -20,9 +20,13 @@ interface BrokenImport {
 const brokenImports: BrokenImport[] = [];
 
 // Scan for imports from @/shared/components/generic (known broken pattern)
+// Based on actual incidents where AIs assumed components existed
 const suspectPatterns = [
-    '@/shared/components/generic',
-    '@/shared/hooks/useGeneric',
+    '@/shared/components/generic',  // Claude incident: assumed generic components
+    '@/shared/hooks/useGeneric',    // Claude incident: assumed generic hooks
+    'from "components/generic',     // Missing @ or wrong path
+    'from "hooks/generic',          // Missing @ or wrong path
+    '@/lib/components/generic',     // Wrong lib path
 ];
 
 console.log('🔍 Scanning for potentially broken imports...\n');

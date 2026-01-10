@@ -46,19 +46,43 @@ jobs:
             echo "✅ No large deletions detected"
           fi
       
-      # GATE 2: Validate Imports
+      # GATE 2: Validate Syntax
+      - name: Validate Syntax
+        run: |
+          echo "🔍 Validating syntax..."
+          pnpm run validate:syntax || echo "::warning::Syntax errors detected"
+      
+      # GATE 3: Validate Component Imports
       - name: Validate Component Imports
         run: |
           echo "🔍 Validating component imports..."
           pnpm run validate:imports || echo "::warning::Broken imports detected"
       
-      # GATE 3: TypeScript Strict Check
+      # GATE 4: Validate ESLint Config
+      - name: Validate ESLint Config
+        run: |
+          echo "🔍 Validating ESLint config..."
+          pnpm run validate:eslint-config || echo "::warning::ESLint config issues detected"
+      
+      # GATE 5: Validate TypeScript Paths
+      - name: Validate TypeScript Paths
+        run: |
+          echo "🔍 Validating TypeScript path mappings..."
+          pnpm run validate:tsconfig-paths || echo "::warning::Missing path mappings detected"
+      
+      # GATE 6: Validate AI SDK Usage
+      - name: Validate AI SDK Usage
+        run: |
+          echo "🔍 Validating AI SDK usage..."
+          pnpm run validate:ai-sdk || echo "::warning::AI SDK usage issues detected"
+      
+      # GATE 7: TypeScript Strict Check
       - name: TypeScript Type Check
         run: |
           echo "🔍 Running TypeScript type check..."
           pnpm run type-check
       
-      # GATE 4: Detect @ts-ignore Usage
+      # GATE 8: Detect @ts-ignore Usage
       - name: Check for Undocumented @ts-ignore
         run: |
           echo "🔍 Scanning for @ts-ignore usage..."
@@ -74,7 +98,7 @@ jobs:
             echo "✅ No @ts-ignore usage detected"
           fi
       
-      # GATE 5: Full Build Validation
+      # GATE 9: Full Build Validation
       - name: Build All Packages
         run: |
           echo "🔍 Building all packages..."
@@ -91,8 +115,15 @@ jobs:
         run: |
           echo "📊 Safety Gates Summary:"
           echo "✅ Large deletions: Checked"
+          echo "✅ Syntax validation: Checked"
           echo "✅ Import validation: Checked"
+          echo "✅ ESLint config: Checked"
+          echo "✅ TypeScript paths: Checked"
+          echo "✅ AI SDK usage: Checked"
           echo "✅ TypeScript: Checked"
           echo "✅ @ts-ignore usage: Checked"
           echo "✅ Build: Checked"
           echo "✅ Tests: Checked"
+          echo ""
+          echo "🛡️ All safety gates completed!"
+

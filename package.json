@@ -42,7 +42,12 @@
     "validate:indexes": "tsx scripts/validate-indexes.ts",
     "validate:archival": "tsx scripts/validate-archival.ts",
     "validate:imports": "tsx scripts/validate-imports.ts",
-    "safety:check": "pnpm run validate:imports && pnpm run type-check && pnpm test",
+    "validate:syntax": "tsx scripts/validate-syntax.ts",
+    "validate:eslint-config": "tsx scripts/validate-eslint-config.ts",
+    "validate:tsconfig-paths": "tsx scripts/validate-tsconfig-paths.ts",
+    "validate:ai-sdk": "tsx scripts/validate-ai-sdk.ts",
+    "validate:all": "pnpm run validate:syntax && pnpm run validate:imports && pnpm run validate:eslint-config && pnpm run validate:tsconfig-paths && pnpm run validate:ai-sdk",
+    "safety:check": "pnpm run validate:all && pnpm run type-check && pnpm test",
     "db:archive-conversations": "tsx scripts/archive-conversations.ts",
     "db:setup-ci": "tsx scripts/setup-db-schema.ts",
     "prepare": "husky"
