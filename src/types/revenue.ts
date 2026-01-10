@@ -1,6 +1,9 @@
 /**
  * Revenue Share Model
- * Uses discriminating unions to enforce valid 100% splits at compile time.
+ * 
+ * STRICT ALLOWLIST: This type defines the ONLY valid business models supported by the platform.
+ * New revenue splits must be explicitly added here after business approval.
+ * TS Union Types enforce this at compile time (preventing ad-hoc { 51, 49 } splits).
  */
 export type RevenueShareModel =
     | { celebrity: 70; platform: 30; total: 100 }
