@@ -39,8 +39,10 @@ try {
 
 } catch (error: unknown) {
     if (!isExecError(error)) {
-        console.log('✅ No unused code detected.\n');
-        process.exit(0);
+        // Unknown error - log it and fail safely
+        console.error('❌ Error inesperado durante la validación:');
+        console.error(error instanceof Error ? error.message : String(error));
+        process.exit(1);
     }
     const err = error;
     const output = err.stdout || err.stderr || '';
