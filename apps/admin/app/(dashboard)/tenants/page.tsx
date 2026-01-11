@@ -1,5 +1,6 @@
 import { TenantsTable, Tenant } from "@/components/tenants/TenantsTable";
 import { adminDb } from "@/lib/supabase";
+import { Button } from "@vibethink/ui/components/button";
 
 export const dynamic = 'force-dynamic';
 
@@ -33,19 +34,42 @@ export default async function TenantsPage() {
     }));
 
     return (
-        <div className="flex flex-1 flex-col gap-4">
-            {/* Page Header - Bundui Style */}
-            <div className="flex flex-col gap-1">
-                <h1 className="text-2xl font-semibold tracking-tight">
-                    Tenant Management
-                </h1>
-                <p className="text-sm text-muted-foreground">
-                    Manage tenant provisioning, status, and system access.
-                </p>
+        <div className="flex flex-1 flex-col gap-8">
+            {/* Page Header - Enterprise Onboarding Style */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="flex flex-col gap-1">
+                    <h1 className="text-3xl font-bold tracking-tight">
+                        Tenants
+                    </h1>
+                    <p className="text-muted-foreground">
+                        Manage enterprise provisioning, status, and system configurations.
+                    </p>
+                </div>
+                <div className="flex items-center gap-2">
+                    <Button className="bg-primary text-primary-foreground hover:opacity-90 shadow-sm">
+                        Provision New Tenant
+                    </Button>
+                </div>
+            </div>
+
+            {/* Quick Stats (Enterprise Vibe) */}
+            <div className="grid gap-4 md:grid-cols-3">
+                <div className="p-6 bg-card border rounded-xl shadow-sm">
+                    <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Total Active</p>
+                    <h3 className="text-3xl font-bold mt-2">{tenants.filter(t => t.status === 'ACTIVE').length}</h3>
+                </div>
+                <div className="p-6 bg-card border rounded-xl shadow-sm">
+                    <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Pending Setup</p>
+                    <h3 className="text-3xl font-bold mt-2">0</h3>
+                </div>
+                <div className="p-6 bg-card border rounded-xl shadow-sm">
+                    <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Recent (24h)</p>
+                    <h3 className="text-3xl font-bold mt-2">1</h3>
+                </div>
             </div>
 
             {/* Main Content */}
-            <div className="flex-1">
+            <div className="bg-card rounded-xl border shadow-sm p-1">
                 <TenantsTable data={tenants} />
             </div>
         </div>

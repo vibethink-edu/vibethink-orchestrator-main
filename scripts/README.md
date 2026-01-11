@@ -200,16 +200,17 @@ notepad apps\admin\.env.local
 
 ## 📊 Port Allocation
 
-| Application | Port | Script | URL |
-|-------------|------|--------|-----|
 | Admin Console | 3002 | `start-admin.ps1` | `http://localhost:3002` |
-| Client Dashboard | 3005 | `start-dashboard.ps1` | `http://localhost:3005` |
+| Client Dashboard (Mocks) | 3005 | `start-dashboard.ps1` | `http://localhost:3005` |
+| **Client Dashboard (Candidate)** | **3010** | `start-candidate.ps1` | `http://localhost:3010` |
+| Platform Health | 3008 | *(Planned)* | `http://localhost:3008` |
 | API Server | 3000 | *(manual)* | `http://localhost:3000` |
 | Docs (Astro) | 4321 | *(Astro CLI)* | `http://localhost:4321` |
 
 **Why these ports?**
 - **3002:** Admin (low number, critical infrastructure)
-- **3005:** Dashboard (higher number, client-facing)
+- **3005:** Dashboard Mocks (the Bundui reference lab)
+- **3010:** Dashboard Candidate (Functional app ready for prod)
 - **3000:** API (Next.js default, kept for compatibility)
 
 ---

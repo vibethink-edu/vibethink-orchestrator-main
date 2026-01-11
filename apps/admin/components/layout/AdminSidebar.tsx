@@ -19,6 +19,7 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
+    SidebarRail,
     useSidebar
 } from "@vibethink/ui/components/sidebar";
 import { ScrollArea } from "@vibethink/ui/components/scroll-area";
@@ -31,6 +32,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger
 } from "@vibethink/ui/components/dropdown-menu";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import Link from "next/link";
 
 // Admin Navigation Items
@@ -74,6 +76,9 @@ export function AdminSidebar({ ...props }: React.ComponentProps<typeof Sidebar>)
                             <Logo />
                             <span className="font-semibold">ViTo Admin</span>
                         </SidebarMenuButton>
+                    </SidebarMenuItem>
+                    <SidebarMenuItem>
+                        <LanguageSwitcher />
                     </SidebarMenuItem>
                 </SidebarMenu>
             </SidebarHeader>
@@ -140,6 +145,7 @@ export function AdminSidebar({ ...props }: React.ComponentProps<typeof Sidebar>)
                     </SidebarMenuItem>
                 </SidebarMenu>
             </SidebarFooter>
+            <SidebarRail />
         </Sidebar>
     );
 }

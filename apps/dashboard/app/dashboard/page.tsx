@@ -40,7 +40,7 @@ export default function LoginPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4" suppressHydrationWarning>
             <div className="space-y-2">
               <Label htmlFor="email">Correo electrónico</Label>
               <div className="relative">
@@ -53,6 +53,7 @@ export default function LoginPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   className="pl-10"
                   required
+                  suppressHydrationWarning
                 />
               </div>
             </div>
@@ -68,12 +69,13 @@ export default function LoginPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   className="pl-10"
                   required
+                  suppressHydrationWarning
                 />
               </div>
             </div>
-            <Button 
-              type="submit" 
-              className="w-full" 
+            <Button
+              type="submit"
+              className="w-full"
               disabled={isLoading}
             >
               {isLoading ? (
@@ -97,11 +99,11 @@ export default function LoginPage() {
                 variant="outline"
                 className="w-full justify-start"
                 onClick={() => {
-                  setEmail("demo@vibethink.com");
-                  setPassword("demo123");
+                  setEmail("demo@vibethink.co");
+                  setPassword("12345vtk");
                 }}
               >
-                Usar credenciales de demo
+                Usar credenciales de demo (demo@vibethink.co)
               </Button>
             </div>
           </div>
