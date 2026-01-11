@@ -79,7 +79,7 @@
     "error_403": "403"
   },
   "badges": {
-    "new": "New",
+    "new": "NEW",
     "coming": "Coming",
     "active": "Active",
     "inactive": "Inactive"
@@ -95,10 +95,3 @@
     "get_pro": "Get VibeThink Pro"
   }
 }
-
-
-
-
-
-
-

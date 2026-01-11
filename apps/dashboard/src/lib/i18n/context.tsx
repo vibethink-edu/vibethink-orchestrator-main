@@ -136,6 +136,8 @@ export function I18nProvider({
     }
   }, [locale]);
 
+  const [loadedNamespaces, setLoadedNamespaces] = useState<Set<string>>(new Set());
+
   /**
    * Load translation for a namespace
    */
@@ -146,22 +148,24 @@ export function I18nProvider({
         translationStore.set(locale, new Map());
       }
 
-      // Check if already loaded
+      // Check if already loaded in store
       const localeStore = translationStore.get(locale)!;
       if (localeStore.has(namespace)) {
-        // Cache hit - no log to avoid spam
         return localeStore.get(namespace)!;
       }
 
-      console.log(`[i18n] ⬇️ Loading namespace '${namespace}' for locale '${locale}'...`);
-      // Load translation
-      const translation = await loadTranslation(locale, namespace);
+      try {
+        const translations = await loadTranslation(locale, namespace);
+        localeStore.set(namespace, translations);
 
-      // Store in cache
-      localeStore.set(namespace, translation);
-      console.log(`[i18n] ✅ Namespace '${namespace}' cached for locale '${locale}'`);
+        // Trigger re-render by updating state
+        setLoadedNamespaces(prev => new Set(prev).add(`${locale}:${namespace}`));
 
-      return translation;
+        return translations;
+      } catch (error) {
+        console.error(`[i18n] Failed to load namespace ${namespace}:`, error);
+        return {};
+      }
     },
     [locale]
   );
@@ -300,7 +304,7 @@ export function I18nProvider({
       }
       return result;
     },
-    [locale, loadNamespace]
+    [locale, loadNamespace, isMounted, loadedNamespaces]
   );
 
   /**
@@ -404,6 +408,7 @@ export function I18nProvider({
     formatCurrency,
     formatNumber,
     formatPercentage,
+    loadNamespace,
     supportedLocales,
   };
 
@@ -429,7 +434,12 @@ export function useI18n(): I18nContextValue {
  * Convenience hook for translations with namespace
  */
 export function useTranslation(namespace: TranslationNamespace = 'common') {
-  const { t, locale, ...rest } = useI18n();
+  const { t, locale, loadNamespace, ...rest } = useI18n();
+
+  // Load namespace on mount/change
+  React.useEffect(() => {
+    loadNamespace(namespace);
+  }, [namespace, loadNamespace]);
 
   const translate: TranslationFunction = useCallback(
     (key: string, paramsOrDefault?: Record<string, string | number | boolean> | string, params?: Record<string, string | number | boolean>): any => {

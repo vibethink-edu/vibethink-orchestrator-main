@@ -103,6 +103,7 @@ export interface I18nContextValue {
   formatCurrency: (amount: number, currency?: string) => string;
   formatNumber: (value: number, options?: Intl.NumberFormatOptions) => string;
   formatPercentage: (value: number, decimals?: number) => string;
+  loadNamespace: (namespace: TranslationNamespace) => Promise<TranslationDictionary>;
   supportedLocales: Locale[];
 }
 
