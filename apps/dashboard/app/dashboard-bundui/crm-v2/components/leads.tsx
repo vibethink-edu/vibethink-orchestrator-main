@@ -36,7 +36,7 @@ import {
   TableHeader,
   TableRow
 } from "@vibethink/ui/components/table";
-import { ChevronDownIcon, ChevronsUpDown, Ellipsis } from "lucide-react";
+import { ChevronDown, MoreHorizontal, Filter } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "@/lib/i18n";
 
@@ -254,8 +254,8 @@ export function LeadsCard() {
             <TableBody>
               {table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
-                  <TableRow 
-                    key={row.id} 
+                  <TableRow
+                    key={row.id}
                     data-state={row.getIsSelected() && "selected"}
                     className="cursor-pointer hover:bg-muted/50"
                     onClick={() => router.push(`/dashboard-bundui/crm-v2-ai/lead/${row.original.id}`)}

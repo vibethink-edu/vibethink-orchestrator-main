@@ -22,8 +22,8 @@ import {
   BrainIcon,
   Building2Icon,
   CalendarIcon,
-  ChartBarDecreasingIcon,
-  ChartPieIcon,
+  ChartBarIcon, // Changed from ChartBarDecreasingIcon
+  PieChartIcon,
   ChevronRight,
   ClipboardCheckIcon,
   ClipboardMinusIcon,
@@ -34,15 +34,15 @@ import {
   FolderIcon,
   GaugeIcon,
   GraduationCapIcon,
-  ImagesIcon,
+  ImageIcon, // Changed from ImagesIcon
   KeyIcon,
   MailIcon,
   MessageSquareIcon,
-  ProportionsIcon,
+  LayoutGridIcon,
   SettingsIcon,
   ShoppingBagIcon,
-  SquareCheckIcon,
-  SquareKanbanIcon,
+  SquareCheck as SquareCheckIcon, // Changed
+  KanbanSquare as SquareKanbanIcon, // Changed
   StickyNoteIcon,
   UserIcon,
   UsersIcon,
@@ -50,7 +50,7 @@ import {
   type LucideIcon,
   GithubIcon,
   RedoDotIcon,
-  BrushCleaningIcon,
+  Brush as BrushCleaningIcon, // Changed
   CoinsIcon,
   DollarSignIcon,
   SpeechIcon
@@ -90,7 +90,7 @@ export const navItems: NavGroup[] = [
       {
         title: "Default",
         href: "/dashboard-bundui/default",
-        icon: ChartPieIcon,
+        icon: PieChartIcon,
         isNew: true
       },
       {
@@ -107,11 +107,11 @@ export const navItems: NavGroup[] = [
         ]
       },
       { title: "Sales", href: "/dashboard-bundui/sales", icon: BadgeDollarSignIcon, isNew: true },
-      { title: "CRM", href: "/dashboard-bundui/crm", icon: ChartBarDecreasingIcon, isNew: true },
+      { title: "CRM", href: "/dashboard-bundui/crm", icon: ChartBarIcon, isNew: true },
       {
         title: "CRM V2",
         href: "/dashboard-bundui/crm-v2",
-        icon: ChartBarDecreasingIcon,
+        icon: ChartBarIcon,
         isNew: true
       },
       {
@@ -180,7 +180,7 @@ export const navItems: NavGroup[] = [
       {
         title: "Image Generator",
         href: "/dashboard-bundui/ai-image-generator",
-        icon: ImagesIcon
+        icon: ImageIcon
       },
       {
         title: "Text to Speech",
@@ -323,7 +323,7 @@ export const navItems: NavGroup[] = [
       {
         title: "Templates",
         href: "/templates",
-        icon: ProportionsIcon,
+        icon: LayoutGridIcon,
         newTab: true
       },
       {

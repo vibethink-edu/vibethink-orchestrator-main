@@ -1,8 +1,10 @@
+"use client";
+
 import { Badge } from "@vibethink/ui";
 import { Button } from "@vibethink/ui";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
 import { cn } from "@/shared/lib/utils";
-import { ArrowRight, CircleCheck, PlusCircleIcon } from "lucide-react";
+import { ArrowRight, CheckCircle, PlusCircleIcon } from "lucide-react";
 import { AddReminderDialog } from "./add-reminder-dialog";
 
 type Reminder = {
@@ -68,9 +70,9 @@ export function Reminders() {
                                         })}></span>{" "}
                                     {reminder.level}{" "}
                                     {reminder.isCompleted ? (
-                                        <CircleCheck className="ms-auto me-2 size-4 text-green-600" />
+                                        <CheckCircle className="ms-auto me-2 size-4 text-green-600" />
                                     ) : (
-                                        <CircleCheck className="ms-auto me-2 size-4 text-gray-400" />
+                                        <CheckCircle className="ms-auto me-2 size-4 text-gray-400" />
                                     )}
                                 </CardTitle>
                             </CardHeader>

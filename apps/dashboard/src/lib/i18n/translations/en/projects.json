@@ -144,7 +144,11 @@
       "revenue": "Revenue",
       "projects": "Projects",
       "tasks": "Tasks",
-      "team": "Team"
+      "team": "Team",
+      "mobileDescription": "Overview of key metrics.",
+      "last3Months": "Last 3 Months",
+      "last30Days": "Last 30 Days",
+      "last7Days": "Last 7 Days"
     },
     "recentActivity": {
       "title": "Recent Activity",

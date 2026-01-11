@@ -39,7 +39,7 @@ const getMockTimelineEvents = (t: any): TimelineEvent[] => [
         status: "completed",
         title: t('timeline.events.client_requirements.title'),
         description: t('timeline.events.client_requirements.description'),
-        timestamp: new Date(Date.now() - 1000 * 60 * 60 * 2), // 2 hours ago
+        timestamp: new Date("2024-01-01T10:00:00"), // Fixed date
         details: (
             <div className="space-y-2">
                 <p><strong>{t('timeline.events.client_requirements.from')}:</strong> sarah.jones@client.com</p>
@@ -55,7 +55,7 @@ const getMockTimelineEvents = (t: any): TimelineEvent[] => [
         status: "warning",
         title: t('timeline.events.dependency_alert.title'),
         description: t('timeline.events.dependency_alert.description'),
-        timestamp: new Date(Date.now() - 1000 * 60 * 60 * 24), // 1 day ago
+        timestamp: new Date("2024-01-01T09:00:00"), // Fixed date
         details: t('timeline.events.dependency_alert.details'),
     },
     {
@@ -64,7 +64,7 @@ const getMockTimelineEvents = (t: any): TimelineEvent[] => [
         status: "completed",
         title: t('timeline.events.sprint_planning.title'),
         description: t('timeline.events.sprint_planning.description'),
-        timestamp: new Date(Date.now() - 1000 * 60 * 60 * 48), // 2 days ago
+        timestamp: new Date("2024-01-01T08:00:00"), // Fixed date
         details: t('timeline.events.sprint_planning.details'),
         user: { name: "Marcelo Escallón", avatar: "" }
     }

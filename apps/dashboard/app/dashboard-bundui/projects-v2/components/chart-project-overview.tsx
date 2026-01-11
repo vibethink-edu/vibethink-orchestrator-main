@@ -30,7 +30,7 @@ import { useTranslation } from "@/lib/i18n";
 
 const generateChartData = () => {
     const data = [];
-    const today = new Date();
+    const today = new Date("2024-01-01"); // Static date to prevent hydration errors
 
     for (let i = 89; i >= 0; i--) {
         const date = new Date(today);
@@ -101,7 +101,7 @@ export function ChartProjectOverview() {
                         value={timeRange}
                         onValueChange={setTimeRange}
                         variant="outline"
-                        className="hidden *:data-[slot=toggle-group-item]:!px-4 @[767px]/card:flex">
+                        className="hidden *:data-[slot=toggle-group-item]:px-4 @[767px]/card:flex">
                         <ToggleGroupItem value="90d">{t('v2.overview.last3Months')}</ToggleGroupItem>
                         <ToggleGroupItem value="30d">{t('v2.overview.last30Days')}</ToggleGroupItem>
                         <ToggleGroupItem value="7d">{t('v2.overview.last7Days')}</ToggleGroupItem>
