@@ -12,7 +12,7 @@ import {
   startOfYear,
   startOfWeek
 } from "date-fns";
-import { CalendarIcon } from "lucide-react";
+import { Calendar as CalendarLucide } from "lucide-react";
 import type { DateRange } from "react-day-picker";
 
 import { cn } from "@vibethink/utils";
@@ -116,7 +116,7 @@ export default function CalendarDateRangePicker({
                         "justify-start text-left font-normal",
                         !date && "text-muted-foreground"
                       )}>
-                      <CalendarIcon />
+                      <CalendarLucide />
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
@@ -143,7 +143,7 @@ export default function CalendarDateRangePicker({
                 "justify-start text-left font-normal",
                 !date && "text-muted-foreground"
               )}>
-              <CalendarIcon />
+              <CalendarLucide />
               {date?.from ? (
                 date.to ? (
                   <>

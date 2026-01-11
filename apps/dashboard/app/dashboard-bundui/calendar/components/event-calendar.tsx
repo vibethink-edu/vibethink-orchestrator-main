@@ -13,7 +13,7 @@ import {
   subMonths,
   subWeeks
 } from "date-fns";
-import { ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, PlusIcon } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Plus } from "lucide-react";
 import { toast } from "sonner";
 import { useTranslation } from "@/lib/i18n";
 
@@ -275,10 +275,10 @@ export function EventCalendar({
             </Button>
             <div className="flex items-center sm:gap-2">
               <Button variant="ghost" size="icon" onClick={handlePrevious} aria-label={t('toolbar.previous')}>
-                <ChevronLeftIcon size={16} aria-hidden="true" />
+                <ChevronLeft size={16} aria-hidden="true" />
               </Button>
               <Button variant="ghost" size="icon" onClick={handleNext} aria-label={t('toolbar.next')}>
-                <ChevronRightIcon size={16} aria-hidden="true" />
+                <ChevronRight size={16} aria-hidden="true" />
               </Button>
             </div>
             <h2 className="text-sm font-semibold sm:text-lg md:text-xl">{viewTitle}</h2>
@@ -295,7 +295,7 @@ export function EventCalendar({
                       {view.charAt(0).toUpperCase() + view.slice(1)}
                     </span>
                   </span>
-                  <ChevronDownIcon className="-me-1 opacity-60" size={16} aria-hidden="true" />
+                  <ChevronDown className="-me-1 opacity-60" size={16} aria-hidden="true" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="min-w-32">
@@ -320,7 +320,7 @@ export function EventCalendar({
                 setSelectedEvent(null); // Ensure we're creating a new event
                 setIsEventDialogOpen(true);
               }}>
-              <PlusIcon className="opacity-60 sm:-ms-1" size={16} aria-hidden="true" />
+              <Plus className="opacity-60 sm:-ms-1" size={16} aria-hidden="true" />
               <span className="max-sm:sr-only">{t('toolbar.newEvent')}</span>
             </Button>
           </div>

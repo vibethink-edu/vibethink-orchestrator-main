@@ -13,7 +13,7 @@ import {
   getSortedRowModel,
   useReactTable
 } from "@tanstack/react-table";
-import { ArrowDownIcon, ArrowUpIcon, ChevronDown, ChevronDownIcon } from "lucide-react";
+import { ArrowDown, ArrowUp, ChevronDown } from "lucide-react";
 
 import { Button } from "@vibethink/ui";
 import {
@@ -279,7 +279,7 @@ export function TableOrderStatus() {
             <div className="flex gap-2">
               <div className="text-muted-foreground text-sm">New Order</div>
               <div className="flex items-center gap-0.5 text-xs text-green-500">
-                <ArrowUpIcon className="size-3" />
+                <ArrowUp className="size-3" />
                 0.5%
               </div>
             </div>
@@ -294,7 +294,7 @@ export function TableOrderStatus() {
             <div className="flex gap-2">
               <div className="text-muted-foreground text-sm">On Progress</div>
               <div className="flex items-center gap-0.5 text-xs text-red-500">
-                <ArrowDownIcon className="size-3" />
+                <ArrowDown className="size-3" />
                 0.3%
               </div>
             </div>
@@ -309,7 +309,7 @@ export function TableOrderStatus() {
             <div className="flex gap-2">
               <div className="text-muted-foreground text-sm">Completed</div>
               <div className="flex items-center gap-0.5 text-xs text-green-500">
-                <ArrowUpIcon className="size-3" />
+                <ArrowUp className="size-3" />
                 0.5%
               </div>
             </div>
@@ -324,7 +324,7 @@ export function TableOrderStatus() {
             <div className="flex gap-2">
               <div className="text-muted-foreground text-sm">Return</div>
               <div className="flex items-center gap-0.5 text-xs text-red-500">
-                <ArrowDownIcon className="size-3" />
+                <ArrowDown className="size-3" />
                 0.5%
               </div>
             </div>

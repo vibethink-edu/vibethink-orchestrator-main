@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { cn } from "@/shared/lib/utils";
-import { PlusCircleIcon } from "lucide-react";
+import { PlusCircle } from "lucide-react";
 
 import { Button } from "@vibethink/ui/components/button";
 import {
@@ -69,7 +69,7 @@ export function RecentTasks() {
         <CardDescription>{t('cards.recentTasks.description')}</CardDescription>
         <CardAction>
           <Button variant="outline" size="sm">
-            <PlusCircleIcon /> {t('tasks.addTask')}
+            <PlusCircle className="mr-2 size-4" /> {t('tasks.addTask')}
           </Button>
         </CardAction>
       </CardHeader>

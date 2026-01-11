@@ -36,7 +36,7 @@ import {
   TableHeader,
   TableRow
 } from "@vibethink/ui/components/table";
-import { ChevronDown, MoreHorizontal, Filter } from "lucide-react";
+import { ChevronDown, MoreHorizontal, Filter, ChevronsUpDown } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "@/lib/i18n";
 
@@ -149,7 +149,7 @@ const createColumns = (t: (key: string) => string): ColumnDef<Payment>[] => [
             <DropdownMenuTrigger asChild>
               <Button variant="ghost">
                 <span className="sr-only">{t('leads.table.actions')}</span>
-                <Ellipsis />
+                <MoreHorizontal />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -213,7 +213,7 @@ export function LeadsCard() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="ml-auto">
-                {t('table.columns')} <ChevronDownIcon className="ml-2 h-4 w-4" />
+                {t('table.columns')} <ChevronDown className="ml-2 h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">

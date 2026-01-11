@@ -1,15 +1,33 @@
-# 🛡️ PROTECTED VENDOR REFERENCE (BUNDUI)
+# 🛡️ PROTECTED VENDOR CODE: BUNDUI DASHBOARD
+# 🛑 STOP AND READ BEFORE EDITING 🛑
 
-This directory (`dashboard-bundui`) contains the **Golden Standard** UI reference derived from the Bundui Premium template.
+## 1. IMMUTABILITY PRINCIPLE
+This directory (`apps/dashboard/app/dashboard-bundui`) contains the "Golden Standard" reference implementation for the VibeThink UI. 
+**It is considered STABLE and should NOT be refactored for stylistic preferences, "code cleanup", or minor optimizations.**
 
-## ⛔ PROTECTION RULES
+## 2. STRICT RULES FOR MODIFICATION
+Any changes to this directory must adhere to the following rules:
 
-1.  **DO NOT REFACTOR** this code to share components with other apps (`admin`, `candidate`) if it implies modifying this directory.
-2.  **DO NOT UNIFY** styles by stripping inline classes or changing logic here. This code is the source of truth.
-3.  **ONLY TOUCH** this code for:
-    *   Critical bug fixes (e.g., compile errors, hydration mismatches).
-    *   Updating to a newer version of the Bundui vendor template.
-    *   Replacing deprecated dependencies (like removed icons).
+*   **NO Automated Refactors:** Do not accept automated "fix all" suggestions from IDEs or AI agents regarding imports, unused variables, or code style in this specific directory.
+*   **NO Icon Renaming:** The generic `lucide-react` library has version discrepancies. 
+    *   **RULE:** Do NOT change icon imports (e.g., `ChevronDownIcon` -> `ChevronDown`) unless you have specifically verified that the new icon name exists in the currently installed version AND you have visually tested the component.
+    *   **PREFERENCE:** Use legacy-safe names (e.g., `ChevronDown`, `Plus`, `Check`) over suffix-heavy names (`ChevronDownIcon`) when fixing broken imports, as they arguably have better compatibility.
+*   **Verification Required:** Every change must be verified by running the app (`pnpm dev:dashboard`) and visiting the specific page. "It compiles" is NOT enough verification for this module.
 
-## Manten uno solo (Single Source of Truth)
-This directory IS the truth for UI/UX. Other apps should aspire to look like this, but this implementation must remain pure to ensure we always have a working reference.
+## 3. DEPENDENCY AWARENESS
+This code relies on specific versions of:
+- `lucide-react`
+- `@vibethink/ui` (shadcn wrapper)
+- `recharts`
+
+Upgrading these dependencies globally may break this reference implementation. If a global upgrade occurs, this directory must be manually smoke-tested (CRM, Analytics, Projects pages).
+
+## 4. PURPOSE
+This code serves as the:
+1.  **Visual Reference:** How the UI *should* look.
+2.  **Component Library Source:** Source of truth for complex compositions.
+3.  **Demo/Sales Material:** Must always be demo-ready.
+
+---
+**Last Stabilized:** 2026-01-10 (Fixing Icon Runtime Crashes)
+**Status:** 🟢 STABLE

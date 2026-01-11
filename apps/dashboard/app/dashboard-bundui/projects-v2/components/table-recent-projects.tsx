@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ChevronDownIcon, ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 import {
     type ColumnDef,
     type ColumnFiltersState,
@@ -359,7 +359,7 @@ export function TableRecentProjects() {
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Button variant="outline" className="ml-auto">
-                                Columns <ChevronDownIcon className="ml-2 h-4 w-4" />
+                                Columns <ChevronDown className="ml-2 h-4 w-4" />
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
