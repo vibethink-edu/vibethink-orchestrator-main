@@ -9,7 +9,7 @@
 import React from 'react'
 import { DashboardLayout } from '@vibethink/ui'
 import { Button } from '@vibethink/ui'
-import { Download } from 'lucide-react'
+import { Download } from "@vibethink/ui/icons"
 
 // Import Bundui-inspired components
 import { 

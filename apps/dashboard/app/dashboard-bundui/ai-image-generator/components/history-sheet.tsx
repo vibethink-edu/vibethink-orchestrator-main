@@ -11,7 +11,7 @@ import {
   SheetTrigger
 } from "@vibethink/ui";
 import { Button } from "@vibethink/ui";
-import { History } from "lucide-react";
+import { History } from "@vibethink/ui/icons";
 import { toast } from "sonner";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@vibethink/ui";
 

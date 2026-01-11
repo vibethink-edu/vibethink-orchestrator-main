@@ -13,7 +13,7 @@ import {
   ChevronRight,
   Plus,
   MoreHorizontal
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 
 import { Button } from "@vibethink/ui";
 import { Badge } from "@vibethink/ui";

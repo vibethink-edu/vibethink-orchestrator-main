@@ -19,7 +19,7 @@ import {
   Download,
   Settings,
   BarChart3
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 
 // Import all project management components
 import {

@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/componen
 // Chart components from recharts - mantener import directo
 // import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@vibethink/ui'
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts'
-import { TrendingUp, Users, Target } from 'lucide-react'
+import { TrendingUp, Users, Target } from "@vibethink/ui/icons"
 
 // Sample data for CRM charts
 const customerGrowthData = [

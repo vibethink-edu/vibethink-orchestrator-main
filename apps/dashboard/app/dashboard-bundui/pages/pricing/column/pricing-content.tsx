@@ -18,7 +18,7 @@ import {
   AccordionTrigger
 } from "@vibethink/ui/components/accordion";
 import { Badge } from "@vibethink/ui/components/badge";
-import { Check } from "lucide-react";
+import { Check } from "@vibethink/ui/icons";
 
 export function PricingContent() {
   const [isYearly, setIsYearly] = useState(false);

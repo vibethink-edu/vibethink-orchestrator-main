@@ -1,4 +1,4 @@
-import { ChevronRight } from "lucide-react";
+import { ChevronRight } from "@vibethink/ui/icons";
 
 import { Card, CardContent } from "@vibethink/ui";
 import { NotificationBanner } from "./notification-banner";

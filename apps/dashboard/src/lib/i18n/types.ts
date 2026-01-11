@@ -8,7 +8,7 @@
 /**
  * Supported locales
  */
-export type Locale = 'en' | 'es' | 'ar' | 'zh' | 'fr' | 'pt' | 'de' | 'it' | 'ko';
+export type Locale = 'en' | 'es' | 'ar' | 'zh' | 'fr' | 'pt' | 'de' | 'it' | 'ko' | 'he' | 'fa' | 'ur';
 
 /**
  * Default locale
@@ -18,7 +18,7 @@ export const DEFAULT_LOCALE: Locale = 'en';
 /**
  * Available locales array
  */
-export const AVAILABLE_LOCALES: Locale[] = ['en', 'es', 'ar', 'zh', 'fr', 'pt', 'de', 'it', 'ko'];
+export const AVAILABLE_LOCALES: Locale[] = ['en', 'es', 'ar', 'zh', 'fr', 'pt', 'de', 'it', 'ko', 'he', 'fa', 'ur'];
 
 /**
  * Locale metadata
@@ -76,15 +76,20 @@ export type TranslationNamespace =
   | 'errors'            // Error messages
   | 'validation'        // Form validation messages
   | 'dashboard-vibethink' // VibeThink Dashboard Index page
-  | 'dashboard-bundui';   // Bundui Dashboard Index page
+  | 'dashboard-bundui'   // Bundui Dashboard Index page
+  | 'api-keys'
+  | 'default'
+  | 'crm-v2';
 
 /**
  * Translation function type
  */
-export type TranslationFunction = (
-  key: string,
-  params?: Record<string, string | number | boolean>
-) => string;
+export type TranslationFunction = {
+  (key: string): string;
+  (key: string, defaultValue: string): string;
+  (key: string, params: Record<string, string | number | boolean>): string;
+  (key: string, defaultValue: string, params: Record<string, string | number | boolean>): string;
+};
 
 /**
  * i18n context value
@@ -98,12 +103,15 @@ export interface I18nContextValue {
   formatCurrency: (amount: number, currency?: string) => string;
   formatNumber: (value: number, options?: Intl.NumberFormatOptions) => string;
   formatPercentage: (value: number, decimals?: number) => string;
+  supportedLocales: Locale[];
 }
 
 /**
  * Translation dictionary structure
  */
-export type TranslationDictionary = Record<string, string | TranslationDictionary>;
+export interface TranslationDictionary {
+  [key: string]: string | TranslationDictionary;
+}
 
 /**
  * Namespace translations

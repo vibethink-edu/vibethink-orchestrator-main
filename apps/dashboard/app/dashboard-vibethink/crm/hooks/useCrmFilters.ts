@@ -47,7 +47,7 @@ export function useCrmFilters() {
   const getDateRange = (range: string) => {
     const now = new Date()
     const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate())
-    
+
     switch (range) {
       case 'today':
         return {
@@ -94,7 +94,7 @@ export function useCrmFilters() {
           customer.company,
           customer.phone
         ].join(' ').toLowerCase()
-        
+
         if (!searchableText.includes(query)) {
           return false
         }
@@ -138,7 +138,7 @@ export function useCrmFilters() {
           deal.title,
           deal.customer_name
         ].join(' ').toLowerCase()
-        
+
         if (!searchableText.includes(query)) {
           return false
         }
@@ -186,8 +186,8 @@ export function useCrmFilters() {
 
   // Get filter summary for display
   const getFilterSummary = () => {
-    const activeFilters = []
-    
+    const activeFilters: string[] = []
+
     if (filters.searchQuery) {
       activeFilters.push(`Search: "${filters.searchQuery}"`)
     }

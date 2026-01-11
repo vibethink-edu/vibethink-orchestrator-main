@@ -1,4 +1,4 @@
-import { Link2Icon, Mail, MapPin, PhoneCall } from "lucide-react";
+import { Link2Icon, Mail, MapPin, PhoneCall } from "@vibethink/ui/icons";
 
 import { Card, CardContent } from "@vibethink/ui/components/card";
 import { Badge } from "@vibethink/ui/components/badge";

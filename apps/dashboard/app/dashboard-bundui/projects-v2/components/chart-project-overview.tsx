@@ -29,7 +29,7 @@ import { ToggleGroup, ToggleGroupItem } from "@vibethink/ui";
 import { useTranslation } from "@/lib/i18n";
 
 const generateChartData = () => {
-    const data = [];
+    const data: { date: string; desktop: number; mobile: number }[] = [];
     const today = new Date("2024-01-01"); // Static date to prevent hydration errors
 
     for (let i = 89; i >= 0; i--) {
@@ -108,8 +108,7 @@ export function ChartProjectOverview() {
                     </ToggleGroup>
                     <Select value={timeRange} onValueChange={setTimeRange}>
                         <SelectTrigger
-                            className="flex w-40 **:data-[slot=select-value]:block **:data-[slot=select-value]:truncate @[767px]/card:hidden"
-                            size="sm"
+                            className="flex w-40 h-8 **:data-[slot=select-value]:block **:data-[slot=select-value]:truncate @[767px]/card:hidden"
                             aria-label="Select a value">
                             <SelectValue placeholder={t('v2.overview.last3Months')} />
                         </SelectTrigger>

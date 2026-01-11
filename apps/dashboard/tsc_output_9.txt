@@ -1,0 +1,241 @@
+app/dashboard-bundui/apps/ai-chat-v2/components/ai-chat-sidebar.tsx(12,39): error TS2307: Cannot find module './ai-upgrade-modal' or its corresponding type declarations.
+app/dashboard-bundui/apps/ai-chat-v2/components/ai-chat-sidebar.tsx(20,27): error TS2307: Cannot find module '../data.json' or its corresponding type declarations.
+app/dashboard-bundui/chat/components/chat-bubbles.tsx(248,32): error TS2367: This comparison appears to be unintentional because the types '0' and '1' have no overlap.
+app/dashboard-bundui/chat/components/user-detail-sheet.tsx(43,46): error TS2322: Type 'string | undefined' is not assignable to type 'string | number | boolean'.
+  Type 'undefined' is not assignable to type 'string | number | boolean'.
+app/dashboard-bundui/chat/components/user-detail-sheet.tsx(48,88): error TS2322: Type 'string | undefined' is not assignable to type 'string | number | boolean'.
+  Type 'undefined' is not assignable to type 'string | number | boolean'.
+app/dashboard-bundui/crm-v2-ai/lead/[id]/components/contextual-timeline.tsx(175,11): error TS2339: Property 'i18n' does not exist on type '{ setLocale: (locale: Locale) => void; formatDate: (date: string | Date, options?: DateTimeFormatOptions | undefined) => string; formatTime: (date: string | Date, options?: DateTimeFormatOptions | undefined) => string; ... 4 more ...; locale: Locale; }'.
+app/dashboard-bundui/crm-v2-ai/lead/[id]/components/contextual-timeline.tsx(203,44): error TS2304: Cannot find name 'compact'.
+app/dashboard-bundui/crm-v2-ai/lead/[id]/components/contextual-timeline.tsx(204,30): error TS2304: Cannot find name 'compact'.
+app/dashboard-bundui/crm-v2-ai/lead/[id]/components/contextual-timeline.tsx(206,33): error TS2304: Cannot find name 'compact'.
+app/dashboard-bundui/crm-v2-ai/lead/[id]/components/contextual-timeline.tsx(212,26): error TS2304: Cannot find name 'compact'.
+app/dashboard-bundui/crm-v2-ai/lead/[id]/components/contextual-timeline.tsx(217,21): error TS2304: Cannot find name 'compact'.
+app/dashboard-bundui/crm-v2-ai/lead/[id]/components/contextual-timeline.tsx(222,21): error TS2304: Cannot find name 'compact'.
+app/dashboard-bundui/crm-v2-ai/lead/[id]/components/contextual-timeline.tsx(226,15): error TS2304: Cannot find name 'compact'.
+app/dashboard-bundui/crm-v2-ai/lead/[id]/components/contextual-timeline.tsx(236,34): error TS2304: Cannot find name 'compact'.
+app/dashboard-bundui/crm-v2-ai/lead/[id]/components/contextual-timeline.tsx(326,9): error TS2304: Cannot find name 'compact'.
+app/dashboard-bundui/crm-v2-ai/lead/[id]/page.tsx(51,13): error TS2322: Type '{ entityType: "lead"; entityId: string; compact: boolean; }' is not assignable to type 'IntrinsicAttributes & { entityType: EntityType; entityId: string; }'.
+  Property 'compact' does not exist on type 'IntrinsicAttributes & { entityType: EntityType; entityId: string; }'.
+app/dashboard-bundui/crm/hooks/useCrmData.ts(175,9): error TS2698: Spread types may only be created from object types.
+app/dashboard-bundui/crm/hooks/useCrmData.ts(176,29): error TS2339: Property 'customer' does not exist on type 'never'.
+app/dashboard-bundui/crm/hooks/useCrmFilters.ts(192,26): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+app/dashboard-bundui/crm/hooks/useCrmFilters.ts(195,26): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+app/dashboard-bundui/crm/hooks/useCrmFilters.ts(198,26): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+app/dashboard-bundui/crm/hooks/useCrmFilters.ts(201,26): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+app/dashboard-bundui/crm/hooks/useCrmFilters.ts(206,26): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+app/dashboard-bundui/crypto/page.tsx(212,15): error TS2322: Type 'MarketSentiment | null' is not assignable to type '{ fear_greed_index?: number | undefined; fear_greed_classification?: string | undefined; bitcoin_dominance?: number | undefined; market_cap_change_24h?: number | undefined; volume_change_24h?: number | undefined; } | undefined'.
+  Type 'null' is not assignable to type '{ fear_greed_index?: number | undefined; fear_greed_classification?: string | undefined; bitcoin_dominance?: number | undefined; market_cap_change_24h?: number | undefined; volume_change_24h?: number | undefined; } | undefined'.
+app/dashboard-bundui/crypto/page.tsx(231,28): error TS18048: 'portfolioMetrics.daily_change_percentage' is possibly 'undefined'.
+app/dashboard-bundui/crypto/page.tsx(342,26): error TS18048: 'portfolioMetrics.daily_change_percentage' is possibly 'undefined'.
+app/dashboard-bundui/crypto/page.tsx(346,22): error TS18048: 'portfolioMetrics.daily_change_percentage' is possibly 'undefined'.
+app/dashboard-bundui/crypto/page.tsx(365,26): error TS18048: 'portfolioMetrics.total_profit_loss' is possibly 'undefined'.
+app/dashboard-bundui/default/components/latest-payments.tsx(269,20): error TS2322: Type '"destructive" | "success" | "info"' is not assignable to type '"default" | "destructive" | "outline" | "secondary" | null | undefined'.
+  Type '"success"' is not assignable to type '"default" | "destructive" | "outline" | "secondary" | null | undefined'.
+app/dashboard-bundui/file-manager/hooks/useFileManagerData.ts(439,15): error TS2345: Argument of type '{ date: string; uploads: number; downloads: number; size: number; }' is not assignable to parameter of type 'never'.
+app/dashboard-bundui/file-manager/hooks/useFileManagerData.ts(453,16): error TS2345: Argument of type '{ hour: number; transfers: number; peak_type: "download" | "upload"; }' is not assignable to parameter of type 'never'.
+app/dashboard-bundui/file-manager/hooks/useFileManagerData.ts(501,5): error TS2322: Type 'null' is not assignable to type 'string | undefined'.
+app/dashboard-bundui/file-manager/hooks/useFileManagerData.ts(543,5): error TS2322: Type 'null' is not assignable to type 'string | undefined'.
+app/dashboard-bundui/file-manager/hooks/useFileOperations.ts(109,3): error TS2322: Type 'null' is not assignable to type 'string | undefined'.
+app/dashboard-bundui/file-manager/hooks/useFileOperations.ts(148,55): error TS2339: Property 'message' does not exist on type 'never'.
+app/dashboard-bundui/file-manager/hooks/useFileOperations.ts(182,52): error TS2339: Property 'message' does not exist on type 'never'.
+app/dashboard-bundui/file-manager/hooks/useFileOperations.ts(235,59): error TS2339: Property 'message' does not exist on type 'never'.
+app/dashboard-bundui/file-manager/hooks/useFileOperations.ts(301,63): error TS2339: Property 'message' does not exist on type 'never'.
+app/dashboard-bundui/file-manager/hooks/useFileOperations.ts(494,58): error TS2339: Property 'message' does not exist on type 'never'.
+app/dashboard-bundui/finance/page.tsx(159,36): error TS2322: Type 'FinancialMetrics | null' is not assignable to type 'FinancialMetrics'.
+  Type 'null' is not assignable to type 'FinancialMetrics'.
+app/dashboard-bundui/hotel/bookings/components/meeting-room-schedule.tsx(346,43): error TS2322: Type '"icon-sm"' is not assignable to type '"default" | "icon" | "sm" | "lg" | null | undefined'.
+app/dashboard-bundui/hotel/components/booking-list.tsx(254,28): error TS2554: Expected 1 arguments, but got 0.
+app/dashboard-bundui/i18n-test/components/ModuleTestContent.tsx(29,34): error TS2345: Argument of type 'string' is not assignable to parameter of type 'TranslationNamespace'.
+app/dashboard-bundui/i18n-test/page.tsx(53,19): error TS2554: Expected 1 arguments, but got 0.
+app/dashboard-bundui/i18n-test/page.tsx(67,57): error TS2345: Argument of type 'string' is not assignable to parameter of type 'TranslationNamespace'.
+app/dashboard-bundui/kanban/components/kanban-board.tsx(320,36): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+app/dashboard-bundui/kanban/components/kanban-board.tsx(321,38): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+app/dashboard-bundui/kanban/components/kanban-board.tsx(322,34): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+app/dashboard-bundui/kanban/components/kanban-board.tsx(642,52): error TS2322: Type '{ children: Element; key: string; value: string; asHandle: true; asChild: true; }' is not assignable to type 'IntrinsicAttributes & ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement> & VariantProps<...> & { ...; }'.
+  Property 'value' does not exist on type 'IntrinsicAttributes & ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement> & VariantProps<...> & { ...; }'.
+app/dashboard-bundui/notes/add-note-modal.tsx(30,32): error TS2345: Argument of type 'string[]' is not assignable to parameter of type 'TranslationNamespace'.
+app/dashboard-bundui/pages/settings/page.tsx(9,10): error TS2724: '"@vibethink/ui/icons"' has no exported member named 'CircleUserRoundIcon'. Did you mean 'CircleUserRound'?
+app/dashboard-bundui/pos-system/components/add-product-dialog.tsx(5,31): error TS2307: Cannot find module '@/shared/hooks/use-file-upload' or its corresponding type declarations.
+app/dashboard-bundui/pos-system/components/product-list-item.tsx(8,26): error TS2307: Cannot find module '@/shared/hooks/use-toast' or its corresponding type declarations.
+app/dashboard-bundui/pos-system/pos-system-menu.tsx(12,8): error TS2307: Cannot find module '@/app/dashboard/(auth)/apps/pos-system/store' or its corresponding type declarations.
+app/dashboard-bundui/pos-system/tables/components/table-detail-dialog.tsx(36,24): error TS2322: Type '"success"' is not assignable to type '"default" | "destructive" | "outline" | "secondary" | null | undefined'.
+app/dashboard-bundui/pos-system/tables/components/table-list-item.tsx(41,13): error TS2322: Type '"destructive" | "success" | "info"' is not assignable to type '"default" | "destructive" | "outline" | "secondary" | null | undefined'.
+  Type '"success"' is not assignable to type '"default" | "destructive" | "outline" | "secondary" | null | undefined'.
+app/dashboard-bundui/project-list/page.tsx(32,78): error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<string, string | number | boolean>'.
+app/dashboard-bundui/project-management/components/chart-project-overview.tsx(38,15): error TS2345: Argument of type '{ date: string; desktop: number; mobile: number; }' is not assignable to parameter of type 'never'.
+app/dashboard-bundui/project-management/components/chart-project-overview.tsx(75,32): error TS2339: Property 'date' does not exist on type 'never'.
+app/dashboard-bundui/project-management/components/reports.tsx(33,8): error TS2307: Cannot find module '@/components/ui/table' or its corresponding type declarations.
+app/dashboard-bundui/project-management/components/reports.tsx(35,26): error TS2307: Cannot find module '@/components/ui/progress' or its corresponding type declarations.
+app/dashboard-bundui/projects-v2/components/chart-project-overview.tsx(39,19): error TS2345: Argument of type '{ date: string; desktop: number; mobile: number; }' is not assignable to parameter of type 'never'.
+app/dashboard-bundui/projects-v2/components/chart-project-overview.tsx(77,36): error TS2339: Property 'date' does not exist on type 'never'.
+app/dashboard-bundui/projects-v2/components/chart-project-overview.tsx(112,29): error TS2322: Type '{ children: Element; className: string; size: string; "aria-label": string; }' is not assignable to type 'IntrinsicAttributes & Omit<SelectTriggerProps & RefAttributes<HTMLButtonElement>, "ref"> & RefAttributes<...>'.
+  Property 'size' does not exist on type 'IntrinsicAttributes & Omit<SelectTriggerProps & RefAttributes<HTMLButtonElement>, "ref"> & RefAttributes<...>'.
+app/dashboard-bundui/projects-v2/components/contextual-side-panel.tsx(72,95): error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<string, string | number | boolean>'.
+app/dashboard-bundui/projects-v2/components/contextual-side-panel.tsx(80,97): error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<string, string | number | boolean>'.
+app/dashboard-bundui/projects-v2/components/contextual-side-panel.tsx(82,82): error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<string, string | number | boolean>'.
+app/dashboard-bundui/projects-v2/components/contextual-side-panel.tsx(93,85): error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<string, string | number | boolean>'.
+app/dashboard-bundui/projects-v2/components/contextual-side-panel.tsx(96,67): error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<string, string | number | boolean>'.
+app/dashboard-bundui/projects-v2/components/contextual-side-panel.tsx(112,56): error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<string, string | number | boolean>'.
+app/dashboard-bundui/projects-v2/components/contextual-side-panel.tsx(116,59): error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<string, string | number | boolean>'.
+app/dashboard-bundui/projects-v2/components/contextual-side-panel.tsx(125,79): error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<string, string | number | boolean>'.
+app/dashboard-bundui/projects-v2/components/contextual-side-panel.tsx(154,75): error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<string, string | number | boolean>'.
+app/dashboard-bundui/projects-v2/page.tsx(141,79): error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<string, string | number | boolean>'.
+app/dashboard-bundui/projects-v2/page.tsx(141,125): error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<string, string | number | boolean>'.
+app/dashboard-bundui/projects-v2/page.tsx(154,55): error TS2345: Argument of type 'string' is not assignable to parameter of type 'Record<string, string | number | boolean>'.
+app/dashboard-bundui/sales/components/table-order-status.tsx(228,16): error TS2322: Type '"destructive" | "warning" | "success" | "info"' is not assignable to type '"default" | "destructive" | "outline" | "secondary" | null | undefined'.
+  Type '"warning"' is not assignable to type '"default" | "destructive" | "outline" | "secondary" | null | undefined'.
+app/dashboard-bundui/sales/hooks/useSalesFilters.ts(186,5): error TS2322: Type 'boolean | undefined' is not assignable to type 'boolean'.
+  Type 'undefined' is not assignable to type 'boolean'.
+app/dashboard-bundui/sales/hooks/useSalesFilters.ts(284,5): error TS2322: Type 'boolean | undefined' is not assignable to type 'boolean'.
+  Type 'undefined' is not assignable to type 'boolean'.
+app/dashboard-bundui/sandbox/page.tsx(8,16): error TS2339: Property 'i18n' does not exist on type '{ setLocale: (locale: Locale) => void; formatDate: (date: string | Date, options?: DateTimeFormatOptions | undefined) => string; formatTime: (date: string | Date, options?: DateTimeFormatOptions | undefined) => string; ... 4 more ...; locale: Locale; }'.
+app/dashboard-bundui/sandbox/page.tsx(8,25): error TS2554: Expected 1 arguments, but got 0.
+app/dashboard-bundui/social-media/components/post-item.tsx(115,39): error TS2322: Type '"icon-sm"' is not assignable to type '"default" | "sm" | "lg" | "icon" | null | undefined'.
+app/dashboard-bundui/social-media/components/social-media-stories.tsx(91,24): error TS2322: Type '{ children: Element; showCloseIcon: boolean; className: string; }' is not assignable to type 'IntrinsicAttributes & Omit<DialogContentProps & RefAttributes<HTMLDivElement>, "ref"> & RefAttributes<...>'.
+  Property 'showCloseIcon' does not exist on type 'IntrinsicAttributes & Omit<DialogContentProps & RefAttributes<HTMLDivElement>, "ref"> & RefAttributes<...>'.
+app/dashboard-bundui/social-media/components/social-media-stories.tsx(104,86): error TS2322: Type '"icon-lg"' is not assignable to type '"default" | "sm" | "lg" | "icon" | null | undefined'.
+app/dashboard-bundui/tasks/components/data-table-row-actions.tsx(57,27): error TS2322: Type '{ children: (string | Element)[]; variant: string; }' is not assignable to type 'IntrinsicAttributes & Omit<DropdownMenuItemProps & RefAttributes<HTMLDivElement>, "ref"> & { ...; } & RefAttributes<...>'.
+  Property 'variant' does not exist on type 'IntrinsicAttributes & Omit<DropdownMenuItemProps & RefAttributes<HTMLDivElement>, "ref"> & { ...; } & RefAttributes<...>'.
+app/dashboard-bundui/tasks/components/data-table-toolbar.tsx(18,17): error TS2304: Cannot find name 'useTranslation'.
+app/dashboard-bundui/tenant-admin/page.tsx(4,30): error TS2307: Cannot find module '../../projects-v2/components/summary-cards' or its corresponding type declarations.
+app/dashboard-bundui/tenant-admin/page.tsx(5,34): error TS2307: Cannot find module '../../default/components/total-revenue' or its corresponding type declarations.
+app/dashboard-bundui/website-analytics/components/earning-reports-card.tsx(23,26): error TS2307: Cannot find module '@/components/ui/progress' or its corresponding type declarations.
+app/dashboard-bundui/website-analytics/components/earning-reports-card.tsx(24,30): error TS2307: Cannot find module '@/components/CardActionMenus' or its corresponding type declarations.
+app/dashboard-bundui/website-analytics/components/monthly-campaign-state.tsx(3,18): error TS2307: Cannot find module '@/components/icon' or its corresponding type declarations.
+app/dashboard-bundui/website-analytics/page.tsx(15,8): error TS2307: Cannot find module '@/app/dashboard/(auth)/website-analytics/components' or its corresponding type declarations.
+app/dashboard-bundui/website-analytics/page.tsx(16,23): error TS2307: Cannot find module '@/app/dashboard/(auth)/website-analytics/components/stat-cards' or its corresponding type declarations.
+app/dashboard-vibethink/analytics/components/TotalEarningCard.tsx(4,37): error TS2724: '"lucide-react"' has no exported member named 'HandCoins'. Did you mean 'HandIcon'?
+app/dashboard-vibethink/analytics/page.tsx(149,50): error TS2339: Property 'message' does not exist on type 'never'.
+app/dashboard-vibethink/calendar/components/CalendarApp.tsx(356,30): error TS2322: Type 'RefObject<FullCalendar | null>' is not assignable to type 'RefObject<FullCalendar>'.
+  Type 'FullCalendar | null' is not assignable to type 'FullCalendar'.
+    Type 'null' is not assignable to type 'FullCalendar'.
+app/dashboard-vibethink/crm/hooks/useCrmData.ts(175,9): error TS2698: Spread types may only be created from object types.
+app/dashboard-vibethink/crm/hooks/useCrmData.ts(176,29): error TS2339: Property 'customer' does not exist on type 'never'.
+app/dashboard-vibethink/crm/hooks/useCrmFilters.ts(192,26): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+app/dashboard-vibethink/crm/hooks/useCrmFilters.ts(195,26): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+app/dashboard-vibethink/crm/hooks/useCrmFilters.ts(198,26): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+app/dashboard-vibethink/crm/hooks/useCrmFilters.ts(201,26): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+app/dashboard-vibethink/crm/hooks/useCrmFilters.ts(206,26): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+app/dashboard-vibethink/crypto/page.tsx(212,15): error TS2322: Type 'MarketSentiment | null' is not assignable to type '{ fear_greed_index?: number | undefined; fear_greed_classification?: string | undefined; bitcoin_dominance?: number | undefined; market_cap_change_24h?: number | undefined; volume_change_24h?: number | undefined; } | undefined'.
+  Type 'null' is not assignable to type '{ fear_greed_index?: number | undefined; fear_greed_classification?: string | undefined; bitcoin_dominance?: number | undefined; market_cap_change_24h?: number | undefined; volume_change_24h?: number | undefined; } | undefined'.
+app/dashboard-vibethink/crypto/page.tsx(231,28): error TS18048: 'portfolioMetrics.daily_change_percentage' is possibly 'undefined'.
+app/dashboard-vibethink/crypto/page.tsx(342,26): error TS18048: 'portfolioMetrics.daily_change_percentage' is possibly 'undefined'.
+app/dashboard-vibethink/crypto/page.tsx(346,22): error TS18048: 'portfolioMetrics.daily_change_percentage' is possibly 'undefined'.
+app/dashboard-vibethink/crypto/page.tsx(365,26): error TS18048: 'portfolioMetrics.total_profit_loss' is possibly 'undefined'.
+app/dashboard-vibethink/default/components/latest-payments.tsx(267,20): error TS2322: Type '"destructive" | "success" | "info"' is not assignable to type '"default" | "destructive" | "outline" | "secondary" | null | undefined'.
+  Type '"success"' is not assignable to type '"default" | "destructive" | "outline" | "secondary" | null | undefined'.
+app/dashboard-vibethink/file-manager/hooks/useFileManagerData.ts(439,15): error TS2345: Argument of type '{ date: string; uploads: number; downloads: number; size: number; }' is not assignable to parameter of type 'never'.
+app/dashboard-vibethink/file-manager/hooks/useFileManagerData.ts(453,16): error TS2345: Argument of type '{ hour: number; transfers: number; peak_type: "download" | "upload"; }' is not assignable to parameter of type 'never'.
+app/dashboard-vibethink/file-manager/hooks/useFileManagerData.ts(501,5): error TS2322: Type 'null' is not assignable to type 'string | undefined'.
+app/dashboard-vibethink/file-manager/hooks/useFileManagerData.ts(543,5): error TS2322: Type 'null' is not assignable to type 'string | undefined'.
+app/dashboard-vibethink/file-manager/hooks/useFileOperations.ts(109,3): error TS2322: Type 'null' is not assignable to type 'string | undefined'.
+app/dashboard-vibethink/file-manager/hooks/useFileOperations.ts(148,55): error TS2339: Property 'message' does not exist on type 'never'.
+app/dashboard-vibethink/file-manager/hooks/useFileOperations.ts(182,52): error TS2339: Property 'message' does not exist on type 'never'.
+app/dashboard-vibethink/file-manager/hooks/useFileOperations.ts(235,59): error TS2339: Property 'message' does not exist on type 'never'.
+app/dashboard-vibethink/file-manager/hooks/useFileOperations.ts(301,63): error TS2339: Property 'message' does not exist on type 'never'.
+app/dashboard-vibethink/file-manager/hooks/useFileOperations.ts(494,58): error TS2339: Property 'message' does not exist on type 'never'.
+app/dashboard-vibethink/finance/page.tsx(159,36): error TS2322: Type 'FinancialMetrics | null' is not assignable to type 'FinancialMetrics'.
+  Type 'null' is not assignable to type 'FinancialMetrics'.
+app/dashboard-vibethink/kanban/components/kanban-board.tsx(320,36): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+app/dashboard-vibethink/kanban/components/kanban-board.tsx(321,38): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+app/dashboard-vibethink/kanban/components/kanban-board.tsx(322,34): error TS2345: Argument of type 'string' is not assignable to parameter of type 'never'.
+app/dashboard-vibethink/kanban/components/kanban-board.tsx(642,52): error TS2322: Type '{ children: Element; key: string; value: string; asHandle: true; asChild: true; }' is not assignable to type 'IntrinsicAttributes & ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement> & VariantProps<...> & { ...; }'.
+  Property 'value' does not exist on type 'IntrinsicAttributes & ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement> & VariantProps<...> & { ...; }'.
+app/dashboard-vibethink/notes/components/AddNoteModal.tsx(56,9): error TS2322: Type 'string | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+app/dashboard-vibethink/notes/hooks/useNoteEditor.ts(18,29): error TS2307: Cannot find module '@/shared/hooks/hooks/base/useDebounce' or its corresponding type declarations.
+app/dashboard-vibethink/notes/hooks/useNoteFilters.ts(18,29): error TS2307: Cannot find module '@/shared/hooks/hooks/base/useDebounce' or its corresponding type declarations.
+app/dashboard-vibethink/notes/hooks/useNotesData.ts(420,7): error TS2322: Type 'string | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+app/dashboard-vibethink/pages/settings/appearance/page.tsx(53,17): error TS2554: Expected 1 arguments, but got 0.
+app/dashboard-vibethink/pages/settings/appearance/page.tsx(185,17): error TS2554: Expected 1 arguments, but got 0.
+app/dashboard-vibethink/payment/components/notification-banner.tsx(4,10): error TS2724: '"lucide-react"' has no exported member named 'CircleAlertIcon'. Did you mean 'CircleIcon'?
+app/dashboard-vibethink/pos-system/components/products/InventoryControl.tsx(34,85): error TS18048: 'p.cost' is possibly 'undefined'.
+app/dashboard-vibethink/pos-system/hooks/usePosData.ts(4,28): error TS2307: Cannot find module '@/integrations/supabase/client' or its corresponding type declarations.
+app/dashboard-vibethink/sales/hooks/useSalesFilters.ts(186,5): error TS2322: Type 'boolean | undefined' is not assignable to type 'boolean'.
+  Type 'undefined' is not assignable to type 'boolean'.
+app/dashboard-vibethink/sales/hooks/useSalesFilters.ts(284,5): error TS2322: Type 'boolean | undefined' is not assignable to type 'boolean'.
+  Type 'undefined' is not assignable to type 'boolean'.
+app/dashboard-vibethink/website-analytics/components/TotalEarningCard.tsx(4,37): error TS2724: '"lucide-react"' has no exported member named 'HandCoins'. Did you mean 'HandIcon'?
+app/dashboard-vibethink/website-analytics/page.tsx(149,50): error TS2339: Property 'message' does not exist on type 'never'.
+app/dashboard-vibethink/workflow/components/workflow-canvas.tsx(123,11): error TS2322: Type '"dots"' is not assignable to type 'BackgroundVariant | undefined'.
+app/layout.tsx(89,17): error TS2367: This comparison appears to be unintentional because the types '"en" | "es" | "zh" | "fr" | "pt" | "de" | "it"' and '"ar"' have no overlap.
+app/layout.tsx(89,43): error TS2367: This comparison appears to be unintentional because the types '"en" | "es" | "zh" | "fr" | "pt" | "de" | "it"' and '"he"' have no overlap.
+app/layout.tsx(89,69): error TS2367: This comparison appears to be unintentional because the types '"en" | "es" | "zh" | "fr" | "pt" | "de" | "it"' and '"fa"' have no overlap.
+app/layout.tsx(89,95): error TS2367: This comparison appears to be unintentional because the types '"en" | "es" | "zh" | "fr" | "pt" | "de" | "it"' and '"ur"' have no overlap.
+app/mobile-test/page.tsx(4,58): error TS2307: Cannot find module '@/shared/components/ui/card' or its corresponding type declarations.
+app/mobile-test/page.tsx(5,23): error TS2307: Cannot find module '@/shared/components/ui/badge' or its corresponding type declarations.
+app/projects/page.tsx(254,15): error TS2322: Type '{ key: number; title: string; description: string; status: "active" | "pending" | "completed" | "archived"; progress: number; members: { name: string; avatar: string; role: string; }[] | { name: string; avatar: string; role: string; }[] | { ...; }[] | { ...; }[]; dueDate: string; budget: string; category: string; pr...' is not assignable to type 'IntrinsicAttributes & ProjectCardProps'.
+  Property 'status' does not exist on type 'IntrinsicAttributes & ProjectCardProps'.
+app/test-charts/page.tsx(7,30): error TS2307: Cannot find module '@/shared/components/dashboard/RevenueChart' or its corresponding type declarations.
+app/test-charts/page.tsx(8,28): error TS2307: Cannot find module '@/shared/components/dashboard/MetricCard' or its corresponding type declarations.
+apps/dashboard/components/ui/custom/prompt/input.tsx(3,26): error TS2307: Cannot find module '@/components/ui/textarea' or its corresponding type declarations.
+lib/types/ai-context.ts(62,9): error TS2322: Type 'readonly [] | readonly ["gpt-3.5-turbo"] | readonly ["gpt-3.5-turbo", "gpt-4", "claude-3-opus"]' is not assignable to type 'string[]'.
+  The type 'readonly []' is 'readonly' and cannot be assigned to the mutable type 'string[]'.
+src/components/feature-gate.tsx(49,47): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Object literal may only specify known properties, and 'disabled' does not exist in type 'Partial<unknown> & Attributes'.
+src/components/feature-gate.tsx(49,77): error TS18046: 'children.props' is of type 'unknown'.
+src/components/LanguageSwitcher.tsx(32,5): error TS2353: Object literal may only specify known properties, and 'ko' does not exist in type 'Record<"en" | "es" | "zh" | "fr" | "pt" | "de" | "it", string>'.
+src/components/ui/custom/prompt/input.tsx(3,26): error TS2307: Cannot find module '@/components/ui/textarea' or its corresponding type declarations.
+src/components/vibethink-sidebar.tsx(46,3): error TS2305: Module '"lucide-react"' has no exported member 'Hospital'.
+src/lib/ai/__tests__/agent-context-pack.test.ts(10,50): error TS2307: Cannot find module '@jest/globals' or its corresponding type declarations.
+src/lib/ai/provider.ts(14,15): error TS2305: Module '"ai"' has no exported member 'CoreMessage'.
+src/lib/i18n/cli/commands/review.ts(131,33): error TS2345: Argument of type '{ action: "use_existing" | "create_new" | "skip"; key?: string | undefined; namespace?: string | undefined; notes?: string | undefined; } | undefined' is not assignable to parameter of type '{ action: "use_existing" | "create_new" | "skip"; key?: string | undefined; namespace?: string | undefined; notes?: string | undefined; }'.
+  Type 'undefined' is not assignable to type '{ action: "use_existing" | "create_new" | "skip"; key?: string | undefined; namespace?: string | undefined; notes?: string | undefined; }'.
+src/lib/i18n/client.tsx(12,32): error TS2307: Cannot find module 'i18next-resources-to-backend' or its corresponding type declarations.
+src/lib/i18n/context.tsx(142,40): error TS2367: This comparison appears to be unintentional because the types '"en" | "es" | "zh" | "fr" | "pt" | "de" | "it" | "ko"' and '"he"' have no overlap.
+src/lib/i18n/context.tsx(142,59): error TS2367: This comparison appears to be unintentional because the types '"en" | "es" | "zh" | "fr" | "pt" | "de" | "it" | "ko"' and '"fa"' have no overlap.
+src/lib/i18n/context.tsx(142,78): error TS2367: This comparison appears to be unintentional because the types '"en" | "es" | "zh" | "fr" | "pt" | "de" | "it" | "ko"' and '"ur"' have no overlap.
+src/lib/i18n/context.tsx(284,45): error TS2367: This comparison appears to be unintentional because the types '"en" | "es" | "zh" | "fr" | "pt" | "de" | "it" | "ko"' and '"he"' have no overlap.
+src/lib/i18n/context.tsx(284,67): error TS2367: This comparison appears to be unintentional because the types '"en" | "es" | "zh" | "fr" | "pt" | "de" | "it" | "ko"' and '"fa"' have no overlap.
+src/lib/i18n/context.tsx(284,89): error TS2367: This comparison appears to be unintentional because the types '"en" | "es" | "zh" | "fr" | "pt" | "de" | "it" | "ko"' and '"ur"' have no overlap.
+src/lib/i18n/loader-impl.ts(30,47): error TS2345: Argument of type 'string' is not assignable to parameter of type 'Locale'.
+src/lib/i18n/server.ts(9,32): error TS2307: Cannot find module 'i18next-resources-to-backend' or its corresponding type declarations.
+src/lib/types/ai-context.ts(62,9): error TS2322: Type 'readonly [] | readonly ["gpt-3.5-turbo"] | readonly ["gpt-3.5-turbo", "gpt-4", "claude-3-opus"]' is not assignable to type 'string[]'.
+  The type 'readonly []' is 'readonly' and cannot be assigned to the mutable type 'string[]'.
+src/middleware/api-key-validator.test.ts(1,32): error TS2307: Cannot find module '../api-key-validator' or its corresponding type declarations.
+src/middleware/api-key-validator.test.ts(6,20): error TS2304: Cannot find name 'jest'.
+src/middleware/api-key-validator.test.ts(7,20): error TS2304: Cannot find name 'jest'.
+src/middleware/api-key-validator.test.ts(8,17): error TS2304: Cannot find name 'jest'.
+src/middleware/api-key-validator.test.ts(11,11): error TS2304: Cannot find name 'jest'.
+src/middleware/api-key-validator.test.ts(18,1): error TS2304: Cannot find name 'jest'.
+src/middleware/api-key-validator.test.ts(22,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.
+src/middleware/api-key-validator.test.ts(38,5): error TS2304: Cannot find name 'beforeEach'.
+src/middleware/api-key-validator.test.ts(39,9): error TS2304: Cannot find name 'jest'.
+src/middleware/api-key-validator.test.ts(42,17): error TS2304: Cannot find name 'jest'.
+src/middleware/api-key-validator.test.ts(43,21): error TS2304: Cannot find name 'jest'.
+src/middleware/api-key-validator.test.ts(50,5): error TS2582: Cannot find name 'test'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.
+src/middleware/api-key-validator.test.ts(52,9): error TS2304: Cannot find name 'expect'.
+src/middleware/api-key-validator.test.ts(53,9): error TS2304: Cannot find name 'expect'.
+src/middleware/api-key-validator.test.ts(56,5): error TS2582: Cannot find name 'test'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.
+src/middleware/api-key-validator.test.ts(58,9): error TS2304: Cannot find name 'expect'.
+src/middleware/api-key-validator.test.ts(59,9): error TS2304: Cannot find name 'expect'.
+src/middleware/api-key-validator.test.ts(62,5): error TS2582: Cannot find name 'test'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.
+src/middleware/api-key-validator.test.ts(64,17): error TS2304: Cannot find name 'jest'.
+src/middleware/api-key-validator.test.ts(65,21): error TS2304: Cannot find name 'jest'.
+src/middleware/api-key-validator.test.ts(69,9): error TS2304: Cannot find name 'expect'.
+src/middleware/api-key-validator.test.ts(70,9): error TS2304: Cannot find name 'expect'.
+src/middleware/api-key-validator.test.ts(73,5): error TS2582: Cannot find name 'test'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.
+src/middleware/api-key-validator.test.ts(76,9): error TS2304: Cannot find name 'expect'.
+src/middleware/api-key-validator.test.ts(77,9): error TS2304: Cannot find name 'expect'.
+src/middleware/api-key-validator.test.ts(80,5): error TS2582: Cannot find name 'test'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.
+src/middleware/api-key-validator.test.ts(85,9): error TS2304: Cannot find name 'expect'.
+src/middleware/api-key-validator.test.ts(86,9): error TS2304: Cannot find name 'expect'.
+src/middleware/api-key-validator.ts(115,10): error TS2339: Property 'catch' does not exist on type 'PromiseLike<void>'.
+src/shared/data/bundui-nav-items.ts(113,9): error TS2353: Object literal may only specify known properties, and 'badge' does not exist in type '{ title: string; href: string; icon?: LucideIcon | undefined; isComing?: boolean | undefined; isDataBadge?: string | undefined; isNew?: boolean | undefined; newTab?: boolean | undefined; items?: NavItem | undefined; }'.
+tailwind.config.ts(5,29): error TS2307: Cannot find module 'tailwindcss' or its corresponding type declarations.
+  There are types at 'C:/IA Marcelo Labs/vibethink-orchestrator-main/apps/dashboard/node_modules/tailwindcss/dist/lib.d.mts', but this result could not be resolved under your current 'moduleResolution' setting. Consider updating to 'node16', 'nodenext', or 'bundler'.
+../../packages/ui/src/components/calendar.tsx(63,9): error TS2353: Object literal may only specify known properties, and 'IconLeft' does not exist in type 'Partial<CustomComponents>'.
+../../packages/ui/src/components/extensions/minimal-tiptap/minimal-tiptap.tsx(5,44): error TS2614: Module '"./hooks/use-minimal-tiptap"' has no exported member 'RichTextI18nLabels'. Did you mean to use 'import RichTextI18nLabels from "./hooks/use-minimal-tiptap"' instead?
+../../packages/ui/src/components/extensions/minimal-tiptap/minimal-tiptap.tsx(71,41): error TS2322: Type '{ editor: Editor; labels: any; }' is not assignable to type 'IntrinsicAttributes & LinkBubbleMenuProps'.
+  Property 'labels' does not exist on type 'IntrinsicAttributes & LinkBubbleMenuProps'.
+../../packages/ui/src/components/extensions/reel.tsx(122,28): error TS2538: Type 'undefined' cannot be used as an index type.
+../../packages/ui/src/components/extensions/reel.tsx(127,9): error TS2322: Type 'number | undefined' is not assignable to type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+../../packages/ui/src/components/extensions/reel.tsx(129,9): error TS2322: Type 'boolean | undefined' is not assignable to type 'boolean'.
+  Type 'undefined' is not assignable to type 'boolean'.
+../../packages/ui/src/components/extensions/reel.tsx(131,9): error TS2322: Type 'boolean | undefined' is not assignable to type 'boolean'.
+  Type 'undefined' is not assignable to type 'boolean'.
+../../packages/ui/src/components/layout/notifications.tsx(136,5): error TS2353: Object literal may only specify known properties, and 'has_notification' does not exist in type 'Notification'.

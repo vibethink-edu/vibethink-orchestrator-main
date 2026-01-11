@@ -14,7 +14,7 @@ import {
   Send,
   Share2,
   UserX
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 
 import {
   DropdownMenu,

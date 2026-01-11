@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { Skeleton } from "@vibethink/ui/components/skeleton";
-import { Users, DollarSign, TrendingUp, Target } from 'lucide-react'
+import { Users, DollarSign, TrendingUp, Target } from "@vibethink/ui/icons"
 import { useCrmData } from '../hooks/useCrmData'
 
 interface CrmMetricsProps {

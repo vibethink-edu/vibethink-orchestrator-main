@@ -5,7 +5,7 @@
 
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui'
-import { PieChart } from 'lucide-react'
+import { PieChart } from "@vibethink/ui/icons"
 import { AllocationChartProps } from '../types'
 
 export const AllocationChart: React.FC<AllocationChartProps> = ({ 

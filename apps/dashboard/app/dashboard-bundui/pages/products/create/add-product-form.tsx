@@ -12,7 +12,7 @@ import {
   ImageIcon,
   UploadIcon,
   XIcon
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 import { useFileUpload } from "@/hooks/use-file-upload";
 
 import { Button } from "@vibethink/ui/components/button";

@@ -1,7 +1,7 @@
 'use client'
 
 // Charts temporarily replaced with CSS visualizations
-import { ChevronUpIcon, DollarSign, Coins, TrendingDown } from "lucide-react";
+import { ChevronUpIcon, DollarSign, Coins, TrendingDown } from "@vibethink/ui/icons";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui/components/card'
 import {
   ChartConfig,

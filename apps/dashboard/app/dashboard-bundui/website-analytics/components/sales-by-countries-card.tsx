@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { ChevronRight } from "lucide-react";
+import { ChevronRight } from "@vibethink/ui/icons";
 import Flag from "react-world-flags";
 
 import {

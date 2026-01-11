@@ -33,7 +33,7 @@ import {
   SheetDescription
 } from '@vibethink/ui/components/sheet'
 import { Button } from '@vibethink/ui/components/button'
-import { MessageSquarePlus, Settings, Sparkles, Sliders } from 'lucide-react'
+import { MessageSquarePlus, Settings, Sparkles, Sliders } from "@vibethink/ui/icons"
 import { cn } from '@/shared/lib/utils'
 
 /**

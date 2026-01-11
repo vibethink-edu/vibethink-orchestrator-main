@@ -14,7 +14,7 @@ import {
   Activity,
   BarChart3,
   Percent
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { PortfolioOverviewProps } from '../types'
 
 export const PortfolioOverview: React.FC<PortfolioOverviewProps> = ({ 

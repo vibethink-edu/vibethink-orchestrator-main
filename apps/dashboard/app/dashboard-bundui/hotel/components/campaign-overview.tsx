@@ -12,7 +12,7 @@ import {
   SelectValue
 } from "@vibethink/ui";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
-import { CalendarIcon, Download } from "lucide-react";
+import { CalendarIcon, Download } from "@vibethink/ui/icons";
 import { useTranslation } from "@/lib/i18n";
 
 const data: Record<

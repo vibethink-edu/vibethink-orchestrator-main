@@ -1,4 +1,4 @@
-import { Navigation, ArrowRight } from "lucide-react";
+import { Navigation, ArrowRight } from "@vibethink/ui/icons";
 
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";

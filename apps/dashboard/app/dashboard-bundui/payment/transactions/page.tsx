@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRightIcon, Download } from "lucide-react";
+import { ChevronRightIcon, Download } from "@vibethink/ui/icons";
 
 import { Card, CardContent } from "@vibethink/ui/components/card";
 import { Button } from "@vibethink/ui/components/button";

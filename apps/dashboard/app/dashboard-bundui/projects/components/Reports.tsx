@@ -44,7 +44,7 @@ import {
   DollarSign,
   Target,
   RefreshCw
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { useProjectData } from '../hooks/useProjectData'
 
 import { ProjectReport } from '../types'

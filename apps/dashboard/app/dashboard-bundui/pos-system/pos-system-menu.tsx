@@ -2,14 +2,14 @@
 
 import React from "react";
 import Link from "next/link";
-import { Search, FileEdit, SearchIcon } from "lucide-react";
+import { Search, FileEdit, SearchIcon } from "@vibethink/ui/icons";
 
 import {
   Product,
   ProductCategory,
   Table,
   TableCategory
-} from "@/app/dashboard/(auth)/apps/pos-system/store";
+} from "./store";
 
 import { Button } from "@vibethink/ui";
 import { Input } from "@vibethink/ui";

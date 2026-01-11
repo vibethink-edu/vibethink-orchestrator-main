@@ -7,7 +7,7 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
-import { Locale, TranslationNamespace, TranslationDictionary, I18nContextValue } from './types';
+import { Locale, TranslationNamespace, TranslationDictionary, I18nContextValue, TranslationFunction } from './types';
 import { i18nConfig, getBrowserLocale, isValidLocale } from './config';
 import { loadTranslation, preloadTranslations } from './loader';
 import { registerDashboardTranslationLoader } from './loader-impl';
@@ -50,6 +50,17 @@ export function I18nProvider({
   initialLocale,
   preloadNamespaces = ['common', 'navigation'],
 }: I18nProviderProps) {
+  // Get dashboard-specific storage key based on current path
+  const getDashboardKey = useCallback(() => {
+    if (typeof window === 'undefined') return 'default';
+    const path = window.location.pathname;
+    if (path.includes('/dashboard-admin')) return 'dashboard-admin';
+    if (path.includes('/dashboard-tenant')) return 'dashboard-tenant';
+    if (path.includes('/dashboard-bundui')) return 'dashboard-bundui';
+    if (path.includes('/dashboard-vibethink')) return 'dashboard-vibethink';
+    return 'default';
+  }, []);
+
   // Get initial locale from various sources
   const getInitialLocale = (): Locale => {
     if (initialLocale && isValidLocale(initialLocale)) {
@@ -57,15 +68,21 @@ export function I18nProvider({
     }
 
     if (typeof window !== 'undefined') {
-      // Try to get from localStorage
-      const stored = localStorage.getItem(i18nConfig.storageKey);
+      const dashboardKey = getDashboardKey();
+      const storageKey = `${i18nConfig.storageKey}_${dashboardKey}`;
+      const cookieName = `${i18nConfig.cookieName}_${dashboardKey}`;
+
+      console.log(`[i18n] 🔍 Dashboard: ${dashboardKey}, StorageKey: ${storageKey}`);
+
+      // Try to get from dashboard-specific localStorage
+      const stored = localStorage.getItem(storageKey);
       if (stored && isValidLocale(stored)) {
         return stored;
       }
 
-      // Try to get from cookie
+      // Try to get from dashboard-specific cookie
       const cookies = document.cookie.split(';');
-      const localeCookie = cookies.find((c) => c.trim().startsWith(`${i18nConfig.cookieName}=`));
+      const localeCookie = cookies.find((c) => c.trim().startsWith(`${cookieName}=`));
       if (localeCookie) {
         const locale = localeCookie.split('=')[1];
         if (isValidLocale(locale)) {
@@ -80,8 +97,23 @@ export function I18nProvider({
     return i18nConfig.defaultLocale;
   };
 
-  const [locale, setLocaleState] = useState<Locale>(getInitialLocale);
+  const [locale, setLocaleState] = useState<Locale>(initialLocale || i18nConfig.defaultLocale);
+  const [isMounted, setIsMounted] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Handle client-side initialization after mount to avoid hydration mismatch
+  useEffect(() => {
+    setIsMounted(true);
+
+    // If we didn't have an initialLocale from sever, or we want to sync with localStorage
+    if (typeof window !== 'undefined') {
+      const detected = getInitialLocale();
+      if (detected !== locale) {
+        console.log(`[i18n] 🔄 Syncing locale after mount: ${locale} -> ${detected}`);
+        setLocaleState(detected);
+      }
+    }
+  }, []);
 
   // Registrar TranslationLoader al montar
   useEffect(() => {
@@ -174,12 +206,21 @@ export function I18nProvider({
    * Soporta ICU Message Format y legacy {{param}}
    */
   const t = useCallback(
-    (key: string, params?: Record<string, string | number | boolean>): string => {
+    (key: string, paramsOrDefault?: Record<string, string | number | boolean> | string, params?: Record<string, string | number | boolean>): string => {
+      // Determine if the second argument is a default value or params
+      const defaultValue = typeof paramsOrDefault === 'string' ? paramsOrDefault : undefined;
+      const actualParams = typeof paramsOrDefault === 'object' ? paramsOrDefault : params;
+
+      // Hydration safety: return key if not mounted on client to match server output
+      if (typeof window !== 'undefined' && !isMounted) {
+        return defaultValue || key;
+      }
+
       // Parse key to get namespace and path
       const parsed = parseTranslationKey(key);
       if (!parsed) {
         console.warn(`[i18n] Invalid translation key format: ${key}`);
-        return key;
+        return defaultValue || key;
       }
 
       const { namespace, key: translationKey } = parsed;
@@ -197,7 +238,7 @@ export function I18nProvider({
         loadNamespace(namespace).catch((error) => {
           console.error(`[i18n] Failed to load namespace '${namespace}':`, error);
         });
-        return key;
+        return defaultValue || key;
       }
 
       // Get nested value
@@ -205,6 +246,7 @@ export function I18nProvider({
 
       // ✅ FALLBACK TO ENGLISH if translation not found
       if (!translation && locale !== 'en') {
+
         console.warn(`[i18n] Translation not found for '${key}' in '${locale}', falling back to English`);
 
         // Try to get English translation
@@ -233,14 +275,14 @@ export function I18nProvider({
       // If still no translation found, return key
       if (!translation) {
         console.warn(`[i18n] Translation not found even in English: ${key}`);
-        return key;
+        return defaultValue || key;
       }
 
       // Replace parameters (con soporte ICU + legacy)
       // Detectar si es ICU y usar formatMessage directamente
       if (isICUMessage(translation)) {
         try {
-          const result = formatMessage(locale, translation, params);
+          const result = formatMessage(locale, translation, actualParams);
           return result;
         } catch (error) {
           console.error(`[i18n] ICU format error for key '${key}':`, error);
@@ -249,11 +291,11 @@ export function I18nProvider({
       }
 
       // Usar replaceParams (soporta legacy {{param}} y ICU básico)
-      const result = replaceParams(translation, params, locale);
+      const result = replaceParams(translation, actualParams, locale);
       if (result === key || (result.includes('{{') && params)) {
         console.warn(`[i18n] Parameters not replaced in: ${key}`);
         console.warn(`[i18n]   Translation: ${translation}`);
-        console.warn(`[i18n]   Params:`, params);
+        console.warn(`[i18n]   Params:`, actualParams);
         console.warn(`[i18n]   Result: ${result}`);
       }
       return result;
@@ -275,20 +317,24 @@ export function I18nProvider({
 
       // Persist to localStorage
       if (typeof window !== 'undefined') {
-        localStorage.setItem(i18nConfig.storageKey, newLocale);
+        const dashboardKey = getDashboardKey();
+        const storageKey = `${i18nConfig.storageKey}_${dashboardKey}`;
+        const cookieName = `${i18nConfig.cookieName}_${dashboardKey}`;
+
+        localStorage.setItem(storageKey, newLocale);
 
         // Set cookie for SSR
-        document.cookie = `${i18nConfig.cookieName}=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
+        document.cookie = `${cookieName}=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
 
         // Update HTML dir attribute for RTL support
         const isRTL = newLocale === 'ar' || newLocale === 'he' || newLocale === 'fa' || newLocale === 'ur';
         document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
         document.documentElement.setAttribute('lang', newLocale);
 
-        console.log(`[i18n] ✅ Locale changed to '${newLocale}' (dir: ${isRTL ? 'rtl' : 'ltr'})`);
+        console.log(`[i18n] ✅ Locale changed to '${newLocale}' for dashboard '${dashboardKey}' (dir: ${isRTL ? 'rtl' : 'ltr'})`);
       }
     },
-    []
+    [getDashboardKey]
   );
 
   /**
@@ -341,6 +387,14 @@ export function I18nProvider({
     [locale]
   );
 
+  const supportedLocales = React.useMemo(() => {
+    const dashboardKey = getDashboardKey();
+    if (dashboardKey === 'dashboard-admin') {
+      return i18nConfig.locales.filter(l => l === 'en' || l === 'es');
+    }
+    return i18nConfig.locales;
+  }, [getDashboardKey]);
+
   const value: I18nContextValue = {
     locale,
     setLocale,
@@ -350,6 +404,7 @@ export function I18nProvider({
     formatCurrency,
     formatNumber,
     formatPercentage,
+    supportedLocales,
   };
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
@@ -373,12 +428,12 @@ export function useI18n(): I18nContextValue {
  * 
  * Convenience hook for translations with namespace
  */
-export function useTranslation(namespace: TranslationNamespace) {
+export function useTranslation(namespace: TranslationNamespace = 'common') {
   const { t, locale, ...rest } = useI18n();
 
-  const translate = useCallback(
-    (key: string, params?: Record<string, string | number | boolean>) => {
-      return t(`${namespace}.${key}`, params);
+  const translate: TranslationFunction = useCallback(
+    (key: string, paramsOrDefault?: Record<string, string | number | boolean> | string, params?: Record<string, string | number | boolean>): any => {
+      return t(`${namespace}.${key}`, paramsOrDefault as any, params);
     },
     [t, namespace]
   );

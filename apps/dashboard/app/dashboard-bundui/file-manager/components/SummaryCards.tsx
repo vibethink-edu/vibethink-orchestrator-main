@@ -19,7 +19,7 @@ import {
   Share,
   TrendingUp,
   Users
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import type { SummaryCardsProps } from '../types'
 
 export function SummaryCards({ metrics, loading }: SummaryCardsProps) {

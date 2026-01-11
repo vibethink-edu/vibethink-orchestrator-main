@@ -3,7 +3,7 @@ import { Badge } from "@vibethink/ui/components/badge";
 import { Progress } from "@vibethink/ui/components/progress";
 import { Button } from "@vibethink/ui/components/button";
 import { Skeleton } from "@vibethink/ui/components/skeleton";
-import { MoreHorizontal, Calendar } from 'lucide-react'
+import { MoreHorizontal, Calendar } from "@vibethink/ui/icons"
 import { useCrmData } from '../hooks/useCrmData'
 import { useCrmFilters } from '../hooks/useCrmFilters'
 import { Deal, DEAL_STAGES } from '../types'

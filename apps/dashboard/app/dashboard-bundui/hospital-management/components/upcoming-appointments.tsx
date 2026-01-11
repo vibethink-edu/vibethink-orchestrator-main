@@ -1,4 +1,4 @@
-import { ChevronRight, MoreVerticalIcon } from "lucide-react";
+import { ChevronRight, MoreVerticalIcon } from "@vibethink/ui/icons";
 
 import { Button } from "@vibethink/ui/components/button";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";

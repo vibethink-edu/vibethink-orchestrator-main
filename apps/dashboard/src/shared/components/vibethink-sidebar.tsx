@@ -23,7 +23,7 @@ import {
 } from '@vibethink/ui';
 import { Logo } from "@vibethink/ui";
 import { ScrollArea } from '@vibethink/ui';
-import { NavUser } from "../../bundui-premium/components/layout/sidebar-bundui/nav-user";
+import { NavUser } from "./bundui-premium/components/layout/sidebar-bundui/nav-user";
 import {
   Users,
   TrendingUp,
@@ -44,7 +44,7 @@ import {
   Bitcoin,
   Hospital,
   type LucideIcon,
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 
 type NavItem = {
   title: string;

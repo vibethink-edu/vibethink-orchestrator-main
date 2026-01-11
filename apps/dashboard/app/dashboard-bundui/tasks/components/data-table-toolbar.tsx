@@ -1,7 +1,8 @@
 "use client";
 
 import { Table } from "@tanstack/react-table";
-import { X } from "lucide-react";
+import { X } from "@vibethink/ui/icons";
+import { useTranslation } from "@/lib/i18n";
 
 import { Button } from "@vibethink/ui";
 import { Input } from "@vibethink/ui";

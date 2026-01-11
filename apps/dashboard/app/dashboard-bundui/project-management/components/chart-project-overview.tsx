@@ -28,7 +28,7 @@ import {
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const generateChartData = () => {
-  const data = [];
+  const data: { date: string; desktop: number; mobile: number }[] = [];
   const today = new Date();
 
   for (let i = 89; i >= 0; i--) {

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { generateMeta } from "@/lib/utils";
-import { AlertCircleIcon } from "lucide-react";
+import { AlertCircleIcon } from "@vibethink/ui/icons";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";
 
 export async function generateMetadata(): Promise<Metadata> {

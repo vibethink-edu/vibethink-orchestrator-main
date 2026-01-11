@@ -1,4 +1,4 @@
-import { ChevronRight, GitBranch } from "lucide-react";
+import { ChevronRight, GitBranch } from "@vibethink/ui/icons";
 import Link from "next/link";
 
 import { Button } from "@vibethink/ui/components/button";

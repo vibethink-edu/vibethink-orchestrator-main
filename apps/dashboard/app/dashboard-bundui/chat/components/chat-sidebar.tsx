@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Search } from "lucide-react";
+import { Search } from "@vibethink/ui/icons";
 import useChatStore from "../useChatStore";
 import { ChatItemProps } from "../types";
 

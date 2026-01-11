@@ -1,6 +1,6 @@
 "use client";
 
-import { StarIcon } from "lucide-react";
+import { StarIcon } from "@vibethink/ui/icons";
 import { cn } from "@/lib/utils";
 
 interface StarRatingProps {

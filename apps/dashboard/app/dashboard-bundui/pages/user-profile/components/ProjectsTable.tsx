@@ -7,7 +7,7 @@ import {
   ShipWheelIcon,
   TreePalmIcon,
   UnlinkIcon
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 import { Button } from "@vibethink/ui/components/button";
 import { Progress } from "@vibethink/ui/components/progress";
 import { Card, CardAction, CardContent, CardFooter, CardHeader, CardTitle } from "@vibethink/ui/components/card";

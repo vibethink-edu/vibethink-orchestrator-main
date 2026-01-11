@@ -1,6 +1,6 @@
 'use client'
 
-import { TrendingUp, TrendingDown, Eye, Users, Clock, MousePointer } from 'lucide-react'
+import { TrendingUp, TrendingDown, Eye, Users, Clock, MousePointer } from "@vibethink/ui/icons"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui/components/card'
 import { Badge } from '@vibethink/ui/components/badge'
 import { Skeleton } from '@vibethink/ui/components/skeleton'

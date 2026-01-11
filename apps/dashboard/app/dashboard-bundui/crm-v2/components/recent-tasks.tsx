@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { cn } from "@/shared/lib/utils";
-import { PlusCircle } from "lucide-react";
+import { PlusCircle } from "@vibethink/ui/icons";
 
 import { Button } from "@vibethink/ui/components/button";
 import {

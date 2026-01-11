@@ -3,7 +3,7 @@
 import { Button, buttonVariants } from "@vibethink/ui";
 import { cn } from "@vibethink/utils";
 import { differenceInCalendarDays } from "date-fns";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "@vibethink/ui/icons";
 import * as React from "react";
 import {
   DayPicker,

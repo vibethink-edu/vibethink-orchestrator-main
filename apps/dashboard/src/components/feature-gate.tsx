@@ -46,7 +46,11 @@ export const FeatureGate = ({
 
     if (mode === 'disable') {
         // Clone element and add disabled prop
-        return React.cloneElement(children, { disabled: true, className: `${children.props.className} opacity-50 cursor-not-allowed` });
+        const child = children as React.ReactElement<any>;
+        return React.cloneElement(child, {
+            disabled: true,
+            className: `${child.props.className || ''} opacity-50 cursor-not-allowed`
+        });
     }
 
     if (mode === 'lock') {

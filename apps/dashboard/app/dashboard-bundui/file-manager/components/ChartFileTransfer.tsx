@@ -18,7 +18,7 @@ import {
   TrendingUp,
   TrendingDown,
   Zap
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import {
   AreaChart,
   Area,

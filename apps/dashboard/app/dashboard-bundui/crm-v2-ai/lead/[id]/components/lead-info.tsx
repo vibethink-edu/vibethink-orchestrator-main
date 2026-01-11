@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { Badge } from "@vibethink/ui/components/badge";
-import { Mail, Phone, Building2, MapPin, DollarSign, Calendar } from "lucide-react";
+import { Mail, Phone, Building2, MapPin, DollarSign, Calendar } from "@vibethink/ui/icons";
 
 /**
  * LeadInfo Component

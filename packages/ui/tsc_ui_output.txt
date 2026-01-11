@@ -1,0 +1,42 @@
+../../node_modules/.pnpm/@dnd-kit+core@6.3.1_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/@dnd-kit/core/dist/components/Accessibility/Accessibility.d.ts(9,129): error TS2503: Cannot find namespace 'JSX'.
+../../node_modules/.pnpm/@dnd-kit+core@6.3.1_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/@dnd-kit/core/dist/components/DragOverlay/components/AnimationManager/AnimationManager.d.ts(8,75): error TS2503: Cannot find namespace 'JSX'.
+../../node_modules/.pnpm/@dnd-kit+core@6.3.1_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/@dnd-kit/core/dist/components/DragOverlay/components/NullifiedContextProvider/NullifiedContextProvider.d.ts(5,72): error TS2503: Cannot find namespace 'JSX'.
+../../node_modules/.pnpm/@dnd-kit+core@6.3.1_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/@dnd-kit/core/dist/components/DragOverlay/components/PositionedOverlay/PositionedOverlay.d.ts(6,15): error TS2503: Cannot find namespace 'JSX'.
+../../node_modules/.pnpm/@dnd-kit+core@6.3.1_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/@dnd-kit/core/dist/components/DragOverlay/DragOverlay.d.ts(8,28): error TS2503: Cannot find namespace 'JSX'.
+../../node_modules/.pnpm/@dnd-kit+core@6.3.1_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/@dnd-kit/core/dist/components/DragOverlay/DragOverlay.d.ts(11,201): error TS2503: Cannot find namespace 'JSX'.
+../../node_modules/.pnpm/@dnd-kit+sortable@10.0.0_@dnd-kit+core@6.3.1_react-dom@19.0.0_react@19.0.0__react@19.0.0__react@19.0.0/node_modules/@dnd-kit/sortable/dist/components/SortableContext.d.ts(25,127): error TS2503: Cannot find namespace 'JSX'.
+../../node_modules/.pnpm/@radix-ui+react-context@1.0.1_@types+react@19.1.8_react@19.0.0/node_modules/@radix-ui/react-context/dist/index.d.ts(5,9): error TS2503: Cannot find namespace 'JSX'.
+../../node_modules/.pnpm/@radix-ui+react-context@1.0.1_@types+react@19.1.8_react@19.0.0/node_modules/@radix-ui/react-context/dist/index.d.ts(22,9): error TS2503: Cannot find namespace 'JSX'.
+../../node_modules/.pnpm/@radix-ui+react-dialog@1.0.5_@types+react-dom@19.1.6_@types+react@19.1.8__@types+react@19.1.8_wdxbb45gq7tcgblw4f7hcqnice/node_modules/@radix-ui/react-dialog/dist/index.d.ts(93,9): error TS2503: Cannot find namespace 'JSX'.
+../../node_modules/.pnpm/@types+mdx@2.0.13/node_modules/@types/mdx/types.d.ts(23,38): error TS2503: Cannot find namespace 'JSX'.
+../../node_modules/.pnpm/@types+mdx@2.0.13/node_modules/@types/mdx/types.d.ts(28,23): error TS2503: Cannot find namespace 'JSX'.
+../../node_modules/.pnpm/@types+mdx@2.0.13/node_modules/@types/mdx/types.d.ts(47,28): error TS2503: Cannot find namespace 'JSX'.
+../../node_modules/.pnpm/@types+mdx@2.0.13/node_modules/@types/mdx/types.d.ts(73,46): error TS2503: Cannot find namespace 'JSX'.
+../../node_modules/.pnpm/recharts@2.15.4_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/recharts/types/chart/generateCategoricalChart.d.ts(2,36): error TS7016: Could not find a declaration file for module 'lodash'. 'C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/lodash` if it exists or add a new declaration (.d.ts) file containing `declare module 'lodash';`
+../../node_modules/.pnpm/shiki@3.7.0/node_modules/shiki/dist/types.d.mts(2,15): error TS2307: Cannot find module '@shikijs/core/types' or its corresponding type declarations.
+  There are types at 'C:/IA Marcelo Labs/vibethink-orchestrator-main/node_modules/.pnpm/shiki@3.7.0/node_modules/@shikijs/core/dist/types.d.mts', but this result could not be resolved under your current 'moduleResolution' setting. Consider updating to 'node16', 'nodenext', or 'bundler'.
+src/components/calendar.tsx(63,9): error TS2353: Object literal may only specify known properties, and 'IconLeft' does not exist in type 'Partial<CustomComponents>'.
+src/components/extensions/minimal-tiptap/minimal-tiptap.tsx(5,44): error TS2614: Module '"./hooks/use-minimal-tiptap"' has no exported member 'RichTextI18nLabels'. Did you mean to use 'import RichTextI18nLabels from "./hooks/use-minimal-tiptap"' instead?
+src/components/extensions/minimal-tiptap/minimal-tiptap.tsx(71,41): error TS2322: Type '{ editor: Editor; labels: any; }' is not assignable to type 'IntrinsicAttributes & LinkBubbleMenuProps'.
+  Property 'labels' does not exist on type 'IntrinsicAttributes & LinkBubbleMenuProps'.
+src/components/extensions/reel.tsx(122,28): error TS2538: Type 'undefined' cannot be used as an index type.
+src/components/extensions/reel.tsx(127,9): error TS2322: Type 'number | undefined' is not assignable to type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+src/components/extensions/reel.tsx(129,9): error TS2322: Type 'boolean | undefined' is not assignable to type 'boolean'.
+  Type 'undefined' is not assignable to type 'boolean'.
+src/components/extensions/reel.tsx(131,9): error TS2322: Type 'boolean | undefined' is not assignable to type 'boolean'.
+  Type 'undefined' is not assignable to type 'boolean'.
+src/components/layout/notifications.tsx(136,5): error TS2353: Object literal may only specify known properties, and 'has_notification' does not exist in type 'Notification'.
+src/icons.tsx(108,5): error TS2395: Individual declarations in merged declaration 'HandCoins' must be all exported or all local.
+src/icons.tsx(108,5): error TS2440: Import declaration conflicts with local declaration of 'HandCoins'.
+src/icons.tsx(394,5): error TS2323: Cannot redeclare exported variable 'HandCoins'.
+src/icons.tsx(394,5): error TS2451: Cannot redeclare block-scoped variable 'HandCoins'.
+src/icons.tsx(394,5): error TS2484: Export declaration conflicts with exported declaration of 'HandCoins'.
+src/icons.tsx(638,14): error TS7022: 'HandCoinsIcon' implicitly has type 'any' because it does not have a type annotation and is referenced directly or indirectly in its own initializer.
+src/icons.tsx(638,30): error TS2448: Block-scoped variable 'HandCoins' used before its declaration.
+src/icons.tsx(738,14): error TS2323: Cannot redeclare exported variable 'HandCoins'.
+src/icons.tsx(738,14): error TS2395: Individual declarations in merged declaration 'HandCoins' must be all exported or all local.
+src/icons.tsx(738,14): error TS2451: Cannot redeclare block-scoped variable 'HandCoins'.
+src/icons.tsx(738,14): error TS7022: 'HandCoins' implicitly has type 'any' because it does not have a type annotation and is referenced directly or indirectly in its own initializer.
+src/icons.tsx(742,10): error TS2451: Cannot redeclare block-scoped variable 'HandCoins'.

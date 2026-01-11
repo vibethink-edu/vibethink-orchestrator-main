@@ -1,6 +1,6 @@
 "use client";
 
-import { Users } from "lucide-react";
+import { Users } from "@vibethink/ui/icons";
 import { Card, CardAction, CardDescription, CardHeader } from "@vibethink/ui/components/card";
 import { useTranslation } from "@/lib/i18n";
 

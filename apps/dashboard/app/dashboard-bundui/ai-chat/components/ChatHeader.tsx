@@ -35,7 +35,7 @@ import {
   Clock,
   Zap,
   User
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { cn } from '@/shared/lib/utils'
 import { ChatHeaderProps, AIProviderType } from '../types'
 import { formatDistanceToNow } from 'date-fns'

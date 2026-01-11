@@ -44,7 +44,7 @@ import {
   AlertCircle,
   Shield,
   Zap
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 
 // Trading form validation schema
 const tradingSchema = z.object({

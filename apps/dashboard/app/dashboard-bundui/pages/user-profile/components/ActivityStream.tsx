@@ -1,4 +1,4 @@
-import { Clock12Icon, FileText, MoreHorizontal } from "lucide-react";
+import { Clock12Icon, FileText, MoreHorizontal } from "@vibethink/ui/icons";
 import { Badge } from "@vibethink/ui/components/badge";
 import { Button } from "@vibethink/ui/components/button";
 import { Card, CardAction, CardContent, CardFooter, CardHeader, CardTitle } from "@vibethink/ui/components/card";

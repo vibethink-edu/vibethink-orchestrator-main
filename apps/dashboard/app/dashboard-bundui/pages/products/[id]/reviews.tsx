@@ -1,4 +1,4 @@
-import { StarIcon } from "lucide-react";
+import { StarIcon } from "@vibethink/ui/icons";
 import { Button } from "@vibethink/ui/components/button";
 import { Badge } from "@vibethink/ui/components/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";

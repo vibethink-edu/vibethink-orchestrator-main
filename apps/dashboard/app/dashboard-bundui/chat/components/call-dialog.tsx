@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Phone, PhoneMissedIcon, X } from "lucide-react";
+import { Phone, PhoneMissedIcon, X } from "@vibethink/ui/icons";
 
 import {
   Dialog,

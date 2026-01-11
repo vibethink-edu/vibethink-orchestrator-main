@@ -4,7 +4,7 @@
 
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle, Badge } from '@vibethink/ui'
-import { ExternalLink, Clock } from 'lucide-react'
+import { ExternalLink, Clock } from "@vibethink/ui/icons"
 import { NewsWidgetProps } from '../types'
 
 export const NewsWidget: React.FC<NewsWidgetProps> = ({ news, loading, maxItems = 5 }) => {

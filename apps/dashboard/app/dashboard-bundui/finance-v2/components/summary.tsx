@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Label, Pie, PieChart } from "recharts";
-import { ChevronRightIcon } from "lucide-react";
+import { ChevronRightIcon } from "@vibethink/ui/icons";
 
 import {
   Card,

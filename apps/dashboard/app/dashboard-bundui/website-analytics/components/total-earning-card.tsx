@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Bar, BarChart, XAxis } from "recharts";
-import { ChevronUpIcon, DollarSignIcon, HandCoinsIcon } from "lucide-react";
+import { ChevronUpIcon, DollarSignIcon, HandCoinsIcon } from "@vibethink/ui/icons";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 import { Card, CardAction, CardContent, CardDescription, CardHeader } from "@/components/ui/card";

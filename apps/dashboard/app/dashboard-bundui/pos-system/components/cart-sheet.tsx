@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ShoppingBasketIcon, Utensils } from "lucide-react";
+import { ShoppingBasketIcon, Utensils } from "@vibethink/ui/icons";
 
 import { useStore } from "../store";
 

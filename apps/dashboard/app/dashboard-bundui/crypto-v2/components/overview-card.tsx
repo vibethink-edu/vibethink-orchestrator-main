@@ -1,4 +1,4 @@
-import { ArrowUpRight, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronRight } from "@vibethink/ui/icons";
 
 import { Button } from "@vibethink/ui/components/button";
 import { Card, CardContent, CardHeader } from "@vibethink/ui/components/card";

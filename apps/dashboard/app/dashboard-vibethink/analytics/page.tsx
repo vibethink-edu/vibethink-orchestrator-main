@@ -1,5 +1,5 @@
 'use client'
-import { 
+import {
   AnalyticsHeader,
   WebsiteAnalyticsCard,
   TotalEarningCard,
@@ -41,7 +41,7 @@ import { format } from 'date-fns'
  */
 export default function WebsiteAnalyticsPage() {
   const { filters } = useAnalyticsFilters()
-  
+
   // Following bundui-reference pattern: no global Redux state
   const isLoading = false
   const error = null
@@ -60,104 +60,104 @@ export default function WebsiteAnalyticsPage() {
 
   return (
     <div className="space-y-6">
-        {/* Analytics Header with Date Filters and Export Controls */}
-        <AnalyticsHeader
-          title="Website Analytics"
-          onRefresh={handleRefresh}
-          onExport={handleExport}
-          isLoading={isLoading}
-          error={error}
-        />
+      {/* Analytics Header with Date Filters and Export Controls */}
+      <AnalyticsHeader
+        title="Website Analytics"
+        onRefresh={handleRefresh}
+        onExport={handleExport}
+        isLoading={isLoading}
+        error={error}
+      />
 
-        {/* Main Analytics Grid */}
-        <div className="grid gap-6">
-          {/* Top Row: Primary Metrics Overview */}
-          <div className="grid gap-6 lg:grid-cols-3">
-            {/* Website Traffic and Conversion Metrics */}
-            <WebsiteAnalyticsCard 
-              className="lg:col-span-1"
-              isLoading={isLoading}
-              error={error}
-            />
-            
-            {/* Daily Sales Trends and Patterns */}
-            <AverageDailySalesCard 
-              className="lg:col-span-1"
-              isLoading={isLoading}
-              error={error}
-            />
-            
-            {/* Sales Performance vs Targets */}
-            <SalesOverflowCard 
-              className="lg:col-span-1"
-              isLoading={isLoading}
-              error={error}
-            />
-          </div>
+      {/* Main Analytics Grid */}
+      <div className="grid gap-6">
+        {/* Top Row: Primary Metrics Overview */}
+        <div className="grid gap-6 lg:grid-cols-3">
+          {/* Website Traffic and Conversion Metrics */}
+          <WebsiteAnalyticsCard
+            className="lg:col-span-1"
+            isLoading={isLoading}
+            error={error}
+          />
 
-          {/* Middle Row: Detailed Analytics and Reports */}
-          <div className="grid gap-6 lg:grid-cols-12">
-            {/* Comprehensive Earning Reports with Charts */}
-            <EarningReportsCard 
-              className="lg:col-span-8"
-              isLoading={isLoading}
-              error={error}
-            />
-            
-            {/* Support Tickets and Customer Service Metrics */}
-            <TicketsCard 
-              className="lg:col-span-4"
-              isLoading={isLoading}
-              error={error}
-            />
-          </div>
+          {/* Daily Sales Trends and Patterns */}
+          <AverageDailySalesCard
+            className="lg:col-span-1"
+            isLoading={isLoading}
+            error={error as any}
+          />
 
-          {/* Bottom Row: Geographic and Campaign Analysis */}
-          <div className="grid gap-6 lg:grid-cols-3">
-            {/* Geographic Sales Distribution */}
-            <SalesByCountriesCard 
-              className="lg:col-span-1"
-              isLoading={isLoading}
-              error={error}
-            />
-            
-            {/* Total Earnings with Revenue Breakdown */}
-            <TotalEarningCard 
-              className="lg:col-span-1"
-              isLoading={isLoading}
-              error={error}
-            />
-            
-            {/* Campaign Performance and ROI Analysis */}
-            <MonthlyCampaignState 
-              className="lg:col-span-1"
-              isLoading={isLoading}
-              error={error}
-            />
-          </div>
+          {/* Sales Performance vs Targets */}
+          <SalesOverflowCard
+            className="lg:col-span-1"
+            isLoading={isLoading}
+            error={error as any}
+          />
         </div>
 
-        {/* Debug Information (Development Only) */}
-        {process.env.NODE_ENV === 'development' && (
-          <div className="mt-8 rounded-lg border border-dashed border-muted p-4">
-            <h3 className="text-sm font-medium text-muted-foreground mb-2">
-              Debug Information (Development Only)
-            </h3>
-            <div className="grid grid-cols-2 gap-4 text-xs text-muted-foreground">
-              <div>
-                <div>Loading State: {isLoading ? 'Loading...' : 'Ready'}</div>
-                <div>Error State: {error ? error.message : 'None'}</div>
-                <div>Filters Applied: {Object.keys(filters).length}</div>
-              </div>
-              <div>
-                <div>Date Range: {filters.dateRange?.from ? format(filters.dateRange.from, "dd MMM yyyy") : 'None'} - {filters.dateRange?.to ? format(filters.dateRange.to, "dd MMM yyyy") : 'None'}</div>
-                <div>Country Filter: {filters.country || 'All Countries'}</div>
-                <div>Campaign Filter: {filters.campaign || 'All Campaigns'}</div>
-              </div>
+        {/* Middle Row: Detailed Analytics and Reports */}
+        <div className="grid gap-6 lg:grid-cols-12">
+          {/* Comprehensive Earning Reports with Charts */}
+          <EarningReportsCard
+            className="lg:col-span-8"
+            isLoading={isLoading}
+            error={error}
+          />
+
+          {/* Support Tickets and Customer Service Metrics */}
+          <TicketsCard
+            className="lg:col-span-4"
+            isLoading={isLoading}
+            error={error}
+          />
+        </div>
+
+        {/* Bottom Row: Geographic and Campaign Analysis */}
+        <div className="grid gap-6 lg:grid-cols-3">
+          {/* Geographic Sales Distribution */}
+          <SalesByCountriesCard
+            className="lg:col-span-1"
+            isLoading={isLoading}
+            error={error}
+          />
+
+          {/* Total Earnings with Revenue Breakdown */}
+          <TotalEarningCard
+            className="lg:col-span-1"
+            isLoading={isLoading}
+            error={error}
+          />
+
+          {/* Campaign Performance and ROI Analysis */}
+          <MonthlyCampaignState
+            className="lg:col-span-1"
+            isLoading={isLoading}
+            error={error}
+          />
+        </div>
+      </div>
+
+      {/* Debug Information (Development Only) */}
+      {process.env.NODE_ENV === 'development' && (
+        <div className="mt-8 rounded-lg border border-dashed border-muted p-4">
+          <h3 className="text-sm font-medium text-muted-foreground mb-2">
+            Debug Information (Development Only)
+          </h3>
+          <div className="grid grid-cols-2 gap-4 text-xs text-muted-foreground">
+            <div>
+              <div>Loading State: {isLoading ? 'Loading...' : 'Ready'}</div>
+              <div>Error State: {error ? (error as any).message : 'None'}</div>
+              <div>Filters Applied: {Object.keys(filters).length}</div>
+            </div>
+            <div>
+              <div>Date Range: {filters.dateRange?.from ? format(filters.dateRange.from, "dd MMM yyyy") : 'None'} - {filters.dateRange?.to ? format(filters.dateRange.to, "dd MMM yyyy") : 'None'}</div>
+              <div>Country Filter: {filters.country || 'All Countries'}</div>
+              <div>Campaign Filter: {filters.campaign || 'All Campaigns'}</div>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
+    </div>
   )
 }
 

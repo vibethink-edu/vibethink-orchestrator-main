@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Utensils } from "lucide-react";
+import { Utensils } from "@vibethink/ui/icons";
 
 import { useStore } from "../store";
 

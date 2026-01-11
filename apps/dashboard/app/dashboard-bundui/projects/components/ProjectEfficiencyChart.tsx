@@ -42,7 +42,7 @@ import {
   Zap,
   Clock,
   Target
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { useProjectData } from '../hooks/useProjectData'
 
 import { ProjectEfficiencyChartData } from '../types'

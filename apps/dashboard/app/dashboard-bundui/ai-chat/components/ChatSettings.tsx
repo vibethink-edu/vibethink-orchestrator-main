@@ -48,7 +48,7 @@ import {
   Save,
   RotateCcw,
   Info
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { cn } from '@/shared/lib/utils'
 import { ChatSettingsProps, ChatSettings as ChatSettingsType, AIProviderType } from '../types'
 import { ModelSelector } from './ModelSelector'

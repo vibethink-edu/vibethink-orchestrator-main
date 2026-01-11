@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Settings } from "lucide-react";
+import { Settings } from "@vibethink/ui/icons";
 import { CompleteYourProfileCard } from "./complete-your-profile";
 import { generateMeta } from "@/shared/lib/utils";
 import { Metadata } from "next";

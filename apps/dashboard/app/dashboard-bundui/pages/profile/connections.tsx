@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight } from "@vibethink/ui/icons";
 import { generateAvatarFallback } from "@/shared/lib/utils";
 
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";

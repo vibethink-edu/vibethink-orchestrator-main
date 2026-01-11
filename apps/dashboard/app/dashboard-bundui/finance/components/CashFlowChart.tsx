@@ -16,7 +16,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@vibethink/ui'
 import { useState } from 'react'
 import { CashFlowChartProps, CashFlowData } from '../types'
-import { TrendingUp, TrendingDown, Activity, BarChart3, LineChart as LineChartIcon, Wallet } from 'lucide-react'
+import { TrendingUp, TrendingDown, Activity, BarChart3, LineChart as LineChartIcon, Wallet } from "@vibethink/ui/icons"
 
 /**
  * CashFlowChart Component

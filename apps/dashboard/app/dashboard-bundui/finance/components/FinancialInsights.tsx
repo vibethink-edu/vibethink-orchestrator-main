@@ -13,7 +13,7 @@ import {
   X,
   RefreshCw,
   Info
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { useState } from 'react'
 
 /**

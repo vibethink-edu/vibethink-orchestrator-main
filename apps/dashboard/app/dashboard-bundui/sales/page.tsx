@@ -9,7 +9,7 @@ import {
   RevenueChart
 } from "./components";
 import { Button } from "@vibethink/ui/components/button";
-import { Download } from "lucide-react";
+import { Download } from "@vibethink/ui/icons";
 
 /**
  * Sales Dashboard Page

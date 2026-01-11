@@ -1,4 +1,4 @@
-import { Award, Briefcase, DollarSign, FileClock } from "lucide-react";
+import { Award, Briefcase, DollarSign, FileClock } from "@vibethink/ui/icons";
 import { useTranslation } from "@/lib/i18n";
 
 import {

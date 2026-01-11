@@ -12,7 +12,7 @@ import { Button } from "@vibethink/ui/components/button";
 import { Label } from "@vibethink/ui/components/label";
 import { Input } from "@vibethink/ui/components/input";
 import { Textarea } from "@vibethink/ui/components/textarea";
-import { CirclePlusIcon } from "lucide-react";
+import { CirclePlusIcon } from "@vibethink/ui/icons";
 import { StarRating } from "./star-rating";
 import React from "react";
 

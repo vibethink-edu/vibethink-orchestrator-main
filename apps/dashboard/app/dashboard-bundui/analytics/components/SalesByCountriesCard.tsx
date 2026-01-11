@@ -1,7 +1,7 @@
 'use client'
 
 import { Pie, PieChart, ResponsiveContainer, Cell } from 'recharts'
-import { Globe, TrendingUp, TrendingDown, MapPin } from 'lucide-react'
+import { Globe, TrendingUp, TrendingDown, MapPin } from "@vibethink/ui/icons"
 import {
   Card,
   CardContent,

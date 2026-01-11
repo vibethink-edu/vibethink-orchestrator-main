@@ -1,4 +1,4 @@
-import { Check, CheckCheck, CircleCheck } from "lucide-react";
+import { Check, CheckCheck, CircleCheck } from "@vibethink/ui/icons";
 import { MediaListItemType } from "../types";
 
 export function MediaListItem({ type }: MediaListItemType) {

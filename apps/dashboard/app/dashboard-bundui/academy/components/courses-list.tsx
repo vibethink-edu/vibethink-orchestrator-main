@@ -14,7 +14,7 @@ import {
   getSortedRowModel,
   useReactTable
 } from "@tanstack/react-table";
-import { ChevronLeft, ChevronRight, MoreHorizontalIcon, StarIcon } from "lucide-react";
+import { ChevronLeft, ChevronRight, MoreHorizontalIcon, StarIcon } from "@vibethink/ui/icons";
 
 import { Button } from "@vibethink/ui/components/button";
 import {

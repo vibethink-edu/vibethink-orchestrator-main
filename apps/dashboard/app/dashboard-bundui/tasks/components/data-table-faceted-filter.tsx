@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Column } from "@tanstack/react-table";
-import { Check, PlusCircle } from "lucide-react";
+import { Check, PlusCircle } from "@vibethink/ui/icons";
 
 import { cn } from "@/shared/lib/utils";
 import { Badge } from "@vibethink/ui";

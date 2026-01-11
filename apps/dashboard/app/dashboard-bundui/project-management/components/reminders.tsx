@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { ArrowRight, CircleCheck, PlusCircleIcon } from "lucide-react";
+import { ArrowRight, CircleCheck, PlusCircleIcon } from "@vibethink/ui/icons";
 import { AddReminderDialog } from "./add-reminder-dialog";
 
 type Reminder = {

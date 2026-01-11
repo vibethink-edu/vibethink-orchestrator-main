@@ -20,7 +20,7 @@ import {
   MoreHorizontal,
   PlusCircle,
   Star
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 import Image from "next/image";
 
 import {

@@ -32,7 +32,7 @@ import {
   AlignLeft,
   AlignCenter,
   List
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { ComposeEmailData, EmailPriority } from '../types'
 import { cn } from '@/shared/lib/utils'
 

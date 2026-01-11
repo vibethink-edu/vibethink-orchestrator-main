@@ -27,7 +27,12 @@ export const SUPPORTED_LOCALES = [
   'pt', // 🇵🇹 Português
   'de', // 🇩🇪 Deutsch
   'it', // 🇮🇹 Italiano
-  'zh', // 🇨🇳 中文 (Chinese) // TODO: Add 'ja', 'ru' in future
+  'zh', // 🇨🇳 中文 (Chinese)
+  'ar', // 🇸🇦 Arabic (RTL)
+  'ko', // 🇰🇷 Korean
+  'he', // 🇮🇱 Hebrew (RTL)
+  'fa', // 🇮🇷 Persian (RTL)
+  'ur', // 🇵🇰 Urdu (RTL)
 ] as const;
 
 export type Locale = typeof SUPPORTED_LOCALES[number];

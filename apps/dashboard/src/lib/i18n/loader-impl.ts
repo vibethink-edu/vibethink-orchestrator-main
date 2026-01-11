@@ -27,31 +27,31 @@ const syncCache = new Map<string, Record<string, any>>();
 class DashboardTranslationLoader implements TranslationLoader {
   async load(locale: string, namespace: string): Promise<Record<string, any>> {
     // Usar loader existente
-    const translation = await loadTranslation(locale, namespace);
-    
+    const translation = await loadTranslation(locale as any, namespace as any);
+
     // Cachear también en cache síncrono para termSync()
     const cacheKey = `${locale}:${namespace}`;
     syncCache.set(cacheKey, translation);
-    
+
     return translation;
   }
-  
+
   loadSync(locale: string, namespace: string): Record<string, any> | null {
     // Cargar desde cache síncrono (requiere preload previo)
     const cacheKey = `${locale}:${namespace}`;
     return syncCache.get(cacheKey) || null;
   }
-  
+
   async preload(locale: string, namespace: string): Promise<void> {
     // Preload = load + cache
     await this.load(locale, namespace);
   }
-  
+
   isPreloaded(locale: string, namespace: string): boolean {
     const cacheKey = `${locale}:${namespace}`;
     return syncCache.has(cacheKey);
   }
-  
+
   clearCache(locale?: string, namespace?: string): void {
     if (locale && namespace) {
       // Limpiar específico
@@ -68,7 +68,7 @@ class DashboardTranslationLoader implements TranslationLoader {
       // Limpiar todo
       syncCache.clear();
     }
-    
+
     // También limpiar cache de terminología
     clearTerminologyCache();
   }

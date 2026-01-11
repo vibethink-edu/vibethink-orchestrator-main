@@ -17,7 +17,7 @@ import {
   Activity,
   Clock,
   DollarSign
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { CryptoTransaction } from '../types'
 import { cn } from '@/shared/lib/utils'
 

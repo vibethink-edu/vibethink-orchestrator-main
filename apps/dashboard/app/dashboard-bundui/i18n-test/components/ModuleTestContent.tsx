@@ -2,7 +2,7 @@
 
 import { useTranslation } from '@/lib/i18n';
 import { Card, CardContent } from '@vibethink/ui/components/card';
-import { CheckCircle2, XCircle } from 'lucide-react';
+import { CheckCircle2, XCircle } from "@vibethink/ui/icons";
 
 const LANGUAGE_METADATA = [
     { code: 'en' as const, flag: '🇺🇸' },
@@ -26,7 +26,7 @@ interface ModuleTestContentProps {
 }
 
 export function ModuleTestContent({ module, locale }: ModuleTestContentProps) {
-    const { t } = useTranslation(module.namespace);
+    const { t } = useTranslation(module.namespace as any);
 
     // Test keys comunes
     const testKeys = ['header.title', 'title', 'header.description', 'description'];

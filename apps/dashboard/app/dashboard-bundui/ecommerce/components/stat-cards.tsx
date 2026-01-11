@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowRightIcon } from "@vibethink/ui/icons";
 import Link from "next/link";
 
 import { Card, CardContent, CardFooter } from "@vibethink/ui/components/card";

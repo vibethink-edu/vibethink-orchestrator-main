@@ -5,7 +5,7 @@ import { TableRecentProjects } from '../projects-v2/components/table-recent-proj
 import { useTranslation } from '@/lib/i18n';
 
 function SandboxContent() {
-    const { t, i18n } = useTranslation();
+    const { t, locale, setLocale } = useTranslation('common');
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -22,8 +22,8 @@ function SandboxContent() {
                     {['en', 'es', 'ar'].map((lang) => (
                         <button
                             key={lang}
-                            onClick={() => i18n.changeLanguage(lang)}
-                            className={`px-4 py-2 rounded text-white ${i18n.language === lang ? 'bg-blue-700' : 'bg-blue-500 hover:bg-blue-600'}`}
+                            onClick={() => setLocale(lang as any)}
+                            className={`px-4 py-2 rounded text-white ${locale === lang ? 'bg-blue-700' : 'bg-blue-500 hover:bg-blue-600'}`}
                         >
                             {lang.toUpperCase()}
                         </button>
@@ -33,13 +33,13 @@ function SandboxContent() {
 
             <div className="border rounded-lg p-4 bg-white dark:bg-zinc-900 shadow min-h-[400px]">
                 <h2 className="mb-4 text-lg font-semibold text-gray-500">Component Validation Scope</h2>
-                <div key={i18n.language}> {/* Force re-render on language change */}
+                <div key={locale}> {/* Force re-render on language change */}
                     <TableRecentProjects />
                 </div>
             </div>
 
             <div className="p-4 bg-gray-100 rounded text-sm font-mono">
-                <p>Current Language: <strong>{i18n.language}</strong></p>
+                <p>Current Language: <strong>{locale}</strong></p>
                 <p>Test Key Check (common.actions.save): {t('common.actions.save')}</p>
             </div>
         </div>

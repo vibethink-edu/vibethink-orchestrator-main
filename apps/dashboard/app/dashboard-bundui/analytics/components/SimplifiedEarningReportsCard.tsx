@@ -1,6 +1,6 @@
 'use client'
 
-import { TrendingUp, DollarSign, BarChart3 } from 'lucide-react'
+import { TrendingUp, DollarSign, BarChart3 } from "@vibethink/ui/icons"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui/components/card'
 import { Badge } from '@vibethink/ui/components/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui/components/tabs'

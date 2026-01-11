@@ -5,7 +5,7 @@ import { addDays, format, isToday } from "date-fns";
 
 import { AgendaDaysToShow, CalendarEvent, EventItem, getAgendaEventsForDay } from "./";
 import { cn } from "@/shared/lib/utils";
-import { Calendar } from "lucide-react";
+import { Calendar } from "@vibethink/ui/icons";
 import { useTranslation } from "@/lib/i18n";
 
 interface AgendaViewProps {

@@ -19,7 +19,7 @@ import {
   Mail,
   Tag,
   ChevronDown
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 
 import { Button } from "@vibethink/ui";
 import { Checkbox } from "@vibethink/ui";

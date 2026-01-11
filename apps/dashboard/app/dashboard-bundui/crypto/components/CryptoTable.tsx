@@ -12,7 +12,7 @@ import {
   Edit, 
   Trash2,
   ExternalLink
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { CryptoTableProps } from '../types'
 
 export const CryptoTable: React.FC<CryptoTableProps> = ({ 

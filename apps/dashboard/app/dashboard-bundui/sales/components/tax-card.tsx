@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { ArrowUpIcon } from "lucide-react";
+import { ArrowUpIcon } from "@vibethink/ui/icons";
 import { Card, CardDescription, CardHeader } from "@vibethink/ui";
 
 export function TaxCard() {

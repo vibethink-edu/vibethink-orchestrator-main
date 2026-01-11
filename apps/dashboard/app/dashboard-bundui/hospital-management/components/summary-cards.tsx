@@ -1,4 +1,4 @@
-import { CalendarIcon, CreditCardIcon, DollarSignIcon, UsersIcon } from "lucide-react";
+import { CalendarIcon, CreditCardIcon, DollarSignIcon, UsersIcon } from "@vibethink/ui/icons";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import CountAnimation from "@/shared/components/ui/custom/count-animation";

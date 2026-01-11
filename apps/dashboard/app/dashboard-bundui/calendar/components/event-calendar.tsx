@@ -13,7 +13,7 @@ import {
   subMonths,
   subWeeks
 } from "date-fns";
-import { ChevronDown, ChevronLeft, ChevronRight, Plus } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Plus } from "@vibethink/ui/icons";
 import { toast } from "sonner";
 import { useTranslation } from "@/lib/i18n";
 

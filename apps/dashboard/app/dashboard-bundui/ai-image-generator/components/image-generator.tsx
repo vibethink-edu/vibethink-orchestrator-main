@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Wand2, DownloadCloud } from "lucide-react";
+import { Wand2, DownloadCloud } from "@vibethink/ui/icons";
 import { toast } from "sonner";
 
 import { Button } from "@vibethink/ui";

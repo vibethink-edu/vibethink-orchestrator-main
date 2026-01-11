@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
 import { Tabs, TabsList, TabsTrigger } from "@vibethink/ui";
 import { Separator } from "@vibethink/ui";
-import { Info } from "lucide-react";
+import { Info } from "@vibethink/ui/icons";
 import { useTranslation } from "@/lib/i18n";
 
 const data = {

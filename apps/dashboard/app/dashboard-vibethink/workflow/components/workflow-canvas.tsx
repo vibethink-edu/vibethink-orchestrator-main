@@ -24,6 +24,7 @@ import {
   Connection,
   NodeTypes,
   EdgeTypes,
+  BackgroundVariant,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
@@ -116,15 +117,15 @@ export function WorkflowCanvas({
         className="workflow-canvas"
       >
         {/* Fondo con grid */}
-        <Background 
-          color="#e2e8f0" 
-          gap={16} 
+        <Background
+          color="#e2e8f0"
+          gap={16}
           size={1}
-          variant="dots"
+          variant={BackgroundVariant.Dots}
         />
 
         {/* Controles de zoom y pan */}
-        <Controls 
+        <Controls
           showInteractive={true}
           position="top-right"
         />
@@ -144,8 +145,8 @@ export function WorkflowCanvas({
         {/* Sidebar lateral (si hay nodo seleccionado) */}
         {selectedNodeId && (
           <Panel position="top-left" className="w-80">
-            <WorkflowSidebar 
-              nodeId={selectedNodeId} 
+            <WorkflowSidebar
+              nodeId={selectedNodeId}
               nodes={nodes}
               onUpdateNode={onUpdateNode}
             />

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Check, UserPlusIcon } from "lucide-react";
+import { Check, UserPlusIcon } from "@vibethink/ui/icons";
 
 import {
   Dialog,

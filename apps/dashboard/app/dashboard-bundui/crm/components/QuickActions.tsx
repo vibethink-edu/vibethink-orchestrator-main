@@ -11,7 +11,7 @@ import {
   Target,
   Settings,
   Activity
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 
 const quickActionItems = [
   {

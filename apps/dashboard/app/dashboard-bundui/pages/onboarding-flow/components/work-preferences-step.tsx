@@ -1,6 +1,6 @@
 "use client";
 
-import { Briefcase } from "lucide-react";
+import { Briefcase } from "@vibethink/ui/icons";
 import { useOnboardingStore } from "../store";
 
 import { Button } from "@vibethink/ui/components/button";

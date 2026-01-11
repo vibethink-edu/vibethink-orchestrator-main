@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "@vibethink/ui/components/button";
 import { useOnboardingStore } from "../store";
-import { Sparkles } from "lucide-react";
+import { Sparkles } from "@vibethink/ui/icons";
 
 const interestOptions = [
   { name: "Technology", emoji: "💻" },

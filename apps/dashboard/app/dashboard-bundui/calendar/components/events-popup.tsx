@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef } from "react";
 import { format, isSameDay } from "date-fns";
-import { XIcon } from "lucide-react";
+import { XIcon } from "@vibethink/ui/icons";
 
 import { EventItem } from "./event-item";
 import type { CalendarEvent } from "../types";

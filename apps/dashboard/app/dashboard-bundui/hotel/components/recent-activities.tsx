@@ -18,7 +18,7 @@ import {
   DialogTitle,
   DialogDescription
 } from "@vibethink/ui";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight } from "@vibethink/ui/icons";
 import { Separator } from "@vibethink/ui";
 
 interface ActivityItem {

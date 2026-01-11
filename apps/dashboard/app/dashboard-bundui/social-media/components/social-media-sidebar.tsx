@@ -15,7 +15,7 @@ import {
   SettingsIcon,
   Users,
   X
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 import { useIsMobile } from "@vibethink/ui";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";

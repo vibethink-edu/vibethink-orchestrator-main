@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Globe, Check } from "lucide-react";
+import { Globe, Check } from "@vibethink/ui/icons";
 import {
     DropdownMenu,
     DropdownMenuContent,

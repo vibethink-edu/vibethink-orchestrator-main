@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, X } from "lucide-react";
+import { Check, X } from "@vibethink/ui/icons";
 import { Button } from "@vibethink/ui/components/button";
 import { Switch } from "@vibethink/ui/components/switch";
 import {

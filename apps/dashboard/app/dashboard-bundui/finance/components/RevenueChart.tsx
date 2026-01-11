@@ -16,7 +16,7 @@ import { useFinanceData } from '../hooks/useFinanceData'
 import { Tabs, TabsContent, TabsList, TabsTrigger, Skeleton, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Badge } from '@vibethink/ui'
 import { useState } from 'react'
 import { RevenueChartProps } from '../types'
-import { TrendingUp, TrendingDown, Target, DollarSign } from 'lucide-react'
+import { TrendingUp, TrendingDown, Target, DollarSign } from "@vibethink/ui/icons"
 
 /**
  * RevenueChart Component

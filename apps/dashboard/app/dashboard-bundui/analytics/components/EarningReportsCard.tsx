@@ -1,7 +1,7 @@
 'use client'
 
 import { Area, AreaChart, Line, LineChart, XAxis, YAxis, ResponsiveContainer } from 'recharts'
-import { TrendingUp, DollarSign, PieChart, BarChart3 } from 'lucide-react'
+import { TrendingUp, DollarSign, PieChart, BarChart3 } from "@vibethink/ui/icons"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui/components/card'
 import {
   ChartConfig,

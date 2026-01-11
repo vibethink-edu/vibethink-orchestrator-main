@@ -24,7 +24,7 @@ import {
   MoreHorizontal,
   Tag,
   Trash2
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 import { Button } from "@vibethink/ui/components/button";
 import {
   DropdownMenu,

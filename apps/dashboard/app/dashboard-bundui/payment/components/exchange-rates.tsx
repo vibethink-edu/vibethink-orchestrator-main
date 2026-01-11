@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowUpDown, RefreshCwIcon } from "lucide-react";
+import { ArrowUpDown, RefreshCwIcon } from "@vibethink/ui/icons";
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 
 import { Card, CardAction, CardContent, CardHeader, CardTitle, Button, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@vibethink/ui";

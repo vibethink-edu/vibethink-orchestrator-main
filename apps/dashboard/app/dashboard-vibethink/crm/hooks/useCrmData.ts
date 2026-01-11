@@ -171,7 +171,7 @@ export function useCrmData() {
         ]
       }
 
-      return data.map(deal => ({
+      return (data as any[]).map(deal => ({
         ...deal,
         customer_name: deal.customer?.name || 'Unknown'
       })) as Deal[]

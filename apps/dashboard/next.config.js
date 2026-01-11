@@ -14,7 +14,7 @@ const nextConfig = {
       },
     ];
   },
-    transpilePackages: ['@radix-ui/react-icons', 'lucide-react', '@radix-ui/react-collapsible', '@vibethink/ui', '@vibethink/utils', 'react-hook-form'],
+  transpilePackages: ['@radix-ui/react-icons', 'lucide-react', '@radix-ui/react-collapsible', '@vibethink/ui', '@vibethink/utils', 'react-hook-form'],
   // Removed experimental reactCompiler option that's not supported in Next.js 15.3.4
   eslint: {
     ignoreDuringBuilds: true,
@@ -30,11 +30,14 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    optimizePackageImports: ['lucide-react', '@vibethink/ui', '@vibethink/utils'],
+  },
   webpack: (config) => {
     const path = require('path');
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': path.resolve(__dirname, '../../src'),
+      '@': path.resolve(__dirname, 'src'),
       '@/shared': path.resolve(__dirname, '../../src/shared'),
       '@/lib': path.resolve(__dirname, '../../src/lib'),
     };

@@ -8,7 +8,7 @@ import {
   ContainerIcon,
   PaletteIcon,
   UserCheck
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";
 import { Button } from "@vibethink/ui/components/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@vibethink/ui/components/card";

@@ -16,7 +16,7 @@ import { AVAILABLE_LOCALES } from '@/lib/i18n/types';
 import { Button } from '@vibethink/ui/components/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui/components/card';
 import { Badge } from '@vibethink/ui/components/badge';
-import { Globe, CheckCircle2, XCircle, AlertCircle, Languages } from 'lucide-react';
+import { Globe, CheckCircle2, XCircle, AlertCircle, Languages } from "@vibethink/ui/icons";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui/components/tabs';
 import { ModuleTestContent } from './components/ModuleTestContent';
 
@@ -50,26 +50,26 @@ const TEST_MODULES = [
 
 export default function I18nTestPage() {
     const { locale, setLocale } = useI18n();
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
     const [testResults, setTestResults] = useState<Record<string, Record<string, boolean>>>({});
     const [currentTestModule, setCurrentTestModule] = useState<string>('common');
 
     // Verificar si las traducciones existen para cada idioma/modulo
     const testTranslations = async () => {
         const results: Record<string, Record<string, boolean>> = {};
-        
+
         for (const module of TEST_MODULES) {
             results[module.namespace] = {};
-            
+
             for (const lang of AVAILABLE_LOCALES) {
                 try {
                     // Cambiar idioma temporalmente
-                    const { t: testT } = useTranslation(module.namespace);
+                    const { t: testT } = useTranslation(module.namespace as any);
                     // Probar una key común
-                    const testKey = 'header.title' in (testT as any).store?.data?.[lang]?.[module.namespace] 
-                        ? 'header.title' 
+                    const testKey = 'header.title' in (testT as any).store?.data?.[lang]?.[module.namespace]
+                        ? 'header.title'
                         : 'title';
-                    
+
                     const translation = testT(testKey);
                     // Si la traducción existe y no es igual a la key, está bien
                     results[module.namespace][lang] = translation !== testKey && translation !== `missing: ${module.namespace}.${testKey}`;
@@ -78,7 +78,7 @@ export default function I18nTestPage() {
                 }
             }
         }
-        
+
         setTestResults(results);
     };
 

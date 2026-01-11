@@ -1,5 +1,5 @@
 import React from "react";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { cn } from "@/shared/lib/utils";
 import { ThemeProvider } from "next-themes";
 import NextTopLoader from "nextjs-toploader";
@@ -48,9 +48,16 @@ export default async function RootLayout({
       DEFAULT_THEME.contentLayout) as any
   };
 
-  // Get locale from cookie or header with proper validation
-  const localeCookie = cookieStore.get("NEXT_LOCALE")?.value;
-  const initialLocale: Locale = localeCookie && isValidLocale(localeCookie) ? localeCookie : DEFAULT_LOCALE;
+  // Get locale from header (set by middleware) or fallback to cookie/default
+  const headersList = await headers();
+  const headerLocale = headersList.get("x-locale");
+  const cookieLocale = cookieStore.get("NEXT_LOCALE")?.value;
+
+  // Isolated cookie detection (optional here as middleware handles it, but good for safety)
+  const initialLocale: Locale =
+    headerLocale && isValidLocale(headerLocale) ? (headerLocale as Locale) :
+      cookieLocale && isValidLocale(cookieLocale) ? (cookieLocale as Locale) :
+        DEFAULT_LOCALE;
 
   /**
    * CAPA 2: Registrar translation loader en @vibethink/utils

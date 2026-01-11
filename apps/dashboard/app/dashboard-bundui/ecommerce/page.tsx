@@ -16,7 +16,7 @@ import {
   EcommerceWelcomeCard
 } from "./components";
 import CustomDateRangePicker from "@/shared/components/bundui-premium/components/custom-date-range-picker";
-import { Download } from "lucide-react";
+import { Download } from "@vibethink/ui/icons";
 import { useTranslation } from "@/lib/i18n";
 
 export default function Page() {

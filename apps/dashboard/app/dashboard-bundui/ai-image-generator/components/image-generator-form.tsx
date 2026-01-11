@@ -12,7 +12,7 @@ import {
 } from "@vibethink/ui";
 import { Card, CardContent } from "@vibethink/ui";
 import { Separator } from "@vibethink/ui";
-import { Wand2, Palette, Image, Sparkles } from "lucide-react";
+import { Wand2, Palette, Image, Sparkles } from "@vibethink/ui/icons";
 import { toast } from "sonner";
 import { ScrollArea } from "@vibethink/ui";
 

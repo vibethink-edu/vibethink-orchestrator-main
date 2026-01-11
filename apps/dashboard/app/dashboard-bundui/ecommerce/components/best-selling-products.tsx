@@ -13,7 +13,7 @@ import {
   getSortedRowModel,
   useReactTable
 } from "@tanstack/react-table";
-import { ArrowUpDown, ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
+import { ArrowUpDown, ChevronLeft, ChevronRight, MoreHorizontal } from "@vibethink/ui/icons";
 
 import { Button } from "@vibethink/ui/components/button";
 import {

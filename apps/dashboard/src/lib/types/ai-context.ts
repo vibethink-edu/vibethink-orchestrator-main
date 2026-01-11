@@ -23,7 +23,7 @@ export interface UserContext {
     role: 'admin' | 'manager' | 'user';
     permissions: {
         aiEnabled: boolean;
-        allowedModels: string[];
+        allowedModels: readonly string[];
         maxTokensPerMonth: number;
         voiceEnabled: boolean;
         imageGeneration: boolean;
@@ -71,7 +71,7 @@ export function getUserPermissionsFromPlan(plan: PlanType): UserContext['permiss
  */
 export function selectModelForTask(
     taskType: keyof typeof AI_ASSISTANT_CONFIG.modelStrategy,
-    allowedModels: string[],
+    allowedModels: readonly string[],
     department?: DepartmentType
 ): string {
     // Try department-specific model first

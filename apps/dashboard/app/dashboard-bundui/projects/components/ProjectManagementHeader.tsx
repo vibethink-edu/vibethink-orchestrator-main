@@ -32,7 +32,7 @@ import {
   Users,
   MoreHorizontal,
   X
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { useProjectFilters, useFilterOptions } from '../hooks/useProjectFilters'
 import { useProjectData } from '../hooks/useProjectData'
 import { useTranslation } from '@/lib/i18n'

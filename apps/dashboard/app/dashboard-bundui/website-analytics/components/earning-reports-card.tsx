@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { AreaChartIcon, DollarSignIcon, HandCoinsIcon } from "lucide-react";
+import { AreaChartIcon, DollarSignIcon, HandCoinsIcon } from "@vibethink/ui/icons";
 import { Bar, BarChart, XAxis } from "recharts";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -20,8 +20,8 @@ import {
   ChartTooltip,
   ChartTooltipContent
 } from "@/components/ui/chart";
-import { Progress } from "@/components/ui/progress";
-import { ExportButton } from "@/components/CardActionMenus";
+import { Progress } from "@vibethink/ui/components/progress";
+import { ExportButton } from "@/shared/components/CardActionMenus";
 
 const chartData = [
   { day: "Mo", sales: 35 },

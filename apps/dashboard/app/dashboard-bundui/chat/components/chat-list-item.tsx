@@ -1,7 +1,7 @@
 import { cn, generateAvatarFallback } from "@/shared/lib/utils";
 import useChatStore from "../useChatStore";
 import { ChatItemProps } from "../types";
-import { Ellipsis } from "lucide-react";
+import { Ellipsis } from "@vibethink/ui/icons";
 
 import {
   Button,

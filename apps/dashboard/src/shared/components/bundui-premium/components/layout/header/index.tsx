@@ -3,7 +3,7 @@
 import { SidebarTrigger } from '@vibethink/ui'
 import { Button } from '@vibethink/ui'
 import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui'
-import { Bell, Search } from "lucide-react"
+import { Bell, Search } from "@vibethink/ui/icons"
 
 export default function Header() {
   return (

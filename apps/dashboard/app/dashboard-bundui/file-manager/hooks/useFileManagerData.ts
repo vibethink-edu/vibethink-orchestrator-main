@@ -9,13 +9,15 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import type { 
-  FileItem, 
-  FolderItem, 
-  StorageMetrics, 
-  FileTransferMetrics, 
+import type {
+  FileItem,
+  FolderItem,
+  StorageMetrics,
+  FileTransferMetrics,
   RecentFileActivity,
-  UseFileManagerData 
+  UseFileManagerData,
+  TransferTrend,
+  PeakHour
 } from '../types'
 
 // Mock auth hook - in real app this would come from your auth system
@@ -47,24 +49,24 @@ const supabase = {
     })
   }),
   auth: {
-    getUser: () => Promise.resolve({ 
-      data: { user: { id: 'user_1', email: 'user@company.com' } }, 
-      error: null 
+    getUser: () => Promise.resolve({
+      data: { user: { id: 'user_1', email: 'user@company.com' } },
+      error: null
     })
   },
   storage: {
     from: (bucket: string) => ({
-      upload: (path: string, file: File, options?: any) => Promise.resolve({ 
-        data: { path }, 
-        error: null 
+      upload: (path: string, file: File, options?: any) => Promise.resolve({
+        data: { path },
+        error: null
       }),
-      download: (path: string) => Promise.resolve({ 
-        data: new Blob(['mock file content']), 
-        error: null 
+      download: (path: string) => Promise.resolve({
+        data: new Blob(['mock file content']),
+        error: null
       }),
       remove: (paths: string[]) => Promise.resolve({ error: null }),
-      getPublicUrl: (path: string) => ({ 
-        data: { publicUrl: `https://mock-storage.com/${path}` } 
+      getPublicUrl: (path: string) => ({
+        data: { publicUrl: `https://mock-storage.com/${path}` }
       })
     })
   }
@@ -118,7 +120,7 @@ export function useFileManagerData(): UseFileManagerData {
       throw new Error(`Failed to fetch files: ${error.message}`)
     }
     */
-    
+
     // MOCK DATA para desarrollo
     const data = null
     const error = null
@@ -174,7 +176,7 @@ export function useFileManagerData(): UseFileManagerData {
       throw new Error(`Failed to fetch folders: ${error.message}`)
     }
     */
-    
+
     // MOCK DATA para desarrollo
     const data = mockFolders
     const error = null
@@ -231,55 +233,55 @@ export function useFileManagerData(): UseFileManagerData {
       const fileCount = fileStats?.length || 0
       const folderCount = folderStats?.length || 0
     */
-    
+
     // MOCK DATA para desarrollo
     const storageData = null
     const storageError = true
     const fileStats = mockFiles
     const folderStats = mockFolders
-    
+
     const totalSize = fileStats?.reduce((sum, file) => sum + file.size, 0) || 0
     const fileCount = fileStats?.length || 0
     const folderCount = folderStats?.length || 0
 
-      // Create storage breakdown by type
-      const storageByType = fileStats?.reduce((acc: any[], file) => {
-        const type = file.mime_type?.split('/')[0] || 'other'
-        const existing = acc.find(item => item.type === type)
-        
-        if (existing) {
-          existing.size += file.size
-          existing.count += 1
-        } else {
-          acc.push({
-            type,
-            size: file.size,
-            count: 1,
-            percentage: 0,
-            color: getTypeColor(type)
-          })
-        }
-        return acc
-      }, []) || []
+    // Create storage breakdown by type
+    const storageByType = fileStats?.reduce((acc: any[], file) => {
+      const type = file.mime_type?.split('/')[0] || 'other'
+      const existing = acc.find(item => item.type === type)
 
-      // Calculate percentages
-      storageByType.forEach(item => {
-        item.percentage = totalSize > 0 ? (item.size / totalSize) * 100 : 0
-      })
-
-      // Return mock storage data
-      return {
-        total_storage: 10 * 1024 * 1024 * 1024, // 10GB default
-        used_storage: totalSize,
-        available_storage: (10 * 1024 * 1024 * 1024) - totalSize,
-        file_count: fileCount,
-        folder_count: folderCount,
-        recent_uploads: 0,
-        shared_files: fileStats?.filter(f => f.mime_type?.includes('shared')).length || 0,
-        storage_by_type: storageByType,
-        growth_trend: [],
-        company_id
+      if (existing) {
+        existing.size += file.size
+        existing.count += 1
+      } else {
+        acc.push({
+          type,
+          size: file.size,
+          count: 1,
+          percentage: 0,
+          color: getTypeColor(type)
+        })
       }
+      return acc
+    }, []) || []
+
+    // Calculate percentages
+    storageByType.forEach(item => {
+      item.percentage = totalSize > 0 ? (item.size / totalSize) * 100 : 0
+    })
+
+    // Return mock storage data
+    return {
+      total_storage: 10 * 1024 * 1024 * 1024, // 10GB default
+      used_storage: totalSize,
+      available_storage: (10 * 1024 * 1024 * 1024) - totalSize,
+      file_count: fileCount,
+      folder_count: folderCount,
+      recent_uploads: 0,
+      shared_files: fileStats?.filter(f => f.mime_type?.includes('shared')).length || 0,
+      storage_by_type: storageByType,
+      growth_trend: [],
+      company_id
+    }
   }, [])
 
   // Fetch transfer metrics with company_id filtering - CRITICAL SECURITY
@@ -309,7 +311,7 @@ export function useFileManagerData(): UseFileManagerData {
 
     return data
     */
-    
+
     // MOCK DATA para desarrollo
     const mockData: FileTransferMetrics = {
       uploads_today: 12,
@@ -351,7 +353,7 @@ export function useFileManagerData(): UseFileManagerData {
 
     return data || []
     */
-    
+
     // MOCK DATA para desarrollo
     return mockActivity || []
   }, [])
@@ -429,13 +431,13 @@ function getTypeColor(type: string): string {
 
 function generateTrendData(type: 'upload' | 'download') {
   const days = 7
-  const data = []
+  const data: TransferTrend[] = []
   const baseValue = type === 'upload' ? 15 : 25
-  
+
   for (let i = days - 1; i >= 0; i--) {
     const date = new Date()
     date.setDate(date.getDate() - i)
-    
+
     data.push({
       date: date.toISOString(),
       uploads: type === 'upload' ? baseValue + Math.floor(Math.random() * 10) : 0,
@@ -443,12 +445,12 @@ function generateTrendData(type: 'upload' | 'download') {
       size: (baseValue + Math.floor(Math.random() * 20)) * 1024 * 1024 // MB
     })
   }
-  
+
   return data
 }
 
 function generatePeakHours() {
-  const hours = []
+  const hours: PeakHour[] = []
   for (let i = 0; i < 24; i++) {
     hours.push({
       hour: i,
@@ -498,7 +500,7 @@ const mockFiles: FileItem[] = [
     permissions: [],
     version: 1,
     download_count: 15,
-    thumbnail_url: null
+    thumbnail_url: undefined
   },
   {
     id: 'file2',
@@ -540,7 +542,7 @@ const mockFiles: FileItem[] = [
     permissions: [],
     version: 2,
     download_count: 22,
-    thumbnail_url: null
+    thumbnail_url: undefined
   }
 ]
 

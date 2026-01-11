@@ -1,7 +1,6 @@
-import { generateMeta } from "@/lib/utils";
-
-import { Button } from "@/components/ui/button";
-import CalendarDateRangePicker from "@/components/custom-date-range-picker";
+import { generateMeta } from "@/shared/lib/utils";
+import { Button } from "@vibethink/ui";
+import CalendarDateRangePicker from "@/shared/components/bundui-premium/components/custom-date-range-picker";
 
 import {
   AverageDailySalesCard,
@@ -12,8 +11,8 @@ import {
   SalesByCountriesCard,
   TotalEarningCard,
   MonthlyCampaignStateCard
-} from "@/app/dashboard/(auth)/website-analytics/components";
-import StatCards from "@/app/dashboard/(auth)/website-analytics/components/stat-cards";
+} from "./components";
+import StatCards from "./components/stat-cards";
 
 export async function generateMetadata() {
   return generateMeta({

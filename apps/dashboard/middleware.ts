@@ -8,16 +8,33 @@ import { NextRequest, NextResponse } from 'next/server';
 import { i18nConfig, isValidLocale } from './src/lib/i18n/config';
 
 /**
- * Get locale from request
+ * Get locale from request with dashboard isolation
  */
 function getLocale(request: NextRequest): string {
-  // 1. Check cookie
+  const { pathname } = request.nextUrl;
+
+  // Detect dashboard
+  let dashboardKey = 'default';
+  if (pathname.includes('/dashboard-admin')) dashboardKey = 'dashboard-admin';
+  else if (pathname.includes('/dashboard-tenant')) dashboardKey = 'dashboard-tenant';
+  else if (pathname.includes('/dashboard-bundui')) dashboardKey = 'dashboard-bundui';
+  else if (pathname.includes('/dashboard-vibethink')) dashboardKey = 'dashboard-vibethink';
+
+  const isolatedCookieName = `${i18nConfig.cookieName}_${dashboardKey}`;
+
+  // 1. Check isolated cookie
+  const isolatedLocale = request.cookies.get(isolatedCookieName)?.value;
+  if (isolatedLocale && isValidLocale(isolatedLocale)) {
+    return isolatedLocale;
+  }
+
+  // 2. Check general cookie (legacy/global)
   const cookieLocale = request.cookies.get(i18nConfig.cookieName)?.value;
   if (cookieLocale && isValidLocale(cookieLocale)) {
     return cookieLocale;
   }
 
-  // 2. Check Accept-Language header
+  // 3. Check Accept-Language header
   const acceptLanguage = request.headers.get('accept-language');
   if (acceptLanguage) {
     const languages = acceptLanguage
@@ -32,7 +49,7 @@ function getLocale(request: NextRequest): string {
     }
   }
 
-  // 3. Default locale
+  // 4. Default locale
   return i18nConfig.defaultLocale;
 }
 
@@ -55,17 +72,8 @@ export function middleware(request: NextRequest) {
   // Get locale
   const locale = getLocale(request);
 
-  // Set locale cookie if not present
+  // Set locale header for server components
   const response = NextResponse.next();
-  if (!request.cookies.has(i18nConfig.cookieName)) {
-    response.cookies.set(i18nConfig.cookieName, locale, {
-      path: '/',
-      maxAge: 60 * 60 * 24 * 365, // 1 year
-      sameSite: 'lax',
-    });
-  }
-
-  // Add locale header for server components
   response.headers.set('x-locale', locale);
 
   return response;

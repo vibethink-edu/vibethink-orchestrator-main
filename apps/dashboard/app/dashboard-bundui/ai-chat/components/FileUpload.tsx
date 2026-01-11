@@ -28,7 +28,7 @@ import {
   CheckCircle,
   AlertCircle,
   Loader2
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { cn } from '@/shared/lib/utils'
 import { FileUploadProps } from '../types'
 

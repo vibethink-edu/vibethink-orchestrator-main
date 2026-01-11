@@ -1,6 +1,6 @@
 "use client";
 
-import { BadgeCheck, LogOut, Shield } from "lucide-react";
+import { BadgeCheck, LogOut, Shield } from "@vibethink/ui/icons";
 import { Avatar, AvatarFallback } from '@vibethink/ui/components/avatar';
 import {
     DropdownMenu,

@@ -3,7 +3,7 @@ import { Badge } from "@vibethink/ui/components/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";
 import { Button } from "@vibethink/ui/components/button";
 import { Skeleton } from "@vibethink/ui/components/skeleton";
-import { MoreHorizontal, Mail, Phone } from 'lucide-react'
+import { MoreHorizontal, Mail, Phone } from "@vibethink/ui/icons"
 import { useCrmData } from '../hooks/useCrmData'
 import { useCrmFilters } from '../hooks/useCrmFilters'
 import { Customer, CUSTOMER_STATUSES } from '../types'

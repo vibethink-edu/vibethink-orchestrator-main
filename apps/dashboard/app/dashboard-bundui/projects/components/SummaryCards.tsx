@@ -26,7 +26,7 @@ import {
   CheckCircle,
   AlertTriangle,
   Target
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { useProjectSummary } from '../hooks/useProjectData'
 import { useTranslation } from '@/lib/i18n'
 

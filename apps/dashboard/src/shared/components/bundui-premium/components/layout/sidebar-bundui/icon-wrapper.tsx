@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { LucideIcon } from 'lucide-react';
+import { LucideIcon } from "@vibethink/ui/icons";
 
 interface IconWrapperProps {
   icon: LucideIcon;

@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle, Button, Badge, Progress, Skeleton } from '@vibethink/ui'
 import { BudgetOverviewProps, Budget } from '../types'
-import { Target, TrendingUp, TrendingDown, AlertTriangle, CheckCircle, Plus, Edit } from 'lucide-react'
+import { Target, TrendingUp, TrendingDown, AlertTriangle, CheckCircle, Plus, Edit } from "@vibethink/ui/icons"
 
 /**
  * BudgetOverview Component

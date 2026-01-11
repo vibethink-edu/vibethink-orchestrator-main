@@ -6,7 +6,7 @@
 import { adminDb } from "@/lib/supabase";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, ShieldAlert } from "lucide-react";
+import { ArrowLeft, ExternalLink, ShieldAlert } from "@vibethink/ui/icons";
 import { AuditTimeline, AuditEvent } from "@/components/audit/AuditTimeline";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@vibethink/ui/components/table";
 import { Badge } from "@vibethink/ui/components/badge";

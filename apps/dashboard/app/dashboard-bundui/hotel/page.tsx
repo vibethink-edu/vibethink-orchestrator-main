@@ -7,7 +7,7 @@ import { RevenueStat } from "./components/revenue-stat";
 import { StatCards } from "./components/stat-cards";
 import { BookingsCard } from "./components/bookings-card";
 import { BookingList } from "./components/booking-list";
-import { ClipboardMinusIcon, PlusIcon } from "lucide-react";
+import { ClipboardMinusIcon, PlusIcon } from "@vibethink/ui/icons";
 import { Button } from "@vibethink/ui";
 import { useTranslation } from "@/lib/i18n";
 

@@ -10,7 +10,7 @@ import {
     ResizablePanelGroup,
 } from "@vibethink/ui/components/resizable";
 import { Button } from "@vibethink/ui/components/button";
-import { Brain, Sparkles, PanelRightClose, PanelRightOpen } from "lucide-react";
+import { Brain, Sparkles, PanelRightClose, PanelRightOpen } from "@vibethink/ui/icons";
 
 import {
     SummaryCards,

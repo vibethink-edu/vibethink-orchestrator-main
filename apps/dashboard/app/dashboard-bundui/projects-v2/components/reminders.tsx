@@ -4,7 +4,7 @@ import { Badge } from "@vibethink/ui";
 import { Button } from "@vibethink/ui";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui";
 import { cn } from "@/shared/lib/utils";
-import { ArrowRight, CheckCircle, PlusCircleIcon } from "lucide-react";
+import { ArrowRight, CheckCircle, PlusCircleIcon } from "@vibethink/ui/icons";
 import { AddReminderDialog } from "./add-reminder-dialog";
 
 type Reminder = {

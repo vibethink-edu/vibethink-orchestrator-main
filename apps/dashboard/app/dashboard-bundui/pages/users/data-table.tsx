@@ -13,7 +13,7 @@ import {
   getSortedRowModel,
   useReactTable
 } from "@tanstack/react-table";
-import { ArrowUpDown, Columns, MoreHorizontal, PlusCircle } from "lucide-react";
+import { ArrowUpDown, Columns, MoreHorizontal, PlusCircle } from "@vibethink/ui/icons";
 
 import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui/components/popover";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@vibethink/ui/components/command";

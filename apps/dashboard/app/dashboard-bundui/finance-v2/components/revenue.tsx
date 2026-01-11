@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpIcon, CreditCardIcon, TrendingUpIcon } from "lucide-react";
+import { ArrowUpIcon, CreditCardIcon, TrendingUpIcon } from "@vibethink/ui/icons";
 
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { Button } from "@vibethink/ui/components/button";

@@ -36,7 +36,7 @@ import {
   TableHeader,
   TableRow
 } from "@vibethink/ui/components/table";
-import { ChevronDown, MoreHorizontal, Filter, ChevronsUpDown } from "lucide-react";
+import { ChevronDown, MoreHorizontal, Filter, ChevronsUpDown } from "@vibethink/ui/icons";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "@/lib/i18n";
 

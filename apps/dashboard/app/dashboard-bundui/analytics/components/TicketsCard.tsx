@@ -1,5 +1,5 @@
 'use client'
-import { Headphones, ClockIcon, CheckCircle, AlertTriangle, Star } from 'lucide-react'
+import { Headphones, ClockIcon, CheckCircle, AlertTriangle, Star } from "@vibethink/ui/icons"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui/components/card'
 import { Badge } from '@vibethink/ui/components/badge'
 import { Progress } from '@vibethink/ui/components/progress'

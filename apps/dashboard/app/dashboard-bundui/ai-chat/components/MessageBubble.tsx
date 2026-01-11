@@ -38,7 +38,7 @@ import {
   Download,
   CheckCircle,
   AlertCircle
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { cn } from '@/shared/lib/utils'
 import { MessageBubbleProps, ChatMessage } from '../types'
 import { formatDistanceToNow } from 'date-fns'

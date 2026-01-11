@@ -10,7 +10,7 @@ import {
   PaletteIcon,
   ShieldIcon,
   UserIcon
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 
 import { Button } from "@vibethink/ui/components/button";
 import { Card, CardContent } from "@vibethink/ui/components/card";

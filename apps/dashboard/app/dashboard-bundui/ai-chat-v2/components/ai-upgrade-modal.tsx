@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Check, Crown, Zap, Sparkles } from "lucide-react";
+import { Check, Crown, Zap, Sparkles } from "@vibethink/ui/icons";
 
 import {
   Dialog,

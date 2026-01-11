@@ -4,11 +4,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useParams } from "next/navigation";
-import { Compass, Library, History, Search, Menu, Plus, Sparkles, Ellipsis } from "lucide-react";
+import { Compass, Library, History, Search, Menu, Plus, Sparkles, Ellipsis } from "@vibethink/ui/icons";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@vibethink/ui/components/sheet";
 import { AIUpgradePricingModal } from "./ai-upgrade-modal";
 import {
   DropdownMenu,

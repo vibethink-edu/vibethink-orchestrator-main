@@ -1,6 +1,6 @@
 "use client";
 
-import { Calendar, MapPin, TrendingUp, PencilIcon } from "lucide-react";
+import { Calendar, MapPin, TrendingUp, PencilIcon } from "@vibethink/ui/icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui/components/avatar";
 import { Button } from "@vibethink/ui/components/button";
 import { useProfileStore } from "../store";

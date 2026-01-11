@@ -1,23 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* 
+  vibethink-admin globals 
+  -----------------------
+  Using CENTRALIZED UI STYLES from @vibethink/ui
+*/
 
-/* Import VibeThink Core Tokens (One System to Rule Them All) */
-@import "../../../packages/ui/src/styles/theme-tokens.css";
+@import "@vibethink/ui/globals.css";
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground antialiased;
-  }
-}
-
-/* Specific Admin Cleanups */
-@layer components {
-  .admin-card {
-    @apply bg-card border shadow-sm rounded-xl overflow-hidden;
-  }
-}
+/* Local admin-specific overrides */

@@ -1,0 +1,37 @@
+app/dashboard-bundui/file-manager/hooks/useFileManagerData.ts(432,15): error TS2304: Cannot find name 'TransferTrend'.
+app/dashboard-bundui/file-manager/hooks/useFileManagerData.ts(451,16): error TS2304: Cannot find name 'PeakHour'.
+app/dashboard-bundui/pos-system/pos-system-menu.tsx(12,8): error TS2307: Cannot find module '@/app/dashboard/(auth)/apps/pos-system/store' or its corresponding type declarations.
+app/dashboard-bundui/website-analytics/components/monthly-campaign-state.tsx(3,18): error TS2307: Cannot find module '@/shared/components/icon' or its corresponding type declarations.
+app/dashboard-vibethink/file-manager/hooks/useFileManagerData.ts(432,15): error TS2304: Cannot find name 'TransferTrend'.
+app/dashboard-vibethink/file-manager/hooks/useFileManagerData.ts(451,16): error TS2304: Cannot find name 'PeakHour'.
+app/dashboard-vibethink/notes/components/AddNoteModal.tsx(56,9): error TS2322: Type 'string | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+app/dashboard-vibethink/notes/hooks/useNoteEditor.ts(18,29): error TS2307: Cannot find module '@/shared/hooks/hooks/base/useDebounce' or its corresponding type declarations.
+app/dashboard-vibethink/notes/hooks/useNoteFilters.ts(18,29): error TS2307: Cannot find module '@/shared/hooks/hooks/base/useDebounce' or its corresponding type declarations.
+app/dashboard-vibethink/notes/hooks/useNotesData.ts(420,7): error TS2322: Type 'string | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+app/dashboard-vibethink/pos-system/components/products/InventoryControl.tsx(34,85): error TS18048: 'p.cost' is possibly 'undefined'.
+app/dashboard-vibethink/pos-system/hooks/usePosData.ts(4,28): error TS2307: Cannot find module '@/integrations/supabase/client' or its corresponding type declarations.
+app/dashboard-vibethink/website-analytics/page.tsx(149,50): error TS2339: Property 'message' does not exist on type 'never'.
+app/test-charts/page.tsx(7,30): error TS2307: Cannot find module '@/shared/components/dashboard/RevenueChart' or its corresponding type declarations.
+app/test-charts/page.tsx(8,28): error TS2307: Cannot find module '@/shared/components/dashboard/MetricCard' or its corresponding type declarations.
+apps/dashboard/components/ui/custom/prompt/input.tsx(3,26): error TS2307: Cannot find module '@/components/ui/textarea' or its corresponding type declarations.
+lib/types/ai-context.ts(62,9): error TS2322: Type 'readonly [] | readonly ["gpt-3.5-turbo"] | readonly ["gpt-3.5-turbo", "gpt-4", "claude-3-opus"]' is not assignable to type 'string[]'.
+  The type 'readonly []' is 'readonly' and cannot be assigned to the mutable type 'string[]'.
+src/components/ui/custom/prompt/input.tsx(3,26): error TS2307: Cannot find module '@/components/ui/textarea' or its corresponding type declarations.
+src/lib/ai/__tests__/agent-context-pack.test.ts(10,50): error TS2307: Cannot find module '@jest/globals' or its corresponding type declarations.
+src/lib/ai/provider.ts(13,44): error TS2305: Module '"ai"' has no exported member 'CoreMessage'.
+src/lib/i18n/client.tsx(12,32): error TS2307: Cannot find module 'i18next-resources-to-backend' or its corresponding type declarations.
+src/lib/i18n/context.tsx(386,63): error TS2345: Argument of type 'Record<string, string | number | boolean> | undefined' is not assignable to parameter of type 'Record<string, string | number | boolean>'.
+  Type 'undefined' is not assignable to type 'Record<string, string | number | boolean>'.
+src/lib/i18n/server.ts(9,32): error TS2307: Cannot find module 'i18next-resources-to-backend' or its corresponding type declarations.
+src/middleware/api-key-validator.test.ts(1,32): error TS2307: Cannot find module '../api-key-validator' or its corresponding type declarations.
+src/middleware/api-key-validator.ts(115,10): error TS2339: Property 'catch' does not exist on type 'PromiseLike<void>'.
+tailwind.config.ts(5,29): error TS2307: Cannot find module 'tailwindcss' or its corresponding type declarations.
+  There are types at 'C:/IA Marcelo Labs/vibethink-orchestrator-main/apps/dashboard/node_modules/tailwindcss/dist/lib.d.mts', but this result could not be resolved under your current 'moduleResolution' setting. Consider updating to 'node16', 'nodenext', or 'bundler'.
+../../packages/ui/src/components/calendar.tsx(63,9): error TS2353: Object literal may only specify known properties, and 'IconLeft' does not exist in type 'Partial<CustomComponents>'.
+../../packages/ui/src/components/extensions/minimal-tiptap/minimal-tiptap.tsx(5,44): error TS2614: Module '"./hooks/use-minimal-tiptap"' has no exported member 'RichTextI18nLabels'. Did you mean to use 'import RichTextI18nLabels from "./hooks/use-minimal-tiptap"' instead?
+../../packages/ui/src/components/extensions/minimal-tiptap/minimal-tiptap.tsx(71,41): error TS2322: Type '{ editor: Editor; labels: any; }' is not assignable to type 'IntrinsicAttributes & LinkBubbleMenuProps'.
+  Property 'labels' does not exist on type 'IntrinsicAttributes & LinkBubbleMenuProps'.
+../../packages/ui/src/components/extensions/reel.tsx(122,28): error TS2538: Type 'undefined' cannot be used as an index type.
+../../packages/ui/src/components/layout/notifications.tsx(136,5): error TS2353: Object literal may only specify known properties, and 'has_notification' does not exist in type 'Notification'.

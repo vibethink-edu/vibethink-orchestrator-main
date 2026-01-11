@@ -16,7 +16,7 @@ export function LanguageSwitcher({ currentLocale }: LanguageSwitcherProps) {
     startTransition(() => {
       // ✅ Actualizar cookie (NO URL)
       document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`;
-      
+
       // ✅ Reload para aplicar (mantiene ruta actual)
       router.refresh();
     });
@@ -32,6 +32,9 @@ export function LanguageSwitcher({ currentLocale }: LanguageSwitcherProps) {
     ko: '한국어',
     ar: 'العربية',
     zh: '中文',
+    he: 'עברית',
+    fa: 'فارسی',
+    ur: 'اردو',
   };
 
   return (

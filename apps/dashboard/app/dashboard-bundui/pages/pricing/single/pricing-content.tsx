@@ -11,7 +11,7 @@ import {
   AccordionTrigger
 } from "@vibethink/ui/components/accordion";
 import { Badge } from "@vibethink/ui/components/badge";
-import { Check } from "lucide-react";
+import { Check } from "@vibethink/ui/icons";
 
 const features = [
   "Unlimited access to all courses",

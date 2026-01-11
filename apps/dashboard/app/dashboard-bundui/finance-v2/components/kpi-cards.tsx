@@ -10,7 +10,7 @@ import {
   WalletIcon,
   FileTextIcon,
   DollarSignIcon
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 import { Badge } from "@vibethink/ui/components/badge";
 import { Bar, BarChart } from "recharts";
 import {

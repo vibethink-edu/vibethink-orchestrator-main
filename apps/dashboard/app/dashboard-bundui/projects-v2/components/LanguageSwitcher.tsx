@@ -8,7 +8,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@vibethink/ui/components/dropdown-menu';
-import { Globe } from 'lucide-react';
+import { Globe } from "@vibethink/ui/icons";
 
 const LANGUAGES = [
     { code: 'en', name: 'English', nativeName: 'English', flag: '🇺🇸' },

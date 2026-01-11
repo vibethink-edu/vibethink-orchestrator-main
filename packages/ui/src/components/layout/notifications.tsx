@@ -196,7 +196,7 @@ export function Notifications({ notifications = defaultNotifications, isMobile =
                     </div>
                   )}
                   <div className="dark:group-hover:text-default-500 text-muted-foreground flex items-center gap-1 text-xs">
-                    <ClockIcon className="size-3!" />
+                    <ClockIcon className="!size-3" />
                     {item.date}
                   </div>
                 </div>

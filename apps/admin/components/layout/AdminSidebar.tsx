@@ -9,7 +9,7 @@ import {
     ShieldAlert,
     Activity,
     LogOut
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 
 import {
     Sidebar,

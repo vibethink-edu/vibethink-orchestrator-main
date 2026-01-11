@@ -100,6 +100,36 @@ export const localeMetadata: Record<Locale, LocaleMetadata> = {
     currency: 'KRW',
     numberFormat: new Intl.Locale('ko-KR'),
   },
+  he: {
+    code: 'he',
+    name: 'Hebrew',
+    nativeName: 'עברית',
+    flag: '🇮🇱',
+    dateFormat: 'dd/MM/yyyy',
+    timeFormat: 'HH:mm',
+    currency: 'ILS',
+    numberFormat: new Intl.Locale('he-IL'),
+  },
+  fa: {
+    code: 'fa',
+    name: 'Persian',
+    nativeName: 'فارسی',
+    flag: '🇮🇷',
+    dateFormat: 'dd/MM/yyyy',
+    timeFormat: 'HH:mm',
+    currency: 'IRR',
+    numberFormat: new Intl.Locale('fa-IR'),
+  },
+  ur: {
+    code: 'ur',
+    name: 'Urdu',
+    nativeName: 'اردو',
+    flag: '🇵🇰',
+    dateFormat: 'dd/MM/yyyy',
+    timeFormat: 'HH:mm',
+    currency: 'PKR',
+    numberFormat: new Intl.Locale('ur-PK'),
+  },
 };
 
 /**
@@ -107,7 +137,7 @@ export const localeMetadata: Record<Locale, LocaleMetadata> = {
  */
 export const i18nConfig: I18nConfig = {
   defaultLocale: 'en',
-  locales: ['en', 'es', 'ar', 'zh', 'fr', 'pt', 'de', 'it', 'ko'],
+  locales: ['en', 'es', 'ar', 'zh', 'fr', 'pt', 'de', 'it', 'ko', 'he', 'fa', 'ur'],
   localeMetadata,
   storageKey: 'vibethink-locale',
   cookieName: 'NEXT_LOCALE',

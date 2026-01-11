@@ -56,8 +56,9 @@ import {
   MessageSquareIcon as SpeechIcon,
   Clipboard,
   CheckCircle,
-  List
-} from "lucide-react";
+  List,
+  ShieldAlert
+} from "@vibethink/ui/icons";
 import Link from "next/link";
 import { IconWrapper } from "./icon-wrapper";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@vibethink/ui';
@@ -303,6 +304,24 @@ export const navItems: NavGroup[] = [
     ]
   },
   {
+    title: "Admin Mockups",
+    items: [
+      {
+        title: "System Admin",
+        href: "/dashboard-bundui/system-admin",
+        icon: ShieldAlert,
+        items: [
+          { title: "Tenants", href: "/dashboard-bundui/system-admin/tenants" }
+        ]
+      },
+      {
+        title: "Tenant Admin",
+        href: "/dashboard-bundui/tenant-admin",
+        icon: Building2Icon
+      }
+    ]
+  },
+  {
     title: "Others",
     items: [
       {
@@ -420,7 +439,12 @@ const getTitleTranslationKey = (title: string): string => {
     '403': 'subitems.error_403',
     // Badges
     'New': 'badges.new',
-    'Coming': 'badges.coming'
+    'Coming': 'badges.coming',
+    // Admin Mockups
+    'Admin Mockups': 'groups.admin_mockups',
+    'System Admin': 'items.system_admin',
+    'Tenants': 'subitems.tenants',
+    'Tenant Admin': 'items.tenant_admin'
   };
 
   return keyMap[title] || title; // Fallback to original if not found

@@ -5,7 +5,7 @@ import {
     Sparkles,
     History,
     X,
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 import {
     Tabs,
     TabsContent,

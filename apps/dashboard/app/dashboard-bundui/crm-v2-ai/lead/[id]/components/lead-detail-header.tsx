@@ -2,7 +2,7 @@
 
 import { Button } from "@vibethink/ui/components/button";
 import { Badge } from "@vibethink/ui/components/badge";
-import { ArrowLeft, Edit, MoreHorizontal, Phone, Mail, Calendar } from "lucide-react";
+import { ArrowLeft, Edit, MoreHorizontal, Phone, Mail, Calendar } from "@vibethink/ui/icons";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 

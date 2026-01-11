@@ -1,4 +1,4 @@
-import { BellIcon, ClockIcon } from "lucide-react";
+import { BellIcon, ClockIcon } from "@vibethink/ui/icons";
 import Link from "next/link";
 import { useIsMobile } from "@/hooks/use-mobile";
 

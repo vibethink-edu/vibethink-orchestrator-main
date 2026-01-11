@@ -3,10 +3,10 @@
 import React from "react";
 import Image from "next/image";
 import { cn } from "@/shared/lib/utils";
-import { ImageIcon, Tag, PenSquare, Check, Trash2Icon, ArchiveIcon } from "lucide-react";
+import { ImageIcon, Tag, PenSquare, Check, Trash2Icon, ArchiveIcon } from "@vibethink/ui/icons";
 import { MinimalTiptapEditor } from "@vibethink/ui";
 import { Content } from "@tiptap/react";
-import { useTranslation } from "@/lib/i18n";
+import { useI18n } from "@/lib/i18n";
 
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@vibethink/ui";
 import { Input } from "@vibethink/ui";
@@ -27,7 +27,7 @@ import { Badge } from "@vibethink/ui";
 import { noteLabels } from "./data";
 
 export function AddNoteModal() {
-  const { t } = useTranslation(['notes', 'richtext']);
+  const { t } = useI18n();
   const [imagePreview, setImagePreview] = React.useState<string | null>(null);
   const [value, setValue] = React.useState<Content>("");
   const [selectedTags, setSelectedTags] = React.useState<NoteLabel[]>([]);

@@ -43,6 +43,7 @@ export type NavItem = {
   isNew?: boolean;
   newTab?: boolean;
   items?: NavItem;
+  badge?: string;
 }[];
 
 interface NavMainProps {
@@ -87,7 +88,7 @@ export function NavMain({ navItems = defaultNavItems }: NavMainProps) {
                             <DropdownMenuLabel>{item.title}</DropdownMenuLabel>
                             {item.items?.map((item) => (
                               <DropdownMenuItem
-                                className="hover:text-foreground active:text-foreground hover:bg-[var(--primary)]/10! active:bg-[var(--primary)]/10!"
+                                className="hover:text-foreground active:text-foreground hover:!bg-[var(--primary)]/10 active:!bg-[var(--primary)]/10"
                                 asChild
                                 key={item.title}>
                                 <a href={item.href}>{item.title}</a>
@@ -149,6 +150,11 @@ export function NavMain({ navItems = defaultNavItems }: NavMainProps) {
                   {!!item.isDataBadge && (
                     <SidebarMenuBadge className="peer-hover/menu-button:text-foreground">
                       {item.isDataBadge}
+                    </SidebarMenuBadge>
+                  )}
+                  {!!item.badge && (
+                    <SidebarMenuBadge className="peer-hover/menu-button:text-foreground">
+                      {item.badge}
                     </SidebarMenuBadge>
                   )}
                 </SidebarMenuItem>

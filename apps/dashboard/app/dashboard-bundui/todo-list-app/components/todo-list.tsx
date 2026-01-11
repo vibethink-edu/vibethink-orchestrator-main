@@ -5,7 +5,7 @@ import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 import { FilterTab, Todo, TodoStatus } from "../types";
 
 import { Button } from "@vibethink/ui/components/button";
-import { Plus, X, Search, SlidersHorizontal, GridIcon, ListIcon } from "lucide-react";
+import { Plus, X, Search, SlidersHorizontal, GridIcon, ListIcon } from "@vibethink/ui/icons";
 import { Input } from "@vibethink/ui/components/input";
 import { Badge } from "@vibethink/ui/components/badge";
 import { ToggleGroup, ToggleGroupItem } from "@vibethink/ui/components/toggle-group";

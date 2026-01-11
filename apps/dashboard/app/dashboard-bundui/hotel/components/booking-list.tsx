@@ -40,7 +40,7 @@ import {
   ChevronRight,
   ChevronsLeft,
   ChevronsRight
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 import { Separator } from "@vibethink/ui";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@vibethink/ui";
 
@@ -251,15 +251,15 @@ export function BookingList() {
       ),
       cell: ({ row }) => {
         // ✅ CORRECTO: Usar formatBookingRange() con NormalizedWindow
-        const { locale } = useTranslation();
-        
+        const { locale } = useTranslation('hotel');
+
         // ResourceContext mock (en producción vendría de configuración)
         const resourceCtx: ResourceContext = createResourceContext(
           'hotel_mock',
           'pms',
           'America/Cancun' // Timezone del hotel
         );
-        
+
         // Crear NormalizedWindow
         const bookingWindow: NormalizedWindow = {
           kind: 'civil_range',
@@ -270,7 +270,7 @@ export function BookingList() {
           checkInDate: row.original.checkIn,
           checkOutDate: row.original.checkOut,
         };
-        
+
         // Formatear usando formatBookingRange() (respeta locale y timezone)
         return (
           <span className="text-foreground">
@@ -426,9 +426,9 @@ export function BookingList() {
 
           <div className="flex items-center justify-between">
             <p className="text-muted-foreground text-sm">
-              {t('components.bookingList.pagination.page', { 
-                current: table.getState().pagination.pageIndex + 1, 
-                total: table.getPageCount() 
+              {t('components.bookingList.pagination.page', {
+                current: table.getState().pagination.pageIndex + 1,
+                total: table.getPageCount()
               })}
             </p>
             <div className="flex items-center gap-2">

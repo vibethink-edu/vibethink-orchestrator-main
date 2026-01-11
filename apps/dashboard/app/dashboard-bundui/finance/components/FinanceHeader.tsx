@@ -13,7 +13,7 @@ import {
   Receipt,
   Target,
   Settings
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 
 /**
  * FinanceHeader Component

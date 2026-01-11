@@ -32,8 +32,8 @@ import {
     DropdownMenuTrigger,
 } from "@vibethink/ui/components/dropdown-menu";
 import Link from "next/link";
-
-import { MoreHorizontal, ArrowUpDown } from "lucide-react";
+// 🛡️ SAFE ICONS
+import { MoreHorizontal, ChevronsUpDown } from "@vibethink/ui/icons";
 
 export type Tenant = {
     id: string;
@@ -53,7 +53,7 @@ export const columns: ColumnDef<Tenant>[] = [
                     onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
                 >
                     Name
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                    <ChevronsUpDown className="ml-2 h-4 w-4" />
                 </Button>
             )
         },

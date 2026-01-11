@@ -1,4 +1,4 @@
-import { FolderUp } from "lucide-react";
+import { FolderUp } from "@vibethink/ui/icons";
 import { cn } from "@/shared/lib/utils";
 
 import { DropdownMenu,

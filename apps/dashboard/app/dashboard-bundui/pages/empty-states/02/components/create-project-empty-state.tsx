@@ -1,5 +1,5 @@
 import type React from "react";
-import { Megaphone, SquareTerminal, CalendarDays, ChevronRight, ArrowRight } from "lucide-react";
+import { Megaphone, SquareTerminal, CalendarDays, ChevronRight, ArrowRight } from "@vibethink/ui/icons";
 import { Card } from "@vibethink/ui/components/card";
 import Link from "next/link";
 

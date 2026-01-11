@@ -52,7 +52,7 @@ import {
   ChevronUp,
   ChevronDown,
   Eye
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { useProjectData, useUpdateProjectProgress } from '../hooks/useProjectData'
 import { useProjectFilters } from '../hooks/useProjectFilters'
 

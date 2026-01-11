@@ -13,9 +13,9 @@
 
 import React, { useCallback, useMemo } from 'react';
 import FullCalendar from '@fullcalendar/react';
-import { 
-  ChevronLeft, 
-  ChevronRight, 
+import {
+  ChevronLeft,
+  ChevronRight,
   Calendar as CalendarIcon,
   Plus,
   Filter,
@@ -23,27 +23,31 @@ import {
   Settings,
   Download,
   Printer,
-} from 'lucide-react';
+} from '@vibethink/ui/icons';
 
 import { Button } from '@vibethink/ui';
-import { Select,
+import {
+  Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue, } from '@vibethink/ui';
+  SelectValue,
+} from '@vibethink/ui';
 import { Input } from '@vibethink/ui';
-import { DropdownMenu,
+import {
+  DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-  DropdownMenuTrigger, } from '@vibethink/ui';
+  DropdownMenuTrigger,
+} from '@vibethink/ui';
 import { Badge } from '@vibethink/ui';
 
 import { useCalendarActions, useCalendarViewState } from '../hooks/useCalendarStore';
 import { CalendarView } from '../types';
 
 interface CalendarToolbarProps {
-  calendarRef: React.RefObject<FullCalendar>;
+  calendarRef: React.RefObject<FullCalendar | null>;
   className?: string;
 }
 
@@ -68,7 +72,7 @@ const calendarViews: Array<{ value: CalendarView; label: string; shortLabel: str
  * - Export and print options
  * - Responsive design for all screen sizes
  */
-const CalendarToolbar: React.FC<CalendarToolbarProps> = ({ 
+const CalendarToolbar: React.FC<CalendarToolbarProps> = ({
   calendarRef,
   className = '',
 }) => {
@@ -80,12 +84,12 @@ const CalendarToolbar: React.FC<CalendarToolbarProps> = ({
    */
   const formattedDate = useMemo(() => {
     const date = new Date(currentDate);
-    
+
     switch (currentView) {
       case 'dayGridMonth':
-        return date.toLocaleDateString('en-US', { 
-          month: 'long', 
-          year: 'numeric' 
+        return date.toLocaleDateString('en-US', {
+          month: 'long',
+          year: 'numeric'
         });
       case 'timeGridWeek':
       case 'listWeek':
@@ -93,36 +97,36 @@ const CalendarToolbar: React.FC<CalendarToolbarProps> = ({
         startOfWeek.setDate(date.getDate() - date.getDay());
         const endOfWeek = new Date(startOfWeek);
         endOfWeek.setDate(startOfWeek.getDate() + 6);
-        
+
         if (startOfWeek.getMonth() === endOfWeek.getMonth()) {
-          return `${startOfWeek.toLocaleDateString('en-US', { 
-            month: 'long', 
-            day: 'numeric' 
-          })} - ${endOfWeek.toLocaleDateString('en-US', { 
-            day: 'numeric', 
-            year: 'numeric' 
+          return `${startOfWeek.toLocaleDateString('en-US', {
+            month: 'long',
+            day: 'numeric'
+          })} - ${endOfWeek.toLocaleDateString('en-US', {
+            day: 'numeric',
+            year: 'numeric'
           })}`;
         } else {
-          return `${startOfWeek.toLocaleDateString('en-US', { 
-            month: 'short', 
-            day: 'numeric' 
-          })} - ${endOfWeek.toLocaleDateString('en-US', { 
-            month: 'short', 
+          return `${startOfWeek.toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric'
+          })} - ${endOfWeek.toLocaleDateString('en-US', {
+            month: 'short',
             day: 'numeric',
-            year: 'numeric' 
+            year: 'numeric'
           })}`;
         }
       case 'timeGridDay':
-        return date.toLocaleDateString('en-US', { 
+        return date.toLocaleDateString('en-US', {
           weekday: 'long',
-          month: 'long', 
+          month: 'long',
           day: 'numeric',
-          year: 'numeric' 
+          year: 'numeric'
         });
       default:
-        return date.toLocaleDateString('en-US', { 
-          month: 'long', 
-          year: 'numeric' 
+        return date.toLocaleDateString('en-US', {
+          month: 'long',
+          year: 'numeric'
         });
     }
   }, [currentDate, currentView]);
@@ -200,7 +204,7 @@ const CalendarToolbar: React.FC<CalendarToolbarProps> = ({
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
-            
+
             <Button
               variant="outline"
               size="sm"
@@ -209,7 +213,7 @@ const CalendarToolbar: React.FC<CalendarToolbarProps> = ({
             >
               Today
             </Button>
-            
+
             <Button
               variant="outline"
               size="sm"

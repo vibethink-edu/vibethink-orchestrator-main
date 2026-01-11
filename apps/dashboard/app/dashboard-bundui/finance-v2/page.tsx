@@ -1,5 +1,5 @@
 import { generateMeta } from "@/shared/lib/utils";
-import { Download } from "lucide-react";
+import { Download } from "@vibethink/ui/icons";
 
 import { Button } from "@vibethink/ui/components/button";
 

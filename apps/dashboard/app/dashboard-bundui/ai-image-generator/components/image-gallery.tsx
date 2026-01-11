@@ -1,5 +1,5 @@
 import React from "react";
-import { Image as ImageIcon } from "lucide-react";
+import { Image as ImageIcon } from "@vibethink/ui/icons";
 import { ScrollArea } from "@vibethink/ui";
 import ImageItem from "./image-item";
 

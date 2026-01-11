@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, Video, ImageIcon } from "lucide-react";
+import { Plus, Video, ImageIcon } from "@vibethink/ui/icons";
 
 import { Button } from "@vibethink/ui";
 import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";

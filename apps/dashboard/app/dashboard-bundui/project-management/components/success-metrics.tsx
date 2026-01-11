@@ -1,4 +1,4 @@
-import { ArrowDownLeft, ArrowUpRight } from "lucide-react";
+import { ArrowDownLeft, ArrowUpRight } from "@vibethink/ui/icons";
 import { getInitials } from "@vibethink/utils";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui";

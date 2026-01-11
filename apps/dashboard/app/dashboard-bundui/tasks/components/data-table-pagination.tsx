@@ -1,5 +1,5 @@
 import { Table } from "@tanstack/react-table";
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "@vibethink/ui/icons";
 
 import { Button } from "@vibethink/ui";
 import {

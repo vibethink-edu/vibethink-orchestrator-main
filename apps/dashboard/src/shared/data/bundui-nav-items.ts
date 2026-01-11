@@ -44,7 +44,7 @@ import {
   SpeechIcon,
   BookAIcon,
   PuzzleIcon
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 import type { NavGroup } from '@vibethink/ui';
 
 export const bunduiNavItems: NavGroup[] = [

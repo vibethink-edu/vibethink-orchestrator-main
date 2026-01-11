@@ -15,7 +15,7 @@ import {
   ThumbsDownIcon,
   ThumbsUpIcon,
   X
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 import { CodeIcon, CopyIcon } from "@radix-ui/react-icons";
 import Lottie from "lottie-react";
 

@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle
 } from "@vibethink/ui/components/card";
-import { Plus, Check, Dumbbell, Flower2 } from "lucide-react";
+import { Plus, Check, Dumbbell, Flower2 } from "@vibethink/ui/icons";
 import { Button } from "@vibethink/ui/components/button";
 import { Badge } from "@vibethink/ui/components/badge";
 

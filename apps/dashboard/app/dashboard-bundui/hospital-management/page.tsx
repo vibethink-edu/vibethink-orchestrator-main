@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, RefreshCw } from "lucide-react";
+import { Download, RefreshCw } from "@vibethink/ui/icons";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@vibethink/ui/components/tabs";
 import { Button } from "@vibethink/ui/components/button";

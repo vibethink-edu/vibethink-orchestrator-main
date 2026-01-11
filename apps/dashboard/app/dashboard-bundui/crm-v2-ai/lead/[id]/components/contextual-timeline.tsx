@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Clock12Icon, FileText, ChevronDown, ChevronUp, MoreHorizontal } from "lucide-react";
+import { Clock12Icon, FileText, ChevronDown, ChevronUp, MoreHorizontal } from "@vibethink/ui/icons";
 import { Badge } from "@vibethink/ui/components/badge";
 import { Button } from "@vibethink/ui/components/button";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
@@ -24,7 +24,7 @@ import type { EntityType } from "./ai-chat-assistant";
 /**
  * Activity Type - Genérico para diferentes tipos de entidades
  */
-type ActivityType = 
+type ActivityType =
   | "call"
   | "email"
   | "meeting"
@@ -165,14 +165,16 @@ function getMockActivities(entityType: EntityType, entityId: string): Activity[]
  * 
  * @see docs/architecture/CRM_AI_AGENT_CONTEXT_DESIGN_REVIEW.md
  */
-export function ContextualTimeline({ 
-  entityType, 
-  entityId 
-}: { 
+export function ContextualTimeline({
+  entityType,
+  entityId,
+  compact = false
+}: {
   entityType: EntityType;
   entityId: string;
+  compact?: boolean;
 }) {
-  const { i18n } = useTranslation('crm');
+  const { locale } = useTranslation('crm');
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set(["1", "2", "3"])); // First 3 expanded by default
   const [isTimelineCollapsed, setIsTimelineCollapsed] = useState(false);
 
@@ -237,7 +239,7 @@ export function ContextualTimeline({
         <Timeline defaultValue={activities.length}>
           {activities.map((activity) => {
             const isExpanded = expandedItems.has(activity.id) && !isTimelineCollapsed;
-            
+
             return (
               <TimelineItem key={activity.id} step={Number(activity.id)} className="space-y-2">
                 <TimelineHeader>
@@ -256,7 +258,7 @@ export function ContextualTimeline({
                     <TimelineIndicator />
                   </Collapsible>
                 </TimelineHeader>
-                
+
                 {isExpanded && (
                   <TimelineContent className="space-y-4">
                     {activity.description && (
@@ -310,8 +312,8 @@ export function ContextualTimeline({
                     <div className="flex items-center justify-between">
                       <TimelineDate className="mt-2 mb-0 flex items-center gap-1.5">
                         <Clock12Icon className="size-3" />
-                        {typeof activity.timestamp === 'string' && activity.timestamp.includes('-') 
-                          ? formatCivilDate(activity.timestamp as CivilDate, i18n.language)
+                        {typeof activity.timestamp === 'string' && activity.timestamp.includes('-')
+                          ? formatCivilDate(activity.timestamp as CivilDate, locale)
                           : activity.timestamp}
                       </TimelineDate>
                       <span className="text-xs text-muted-foreground">by {activity.createdBy}</span>

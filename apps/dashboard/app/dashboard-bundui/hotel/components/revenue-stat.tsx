@@ -16,7 +16,7 @@ import {
   type ChartConfig
 } from "@vibethink/ui";
 import { Bar, BarChart, XAxis, YAxis, ReferenceLine } from "recharts";
-import { Calendar, TrendingUp } from "lucide-react";
+import { Calendar, TrendingUp } from "@vibethink/ui/icons";
 import { useTranslation } from "@/lib/i18n";
 
 interface RevenueDataItem {

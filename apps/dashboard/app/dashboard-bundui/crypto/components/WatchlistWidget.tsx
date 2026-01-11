@@ -13,7 +13,7 @@ import {
   Star,
   X,
   AlertCircle
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { WatchlistProps } from '../types'
 
 export const WatchlistWidget: React.FC<WatchlistProps> = ({ 

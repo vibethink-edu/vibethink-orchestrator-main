@@ -1,4 +1,4 @@
-import { Mic, Paperclip, PlusCircleIcon, SendIcon, SmileIcon } from "lucide-react";
+import { Mic, Paperclip, PlusCircleIcon, SendIcon, SmileIcon } from "@vibethink/ui/icons";
 import {
   DropdownMenu,
   DropdownMenuContent,

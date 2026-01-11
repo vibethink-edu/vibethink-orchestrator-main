@@ -10,7 +10,7 @@ import {
   Pencil,
   Printer,
   Truck
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 import { Metadata } from "next";
 
 import { Button } from "@vibethink/ui/components/button";

@@ -10,7 +10,7 @@ import { Node, Edge } from '@xyflow/react';
 /**
  * Tipos de nodos disponibles en el workflow
  */
-export type NodeType = 
+export type NodeType =
   | 'start'
   | 'process'
   | 'decision'
@@ -20,7 +20,7 @@ export type NodeType =
 /**
  * Estado de un nodo en el workflow
  */
-export type NodeStatus = 
+export type NodeStatus =
   | 'idle'
   | 'running'
   | 'completed'
@@ -38,6 +38,7 @@ export interface WorkflowNodeData {
   icon?: string;
   color?: string;
   metadata?: Record<string, unknown>;
+  [key: string]: unknown;
 }
 
 /**
@@ -76,7 +77,7 @@ export interface WorkflowState {
 /**
  * Acciones disponibles en el workflow
  */
-export type WorkflowAction = 
+export type WorkflowAction =
   | { type: 'ADD_NODE'; payload: { node: WorkflowNode } }
   | { type: 'UPDATE_NODE'; payload: { nodeId: string; data: Partial<WorkflowNodeData> } }
   | { type: 'DELETE_NODE'; payload: { nodeId: string } }

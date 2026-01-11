@@ -1,5 +1,5 @@
 import { Card, CardContent, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, Button } from "@vibethink/ui";
-import { MoreVertical, Clock, LogOut, Users, DollarSign, CreditCard } from "lucide-react";
+import { MoreVertical, Clock, LogOut, Users, DollarSign, CreditCard } from "@vibethink/ui/icons";
 import { cn } from "@vibethink/utils";
 import { useTranslation } from "@/lib/i18n";
 

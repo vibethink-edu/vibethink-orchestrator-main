@@ -1,7 +1,7 @@
 'use client'
 
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts'
-import { TrendingUp, TrendingDown, ShoppingCart, Target, AlertTriangle } from 'lucide-react'
+import { TrendingUp, TrendingDown, ShoppingCart, Target, AlertTriangle } from "@vibethink/ui/icons"
 import {
   Card,
   CardContent,

@@ -21,7 +21,7 @@ import {
   Music,
   Archive,
   MoreHorizontal
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import type { StorageStatusCardProps } from '../types'
 
 export function StorageStatusCard({ metrics, loading }: StorageStatusCardProps) {

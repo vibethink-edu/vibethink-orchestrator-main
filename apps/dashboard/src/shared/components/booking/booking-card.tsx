@@ -23,7 +23,7 @@ import { useAutoDetectContext } from '@/hooks/use-auto-detect-context';
 import { term } from '@vibethink/utils';
 import { useTranslation } from '@/lib/i18n';
 import { useEffect, useState } from 'react';
-import { CalendarIcon, ClockIcon, MapPinIcon } from 'lucide-react';
+import { CalendarIcon, ClockIcon, MapPinIcon } from '@vibethink/ui/icons';
 
 export interface Booking {
   id: string;
@@ -38,7 +38,7 @@ export interface Booking {
   currency?: string;
 }
 
-interface BookingCardProps {
+export interface BookingCardProps {
   /** Contexto explícito (opcional - se auto-detecta si no se pasa) */
   context?: 'hotel' | 'studio' | 'cowork' | 'coliving' | null;
   /** Datos del booking */
@@ -90,7 +90,7 @@ export function BookingCard({
   const autoContext = useAutoDetectContext();
   const finalContext = explicitContext || autoContext;
 
-  const { locale: currentLocale } = useTranslation();
+  const { locale: currentLocale } = useTranslation('common');
   const finalLocale = locale || currentLocale;
 
   // Resolver terminología según contexto
@@ -216,13 +216,12 @@ export function BookingCard({
           <CardTitle className="text-lg">{terminology.bookingLabel}</CardTitle>
           {booking.status && (
             <span
-              className={`px-2 py-1 rounded-full text-xs font-medium ${
-                booking.status === 'confirmed'
-                  ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
-                  : booking.status === 'cancelled'
+              className={`px-2 py-1 rounded-full text-xs font-medium ${booking.status === 'confirmed'
+                ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+                : booking.status === 'cancelled'
                   ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
                   : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
-              }`}
+                }`}
             >
               {terminology.statusLabel}
             </span>

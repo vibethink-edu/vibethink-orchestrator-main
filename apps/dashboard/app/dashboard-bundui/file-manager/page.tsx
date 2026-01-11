@@ -28,7 +28,7 @@ import {
   Star,
   Clock,
   Settings
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 
 // Import file manager components
 import { SummaryCards } from './components/SummaryCards'

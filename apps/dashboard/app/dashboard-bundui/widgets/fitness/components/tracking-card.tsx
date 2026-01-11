@@ -1,6 +1,6 @@
 
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
-import { Pause, Play } from "lucide-react";
+import { Pause, Play } from "@vibethink/ui/icons";
 import { Button } from "@vibethink/ui/components/button";
 
 const history = [

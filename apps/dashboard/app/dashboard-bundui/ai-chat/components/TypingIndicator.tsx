@@ -17,7 +17,7 @@
 import React from 'react'
 import { Avatar, AvatarFallback } from '@vibethink/ui/components/avatar'
 import { Badge } from '@vibethink/ui/components/badge'
-import { Bot, Sparkles, Zap } from 'lucide-react'
+import { Bot, Sparkles, Zap } from "@vibethink/ui/icons"
 import { cn } from '@/shared/lib/utils'
 
 /**

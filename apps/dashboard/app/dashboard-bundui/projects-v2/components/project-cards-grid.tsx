@@ -1,6 +1,6 @@
 "use client";
 
-import { Plus } from "lucide-react";
+import { Plus } from "@vibethink/ui/icons";
 import Link from "next/link";
 import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Avatar, AvatarFallback, AvatarImage, Progress } from "@vibethink/ui";
 import { useTranslation } from "@/lib/i18n";

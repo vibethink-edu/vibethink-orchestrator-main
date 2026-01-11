@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft } from "@vibethink/ui/icons";
 
 import { Table, TableCategory } from "../store";
 

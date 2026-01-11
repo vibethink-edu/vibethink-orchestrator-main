@@ -42,7 +42,7 @@ import {
   CheckCircle,
   AlertCircle,
   Info
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { cn } from '@/shared/lib/utils'
 import { ModelSelectorProps, AIProvider, AIModel, AIProviderType } from '../types'
 

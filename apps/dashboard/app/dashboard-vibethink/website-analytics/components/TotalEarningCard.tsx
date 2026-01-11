@@ -1,13 +1,18 @@
 'use client'
 
 // Charts temporarily replaced with CSS visualizations
-import { ChevronUpIcon, DollarSign, HandCoins, TrendingUp, TrendingDown } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui'
-import { 
-  ChartConfig, 
-  ChartContainer
+import { ChevronUpIcon, DollarSign, HandCoins, TrendingUp, TrendingDown } from '@vibethink/ui/icons'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  ChartConfig,
+  ChartContainer,
+  Badge,
+  Skeleton
 } from '@vibethink/ui'
-import { Badge, Skeleton } from '@vibethink/ui'
 import { useAnalyticsData } from '../hooks'
 import { AnalyticsCardProps } from '../types'
 
@@ -44,13 +49,13 @@ const chartData = [
  * 
  * Uses Recharts with HSL color variables for theming compatibility
  */
-export function TotalEarningCard({ 
+export function TotalEarningCard({
   className = '',
   isLoading: externalLoading = false,
   error: externalError = null
 }: AnalyticsCardProps) {
   const { earningReports, salesAnalytics, isLoading, error } = useAnalyticsData()
-  
+
   const loading = isLoading || externalLoading
   const errorState = error || externalError
 
@@ -143,15 +148,15 @@ export function TotalEarningCard({
             <DollarSign className="h-4 w-4 text-chart-1" />
             Total Earning
           </CardDescription>
-          <Badge 
-            variant="outline" 
+          <Badge
+            variant="outline"
             className={`gap-1 ${getTrendColor(latestEarnings.growth_percentage)}`}
           >
             {getTrendIcon(latestEarnings.growth_percentage)}
             {formatPercentage(latestEarnings.growth_percentage)}
           </Badge>
         </div>
-        
+
         <div className="flex items-center gap-4">
           <div className="font-display text-2xl font-bold lg:text-3xl">
             {Math.round(latestEarnings.profit_margin * 100)}%
@@ -160,12 +165,12 @@ export function TotalEarningCard({
             Profit Margin
           </div>
         </div>
-        
+
         <div className="text-muted-foreground text-sm">
           {formatCurrency(latestEarnings.total_earnings)} total earnings this period
         </div>
       </CardHeader>
-      
+
       <CardContent className="space-y-6">
         {/* Earnings Chart - CSS Visualization */}
         <div className="h-32">
@@ -176,7 +181,7 @@ export function TotalEarningCard({
               return (
                 <div key={item.month} className="flex flex-col items-center flex-1">
                   <div className="flex flex-col w-full h-full justify-end">
-                    <div 
+                    <div
                       className="w-full bg-gradient-to-t from-blue-500 to-blue-300 rounded-t-sm"
                       style={{ height: `${height}%` }}
                       title={`${item.month}: ${formatCurrency(item.revenue)}`}
@@ -235,7 +240,7 @@ export function TotalEarningCard({
                 {formatCurrency(latestEarnings.revenue_breakdown.subscription)}
               </span>
             </div>
-            
+
             <div className="flex items-center justify-between text-sm">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-chart-2"></div>
@@ -245,7 +250,7 @@ export function TotalEarningCard({
                 {formatCurrency(latestEarnings.revenue_breakdown.one_time_payment)}
               </span>
             </div>
-            
+
             <div className="flex items-center justify-between text-sm">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-chart-3"></div>
@@ -255,7 +260,7 @@ export function TotalEarningCard({
                 {formatCurrency(latestEarnings.revenue_breakdown.commission)}
               </span>
             </div>
-            
+
             <div className="flex items-center justify-between text-sm">
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-chart-4"></div>

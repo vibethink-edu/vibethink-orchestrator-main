@@ -9,6 +9,8 @@
         "./components/extensions/*": "./src/components/extensions/*.tsx",
         "./components/extensions/minimal-tiptap": "./src/components/extensions/minimal-tiptap/index.ts",
         "./components/extensions/prompt/*": "./src/components/extensions/prompt/*.tsx",
+        "./icons": "./src/icons.tsx",
+        "./globals.css": "./src/globals.css",
         "./lib/*": "./src/lib/*.ts",
         "./hooks/*": "./src/hooks/*.ts"
     },

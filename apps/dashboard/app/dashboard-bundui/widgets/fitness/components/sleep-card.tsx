@@ -1,5 +1,5 @@
 
-import { Moon } from "lucide-react";
+import { Moon } from "@vibethink/ui/icons";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { Progress } from "@vibethink/ui/components/progress";

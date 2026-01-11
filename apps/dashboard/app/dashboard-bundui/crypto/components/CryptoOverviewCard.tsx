@@ -16,7 +16,7 @@ import {
   TrendingDown,
   Activity,
   Target
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { CryptoPortfolioMetrics } from '../types'
 
 interface CryptoOverviewCardProps {

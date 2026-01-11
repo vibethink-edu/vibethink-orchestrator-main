@@ -9,12 +9,12 @@
 'use client'
 
 import { useState, useCallback } from 'react'
-import type { 
-  FileItem, 
-  FolderItem, 
-  FileUploadOptions, 
+import type {
+  FileItem,
+  FolderItem,
+  FileUploadOptions,
   FileShareOptions,
-  UseFileOperations 
+  UseFileOperations
 } from '../types'
 
 // Mock auth hook - in real app this would come from your auth system
@@ -63,24 +63,24 @@ const supabase = {
     }
   }),
   auth: {
-    getUser: () => Promise.resolve({ 
-      data: { user: { id: 'user_1', email: 'user@company.com' } }, 
-      error: null 
+    getUser: () => Promise.resolve({
+      data: { user: { id: 'user_1', email: 'user@company.com' } },
+      error: null
     })
   },
   storage: {
     from: (bucket: string) => ({
-      upload: (path: string, file: File, options?: any) => Promise.resolve({ 
-        data: { path }, 
-        error: null 
+      upload: (path: string, file: File, options?: any) => Promise.resolve({
+        data: { path },
+        error: null
       }),
-      download: (path: string) => Promise.resolve({ 
-        data: new Blob(['mock file content']), 
-        error: null 
+      download: (path: string) => Promise.resolve({
+        data: new Blob(['mock file content']),
+        error: null
       }),
       remove: (paths: string[]) => Promise.resolve({ error: null }),
-      getPublicUrl: (path: string) => ({ 
-        data: { publicUrl: `https://mock-storage.com/${path}` } 
+      getPublicUrl: (path: string) => ({
+        data: { publicUrl: `https://mock-storage.com/${path}` }
       })
     })
   }
@@ -106,7 +106,7 @@ const getMockFile = (): FileItem => ({
   permissions: [],
   version: 1,
   download_count: 0,
-  thumbnail_url: null
+  thumbnail_url: undefined
 })
 
 export function useFileOperations(): UseFileOperations {
@@ -120,7 +120,7 @@ export function useFileOperations(): UseFileOperations {
     if (!user?.company_id) {
       throw new Error('User not authenticated or missing company_id')
     }
-    
+
     return { user, company_id: user.company_id }
   }, [user])
 
@@ -145,7 +145,7 @@ export function useFileOperations(): UseFileOperations {
         })
 
       if (uploadError) {
-        throw new Error(`Upload failed: ${uploadError.message}`)
+        throw new Error(`Upload failed: ${(uploadError as any).message}`)
       }
 
       // Get file URL
@@ -179,7 +179,7 @@ export function useFileOperations(): UseFileOperations {
       if (dbError) {
         // Clean up uploaded file if database insert fails
         await supabase.storage.from('files').remove([filePath])
-        throw new Error(`Database error: ${dbError.message}`)
+        throw new Error(`Database error: ${(dbError as any).message}`)
       }
 
       // Log activity
@@ -232,7 +232,7 @@ export function useFileOperations(): UseFileOperations {
         .download(file.path)
 
       if (downloadError) {
-        throw new Error(`Download failed: ${downloadError.message}`)
+        throw new Error(`Download failed: ${(downloadError as any).message}`)
       }
 
       // Create download link and trigger download
@@ -252,7 +252,7 @@ export function useFileOperations(): UseFileOperations {
           .update({ download_count: file.download_count + 1 })
           .eq('id', fileId)
           .eq('company_id', company_id), // CRITICAL: Always filter by company_id
-        
+
         supabase.from('file_activity').insert({
           file_id: fileId,
           file_name: file.name,
@@ -298,7 +298,7 @@ export function useFileOperations(): UseFileOperations {
         .remove([file.path])
 
       if (storageError) {
-        console.warn('Storage deletion failed:', storageError.message)
+        console.warn('Storage deletion failed:', (storageError as any).message)
       }
 
       // Delete from database with company_id filtering - CRITICAL SECURITY
@@ -491,7 +491,7 @@ export function useFileOperations(): UseFileOperations {
         .single()
 
       if (error) {
-        throw new Error(`Folder creation failed: ${error.message}`)
+        throw new Error(`Folder creation failed: ${(error as any).message}`)
       }
 
       return {
@@ -631,20 +631,20 @@ export function useFileOperations(): UseFileOperations {
 // Helper functions
 async function generateThumbnail(file: File): Promise<string | null> {
   if (!file.type.startsWith('image/')) return null
-  
+
   try {
     return new Promise((resolve) => {
       const canvas = document.createElement('canvas')
       const ctx = canvas.getContext('2d')
       const img = new Image()
-      
+
       img.onload = () => {
         canvas.width = 150
         canvas.height = 150
         ctx?.drawImage(img, 0, 0, 150, 150)
         resolve(canvas.toDataURL())
       }
-      
+
       img.onerror = () => resolve(null)
       img.src = URL.createObjectURL(file)
     })

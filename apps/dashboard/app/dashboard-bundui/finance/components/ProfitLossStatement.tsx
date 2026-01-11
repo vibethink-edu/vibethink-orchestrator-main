@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle, Skeleton, Badge, Button, Separator } from '@vibethink/ui'
 import { Revenue, Expense } from '../types'
 import { useState } from 'react'
-import { FileText, Download, TrendingUp, TrendingDown, Calculator, DollarSign } from 'lucide-react'
+import { FileText, Download, TrendingUp, TrendingDown, Calculator, DollarSign } from "@vibethink/ui/icons"
 
 interface ProfitLossStatementProps {
   revenues: Revenue[]

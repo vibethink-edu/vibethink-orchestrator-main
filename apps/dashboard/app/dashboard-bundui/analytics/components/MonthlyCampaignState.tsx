@@ -1,7 +1,7 @@
 'use client'
 
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts'
-import { Megaphone, Target, TrendingUp, Eye, MousePointer } from 'lucide-react'
+import { Megaphone, Target, TrendingUp, Eye, MousePointer } from "@vibethink/ui/icons"
 import {
   Card,
   CardContent,

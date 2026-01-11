@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { format } from "date-fns";
-import { CalendarIcon, Plus } from "lucide-react";
+import { CalendarIcon, Plus } from "@vibethink/ui/icons";
 import {
   Sheet,
   SheetContent,
@@ -86,8 +86,7 @@ export function BookingFormSheet() {
   });
 
   function handleFormSubmit(values: FormValues) {
-    toast({
-      title: "Booking created",
+    toast("Booking created", {
       description: `Booking for ${values.name} has been successfully added.`
     });
   }

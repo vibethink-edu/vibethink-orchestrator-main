@@ -128,7 +128,9 @@ async function processQueue(limit: number) {
     }
 
     // Apply resolution
-    await applyResolution(item, resolution);
+    if (resolution) {
+      await applyResolution(item, resolution);
+    }
   }
 
   console.log(chalk.green('\n✅ Review session complete!\n'));

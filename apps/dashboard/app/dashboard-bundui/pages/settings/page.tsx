@@ -6,7 +6,7 @@ import { cn } from "@/shared/lib/utils";
 import { useFieldArray, useForm } from "react-hook-form";
 import { z } from "zod";
 import { toast } from "sonner";
-import { CircleUserRoundIcon, Trash2Icon } from "lucide-react";
+import { CircleUserRoundIcon, Trash2Icon } from "@vibethink/ui/icons";
 
 import { useFileUpload } from "@/hooks/use-file-upload";
 

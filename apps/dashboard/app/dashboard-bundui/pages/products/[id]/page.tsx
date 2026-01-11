@@ -10,7 +10,7 @@ import {
   StarIcon,
   Trash2Icon,
   TruckIcon
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 
 import { Button } from "@vibethink/ui/components/button";
 import {

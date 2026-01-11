@@ -1,4 +1,4 @@
-import { ArrowUpIcon } from "lucide-react";
+import { ArrowUpIcon } from "@vibethink/ui/icons";
 import { Card, CardContent, CardDescription, CardHeader } from "@vibethink/ui";
 import * as React from "react";
 

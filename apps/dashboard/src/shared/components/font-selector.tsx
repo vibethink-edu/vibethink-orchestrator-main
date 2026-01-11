@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Check, Type } from "lucide-react";
+import { Check, Type } from "@vibethink/ui/icons";
 import { cn } from "@/shared/lib/utils";
 import {
   Select,

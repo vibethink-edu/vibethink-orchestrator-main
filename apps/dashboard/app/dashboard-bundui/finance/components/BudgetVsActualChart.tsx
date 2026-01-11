@@ -14,7 +14,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui'
 import { useState } from 'react'
 import { BudgetVsActualChartProps, BudgetComparison } from '../types'
-import { Target, TrendingUp, TrendingDown, AlertTriangle, CheckCircle, BarChart3, Activity } from 'lucide-react'
+import { Target, TrendingUp, TrendingDown, AlertTriangle, CheckCircle, BarChart3, Activity } from "@vibethink/ui/icons"
 
 /**
  * BudgetVsActualChart Component

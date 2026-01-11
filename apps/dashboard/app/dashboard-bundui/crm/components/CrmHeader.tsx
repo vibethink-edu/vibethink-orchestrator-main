@@ -1,7 +1,7 @@
 import { Button } from "@vibethink/ui/components/button";
 import { Input } from "@vibethink/ui/components/input";
 import { Badge } from "@vibethink/ui/components/badge";
-import { Search, Plus, Filter, Download, X } from 'lucide-react'
+import { Search, Plus, Filter, Download, X } from "@vibethink/ui/icons"
 import { useCrmFilters } from '../hooks/useCrmFilters'
 
 interface CrmHeaderProps {

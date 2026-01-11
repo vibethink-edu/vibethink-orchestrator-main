@@ -23,7 +23,7 @@ import {
   MoreVertical,
   Paperclip,
   ArrowLeft
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { Email } from '../types'
 import { cn } from '@/shared/lib/utils'
 // Simple date formatting without external dependencies

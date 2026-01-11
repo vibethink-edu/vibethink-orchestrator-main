@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
-import { Zap } from "lucide-react";
+import { Zap } from "@vibethink/ui/icons";
 import { Progress } from "@vibethink/ui/components/progress";
 
 export function ActiveCard() {

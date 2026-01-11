@@ -1,4 +1,4 @@
-import { UserPlus, MoreHorizontal } from "lucide-react";
+import { UserPlus, MoreHorizontal } from "@vibethink/ui/icons";
 import { Button } from "@vibethink/ui/components/button";
 import { Tabs, TabsList, TabsTrigger } from "@vibethink/ui/components/tabs";
 import { Badge } from "@vibethink/ui/components/badge";

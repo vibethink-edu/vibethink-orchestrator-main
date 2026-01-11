@@ -1,6 +1,6 @@
 "use client";
 
-import { TrendingUpIcon } from "lucide-react";
+import { TrendingUpIcon } from "@vibethink/ui/icons";
 import { Bar, BarChart, XAxis } from "recharts";
 
 import {

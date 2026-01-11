@@ -22,7 +22,7 @@ import {
   Settings,
   CreditCard,
   Wallet
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 
 // Import finance components
 import { FinancialSummaryCards } from './components/FinancialSummaryCards'

@@ -16,7 +16,7 @@ import {
   ChartTooltip,
   ChartTooltipContent
 } from '@vibethink/ui'
-import { Download, TrendingUp, TrendingDown } from 'lucide-react'
+import { Download, TrendingUp, TrendingDown } from "@vibethink/ui/icons"
 
 interface ChartBalanceSummaryProps {
   loading?: boolean

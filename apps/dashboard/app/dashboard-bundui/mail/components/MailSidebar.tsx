@@ -11,7 +11,7 @@ import {
   Tag,
   Plus,
   Settings
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { EmailFolder, EmailLabel } from '../types'
 import { cn } from '@/shared/lib/utils'
 

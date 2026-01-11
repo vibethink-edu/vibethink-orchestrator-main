@@ -29,7 +29,7 @@ import {
   Lock,
   Calendar,
   FileText
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import type { FolderListCardsProps } from '../types'
 
 export function FolderListCards({ 

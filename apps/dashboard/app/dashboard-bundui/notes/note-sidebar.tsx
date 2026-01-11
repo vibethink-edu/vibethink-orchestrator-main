@@ -1,5 +1,5 @@
 import React from "react";
-import { Archive, Edit3, PenSquare } from "lucide-react";
+import { Archive, Edit3, PenSquare } from "@vibethink/ui/icons";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 import { Button } from "@vibethink/ui";

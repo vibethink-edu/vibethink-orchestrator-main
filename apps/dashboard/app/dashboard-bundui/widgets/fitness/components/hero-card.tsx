@@ -1,6 +1,6 @@
 
 import { Card } from "@vibethink/ui/components/card";
-import { Play } from "lucide-react";
+import { Play } from "@vibethink/ui/icons";
 import { Button } from "@vibethink/ui/components/button";
 
 export function HeroCard() {

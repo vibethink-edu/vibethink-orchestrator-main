@@ -9,7 +9,7 @@ import {
 import { ExportButton } from "@/shared/components/CardActionMenus";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight } from "@vibethink/ui/icons";
 import { Button } from "@vibethink/ui";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@vibethink/ui";
 

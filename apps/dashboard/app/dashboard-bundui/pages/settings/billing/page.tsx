@@ -1,6 +1,6 @@
 "use client";
 
-import { Edit2, Plus } from "lucide-react";
+import { Edit2, Plus } from "@vibethink/ui/icons";
 
 import { Button } from "@vibethink/ui/components/button";
 import {

@@ -1,4 +1,4 @@
-import { FolderPlus, Plus } from "lucide-react";
+import { FolderPlus, Plus } from "@vibethink/ui/icons";
 import { Button } from "@vibethink/ui/components/button";
 import { Metadata } from "next";
 

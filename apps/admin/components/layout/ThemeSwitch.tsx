@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { MoonIcon, SunIcon } from "lucide-react";
+import { MoonIcon, SunIcon } from "@vibethink/ui/icons";
 import { Button } from '@vibethink/ui/components/button';
 
 export function ThemeSwitch() {

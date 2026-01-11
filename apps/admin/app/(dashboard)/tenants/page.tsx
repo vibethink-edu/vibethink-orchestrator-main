@@ -1,6 +1,7 @@
 import { TenantsTable, Tenant } from "@/components/tenants/TenantsTable";
 import { adminDb } from "@/lib/supabase";
 import { Button } from "@vibethink/ui/components/button";
+import { CreateTenantDialog } from "@/components/tenants/CreateTenantDialog";
 
 export const dynamic = 'force-dynamic';
 
@@ -46,9 +47,7 @@ export default async function TenantsPage() {
                     </p>
                 </div>
                 <div className="flex items-center gap-2">
-                    <Button className="bg-primary text-primary-foreground hover:opacity-90 shadow-sm">
-                        Provision New Tenant
-                    </Button>
+                    <CreateTenantDialog />
                 </div>
             </div>
 

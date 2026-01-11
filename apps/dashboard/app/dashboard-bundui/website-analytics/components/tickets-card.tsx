@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Label, Pie, PieChart } from "recharts";
-import { ClockIcon, MessageCircleReplyIcon, TicketIcon } from "lucide-react";
+import { ClockIcon, MessageCircleReplyIcon, TicketIcon } from "@vibethink/ui/icons";
 
 import {
   ChartConfig,

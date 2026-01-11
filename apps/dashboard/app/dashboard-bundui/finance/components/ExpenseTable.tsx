@@ -33,7 +33,7 @@ import {
   Filter,
   ChevronLeft,
   ChevronRight
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { useState } from 'react'
 
 /**

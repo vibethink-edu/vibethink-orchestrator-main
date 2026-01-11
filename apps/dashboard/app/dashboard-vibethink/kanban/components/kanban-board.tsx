@@ -316,7 +316,7 @@ export default function KanbanBoard() {
   const [newColumnTitle, setNewColumnTitle] = React.useState("");
 
   const getActiveFilters = () => {
-    const filters = [];
+    const filters: string[] = [];
     if (filterStatus) filters.push(filterStatus);
     if (filterPriority) filters.push(filterPriority);
     if (filterUser) filters.push(filterUser);
@@ -639,7 +639,7 @@ export default function KanbanBoard() {
                   {tasks.length > 0 ? (
                     <div className="flex flex-col gap-2 p-0.5">
                       {tasks.map((task) => (
-                        <Kanban.Item key={task.id} value={task.id} asHandle asChild>
+                        <Kanban.KanbanItem key={task.id} value={task.id} asHandle asChild>
                           <Card className="border-0">
                             <CardHeader>
                               <CardTitle className="text-base font-semibold">
@@ -715,7 +715,7 @@ export default function KanbanBoard() {
                               </div>
                             </CardContent>
                           </Card>
-                        </Kanban.Item>
+                        </Kanban.KanbanItem>
                       ))}
                     </div>
                   ) : (

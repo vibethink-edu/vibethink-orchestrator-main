@@ -13,7 +13,7 @@ import {
   getSortedRowModel,
   useReactTable
 } from "@tanstack/react-table";
-import { ArrowUpDown, ChevronDown, Search } from "lucide-react";
+import { ArrowUpDown, ChevronDown, Search } from "@vibethink/ui/icons";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -30,9 +30,9 @@ import {
   TableHead,
   TableHeader,
   TableRow
-} from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
+} from "@vibethink/ui/components/table";
+import { Badge } from "@vibethink/ui/components/badge";
+import { Progress } from "@vibethink/ui/components/progress";
 import * as React from "react";
 
 // Define the data type for our table

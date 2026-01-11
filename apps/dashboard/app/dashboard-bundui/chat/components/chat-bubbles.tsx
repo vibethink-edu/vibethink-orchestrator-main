@@ -1,5 +1,5 @@
 import { cn } from "@/shared/lib/utils";
-import { Ellipsis, FileIcon, PlayIcon } from "lucide-react";
+import { Ellipsis, FileIcon, PlayIcon } from "@vibethink/ui/icons";
 import { ChatMessageProps } from "../types";
 
 import {

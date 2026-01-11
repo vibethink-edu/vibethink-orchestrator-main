@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { Check, ChevronsDownIcon } from "lucide-react";
+import { Check, ChevronsDownIcon } from "@vibethink/ui/icons";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
 import { Button } from "@vibethink/ui";

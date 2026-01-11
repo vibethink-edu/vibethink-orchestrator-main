@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { CommandIcon, SearchIcon } from "lucide-react";
+import { CommandIcon, SearchIcon } from "@vibethink/ui/icons";
 import { Input, Button, Dialog, DialogContent, DialogHeader, DialogTitle } from '@vibethink/ui';
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useRouter } from "next/navigation";

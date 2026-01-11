@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ChevronDown, ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, MoreHorizontal } from "@vibethink/ui/icons";
 import {
     type ColumnDef,
     type ColumnFiltersState,

@@ -25,7 +25,6 @@ import { Logo } from "@vibethink/ui/components/logo";
 import { ScrollArea } from '@vibethink/ui/components/scroll-area';
 import { NavUser } from "@/components/layout/sidebar-bundui/nav-user";
 import {
-  Users,
   TrendingUp,
   ShoppingCart,
   BarChart3,
@@ -48,10 +47,11 @@ import {
   Gauge,
   Sparkles,
   Columns,
-  LayoutDashboard,
+  LayoutDashboardIcon,
   GitBranch,
+  Users,
   type LucideIcon,
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 
 type NavItem = {
   title: string;
@@ -62,9 +62,9 @@ type NavItem = {
 
 const vibethinkNavItems: NavItem[] = [
   {
-    title: "Default",
-    href: "/dashboard-vibethink/default",
-    icon: LayoutDashboard,
+    title: "Dashboard",
+    href: "/dashboard-vibethink/analytics",
+    icon: LayoutDashboardIcon,
     badge: "New",
   },
   {
@@ -204,7 +204,7 @@ const bunduiReferenceNavItems: NavItem[] = [
   },
   {
     title: "Apps Chat",
-    href: "/dashboard-bundui/apps/chat",
+    href: "/dashboard-bundui/chat",
     icon: Mail,
   },
   {

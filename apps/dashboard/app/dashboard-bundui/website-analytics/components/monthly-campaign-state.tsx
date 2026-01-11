@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
+﻿import { cn } from "@/lib/utils";
 
-import Icon from "@/components/icon";
+import { IconWrapper as Icon } from "@/shared/components/bundui-premium/components/layout/sidebar-bundui/icon-wrapper";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 

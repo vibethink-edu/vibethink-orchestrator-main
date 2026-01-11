@@ -1,5 +1,5 @@
 import React from "react";
-import { Download, Eye, Trash2 } from "lucide-react";
+import { Download, Eye, Trash2 } from "@vibethink/ui/icons";
 import { toast } from "sonner";
 
 import { Button } from "@vibethink/ui";

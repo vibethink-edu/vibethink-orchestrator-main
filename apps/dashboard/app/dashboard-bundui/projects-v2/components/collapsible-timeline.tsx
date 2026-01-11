@@ -11,7 +11,7 @@ import {
     AlertCircle,
     FileText,
     ChevronRight
-} from "lucide-react";
+} from "@vibethink/ui/icons";
 import {
     Collapsible,
     CollapsibleContent,

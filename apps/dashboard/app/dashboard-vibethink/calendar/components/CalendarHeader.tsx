@@ -12,7 +12,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { 
+import {
   Calendar as CalendarIcon,
   Plus,
   Clock,
@@ -24,7 +24,7 @@ import {
   ChevronDown,
   ChevronRight,
   Settings,
-} from 'lucide-react';
+} from '@vibethink/ui/icons';
 
 import { Button } from '@vibethink/ui';
 import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui';
@@ -32,9 +32,11 @@ import { Input } from '@vibethink/ui';
 import { Badge } from '@vibethink/ui';
 import { Checkbox } from '@vibethink/ui';
 import { ScrollArea } from '@vibethink/ui';
-import { Collapsible,
+import {
+  Collapsible,
   CollapsibleContent,
-  CollapsibleTrigger, } from '@vibethink/ui';
+  CollapsibleTrigger,
+} from '@vibethink/ui';
 
 import { VibeThinkCalendarEvent, CalendarEventColor } from '../types';
 
@@ -81,7 +83,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
    */
   const filteredEvents = useMemo(() => {
     if (!searchQuery) return upcomingEvents;
-    
+
     return upcomingEvents.filter(event =>
       event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       event.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -95,26 +97,26 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
   const formatEventTime = (event: VibeThinkCalendarEvent) => {
     const start = new Date(event.start);
     const end = event.end ? new Date(event.end) : null;
-    
+
     if (event.allDay) {
       return 'All day';
     }
-    
-    const startTime = start.toLocaleTimeString('en-US', { 
-      hour: 'numeric', 
+
+    const startTime = start.toLocaleTimeString('en-US', {
+      hour: 'numeric',
       minute: '2-digit',
-      hour12: true 
+      hour12: true
     });
-    
+
     if (end) {
-      const endTime = end.toLocaleTimeString('en-US', { 
-        hour: 'numeric', 
+      const endTime = end.toLocaleTimeString('en-US', {
+        hour: 'numeric',
         minute: '2-digit',
-        hour12: true 
+        hour12: true
       });
       return `${startTime} - ${endTime}`;
     }
-    
+
     return startTime;
   };
 
@@ -125,13 +127,13 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     const date = new Date(event.start);
     const today = new Date();
     const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
-    
+
     if (date.toDateString() === today.toDateString()) {
       return 'Today';
     } else if (date.toDateString() === tomorrow.toDateString()) {
       return 'Tomorrow';
     } else {
-      return date.toLocaleDateString('en-US', { 
+      return date.toLocaleDateString('en-US', {
         weekday: 'short',
         month: 'short',
         day: 'numeric'

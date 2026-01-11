@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { PlusCircleIcon } from "lucide-react";
+import { PlusCircleIcon } from "@vibethink/ui/icons";
 import { Button } from "@vibethink/ui";
 import {
     Dialog,

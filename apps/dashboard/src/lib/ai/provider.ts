@@ -10,8 +10,7 @@
  */
 
 import { openai as openaiProvider } from '@ai-sdk/openai';
-import { streamText as sdkStreamText } from 'ai';
-import type { CoreMessage } from 'ai';
+import { streamText as sdkStreamText, type CoreMessage } from 'ai';
 
 /**
  * ViTo AI Provider Interface

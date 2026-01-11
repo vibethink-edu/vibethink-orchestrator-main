@@ -1,8 +1,8 @@
 import React from "react";
-import { AlertCircleIcon, ImageIcon, Plus, UploadIcon, XIcon } from "lucide-react";
+import { AlertCircleIcon, ImageIcon, Plus, UploadIcon, XIcon } from "@vibethink/ui/icons";
 
 import { ProductCategory } from "../store";
-import { useFileUpload } from "@/shared/hooks/use-file-upload";
+import { useFileUpload } from "@/hooks/use-file-upload";
 
 import {
   Dialog,

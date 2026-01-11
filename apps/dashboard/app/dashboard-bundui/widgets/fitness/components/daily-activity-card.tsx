@@ -1,5 +1,5 @@
 "use client";
-import { MoreHorizontal, Footprints, Flame, Droplet, Sparkles } from "lucide-react";
+import { MoreHorizontal, Footprints, Flame, Droplet, Sparkles } from "@vibethink/ui/icons";
 
 import {
   Card,

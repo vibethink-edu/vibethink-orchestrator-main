@@ -40,7 +40,7 @@ import {
   Calendar,
   TrendingUp,
   Download
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { useProjectData } from '../hooks/useProjectData'
 
 import { AchievementChartData } from '../types'

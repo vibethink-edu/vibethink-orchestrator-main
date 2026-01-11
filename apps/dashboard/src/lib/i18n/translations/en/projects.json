@@ -3,7 +3,8 @@
     "overview": "Overview",
     "projects": "Projects",
     "team": "Team",
-    "reports": "Reports"
+    "reports": "Reports",
+    "activities": "Activities"
   },
   "summary": {
     "activeProjects": "Active Projects",
@@ -73,12 +74,35 @@
     "spent": "spent",
     "tryAdjustingFilters": "Try adjusting your filters or search terms"
   },
+  "timeline": {
+    "events": {
+      "client_requirements": {
+        "title": "Client Requirements Updated",
+        "description": "New specifications received for Phase 2",
+        "from": "From",
+        "subject": "Subject",
+        "details": "Checking the latest requirements doc, seems like we need to adjust the API endpoints."
+      },
+      "dependency_alert": {
+        "title": "Dependency Alert",
+        "description": "Potential blocking dependency detected",
+        "details": "The authentication module update is delayed by 2 days."
+      },
+      "sprint_planning": {
+        "title": "Sprint Planning",
+        "description": "Planning session for the upcoming sprint",
+        "details": "Focus on: User Authentication and Profile Management."
+      }
+    }
+  },
   "actions": {
     "viewDetails": "View Details",
     "editProject": "Edit Project",
     "manageTeam": "Manage Team",
     "viewTimeline": "View Timeline",
-    "deleteProject": "Delete Project"
+    "deleteProject": "Delete Project",
+    "open_panel": "Open Side Panel",
+    "close_panel": "Close Side Panel"
   },
   "common": {
     "status": {
@@ -117,26 +141,10 @@
   },
   "v2": {
     "summaryCards": {
-      "totalRevenue": {
-        "title": "Total Revenue",
-        "description": "From last month",
-        "trending": "Up 12% from this month"
-      },
-      "activeProjects": {
-        "title": "Active Projects",
-        "description": "Currently in progress",
-        "update": "Updated 1 hour ago"
-      },
-      "teamSize": {
-        "title": "Team Size",
-        "description": "Active members",
-        "hiring": "Hiring (2 open roles)"
-      },
-      "completionRate": {
-        "title": "Completion Rate",
-        "description": "Delivered on time",
-        "performance": "5% better than target"
-      }
+      "totalRevenue": "Total Revenue",
+      "activeProjects": "Active Projects",
+      "newLeads": "New Leads",
+      "timeSpent": "Time Spent"
     },
     "overview": {
       "title": "Overview",

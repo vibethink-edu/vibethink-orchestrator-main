@@ -30,7 +30,7 @@ import {
   Settings,
   TrendingUp,
   Wallet
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { CryptoHeaderProps } from '../types'
 
 export const CryptoHeader: React.FC<CryptoHeaderProps> = ({

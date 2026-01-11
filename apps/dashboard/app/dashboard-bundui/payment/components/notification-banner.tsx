@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CircleAlertIcon, XIcon } from "lucide-react";
+import { CircleAlertIcon, XIcon } from "@vibethink/ui/icons";
 
 import { Alert, AlertTitle, Button } from "@vibethink/ui";
 

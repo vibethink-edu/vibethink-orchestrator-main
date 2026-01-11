@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useEffect } from "react";
-import { ChevronsUpDown, ShoppingBagIcon, UserCircle2Icon } from "lucide-react";
+import { ChevronsUpDown, ShoppingBagIcon, UserCircle2Icon } from "@vibethink/ui/icons";
 import { PlusIcon } from "@radix-ui/react-icons";
 import { usePathname } from "next/navigation";
 import { useIsTablet } from "@/hooks/use-mobile";
@@ -95,11 +95,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <ScrollArea className="h-full">
+        <ScrollArea className="flex-1">
           <NavMain key="nav" />
         </ScrollArea>
       </SidebarContent>
-      <SidebarFooter>
+      <SidebarFooter className="pb-4">
         <Card className="gap-4 overflow-hidden py-4 group-data-[collapsible=icon]:hidden">
           <CardHeader className="px-3">
             <CardTitle>{t('footer.download')}</CardTitle>

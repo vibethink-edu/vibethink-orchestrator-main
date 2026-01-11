@@ -1,6 +1,6 @@
 "use client";
 
-import { PanelLeftIcon } from "lucide-react";
+import { PanelLeftIcon } from "@vibethink/ui/icons";
 
 import { Separator } from '@vibethink/ui';
 import Notifications from "./notifications";

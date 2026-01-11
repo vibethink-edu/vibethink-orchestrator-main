@@ -1,4 +1,4 @@
-import { BadgeCheck, Bell, ChevronRightIcon, CreditCard, LogOut, Sparkles } from "lucide-react";
+import { BadgeCheck, Bell, ChevronRightIcon, CreditCard, LogOut, Sparkles } from "@vibethink/ui/icons";
 
 import { Avatar, AvatarFallback, AvatarImage } from '@vibethink/ui';
 import { DropdownMenu,

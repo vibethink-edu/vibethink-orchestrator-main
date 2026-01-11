@@ -25,7 +25,7 @@ import {
   Clock,
   RefreshCw,
   AlertTriangle
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { cn } from '@/shared/lib/utils'
 import { ChatMessagesProps, ChatMessage } from '../types'
 import { MessageBubble } from './MessageBubble'

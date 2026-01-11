@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowLeft, Ellipsis } from "lucide-react";
+import { ArrowLeft, Ellipsis } from "@vibethink/ui/icons";
 import { Button } from "@vibethink/ui";
 import { generateAvatarFallback } from "@/shared/lib/utils";
 import useChatStore from "../useChatStore";

@@ -16,7 +16,7 @@ import {
   TableCell,
   TableRow
 } from "@vibethink/ui";
-import { ChevronRight, ChevronRightIcon } from "lucide-react";
+import { ChevronRight, ChevronRightIcon } from "@vibethink/ui/icons";
 import { cn } from "@vibethink/utils";
 import Link from "next/link";
 

@@ -42,7 +42,7 @@ import {
   Loader2,
   FolderOpen,
   Tag
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import type { FileUploadDialogProps } from '../types'
 
 type UploadFile = {

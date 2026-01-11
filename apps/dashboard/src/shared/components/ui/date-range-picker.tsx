@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import { format } from 'date-fns'
-import { CalendarIcon } from 'lucide-react'
+import { CalendarIcon } from "@vibethink/ui/icons"
 import { DateRange } from 'react-day-picker'
 import { cn } from '@/shared/lib/utils'
 import { Button } from '@vibethink/ui/components/button'

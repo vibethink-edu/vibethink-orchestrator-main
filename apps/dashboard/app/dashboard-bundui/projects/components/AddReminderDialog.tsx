@@ -37,7 +37,7 @@ import {
   AlertTriangle,
   Save,
   X
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { useCreateReminder } from '../hooks/useTeamData'
 import { useProjectData } from '../hooks/useProjectData'
 

@@ -20,7 +20,7 @@ import {
   Shield,
   TrendingUp,
   Clock
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { CryptoWallet } from '../types'
 
 interface DigitalWalletsCardProps {

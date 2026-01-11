@@ -3,7 +3,7 @@
  * Last synced: 2026-01-10
  * Adaptations: Adapted for Tenant display (Flavor, Status, Slug)
  */
-import { Calendar, Globe, Hash, Shield } from "lucide-react";
+import { Calendar, Globe, Hash, Shield } from "@vibethink/ui/icons";
 import { Card, CardContent } from "@vibethink/ui/components/card";
 import { Badge } from "@vibethink/ui/components/badge";
 import { Avatar, AvatarFallback } from "@vibethink/ui/components/avatar";

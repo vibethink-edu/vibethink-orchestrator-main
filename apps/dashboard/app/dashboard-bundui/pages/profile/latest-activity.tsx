@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { BadgeCheckIcon, BriefcaseBusinessIcon, ClockIcon } from "lucide-react";
+import { BadgeCheckIcon, BriefcaseBusinessIcon, ClockIcon } from "@vibethink/ui/icons";
 import { DownloadIcon } from "@radix-ui/react-icons";
 
 import {

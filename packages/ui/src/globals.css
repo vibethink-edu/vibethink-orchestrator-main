@@ -1,0 +1,94 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+/* 1. TOKENS (CSS Variables for Light/Dark mode) */
+@import "./styles/theme-tokens.css";
+
+/* 2. THEME CONFIG (Mapping variables to Tailwind Utilities) */
+@import "./styles/theme.css";
+
+/* 3. BASE STYLES & RESETS */
+@custom-variant dark (&:is(.dark *));
+
+/* Universal Scrollbar Styling */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+
+    .font-display {
+        font-weight: var(--display-weight);
+    }
+
+    /* Utility: Force cursor pointer on interactive elements */
+    [data-slot="button"],
+    [data-slot="dialog-trigger"],
+    [data-slot="dropdown-menu-item"],
+    [data-slot="command-item"],
+    [data-slot="toggle-group-item"],
+    [data-slot="dropdown-menu-trigger"],
+    [data-slot="popover-trigger"],
+    [data-slot="tooltip-trigger"],
+    [data-slot="collapsible-trigger"] {
+        @apply !cursor-pointer
+    }
+}
+
+/* 4. INTERNATIONALIZATION UTILITIES */
+/* Base universal rules */
+* {
+    word-break: normal;
+    overflow-wrap: break-word;
+    /* Replaces obsolete word-wrap */
+    hyphens: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* CJK line breaking */
+:lang(zh),
+:lang(ja),
+:lang(ko),
+:lang(th) {
+    word-break: break-all;
+    line-break: strict;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+}
+
+/* RTL Support */
+:lang(ar),
+:lang(he),
+:lang(fa),
+:lang(ur),
+html[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .lucide-chevron-left {
+    transform: scaleX(-1);
+}
+
+html[dir="rtl"] .lucide-chevron-right {
+    transform: scaleX(-1);
+}
+
+html[dir="rtl"] .flex-col {
+    flex-direction: column !important;
+}
+
+/* Hindi Support */
+:lang(hi) {
+    line-height: 1.7;
+}

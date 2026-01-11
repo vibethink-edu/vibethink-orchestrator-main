@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { format } from "date-fns";
-import { Clock, PlusCircle } from "lucide-react";
+import { Clock, PlusCircle } from "@vibethink/ui/icons";
 import Link from "next/link";
 
 import { Button } from "@vibethink/ui/components/button";

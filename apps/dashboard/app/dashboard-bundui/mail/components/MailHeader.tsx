@@ -20,7 +20,7 @@ import {
   Trash2,
   Star,
   MoreHorizontal
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { EmailMetrics } from '../types'
 
 /**

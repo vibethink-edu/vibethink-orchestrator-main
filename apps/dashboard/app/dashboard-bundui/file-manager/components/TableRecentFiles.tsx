@@ -44,7 +44,7 @@ import {
   Eye,
   Clock,
   User
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import type { TableRecentFilesProps } from '../types'
 
 export function TableRecentFiles({ 

@@ -2,7 +2,7 @@ import { Button } from "@vibethink/ui/components/button";
 import { Input } from "@vibethink/ui/components/input";
 import { Label } from "@vibethink/ui/components/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@vibethink/ui/components/popover";
-import { PlusCircle } from "lucide-react";
+import { PlusCircle } from "@vibethink/ui/icons";
 
 export default function AddNewCategory() {
   return (

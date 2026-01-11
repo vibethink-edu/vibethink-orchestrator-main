@@ -5,7 +5,7 @@
 
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@vibethink/ui'
-import { TrendingUp, TrendingDown, Activity, DollarSign } from 'lucide-react'
+import { TrendingUp, TrendingDown, Activity, DollarSign } from "@vibethink/ui/icons"
 
 interface MarketOverviewProps {
   sentiment?: {

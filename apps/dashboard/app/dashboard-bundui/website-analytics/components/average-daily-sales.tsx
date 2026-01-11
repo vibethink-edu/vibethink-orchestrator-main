@@ -3,7 +3,7 @@
 import * as React from "react";
 
 import { Area, AreaChart } from "recharts";
-import { TrendingDown } from "lucide-react";
+import { TrendingDown } from "@vibethink/ui/icons";
 
 import {
   ChartConfig,

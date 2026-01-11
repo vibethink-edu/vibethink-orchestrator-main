@@ -1,0 +1,48 @@
+{
+    "project": "vibethink-orchestrator",
+    "dashboards": {
+        "bundui": {
+            "name": "Dashboard-Bundui",
+            "purpose": "UI Mockups Lab - BASE PRINCIPAL",
+            "port": 3005,
+            "startScript": ".\\scripts\\start-dashboard-bundui.ps1",
+            "stopScript": ".\\scripts\\stop-dashboard-bundui.ps1",
+            "url": "http://localhost:3005/dashboard-bundui/projects-v2",
+            "isPrimary": true,
+            "description": "Laboratorio de UI - Todos los mockups y prototipos se desarrollan aquí primero"
+        },
+        "admin": {
+            "name": "Dashboard-Admin",
+            "purpose": "VibeThink Internal Admin",
+            "port": 3006,
+            "startScript": ".\\scripts\\start-dashboard-admin.ps1",
+            "stopScript": ".\\scripts\\stop-dashboard-admin.ps1",
+            "url": "http://localhost:3006/dashboard-admin/tenants",
+            "isPrimary": false,
+            "description": "Admin interno de VibeThink - Gestión de clientes y sistema"
+        },
+        "tenant": {
+            "name": "Dashboard-Tenant",
+            "purpose": "Client/Company Admin",
+            "port": 3007,
+            "startScript": ".\\scripts\\start-dashboard-tenant.ps1",
+            "stopScript": ".\\scripts\\stop-dashboard-tenant.ps1",
+            "url": "http://localhost:3007/dashboard-tenant/overview",
+            "isPrimary": false,
+            "description": "Admin para empresas clientes - Multi-tenant"
+        }
+    },
+    "defaultDashboard": "bundui",
+    "documentation": {
+        "quickStart": "QUICK_START.md",
+        "architecture": "apps/dashboard/DASHBOARD_ARCHITECTURE.md",
+        "scripts": "scripts/DASHBOARD_SCRIPTS_README.md",
+        "stability": "apps/dashboard/UI_STABILITY_RULES.md"
+    },
+    "reminders": {
+        "primaryDashboard": "Dashboard-Bundui (Puerto 3005) es la BASE PRINCIPAL para desarrollo UI",
+        "workflow": "Crear en bundui → Probar → Si es reutilizable → Mover a packages/ui",
+        "assets": "SIEMPRE usar @vibethink/ui para iconos y componentes",
+        "ports": "3005=Bundui, 3006=Admin, 3007=Tenant"
+    }
+}

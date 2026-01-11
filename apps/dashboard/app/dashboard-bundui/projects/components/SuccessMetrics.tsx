@@ -29,7 +29,7 @@ import {
   Award,
   ChevronRight,
   Info
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { useProjectSummary } from '../hooks/useProjectData'
 
 import { SuccessMetrics as SuccessMetricsType } from '../types'

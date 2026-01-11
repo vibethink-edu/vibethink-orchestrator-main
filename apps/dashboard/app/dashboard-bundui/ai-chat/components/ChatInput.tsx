@@ -42,7 +42,7 @@ import {
   Image,
   Loader2,
   Zap
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { cn } from '@/shared/lib/utils'
 import { ChatInputProps } from '../types'
 

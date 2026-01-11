@@ -7,7 +7,7 @@ import {
   CircleOff,
   HelpCircle,
   Timer,
-} from "lucide-react"
+} from "@vibethink/ui/icons"
 
 export const labels = [
   {

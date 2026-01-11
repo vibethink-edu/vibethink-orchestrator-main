@@ -102,25 +102,25 @@ export interface FinancialMetrics {
   burn_rate: number
   runway_months: number
   growth_rate: number
-  
+
   // Monthly comparisons
   monthly_growth: {
     revenue: number
     expenses: number
     profit: number
   }
-  
+
   // Budget tracking
   budget_variance: {
     revenue: number
     expenses: number
     overall: number
   }
-  
+
   // Top categories
   top_revenue_sources: CategoryData[]
   top_expense_categories: CategoryData[]
-  
+
   // Cash flow data
   cash_flow_trend: CashFlowData[]
   revenue_trend: RevenueData[]
@@ -199,7 +199,7 @@ export interface FinanceFilters {
 
 // Enums and Union Types
 
-export type RevenueCategory = 
+export type RevenueCategory =
   | 'sales'
   | 'services'
   | 'subscriptions'
@@ -211,7 +211,7 @@ export type RevenueCategory =
   | 'grants'
   | 'other'
 
-export type ExpenseCategory = 
+export type ExpenseCategory =
   | 'operations'
   | 'marketing'
   | 'salaries'
@@ -232,7 +232,7 @@ export type ExpenseCategory =
   | 'entertainment'
   | 'other'
 
-export type PaymentMethod = 
+export type PaymentMethod =
   | 'cash'
   | 'credit_card'
   | 'debit_card'
@@ -242,13 +242,13 @@ export type PaymentMethod =
   | 'stripe'
   | 'other'
 
-export type BudgetPeriod = 
+export type BudgetPeriod =
   | 'monthly'
   | 'quarterly'
   | 'yearly'
   | 'custom'
 
-export type AccountType = 
+export type AccountType =
   | 'checking'
   | 'savings'
   | 'credit'
@@ -257,7 +257,7 @@ export type AccountType =
   | 'paypal'
   | 'other'
 
-export type DateRange = 
+export type DateRange =
   | 'all'
   | 'today'
   | 'week'
@@ -266,7 +266,7 @@ export type DateRange =
   | 'year'
   | 'custom'
 
-export type InsightType = 
+export type InsightType =
   | 'cost_optimization'
   | 'revenue_opportunity'
   | 'cash_flow_warning'
@@ -275,7 +275,7 @@ export type InsightType =
   | 'compliance'
   | 'forecast'
 
-export type FinancialChartType = 
+export type FinancialChartType =
   | 'revenue_trends'
   | 'expense_breakdown'
   | 'cash_flow'
@@ -286,7 +286,7 @@ export type FinancialChartType =
 // Component Props Types
 
 export interface FinancialSummaryCardsProps {
-  metrics: FinancialMetrics
+  metrics: FinancialMetrics | null
   loading?: boolean
   className?: string
 }
@@ -515,19 +515,19 @@ export const FINANCE_COLORS = {
   success: 'hsl(var(--success))',
   warning: 'hsl(var(--warning))',
   destructive: 'hsl(var(--destructive))',
-  
+
   // Financial metric colors using HSL variables for theme compatibility
   revenue: 'hsl(var(--chart-1))',        // Green - income
   expenses: 'hsl(var(--chart-2))',       // Red - outgoing
   profit: 'hsl(var(--chart-3))',         // Blue - profit
   budget: 'hsl(var(--chart-4))',         // Purple - planning
   cash_flow: 'hsl(var(--chart-5))',      // Teal - liquidity
-  
+
   // Status colors
   positive: 'hsl(142 76% 36%)',          // Green - positive trends
   negative: 'hsl(0 84% 60%)',            // Red - negative trends
   neutral: 'hsl(213 9% 47%)',            // Gray - neutral
-  
+
   // Category colors for charts
   category_1: 'hsl(var(--chart-1))',
   category_2: 'hsl(var(--chart-2))',

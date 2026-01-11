@@ -15,7 +15,7 @@ import {
   getSortedRowModel,
   useReactTable
 } from "@tanstack/react-table";
-import { ArrowUpDown, Columns, FilterIcon, MoreHorizontal, PlusCircle } from "lucide-react";
+import { ArrowUpDown, Columns, FilterIcon, MoreHorizontal, PlusCircle } from "@vibethink/ui/icons";
 
 import {
   Popover,

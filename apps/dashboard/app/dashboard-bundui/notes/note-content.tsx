@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { cn } from "@/shared/lib/utils";
-import { FileSearchIcon, LayoutGridIcon, ListIcon, MenuIcon, Search } from "lucide-react";
+import { FileSearchIcon, LayoutGridIcon, ListIcon, MenuIcon, Search } from "@vibethink/ui/icons";
 
 import { Button } from "@vibethink/ui";
 import { Input } from "@vibethink/ui";

@@ -34,13 +34,19 @@
         "./src/shared/components/bundui-premium/components/*"
       ],
       "@/hooks/*": [
-        "./hooks/*"
+        "./src/hooks/*"
       ],
       "@vibethink/ui": [
         "../../packages/ui/src"
       ],
       "@vibethink/ui/*": [
         "../../packages/ui/src/*"
+      ],
+      "@vibethink/utils": [
+        "../../packages/utils/src"
+      ],
+      "@vibethink/utils/*": [
+        "../../packages/utils/src/*"
       ]
     },
     "plugins": [

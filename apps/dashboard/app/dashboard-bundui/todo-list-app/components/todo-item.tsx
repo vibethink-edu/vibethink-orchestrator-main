@@ -1,7 +1,7 @@
 import React from "react";
 import { cn } from "@/shared/lib/utils";
 import { format } from "date-fns";
-import { Calendar, FileIcon, Star, BellIcon } from "lucide-react";
+import { Calendar, FileIcon, Star, BellIcon } from "@vibethink/ui/icons";
 import { priorityClasses, statusClasses } from "../enum";
 import { Todo, TodoStatus } from "../types";
 import { CSS } from "@dnd-kit/utilities";

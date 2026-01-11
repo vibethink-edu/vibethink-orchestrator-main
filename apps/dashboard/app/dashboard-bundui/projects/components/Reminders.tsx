@@ -40,7 +40,7 @@ import {
   Trash2,
   Edit,
   Target
-} from 'lucide-react'
+} from "@vibethink/ui/icons"
 import { useReminders, useCompleteReminder } from '../hooks/useTeamData'
 import { AddReminderDialog } from './AddReminderDialog'
 

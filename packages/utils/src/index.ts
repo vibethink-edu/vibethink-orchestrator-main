@@ -64,12 +64,27 @@ export {
 } from './i18n/terminology';
 
 // Export Terminology Types (Layer 1)
+// Export Terminology types as values
 export {
   SUPPORTED_LOCALES,
   DEFAULT_LOCALE,
+  PRODUCT_CONTEXTS,
+  CONCEPT_FILES_PATH,
+  CONCEPT_FILE_PATTERN,
+  isValidLocale,
+  isValidProductContext,
+  isValidConceptID,
+  isValidTerminologyContext,
+  createUIContext,
+  createAgentContext,
+  getNamespaceForProduct,
+  isProductNamespace,
+} from './i18n/terminology/types';
+
+// Export Terminology types as types
+export type {
   Locale,
   ProductContext,
-  PRODUCT_CONTEXTS,
   ConceptID,
   BookingConcept,
   CRMConcept,
@@ -81,16 +96,6 @@ export {
   AgentContext,
   TerminologySnapshot,
   ConceptNamespace,
-  CONCEPT_FILES_PATH,
-  CONCEPT_FILE_PATTERN,
-  isValidLocale,
-  isValidProductContext,
-  isValidConceptID,
-  isValidTerminologyContext,
-  createUIContext,
-  createAgentContext,
-  getNamespaceForProduct,
-  isProductNamespace,
 } from './i18n/terminology/types';
 
 // Export Terminology Cache

@@ -12,7 +12,7 @@ import { SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar } from '@vibethink/ui';
-import { BellIcon, CreditCardIcon, LogOutIcon, UserCircle2Icon } from "lucide-react";
+import { BellIcon, CreditCardIcon, LogOutIcon, UserCircle2Icon } from "@vibethink/ui/icons";
 import { DotsVerticalIcon } from "@radix-ui/react-icons";
 
 const userData = {

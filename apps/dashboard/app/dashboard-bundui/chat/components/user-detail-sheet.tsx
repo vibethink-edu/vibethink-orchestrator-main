@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { generateAvatarFallback } from "@/shared/lib/utils";
-import { Dribbble, Facebook, FileText, Instagram, Linkedin, SheetIcon, X } from "lucide-react";
+import { Dribbble, Facebook, FileText, Instagram, Linkedin, SheetIcon, X } from "@vibethink/ui/icons";
 import useChatStore from "../useChatStore";
 import { UserPropsTypes } from "../types";
 
@@ -40,12 +40,10 @@ export function UserDetailSheet({ user }: { user: UserPropsTypes }) {
             </Avatar>
             <h4 className="mb-2 text-xl font-semibold">{user.name}</h4>
             <div className="text-xs">
-              {t("header.status.lastSeen", { time: user.online_status == "success" ? t("header.status.online") : user.last_seen }).replace(user.last_seen || "", "")}
-              {/* Simplified logic since we have mixed status logic above, let's keep it close to original but translated */}
-               {user.online_status == "success" ? (
+              {user.online_status == "success" ? (
                 <span className="text-green-500">{t("header.status.online")}</span>
               ) : (
-                <span className="text-muted-foreground">{t("header.status.lastSeen", { time: user.last_seen })}</span>
+                <span className="text-muted-foreground">{t("header.status.lastSeen", { time: user.last_seen || "" })}</span>
               )}
             </div>
           </div>

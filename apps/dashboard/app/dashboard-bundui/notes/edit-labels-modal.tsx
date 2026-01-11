@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Trash2, Edit2, Check, X } from "lucide-react";
+import { Trash2, Edit2, Check, X } from "@vibethink/ui/icons";
 
 import {
   Dialog,

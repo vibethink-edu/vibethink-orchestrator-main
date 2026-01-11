@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { Button } from "@vibethink/ui/components/button";
 import { Badge } from "@vibethink/ui/components/badge";
-import { Mic, MicOff, Brain, Loader2 } from "lucide-react";
+import { Mic, MicOff, Brain, Loader2 } from "@vibethink/ui/icons";
 import { cn } from "@/shared/lib/utils";
 
 /**

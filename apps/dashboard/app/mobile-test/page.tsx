@@ -1,8 +1,8 @@
 "use client";
 
 import { DashboardLayout } from '@vibethink/ui/components/dashboard-layout';
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card';
-import { Badge } from '@/shared/components/ui/badge';
+import { Card, CardHeader, CardTitle, CardContent } from "@vibethink/ui/components/card";
+import { Badge } from "@vibethink/ui/components/badge";
 import { Smartphone, Tablet, Monitor, Wifi } from 'lucide-react';
 
 export default function MobileTestPage() {

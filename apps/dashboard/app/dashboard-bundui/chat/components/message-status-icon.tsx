@@ -1,4 +1,4 @@
-import { Check, CheckCheck } from "lucide-react";
+import { Check, CheckCheck } from "@vibethink/ui/icons";
 import { MessageStatusIconType } from "../types";
 
 export function MessageStatusIcon({ status }: MessageStatusIconType) {

@@ -14,7 +14,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@vibethink/ui'
 import { useState } from 'react'
 import { ExpenseBreakdownChartProps, CategoryData } from '../types'
-import { PieChart as PieChartIcon, BarChart3, TrendingUp, TrendingDown, CreditCard } from 'lucide-react'
+import { PieChart as PieChartIcon, BarChart3, TrendingUp, TrendingDown, CreditCard } from "@vibethink/ui/icons"
 
 /**
  * ExpenseBreakdownChart Component

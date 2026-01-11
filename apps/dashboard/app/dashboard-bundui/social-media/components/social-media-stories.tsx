@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { cn } from "@/shared/lib/utils";
-import { HeartIcon, PlusIcon } from "lucide-react";
+import { HeartIcon, PlusIcon } from "@vibethink/ui/icons";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";
 import { Carousel, CarouselContent } from "@vibethink/ui";
@@ -88,7 +88,7 @@ export function SocialMediaStories() {
             <DialogTitle></DialogTitle>
           </DialogHeader>
         </VisuallyHidden>
-        <DialogContent showCloseIcon={false} className="overflow-hidden border-0 p-0">
+        <DialogContent showClose={false} className="overflow-hidden border-0 p-0">
           <Reel data={orderedReels}>
             <ReelProgress />
             <ReelContent>

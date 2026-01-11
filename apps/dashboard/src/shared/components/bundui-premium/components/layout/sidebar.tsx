@@ -21,7 +21,7 @@ import {
   FileText, 
   Settings,
   HelpCircle
-} from "lucide-react"
+} from "@vibethink/ui/icons"
 import Link from "next/link"
 
 const navigation = [

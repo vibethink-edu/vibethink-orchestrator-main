@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Check, Plus, Send } from "lucide-react";
+import { Check, Plus, Send } from "@vibethink/ui/icons";
 
 import { cn } from "@vibethink/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@vibethink/ui";

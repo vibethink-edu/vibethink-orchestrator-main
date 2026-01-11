@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, Star } from "lucide-react";
+import { ChevronRight, Star } from "@vibethink/ui/icons";
 import {
   Card,
   CardAction,

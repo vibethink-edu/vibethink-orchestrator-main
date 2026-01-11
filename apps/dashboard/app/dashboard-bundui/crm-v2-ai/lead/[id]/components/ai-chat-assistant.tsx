@@ -6,7 +6,7 @@ import { Button } from "@vibethink/ui/components/button";
 import { Input } from "@vibethink/ui/components/input";
 import { Badge } from "@vibethink/ui/components/badge";
 import { ScrollArea } from "@vibethink/ui/components/scroll-area";
-import { Brain, Send, X, ArrowRight, Loader2 } from "lucide-react";
+import { Brain, Send, X, ArrowRight, Loader2 } from "@vibethink/ui/icons";
 import { cn } from "@/shared/lib/utils";
 import { Alert, AlertDescription } from "@vibethink/ui/components/alert";
 

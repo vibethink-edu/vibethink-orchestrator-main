@@ -11,7 +11,7 @@
 
 import React, { memo } from 'react';
 import { Handle, Position, NodeProps } from '@xyflow/react';
-import { WorkflowNodeData } from '../types';
+import { WorkflowNode } from '../types';
 import { cn } from '@vibethink/utils';
 import {
   PlayCircle,
@@ -48,7 +48,7 @@ const statusColors = {
   paused: 'border-yellow-500',
 };
 
-function CustomNodeComponent({ data, selected }: NodeProps<WorkflowNodeData>) {
+function CustomNodeComponent({ data, selected }: NodeProps<WorkflowNode>) {
   const Icon = nodeIcons[data.type] || Settings;
   const colorClass = nodeColors[data.type] || 'bg-gray-500';
   const statusClass = statusColors[data.status] || 'border-gray-300';

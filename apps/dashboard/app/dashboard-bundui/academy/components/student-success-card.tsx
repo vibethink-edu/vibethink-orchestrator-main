@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@vibethink/ui/components/card";
 import { Progress } from "@vibethink/ui/components/progress";
 import { Button } from "@vibethink/ui/components/button";
-import { ArrowUpIcon, ArrowDownIcon, Users, CheckCircle } from "lucide-react";
+import { ArrowUpIcon, ArrowDownIcon, Users, CheckCircle } from "@vibethink/ui/icons";
 
 interface StudentSuccessCardProps {
   currentSuccessRate: number;

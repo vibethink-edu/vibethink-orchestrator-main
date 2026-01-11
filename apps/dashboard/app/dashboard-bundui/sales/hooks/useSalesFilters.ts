@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo } from 'react'
-import { 
-  SalesFilters, 
-  Sale, 
+import {
+  SalesFilters,
+  Sale,
   UseSalesFiltersReturn,
   SaleStage,
   SalesSource,
@@ -46,7 +46,7 @@ export const useSalesFilters = (): UseSalesFiltersReturn => {
    * Update a specific filter
    */
   const updateFilter = useCallback(<K extends keyof SalesFilters>(
-    key: K, 
+    key: K,
     value: SalesFilters[K]
   ) => {
     setFilters(prev => ({
@@ -76,7 +76,7 @@ export const useSalesFilters = (): UseSalesFiltersReturn => {
       filters.source !== 'all' ||
       filters.probability.min !== 0 ||
       filters.probability.max !== 100 ||
-      (filters.tags && filters.tags.length > 0)
+      (filters.tags?.length ?? 0) > 0
     )
   }, [filters])
 
@@ -187,10 +187,10 @@ export const useSalesFilters = (): UseSalesFiltersReturn => {
       sale.title.toLowerCase().includes(searchText) ||
       sale.customer_name.toLowerCase().includes(searchText) ||
       sale.customer_email.toLowerCase().includes(searchText) ||
-      (sale.customer_company && sale.customer_company.toLowerCase().includes(searchText)) ||
+      (sale.customer_company?.toLowerCase().includes(searchText) || false) ||
       sale.sales_rep_name.toLowerCase().includes(searchText) ||
-      (sale.description && sale.description.toLowerCase().includes(searchText)) ||
-      (sale.tags && sale.tags.some(tag => tag.toLowerCase().includes(searchText)))
+      (sale.description?.toLowerCase().includes(searchText) || false) ||
+      (sale.tags?.some(tag => tag.toLowerCase().includes(searchText)) || false)
     )
   }, [])
 
@@ -216,7 +216,7 @@ export const useSalesFilters = (): UseSalesFiltersReturn => {
   const matchesTags = useCallback((saleTags: string[] | undefined, filterTags: string[] | undefined): boolean => {
     if (!filterTags || filterTags.length === 0) return true
     if (!saleTags || saleTags.length === 0) return false
-    
+
     return filterTags.some(tag => saleTags.includes(tag))
   }, [])
 
