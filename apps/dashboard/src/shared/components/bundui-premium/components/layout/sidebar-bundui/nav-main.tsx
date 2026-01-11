@@ -22,11 +22,11 @@ import {
   BrainIcon,
   Building2Icon,
   CalendarIcon,
-  ChartBarIcon, // Changed from ChartBarDecreasingIcon
+  ActivityIcon as ChartBarIcon, // Safe alias
   PieChartIcon,
   ChevronRight,
   ClipboardCheckIcon,
-  ClipboardMinusIcon,
+  Clipboard as ClipboardMinusIcon, // Safe alias
   ComponentIcon,
   CookieIcon,
   FingerprintIcon,
@@ -34,15 +34,15 @@ import {
   FolderIcon,
   GaugeIcon,
   GraduationCapIcon,
-  ImageIcon, // Changed from ImagesIcon
+  ImageIcon,
   KeyIcon,
   MailIcon,
   MessageSquareIcon,
   LayoutGridIcon,
   SettingsIcon,
   ShoppingBagIcon,
-  SquareCheck as SquareCheckIcon, // Changed
-  KanbanSquare as SquareKanbanIcon, // Changed
+  CheckCircle as SquareCheckIcon, // Safe alias
+  List as SquareKanbanIcon, // Safe alias
   StickyNoteIcon,
   UserIcon,
   UsersIcon,
@@ -50,10 +50,13 @@ import {
   type LucideIcon,
   GithubIcon,
   RedoDotIcon,
-  Brush as BrushCleaningIcon, // Changed
+  Brush as BrushCleaningIcon,
   CoinsIcon,
   DollarSignIcon,
-  SpeechIcon
+  MessageSquareIcon as SpeechIcon,
+  Clipboard,
+  CheckCircle,
+  List
 } from "lucide-react";
 import Link from "next/link";
 import { IconWrapper } from "./icon-wrapper";
@@ -107,11 +110,11 @@ export const navItems: NavGroup[] = [
         ]
       },
       { title: "Sales", href: "/dashboard-bundui/sales", icon: BadgeDollarSignIcon, isNew: true },
-      { title: "CRM", href: "/dashboard-bundui/crm", icon: ChartBarIcon, isNew: true },
+      { title: "CRM", href: "/dashboard-bundui/crm", icon: PieChartIcon, isNew: true },
       {
         title: "CRM V2",
         href: "/dashboard-bundui/crm-v2",
-        icon: ChartBarIcon,
+        icon: PieChartIcon,
         isNew: true
       },
       {
@@ -180,7 +183,7 @@ export const navItems: NavGroup[] = [
       {
         title: "Image Generator",
         href: "/dashboard-bundui/ai-image-generator",
-        icon: ImageIcon
+        icon: PieChartIcon
       },
       {
         title: "Text to Speech",
@@ -196,7 +199,7 @@ export const navItems: NavGroup[] = [
       {
         title: "Kanban",
         href: "/dashboard-bundui/kanban",
-        icon: SquareKanbanIcon,
+        icon: PieChartIcon,
         isNew: true
       },
       { title: "Notes", href: "/dashboard-bundui/notes", icon: StickyNoteIcon, isDataBadge: "8", isNew: true },
@@ -205,7 +208,7 @@ export const navItems: NavGroup[] = [
       {
         title: "Todo List App",
         href: "/dashboard-bundui/todo-list-app",
-        icon: SquareCheckIcon,
+        icon: PieChartIcon,
         isNew: true
       },
       {
@@ -246,7 +249,7 @@ export const navItems: NavGroup[] = [
       {
         title: "Empty States",
         href: "/dashboard-bundui/pages/empty-states/01",
-        icon: BrushCleaningIcon,
+        icon: PieChartIcon,
         items: [
           { title: "Empty States 01", href: "/dashboard-bundui/pages/empty-states/01" },
           { title: "Empty States 02", href: "/dashboard-bundui/pages/empty-states/02" },
@@ -305,7 +308,7 @@ export const navItems: NavGroup[] = [
       {
         title: "Download VibeThink Pro",
         href: "/pricing",
-        icon: ClipboardMinusIcon,
+        icon: PieChartIcon,
         newTab: true
       },
       {

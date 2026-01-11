@@ -1,12 +1,12 @@
 "use client";
 
-import { Users2Icon } from "lucide-react";
+import { Users } from "lucide-react";
 import { Card, CardAction, CardDescription, CardHeader } from "@vibethink/ui/components/card";
 import { useTranslation } from "@/lib/i18n";
 
 export function TotalCustomersCard() {
   const { t } = useTranslation('crm-v2');
-  
+
   return (
     <Card>
       <CardHeader>
@@ -20,7 +20,7 @@ export function TotalCustomersCard() {
         <CardAction>
           <div className="flex gap-4">
             <div className="bg-muted flex size-12 items-center justify-center rounded-full border">
-              <Users2Icon className="size-5" />
+              <Users className="size-5" />
             </div>
           </div>
         </CardAction>

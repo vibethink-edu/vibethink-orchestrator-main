@@ -1,7 +1,7 @@
 'use client'
 
 // Charts temporarily replaced with CSS visualizations
-import { ChevronUpIcon, DollarSign, HandCoins, TrendingUp, TrendingDown } from 'lucide-react'
+import { ChevronUpIcon, DollarSign, Coins, TrendingDown } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@vibethink/ui/components/card'
 import {
   ChartConfig,
@@ -198,8 +198,8 @@ export function TotalEarningCard({
         <div className="space-y-4">
           {/* Total Revenue */}
           <div className="flex items-center gap-3 rounded-lg bg-green-50 p-3 dark:bg-green-950/20">
-            <div className="flex h-10 w-10 items-center justify-center rounded-md border bg-background">
-              <HandCoins className="h-4 w-4 text-green-600" />
+            <div className="bg-muted flex size-12 items-center justify-center rounded-full border">
+              <Coins className="size-5" />
             </div>
             <div className="flex-1">
               <div className="font-medium">{t('cards.totalEarning.totalRevenue')}</div>

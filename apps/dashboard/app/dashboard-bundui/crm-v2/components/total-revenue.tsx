@@ -1,12 +1,12 @@
 "use client";
 
-import { WalletMinimal } from "lucide-react";
+import { Wallet } from "lucide-react";
 import { Card, CardAction, CardDescription, CardHeader } from "@vibethink/ui/components/card";
 import { useTranslation } from "@/lib/i18n";
 
 export function TotalRevenueCard() {
   const { t } = useTranslation('crm-v2');
-  
+
   return (
     <Card>
       <CardHeader>
@@ -20,7 +20,7 @@ export function TotalRevenueCard() {
         <CardAction>
           <div className="flex gap-4">
             <div className="bg-muted flex size-12 items-center justify-center rounded-full border">
-              <WalletMinimal className="size-5" />
+              <Wallet className="size-5" />
             </div>
           </div>
         </CardAction>
